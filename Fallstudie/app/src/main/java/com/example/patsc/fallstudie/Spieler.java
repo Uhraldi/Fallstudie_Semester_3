@@ -17,7 +17,7 @@ public class Spieler {
     private int Anfangsguthaben = 10000; // Guthaben das jeder SPieler am Anfang hat.
     private int AnfangsMarktanteil = 0; // Marktanteil in Prozent vor der ersten RUnde
     private int AnfagsPunkte = 1000; // Punkt des Spielers vor der ersten Runde
-
+    private final Daten daten;
     /**
      * Konstruktor für den Spieler.
      *
@@ -27,22 +27,23 @@ public class Spieler {
      *                 Am Beginn hat jeder Spieler 1000 Punkte.
      */
 
-    public Spieler(String name, String passwort) {
+    public Spieler(String name, String passwort, Daten daten) {
+        this.daten=daten;
         setName(name);
         setGuthaben(Anfangsguthaben);
         setMarktanteil(AnfangsMarktanteil);
         setPasswort(passwort);
         setPunkte(AnfagsPunkte);
+        daten.addSpielerListe(this); // Hinzufügen des Spielers in die Liste
     } // Ende Konstruktor
 
     public double getGuthaben() {
         return Guthaben;
-    }
+    } // Ende getGuthaben
 
     public double getMarktanteil() {
         return Marktanteil;
-    }
-
+    } // Ende getMarktanteil
     public int getPunkte() {
         return Punkte;
     }

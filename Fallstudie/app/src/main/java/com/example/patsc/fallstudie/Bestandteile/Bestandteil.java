@@ -8,12 +8,13 @@ package com.example.patsc.fallstudie.Bestandteile;
 
 public class Bestandteil {
 
-    private String[] auswahl;
     private double[] ekp;   //ekp = Einkaufspreis / Stück
-    private double[] pws;
-        //PWS =Produktwertsteigerung
-        //Werte sind in % anzugeben. Bei Multiplikation muss also 1 addiert werden (Bsp. Whl. von 10% entpsicht Eingabe "0.1"
     private double[] risiko;
+    private double[] pws;
+    //PWS =Produktwertsteigerung
+    //Werte sind in % anzugeben. Bei Multiplikation muss also 1 addiert werden (Bsp. Whl. von 10% entpsicht Eingabe "0.1"
+    private double[] trend;     //Gibt an, wie gut das Bestandteil am Markt ankommt. Sollte dem Benutzer nicht angezeigt werden, sondern dient zur Randomisierung des Absatzes
+    private String[] auswahl;
     private int active=0; //Die aktive Auswahl wird mit diesem int gekennzeichnet. Er entspricht der Position im Stringarray auswahl
 
 
@@ -31,11 +32,16 @@ public class Bestandteil {
     }
 
     public void setEkp(int i, float ekp) {
-        this.ekp[i] = ekp;
+        if(0<=ekp && ekp<=1000)
+            this.ekp[i] = ekp;
     }
 
     public void setEkp(double[] ekp) {
-        this.ekp = ekp;
+        for(int i=0;i<ekp.length;i++){
+            if(0<=ekp[i] && ekp[i]<=10000) {
+                this.ekp[i] = ekp[i];
+            }
+        }
     }
 
 
@@ -49,11 +55,14 @@ public class Bestandteil {
     }
 
     public void setRisiko(int i, double risiko) {
+        if(0<=risiko && risiko<=1000)
         this.risiko[i] = risiko;
     }
 
     public void setRisiko(double[] risiko) {
-        this.risiko = risiko;
+        for(int i=0;i<risiko.length;i++){
+            if(0<=risiko[i] && risiko[i]<=10000) {
+        this.risiko[i] = risiko[i];}}
     }
 
 
@@ -71,13 +80,36 @@ public class Bestandteil {
     }
 
     public void setPws(int i, double pws) {
+        if(0<=pws && pws<=1000)
         this.pws[i] = pws;
     }
 
     public void setPws(double[] pws){
-        this.pws = pws;
+        for(int i=0;i<pws.length;i++){
+            if(0<=pws[i] && pws[i]<=10000) {
+        this.pws[i] = pws[i];}}
     }
 
+
+    //trend
+    public double getTrend(int i) {
+        return trend[i];
+    }
+
+    public double[] getTrend() {
+        return trend;
+    }
+
+    public void setTrend(int i, double trend) {
+        if(0<=trend && trend<=1000)
+        this.trend[i] = trend;
+    }
+
+    public void setTrend(double[] trend) {
+            for(int i=0;i<trend.length;i++){
+                if(0<=trend[i] && trend[i]<=10000) {
+        this.trend[i] = trend[i];}}
+    }
 
     //Auswahl
     public String getAuswahl(int i) {

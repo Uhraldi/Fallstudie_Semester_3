@@ -1,11 +1,50 @@
 package com.example.patsc.fallstudie;
-
+import java.util.ArrayList;
 /**
  * Created by Patricia Schneider on 30.12.2016.
  * Klasse in der alle Daten zu dem Spiel gesammelt werden, diese Klasse wird auch gespeichert,
  * so dass aus Ihr der neue Spielstand geladen werden kann.
  */
 public class Daten {
-    public Spieler[] SpielerListe;
+    private ArrayList<Spieler> SpielerListe; // Liste aller Spieler
+    private int SpielerAnzahl;
 
-}
+    public Daten(){
+        ladeDaten();
+    } // Ende Konstruktor
+
+    public int getSpielerAnzahl() {
+        return SpielerAnzahl;
+    }
+    /*
+    ToDo
+     */
+    public void setSpielerAnzahl(int spielerAnzahl) {
+        SpielerAnzahl = spielerAnzahl;
+    }
+
+    public void erhöheSpielerAnzahl(){
+        SpielerAnzahl++;
+    }
+    public void ladeDaten(){
+        //ToDo
+    }
+    public void speichereDaten(){
+        //ToDO
+    }
+    public void addSpielerListe(Spieler spieler){
+        try{
+            erhöheSpielerAnzahl();
+            if (spieler != null){
+                SpielerListe.add(spieler);
+            }
+            else{
+                throw new Exception("Spieler == null");
+            }
+        }// Ende Try
+        catch (Exception e) {
+            e.printStackTrace();
+        } // Ende Catch
+
+    }//Ende addSpielerListe
+}// Ende Klasse
