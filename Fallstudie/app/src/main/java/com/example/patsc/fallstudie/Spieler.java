@@ -1,5 +1,7 @@
 package com.example.patsc.fallstudie;
 
+import java.util.ArrayList;
+
 /**
  * Created by Patricia Schneider on 30.12.2016.
  *
@@ -140,7 +142,13 @@ public class Spieler {
      * @return boolean ob der Name bereits vegreben ist; true = Name wird bereits verwendet; false = Name wird noch nicht verwendet
      */
     public boolean prüfeNameDoppelt(String name) {
-        //ToDo Jonas
+
+       Spieler spieler = new Spieler(getName(), getPasswort(), getDaten());
+        ArrayList spl =  new ArrayList();
+
+       if (spl.contains(spieler))
+         System.out.println ("Dieser Name wird bereits verwendet. Wählen Sie bitte einen anderen Namen!");
         return false;
     } // Ende prüfeNameDoppelt
+
 }// Ende Klasse

@@ -1,5 +1,5 @@
-package com.example.patsc.fallstudie.Bestandteile;
 
+package com.example.patsc.fallstudie.Bestandteile;
 /**
  * Created by vince on 28.12.2016.
  * Diese Klasse ist die Oberklasse, von der die Bestandteile erben
@@ -14,7 +14,7 @@ public class Bestandteil {
     //PWS =Produktwertsteigerung
     //Werte sind in % anzugeben. Bei Multiplikation muss also 1 addiert werden (Bsp. Whl. von 10% entpsicht Eingabe "0.1"
     private double[] trend;     //Gibt an, wie gut das Bestandteil am Markt ankommt. Sollte dem Benutzer nicht angezeigt werden, sondern dient zur Randomisierung des Absatzes
-    private String[] auswahl;
+    private boolean[] auswahl;
     private int active=0; //Die aktive Auswahl wird mit diesem int gekennzeichnet. Er entspricht der Position im Stringarray auswahl
 
 
@@ -112,23 +112,26 @@ public class Bestandteil {
     }
 
     //Auswahl
-    public String getAuswahl(int i) {
+    public boolean getAuswahl(int i) {
         return auswahl[i];
     }
 
-    public String[] getAuswahl() {
+    public boolean[] getAuswahl() {
         return auswahl;
     }
 
-    public String getActiveAuswahl() {
+    public boolean getActiveAuswahl() {
         return auswahl[active];
     }
 
-    public void setAuswahl(int i, String auswahl) {
+    public void setAuswahl(int i, boolean auswahl) {
         this.auswahl[i] = auswahl;
     }
 
-    public void setAuswahl(String[] auswahl) {
+    public void setAuswahl(boolean[] auswahl) {
         this.auswahl = auswahl;
     }
+    
+    
+    
 }
