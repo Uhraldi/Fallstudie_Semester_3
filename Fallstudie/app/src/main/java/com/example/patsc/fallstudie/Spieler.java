@@ -143,11 +143,11 @@ public class Spieler {
      */
     public boolean prüfeNameDoppelt(String name) {
 
-       Spieler spieler = new Spieler(getName(), getPasswort(), getDaten());
-        ArrayList spl =  new ArrayList();
+      // Spieler spieler = new Spieler(getName(), getPasswort(), getDaten());
+      //  ArrayList spl =  new ArrayList();
 
-       if (spl.contains(spieler))
-         System.out.println ("Dieser Name wird bereits verwendet. Wählen Sie bitte einen anderen Namen!");
+      // if (spl.contains(spieler))
+        // System.out.println ("Dieser Name wird bereits verwendet. Wählen Sie bitte einen anderen Namen!");
         return false;
     } // Ende prüfeNameDoppelt
 

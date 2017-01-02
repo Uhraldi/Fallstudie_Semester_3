@@ -10,17 +10,17 @@ public class Designer extends Bestandteil {
 
     //Auswahlen
     private boolean marken = false;
-    private boolean mittelmäßig = false;
+    private boolean mittelmaessig = false;
     private boolean lowBudget = false;
 
     //EKPs
     private double markenEKP = 5000;
-    private double mittelmäßigEKP = 3000;
+    private double mittelmaessigEKP = 3000;
     private double lowBudgetEKP = 1000;
 
     //PWSs
     private double markenPWS = 0.4;
-    private double mittelmäßigPWS = 0.2;
+    private double mittelmaessigPWS = 0.2;
     private double lowBudgetPWS = 0.05;
 
 
@@ -46,8 +46,8 @@ public class Designer extends Bestandteil {
         return marken;
     }
 
-    public boolean isMittelmäßig() {
-        return mittelmäßig;
+    public boolean isMittelmaessig() {
+        return mittelmaessig;
     }
 
     public boolean isLowBudget() {
@@ -58,8 +58,8 @@ public class Designer extends Bestandteil {
         return markenEKP;
     }
 
-    public double getMittelmäßigEKP() {
-        return mittelmäßigEKP;
+    public double getMittelmaessigEKP() {
+        return mittelmaessigEKP;
     }
 
     public double getLowBudgetEKP() {
@@ -70,8 +70,8 @@ public class Designer extends Bestandteil {
         return markenPWS;
     }
 
-    public double getMittelmäßigPWS() {
-        return mittelmäßigPWS;
+    public double getMittelmaessigPWS() {
+        return mittelmaessigPWS;
     }
 
     public double getLowBudgetPWS() {
@@ -82,8 +82,8 @@ public class Designer extends Bestandteil {
         this.marken = marken;
     }
 
-    public void setMittelmäßig(boolean mittelmäßig) {
-        this.mittelmäßig = mittelmäßig;
+    public void setMittelmaessig(boolean mittelmaessig) {
+        this.mittelmaessig = mittelmaessig;
     }
 
     public void setLowBudget(boolean lowBudget) {
