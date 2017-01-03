@@ -4,7 +4,7 @@ package com.example.patsc.fallstudie.Bestandteile;
  * Created by vince on 28.12.2016.
  */
 
-public class Uhrwerk extends Bestandteil{
+public class Uhrwerk {
 
     //Auswahlen
     private boolean mechanisch = false;
@@ -24,19 +24,7 @@ public class Uhrwerk extends Bestandteil{
 
 
     public Uhrwerk(){
-        /*
-        super();
-        String[] auswahlen = {"Mechanisch", "Elektromechanisch", "Eletrisch"};
-        setAuswahl(auswahlen);
-        double[] ekps = {4,3,2};
-        setEkp(ekps);
-        double[] pwss = {0.1,0.0,-0.05};
-        setRisiko(pwss);
-        double[] risiken = {0.1,0.0,-0.05};
-        setRisiko(risiken);
-        double[] trends = {};
-        setTrend(trends);
-        */
+
     }
 
     public boolean isMechanisch() {

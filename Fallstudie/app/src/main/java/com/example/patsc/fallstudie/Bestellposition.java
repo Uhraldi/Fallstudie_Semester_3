@@ -329,4 +329,36 @@ public class Bestellposition {
     public double getZufall() {
         return zufall;
     }
+
+    public Designer getDesigner() {
+        return designer;
+    }
+
+    public Armband getArmband() {
+        return armband;
+    }
+
+    public Uhrwerk getUhrwerk() {
+        return uhrwerk;
+    }
+
+    public Gehaeuse getGehaeuse() {
+        return gehaeuse;
+    }
+
+    public Produktionsort getProduktionsort() {
+        return produktionsort;
+    }
+
+    public Versandart getVersandart() {
+        return versandart;
+    }
+
+    public Wasserdichtheit getWasserdichtheit() {
+        return wasserdichtheit;
+    }
+
+    public Werbung getWerbung() {
+        return werbung;
+    }
 }

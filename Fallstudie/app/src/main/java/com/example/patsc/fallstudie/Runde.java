@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.Jonas;
+package com.example.patsc.fallstudie;
 
 import com.example.patsc.fallstudie.Spieler;
 
