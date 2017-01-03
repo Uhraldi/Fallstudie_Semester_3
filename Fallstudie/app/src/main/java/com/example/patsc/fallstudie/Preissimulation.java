@@ -2,7 +2,7 @@ package com.example.patsc.fallstudie;
 
 
 import com.example.patsc.fallstudie.Bestandteile.Designer;
-
+import com.example.patsc.fallstudie.Spieler;
 
 /**
  * Created by Jonas on 02.01.17.
@@ -13,6 +13,7 @@ public class Preissimulation extends Designer {
     private double Einkaufspreis;
     private double Verkaufspreis;
     private int RundenNr;
+    private Bestellung bestellung;
 
     // 1. Schritt
     private double DesignerEkp;
@@ -46,9 +47,7 @@ public class Preissimulation extends Designer {
     private double WerbungEkp;
     private double WerbungVkp;
 
-
-
-    Bestellung bestellung = new Bestellung();
+    // zum Test: Bestellung bestellung = new Bestellung();
 
     public double getEinkaufspreis() { return Einkaufspreis; }
     public double getVerkaufspreis() { return Verkaufspreis; }

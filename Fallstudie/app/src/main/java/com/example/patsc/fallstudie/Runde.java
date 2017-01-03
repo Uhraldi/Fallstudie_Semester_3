@@ -30,10 +30,10 @@ public class Runde {
         RundenNr++;
     }
 
-    public void beendeRunde() {
+    /*public void beendeRunde() {
         // ToDo
 
-    }
+    }*/
 
     public void setRundenNr(int rundenNr) {
         try {
@@ -54,7 +54,7 @@ public class Runde {
     public void zeigeHighscoreListe() {
         try {
             if (RundenNr > 10) {
-                beendeRunde();
+                starteNeueRunde(RundenNr);
             }
             throw new Exception("Spieler sieht Highscore Liste und die Runde ist beendet!");
         } catch (Exception e) {
