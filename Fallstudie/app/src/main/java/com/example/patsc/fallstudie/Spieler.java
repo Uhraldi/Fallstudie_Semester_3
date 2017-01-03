@@ -20,6 +20,8 @@ public class Spieler {
     private int AnfangsMarktanteil = 0; // Marktanteil in Prozent vor der ersten RUnde
     private int AnfagsPunkte = 1000; // Punkt des Spielers vor der ersten Runde
     private final Daten daten;
+    private Bestellung bestellung; // ToDo Methoden, Konstruktor
+    public Bestellung getBestellung(){return bestellung;}
     /**
      * Konstruktor für den Spieler.
      *

@@ -8,6 +8,12 @@ public class  Model {
     Deklaration der einzelnen Namen der Schritte.
     Final damit sich der Name nicht verändert.
      */
+
+    private Daten daten; // Klasse in der alle Daten gehalten werden wird bei OnCreate erzeugt
+    public Daten getDaten(){
+        return daten;
+    }
+
     // Einzelne Schritte in dem Auswahlprozess
     public final String SCHRITT_DESIGNER = "SCHRITT_DESIGNER"; // erster Schritt Wahl des Designers
     public final String SCHRITT_ARMBAND = "SCHRITT_ARMBAND"; // zweite Schritt Wahl des Armbands
@@ -57,21 +63,41 @@ public class  Model {
     public boolean isZustand_Lieferung(){return Zustand_Lieferung;}
     public boolean isZustand_Verkauf() {return Zustand_Verkauf;}
 
+    /**
+     * Konstruktor, wird in der on Create Methode aufgerufen
+     */
+    public Model(){
+        daten = new Daten(); // erzeugung der Klasse Daten
+    }
+
+
+
+
     public void setZustand_Spielbeginn(boolean Zustand){
         setzeAlleZustaendeFalse();
         Zustand_Spielbeginn = true;
     }
     public void setZustand_Ereignis(boolean Zustand){
         setzeAlleZustaendeFalse();
+        //Berechnung der Risiken Extra Klasse??? ToDo
         Zustand_Ereignis = true;
     }
     public void setZustand_Aenderung(boolean Zustand){
         setzeAlleZustaendeFalse();
         Zustand_Aenderung = true;
     }
+
+    /**
+     * ToDO
+     * @param Zustand
+     */
     public void setZustand_Bestellung(boolean Zustand){
         setzeAlleZustaendeFalse();
         Zustand_Bestellung = true;
+        Bestellung bestellung = daten.getDieserSpieler().getBestellung();
+        bestellung.neueBestellpositon();
+        bestellung.getBestellposition(daten.getRundenAnzahl()); // Wie man die Bestellposition bekomt
+        //Einfügen der Werte in die Bestllposition mittels der Buttons aktives pushen
     }
     public void setZustand_Lieferung (boolean Zustand){
         setzeAlleZustaendeFalse();
@@ -112,4 +138,41 @@ public class  Model {
         Zustand_Spielbeginn = false;
         Zustand_Verkauf = false;
     }
+
+
+    /**
+     * Methoden für die Wechsel innerhalb der Zustände Zustände
+     */
+
+    /**
+     * Aufruf wenn Nutzerdaten bestätigt werden (Button in UI)
+     * UI Registierung
+     * Parameter werden von UI übergeben
+     * @param name
+     * @param passwort
+     */
+    public void registrierung(String name, String passwort){
+           try {
+               new Spieler(name, passwort, daten);
+           }
+           catch (Exception e1) {
+                   e1.printStackTrace();
+               }
+           } // Ende registrierung()
+
+    /**
+     * Aufrug wenn Login bestätigt wird (Button in UI)
+     * UI Login
+     * Parameter werden von UI übergeben
+     * @param name
+     * @param passwort
+     */
+    public void login(String name, String passwort){
+        // daten.ladeSpieler(name, passwort); ToDo in Daten
+    }
+
+    //ToDO Spielfortsetzen
+
+    // Zusand Spielbeginn
 } // ENDE KLASSE
+

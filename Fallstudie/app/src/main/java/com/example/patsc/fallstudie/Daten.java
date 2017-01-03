@@ -8,6 +8,14 @@ import java.util.ArrayList;
 public class Daten {
     private ArrayList<Spieler> SpielerListe; // Liste aller Spieler
     private int SpielerAnzahl;
+    private ArrayList<Runde> RundenListe; //Liste der bisherigen Runden //ToDo MEthoden
+    private int RundenAnzahl; //ToDo Methoden
+    private Spieler dieserSpieler; // Der Spieler dieses Geräts ToDo
+    public Spieler getDieserSpieler(){return dieserSpieler;} //ToDO
+    public int getRundenAnzahl(){
+        return RundenAnzahl;
+    }
+
 
     public Daten(){
         ladeDaten();

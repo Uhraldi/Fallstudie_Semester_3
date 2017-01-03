@@ -22,8 +22,8 @@ public class Bestellung {
     public Bestellung(){
 
     }
-
-    public void neueBestellung(){
+//umbenannt
+    public void neueBestellpositon(){
         positionen.add(new Bestellposition());
     }
 
