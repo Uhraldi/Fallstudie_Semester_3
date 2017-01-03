@@ -74,7 +74,7 @@ public class Bestellposition {
     }*/
 
    
-    public void bestelleArmband(String eingabe){
+    public void bestelleArmband(String eingabe) throws FalscheEingabe {
         switch(eingabe) {
             case "Leder": {
                 armband.setLeder(true);
@@ -117,12 +117,12 @@ public class Bestellposition {
                 break;
             }
             default: {
-
+                throw new FalscheEingabe();
             }
         }
     }
 
-    public void bestelleDesigner(String eingabe){
+    public void bestelleDesigner(String eingabe) throws FalscheEingabe{
         switch(eingabe){
             case "Marken": {
                 designer.setMarken(true);
@@ -140,10 +140,13 @@ public class Bestellposition {
                 fixKosten += designer.getLowBudgetEKP();
                 pws += designer.getLowBudgetPWS();
             }
+            default: {
+                throw new FalscheEingabe();
+            }
         }
     }
 
-    public void bestelleGehaeuse(String eingabe){
+    public void bestelleGehaeuse(String eingabe) throws FalscheEingabe{
         switch(eingabe) {
             case "Glas": {
                 gehaeuse.setGlas(true);
@@ -177,10 +180,13 @@ public class Bestellposition {
                 zufall += gehaeuse.getMetallZufall();
                 break;
             }
+            default: {
+                throw new FalscheEingabe();
+            }
         }
     }
 
-    public void bestelleProduktionsort(String eingabe){
+    public void bestelleProduktionsort(String eingabe) throws FalscheEingabe{
         switch(eingabe) {
             case "Deutschland": {
                 produktionsort.setDeutschland(true);
@@ -210,10 +216,13 @@ public class Bestellposition {
                 risikoProduktionsort = produktionsort.getSchweizRisiko();
                 break;
             }
+            default: {
+                throw new FalscheEingabe();
+            }
         }
     }
 
-    public void bestelleUhrwerk(String eingabe) {
+    public void bestelleUhrwerk(String eingabe) throws FalscheEingabe{
         switch (eingabe) {
             case "Mechanisch": {
                 uhrwerk.setMechanisch(true);
@@ -233,10 +242,13 @@ public class Bestellposition {
                 pws += uhrwerk.getEletronischPWS();
                 break;
             }
+            default: {
+                throw new FalscheEingabe();
+            }
         }
     }
 
-    public void bestelleVersandart(String eingabe) {
+    public void bestelleVersandart(String eingabe) throws FalscheEingabe {
         switch (eingabe) {
             case "Flugzeug": {
                 versandart.setFlugzeug(true);
@@ -259,10 +271,13 @@ public class Bestellposition {
                 zufall += versandart.getLandwegZufall();
                 break;
             }
+            default: {
+                throw new FalscheEingabe();
+            }
         }
     }
 
-    public void bestelleWasserdichtheit(String eingabe) {
+    public void bestelleWasserdichtheit(String eingabe) throws FalscheEingabe {
         switch (eingabe) {
             case "Nicht Wassergeschützt": {
                 wasserdichtheit.setNichtWassergeschützt(true);
@@ -282,10 +297,13 @@ public class Bestellposition {
                 pws += wasserdichtheit.getWasserdichtPWS();
                 break;
             }
+            default: {
+                throw new FalscheEingabe();
+            }
         }
     }
 
-    public void bestelleWerbung(String eingabe) {
+    public void bestelleWerbung(String eingabe) throws FalscheEingabe {
         switch (eingabe) {
             case "viel": {
                 werbung.setViel(true);
@@ -305,15 +323,26 @@ public class Bestellposition {
                 pws += werbung.getWenigPWS();
                 break;
             }
+            default: {
+                throw new FalscheEingabe();
+            }
         }
     }
 
-    public void bestelleMenge(int menge){
-        this.menge = menge;
+    public void bestelleMenge(int menge) throws FalscheEingabe{
+        if (menge>0 && menge < 1500) {
+            this.menge = menge;
+        }else{
+            throw new FalscheEingabe();
+        }
     }
 
-    public void bestelleVKP(int vkp){
-        this.vkp = vkp;
+    public void bestelleVKP(int vkp)throws FalscheEingabe{
+        if(vkp > 0 && vkp < 1500) {
+            this.vkp = vkp;
+        }else{
+            throw new FalscheEingabe();
+        }
     }
 
     public double getFixKosten() {
