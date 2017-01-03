@@ -1,7 +1,5 @@
 package com.example.patsc.fallstudie;
 
-import java.util.ArrayList;
-
 /**
  * Created by Patricia Schneider on 30.12.2016.
  *
