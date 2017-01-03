@@ -14,7 +14,7 @@ public class Marktsim {
     private int lKäufer;                         //low-budget-Käufer
     private int hKäufer;                         //high-budget-Käufer
     private float highestp = 5;
-    private float lowestp = 1500;
+    private float lowestp = 1500;       //Fickerzeile
 
     // ToDo Konstruktor
     /**
