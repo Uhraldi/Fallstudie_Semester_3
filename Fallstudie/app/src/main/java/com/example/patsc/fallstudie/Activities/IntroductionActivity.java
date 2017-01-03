@@ -14,7 +14,6 @@ public class IntroductionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //setTheme(R.style.SplashScreenTheme);                                                      //cold-start splash screen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduction);
 

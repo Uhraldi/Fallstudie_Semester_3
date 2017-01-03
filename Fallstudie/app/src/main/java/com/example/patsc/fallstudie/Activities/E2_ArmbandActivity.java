@@ -78,7 +78,7 @@ public class E2_ArmbandActivity extends AppCompatActivity {
         Intent intent = new Intent(this, E3_UhrwerkActivity.class);
 
         //Methodenaufruf von Model um Designer zu setzen
-        IntroductionActivity.model.setDesigner(ItemSelectedInArmbandSpinner);
+        //IntroductionActivity.model.setDesigner(ItemSelectedInArmbandSpinner);
 
         startActivity(intent);
         finish();

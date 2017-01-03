@@ -8,6 +8,8 @@ import android.widget.EditText;
 
 import com.example.patsc.fallstudie.R;
 
+
+
 public class E9_KaufvolumenActivity extends AppCompatActivity {
 
     @Override
@@ -21,10 +23,8 @@ public class E9_KaufvolumenActivity extends AppCompatActivity {
         //speichere Eingabewert im String
         String inputKaufvolumen = kaufvolumen_input.getText().toString();
 
+
     }
-
-
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
         Intent intent = new Intent(this, E10_VerkaufspreisActivity.class);
         finish();

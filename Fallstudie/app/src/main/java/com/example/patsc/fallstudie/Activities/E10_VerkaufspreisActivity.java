@@ -16,7 +16,8 @@ public class E10_VerkaufspreisActivity extends AppCompatActivity {
         setContentView(R.layout.activity_e10_verkaufspreis);
 
         //Verknuepfen von EditText mit UI-Element per ID
-        EditText verkaufspreis_input = (EditText) findViewById(R.id.verkaufspreis_input);           //verkaufspreis_input zweimal verwenden ok?
+        EditText verkaufspreis_input = (EditText) findViewById(R.id.verkaufspreis_input);
+        //verkaufspreis_input.setFilters(new InputFilter[]{new InputFilterMinMax("5", "1500")});
 
         //speichere Eingabewert im String
         String inputVerkaufspreis = verkaufspreis_input.getText().toString();

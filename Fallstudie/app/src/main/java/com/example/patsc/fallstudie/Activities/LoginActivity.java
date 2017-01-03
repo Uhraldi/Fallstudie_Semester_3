@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        //IntroductionActivity.model.setActivity_Login();                        //setzt Model Zustand auf LoginActivity
 
         //Verknuepfen von EditText mit UI-Element per ID
         EditText login_username_input = (EditText) findViewById(R.id.login_username_input);
@@ -32,8 +32,8 @@ public class LoginActivity extends AppCompatActivity {
     public void goToNextActivity (View view) {
 
         //Methodenaufrufe von Model zur Registrierung und Login
-        IntroductionActivity.model.registrierung(inputUsername, inputPassword);
-        IntroductionActivity.model.login(inputUsername, inputPassword);
+       // model.registrierung(inputUsername, inputPassword);
+       // model.login(inputUsername, inputPassword);
 
         Intent intent = new Intent(this, E1_DesignerActivity.class);
         startActivity(intent);

@@ -233,6 +233,12 @@ public class  Model {
 
 
 
+/*    public void setActivity_Login (boolean){
+
+    }*/
+
+
+
 
 
 } // ENDE KLASSE

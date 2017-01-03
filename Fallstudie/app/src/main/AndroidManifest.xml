@@ -16,13 +16,16 @@
 
         <!-- android:theme="@style/SplashScreenTheme" -->
 
-        <activity android:name=".Activities.IntroductionActivity">
+        <activity android:name=".Activities.SplashScreen" android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".Activities.IntroductionActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.E1_DesignerActivity" />
         <activity android:name=".Activities.E2_ArmbandActivity" />

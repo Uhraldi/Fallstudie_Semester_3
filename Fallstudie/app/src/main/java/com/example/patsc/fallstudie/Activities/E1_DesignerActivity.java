@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
@@ -64,13 +63,13 @@ public class E1_DesignerActivity extends AppCompatActivity {
                 String ItemSelectedInDesignerSpinner = parent.getItemAtPosition(pos).toString();
 
                 //Methodenaufruf von Model um Designer zu setzen
-                IntroductionActivity.model.setDesigner(ItemSelectedInDesignerSpinner);
+                //IntroductionActivity.model.setDesigner(ItemSelectedInDesignerSpinner);
 
-                //Ausgabe der aktuellen Kosten anhand der Auswahl
+/*                //Ausgabe der aktuellen Kosten anhand der Auswahl
                 TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
                 gesamtkosten_output.setText(IntroductionActivity.model.liefereGesamtkosten(gesamtkosten));
                 TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-                stueckkosten_output.setText(IntroductionActivity.model.liefereStueckkosten(stueckkosten));
+                stueckkosten_output.setText(IntroductionActivity.model.liefereStueckkosten(stueckkosten));*/
             }
 
             @Override

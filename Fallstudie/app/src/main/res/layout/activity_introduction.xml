@@ -11,25 +11,28 @@
     tools:context="com.example.patsc.fallstudie.Activities.IntroductionActivity">
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-
-    <TextView
-        android:text="@string/introduction_info_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/designer_info_textview" />
+    </ScrollView>
 
     <Button
         android:text="@string/verstanden_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="29dp"
         android:id="@+id/button"
-        android:onClick="goToNextActivity"/>
+        android:onClick="goToNextActivity"
+        android:layout_below="@+id/designer_info_textview"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="@string/introduction_info_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/designer_info_textview"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
