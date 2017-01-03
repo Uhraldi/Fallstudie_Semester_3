@@ -9,6 +9,7 @@ import com.example.patsc.fallstudie.Bestandteile.Wasserdichtheit;
 import com.example.patsc.fallstudie.Bestandteile.Werbung;
 /**
  * Created by vince on 01.01.2017.
+ * testable
  */
 
 public class Bestellposition {

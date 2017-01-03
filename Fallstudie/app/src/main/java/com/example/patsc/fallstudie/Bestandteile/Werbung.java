@@ -2,6 +2,7 @@
 package com.example.patsc.fallstudie.Bestandteile;
 /**
  * Created by vince on 30.12.2016.
+ * testable
  */
 
 public class Werbung {

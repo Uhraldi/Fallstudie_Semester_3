@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 /**
  * Created by vince on 02.01.2017.
+ * testable
  */
 
 public class Bestellung {

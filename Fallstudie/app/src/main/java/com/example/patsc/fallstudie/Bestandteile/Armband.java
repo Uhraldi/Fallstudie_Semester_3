@@ -4,6 +4,7 @@ import java.util.Random;
 
 /**
  * Created by vince on 30.12.2016.
+ * testable
  */
 
 public class Armband {
