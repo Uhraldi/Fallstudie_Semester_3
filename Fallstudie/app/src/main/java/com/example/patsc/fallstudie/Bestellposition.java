@@ -345,6 +345,101 @@ public class Bestellposition {
         }
     }
 
+    public void korrigiereArmband(String alteEingabe, String eingabe) throws FalscheEingabe{
+        if(alteEingabe.equals("Leder")){
+                armband.setLeder(false);
+                varKosten -= armband.getLederEKP();
+                pws -= armband.getLederPWS();
+                risikoArmband = 0;
+                zufall -= armband.getLederZufall();
+            }else if(alteEingabe.equals("Kunstleder")) {
+                armband.setKunstleder(false);
+                varKosten -= armband.getKunstlederEKP();
+                pws -= armband.getKunstlederPWS();
+                risikoArmband = 0;
+                zufall -= armband.getKunstlederZufall();
+            }else if(alteEingabe.equals("Holz")) {
+                armband.setHolz(false);
+                varKosten -= armband.getHolzEKP();
+                pws -= armband.getHolzPWS();
+                risikoArmband = 0;
+                zufall -= armband.getHolzZufall();
+            }else if(alteEingabe.equals("Textil")) {
+                armband.setTextil(false);
+                varKosten -= armband.getTextilEKP();
+                pws -= armband.getTextilPWS();
+                risikoArmband = 0;
+                zufall -= armband.getTextilZufall();
+            }else if (alteEingabe.equals("Metall")) {
+                armband.setMetall(false);
+                varKosten -= armband.getMetallEKP();
+                pws -= armband.getMetallPWS();
+                risikoArmband = 0;
+                zufall -= armband.getMetallZufall();
+            }else {
+                throw new FalscheEingabe();
+            }
+        bestelleArmband(eingabe);
+    }
+
+    public void korrigiereGehaeuse(String alteEingabe, String eingabe) throws FalscheEingabe{
+        if(alteEingabe.equals("Glas")){
+            gehaeuse.setGlas(false);
+            varKosten -= gehaeuse.getGlasEKP();
+            pws -= gehaeuse.getGlasPWS();
+            risikoGehaeuse = 0;
+            zufall -= gehaeuse.getGlasZufall();
+        }else if (alteEingabe.equals("Holz")){
+            gehaeuse.setHolz(false);
+            varKosten -= gehaeuse.getHolzEKP();
+            pws -= gehaeuse.getHolzPWS();
+            risikoGehaeuse = 0;
+            zufall -= gehaeuse.getHolzZufall();
+        }else if (alteEingabe.equals("Kunststoff")){
+            gehaeuse.setKunststoff(false);
+            varKosten -= gehaeuse.getKunststoffEKP();
+            pws -= gehaeuse.getKunststoffPWS();
+            risikoGehaeuse = 0;
+            zufall -= gehaeuse.getKunststoffZufall();
+        }else if (alteEingabe.equals("Metall")){
+            gehaeuse.setMetall(false);
+            varKosten -= gehaeuse.getMetallEKP();
+            pws -= gehaeuse.getMetallPWS();
+            risikoGehaeuse = 0;
+            zufall -= gehaeuse.getMetallZufall();
+        }else{
+            throw new FalscheEingabe();
+        }
+        bestelleGehaeuse(eingabe);
+    }
+
+    public void korrigiereProduktionsort(String alteEingabe, String eingabe) throws FalscheEingabe{
+        if(alteEingabe.equals("Deutschland")){
+            produktionsort.setDeutschland(false);
+            varKosten -= produktionsort.getDeutschlandEKP();
+            pws -= produktionsort.getDeutschlandPWS();
+            risikoProduktionsort = 0;
+        }else if(alteEingabe.equals("Asien")){
+            produktionsort.setAsien(false);
+            varKosten -= produktionsort.getAsienEKP();
+            pws -= produktionsort.getAsienPWS();
+            risikoProduktionsort = 0;
+        }else if (alteEingabe.equals("Osteuropa")) {
+            produktionsort.setOsteuropa(false);
+            varKosten -= produktionsort.getOsteuropaEKP();
+            pws -= produktionsort.getOsteuropaPWS();
+            risikoProduktionsort = 0;
+        }else if(alteEingabe.equals("Schweiz")){
+            produktionsort.setSchweiz(false);
+            varKosten -= produktionsort.getSchweizEKP();
+            pws -= produktionsort.getSchweizPWS();
+            risikoProduktionsort = 0;
+        }else{
+            throw new FalscheEingabe();
+        }
+        bestelleProduktionsort(eingabe);
+    }
+
     public double getFixKosten() {
         return fixKosten;
     }
