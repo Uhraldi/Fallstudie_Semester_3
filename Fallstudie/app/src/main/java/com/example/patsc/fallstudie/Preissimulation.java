@@ -326,26 +326,26 @@ public class Preissimulation extends Designer {
     }
 
 
-    /* public void berechnePreis(double Preis) {
+    public void berechnePreis(double Preis) {
        Einkaufspreis = DesignerEkp
-                        + ArmbandEkp * getMenge()
-                        + UhrwerkEkp * getMenge()
-                        + GehäuseUhrwerkEkp * getMenge()
-                        + VersandartEkp * getMenge()
-                        + WasserdichtheitEkp * getMenge()
-                        + ProduktionsortEkp * getMenge()
-                        + WerbungEkp * getMenge()
+                        + ArmbandEkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + UhrwerkEkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + GehäuseUhrwerkEkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + VersandartEkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + WasserdichtheitEkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + ProduktionsortEkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + WerbungEkp * bestellung.getBestellposition(RundenNr).getMenge()
                         ;
 
        Verkaufspreis = DesignerVkp
-                        + ArmbandVkp * getMenge()
-                        + UhrwerkVkp * getMenge()
-                        + GehäuseUhrwerkVkp * getMenge()
-                        + VersandartVkp * getMenge()
-                        + WasserdichtheitVkp * getMenge()
-                        + ProduktionsortVkp * getMenge()
-                        + WerbungVkp * getMenge()
+                        + ArmbandVkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + UhrwerkVkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + GehäuseUhrwerkVkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + VersandartVkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + WasserdichtheitVkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + ProduktionsortVkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + WerbungVkp * bestellung.getBestellposition(RundenNr).getMenge()
                         ;
-    } */
+    }
 
 } //Ende Klasse
