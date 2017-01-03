@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
@@ -60,16 +61,16 @@ public class E1_DesignerActivity extends AppCompatActivity {
         DesignerSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
-                String ItemSelectedInDesignerSpinner = parent.getItemAtPosition(pos).toString();
+                String ItemSelectedInDesignerSpinner = parent.getItemAtPosition(pos).toString();    //TODO: String splitten Markendesigner (10.000€) per (-Split
 
                 //Methodenaufruf von Model um Designer zu setzen
-                //IntroductionActivity.model.setDesigner(ItemSelectedInDesignerSpinner);
+                IntroductionActivity.model.setDesigner(ItemSelectedInDesignerSpinner);                      //TODO: hier oder erst im weiter button?
 
-/*                //Ausgabe der aktuellen Kosten anhand der Auswahl
+              //Ausgabe der aktuellen Kosten anhand der Auswahl
                 TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
                 gesamtkosten_output.setText(IntroductionActivity.model.liefereGesamtkosten(gesamtkosten));
                 TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-                stueckkosten_output.setText(IntroductionActivity.model.liefereStueckkosten(stueckkosten));*/
+                stueckkosten_output.setText(IntroductionActivity.model.liefereStueckkosten(stueckkosten));
             }
 
             @Override

@@ -10,7 +10,7 @@ import com.example.patsc.fallstudie.R;
 
 public class IntroductionActivity extends AppCompatActivity {
 
- static Model model = null;
+ static Model model = null;                         //static ok um von überall drauf zugreifen zu können?
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -8,6 +8,8 @@ import android.widget.EditText;
 
 import com.example.patsc.fallstudie.R;
 
+import static com.example.patsc.fallstudie.Activities.IntroductionActivity.model;
+
 public class LoginActivity extends AppCompatActivity {
 
     String inputUsername;
@@ -17,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //IntroductionActivity.model.setActivity_Login();                        //setzt Model Zustand auf LoginActivity
+        IntroductionActivity.model.setActivity_Login();                        // TODO: überall setActivity implementieren
 
         //Verknuepfen von EditText mit UI-Element per ID
         EditText login_username_input = (EditText) findViewById(R.id.login_username_input);
@@ -32,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     public void goToNextActivity (View view) {
 
         //Methodenaufrufe von Model zur Registrierung und Login
-       // model.registrierung(inputUsername, inputPassword);
-       // model.login(inputUsername, inputPassword);
+       model.registrierung(inputUsername, inputPassword);           //TODO: Greifen die wirklich auf die Strings in der onCreate zu?
+       model.login(inputUsername, inputPassword);
 
         Intent intent = new Intent(this, E1_DesignerActivity.class);
         startActivity(intent);

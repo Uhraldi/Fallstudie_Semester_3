@@ -233,9 +233,9 @@ public class  Model {
 
 
 
-/*    public void setActivity_Login (boolean){
+    public void setActivity_Login () {      //TODO: alle setActivites implementieren
 
-    }*/
+    }
 
 
 
