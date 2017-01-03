@@ -16,6 +16,8 @@ public class Bestellposition {
     private double fixKosten = 0;
     private double varKosten = 0;
     private double pws = 0;
+    private int menge = 0;
+    private double vkp = 0;
     private double risikoArmband = 0;
     private double risikoGehaeuse = 0;
     private double risikoProduktionsort = 0;
@@ -305,6 +307,14 @@ public class Bestellposition {
         }
     }
 
+    public void bestelleMenge(int menge){
+        this.menge = menge;
+    }
+
+    public void bestelleVKP(int vkp){
+        this.vkp = vkp;
+    }
+
     public double getFixKosten() {
         return fixKosten;
     }
@@ -315,6 +325,14 @@ public class Bestellposition {
 
     public double getPws() {
         return pws;
+    }
+
+    public int getMenge() {
+        return menge;
+    }
+
+    public double getVkp() {
+        return vkp;
     }
 
     public double getRisikoArmband() {
