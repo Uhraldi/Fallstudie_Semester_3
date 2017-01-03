@@ -113,6 +113,9 @@ public class Bestellposition {
                 zufall += armband.getMetallZufall();
                 break;
             }
+            default: {
+
+            }
         }
     }
 

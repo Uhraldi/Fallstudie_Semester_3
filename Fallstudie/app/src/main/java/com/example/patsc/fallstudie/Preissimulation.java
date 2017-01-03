@@ -141,10 +141,7 @@ public class Preissimulation extends Designer {
         switch (auswahlArmband) {
             case "Leder": {
                 LederEkp = bestellung.getBestellposition(RundenNr).getArmband().getLederEKP();
-                LederVkp = (bestellung.getBestellposition(RundenNr).getArmband().getLederEKP()
-                        * bestellung.getBestellposition(RundenNr).getArmband().getLederPWS())
-                        + (bestellung.getBestellposition(RundenNr).getArmband().getLederEKP()
-                        * bestellung.getBestellposition(RundenNr).getArmband().getLederRisiko())
+                LederVkp = (LederEkp * bestellung.getBestellposition(RundenNr).getArmband().getLederPWS())
                         + (bestellung.getBestellposition(RundenNr).getArmband().getLederEKP()
                         * bestellung.getBestellposition(RundenNr).getArmband().getLederZufall())
                         + bestellung.getBestellposition(RundenNr).getArmband().getLederEKP();
@@ -361,6 +358,7 @@ public class Preissimulation extends Designer {
                 WvielVkp = (bestellung.getBestellposition(RundenNr).getWerbung().getVielEKP()
                         * bestellung.getBestellposition(RundenNr).getWerbung().getVielPWS())
                         + bestellung.getBestellposition(RundenNr).getWerbung().getVielEKP();
+                break;
             }
             case "mittel": {
                 WmittelEkp = bestellung.getBestellposition(RundenNr).getWerbung().getMittelEKP();

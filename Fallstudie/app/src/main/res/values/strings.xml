@@ -1,3 +1,154 @@
 <resources>
-    <string name="app_name">Fallstudie</string>
+    <string name="app_name">ManufaktUhr</string>
+    <string name="title_activity_login">title activity login</string>
+
+
+    //fuer alle Activities
+    <string name="gesamtkosten_textview">Gesamtkosten:</string>
+    <string name="stueckkosten_textview">Stückkosten:</string>
+    <string name="zurueck_button">Zurück</string>
+    <string name="weiter_button">Weiter</string>
+
+
+    //Strings fuer IntroductionActivity
+    <string name="introduction_info_textview">LOREM IPSUM</string>
+    <string name="verstanden_button">Verstanden</string>
+
+
+    //Strings fuer Login
+
+    <string name="login_info_textview">LOREM IPSUM</string>
+    <string name="login_username_textview">Nutzername</string>
+    <string name="login_password_textview">Passwort</string>
+
+    //Strings fuer E1_Designer
+
+    <string name="designer_info_textview">Die Auswahl der Qualität des verantwortlichen Designers beeinflusst unter anderem wie gut
+    sich die Uhr später am Absatzmarkt verkaufen lässt und wieviel Kunden bereit sind für diese Uhr zu zahlen.</string>
+    <string name="designer_textview">Auswahl des Designers</string>
+    <string-array name="designer_spinner_array">
+        <item>Marken</item>
+        <item>Mittelmäßig</item>
+        <item>Low Budget</item>
+    </string-array>
+
+
+    //Strings fuer E2_Armband
+
+    <string name="armband_info_textview">LOREM IPSUM</string>
+    <string name="armband_textview">Auswahl des Armbandmaterials</string>
+    <string-array name="armband_spinner_array">
+        <item>Leder</item>
+        <item>Kunstleder</item>
+        <item>Holz</item>
+        <item>Textil</item>
+        <item>Metall</item>
+    </string-array>
+
+
+    //Strings fuer E3_Uhrwerk
+
+    <string name="uhrwerk_info_textview">LOREM IPSUM</string>
+    <string name="uhrwerk_textview">Auswahl des Uhrwerks</string>
+    <string-array name="uhrwerk_spinner_array">
+        <item>Mechanisch</item>
+        <item>Elektromechanisch</item>
+        <item>Elektronisch</item>
+    </string-array>
+
+
+    //Strings fuer E4_Gehaeuse
+
+    <string name="gehaeuse_info_textview">LOREM IPSUM</string>
+    <string name="gehaeuse_textview">Auswahl des Gehäusematerials</string>
+    <string-array name="gehaeuse_spinner_array">
+        <item>Glas</item>
+        <item>Holz</item>
+        <item>Kunststoff</item>
+        <item>Metall</item>
+    </string-array>
+
+
+    //Strings fuer E5_Versandart
+
+    <string name="versandart_info_textview">LOREM IPSUM</string>
+    <string name="versandart_textview">Auswahl der Versandart</string>
+    <string-array name="versandart_spinner_array">
+        <item>Flugzeug</item>
+        <item>Schiff</item>
+        <item>Landweg</item>
+    </string-array>
+
+
+    //Strings fuer E6_Wasserdichtheit
+
+    <string name="wasserdichtheit_info_textview">LOREM IPSUM</string>
+    <string name="wasserdichtheit_textview">Auswahl der Wasserdichtheit</string>
+    <string-array name="wasserdichtheit_spinner_array">
+        <item>nicht wassergeschützt</item>
+        <item>spritzwassergeschützt</item>
+        <item>wasserdicht</item>
+    </string-array>
+
+
+    //Strings fuer E7_Zusammenbau
+
+    <string name="zusammenbau_info_textview">LOREM IPSUM</string>
+    <string name="zusammenbau_textview">Auswahl des Produktionsorts</string>
+    <string-array name="zusammenbau_spinner_array">
+        <item>Deutschland</item>
+        <item>Asien</item>
+        <item>Osteuropa</item>
+        <item>Schweiz</item>
+    </string-array>
+
+
+    //Strings fuer E8_Werbung
+
+    <string name="werbung_info_textview">LOREM IPSUM</string>
+    <string name="werbung_textview">Auswahl des Werbeumfangs</string>
+    <string-array name="werbung_spinner_array">
+        <item>viel</item>
+        <item>mittel</item>
+        <item>wenig</item>
+    </string-array>
+
+
+    //Strings fuer E9_Kaufvolumen
+
+    <string name="kaufvolumen_info_textview">LOREM IPSUM</string>
+    <string name="kaufvolumen_textview">Auswahl des Kaufvolumens</string>
+
+
+    //Strings fuer E10_Verkaufspreis
+
+    <string name="verkaufspreis_info_textview">LOREM IPSUM</string>
+    <string name="verkaufspreis_textview">Auswahl des Verkaufspreis</string>
+
+
+    //Strings fuer Bestellzusammenfassung
+
+    <string name="bestellzsmfassung_textview">Unten aufgelistet finden Sie Ihre Bestellzusammenfassung, basierend auf
+    den Entscheidungen, die Sie vorab getroffen haben. Bitte bestätigen Sie die Bestellung unten.</string>
+    <string name="bestellzsmfassung_designer_textview">Designer:</string>
+    <string name="bestellzsmfassung_armband_textview">Armbandmaterial:</string>
+    <string name="bestellzsmfassung_uhrwerk_textview">Uhrwerkart:</string>
+    <string name="bestellzsmfassung_gehaeuse_textview">Gehäusematerial:</string>
+    <string name="bestellzsmfassung_versandart_textview">Versandart:</string>
+    <string name="bestellzsmfassung_wasserdichtheit_textview">Wasserdichtheit:</string>
+    <string name="bestellzsmfassung_zusammenbau_textview">Produktionsstätte:</string>
+    <string name="bestellzsmfassung_werbung_textview">Werbung:</string>
+    <string name="bestellzsmfassung_kaufvolumen_textview">Kaufvolumen:</string>
+    <string name="bestellzsmfassung_verkaufspreis_textview">Verkaufspreis:</string>
+
+
+    //Strings fuer Z1_Armband bis Z3_Zusammenbau
+
+    <string name="z1armband_info_textview">Uups, leider konnten die bestellen Holzmaterialien für das gewünschte Armband nicht geliefert werden, da der Wald abgebrannt ist. Sie müssen nun ersatzweise ein neues Material für Ihre Armbänder auswählen:</string>
+    <string name="z2gehaeuse_info_textview">Uuups, LOREM IPSUM </string>
+    <string name="z3zusammenbau_info_textview">Uuups, LOREM IPSUM </string>
+
+    //String fuer Berechnung
+    <string name="berechnung_info_textview">Die Bestellung wurde getätigt und die Produktion ist angelaufen. Bitte haben Sie etwas Geduld.</string>
+
 </resources>
