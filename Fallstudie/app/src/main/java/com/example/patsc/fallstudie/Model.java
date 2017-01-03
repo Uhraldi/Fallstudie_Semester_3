@@ -3,6 +3,10 @@ package com.example.patsc.fallstudie;
 /**
  * Created by patsc on 13.12.2016.
  */
+
+
+//Hier ein Kommentar von Nils
+
 public class  Model {
     /*
     Deklaration der einzelnen Namen der Schritte.
