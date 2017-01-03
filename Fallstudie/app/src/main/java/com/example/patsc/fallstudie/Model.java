@@ -178,5 +178,62 @@ public class  Model {
     //ToDO Spielfortsetzen
 
     // Zusand Spielbeginn
+
+
+
+    // METHODEN VON NILS HINZUGEFÜGT, VORERST LEER, WERDEN VON GUI AUFGERUFEN
+
+    public void setDesigner (String designerAuswahl){
+
+    }
+
+    public void setArmband (String armbandAuswahl){
+
+    }
+
+    public void setUhrwerk (String uhrwerkAuswahl){
+
+    }
+
+    public void setGehaeuse (String gehaeuseAuswahl){
+
+    }
+
+    public void setVersandart (String versandartAuswahl){
+
+    }
+
+    public void setWasserdichtheit (String wasserdichtheitAuswahl){
+
+    }
+
+    public void setZusammenbau (String zusammenbauAuswahl){
+
+    }
+
+    public void setWerbung (String werbungAuswahl){
+
+    }
+
+    public void setKaufvolumen (String kaufvolumenAuswahl){
+
+    }
+
+    public void setVerkaufspreis (String verkaufspreisAuswahl){
+
+    }
+
+    public int liefereGesamtkosten(int gesamtkosten) {
+       return gesamtkosten;
+    }
+
+    public int liefereStueckkosten(int stueckkosten){
+        return stueckkosten;
+    }
+
+
+
+
+
 } // ENDE KLASSE
 

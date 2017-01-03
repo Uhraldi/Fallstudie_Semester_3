@@ -10,6 +10,9 @@ import com.example.patsc.fallstudie.R;
 
 public class LoginActivity extends AppCompatActivity {
 
+    String inputUsername;
+    String inputPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +30,14 @@ public class LoginActivity extends AppCompatActivity {
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
+
+        //Methodenaufrufe von Model zur Registrierung und Login
+        IntroductionActivity.model.registrierung(inputUsername, inputPassword);
+        IntroductionActivity.model.login(inputUsername, inputPassword);
+
         Intent intent = new Intent(this, E1_DesignerActivity.class);
-        finish();
         startActivity(intent);
+        finish();
     }
 
 }

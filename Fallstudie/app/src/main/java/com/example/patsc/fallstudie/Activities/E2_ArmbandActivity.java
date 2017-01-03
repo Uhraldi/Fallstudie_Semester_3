@@ -12,6 +12,7 @@ import com.example.patsc.fallstudie.R;
 
 public class E2_ArmbandActivity extends AppCompatActivity {
 
+    String ItemSelectedInArmbandSpinner;
     private Spinner ArmbandSpinner;
 
 
@@ -75,8 +76,12 @@ public class E2_ArmbandActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
         Intent intent = new Intent(this, E3_UhrwerkActivity.class);
-        finish();
+
+        //Methodenaufruf von Model um Designer zu setzen
+        IntroductionActivity.model.setDesigner(ItemSelectedInArmbandSpinner);
+
         startActivity(intent);
+        finish();
     }
 
     //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
