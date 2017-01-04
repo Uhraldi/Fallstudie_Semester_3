@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
@@ -77,8 +78,12 @@ public class Z1_Armband extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
 
-        //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        IntroductionActivity.model.setArmbandNeu(auswahlArmband);
+        //Methodenaufruf von Model um Spinner Auswahl zu setzen, mit Prüfung ob anderer Wert als vorher
+        if(IntroductionActivity.model.getArmband().equals(auswahlArmband)) {
+            Toast toast = Toast.makeText(this, "Diese Option geht leider nicht mehr", Toast.LENGTH_SHORT);
+        } else {
+            IntroductionActivity.model.setArmbandNeu(auswahlArmband);
+        }
 
         Intent z2 = new Intent(this, Z2_Gehaeuse.class);
         Intent z3 = new Intent(this, Z3_ZusammenbauActivity.class);

@@ -80,7 +80,7 @@ public class E5_VersandartActivity extends AppCompatActivity {
         //Methodenaufruf von Model um Spinner Auswahl zu setzen
         IntroductionActivity.model.setVersandart(auswahlVersandart);
 
-        Intent intent = new Intent(this, E6_Wasserdichtheit.class);
+        Intent intent = new Intent(this, E6_WasserdichtheitActivity.class);
         finish();
         startActivity(intent);
     }

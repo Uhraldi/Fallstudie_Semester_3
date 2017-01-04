@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
@@ -30,12 +31,16 @@ public class E10_VerkaufspreisActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
    public void goToNextActivity (View view) {
 
-       //Methodenaufruf von Model um Spinner Auswahl zu setzen
-       IntroductionActivity.model.setVerkaufspreis(auswahlVerkaufspreis);
-
-        Intent intent = new Intent(this, BestellzusammenfassungActivity.class);
-        finish();
-        startActivity(intent);
+       //Methodenaufruf von Model um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
+       if (auswahlVerkaufspreis < 5 || auswahlVerkaufspreis > 1500){
+           Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
+           toast.show();
+       } else {
+           IntroductionActivity.model.setKaufvolumen(auswahlVerkaufspreis);
+           Intent intent = new Intent(this, BestellzusammenfassungActivity.class);
+           finish();
+           startActivity(intent);
+       }
     }
 
  /*   //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren

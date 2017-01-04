@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
@@ -35,14 +36,21 @@ public class E9_KaufvolumenActivity extends AppCompatActivity {
         stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
 
     }
+
+    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
 
-        //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        IntroductionActivity.model.setKaufvolumen(auswahlKaufvolumen);
+        //Methodenaufruf von Model um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
+        if (auswahlKaufvolumen < 100 || auswahlKaufvolumen > 10000){
+            Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            IntroductionActivity.model.setKaufvolumen(auswahlKaufvolumen);
+            Intent intent = new Intent(this, E10_VerkaufspreisActivity.class);
+            finish();
+            startActivity(intent);
+        }
 
-        Intent intent = new Intent(this, E10_VerkaufspreisActivity.class);
-        finish();
-        startActivity(intent);
     }
 
     //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
