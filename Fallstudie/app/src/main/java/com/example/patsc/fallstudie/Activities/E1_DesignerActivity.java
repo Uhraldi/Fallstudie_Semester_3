@@ -7,14 +7,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
 
 public class E1_DesignerActivity extends AppCompatActivity {
 
-
     private Spinner DesignerSpinner;
+    String auswahlDesigner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +28,19 @@ public class E1_DesignerActivity extends AppCompatActivity {
         }*/
 
         setContentView(R.layout.activity_e1_designer);
+        IntroductionActivity.model.setActivity_E1();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToDesignerSpinner();
 
         //fuegt dem Spinner einen Listener hinzu
         addListenertoDesigner_Spinner();
+
+        //Ausgabe der aktuellen Kosten anhand der Auswahl
+        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
 
         }
 
@@ -59,8 +68,9 @@ public class E1_DesignerActivity extends AppCompatActivity {
         DesignerSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
-                String ItemSelectedInDesignerSpinner = parent.getItemAtPosition(pos).toString();    //speichert den gewaehlten Wert in einem String
-                                                                                                    //der weitergegeben werden muss...
+                String ItemSelectedInDesignerSpinner = parent.getItemAtPosition(pos).toString();
+                String[] separated = ItemSelectedInDesignerSpinner.split("\\(");
+                auswahlDesigner = separated[0].trim();
             }
 
             @Override
@@ -71,11 +81,16 @@ public class E1_DesignerActivity extends AppCompatActivity {
 
     }
 
+
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
+
+        //Methodenaufruf von Model um Designer zu setzen
+        IntroductionActivity.model.setDesigner(auswahlDesigner);
+
         Intent intent = new Intent(this, E2_ArmbandActivity.class);
-        finish();
         startActivity(intent);
+        finish();
     }
 
     //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren

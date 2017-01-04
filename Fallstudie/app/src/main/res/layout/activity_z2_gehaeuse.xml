@@ -23,7 +23,7 @@
         android:onClick="goToNextActivity"/>
 
     <TextView
-        android:text="@string/z2gehaeuse_info_textview"
+        android:text="@string/z2glas_info_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

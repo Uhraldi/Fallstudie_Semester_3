@@ -4,125 +4,131 @@
 
 
     //fuer alle Activities
-    <string name="gesamtkosten_textview">Gesamtkosten:</string>
-    <string name="stueckkosten_textview">Stückkosten:</string>
+    <string name="gesamtkosten_textview">Fixkosten:</string>
+    <string name="stueckkosten_textview">variable Kosten:</string>
     <string name="zurueck_button">Zurück</string>
     <string name="weiter_button">Weiter</string>
 
 
     //Strings fuer IntroductionActivity
-    <string name="introduction_info_textview">LOREM IPSUM</string>
+    <string name="introduction_info_textview">"Das Ziel des Spiels „ManufaktUhr“ ist die eigene zusammengestellte Uhr mit den verschiedenen Komponenten möglichst profitabel zu verkaufen. Dabei muss das Kontoguthaben berücksichtigt werden, da man keine Uhren kaufen kann, wenn man nicht ausreichend Geld zur Verfügung hat.
+
+Seinen Kontostand kann man durch den erzielten Gewinn erhöhen, indem man auf den Einkaufspreis einen individuell festgelegten Aufpreis aufschlägt. Der Verkaufspreis erhöht sich dementsprechend und bringt dem Spieler bei einem erfolgreichen Absatz einen hohen Gewinn ein. Allerdings ist es auch möglich, dass sich der Kontostand verringert, wenn die Uhr nicht den gewünschten Absatz erzielt.
+
+Ob eine Uhr erfolgreich oder schlecht verkauft wird, ist abhängig von verschiedenen Zufallsereignissen, die berechnet werden. Am Ende einer Verkaufsrunde ist das Ziel jedes Spielers auf der Rangliste den ersten Platz zu besetzen mit einem geringen oder vorzugsweise keinen Restbestand von Uhren.
+
+Im Anschluss daran kann man eine Runde aussetzen, mit den gleichen Werten noch einmal spielen oder sich eine komplett neue Uhr zusammenstellen."</string>
     <string name="verstanden_button">Verstanden</string>
 
 
     //Strings fuer Login
 
-    <string name="login_info_textview">LOREM IPSUM</string>
+    <string name="login_info_textview">"Hier können Sie sich mit ihrem Spielernamen und Ihrem Passwort einloggen.
+Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebigen Spielernamen und ein sicheres Passwort aus."</string>
     <string name="login_username_textview">Nutzername</string>
     <string name="login_password_textview">Passwort</string>
 
     //Strings fuer E1_Designer
 
-    <string name="designer_info_textview">Die Auswahl der Qualität des verantwortlichen Designers beeinflusst unter anderem wie gut
-    sich die Uhr später am Absatzmarkt verkaufen lässt und wieviel Kunden bereit sind für diese Uhr zu zahlen.</string>
+    <string name="designer_info_textview">Hier können Sie den Designer für Ihre Uhren auswählen. Dieser Preis wird nicht pro Uhr sondern für alle Uhren zusammen berechnet. Die Wahl des Designers und somit die unterschiedliche Qualität beeinflusst wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen.</string>
     <string name="designer_textview">Auswahl des Designers</string>
     <string-array name="designer_spinner_array">
-        <item>Marken</item>
-        <item>Mittelmäßig</item>
-        <item>Low Budget</item>
+        <item>Marken (5000€)</item>
+        <item>Mittelmäßig (3000€)</item>
+        <item>Low Budget (1000€)</item>
     </string-array>
 
 
     //Strings fuer E2_Armband
 
-    <string name="armband_info_textview">LOREM IPSUM</string>
+    <string name="armband_info_textview">Hier können Sie das Armband für Ihre Uhren auswählen. Die Wahl des Armbands und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
     <string name="armband_textview">Auswahl des Armbandmaterials</string>
     <string-array name="armband_spinner_array">
-        <item>Leder</item>
-        <item>Kunstleder</item>
-        <item>Holz</item>
-        <item>Textil</item>
-        <item>Metall</item>
+        <item>Leder (1€)</item>
+        <item>Kunstleder (0,2€)</item>
+        <item>Holz (1,45€)</item>
+        <item>Textil (0,1€)</item>
+        <item>Metall (1€)</item>
     </string-array>
 
 
     //Strings fuer E3_Uhrwerk
 
-    <string name="uhrwerk_info_textview">LOREM IPSUM</string>
+    <string name="uhrwerk_info_textview">Hier können Sie das Uhrwerk für Ihre Uhren auswählen. Die Wahl des Uhrwerks und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
     <string name="uhrwerk_textview">Auswahl des Uhrwerks</string>
     <string-array name="uhrwerk_spinner_array">
-        <item>Mechanisch</item>
-        <item>Elektromechanisch</item>
-        <item>Elektronisch</item>
+        <item>Mechanisch (4€)</item>
+        <item>Elektromechanisch (3€)</item>
+        <item>Elektronisch (2€)</item>
     </string-array>
 
 
     //Strings fuer E4_Gehaeuse
 
-    <string name="gehaeuse_info_textview">LOREM IPSUM</string>
+    <string name="gehaeuse_info_textview">Hier können Sie das Gehäuse des Uhrwerks für Ihre Uhren auswählen. Die Wahl des Gehäuses und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
     <string name="gehaeuse_textview">Auswahl des Gehäusematerials</string>
     <string-array name="gehaeuse_spinner_array">
-        <item>Glas</item>
-        <item>Holz</item>
-        <item>Kunststoff</item>
-        <item>Metall</item>
+        <item>Glas (2€)</item>
+        <item>Holz (1,5€)</item>
+        <item>Kunststoff (0,2€)</item>
+        <item>Metall (1€)</item>
     </string-array>
 
 
     //Strings fuer E5_Versandart
 
-    <string name="versandart_info_textview">LOREM IPSUM</string>
+    <string name="versandart_info_textview">Hier können Sie die Versandart für Ihre Uhren auswählen. Die Wahl der Versandart und somit eine schnellere oder langsamere Lieferung beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
     <string name="versandart_textview">Auswahl der Versandart</string>
     <string-array name="versandart_spinner_array">
-        <item>Flugzeug</item>
-        <item>Schiff</item>
-        <item>Landweg</item>
+        <item>Flugzeug (3€)</item>
+        <item>Schiff (1€)</item>
+        <item>Landweg (2€)</item>
     </string-array>
 
 
     //Strings fuer E6_Wasserdichtheit
 
-    <string name="wasserdichtheit_info_textview">LOREM IPSUM</string>
+    <string name="wasserdichtheit_info_textview">Hier können Sie die Wasserdichtheit für Ihre Uhren auswählen. Die Wahl der Wasserdichtheit und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen.</string>
     <string name="wasserdichtheit_textview">Auswahl der Wasserdichtheit</string>
     <string-array name="wasserdichtheit_spinner_array">
-        <item>nicht wassergeschützt</item>
-        <item>spritzwassergeschützt</item>
-        <item>wasserdicht</item>
+        <item>nicht wassergeschützt (0€)</item>
+        <item>spritzwassergeschützt (0,5€)</item>
+        <item>wasserdicht (2€)</item>
     </string-array>
 
 
     //Strings fuer E7_Zusammenbau
 
-    <string name="zusammenbau_info_textview">LOREM IPSUM</string>
+    <string name="zusammenbau_info_textview">Hier können Sie den Produktionsort für Ihre Uhren auswählen. Die Wahl des Produktionsortes und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
     <string name="zusammenbau_textview">Auswahl des Produktionsorts</string>
     <string-array name="zusammenbau_spinner_array">
-        <item>Deutschland</item>
-        <item>Asien</item>
-        <item>Osteuropa</item>
-        <item>Schweiz</item>
+        <item>Deutschland (4,5€)</item>
+        <item>Asien (0,5€)</item>
+        <item>Osteuropa (0,5€)</item>
+        <item>Schweiz (5€)</item>
     </string-array>
 
 
     //Strings fuer E8_Werbung
 
-    <string name="werbung_info_textview">LOREM IPSUM</string>
+    <string name="werbung_info_textview">Hier können Sie den Umfang der Werbung für Ihre Uhren auswählen. Der Umfang der Werbung und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen.</string>
     <string name="werbung_textview">Auswahl des Werbeumfangs</string>
     <string-array name="werbung_spinner_array">
-        <item>viel</item>
-        <item>mittel</item>
-        <item>wenig</item>
+        <item>viel (5000€)</item>
+        <item>mittel (3000€)</item>
+        <item>wenig (1000€)</item>
     </string-array>
 
 
     //Strings fuer E9_Kaufvolumen
 
-    <string name="kaufvolumen_info_textview">LOREM IPSUM</string>
+    <string name="kaufvolumen_info_textview">Hier können Sie schließlich angeben, was für eine Menge an Uhren Sie kaufen möchten. Der Gesamtpreis pro Uhr befindet sich unten. Bedenken Sie, dass Sie ihr Budget nicht überschreiten dürfen und mindestens 100 Uhren kaufen müssen sowie höchstens 10.000 Uhren kaufen dürfen.</string>
     <string name="kaufvolumen_textview">Auswahl des Kaufvolumens</string>
 
 
     //Strings fuer E10_Verkaufspreis
 
-    <string name="verkaufspreis_info_textview">LOREM IPSUM</string>
+    <string name="verkaufspreis_info_textview">In diesem letzten Schritt wählen Sie Ihren geplanten Verkaufspreis der Uhren an. Hierbei handelt es sich um den Stückpreis für eine Uhr.</string>
     <string name="verkaufspreis_textview">Auswahl des Verkaufspreis</string>
 
 
@@ -144,9 +150,34 @@
 
     //Strings fuer Z1_Armband bis Z3_Zusammenbau
 
-    <string name="z1armband_info_textview">Uups, leider konnten die bestellen Holzmaterialien für das gewünschte Armband nicht geliefert werden, da der Wald abgebrannt ist. Sie müssen nun ersatzweise ein neues Material für Ihre Armbänder auswählen:</string>
-    <string name="z2gehaeuse_info_textview">Uuups, LOREM IPSUM </string>
-    <string name="z3zusammenbau_info_textview">Uuups, LOREM IPSUM </string>
+    <string name="z1leder_info_textview">"Upps!
+Aufgrund einer Kuhgrippe können Sie leider kein Armband aus Leder auswählen. Bitte entscheiden Sie sich für ein anderes Armband."</string>
+    <string name="z1kunstleder_info_textview">"Upps!
+Aufgrund von Produktionsengpässen können Sie leider kein Armband aus Kunstleder auswählen. Bitte entscheiden Sie sich für ein anderes Armband." </string>
+    <string name="z1holz_info_textview">"Upps!
+Aufgrund eines Waldbrandes in Brasilien können Sie leider kein Armband aus Holz auswählen. Bitte entscheiden Sie sich für ein anderes Armband."</string>
+    <string name="z1textil_info_textview">"Upps!
+Aufgrund eines Brandes können Sie leider kein Armband aus Textil auswählen. Bitte entscheiden Sie sich für ein anderes Armband." </string>
+    <string name="z1metall_info_textview">"Upps!
+Aufgrund eines Streiks in der Metallbranche können Sie leider kein Armband aus Metall auswählen. Bitte entscheiden Sie sich für ein anderes Armband." </string>
+
+    <string name="z2glas_info_textview">"Upps!
+Aufgrund mehrerer umgestürzter Regale im Lager können Sie leider kein Gehäuse aus Glas auswählen. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
+    <string name="z2holz_info_textview">"Upps!
+Aufgrund eines Waldbrandes in Russland können Sie leider kein Gehäuse aus Holz auswählen. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
+    <string name="z2kunststoff_info_textview">"Upps!
+Aufgrund der gesellschaftlichen Kritik an Kunststoff können Sie leider kein Gehäuse aus Kunststoff auswählen. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
+    <string name="z2metall_info_textview">"Upps!
+Aufgrund eines Streiks in der Metallbranche können Sie leider kein Gehäuse aus Metall auswählen. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
+
+    <string name="z3deutschland_info_textview">"Upps!
+Aufgrund eines Streiks in den Fabriken können Sie leider nicht den Produktionsort Deutschland auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
+    <string name="z3asien_info_textview">"Upps!
+Aufgrund einer Naturkatastrophe können Sie leider nicht den Produktionsort Asien auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
+    <string name="z3osteuropa_info_textview">"Upps!
+Aufgrund eines Putsches können Sie leider nicht den Produktionsort Osteuropa auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
+    <string name="z3schweiz_info_textview">"Upps!
+Aufgrund eines Streiks in den Fabriken können Sie leider nicht den Produktionsort Schweiz auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
 
     //String fuer Berechnung
     <string name="berechnung_info_textview">Die Bestellung wurde getätigt und die Produktion ist angelaufen. Bitte haben Sie etwas Geduld.</string>

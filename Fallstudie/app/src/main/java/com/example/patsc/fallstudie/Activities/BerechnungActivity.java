@@ -10,20 +10,20 @@ import com.example.patsc.fallstudie.R;
 public class BerechnungActivity extends AppCompatActivity {
 
     /** Dauer der Wartezeit **/
-    private final int CALCULATION_DISPLAY_LENGTH = 5000;
+    private final int CALCULATION_DISPLAY_LENGTH = 10000;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_berechnung);
+        IntroductionActivity.model.setActivity_Berechnung();
 
-        /* neuer Handler, der die Rundenergebnis Activity nach ein paar Sekunden anzeigt*/
+        /* neuer Handler, der die RundenergebnisActivity nach ein paar Sekunden anzeigt*/
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(BerechnungActivity.this, RundenergebnisActivity.class);
-                BerechnungActivity.this.startActivity(mainIntent);
+                Intent intent = new Intent(BerechnungActivity.this, RundenergebnisActivity.class);
+                BerechnungActivity.this.startActivity(intent);
                 BerechnungActivity.this.finish();
             }
         }, CALCULATION_DISPLAY_LENGTH);

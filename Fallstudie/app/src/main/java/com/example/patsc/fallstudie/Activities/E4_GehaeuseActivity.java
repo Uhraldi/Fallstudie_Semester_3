@@ -7,24 +7,33 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
 public class E4_GehaeuseActivity extends AppCompatActivity {
 
     private Spinner GehaeuseSpinner;
+    String auswahlGehaeuse;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e4_gehaeuse);
+        IntroductionActivity.model.setActivity_E4();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToGehaeuseSpinner();
 
         //fuegt dem Spinner einen Listener hinzu
         addListenertoGehaeuseSpinner();
+
+        //Ausgabe der aktuellen Kosten anhand der Auswahl
+        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
 
     }
 
@@ -52,8 +61,9 @@ public class E4_GehaeuseActivity extends AppCompatActivity {
         GehaeuseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
-                String ItemSelectedInGehaeuseSpinner = parent.getItemAtPosition(pos).toString();    //speichert den gewaehlten Wert in einem String
-                //der weitergegeben werden muss...
+                String ItemSelectedInGehaeuseSpinner = parent.getItemAtPosition(pos).toString();
+                String[] separated = ItemSelectedInGehaeuseSpinner.split("\\(");
+                auswahlGehaeuse = separated[0].trim();
             }
 
             @Override
@@ -66,6 +76,10 @@ public class E4_GehaeuseActivity extends AppCompatActivity {
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
+
+        //Methodenaufruf von Model um Spinner Auswahl zu setzen
+        IntroductionActivity.model.setGehaeuse(auswahlGehaeuse);
+
         Intent intent = new Intent(this, E5_VersandartActivity.class);
         finish();
         startActivity(intent);

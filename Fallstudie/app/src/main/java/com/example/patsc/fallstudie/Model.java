@@ -178,5 +178,217 @@ public class  Model {
     //ToDO Spielfortsetzen
 
     // Zusand Spielbeginn
+
+
+
+    // METHODEN VON NILS HINZUGEFÜGT, VORERST LEER, WERDEN VON GUI AUFGERUFEN //TODO: Methoden füllen
+
+    // Methoden zum weitergeben der UI-Inputs
+
+    public void setDesigner (String designerAuswahl){
+
+    }
+
+    public void setArmband (String armbandAuswahl){
+
+    }
+
+    public void setArmbandNeu (String armbandAuswahl){              //nach Zufall Z3
+
+    }
+
+    public void setUhrwerk (String uhrwerkAuswahl){
+
+    }
+
+    public void setGehaeuse (String gehaeuseAuswahl){
+
+    }
+
+    public void setGehaeuseNeu (String gehaeuseAuswahl){                //nach Zufall Z2
+
+    }
+
+    public void setVersandart (String versandartAuswahl){
+
+    }
+
+    public void setWasserdichtheit (String wasserdichtheitAuswahl){
+
+    }
+
+    public void setZusammenbau (String zusammenbauAuswahl){
+
+    }
+
+    public void setZusammenbauNeu (String zusammenbauAuswahl){              //nach Zufall Z3
+
+    }
+
+    public void setWerbung (String werbungAuswahl){
+
+    }
+
+    public void setKaufvolumen (float kaufvolumenAuswahl){
+
+    }
+
+    public void setVerkaufspreis (float verkaufspreisAuswahl){
+
+    }
+
+    //Methoden zum abholen der Bestellpositionen, zur Anzeige er Bestellzusammenfassung
+
+    public String getDesigner ( ){
+        return "";
+    }
+
+    public String getArmband ( ){
+        return "";
+    }
+
+    public String getUhrwerk ( ){
+        return "";
+    }
+
+    public String getGehaeuse ( ){
+        return "";
+    }
+
+    public String getVersandart ( ){
+        return "";
+    }
+
+    public String getWasserdichtheit ( ){
+        return "";
+    }
+
+    public String getZusammenbau (){
+        return "";
+    }
+
+    public String getWerbung ( ){
+        return "";
+    }
+
+    public float getKaufvolumen ( ){
+        return 0;
+    }
+
+    public float getVerkaufspreis ( ){
+        return 0;
+    }
+
+
+
+    //Methoden zum Abrufen der aktuellen Fixkosten und variablen Kosten //TODO: return-Werte
+
+    public float getFixKosten() {
+       return 0;
+    }
+
+    public float getVarKosten(){
+        return 0;
+    }
+
+
+    //Methoden zum Überprüfen ob ein Zufall eingetreten ist, entsprechende Weiterleitung der Activities
+    // TODO: richtiger Rückgabewert, welcher genaue Zufall? bei Z1 Leder, Metall oder .. ?
+
+    public boolean isZufall1 (){
+        return true;
+    }
+
+    public boolean isZufall2 (){
+        return true;
+    }
+
+    public boolean isZufall3 (){
+        return true;
+    }
+
+
+    //Methoden zum setzen der aktuellen UI-Activity (aufgerufen in onCreate)
+
+    public void setActivity_Login () {
+
+    }
+
+    public void setActivity_E1 () {
+
+    }
+
+    public void setActivity_E2 () {
+
+    }
+
+    public void setActivity_E3 () {
+
+    }
+
+    public void setActivity_E4 () {
+
+    }
+
+    public void setActivity_E5 () {
+
+    }
+
+    public void setActivity_E6 () {
+
+    }
+
+    public void setActivity_E7 () {
+
+    }
+
+    public void setActivity_E8 () {
+
+    }
+
+    public void setActivity_E9 () {
+
+    }
+
+    public void setActivity_E10 () {
+
+    }
+
+
+    public void setActivity_Bestellzusammenfassung () {
+
+    }
+
+
+    public void setActivity_Z1 () {
+
+    }
+
+
+    public void setActivity_Z2 () {
+
+    }
+
+
+    public void setActivity_Z3 () {
+
+    }
+
+
+    public void setActivity_Berechnung () {
+
+    }
+
+
+    public void setActivity_Rundenergebnis () {
+
+    }
+
+
+
+
+
+
+
 } // ENDE KLASSE
 

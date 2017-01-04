@@ -347,32 +347,32 @@ public class Bestellposition {
         }
     }
 
-    public void korrigiereArmband(String alteEingabe, String eingabe) throws FalscheEingabe{
-        if(alteEingabe.equals("Leder")){
+    public void korrigiereArmband( String eingabe) throws FalscheEingabe{
+        if(armband.isLeder()){
                 armband.setLeder(false);
                 varKosten -= armband.getLederEKP();
                 pws -= armband.getLederPWS();
                 risikoArmband = 0;
                 zufall -= armband.getLederZufall();
-            }else if(alteEingabe.equals("Kunstleder")) {
+            }else if(armband.isKunstleder()) {
                 armband.setKunstleder(false);
                 varKosten -= armband.getKunstlederEKP();
                 pws -= armband.getKunstlederPWS();
                 risikoArmband = 0;
                 zufall -= armband.getKunstlederZufall();
-            }else if(alteEingabe.equals("Holz")) {
+            }else if(armband.isHolz()) {
                 armband.setHolz(false);
                 varKosten -= armband.getHolzEKP();
                 pws -= armband.getHolzPWS();
                 risikoArmband = 0;
                 zufall -= armband.getHolzZufall();
-            }else if(alteEingabe.equals("Textil")) {
+            }else if(armband.isTextil()) {
                 armband.setTextil(false);
                 varKosten -= armband.getTextilEKP();
                 pws -= armband.getTextilPWS();
                 risikoArmband = 0;
                 zufall -= armband.getTextilZufall();
-            }else if (alteEingabe.equals("Metall")) {
+            }else if (armband.isMetall()) {
                 armband.setMetall(false);
                 varKosten -= armband.getMetallEKP();
                 pws -= armband.getMetallPWS();
@@ -384,26 +384,26 @@ public class Bestellposition {
         bestelleArmband(eingabe);
     }
 
-    public void korrigiereGehaeuse(String alteEingabe, String eingabe) throws FalscheEingabe{
-        if(alteEingabe.equals("Glas")){
+    public void korrigiereGehaeuse(String eingabe) throws FalscheEingabe{
+        if(gehaeuse.isGlas()){
             gehaeuse.setGlas(false);
             varKosten -= gehaeuse.getGlasEKP();
             pws -= gehaeuse.getGlasPWS();
             risikoGehaeuse = 0;
             zufall -= gehaeuse.getGlasZufall();
-        }else if (alteEingabe.equals("Holz")){
+        }else if (gehaeuse.isHolz()){
             gehaeuse.setHolz(false);
             varKosten -= gehaeuse.getHolzEKP();
             pws -= gehaeuse.getHolzPWS();
             risikoGehaeuse = 0;
             zufall -= gehaeuse.getHolzZufall();
-        }else if (alteEingabe.equals("Kunststoff")){
+        }else if (gehaeuse.isKunststoff()){
             gehaeuse.setKunststoff(false);
             varKosten -= gehaeuse.getKunststoffEKP();
             pws -= gehaeuse.getKunststoffPWS();
             risikoGehaeuse = 0;
             zufall -= gehaeuse.getKunststoffZufall();
-        }else if (alteEingabe.equals("Metall")){
+        }else if (gehaeuse.isMetall()){
             gehaeuse.setMetall(false);
             varKosten -= gehaeuse.getMetallEKP();
             pws -= gehaeuse.getMetallPWS();
@@ -415,23 +415,23 @@ public class Bestellposition {
         bestelleGehaeuse(eingabe);
     }
 
-    public void korrigiereProduktionsort(String alteEingabe, String eingabe) throws FalscheEingabe{
-        if(alteEingabe.equals("Deutschland")){
+    public void korrigiereProduktionsort(String eingabe) throws FalscheEingabe{
+        if(produktionsort.isDeutschland()){
             produktionsort.setDeutschland(false);
             varKosten -= produktionsort.getDeutschlandEKP();
             pws -= produktionsort.getDeutschlandPWS();
             risikoProduktionsort = 0;
-        }else if(alteEingabe.equals("Asien")){
+        }else if(produktionsort.isAsien()){
             produktionsort.setAsien(false);
             varKosten -= produktionsort.getAsienEKP();
             pws -= produktionsort.getAsienPWS();
             risikoProduktionsort = 0;
-        }else if (alteEingabe.equals("Osteuropa")) {
+        }else if (produktionsort.isOsteuropa()) {
             produktionsort.setOsteuropa(false);
             varKosten -= produktionsort.getOsteuropaEKP();
             pws -= produktionsort.getOsteuropaPWS();
             risikoProduktionsort = 0;
-        }else if(alteEingabe.equals("Schweiz")){
+        }else if(produktionsort.isSchweiz()){
             produktionsort.setSchweiz(false);
             varKosten -= produktionsort.getSchweizEKP();
             pws -= produktionsort.getSchweizPWS();

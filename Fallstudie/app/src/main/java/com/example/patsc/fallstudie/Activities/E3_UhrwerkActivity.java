@@ -7,12 +7,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
 public class E3_UhrwerkActivity extends AppCompatActivity {
 
     private Spinner UhrwerkSpinner;
+    String auswahlUhrwerk;
 
 
     @Override
@@ -25,12 +27,19 @@ public class E3_UhrwerkActivity extends AppCompatActivity {
         }*/
 
         setContentView(R.layout.activity_e3_uhrwerk);
+        IntroductionActivity.model.setActivity_E3();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToUhrwerkSpinner();
 
         //fuegt dem Spinner einen Listener hinzu
         addListenertoUhrwerkSpinner();
+
+        //Ausgabe der aktuellen Kosten anhand der Auswahl
+        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
 
     }
 
@@ -58,8 +67,9 @@ public class E3_UhrwerkActivity extends AppCompatActivity {
         UhrwerkSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
-                String ItemSelectedInUhrwerkSpinner = parent.getItemAtPosition(pos).toString();    //speichert den gewaehlten Wert in einem String
-                //der weitergegeben werden muss...
+                String ItemSelectedInUhrwerkSpinner = parent.getItemAtPosition(pos).toString();
+                String[] separated = ItemSelectedInUhrwerkSpinner.split("\\(");
+                auswahlUhrwerk = separated[0].trim();
             }
 
             @Override
@@ -72,6 +82,10 @@ public class E3_UhrwerkActivity extends AppCompatActivity {
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
+
+        //Methodenaufruf von Model um Spinner Auswahl zu setzen
+        IntroductionActivity.model.setUhrwerk(auswahlUhrwerk);
+
         Intent intent = new Intent(this, E4_GehaeuseActivity.class);
         finish();
         startActivity(intent);
