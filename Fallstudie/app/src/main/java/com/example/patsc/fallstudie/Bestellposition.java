@@ -332,19 +332,11 @@ public class Bestellposition {
     }
 
     public void bestelleMenge(int menge) throws FalscheEingabe{
-        if (menge>0 && menge < 1500) {
             this.menge = menge;
-        }else{
-            throw new FalscheEingabe();
-        }
     }
 
     public void bestelleVKP(int vkp)throws FalscheEingabe{
-        if(vkp > 0 && vkp < 1500) {
             this.vkp = vkp;
-        }else{
-            throw new FalscheEingabe();
-        }
     }
 
     public void korrigiereArmband( String eingabe) throws FalscheEingabe{
