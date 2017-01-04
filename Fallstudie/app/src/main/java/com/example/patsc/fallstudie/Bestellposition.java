@@ -134,11 +134,13 @@ public class Bestellposition {
                 designer.setMittelmaessig(true);
                 fixKosten += designer.getMittelmaessigEKP();
                 pws += designer.getMittelmaessigPWS();
+                break;
             }
             case "LowBudget": {
                 designer.setLowBudget(true);
                 fixKosten += designer.getLowBudgetEKP();
                 pws += designer.getLowBudgetPWS();
+                break;
             }
             default: {
                 throw new FalscheEingabe();
