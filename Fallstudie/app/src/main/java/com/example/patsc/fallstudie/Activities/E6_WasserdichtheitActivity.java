@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
-public class E6_Wasserdichtheit extends AppCompatActivity {
+public class E6_WasserdichtheitActivity extends AppCompatActivity {
 
     private Spinner WasserdichtheitSpinner;
     private String auswahlWasserdichtheit;

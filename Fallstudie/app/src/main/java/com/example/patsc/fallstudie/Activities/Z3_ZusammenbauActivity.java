@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
@@ -78,7 +79,11 @@ public class Z3_ZusammenbauActivity extends AppCompatActivity {
     public void goToNextActivity (View view) {
 
         //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        IntroductionActivity.model.setZusammenbauNeu(auswahlZusammenbau);
+        if(IntroductionActivity.model.getZusammenbau().equals(auswahlZusammenbau)) {
+            Toast toast = Toast.makeText(this, "Diese Option geht leider nicht mehr", Toast.LENGTH_SHORT);
+        } else {
+            IntroductionActivity.model.setZusammenbauNeu(auswahlZusammenbau);
+        }
 
         Intent intent = new Intent(this, BerechnungActivity.class);
         finish();
@@ -87,7 +92,7 @@ public class Z3_ZusammenbauActivity extends AppCompatActivity {
 
     //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
 /*    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, E6_Wasserdichtheit.class);
+        Intent intent = new Intent (this, E6_WasserdichtheitActivity.class);
         startActivity(intent);
     }*/
 }

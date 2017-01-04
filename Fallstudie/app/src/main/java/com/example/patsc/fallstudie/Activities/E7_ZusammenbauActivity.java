@@ -87,7 +87,7 @@ public class E7_ZusammenbauActivity extends AppCompatActivity {
 
     //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
 /*    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, E6_Wasserdichtheit.class);
+        Intent intent = new Intent (this, E6_WasserdichtheitActivity.class);
         startActivity(intent);
     }*/
 }

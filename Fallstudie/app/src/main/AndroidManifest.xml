@@ -32,7 +32,7 @@
         <activity android:name=".Activities.E3_UhrwerkActivity" />
         <activity android:name=".Activities.E4_GehaeuseActivity" />
         <activity android:name=".Activities.E5_VersandartActivity" />
-        <activity android:name=".Activities.E6_Wasserdichtheit" />
+        <activity android:name=".Activities.E6_WasserdichtheitActivity" />
         <activity android:name=".Activities.E7_ZusammenbauActivity" />
         <activity android:name=".Activities.E8_WerbungActivity" />
         <activity android:name=".Activities.E9_KaufvolumenActivity" />

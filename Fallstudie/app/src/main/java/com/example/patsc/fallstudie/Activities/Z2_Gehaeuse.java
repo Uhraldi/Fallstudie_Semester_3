@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
@@ -77,7 +78,11 @@ public class Z2_Gehaeuse extends AppCompatActivity {
     public void goToNextActivity(View view) {
 
         //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        IntroductionActivity.model.setGehaeuseNeu(auswahlGehaeuse);
+        if(IntroductionActivity.model.getGehaeuse().equals(auswahlGehaeuse)) {
+            Toast toast = Toast.makeText(this, "Diese Option geht leider nicht mehr", Toast.LENGTH_SHORT);
+        } else {
+            IntroductionActivity.model.setGehaeuseNeu(auswahlGehaeuse);
+        }
 
         Intent z3 = new Intent(this, Z3_ZusammenbauActivity.class);
         Intent keinZufall = new Intent(this, BerechnungActivity.class);

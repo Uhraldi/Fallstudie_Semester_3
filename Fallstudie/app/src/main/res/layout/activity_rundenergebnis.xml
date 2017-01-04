@@ -11,11 +11,12 @@
     tools:context="com.example.patsc.fallstudie.Activities.RundenergebnisActivity">
 
     <TextView
-        android:text="You Won!"
+        android:text="Rundenergebnis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:id="@+id/textView"
-        android:textSize="46sp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 </RelativeLayout>
