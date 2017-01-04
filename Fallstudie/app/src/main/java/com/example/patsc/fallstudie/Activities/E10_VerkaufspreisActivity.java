@@ -10,24 +10,31 @@ import com.example.patsc.fallstudie.R;
 
 public class E10_VerkaufspreisActivity extends AppCompatActivity {
 
+    float auswahlVerkaufspreis;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e10_verkaufspreis);
+        IntroductionActivity.model.setActivity_E10();
 
         //Verknuepfen von EditText mit UI-Element per ID
         EditText verkaufspreis_input = (EditText) findViewById(R.id.verkaufspreis_input);
-        //verkaufspreis_input.setFilters(new InputFilter[]{new InputFilterMinMax("5", "1500")});
 
         //speichere Eingabewert im String
-        String inputVerkaufspreis = verkaufspreis_input.getText().toString();
+        String verkaufspreisString = verkaufspreis_input.getText().toString();
+        auswahlVerkaufspreis = Float.parseFloat(verkaufspreisString);
     }
 
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
    public void goToNextActivity (View view) {
+
+       //Methodenaufruf von Model um Spinner Auswahl zu setzen
+       IntroductionActivity.model.setVerkaufspreis(auswahlVerkaufspreis);
+
         Intent intent = new Intent(this, BestellzusammenfassungActivity.class);
-       finish();
+        finish();
         startActivity(intent);
     }
 

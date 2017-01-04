@@ -7,31 +7,32 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
 public class Z1_Armband extends AppCompatActivity {
 
     private Spinner ArmbandSpinner;
-
+    private String auswahlArmband;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //prüft ob Spinner bereits eine Auswahl hatte und stellt diese dann wieder her
- /*       if (savedInstanceState != null) {
-            ArmbandSpinner.setSelection(savedInstanceState.getInt("ArmbandSpinner", 0));
-        }*/
-
-
         setContentView(R.layout.activity_z1_armband);
+        IntroductionActivity.model.setActivity_Z1();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToArmbandSpinner();
 
         //fuegt dem Spinner einen Listener hinzu
         addListenertoArmbandSpinner();
+
+        //Ausgabe der aktuellen Kosten anhand der Auswahl
+        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
 
     }
 
@@ -59,8 +60,9 @@ public class Z1_Armband extends AppCompatActivity {
         ArmbandSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
-                String ItemSelectedInArmbandSpinner = parent.getItemAtPosition(pos).toString();    //speichert den gewaehlten Wert in einem String
-                //der weitergegeben werden muss...
+                String ItemSelectedInArmbandSpinner = parent.getItemAtPosition(pos).toString();
+                String[] separated = ItemSelectedInArmbandSpinner.split("\\(");
+                auswahlArmband = separated[0].trim();
             }
 
             @Override
@@ -74,9 +76,24 @@ public class Z1_Armband extends AppCompatActivity {
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
-        Intent intent = new Intent(this, Z2_Gehaeuse.class);
+
+        //Methodenaufruf von Model um Spinner Auswahl zu setzen
+        IntroductionActivity.model.setArmbandNeu(auswahlArmband);
+
+        Intent z2 = new Intent(this, Z2_Gehaeuse.class);
+        Intent z3 = new Intent(this, Z3_ZusammenbauActivity.class);
+        Intent keinZufall = new Intent(this, BerechnungActivity.class);
+
+        //Abfrage ob Zufall Z2-Z3 eingetreten ist und entsprechende Weiterleitung
+        if (IntroductionActivity.model.isZufall2()){
+            startActivity(z2);
+        } else if (IntroductionActivity.model.isZufall3()){
+            startActivity(z3);
+        } else {
+            startActivity(keinZufall);
+        }
+
         finish();
-        startActivity(intent);
     }
 
     //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren

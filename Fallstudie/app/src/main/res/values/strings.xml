@@ -4,8 +4,8 @@
 
 
     //fuer alle Activities
-    <string name="gesamtkosten_textview">Gesamtkosten:</string>
-    <string name="stueckkosten_textview">Stückkosten:</string>
+    <string name="gesamtkosten_textview">Fixkosten:</string>
+    <string name="stueckkosten_textview">variable Kosten:</string>
     <string name="zurueck_button">Zurück</string>
     <string name="weiter_button">Weiter</string>
 
@@ -33,9 +33,9 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="designer_info_textview">Hier können Sie den Designer für Ihre Uhren auswählen. Dieser Preis wird nicht pro Uhr sondern für alle Uhren zusammen berechnet. Die Wahl des Designers und somit die unterschiedliche Qualität beeinflusst wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen.</string>
     <string name="designer_textview">Auswahl des Designers</string>
     <string-array name="designer_spinner_array">
-        <item>Marken</item>
-        <item>Mittelmäßig</item>
-        <item>Low Budget</item>
+        <item>Marken (5000€)</item>
+        <item>Mittelmäßig (3000€)</item>
+        <item>Low Budget (1000€)</item>
     </string-array>
 
 
@@ -44,11 +44,11 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="armband_info_textview">Hier können Sie das Armband für Ihre Uhren auswählen. Die Wahl des Armbands und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
     <string name="armband_textview">Auswahl des Armbandmaterials</string>
     <string-array name="armband_spinner_array">
-        <item>Leder</item>
-        <item>Kunstleder</item>
-        <item>Holz</item>
-        <item>Textil</item>
-        <item>Metall</item>
+        <item>Leder (1€)</item>
+        <item>Kunstleder (0,2€)</item>
+        <item>Holz (1,45€)</item>
+        <item>Textil (0,1€)</item>
+        <item>Metall (1€)</item>
     </string-array>
 
 
@@ -57,9 +57,9 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="uhrwerk_info_textview">Hier können Sie das Uhrwerk für Ihre Uhren auswählen. Die Wahl des Uhrwerks und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
     <string name="uhrwerk_textview">Auswahl des Uhrwerks</string>
     <string-array name="uhrwerk_spinner_array">
-        <item>Mechanisch</item>
-        <item>Elektromechanisch</item>
-        <item>Elektronisch</item>
+        <item>Mechanisch (4€)</item>
+        <item>Elektromechanisch (3€)</item>
+        <item>Elektronisch (2€)</item>
     </string-array>
 
 
@@ -68,10 +68,10 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="gehaeuse_info_textview">Hier können Sie das Gehäuse des Uhrwerks für Ihre Uhren auswählen. Die Wahl des Gehäuses und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
     <string name="gehaeuse_textview">Auswahl des Gehäusematerials</string>
     <string-array name="gehaeuse_spinner_array">
-        <item>Glas</item>
-        <item>Holz</item>
-        <item>Kunststoff</item>
-        <item>Metall</item>
+        <item>Glas (2€)</item>
+        <item>Holz (1,5€)</item>
+        <item>Kunststoff (0,2€)</item>
+        <item>Metall (1€)</item>
     </string-array>
 
 
@@ -80,9 +80,9 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="versandart_info_textview">Hier können Sie die Versandart für Ihre Uhren auswählen. Die Wahl der Versandart und somit eine schnellere oder langsamere Lieferung beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
     <string name="versandart_textview">Auswahl der Versandart</string>
     <string-array name="versandart_spinner_array">
-        <item>Flugzeug</item>
-        <item>Schiff</item>
-        <item>Landweg</item>
+        <item>Flugzeug (3€)</item>
+        <item>Schiff (1€)</item>
+        <item>Landweg (2€)</item>
     </string-array>
 
 
@@ -91,9 +91,9 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="wasserdichtheit_info_textview">Hier können Sie die Wasserdichtheit für Ihre Uhren auswählen. Die Wahl der Wasserdichtheit und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen.</string>
     <string name="wasserdichtheit_textview">Auswahl der Wasserdichtheit</string>
     <string-array name="wasserdichtheit_spinner_array">
-        <item>nicht wassergeschützt</item>
-        <item>spritzwassergeschützt</item>
-        <item>wasserdicht</item>
+        <item>nicht wassergeschützt (0€)</item>
+        <item>spritzwassergeschützt (0,5€)</item>
+        <item>wasserdicht (2€)</item>
     </string-array>
 
 
@@ -102,10 +102,10 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="zusammenbau_info_textview">Hier können Sie den Produktionsort für Ihre Uhren auswählen. Die Wahl des Produktionsortes und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
     <string name="zusammenbau_textview">Auswahl des Produktionsorts</string>
     <string-array name="zusammenbau_spinner_array">
-        <item>Deutschland</item>
-        <item>Asien</item>
-        <item>Osteuropa</item>
-        <item>Schweiz</item>
+        <item>Deutschland (4,5€)</item>
+        <item>Asien (0,5€)</item>
+        <item>Osteuropa (0,5€)</item>
+        <item>Schweiz (5€)</item>
     </string-array>
 
 
@@ -114,9 +114,9 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="werbung_info_textview">Hier können Sie den Umfang der Werbung für Ihre Uhren auswählen. Der Umfang der Werbung und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen.</string>
     <string name="werbung_textview">Auswahl des Werbeumfangs</string>
     <string-array name="werbung_spinner_array">
-        <item>viel</item>
-        <item>mittel</item>
-        <item>wenig</item>
+        <item>viel (5000€)</item>
+        <item>mittel (3000€)</item>
+        <item>wenig (1000€)</item>
     </string-array>
 
 

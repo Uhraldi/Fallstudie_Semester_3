@@ -7,12 +7,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
 public class E2_ArmbandActivity extends AppCompatActivity {
 
-    String ItemSelectedInArmbandSpinner;
+    String auswahlArmband;
     private Spinner ArmbandSpinner;
 
 
@@ -27,12 +28,19 @@ public class E2_ArmbandActivity extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_e2_armband);
+        IntroductionActivity.model.setActivity_E2();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToArmbandSpinner();
 
         //fuegt dem Spinner einen Listener hinzu
         addListenertoArmbandSpinner();
+
+        //Ausgabe der aktuellen Kosten anhand der Auswahl
+        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
 
     }
 
@@ -60,8 +68,9 @@ public class E2_ArmbandActivity extends AppCompatActivity {
         ArmbandSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
-                String ItemSelectedInArmbandSpinner = parent.getItemAtPosition(pos).toString();    //speichert den gewaehlten Wert in einem String
-                //der weitergegeben werden muss...
+                String ItemSelectedInArmbandSpinner = parent.getItemAtPosition(pos).toString();
+                String[] separated = ItemSelectedInArmbandSpinner.split("\\(");
+                auswahlArmband = separated[0].trim();
             }
 
             @Override
@@ -75,14 +84,16 @@ public class E2_ArmbandActivity extends AppCompatActivity {
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
+
+        //Methodenaufruf von Model um Spinner Auswahl zu setzen
+        IntroductionActivity.model.setArmband(auswahlArmband);
+
         Intent intent = new Intent(this, E3_UhrwerkActivity.class);
-
-        //Methodenaufruf von Model um Designer zu setzen
-        //IntroductionActivity.model.setDesigner(ItemSelectedInArmbandSpinner);
-
         startActivity(intent);
         finish();
     }
+
+
 
     //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
 /*

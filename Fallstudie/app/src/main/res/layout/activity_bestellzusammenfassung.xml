@@ -10,15 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.patsc.fallstudie.Activities.BestellzusammenfassungActivity">
 
-    <TextView
-        android:text="@string/bestellzsmfassung_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/bestellzsmfassung_textview" />
-
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,7 +32,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView39"
+                android:id="@+id/designer_auswahl_output_textview"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -60,7 +51,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView37"
+                android:id="@+id/armband_auswahl_output_textview"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -79,7 +70,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView20"
+                android:id="@+id/uhrwerk_auswahl_output_textview"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -98,7 +89,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView21"
+                android:id="@+id/gehaeuse_auswahl_output_textview"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -117,7 +108,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView23"
+                android:id="@+id/versandart_auswahl_output_textview"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -136,7 +127,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView25"
+                android:id="@+id/wasserdichtheit_auswahl_output_textview"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -155,7 +146,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView27"
+                android:id="@+id/zusammenbau_auswahl_output_textview"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -174,7 +165,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView28"
+                android:id="@+id/werbung_auswahl_output_textview"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -193,7 +184,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView29"
+                android:id="@+id/kaufvolumen_auswahl_output_textview"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -212,7 +203,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView35"
+                android:id="@+id/verkaufspreis_auswahl_output_textview"
                 android:layout_margin="5dp" />
 
         </TableRow>
@@ -226,5 +217,14 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="goToNextActivity"/>
+
+    <TextView
+        android:text="@string/bestellzsmfassung_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bestellzsmfassung_textview"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

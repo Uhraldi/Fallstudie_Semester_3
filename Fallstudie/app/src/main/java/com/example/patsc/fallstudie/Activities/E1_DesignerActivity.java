@@ -14,9 +14,9 @@ import com.example.patsc.fallstudie.R;
 
 public class E1_DesignerActivity extends AppCompatActivity {
 
-    int gesamtkosten;
-    int stueckkosten;
     private Spinner DesignerSpinner;
+    String auswahlDesigner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +28,19 @@ public class E1_DesignerActivity extends AppCompatActivity {
         }*/
 
         setContentView(R.layout.activity_e1_designer);
+        IntroductionActivity.model.setActivity_E1();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToDesignerSpinner();
 
         //fuegt dem Spinner einen Listener hinzu
         addListenertoDesigner_Spinner();
+
+        //Ausgabe der aktuellen Kosten anhand der Auswahl
+        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
 
         }
 
@@ -61,16 +68,9 @@ public class E1_DesignerActivity extends AppCompatActivity {
         DesignerSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
-                String ItemSelectedInDesignerSpinner = parent.getItemAtPosition(pos).toString();    //TODO: String splitten Markendesigner (10.000€) per (-Split
-
-                //Methodenaufruf von Model um Designer zu setzen
-                IntroductionActivity.model.setDesigner(ItemSelectedInDesignerSpinner);                      //TODO: hier oder erst im weiter button?
-
-              //Ausgabe der aktuellen Kosten anhand der Auswahl
-                TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-                gesamtkosten_output.setText(IntroductionActivity.model.liefereGesamtkosten(gesamtkosten));
-                TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-                stueckkosten_output.setText(IntroductionActivity.model.liefereStueckkosten(stueckkosten));
+                String ItemSelectedInDesignerSpinner = parent.getItemAtPosition(pos).toString();
+                String[] separated = ItemSelectedInDesignerSpinner.split("\\(");
+                auswahlDesigner = separated[0].trim();
             }
 
             @Override
@@ -84,9 +84,11 @@ public class E1_DesignerActivity extends AppCompatActivity {
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
+
+        //Methodenaufruf von Model um Designer zu setzen
+        IntroductionActivity.model.setDesigner(auswahlDesigner);
+
         Intent intent = new Intent(this, E2_ArmbandActivity.class);
-
-
         startActivity(intent);
         finish();
     }

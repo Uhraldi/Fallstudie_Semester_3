@@ -16,6 +16,7 @@ public class BerechnungActivity extends AppCompatActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_berechnung);
+        IntroductionActivity.model.setActivity_Berechnung();
 
         /* neuer Handler, der die RundenergebnisActivity nach ein paar Sekunden anzeigt*/
         new Handler().postDelayed(new Runnable(){

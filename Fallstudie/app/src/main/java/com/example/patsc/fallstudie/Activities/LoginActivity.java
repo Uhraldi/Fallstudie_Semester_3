@@ -19,15 +19,15 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        IntroductionActivity.model.setActivity_Login();                        // TODO: überall setActivity implementieren
+        IntroductionActivity.model.setActivity_Login();
 
         //Verknuepfen von EditText mit UI-Element per ID
         EditText login_username_input = (EditText) findViewById(R.id.login_username_input);
         EditText login_password_input = (EditText) findViewById(R.id.login_password_input);
 
         //speichere Eingabewerte im String
-        String inputUsername = login_username_input.getText().toString();
-        String inputPassword = login_password_input.getText().toString();
+        inputUsername = login_username_input.getText().toString();
+        inputPassword = login_password_input.getText().toString();
     }
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren

@@ -17,14 +17,14 @@ public class IntroductionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduction);
 
-        //erzeugt Instanz der Klasse Model, das fortlaufend den Activities mitgegeben wird
+        //erzeugt Instanz der Klasse Model, das durchgehend bestehen bleibt
         model = new Model();
     }
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) {
         Intent intent = new Intent(this, LoginActivity.class);
-        //finish(); <-- diese Activity leben lassen wegen des Model model Objects?
+        //finish();                      <-- diese Activity leben lassen wegen des Model model Objects?
         startActivity(intent);
     }
 }
