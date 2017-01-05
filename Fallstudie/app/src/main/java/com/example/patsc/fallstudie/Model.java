@@ -484,7 +484,7 @@ public class  Model {
             armband = ARMBAND_WAHL_METALL;
         }
         else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isTextil()){
-            armband = ARMBAND_WAHL_TEXTIL
+            armband = ARMBAND_WAHL_TEXTIL;
         }
         else{
 
@@ -504,7 +504,7 @@ public class  Model {
             uhrwerk = UHRWERK_WAHL_ELEKTROMECHANISCH;
         }
         else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getUhrwerk().isElektronisch()) {
-            uhrwerk = UHRWERK_WAHL_ELEKTRONISCH
+            uhrwerk = UHRWERK_WAHL_ELEKTRONISCH;
         }
         else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getUhrwerk().isMechanisch()){
             uhrwerk = UHRWERK_WAHL_MECHANISCH;}
@@ -668,9 +668,11 @@ public class  Model {
         return daten.getRundenAnzahl();
     }
 
-    public Spieler[] getBestenliste{
+/*    public Spieler[] getBestenliste{
         //ToDo
-    }
+        Spieler [] nF = new SPieler()[3];
+        return nF;
+    }*/
     //Methoden zum Überprüfen ob ein Zufall eingetreten ist, entsprechende Weiterleitung der Activities
     // TODO: richtiger Rückgabewert, welcher genaue Zufall? bei Z1 Leder, Metall oder .. ?
 
@@ -679,104 +681,208 @@ public class  Model {
         AENDERE_ARMBAND_boolean=false;
         AENDERE_GEHAEUSE_boolean =false;
         AENDERE_ZUSAMMENBAU_boolean = false;
-        double wahrscheinlichkeit;
+        double wahrscheinlichkeit = 0;
         try {
             if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isHolz()){
                 wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().getHolzRisiko();
             }
-            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isKunstleder() ){
+            else if (getArmband().equals(ARMBAND_WAHL_KUNSTLEDER) ){
                 wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().getKunstlederRisiko();
+            }
+            else if (getArmband().equals(ARMBAND_WAHL_LEDER)){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().getLederRisiko();
+            }
+            else if (getArmband().equals(ARMBAND_WAHL_METALL)){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().getMetallRisiko();
+            }
+            else if (getArmband().equals(ARMBAND_WAHL_TEXTIL)){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().getTextilRisiko();
+            }
+            else{
+                throw new Exception("Keine Auswahl fuer Armband getroffen");
             }
 
         }//Ende try
 
-
-        return true;
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (zufallszahl<=wahrscheinlichkeit){
+            AENDERE_ARMBAND_boolean =true;
+            return true;
+        }
+        else{
+            return false;
+        }
     }// Ende isZufall1
 
     public boolean isZufall2 (){ // Zufall 2 = Gehäuse Ändern
-        return true;
-    }
+        double zufallszahl = Math.random();
+        AENDERE_ARMBAND_boolean=false;
+        AENDERE_GEHAEUSE_boolean =false;
+        AENDERE_ZUSAMMENBAU_boolean = false;
+        double wahrscheinlichkeit = 0;
+        try {
+            if (getGehaeuse().equals(GEHAEUSE_WAHL_KUNSTSTOFF)){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getGehaeuse().getKunststoffRisiko();
+            }
+            else if(getGehaeuse().equals(GEHAEUSE_WAHL_METALL)){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getGehaeuse().getMetallRisiko();
+            }
+            else if(getGehaeuse().equals(GEHAEUSE_WAHL_GLAS)){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getGehaeuse().getGlasRisiko();
+            }
+            else if (getGehaeuse().equals(GEHAEUSE_WAHL_HOLZ)){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getGehaeuse().getHolzRisiko();
+            }
+            else{
+                throw new Exception("Keine Auswahl des Gehaeuses getroffen.");
+            }
+        }//Ende try
+
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (zufallszahl<=wahrscheinlichkeit){
+            AENDERE_GEHAEUSE_boolean =true;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }// Ende isZufall2
 
     public boolean isZufall3 (){ // Zufall 3 = Zusammenbau Ändern
+        double zufallszahl = Math.random();
+        AENDERE_ARMBAND_boolean=false;
+        AENDERE_GEHAEUSE_boolean =false;
+        AENDERE_ZUSAMMENBAU_boolean = false;
+        double wahrscheinlichkeit = 0;
+        try {
+            if (getZusammenbau().equals(ZUSAMMENBAU_WAHL_ASIEN)){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getAsienRisiko();
+            }
+            else if (getZusammenbau().equals(ZUSAMMENBAU_WAHL_SCHWEIZ)){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getSchweizRisiko();
+            }
+            else if (getZusammenbau().equals(ZUSAMMENBAU_WAHL_OSTEUROPA)){
+                wahrscheinlichkeit =  aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getAsienRisiko();
+
+            }
+            else if (getZusammenbau().equals(ZUSAMMENBAU_WAHL_DEUTSCHLAND)){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getDeutschlandRisiko();
+            }
+        else{
+            throw new Exception("Keine Auswahl des Gehaeuses getroffen.");
+        }
+    }//Ende try
+
+    catch (Exception e) {
+        e.printStackTrace();
+    }
+    if (zufallszahl<=wahrscheinlichkeit){
+        AENDERE_GEHAEUSE_boolean =true;
         return true;
     }
+    else{
+        return false;
+    }
+}// Ende isZufall3
 
 
     //Methoden zum setzen der aktuellen UI-Activity (aufgerufen in onCreate)
 
     public void setActivity_Login () {
-
+    setzeAlleZustaendeFalse();
+        setzeAlleSchritteFalse();
+        setZustand_Spielbeginn(true);
     }
 
     public void setActivity_E1 () {
-
+        setZustand_Bestellung(true);
+        setSCHRITT_DESIGNER_boolean(true);
     }
 
     public void setActivity_E2 () {
+        setZustand_Bestellung(true);
+        setSCHRITT_ARMBAND_boolean(true);
 
     }
 
     public void setActivity_E3 () {
-
+        setZustand_Bestellung(true);
+        setSCHRITT_UHRWERK_boolean(true);
     }
 
     public void setActivity_E4 () {
-
+        setZustand_Bestellung(true);
+        setSCHRITT_GEHAUESE_boolean(true);
     }
 
     public void setActivity_E5 () {
+        setZustand_Bestellung(true);
+        setSCHRITT_VERSANDART_boolean(true);
 
     }
 
     public void setActivity_E6 () {
-
+        setZustand_Bestellung(true);
+        setSCHRITT_DICHTHEIT_boolean(true);
     }
 
     public void setActivity_E7 () {
-
+        setZustand_Bestellung(true);
+        setSCHRITT_ZUSAMMENBAU_boolean(true);
     }
 
     public void setActivity_E8 () {
-
+        setZustand_Bestellung(true);
+        setSCHRITT_WERBUNG_boolean(true);
     }
 
     public void setActivity_E9 () {
-
+        setZustand_Bestellung(true);
+        setSCHRITT_KAUFVOLUMEN_boolean(true);
     }
 
     public void setActivity_E10 () {
+        setZustand_Bestellung(true);
+        setSCHRITT_VERKAUFSPREIS_boolean(true);
 
     }
 
 
     public void setActivity_Bestellzusammenfassung () {
-
+        setZustand_Bestellung(true);
+        setzeAlleZustaendeFalse();
     }
 
 
     public void setActivity_Z1 () {
-
+        setZustand_Ereignis(true);
+        setAENDERE_ARMBAND_boolean(true);
     }
 
 
     public void setActivity_Z2 () {
-
+        setZustand_Ereignis(true);
+        setAENDERE_GEHAEUSE_boolean(true);
     }
 
 
     public void setActivity_Z3 () {
-
+        setZustand_Ereignis(true);
+        setAENDERE_ZUSAMMENBAU_boolean(true);
     }
 
 
     public void setActivity_Berechnung () {
-
+    setZustand_Lieferung(true);
     }
 
 
     public void setActivity_Rundenergebnis () {
-
+    setZustand_Lieferung(true);
     }
 
 
@@ -785,6 +891,275 @@ public class  Model {
     public boolean SCHRITT_DESIGNER_boolean = false;// erster Schritt Wahl des Designers
     public boolean SCHRITT_ARMBAND_boolean  = false;// zweite Schritt Wahl des Armbands
     public boolean SCHRITT_UHRWERK_boolean  = false;// dritter Schritt Wahl des Uhrwerks und der Uhrenart
+
+    public String getSCHRITT_VERKAUFSPREIS() {
+        return SCHRITT_VERKAUFSPREIS;
+    }
+
+    public boolean isAENDERE_ARMBAND_boolean() {
+        return AENDERE_ARMBAND_boolean;
+    }
+
+    public void setAENDERE_ARMBAND_boolean(boolean AENDERE_ARMBAND_boolean) {
+        this.AENDERE_ARMBAND_boolean = AENDERE_ARMBAND_boolean;
+    }
+
+    public boolean isAENDERE_GEHAEUSE_boolean() {
+        return AENDERE_GEHAEUSE_boolean;
+    }
+
+    public void setAENDERE_GEHAEUSE_boolean(boolean AENDERE_GEHAEUSE_boolean) {
+        this.AENDERE_GEHAEUSE_boolean = AENDERE_GEHAEUSE_boolean;
+    }
+
+    public boolean isAENDERE_ZUSAMMENBAU_boolean() {
+        return AENDERE_ZUSAMMENBAU_boolean;
+    }
+
+    public void setAENDERE_ZUSAMMENBAU_boolean(boolean AENDERE_ZUSAMMENBAU_boolean) {
+        this.AENDERE_ZUSAMMENBAU_boolean = AENDERE_ZUSAMMENBAU_boolean;
+    }
+
+    public Spieler getAktiverSpieler() {
+        return aktiverSpieler;
+    }
+
+    public void setAktiverSpieler(Spieler aktiverSpieler) {
+        this.aktiverSpieler = aktiverSpieler;
+    }
+
+    public String getARMBAND_WAHL_HOLZ() {
+        return ARMBAND_WAHL_HOLZ;
+    }
+
+    public String getARMBAND_WAHL_KUNSTLEDER() {
+        return ARMBAND_WAHL_KUNSTLEDER;
+    }
+
+    public String getARMBAND_WAHL_LEDER() {
+        return ARMBAND_WAHL_LEDER;
+    }
+
+    public String getARMBAND_WAHL_METALL() {
+        return ARMBAND_WAHL_METALL;
+    }
+
+    public String getARMBAND_WAHL_TEXTIL() {
+        return ARMBAND_WAHL_TEXTIL;
+    }
+
+    public void setDaten(Daten daten) {
+        this.daten = daten;
+    }
+
+    public String getDESIGNER_WAHL_LOWBUDGET() {
+        return DESIGNER_WAHL_LOWBUDGET;
+    }
+
+    public String getDESIGNER_WAHL_MARKEN() {
+        return DESIGNER_WAHL_MARKEN;
+    }
+
+    public String getDESINGER_WAHL_MITTELMAESIG() {
+        return DESINGER_WAHL_MITTELMAESIG;
+    }
+
+    public String getGEHAEUSE_WAHL_GLAS() {
+        return GEHAEUSE_WAHL_GLAS;
+    }
+
+    public String getGEHAEUSE_WAHL_HOLZ() {
+        return GEHAEUSE_WAHL_HOLZ;
+    }
+
+    public String getGEHAEUSE_WAHL_KUNSTSTOFF() {
+        return GEHAEUSE_WAHL_KUNSTSTOFF;
+    }
+
+    public String getGEHAEUSE_WAHL_METALL() {
+        return GEHAEUSE_WAHL_METALL;
+    }
+
+    public String getSCHRITT_ARMBAND() {
+        return SCHRITT_ARMBAND;
+    }
+
+    public boolean isSCHRITT_ARMBAND_boolean() {
+        return SCHRITT_ARMBAND_boolean;
+    }
+
+    public void setSCHRITT_ARMBAND_boolean(boolean SCHRITT_ARMBAND_boolean) {
+        this.SCHRITT_ARMBAND_boolean = SCHRITT_ARMBAND_boolean;
+    }
+
+    public String getSCHRITT_DESIGNER() {
+        return SCHRITT_DESIGNER;
+    }
+
+    public boolean isSCHRITT_DESIGNER_boolean() {
+        return SCHRITT_DESIGNER_boolean;
+    }
+
+    public void setSCHRITT_DESIGNER_boolean(boolean SCHRITT_DESIGNER_boolean) {
+        this.SCHRITT_DESIGNER_boolean = SCHRITT_DESIGNER_boolean;
+    }
+
+    public String getSCHRITT_DICHTHEIT() {
+        return SCHRITT_DICHTHEIT;
+    }
+
+    public boolean isSCHRITT_DICHTHEIT_boolean() {
+        return SCHRITT_DICHTHEIT_boolean;
+    }
+
+    public void setSCHRITT_DICHTHEIT_boolean(boolean SCHRITT_DICHTHEIT_boolean) {
+        this.SCHRITT_DICHTHEIT_boolean = SCHRITT_DICHTHEIT_boolean;
+    }
+
+    public String getSCHRITT_GEHAUESE() {
+        return SCHRITT_GEHAUESE;
+    }
+
+    public boolean isSCHRITT_GEHAUESE_boolean() {
+        return SCHRITT_GEHAUESE_boolean;
+    }
+
+    public void setSCHRITT_GEHAUESE_boolean(boolean SCHRITT_GEHAUESE_boolean) {
+        this.SCHRITT_GEHAUESE_boolean = SCHRITT_GEHAUESE_boolean;
+    }
+
+    public String getSCHRITT_KAUFVOLUMEN() {
+        return SCHRITT_KAUFVOLUMEN;
+    }
+
+    public boolean isSCHRITT_KAUFVOLUMEN_boolean() {
+        return SCHRITT_KAUFVOLUMEN_boolean;
+    }
+
+    public void setSCHRITT_KAUFVOLUMEN_boolean(boolean SCHRITT_KAUFVOLUMEN_boolean) {
+        this.SCHRITT_KAUFVOLUMEN_boolean = SCHRITT_KAUFVOLUMEN_boolean;
+    }
+
+    public String getSCHRITT_UHRWERK() {
+        return SCHRITT_UHRWERK;
+    }
+
+    public boolean isSCHRITT_UHRWERK_boolean() {
+        return SCHRITT_UHRWERK_boolean;
+    }
+
+    public void setSCHRITT_UHRWERK_boolean(boolean SCHRITT_UHRWERK_boolean) {
+        this.SCHRITT_UHRWERK_boolean = SCHRITT_UHRWERK_boolean;
+    }
+
+    public boolean isSCHRITT_VERKAUFSPREIS_boolean() {
+        return SCHRITT_VERKAUFSPREIS_boolean;
+    }
+
+    public void setSCHRITT_VERKAUFSPREIS_boolean(boolean SCHRITT_VERKAUFSPREIS_boolean) {
+        this.SCHRITT_VERKAUFSPREIS_boolean = SCHRITT_VERKAUFSPREIS_boolean;
+    }
+
+    public String getSCHRITT_VERSANDART() {
+        return SCHRITT_VERSANDART;
+    }
+
+    public boolean isSCHRITT_VERSANDART_boolean() {
+        return SCHRITT_VERSANDART_boolean;
+    }
+
+    public void setSCHRITT_VERSANDART_boolean(boolean SCHRITT_VERSANDART_boolean) {
+        this.SCHRITT_VERSANDART_boolean = SCHRITT_VERSANDART_boolean;
+    }
+
+    public String getSCHRITT_WERBUNG() {
+        return SCHRITT_WERBUNG;
+    }
+
+    public boolean isSCHRITT_WERBUNG_boolean() {
+        return SCHRITT_WERBUNG_boolean;
+    }
+
+    public void setSCHRITT_WERBUNG_boolean(boolean SCHRITT_WERBUNG_boolean) {
+        this.SCHRITT_WERBUNG_boolean = SCHRITT_WERBUNG_boolean;
+    }
+
+    public String getSCHRITT_ZUSAMMENBAU() {
+        return SCHRITT_ZUSAMMENBAU;
+    }
+
+    public boolean isSCHRITT_ZUSAMMENBAU_boolean() {
+        return SCHRITT_ZUSAMMENBAU_boolean;
+    }
+
+    public void setSCHRITT_ZUSAMMENBAU_boolean(boolean SCHRITT_ZUSAMMENBAU_boolean) {
+        this.SCHRITT_ZUSAMMENBAU_boolean = SCHRITT_ZUSAMMENBAU_boolean;
+    }
+
+    public String getUHRWERK_WAHL_ELEKTROMECHANISCH() {
+        return UHRWERK_WAHL_ELEKTROMECHANISCH;
+    }
+
+    public String getUHRWERK_WAHL_ELEKTRONISCH() {
+        return UHRWERK_WAHL_ELEKTRONISCH;
+    }
+
+    public String getUHRWERK_WAHL_MECHANISCH() {
+        return UHRWERK_WAHL_MECHANISCH;
+    }
+
+    public String getVERSANDART_WAHL_FLUGZEUG() {
+        return VERSANDART_WAHL_FLUGZEUG;
+    }
+
+    public String getVERSANDART_WAHL_LANDWEG() {
+        return VERSANDART_WAHL_LANDWEG;
+    }
+
+    public String getVESANDART_WAHL_SCHIFF() {
+        return VESANDART_WAHL_SCHIFF;
+    }
+
+    public String getWASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT() {
+        return WASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT;
+    }
+
+    public String getWASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT() {
+        return WASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT;
+    }
+
+    public String getWASSERDICHTHEIT_WAHL_WASSERDICHT() {
+        return WASSERDICHTHEIT_WAHL_WASSERDICHT;
+    }
+
+    public String getWERBUNG_WAHL_MITTEL() {
+        return WERBUNG_WAHL_MITTEL;
+    }
+
+    public String getWERBUNG_WAHL_VIEL() {
+        return WERBUNG_WAHL_VIEL;
+    }
+
+    public String getWERBUNG_WAHL_WENIG() {
+        return WERBUNG_WAHL_WENIG;
+    }
+
+    public String getZUSAMMENBAU_WAHL_ASIEN() {
+        return ZUSAMMENBAU_WAHL_ASIEN;
+    }
+
+    public String getZUSAMMENBAU_WAHL_DEUTSCHLAND() {
+        return ZUSAMMENBAU_WAHL_DEUTSCHLAND;
+    }
+
+    public String getZUSAMMENBAU_WAHL_OSTEUROPA() {
+        return ZUSAMMENBAU_WAHL_OSTEUROPA;
+    }
+
+    public String getZUSAMMENBAU_WAHL_SCHWEIZ() {
+        return ZUSAMMENBAU_WAHL_SCHWEIZ;
+    }
+
     public boolean SCHRITT_GEHAUESE_boolean  = false;// vierter Schritt Wahl des Gehäuses für die Uhr
     public boolean SCHRITT_DICHTHEIT_boolean  = false;// fuenfter Schritt Wahl der Dichtheit
     public boolean SCHRITT_ZUSAMMENBAU_boolean  = false;// sechster Schritt Wahl Zusammenbau
