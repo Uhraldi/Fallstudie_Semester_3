@@ -1,12 +1,4 @@
 package com.example.patsc.fallstudie;
-import com.example.patsc.fallstudie.Bestandteile.Armband;
-import com.example.patsc.fallstudie.Bestandteile.Designer;
-import com.example.patsc.fallstudie.Bestandteile.Gehaeuse;
-import com.example.patsc.fallstudie.Bestandteile.Produktionsort;
-import com.example.patsc.fallstudie.Bestandteile.Uhrwerk;
-import com.example.patsc.fallstudie.Bestandteile.Versandart;
-import com.example.patsc.fallstudie.Bestandteile.Wasserdichtheit;
-import com.example.patsc.fallstudie.Bestandteile.Werbung;
 
 import java.util.ArrayList;
 

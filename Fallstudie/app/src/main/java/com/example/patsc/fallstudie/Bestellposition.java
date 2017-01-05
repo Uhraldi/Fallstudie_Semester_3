@@ -2,7 +2,7 @@ package com.example.patsc.fallstudie;
 import com.example.patsc.fallstudie.Bestandteile.Armband;
 import com.example.patsc.fallstudie.Bestandteile.Designer;
 import com.example.patsc.fallstudie.Bestandteile.Gehaeuse;
-import com.example.patsc.fallstudie.Bestandteile.Produktionsort;
+import com.example.patsc.fallstudie.Bestandteile.Zusammenbau;
 import com.example.patsc.fallstudie.Bestandteile.Uhrwerk;
 import com.example.patsc.fallstudie.Bestandteile.Versandart;
 import com.example.patsc.fallstudie.Bestandteile.Wasserdichtheit;
@@ -21,14 +21,14 @@ public class Bestellposition {
     private double vkp = 0;
     private double risikoArmband = 0;
     private double risikoGehaeuse = 0;
-    private double risikoProduktionsort = 0;
+    private double risikoZusammenbau = 0;
     private double zufall = 0;
     private double strafe = 0;
 
     private Armband armband = new Armband();
     private Designer designer = new Designer();
     private Gehaeuse gehaeuse = new Gehaeuse();
-    private Produktionsort produktionsort = new Produktionsort();
+    private Zusammenbau zusamenbau = new Zusammenbau();
     private Uhrwerk uhrwerk = new Uhrwerk();
     private Versandart versandart = new Versandart();
     private Wasserdichtheit wasserdichtheit = new Wasserdichtheit();
@@ -189,34 +189,34 @@ public class Bestellposition {
         }
     }
 
-    public void bestelleProduktionsort(String eingabe) throws FalscheEingabe{
+    public void bestelleZusamenbau(String eingabe) throws FalscheEingabe{
         switch(eingabe) {
             case "Deutschland": {
-                produktionsort.setDeutschland(true);
-                varKosten += produktionsort.getDeutschlandEKP();
-                pws += produktionsort.getDeutschlandPWS();
-                risikoProduktionsort = produktionsort.getDeutschlandRisiko();
+                zusamenbau.setDeutschland(true);
+                varKosten += zusamenbau.getDeutschlandEKP();
+                pws += zusamenbau.getDeutschlandPWS();
+                risikoZusammenbau = zusamenbau.getDeutschlandRisiko();
                 break;
             }
             case "Asien": {
-                produktionsort.setAsien(true);
-                varKosten += produktionsort.getAsienEKP();
-                pws += produktionsort.getAsienPWS();
-                risikoProduktionsort = produktionsort.getAsienRisiko();
+                zusamenbau.setAsien(true);
+                varKosten += zusamenbau.getAsienEKP();
+                pws += zusamenbau.getAsienPWS();
+                risikoZusammenbau = zusamenbau.getAsienRisiko();
                 break;
             }
             case "Osteuropa": {
-                produktionsort.setOsteuropa(true);
-                varKosten += produktionsort.getOsteuropaEKP();
-                pws += produktionsort.getOsteuropaPWS();
-                risikoProduktionsort = produktionsort.getOsteuropaRisiko();
+                zusamenbau.setOsteuropa(true);
+                varKosten += zusamenbau.getOsteuropaEKP();
+                pws += zusamenbau.getOsteuropaPWS();
+                risikoZusammenbau = zusamenbau.getOsteuropaRisiko();
                 break;
             }
             case "Schweiz": {
-                produktionsort.setSchweiz(true);
-                varKosten += produktionsort.getSchweizEKP();
-                pws += produktionsort.getSchweizPWS();
-                risikoProduktionsort = produktionsort.getSchweizRisiko();
+                zusamenbau.setSchweiz(true);
+                varKosten += zusamenbau.getSchweizEKP();
+                pws += zusamenbau.getSchweizPWS();
+                risikoZusammenbau = zusamenbau.getSchweizRisiko();
                 break;
             }
             default: {
@@ -339,7 +339,9 @@ public class Bestellposition {
     public void bestelleVKP(int vkp)throws FalscheEingabe{
             this.vkp = vkp;
     }
-
+/*
+Wer fängt denn die falsche Angabe ab?? ToDo
+ */
     public void korrigiereArmband( String eingabe) throws FalscheEingabe{
         if(armband.isLeder()){
                 armband.setLeder(false);
@@ -410,32 +412,32 @@ public class Bestellposition {
         bestelleGehaeuse(eingabe);
     }
 
-    public void korrigiereProduktionsort(String eingabe) throws FalscheEingabe{
-        if(produktionsort.isDeutschland()){
-            produktionsort.setDeutschland(false);
-            varKosten -= produktionsort.getDeutschlandEKP();
-            pws -= produktionsort.getDeutschlandPWS();
-            risikoProduktionsort = 0;
-        }else if(produktionsort.isAsien()){
-            produktionsort.setAsien(false);
-            varKosten -= produktionsort.getAsienEKP();
-            pws -= produktionsort.getAsienPWS();
-            risikoProduktionsort = 0;
-        }else if (produktionsort.isOsteuropa()) {
-            produktionsort.setOsteuropa(false);
-            varKosten -= produktionsort.getOsteuropaEKP();
-            pws -= produktionsort.getOsteuropaPWS();
-            risikoProduktionsort = 0;
-        }else if(produktionsort.isSchweiz()){
-            produktionsort.setSchweiz(false);
-            varKosten -= produktionsort.getSchweizEKP();
-            pws -= produktionsort.getSchweizPWS();
-            risikoProduktionsort = 0;
+    public void korrigiereZusammenbau(String eingabe) throws FalscheEingabe{
+        if(zusamenbau.isDeutschland()){
+            zusamenbau.setDeutschland(false);
+            varKosten -= zusamenbau.getDeutschlandEKP();
+            pws -= zusamenbau.getDeutschlandPWS();
+            risikoZusammenbau = 0;
+        }else if(zusamenbau.isAsien()){
+            zusamenbau.setAsien(false);
+            varKosten -= zusamenbau.getAsienEKP();
+            pws -= zusamenbau.getAsienPWS();
+            risikoZusammenbau = 0;
+        }else if (zusamenbau.isOsteuropa()) {
+            zusamenbau.setOsteuropa(false);
+            varKosten -= zusamenbau.getOsteuropaEKP();
+            pws -= zusamenbau.getOsteuropaPWS();
+            risikoZusammenbau = 0;
+        }else if(zusamenbau.isSchweiz()){
+            zusamenbau.setSchweiz(false);
+            varKosten -= zusamenbau.getSchweizEKP();
+            pws -= zusamenbau.getSchweizPWS();
+            risikoZusammenbau = 0;
         }else{
             throw new FalscheEingabe();
         }
         varKosten += getStrafe();
-        bestelleProduktionsort(eingabe);
+        bestelleZusamenbau(eingabe);
     }
 
     public double getFixKosten() {
@@ -466,8 +468,8 @@ public class Bestellposition {
         return risikoGehaeuse;
     }
 
-    public double getRisikoProduktionsort() {
-        return risikoProduktionsort;
+    public double getRisikoZusammenbau() {
+        return risikoZusammenbau;
     }
 
     public double getZufall() {
@@ -495,8 +497,8 @@ public class Bestellposition {
         return gehaeuse;
     }
 
-    public Produktionsort getProduktionsort() {
-        return produktionsort;
+    public Zusammenbau getZusammenbau() {
+        return zusamenbau;
     }
 
     public Versandart getVersandart() {

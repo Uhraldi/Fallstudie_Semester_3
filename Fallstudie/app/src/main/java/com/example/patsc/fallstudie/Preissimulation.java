@@ -2,7 +2,6 @@ package com.example.patsc.fallstudie;
 
 
 import com.example.patsc.fallstudie.Bestandteile.Designer;
-import com.example.patsc.fallstudie.Spieler;
 
 /**
  * Created by Jonas on 02.01.17.
@@ -266,30 +265,30 @@ public class Preissimulation extends Designer {
     public void berechneProduktionsort (String auswahlProduktionsort) {
         switch (auswahlProduktionsort) {
             case "Deutschland": {
-                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getProduktionsort().getDeutschlandEKP();
+                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getZusammenbau().getDeutschlandEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * bestellung.getBestellposition(RundenNr).getProduktionsort().getDeutschlandPWS())
+                        * bestellung.getBestellposition(RundenNr).getZusammenbau().getDeutschlandPWS())
                         + ProduktionsortEkp;
                 break;
             }
             case "Asien": {
-                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getProduktionsort().getAsienEKP();
+                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getZusammenbau().getAsienEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * bestellung.getBestellposition(RundenNr).getProduktionsort().getAsienPWS())
+                        * bestellung.getBestellposition(RundenNr).getZusammenbau().getAsienPWS())
                         + ProduktionsortEkp;
                 break;
             }
             case "Osteuropa": {
-                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getProduktionsort().getOsteuropaEKP();
+                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getZusammenbau().getOsteuropaEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * bestellung.getBestellposition(RundenNr).getProduktionsort().getOsteuropaPWS())
+                        * bestellung.getBestellposition(RundenNr).getZusammenbau().getOsteuropaPWS())
                         + ProduktionsortEkp;
                 break;
             }
             case "Schweiz": {
-                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getProduktionsort().getSchweizEKP();
+                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getZusammenbau().getSchweizEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * bestellung.getBestellposition(RundenNr).getProduktionsort().getSchweizPWS())
+                        * bestellung.getBestellposition(RundenNr).getZusammenbau().getSchweizPWS())
                         + ProduktionsortEkp;
                 break;
             }
