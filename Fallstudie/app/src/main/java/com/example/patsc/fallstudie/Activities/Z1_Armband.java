@@ -23,6 +23,32 @@ public class Z1_Armband extends AppCompatActivity {
         setContentView(R.layout.activity_z1_armband);
         IntroductionActivity.model.setActivity_Z1();
 
+        //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
+        TextView z1armband_info_textiew = (TextView) findViewById(R.id.z1armband_info_textview);
+        switch (IntroductionActivity.model.getArmband()){
+            case "Leder": {
+                z1armband_info_textiew.setText(R.string.z1leder_info_textview);
+                break;
+            }
+            case "Kunstleder": {
+                z1armband_info_textiew.setText(R.string.z1kunstleder_info_textview);
+                break;
+            }
+            case "Holz": {
+                z1armband_info_textiew.setText(R.string.z1holz_info_textview);
+                break;
+            }
+            case "Textil": {
+                z1armband_info_textiew.setText(R.string.z1textil_info_textview);
+                break;
+            }
+            case "Metall": {
+                z1armband_info_textiew.setText(R.string.z1metall_info_textview);
+                break;
+            }
+        }
+
+
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToArmbandSpinner();
 
@@ -73,6 +99,7 @@ public class Z1_Armband extends AppCompatActivity {
         });
 
     }
+
 
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren

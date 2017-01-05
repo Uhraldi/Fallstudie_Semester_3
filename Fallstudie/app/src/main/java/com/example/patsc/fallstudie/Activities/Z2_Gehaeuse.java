@@ -23,6 +23,27 @@ public class Z2_Gehaeuse extends AppCompatActivity {
         setContentView(R.layout.activity_z2_gehaeuse);
         IntroductionActivity.model.setActivity_Z2();
 
+        //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
+        TextView z2gehaeuse_info_textiew = (TextView) findViewById(R.id.z2gehaeuse_info_textview);
+        switch (IntroductionActivity.model.getGehaeuse()){
+            case "Glas": {
+                z2gehaeuse_info_textiew.setText(R.string.z2glas_info_textview);
+                break;
+            }
+            case "Holz": {
+                z2gehaeuse_info_textiew.setText(R.string.z2holz_info_textview);
+                break;
+            }
+            case "Kunststoff": {
+                z2gehaeuse_info_textiew.setText(R.string.z2kunststoff_info_textview);
+                break;
+            }
+            case "Metall": {
+                z2gehaeuse_info_textiew.setText(R.string.z2metall_info_textview);
+                break;
+            }
+        }
+
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToGehaeuseSpinner();
 
