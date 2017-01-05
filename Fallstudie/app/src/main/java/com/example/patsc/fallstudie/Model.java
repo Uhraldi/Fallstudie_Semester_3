@@ -1184,11 +1184,30 @@ public class  Model {
         SCHRITT_KAUFVOLUMEN_boolean  = false; // achter Schritt Wahl des Kaufvolumens
         SCHRITT_VERSANDART_boolean  = false; // neunter Schritt Wahl der Versandart
         SCHRITT_VERKAUFSPREIS_boolean = false;
-
-
-
     }
 
+
+    public Bestellposition[] getBestellpositionen(){
+        Bestellposition[] bestellpositionen = new Bestellposition[daten.getSpielerAnzahl()];
+        try {
+            if (daten.getSpielerListe() == null) {
+                throw new Exception("Spieler Liste leer");
+            }
+
+            for (int i = 0; i < daten.getSpielerAnzahl(); i++) {
+                if (daten.getSpielerListe().get(0).getBestellung().getBestellposition(daten.getRundenAnzahl()) != null)
+                    bestellpositionen[i] = daten.getSpielerListe().get(0).getBestellung().getBestellposition(daten.getRundenAnzahl());
+                else{
+                    throw new Exception ("Kein Objekt gefunden");
+                }
+            }// Ende for
+
+        }//Ende Try
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bestellpositionen;
+    }
 
 } // ENDE KLASSE
 
