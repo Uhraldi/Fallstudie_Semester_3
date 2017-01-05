@@ -449,7 +449,7 @@ public class  Model {
     public void setVerkaufspreis (float verkaufspreisAuswahl){
         try{
             if (SCHRITT_VERKAUFSPREIS_boolean){
-                int verkaufspreis = ((int)verkaufspreisAuswahl);
+                double verkaufspreis = ((double)verkaufspreisAuswahl);
                 aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleVKP(verkaufspreis);
                 setzeAlleSchritteFalse();}
             else{

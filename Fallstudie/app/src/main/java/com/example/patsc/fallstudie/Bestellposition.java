@@ -336,7 +336,7 @@ public class Bestellposition {
             this.menge = menge;
     }
 
-    public void bestelleVKP(int vkp)throws FalscheEingabe{
+    public void bestelleVKP(double vkp)throws FalscheEingabe{
             this.vkp = vkp;
     }
 /*
