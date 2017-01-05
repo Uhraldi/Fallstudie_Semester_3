@@ -44,4 +44,16 @@ public class WasserdichtheitsTest {
         }
     }
 
+    @Test
+    public void getWasserdichtheitsFailTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleWasserdichtheit("Nicht Wassergeschützt");
+        }catch (Exception e){
+            fail(e.getMessage());
+        }
+        Assert.assertTrue(TestBestellposition.getWasserdichtheit().isNichtWassergeschützt());
+
+    }
+
 }

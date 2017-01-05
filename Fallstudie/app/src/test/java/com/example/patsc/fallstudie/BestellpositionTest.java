@@ -62,10 +62,26 @@ public class BestellpositionTest {
         Assert.assertEquals(0.0, TestBestellPosition.getZufall());
     }
 
-
-    public void bestelleMengeTest(){
+    @Test
+    public void getMengeTest(){
         Bestellposition TestBestellPosition = new Bestellposition();
-        //TestBestellPosition.bestelleMenge();
+        try {
+            TestBestellPosition.bestelleMenge(1500);
+        }catch (Exception e){
+            fail(e.getMessage());
+        }
+        Assert.assertEquals(1500,TestBestellPosition.getMenge());
+    }
+
+    @Test
+    public void getVKpTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleVKP(1500);
+        }catch (Exception e){
+            fail(e.getMessage());
+        }
+        Assert.assertEquals(1500.0, TestBestellposition.getVkp());
     }
 
 }

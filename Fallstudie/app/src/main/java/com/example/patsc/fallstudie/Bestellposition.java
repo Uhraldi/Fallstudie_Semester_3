@@ -23,6 +23,7 @@ public class Bestellposition {
     private double risikoGehaeuse = 0;
     private double risikoProduktionsort = 0;
     private double zufall = 0;
+    private double strafe = 0;
 
     private Armband armband = new Armband();
     private Designer designer = new Designer();
@@ -373,6 +374,7 @@ public class Bestellposition {
             }else {
                 throw new FalscheEingabe();
             }
+        varKosten += getStrafe(); //Erhöhung der varKosten um eine Strafe max um varKosten*0.05^3 bei 3 Ereignissen
         bestelleArmband(eingabe);
     }
 
@@ -404,6 +406,7 @@ public class Bestellposition {
         }else{
             throw new FalscheEingabe();
         }
+        varKosten += getStrafe();
         bestelleGehaeuse(eingabe);
     }
 
@@ -431,6 +434,7 @@ public class Bestellposition {
         }else{
             throw new FalscheEingabe();
         }
+        varKosten += getStrafe();
         bestelleProduktionsort(eingabe);
     }
 
@@ -468,6 +472,11 @@ public class Bestellposition {
 
     public double getZufall() {
         return zufall;
+    }
+
+    public double getStrafe(){
+        strafe = vkp*0.05;
+        return strafe;
     }
 
     public Designer getDesigner() {

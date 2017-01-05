@@ -45,5 +45,17 @@ public class GehaeuseTest {
         }
     }
 
+    @Test
+    public void getGehaeuseTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleGehaeuse("Glas");
+        }catch (Exception e){
+            fail(e.getMessage());
+        }
+        Assert.assertTrue(TestBestellposition.getGehaeuse().isGlas());
+
+    }
+
 
 }

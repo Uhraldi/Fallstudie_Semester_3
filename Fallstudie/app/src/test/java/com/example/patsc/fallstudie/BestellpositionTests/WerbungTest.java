@@ -45,4 +45,15 @@ public class WerbungTest {
         }
     }
 
+    @Test
+    public void getWerbungTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleWerbung("viel");
+        }catch (Exception e){
+            fail(e.getMessage());
+        }
+        Assert.assertTrue(TestBestellposition.getWerbung().isViel());
+    }
+
 }

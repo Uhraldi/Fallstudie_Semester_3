@@ -43,4 +43,16 @@ public class VersandArtTest {
         }
     }
 
+    @Test
+    public void getVersandArtTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleVersandart("Schiff");
+        }catch (Exception e){
+            fail(e.getMessage());
+        }
+        Assert.assertTrue(TestBestellposition.getVersandart().isSchiff());
+
+    }
+
 }

@@ -43,6 +43,16 @@ public class UhrwerkTest {
         }
     }
 
+    @Test
+    public void getUhrwerktTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleUhrwerk("Mechanisch");
+        }catch (Exception e){
+            fail(e.getMessage());
+        }
+        Assert.assertTrue(TestBestellposition.getUhrwerk().isMechanisch());
+    }
 
 
 }

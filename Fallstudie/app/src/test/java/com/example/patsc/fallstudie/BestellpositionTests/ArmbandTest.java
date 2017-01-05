@@ -23,15 +23,43 @@ public class ArmbandTest {
     String[] ArmbandWerte =
             {"Leder", "Kunstleder", "Holz", "Textil", "Metall"};
 
+
     @Theory
     public void bestelleArmbandTest(String ArmbandWerte){
         Bestellposition TestBestellposition = new Bestellposition();
         try {
             TestBestellposition.bestelleArmband(ArmbandWerte);
         }catch (Exception e){
-            fail("Sollte kein Fehler werfen");
+            fail(e.getMessage());
         }
     }
+
+
+
+    @Theory
+    public void ArmbandkorrekturTest(String ArmbandWerte){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleArmband(ArmbandWerte);
+            TestBestellposition.korrigiereArmband("Leder");
+        }catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void ArmbandkorrekturFailTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleArmband("Leder");
+            TestBestellposition.korrigiereArmband("FAIL");
+        }catch (Exception e) {
+            String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
+            Assert.assertEquals(msg, e.getMessage());
+        }
+    }
+
+
 
     @Test
     public void bestelleArmbandFailTest(){
@@ -42,6 +70,18 @@ public class ArmbandTest {
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
         }
+    }
+
+    @Test
+    public void getArmbandTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleArmband("Leder");
+        }catch (Exception e){
+            fail(e.getMessage());
+        }
+        Assert.assertTrue(TestBestellposition.getArmband().isLeder());
+
     }
 
 }

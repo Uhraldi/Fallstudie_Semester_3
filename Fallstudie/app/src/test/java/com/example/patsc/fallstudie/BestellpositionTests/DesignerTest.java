@@ -43,4 +43,17 @@ public class DesignerTest {
             Assert.assertEquals(msg, e.getMessage());
         }
     }
+
+    @Test
+    public void getDesignerTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleDesigner("Marken");
+        }catch (Exception e){
+            fail(e.getMessage());
+        }
+        Assert.assertTrue(TestBestellposition.getDesigner().isMarken());
+
+    }
+
 }

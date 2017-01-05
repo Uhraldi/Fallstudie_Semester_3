@@ -44,6 +44,18 @@ public class ProduktionsOrtTest {
         }
     }
 
+    @Test
+    public void getProduktionsOrtTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleProduktionsort("Deutschland");
+        }catch (Exception e){
+            fail(e.getMessage());
+        }
+        Assert.assertTrue(TestBestellposition.getProduktionsort().isDeutschland());
+
+    }
+
 
 
 
