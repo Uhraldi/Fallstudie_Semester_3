@@ -5,7 +5,7 @@ package com.example.patsc.fallstudie.Bestandteile;
  * testable
  */
 
-public class Produktionsort {
+public class Zusammenbau {
 
     //Auswahlen
     private boolean deutschland = false;
@@ -32,7 +32,7 @@ public class Produktionsort {
     private double schweizRisiko = 0.05;
 
 
-    public Produktionsort(){
+    public Zusammenbau(){
 
     }
 

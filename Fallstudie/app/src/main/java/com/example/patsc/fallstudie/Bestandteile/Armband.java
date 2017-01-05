@@ -149,6 +149,7 @@ public class Armband {
         return metallZufall;
     }
 
+
     public void setLeder(boolean leder) {
         this.leder = leder;
     }

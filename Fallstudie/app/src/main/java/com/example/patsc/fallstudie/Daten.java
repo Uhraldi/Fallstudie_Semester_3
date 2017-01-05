@@ -6,6 +6,10 @@ import java.util.ArrayList;
  * so dass aus Ihr der neue Spielstand geladen werden kann.
  */
 public class Daten {
+    public ArrayList<Spieler> getSpielerListe() {
+        return SpielerListe;
+    }
+
     private ArrayList<Spieler> SpielerListe; // Liste aller Spieler
     private int SpielerAnzahl;
     private ArrayList<Runde> RundenListe; //Liste der bisherigen Runden //ToDo MEthoden
