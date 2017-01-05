@@ -1,5 +1,7 @@
 package com.example.patsc.fallstudie;
 
+import java.security.spec.ECField;
+
 /**
  * Created by patsc on 13.12.2016.
  */
@@ -467,39 +469,179 @@ public class  Model {
     }
 
     public String getArmband ( ){
-        return "";
-    }
+        String armband ="";
+        try {
+        if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isHolz()){
+            armband = ARMBAND_WAHL_HOLZ;
+        }
+        else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isKunstleder()){
+            armband =ARMBAND_WAHL_KUNSTLEDER;
+        }
+        else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isLeder()){
+            armband = ARMBAND_WAHL_LEDER;
+        }
+        else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isMetall()){
+            armband = ARMBAND_WAHL_METALL;
+        }
+        else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isTextil()){
+            armband = ARMBAND_WAHL_TEXTIL
+        }
+        else{
 
-    public String getUhrwerk ( ){
-        return "";
-    }
+                throw new Exception("Keine Wahl getroffen");
+            }
+        } // Ende try
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return armband;
+    }// Ende get Armband
+
+    public String getUhrwerk ( ) {
+        String uhrwerk = "";
+        try{
+        if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getUhrwerk().isElektromechanisch()){
+            uhrwerk = UHRWERK_WAHL_ELEKTROMECHANISCH;
+        }
+        else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getUhrwerk().isElektronisch()) {
+            uhrwerk = UHRWERK_WAHL_ELEKTRONISCH
+        }
+        else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getUhrwerk().isMechanisch()){
+            uhrwerk = UHRWERK_WAHL_MECHANISCH;}
+        else{
+            throw new Exception("Keine Wahl im Uhrwerk getroffen.");
+        }}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return uhrwerk;
+    }// Ende getUhrwerk
+
 
     public String getGehaeuse ( ){
-        return "";
-    }
+        String gehaeuse ="";
+        try{
+            if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getGehaeuse().isMetall()){
+                gehaeuse = GEHAEUSE_WAHL_METALL;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getGehaeuse().isHolz()){
+                gehaeuse = GEHAEUSE_WAHL_HOLZ;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getGehaeuse().isGlas()){
+                gehaeuse =GEHAEUSE_WAHL_GLAS;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getGehaeuse().isKunststoff()) {
+                gehaeuse = GEHAEUSE_WAHL_KUNSTSTOFF;
+            }
+            else{
+                throw new Exception("Keine Auswahl des Gehaueses getroffen.");
+            }
+        }//Ende try
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return gehaeuse;
+    } // Ende getGehaeuse
 
     public String getVersandart ( ){
-        return "";
-    }
+        String versandart="";
+        try{
+            if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVersandart().isFlugzeug()){
+                versandart = VERSANDART_WAHL_FLUGZEUG;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVersandart().isLandweg()){
+                versandart = VERSANDART_WAHL_LANDWEG;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVersandart().isSchiff()){
+                versandart = VESANDART_WAHL_SCHIFF;
+            }
+            else{
+                throw new Exception("Keine Auswahl der Versandart getroffen.");
+            }
+        }//Ende try
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return versandart;
+    }//Ende getVersandart
 
     public String getWasserdichtheit ( ){
-        return "";
-    }
+        String dichtheit = "";
+        try{
+            if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getWasserdichtheit().isNichtWassergeschützt()){
+                dichtheit=WASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getWasserdichtheit().isSpritzwassergeschützt()){
+                dichtheit = WASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getWasserdichtheit().isWasserdicht()){
+                dichtheit = WASSERDICHTHEIT_WAHL_WASSERDICHT;
+            }
+            else{
+                throw new Exception("Keine Auswahl der Wasserdichtheit getroffen.");
+            }
+        }//Ende try
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dichtheit;
+    }// ENde getWasserdichtheit
 
     public String getZusammenbau (){
-        return "";
-    }
+        String zusammenbau = "";
+        try{
+            if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isAsien()){
+                zusammenbau = ZUSAMMENBAU_WAHL_ASIEN;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isDeutschland()){
+                zusammenbau = ZUSAMMENBAU_WAHL_DEUTSCHLAND;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isOsteuropa()){
+                zusammenbau = ZUSAMMENBAU_WAHL_OSTEUROPA;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isSchweiz()){
+                zusammenbau =ZUSAMMENBAU_WAHL_SCHWEIZ;
+            }
+            else{
+                throw new Exception("Keine Auswahl bei dem Zusamenbau getroffen.");
+            }
+        }//Ende try
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return zusammenbau;
+    } // Ende getZussamenbau
 
     public String getWerbung ( ){
-        return "";
+        String werbung ="";
+        try{
+            if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getWerbung().isMittel()){
+                werbung = WERBUNG_WAHL_MITTEL;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getWerbung().isViel()){
+                werbung = WERBUNG_WAHL_VIEL;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getWerbung().isWenig()){
+                werbung = WERBUNG_WAHL_WENIG;
+            }
+        else{
+            throw new Exception("Keine Auswahl bei dem Zusamenbau getroffen.");
+        }
+    }//Ende try
+    catch (Exception e) {
+        e.printStackTrace();
     }
+    return werbung;
+} // Ende get Werbung
 
     public float getKaufvolumen ( ){
-        return 0;
+        float kv = (float)aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getMenge();
+        return kv;
     }
 
     public float getVerkaufspreis ( ){
-        return 0;
+        float vkp = (float)aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVkp();
+        return vkp;
     }
 
 
@@ -507,16 +649,24 @@ public class  Model {
     //Methoden zum Abrufen der aktuellen Fixkosten und variablen Kosten //TODO: return-Werte
 
     public float getFixKosten() {
-       return 0;
+       float fixKosten = (float) aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getFixKosten();
+        return fixKosten;
     }
 
     public float getVarKosten(){
-        return 0;
+        float varKosten =(float) aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVarKosten();
+        return varKosten;
     }
 
     //
-    public double getGuthaben()
-          //getRunde
+    public double getGuthaben(){
+       double guthaben = (double) aktiverSpieler.getGuthaben();
+        return guthaben;
+    }
+
+    public int getRunde(){
+        return daten.getRundenAnzahl();
+    }
 
     public Spieler[] getBestenliste{
         //ToDo
@@ -524,15 +674,31 @@ public class  Model {
     //Methoden zum Überprüfen ob ein Zufall eingetreten ist, entsprechende Weiterleitung der Activities
     // TODO: richtiger Rückgabewert, welcher genaue Zufall? bei Z1 Leder, Metall oder .. ?
 
-    public boolean isZufall1 (){
+    public boolean isZufall1 (){ // Zufall 1 = Armband Ändern
+        double zufallszahl = Math.random();
+        AENDERE_ARMBAND_boolean=false;
+        AENDERE_GEHAEUSE_boolean =false;
+        AENDERE_ZUSAMMENBAU_boolean = false;
+        double wahrscheinlichkeit;
+        try {
+            if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isHolz()){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().getHolzRisiko();
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isKunstleder() ){
+                wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().getKunstlederRisiko();
+            }
+
+        }//Ende try
+
+
+        return true;
+    }// Ende isZufall1
+
+    public boolean isZufall2 (){ // Zufall 2 = Gehäuse Ändern
         return true;
     }
 
-    public boolean isZufall2 (){
-        return true;
-    }
-
-    public boolean isZufall3 (){
+    public boolean isZufall3 (){ // Zufall 3 = Zusammenbau Ändern
         return true;
     }
 
