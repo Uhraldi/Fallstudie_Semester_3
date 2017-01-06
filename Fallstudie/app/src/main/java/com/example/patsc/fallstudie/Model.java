@@ -1,7 +1,5 @@
 package com.example.patsc.fallstudie;
 
-import java.security.spec.ECField;
-
 /**
  * Created by patsc on 13.12.2016.
  */
@@ -224,7 +222,7 @@ public class  Model {
 
 
 
-    // METHODEN VON NILS HINZUGEFÜGT, VORERST LEER, WERDEN VON GUI AUFGERUFEN //TODO: Methoden füllen
+    // METHODEN VON NILS HINZUGEFÜGT, VORERST LEER, WERDEN VON GUI AUFGERUFEN
 
     // Methoden zum weitergeben der UI-Inputs
 
@@ -665,7 +663,7 @@ public class  Model {
 
 
 
-    //Methoden zum Abrufen der aktuellen Fixkosten und variablen Kosten //TODO: return-Werte
+    //Methoden zum Abrufen der aktuellen Fixkosten und variablen Kosten
 
     public float getFixKosten() {
        float fixKosten = (float) aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getFixKosten();
@@ -693,7 +691,7 @@ public class  Model {
         return nF;
     }*/
     //Methoden zum Überprüfen ob ein Zufall eingetreten ist, entsprechende Weiterleitung der Activities
-    // TODO: richtiger Rückgabewert, welcher genaue Zufall? bei Z1 Leder, Metall oder .. ?
+
 
     public boolean isZufall1 (){ // Zufall 1 = Armband Ändern
         double zufallszahl = Math.random();
