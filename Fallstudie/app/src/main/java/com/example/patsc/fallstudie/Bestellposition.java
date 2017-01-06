@@ -32,6 +32,8 @@ public class Bestellposition {
     private Versandart versandart = new Versandart();
     private Wasserdichtheit wasserdichtheit = new Wasserdichtheit();
     private Werbung werbung = new Werbung();
+    private Marktsim marktsim = null;
+    private Preissimulation preissim = null;
 
     /* Vorlage zum kopieren und ersetzen der Variablen und Klassen
     public void ABCDF(String eingabe){
@@ -573,5 +575,24 @@ public class Bestellposition {
 
     public Werbung getWerbung() {
         return werbung;
+    }
+
+    public Preissimulation getPreissimulation(){
+        return preissim;
+    }
+
+    public Marktsim getMarktsim(){
+        return marktsim;
+    }
+
+    /**
+     * Objekt-Setter
+     */
+    public void setMarktsim(Marktsim marktsim) {
+        this.marktsim = marktsim;
+    }
+
+    public void setPreissim(Preissimulation preissim) {
+        this.preissim = preissim;
     }
 }
