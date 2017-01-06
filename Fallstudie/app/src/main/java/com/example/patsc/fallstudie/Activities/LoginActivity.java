@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
@@ -28,16 +29,26 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = login_password_input.getText().toString();
     }
 
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
-    public void goToNextActivity (View view) {
-
-        //Methodenaufrufe von Model zur Registrierung und Login
+    //Methode zum Registrieren, schickt Daten ins Backend und startet Login Activity neu
+    public void register (View view){
         IntroductionActivity.model.registrierung(inputUsername, inputPassword);
-        IntroductionActivity.model.login(inputUsername, inputPassword);
-
-        Intent intent = new Intent(this, E1_DesignerActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
+
+
+    //Methode zum Login, prüft ob Nutzername/Passwort-Kombination richtig ist und leitet dann erst weiter
+    public void login (View view) {
+        if(IntroductionActivity.model.login(inputUsername, inputPassword)) {
+            Intent intent = new Intent(this, E1_DesignerActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Toast toast = Toast.makeText(this, "Falscher Nutzername und/oder Passwort", Toast.LENGTH_SHORT);
+        }
+
+    }
+    
 
 }

@@ -23,7 +23,9 @@ public class Uhrwerk {
     private double eletronischPWS = 0.05;
 
 
-
+    /**
+     * Constructor
+     */
     public Uhrwerk(){
 
     }

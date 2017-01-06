@@ -18,7 +18,7 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
 
         //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Model-Methoden zum Anzeigen der Bestellpositionen
         TextView designer_auswahl_output_textview = (TextView) findViewById(R.id.designer_auswahl_output_textview);
-        designer_auswahl_output_textview.setText(IntroductionActivity.model.getDesigner());
+        //designer_auswahl_output_textview.setText(IntroductionActivity.model.getDesigner());
 
         TextView armband_auswahl_output_textview = (TextView) findViewById(R.id.armband_auswahl_output_textview);
         armband_auswahl_output_textview.setText(IntroductionActivity.model.getArmband());

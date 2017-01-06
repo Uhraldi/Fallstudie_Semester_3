@@ -22,11 +22,16 @@ public class Wasserdichtheit {
     private double wasserdichtPWS = 0.15;
 
 
-
+    /**
+     * Constructor
+     */
     public Wasserdichtheit(){
 
     }
 
+    /**
+     * Variablen-Getter
+     */
     public boolean isNichtWassergeschützt() {
         return nichtWassergeschützt;
     }
@@ -63,7 +68,9 @@ public class Wasserdichtheit {
         return wasserdichtPWS;
     }
 
-
+    /**
+     * Variablen-Setter
+     */
     public void setNichtWassergeschützt(boolean nichtWassergeschützt) {
         this.nichtWassergeschützt = nichtWassergeschützt;
     }

@@ -24,13 +24,16 @@ public class Designer {
     private double mittelmaessigPWS = 0.2;
     private double lowBudgetPWS = 0.05;
 
-
-
-
+    /**
+     * Constructor
+     */
     public Designer() {
 
     }
 
+    /**
+     * Variblen-Getter
+     */
     public boolean isMarken() {
         return marken;
     }
@@ -67,6 +70,9 @@ public class Designer {
         return lowBudgetPWS;
     }
 
+    /**
+     * Variablen-Setter
+     */
     public void setMarken(boolean marken) {
         this.marken = marken;
     }

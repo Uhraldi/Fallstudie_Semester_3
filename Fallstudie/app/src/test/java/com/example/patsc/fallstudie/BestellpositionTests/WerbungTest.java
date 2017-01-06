@@ -1,7 +1,6 @@
 package com.example.patsc.fallstudie.BestellpositionTests;
 
 import com.example.patsc.fallstudie.Bestellposition;
-import com.example.patsc.fallstudie.FalscheEingabe;
 
 import junit.framework.Assert;
 
