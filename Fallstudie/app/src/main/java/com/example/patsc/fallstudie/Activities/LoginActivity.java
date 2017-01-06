@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //Methode zum Login, prüft ob Nutzername/Passwort-Kombination richtig ist und leitet dann erst weiter
     public void login (View view) {
-        if(IntroductionActivity.model.login()) {
+        if(IntroductionActivity.model.login(inputUsername, inputPassword)) {
             Intent intent = new Intent(this, E1_DesignerActivity.class);
             startActivity(intent);
             finish();
@@ -49,8 +49,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
-
-
-
+    
 
 }

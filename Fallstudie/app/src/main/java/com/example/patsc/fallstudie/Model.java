@@ -213,7 +213,7 @@ public class  Model {
 
     //TODO: if-Abfrage richtig implementieren
     public boolean login (String name, String passwort){
-        if (name.equals(Spieler.getName()) && passwort.equals(Spieler.getPasswort()){
+        if (name.equals(Spieler.getName()) && passwort.equals(Spieler.getPasswort())) {
             return true; //falls Name und Passwort von Spieler übereinstimmen
         }
             return false; //falls Name und Passwort nicht zusammengehören
@@ -908,10 +908,14 @@ public class  Model {
 
 
     public void setActivity_Rundenergebnis () {
-    setZustand_Lieferung(true);
+        setZustand_Lieferung(true);
+    }
 
+    //TODO: setActivity_Bestenliste
+    public void setActivity_Bestenliste() {
 
     }
+
 
 
 
