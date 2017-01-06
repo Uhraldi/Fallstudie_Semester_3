@@ -53,7 +53,7 @@ public class BestellpositionTest {
     @Test
     public void getRisikoProduktionsOrtTest(){
         Bestellposition TestBestellPosition = new Bestellposition();
-        Assert.assertEquals(0.0, TestBestellPosition.getRisikoProduktionsort());
+        Assert.assertEquals(0.0, TestBestellPosition.getRisikoZusammenbau()); // Namensänderung
     }
 
     @Test
