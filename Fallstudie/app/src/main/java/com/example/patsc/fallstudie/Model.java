@@ -271,9 +271,7 @@ public class  Model {
         try{
             if (AENDERE_ARMBAND_boolean){
                 if(armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER|| armbandAuswahl==ARMBAND_WAHL_LEDER || armbandAuswahl==ARMBAND_WAHL_METALL|| armbandAuswahl==ARMBAND_WAHL_TEXTIL)
-                  // Pruefunf das nicht das gleiche Material wieder gewählt wird
-                  //  switch
-                    // if (!armbandAuswahl == aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().get)
+             // Prüfung ob das Material schon einmal gewaehlt wurde in Activity
                 { aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleArmband(armbandAuswahl);
                     AENDERE_ARMBAND_boolean=false;}
                 else{
@@ -464,9 +462,9 @@ public class  Model {
 
     //Methoden zum abholen der Bestellpositionen, zur Anzeige er Bestellzusammenfassung
 
-    public String getDesigner ( ){
-        return "";
-    }
+    //public String getDesigner ( ){
+        //ToDo
+    //}
 
     public String getArmband ( ){
         String armband ="";
@@ -806,7 +804,6 @@ public class  Model {
     public void setActivity_E2 () {
         setZustand_Bestellung(true);
         setSCHRITT_ARMBAND_boolean(true);
-
     }
 
     public void setActivity_E3 () {
@@ -878,11 +875,14 @@ public class  Model {
 
     public void setActivity_Berechnung () {
     setZustand_Lieferung(true);
-    }
+        //Hier Preis und Marktsimulation durchführen!
+        }
 
 
     public void setActivity_Rundenergebnis () {
     setZustand_Lieferung(true);
+
+
     }
 
 
@@ -1195,8 +1195,8 @@ public class  Model {
             }
 
             for (int i = 0; i < daten.getSpielerAnzahl(); i++) {
-                if (daten.getSpielerListe().get(0).getBestellung().getBestellposition(daten.getRundenAnzahl()) != null)
-                    bestellpositionen[i] = daten.getSpielerListe().get(0).getBestellung().getBestellposition(daten.getRundenAnzahl());
+                if (daten.getSpielerListe().get(i).getBestellung().getBestellposition(daten.getRundenAnzahl()) != null)
+                    bestellpositionen[i] = daten.getSpielerListe().get(i).getBestellung().getBestellposition(daten.getRundenAnzahl());
                 else{
                     throw new Exception ("Kein Objekt gefunden");
                 }

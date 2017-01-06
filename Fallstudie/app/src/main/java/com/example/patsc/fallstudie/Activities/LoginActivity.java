@@ -8,8 +8,6 @@ import android.widget.EditText;
 
 import com.example.patsc.fallstudie.R;
 
-import static com.example.patsc.fallstudie.Activities.IntroductionActivity.model;
-
 public class LoginActivity extends AppCompatActivity {
 
     String inputUsername;
@@ -34,8 +32,8 @@ public class LoginActivity extends AppCompatActivity {
     public void goToNextActivity (View view) {
 
         //Methodenaufrufe von Model zur Registrierung und Login
-       model.registrierung(inputUsername, inputPassword);           //TODO: Greifen die wirklich auf die Strings in der onCreate zu?
-       model.login(inputUsername, inputPassword);
+        IntroductionActivity.model.registrierung(inputUsername, inputPassword);
+        IntroductionActivity.model.login(inputUsername, inputPassword);
 
         Intent intent = new Intent(this, E1_DesignerActivity.class);
         startActivity(intent);
