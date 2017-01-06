@@ -27,11 +27,16 @@ public class Versandart {
     private double landwegZufall = -0.1;
 
 
-
+    /**
+     * Constructor
+     */
     public Versandart(){
 
     }
 
+    /**
+     * Variablen-Getter
+     */
     public boolean isFlugzeug() {
         return flugzeug;
     }
@@ -80,7 +85,9 @@ public class Versandart {
         return landwegZufall;
     }
 
-
+    /**
+     * Variablen-Setter
+     */
     public void setFlugzeug(boolean flugzeug) {
         this.flugzeug = flugzeug;
     }

@@ -1,12 +1,5 @@
 package com.example.patsc.fallstudie;
-import com.example.patsc.fallstudie.Bestandteile.Armband;
-import com.example.patsc.fallstudie.Bestandteile.Designer;
-import com.example.patsc.fallstudie.Bestandteile.Gehaeuse;
-import com.example.patsc.fallstudie.Bestandteile.Zusammenbau;
-import com.example.patsc.fallstudie.Bestandteile.Uhrwerk;
-import com.example.patsc.fallstudie.Bestandteile.Versandart;
-import com.example.patsc.fallstudie.Bestandteile.Wasserdichtheit;
-import com.example.patsc.fallstudie.Bestandteile.Werbung;
+import com.example.patsc.fallstudie.Bestandteile.*;
 /**
  * Created by vince on 01.01.2017.
  * testable
@@ -14,6 +7,9 @@ import com.example.patsc.fallstudie.Bestandteile.Werbung;
 
 public class Bestellposition {
 
+    /**
+     * Variablen deklarieren und instanziieren
+     */
     private double fixKosten = 0;
     private double varKosten = 0;
     private double pws = 0;
@@ -25,6 +21,9 @@ public class Bestellposition {
     private double zufall = 0;
     private double strafe = 0;
 
+    /**
+     * Objekte deklarieren und instanziieren
+     */
     private Armband armband = new Armband();
     private Designer designer = new Designer();
     private Gehaeuse gehaeuse = new Gehaeuse();
@@ -33,10 +32,6 @@ public class Bestellposition {
     private Versandart versandart = new Versandart();
     private Wasserdichtheit wasserdichtheit = new Wasserdichtheit();
     private Werbung werbung = new Werbung();
-
-    public Bestellposition(){
-
-    }
 
     /* Vorlage zum kopieren und ersetzen der Variablen und Klassen
     public void ABCDF(String eingabe){
@@ -74,8 +69,12 @@ public class Bestellposition {
         }
     }*/
 
-   
-    public void bestelleArmband(String eingabe) throws FalscheEingabe {
+    /**
+     * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
+     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
+     * @throws Exception
+     */
+    public void bestelleArmband(String eingabe) throws Exception{
         switch(eingabe) {
             case "Leder": {
                 armband.setLeder(true);
@@ -118,12 +117,17 @@ public class Bestellposition {
                 break;
             }
             default: {
-                throw new FalscheEingabe();
+                throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
             }
         }
     }
 
-    public void bestelleDesigner(String eingabe) throws FalscheEingabe{
+    /**
+     * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
+     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
+     * @throws Exception
+     */
+    public void bestelleDesigner(String eingabe) throws Exception{
         switch(eingabe){
             case "Marken": {
                 designer.setMarken(true);
@@ -144,12 +148,17 @@ public class Bestellposition {
                 break;
             }
             default: {
-                throw new FalscheEingabe();
+                throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
             }
         }
     }
 
-    public void bestelleGehaeuse(String eingabe) throws FalscheEingabe{
+    /**
+     * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
+     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
+     * @throws Exception
+     */
+    public void bestelleGehaeuse(String eingabe) throws Exception{
         switch(eingabe) {
             case "Glas": {
                 gehaeuse.setGlas(true);
@@ -184,12 +193,17 @@ public class Bestellposition {
                 break;
             }
             default: {
-                throw new FalscheEingabe();
+                throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
             }
         }
     }
 
-    public void bestelleZusamenbau(String eingabe) throws FalscheEingabe{
+    /**
+     * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
+     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
+     * @throws Exception
+     */
+    public void bestelleZusamenbau(String eingabe) throws Exception{
         switch(eingabe) {
             case "Deutschland": {
                 zusamenbau.setDeutschland(true);
@@ -220,12 +234,17 @@ public class Bestellposition {
                 break;
             }
             default: {
-                throw new FalscheEingabe();
+                throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
             }
         }
     }
 
-    public void bestelleUhrwerk(String eingabe) throws FalscheEingabe{
+    /**
+     * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
+     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
+     * @throws Exception
+     */
+    public void bestelleUhrwerk(String eingabe) throws Exception{
         switch (eingabe) {
             case "Mechanisch": {
                 uhrwerk.setMechanisch(true);
@@ -246,12 +265,17 @@ public class Bestellposition {
                 break;
             }
             default: {
-                throw new FalscheEingabe();
+                throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
             }
         }
     }
 
-    public void bestelleVersandart(String eingabe) throws FalscheEingabe {
+    /**
+     * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
+     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
+     * @throws Exception
+     */
+    public void bestelleVersandart(String eingabe) throws Exception {
         switch (eingabe) {
             case "Flugzeug": {
                 versandart.setFlugzeug(true);
@@ -275,12 +299,17 @@ public class Bestellposition {
                 break;
             }
             default: {
-                throw new FalscheEingabe();
+                throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
             }
         }
     }
 
-    public void bestelleWasserdichtheit(String eingabe) throws FalscheEingabe {
+    /**
+     * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
+     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
+     * @throws Exception
+     */
+    public void bestelleWasserdichtheit(String eingabe) throws Exception {
         switch (eingabe) {
             case "Nicht Wassergeschützt": {
                 wasserdichtheit.setNichtWassergeschützt(true);
@@ -301,12 +330,17 @@ public class Bestellposition {
                 break;
             }
             default: {
-                throw new FalscheEingabe();
+                throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
             }
         }
     }
 
-    public void bestelleWerbung(String eingabe) throws FalscheEingabe {
+    /**
+     * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
+     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
+     * @throws Exception
+     */
+    public void bestelleWerbung(String eingabe) throws Exception {
         switch (eingabe) {
             case "viel": {
                 werbung.setViel(true);
@@ -327,22 +361,33 @@ public class Bestellposition {
                 break;
             }
             default: {
-                throw new FalscheEingabe();
+                throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
             }
         }
     }
 
-    public void bestelleMenge(int menge) throws FalscheEingabe{
+    /**
+     * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
+     * @param menge = Menge, die im Spinner eingegeben wird und die Menge an herzustellenden Uhren angibt
+     */
+    public void bestelleMenge(int menge){
             this.menge = menge;
     }
 
-    public void bestelleVKP(double vkp)throws FalscheEingabe{
+    /**
+     * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
+     * @param vkp = Verkaupspreis, der im Spinner eingegeben wird und den Verkaufspreis bestimmt, zu dem die Uhren am Markt angeboten werden
+     */
+    public void bestelleVKP(double vkp){
             this.vkp = vkp;
     }
-/*
-Wer fängt denn die falsche Angabe ab?? ToDo
- */
-    public void korrigiereArmband( String eingabe) throws FalscheEingabe{
+
+    /**
+     * Methode, die ausgelöst wird, wenn das Risikoereignis im Armband ausgelöst woird. Alle relevanten Änderungen an den Variablen weden zurückgerollt und mit der neien eingabe erneut ausgeführt
+     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
+     * @throws Exception
+     */
+    public void korrigiereArmband( String eingabe) throws Exception{
         if(armband.isLeder()){
                 armband.setLeder(false);
                 varKosten -= armband.getLederEKP();
@@ -374,13 +419,18 @@ Wer fängt denn die falsche Angabe ab?? ToDo
                 risikoArmband = 0;
                 zufall -= armband.getMetallZufall();
             }else {
-                throw new FalscheEingabe();
+                throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
             }
         varKosten += getStrafe(); //Erhöhung der varKosten um eine Strafe max um varKosten*0.05^3 bei 3 Ereignissen
         bestelleArmband(eingabe);
     }
 
-    public void korrigiereGehaeuse(String eingabe) throws FalscheEingabe{
+    /**
+     * Methode, die ausgelöst wird, wenn das Risikoereignis im Gehaeuse ausgelöst woird. Alle relevanten Änderungen an den Variablen weden zurückgerollt und mit der neien eingabe erneut ausgeführt
+     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
+     * @throws Exception
+     */
+    public void korrigiereGehaeuse(String eingabe) throws Exception{
         if(gehaeuse.isGlas()){
             gehaeuse.setGlas(false);
             varKosten -= gehaeuse.getGlasEKP();
@@ -406,13 +456,18 @@ Wer fängt denn die falsche Angabe ab?? ToDo
             risikoGehaeuse = 0;
             zufall -= gehaeuse.getMetallZufall();
         }else{
-            throw new FalscheEingabe();
+            throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
         }
         varKosten += getStrafe();
         bestelleGehaeuse(eingabe);
     }
 
-    public void korrigiereZusammenbau(String eingabe) throws FalscheEingabe{
+    /**
+     * Methode, die ausgelöst wird, wenn das Risikoereignis im Zusammenbau ausgelöst woird. Alle relevanten Änderungen an den Variablen weden zurückgerollt und mit der neien eingabe erneut ausgeführt
+     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
+     * @throws Exception
+     */
+    public void korrigiereZusammenbau(String eingabe) throws Exception{
         if(zusamenbau.isDeutschland()){
             zusamenbau.setDeutschland(false);
             varKosten -= zusamenbau.getDeutschlandEKP();
@@ -434,12 +489,16 @@ Wer fängt denn die falsche Angabe ab?? ToDo
             pws -= zusamenbau.getSchweizPWS();
             risikoZusammenbau = 0;
         }else{
-            throw new FalscheEingabe();
+            throw new Exception();
         }
         varKosten += getStrafe();
         bestelleZusamenbau(eingabe);
     }
 
+
+    /**
+     *  Variablen-Getter
+     */
     public double getFixKosten() {
         return fixKosten;
     }
@@ -481,6 +540,9 @@ Wer fängt denn die falsche Angabe ab?? ToDo
         return strafe;
     }
 
+    /**
+     * Bestandteil-Getter
+     */
     public Designer getDesigner() {
         return designer;
     }

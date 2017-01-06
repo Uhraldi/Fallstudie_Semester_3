@@ -44,11 +44,16 @@ public class Armband {
     private double textilZufall = Math.random()*0.1;
     private double metallZufall = Math.random()*0.1;
 
-
+    /**
+     * Constructor
+     */
     public Armband(){
 
     }
 
+    /**
+     * Variablen-Getter
+     */
     public boolean isLeder() {
         return leder;
     }
@@ -149,7 +154,9 @@ public class Armband {
         return metallZufall;
     }
 
-
+    /**
+     * Variablen-Setter
+     */
     public void setLeder(boolean leder) {
         this.leder = leder;
     }

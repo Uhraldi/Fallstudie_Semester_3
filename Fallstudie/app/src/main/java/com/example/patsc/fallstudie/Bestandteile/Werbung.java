@@ -23,11 +23,16 @@ public class Werbung {
     private double wenigPWS = 0.05;
 
 
-
+    /**
+     * Constructor
+     */
     public Werbung(){
 
     }
 
+    /**
+     * Variablen-Getter
+     */
     public boolean isViel() {
         return viel;
     }
@@ -64,7 +69,9 @@ public class Werbung {
         return wenigPWS;
     }
 
-
+    /**
+     * Variablen-Setter
+     */
     public void setViel(boolean viel) {
         this.viel = viel;
     }

@@ -36,11 +36,16 @@ public class Gehaeuse {
     private double kunststoffZufall = Math.random()*0.1;
     private double metallZufall = Math.random()*0.1;
 
-
+    /**
+     * Constructor
+     */
     public Gehaeuse(){
 
     }
 
+    /**
+     * Variablen-Getter
+     */
     public boolean isGlas() {
         return glas;
     }
@@ -121,6 +126,9 @@ public class Gehaeuse {
         return metallZufall;
     }
 
+    /**
+     * Variablen.Setter
+     */
     public void setGlas(boolean glas) {
         this.glas = glas;
     }
