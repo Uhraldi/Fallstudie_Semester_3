@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //Methodenaufrufe von Model zur Registrierung und Login
         IntroductionActivity.model.registrierung(inputUsername, inputPassword);
-        IntroductionActivity.model.login(inputUsername, inputPassword);
+        //IntroductionActivity.model.login(inputUsername, inputPassword);
 
         Intent intent = new Intent(this, E1_DesignerActivity.class);
         startActivity(intent);
