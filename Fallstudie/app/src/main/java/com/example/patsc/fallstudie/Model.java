@@ -198,7 +198,7 @@ public class  Model {
      */
     public void registrierung(String name, String passwort){
            try {
-               new Spieler(name, passwort, daten);
+             aktiverSpieler =   new Spieler(name, passwort, daten);
            }
            catch (Exception e1) {
                    e1.printStackTrace();
