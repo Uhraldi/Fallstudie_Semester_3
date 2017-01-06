@@ -210,12 +210,21 @@ public class  Model {
      * @param name
      * @param passwort
      */
-    public void login(String name, String passwort){
+
+    //TODO: if-Abfrage richtig implementieren
+    public boolean login (String name, String passwort){
+        if (name.equals(Spieler.getName()) && passwort.equals(Spieler.getPasswort()){
+            return true; //falls Name und Passwort von Spieler übereinstimmen
+        }
+            return false; //falls Name und Passwort nicht zusammengehören
+    }
+
+  /*  public void login(String name, String passwort){
 
        aktiverSpieler = new Spieler(name, passwort,daten);
         // daten.ladeSpieler(name, passwort); ToDo in Daten
     }
-
+*/
     //ToDO Spielfortsetzen
 
     // Zusand Spielbeginn
