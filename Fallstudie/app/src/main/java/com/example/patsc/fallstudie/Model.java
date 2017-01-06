@@ -464,9 +464,28 @@ public class  Model {
 
     //Methoden zum abholen der Bestellpositionen, zur Anzeige er Bestellzusammenfassung
 
-    //public String getDesigner ( ){
-        //ToDo
-    //}
+    public String getDesigner ( ){
+     String designer ="";
+        try{
+            if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getDesigner().isLowBudget()){
+                designer = DESIGNER_WAHL_LOWBUDGET;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getDesigner().isMarken()){
+                designer = DESIGNER_WAHL_MARKEN;
+            }
+            else if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getDesigner().isMittelmaessig()){
+                designer = DESINGER_WAHL_MITTELMAESIG;
+            }
+            else{
+
+                throw new Exception("Keine Wahl getroffen");
+            }
+        } // Ende try
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return designer;
+    }// Ende getDesigner
 
     public String getArmband ( ){
         String armband ="";
