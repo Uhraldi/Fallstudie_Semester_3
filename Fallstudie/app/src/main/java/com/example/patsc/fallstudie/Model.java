@@ -213,6 +213,8 @@ public class  Model {
      * @param passwort
      */
     public void login(String name, String passwort){
+
+       aktiverSpieler = new Spieler(name, passwort,daten);
         // daten.ladeSpieler(name, passwort); ToDo in Daten
     }
 
