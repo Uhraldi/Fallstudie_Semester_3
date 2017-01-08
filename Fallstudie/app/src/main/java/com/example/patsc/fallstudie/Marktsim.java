@@ -7,7 +7,7 @@ import java.util.*;
  */
 
 public class Marktsim {
-    private Daten daten = new Daten();
+    private Daten daten = new Daten(); // ToDo bitte immer auf die gleichen Daten zugreifen! So hast du keinerlei Informationen lediglich ein leeres Objekt
     private int anzSpieler = daten.getSpielerAnzahl();
     private int AnzKäufer = anzSpieler * 8000;   // Abfrage der Spieleranzahl, mult. mit 8000
     private int lKäufer;                         //low-budget-Käufer
@@ -27,7 +27,7 @@ public class Marktsim {
     ArrayList mengearray = new ArrayList();
     ArrayList pkzarray = new ArrayList();
     ArrayList diff = new ArrayList();
-    Model model = new Model();
+    Model model = new Model(); // ToDo die MarktSim wird vom Model aufgerufen ein neues zu erstellen macht keinen Sinn
 
 
     public ArrayList berechneAbsatz(double[] pkz){

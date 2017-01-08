@@ -71,9 +71,10 @@ public class Spieler {
     /**
      * Der Marktanteil muss zwischen 1-100% liegen.
      *
-     * @param marktanteil
+     *
      */
-    public void setMarktanteil(double marktanteil) {
+    public void setMarktanteil() {
+double marktanteil = this.getBestellung().getBestellposition(daten.getRundenAnzahl()).getMarktsim().getMarktanteil();
         try {
             if (marktanteil < 100 && marktanteil > 0) {
                 Marktanteil = marktanteil;

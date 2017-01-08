@@ -896,7 +896,17 @@ public class  Model {
 
     public void setActivity_Berechnung () {
     setZustand_Lieferung(true);
+
         //Hier Preis und Marktsimulation durchführen!
+        // erstellen der Preissimulation
+
+        //ToDo Prüfung ob alle Spieler Werte eingegeben haben
+        // ToDO DB abruf
+        Preissimulation preissim = new Preissimulation();
+        aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).setPreissim(preisim);
+        Marktsim marktsim = new Marktsim();
+        aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).setMarktsim(marktsim);
+
         }
 
 
@@ -1207,7 +1217,7 @@ public class  Model {
         SCHRITT_VERKAUFSPREIS_boolean = false;
     }
 
-
+    // Für MArktSim
     public Bestellposition[] getBestellpositionen(){
         Bestellposition[] bestellpositionen = new Bestellposition[daten.getSpielerAnzahl()];
         try {
@@ -1228,7 +1238,18 @@ public class  Model {
             e.printStackTrace();
         }
         return bestellpositionen;
-    }
+    }  // Ende getBestellpositionen
 
+    //Für UI
+    public int getPosition(){
+        return 1; //ToDO
+    }
+    public float getMarktanteil(){
+
+        float marktAnteil = (float) aktiverSpieler.getMarktanteil();
+
+
+
+    }
 } // ENDE KLASSE
 
