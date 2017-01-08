@@ -7,7 +7,12 @@ import java.util.*;
  */
 
 public class Marktsim {
+<<<<<<< HEAD
     private Daten daten = new Daten(); // ToDo bitte immer auf die gleichen Daten zugreifen! So hast du keinerlei Informationen lediglich ein leeres Objekt
+=======
+    private Daten daten = new Daten();
+    Model model = new Model();
+>>>>>>> 6584a6fd0131106e90d29acb7fbb21dbbd45b143
     private int anzSpieler = daten.getSpielerAnzahl();
     private int AnzKäufer = anzSpieler * 8000;   // Abfrage der Spieleranzahl, mult. mit 8000
     private int lKäufer;                         //low-budget-Käufer
@@ -27,9 +32,17 @@ public class Marktsim {
     ArrayList mengearray = new ArrayList();
     ArrayList pkzarray = new ArrayList();
     ArrayList diff = new ArrayList();
+<<<<<<< HEAD
     Model model = new Model(); // ToDo die MarktSim wird vom Model aufgerufen ein neues zu erstellen macht keinen Sinn
+=======
+>>>>>>> 6584a6fd0131106e90d29acb7fbb21dbbd45b143
 
 
+    /**
+     * Marktsimulation, Berechnung der Verteilung mit Einbezug von prozentualen Vorteilen
+     * @param pkz
+     * @return
+     */
     public ArrayList berechneAbsatz(double[] pkz){
 
         prozentualeVorteile.clear(); // Leeren der Arraylists vor neuer Berechnung
@@ -94,26 +107,25 @@ public class Marktsim {
 
         for (int i = 0; i < anzSpieler; i++){                                       // Abweichungen wirken sich auf die prozentualenVorteile aus. 80, 100 und 150 % Schritte
             if((double)diff.get(i) < (0-(double)pkzarray.get(i)*0.80)){
-                double y = (double)prozentualeVorteile.get(i)-0.25;
+                double y = (double)prozentualeVorteile.get(i)-0.26;
                 prozentualeVorteile.set(i,y);
             }
             if((double)diff.get(i) < (0-(double)pkzarray.get(i)*1.0)){
-                double y = (double)prozentualeVorteile.get(i)-0.375;
+                double y = (double)prozentualeVorteile.get(i)-0.33;
                 prozentualeVorteile.set(i,y);
             }
             if((double)diff.get(i) < (0-(double)pkzarray.get(i)*1.5)){
                 double y = (double)prozentualeVorteile.get(i)-0.5;
                 prozentualeVorteile.set(i,y);
             }
-
         }
 
-        Collections.sort(); // ToDo Sortieren notwendig?
+        // Collections.sort(); // ToDo Sortieren notwendig?
 
         for(int i = 0; i<anzSpieler ; i++){
 
             if((double)vkparray.get(i) < l1){
-                double y = ((double)randInt(30,80)/100 + (double)prozentualeVorteile.get(i));
+                double y = ((double)randInt(30,70)/100 + (double)prozentualeVorteile.get(i));
                 if(y > 1){ y = 1;}
                 if(y < 0){ y = 0;}
                 if(y*l1v > (int)mengearray.get(i)){
@@ -121,11 +133,11 @@ public class Marktsim {
                     absatzreturn.set(i,x);
                 }
                 else{absatzreturn.set(i,y*l1v);}
-                l1v = l1v - (float)absatzreturn.get(i);
+                //l1v = l1v - (float)absatzreturn.get(i);
             }
             else{
                 if((double)vkparray.get(i) < l2){
-                    double y = ((double)randInt(30,80)/100 + (double)prozentualeVorteile.get(i));
+                    double y = ((double)randInt(30,65)/100 + (double)prozentualeVorteile.get(i));
                     if(y > 1){ y = 1;}
                     if(y < 0){ y = 0;}
                     if(y*l2v > (int)mengearray.get(i)){
@@ -133,11 +145,11 @@ public class Marktsim {
                         absatzreturn.set(i,x);
                     }
                     else{absatzreturn.set(i,y*l2v);}
-                    l2v = l2v - (float)absatzreturn.get(i);
+                    //l2v = l2v - (float)absatzreturn.get(i);
                 }
                 else{
                     if((double)vkparray.get(i) < l3){
-                        double y = ((double)randInt(30,80)/100 + (double)prozentualeVorteile.get(i));
+                        double y = ((double)randInt(30,60)/100 + (double)prozentualeVorteile.get(i));
                         if(y > 1){ y = 1;}
                         if(y < 0){ y = 0;}
                         if(y*l3v > (int)mengearray.get(i)){
@@ -145,11 +157,11 @@ public class Marktsim {
                             absatzreturn.set(i,x);
                         }
                         else{absatzreturn.set(i,y*l3v);}
-                        l3v = l3v - (float)absatzreturn.get(i);
+                        //l3v = l3v - (float)absatzreturn.get(i);
                     }
                     else{
                         if((double)vkparray.get(i) < h1){
-                            double y = ((double)randInt(30,70)/100 + (double)prozentualeVorteile.get(i));
+                            double y = ((double)randInt(30,60)/100 + (double)prozentualeVorteile.get(i));
                             if(y > 1){ y = 1;}
                             if(y < 0){ y = 0;}
                             if(y*h1v > (int)mengearray.get(i)){
@@ -157,7 +169,7 @@ public class Marktsim {
                                 absatzreturn.set(i,x);
                             }
                             else{absatzreturn.set(i,y*h1v);}
-                            h1v = h1v - (float)absatzreturn.get(i);
+                            //h1v = h1v - (float)absatzreturn.get(i);
                         }
                         else{
                             if((double)vkparray.get(i) < h2){
@@ -169,11 +181,11 @@ public class Marktsim {
                                     absatzreturn.set(i,x);
                                 }
                                 else{absatzreturn.set(i,y*h2v);}
-                                h2v = h2v - (float)absatzreturn.get(i);
+                                //h2v = h2v - (float)absatzreturn.get(i);
                             }
                             else{
                                 if((double)vkparray.get(i) < h3){
-                                    double y = ((double)randInt(30,60)/100 + (double)prozentualeVorteile.get(i));
+                                    double y = ((double)randInt(30,65)/100 + (double)prozentualeVorteile.get(i));
                                     if(y > 1){ y = 1;}
                                     if(y < 0){ y = 0;}
                                     if(y*h3v > (int)mengearray.get(i)){
@@ -181,16 +193,24 @@ public class Marktsim {
                                         absatzreturn.set(i,x);
                                     }
                                     else{absatzreturn.set(i,y*h3v);}
-                                    h3v = h3v - (float)absatzreturn.get(i);
+                                    //h3v = h3v - (float)absatzreturn.get(i);
                                 }
-
                             }
-
                         }
-
                     }
-
                 }
+            }
+        }
+
+        int x = 0;
+        for(int i = 0; i < absatzreturn.size(); i++){
+            x += (int)absatzreturn.get(i);
+        }
+
+        while(x > anzSpieler*8000){
+            for(int i = 0; i < absatzreturn.size(); i++){
+                double d = (double)absatzreturn.get(i) -10;
+               absatzreturn.set(i,d);
             }
         }
 
@@ -210,11 +230,11 @@ public class Marktsim {
         float middle = (highestp - lowestp) / 2;
 
         l1 = lowestp + (1/4 * middle);                             //Preisklassen l1-3 und h1-3
-        l2 = lowestp + (1/2 * middle);                             // Enteilung in 1/3 Schritte, Verteilung Zufällig
-        l3 = lowestp + (3/3 * middle);
+        l2 = lowestp + (1/2 * middle);                             // Enteilung in 1/4, 1/2 und 2/2 Schritte, Verteilung Zufällig
+        l3 = lowestp + (2/2 * middle);
         h1 = (lowestp + middle) + (1/4 * middle);
         h2 = (lowestp + middle) + (1/2 * middle);
-        h3 = (lowestp + middle) + (3/3 * middle);
+        h3 = (lowestp + middle) + (2/2 * middle);
 
         l1v = randInt(1,49);                        // Prozentuale Verteilung low budget
         l2v = randInt(1,49);
@@ -246,7 +266,7 @@ public class Marktsim {
         for(int i = 0; i < absatzreturn.size(); i++){
             marktanteil.set(i,(double)absatzreturn.get(i)/sum);
         }
-    }
+    } //Ende berechneMarktanteil
 
     /**
      *     Berechnet den Rundengewinn jedes Spielers
@@ -256,7 +276,7 @@ public class Marktsim {
             rundenGewinn.set(i, ((double)absatzreturn.get(i) * (double)vkparray.get(i))-startguthaben);
         }
         summiereGewinn();
-    }
+    } //Ende berechneRundengewinn
 
     /**
      *     Summiert die Gewinne der Runden auf
@@ -266,7 +286,7 @@ public class Marktsim {
             double o = summierterGewinn.get(i);
             summierterGewinn.set(i, o + rundenGewinn.get(i));
         }
-    }
+    } //Ende summiereGewinn
 
     /**
      * Gibt einen Zufalls-Integer zurück zur Berechnung der Zufälle

@@ -1,7 +1,5 @@
 package com.example.patsc.fallstudie;
 
-import java.security.spec.ECField;
-
 /**
  * Created by patsc on 13.12.2016.
  */
@@ -212,19 +210,28 @@ public class  Model {
      * @param name
      * @param passwort
      */
-    public void login(String name, String passwort){
+
+    //TODO: if-Abfrage richtig implementieren
+/*    public boolean login (String name, String passwort){
+        if (name.equals(Spieler.getName()) && passwort.equals(Spieler.getPasswort())) {
+            return true; //falls Name und Passwort von Spieler übereinstimmen
+        }
+            return false; //falls Name und Passwort nicht zusammengehören
+    }*/
+
+  /*  public void login(String name, String passwort){
 
        aktiverSpieler = new Spieler(name, passwort,daten);
         // daten.ladeSpieler(name, passwort); ToDo in Daten
     }
-
+*/
     //ToDO Spielfortsetzen
 
     // Zusand Spielbeginn
 
 
 
-    // METHODEN VON NILS HINZUGEFÜGT, VORERST LEER, WERDEN VON GUI AUFGERUFEN //TODO: Methoden füllen
+    // METHODEN VON NILS HINZUGEFÜGT, VORERST LEER, WERDEN VON GUI AUFGERUFEN
 
     // Methoden zum weitergeben der UI-Inputs
 
@@ -665,7 +672,7 @@ public class  Model {
 
 
 
-    //Methoden zum Abrufen der aktuellen Fixkosten und variablen Kosten //TODO: return-Werte
+    //Methoden zum Abrufen der aktuellen Fixkosten und variablen Kosten
 
     public float getFixKosten() {
        float fixKosten = (float) aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getFixKosten();
@@ -693,7 +700,7 @@ public class  Model {
         return nF;
     }*/
     //Methoden zum Überprüfen ob ein Zufall eingetreten ist, entsprechende Weiterleitung der Activities
-    // TODO: richtiger Rückgabewert, welcher genaue Zufall? bei Z1 Leder, Metall oder .. ?
+
 
     public boolean isZufall1 (){ // Zufall 1 = Armband Ändern
         double zufallszahl = Math.random();
@@ -818,6 +825,8 @@ public class  Model {
     }
 
     public void setActivity_E1 () {
+        aktiverSpieler.getBestellung().neueBestellpositon();
+        //ToDo RUndenanzahl erhöhen
         setZustand_Bestellung(true);
         setSCHRITT_DESIGNER_boolean(true);
     }
@@ -911,10 +920,14 @@ public class  Model {
 
 
     public void setActivity_Rundenergebnis () {
-    setZustand_Lieferung(true);
+        setZustand_Lieferung(true);
+    }
 
+    //TODO: setActivity_Bestenliste
+    public void setActivity_Bestenliste() {
 
     }
+
 
 
 
