@@ -2,7 +2,6 @@ package com.example.patsc.fallstudie.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
@@ -15,7 +14,7 @@ public class RundenergebnisActivity extends AppCompatActivity {
         IntroductionActivity.model.setActivity_Rundenergebnis();
 
         //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Model-Methoden zum Anzeigen der Rundenergebnisse
-        TextView spieler_output = (TextView) findViewById(R.id.spieler_output);
+/*        TextView spieler_output = (TextView) findViewById(R.id.spieler_output);
         spieler_output.setText(IntroductionActivity.model.getSpielername());
 
         TextView runde_output = (TextView) findViewById(R.id.runde_output);
@@ -34,7 +33,7 @@ public class RundenergebnisActivity extends AppCompatActivity {
         guthaben_output.setText(IntroductionActivity.model.getGuthaben());
 
         TextView position_output = (TextView) findViewById(R.id.position_output);
-        position_output.setText(IntroductionActivity.model.getPosition());
+        position_output.setText(IntroductionActivity.model.getPosition());*/
     }
 
 

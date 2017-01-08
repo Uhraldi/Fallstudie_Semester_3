@@ -1,16 +1,7 @@
 package com.example.patsc.fallstudie.BestellpositionTests;
 
-import com.example.patsc.fallstudie.Bestellposition;
-
-import junit.framework.Assert;
-
-import org.junit.Test;
-import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
-import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
-
-import static junit.framework.Assert.fail;
 
 /**
  * Created by julia on 03.01.2017.
@@ -18,6 +9,7 @@ import static junit.framework.Assert.fail;
 @RunWith(Theories.class)
 public class ProduktionsOrtTest {
 
+/*
 
     public static @DataPoints
     String[] ProduktionsOrtWerte =
@@ -55,6 +47,7 @@ public class ProduktionsOrtTest {
         Assert.assertTrue(TestBestellposition.getProduktionsort().isDeutschland());
 
     }
+*/
 
 
 

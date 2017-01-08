@@ -212,12 +212,12 @@ public class  Model {
      */
 
     //TODO: if-Abfrage richtig implementieren
-    public boolean login (String name, String passwort){
+/*    public boolean login (String name, String passwort){
         if (name.equals(Spieler.getName()) && passwort.equals(Spieler.getPasswort())) {
             return true; //falls Name und Passwort von Spieler übereinstimmen
         }
             return false; //falls Name und Passwort nicht zusammengehören
-    }
+    }*/
 
   /*  public void login(String name, String passwort){
 
@@ -825,6 +825,8 @@ public class  Model {
     }
 
     public void setActivity_E1 () {
+        aktiverSpieler.getBestellung().neueBestellpositon();
+        //ToDo RUndenanzahl erhöhen
         setZustand_Bestellung(true);
         setSCHRITT_DESIGNER_boolean(true);
     }
