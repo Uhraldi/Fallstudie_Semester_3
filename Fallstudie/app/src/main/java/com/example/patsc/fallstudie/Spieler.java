@@ -121,7 +121,7 @@ public class Spieler {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }  //ToDo throw
     }// Ende setPunkte
 
     public void beendeRunde() {
