@@ -7,12 +7,9 @@ import java.util.*;
  */
 
 public class Marktsim {
-<<<<<<< HEAD
+
     private Daten daten = new Daten(); // ToDo bitte immer auf die gleichen Daten zugreifen! So hast du keinerlei Informationen lediglich ein leeres Objekt
-=======
-    private Daten daten = new Daten();
-    Model model = new Model();
->>>>>>> 6584a6fd0131106e90d29acb7fbb21dbbd45b143
+
     private int anzSpieler = daten.getSpielerAnzahl();
     private int AnzKäufer = anzSpieler * 8000;   // Abfrage der Spieleranzahl, mult. mit 8000
     private int lKäufer;                         //low-budget-Käufer
@@ -32,10 +29,9 @@ public class Marktsim {
     ArrayList mengearray = new ArrayList();
     ArrayList pkzarray = new ArrayList();
     ArrayList diff = new ArrayList();
-<<<<<<< HEAD
+
     Model model = new Model(); // ToDo die MarktSim wird vom Model aufgerufen ein neues zu erstellen macht keinen Sinn
-=======
->>>>>>> 6584a6fd0131106e90d29acb7fbb21dbbd45b143
+
 
 
     /**

@@ -33,7 +33,7 @@ public class Spieler {
         this.daten=daten;
         setName(name);
         setGuthaben(Anfangsguthaben);
-        setMarktanteil(AnfangsMarktanteil);
+       // setMarktanteil(0); ToDo
         setPasswort(passwort);
         setPunkte(AnfagsPunkte);
         daten.addSpielerListe(this); // Hinzufügen des Spielers in die Liste
@@ -74,7 +74,8 @@ public class Spieler {
      *
      */
     public void setMarktanteil() {
-double marktanteil = this.getBestellung().getBestellposition(daten.getRundenAnzahl()).getMarktsim().getMarktanteil();
+        double marktanteil = 0.3;
+                //getBestellung().getBestellposition(daten.getRundenAnzahl()).getMarktsim().getMarktanteil();
         try {
             if (marktanteil < 100 && marktanteil > 0) {
                 Marktanteil = marktanteil;
