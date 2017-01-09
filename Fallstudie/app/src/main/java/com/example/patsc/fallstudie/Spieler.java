@@ -35,6 +35,7 @@ public class Spieler {
         setGuthaben(Anfangsguthaben);
         setMarktanteil(AnfangsMarktanteil);
         setPasswort(passwort);
+        bestellung = new Bestellung();
         setPunkte(AnfagsPunkte);
         daten.addSpielerListe(this); // Hinzufügen des Spielers in die Liste
     } // Ende Konstruktor
