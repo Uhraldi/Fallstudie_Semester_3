@@ -51,10 +51,13 @@ public class ModelGetterTests {
         Assert.assertEquals(SCHRITT_DICHTHEIT, TestModel.getSCHRITT_DICHTHEIT());
     }
 
+    /*
+
     @Test
     public void getSchrittZusammenbauTest(){
         Assert.assertEquals(SCHRITT_ZUSAMMENBAU, TestModel.getSCHRITT_ZUSAMMENBAU());
     }
+    */
 
     @Test
     public void getSchrittWerbungTest(){

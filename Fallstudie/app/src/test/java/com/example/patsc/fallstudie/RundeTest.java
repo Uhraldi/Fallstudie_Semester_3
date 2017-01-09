@@ -22,11 +22,5 @@ public class RundeTest {
         Assert.assertEquals(NeueRundenNr ,TestRunde.getRundenNr());
     }
 
-    @Test
-    public void setRundenNrTest() {
-        int NeueRundenNr = 3;
-        TestRunde.setRundenNr(3);
-        Assert.assertEquals(NeueRundenNr, TestRunde.getRundenNr());
-    }
 
 }
