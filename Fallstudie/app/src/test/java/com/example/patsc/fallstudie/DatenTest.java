@@ -14,10 +14,11 @@ import static org.junit.Assert.fail;
 
 public class DatenTest {
 
+    Daten TestDaten = new Daten();
+    Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
 
     @Test
     public void SpielerAnzahlTest(){
-        Daten TestDaten = new Daten();
         TestDaten.setSpielerAnzahl(3);
         Assert.assertEquals(3,TestDaten.getSpielerAnzahl());
 
@@ -25,7 +26,6 @@ public class DatenTest {
 
     @Test
     public void SpielerAnzahlErhöhenTest(){
-        Daten TestDaten = new Daten();
         TestDaten.setSpielerAnzahl(3);
         TestDaten.erhöheSpielerAnzahl();
         Assert.assertEquals(4,TestDaten.getSpielerAnzahl());
@@ -34,8 +34,6 @@ public class DatenTest {
 
     @Test
     public void addSpielerListeTest(){
-        Daten TestDaten = new Daten();
-        Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
         try {
             TestDaten.addSpielerListe(TestSpieler);
         }catch (Exception e){
@@ -46,13 +44,8 @@ public class DatenTest {
     @Test
     public void addSpielerListeFailTest(){
         Daten TestDaten = new Daten();
-        Spieler TestSpieler = null;
-        try {
-            TestDaten.addSpielerListe(TestSpieler);
-        }catch (Exception e){
-            String msg = "Spieler == null";
-            assertEquals(msg, e.getMessage());
-        }
+        TestSpieler = null;
+
     }
 
 
