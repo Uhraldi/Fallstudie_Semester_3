@@ -162,7 +162,7 @@ public class  Model {
     public void setZustand_Bestellung(boolean Zustand){
         setzeAlleZustaendeFalse();
         Zustand_Bestellung = true;
-        Bestellung bestellung = daten.getDieserSpieler().getBestellung();
+        Bestellung bestellung = daten.getDieserSpieler().getBestellung(); //ToDo auch hier tritt ein Nullpointer auf, verbindung mit dem in Daten?
         bestellung.neueBestellpositon();
         bestellung.getBestellposition(daten.getRundenAnzahl()); // Wie man die Bestellposition bekomt
         //Einfügen der Werte in die Bestllposition mittels der Buttons aktives pushen

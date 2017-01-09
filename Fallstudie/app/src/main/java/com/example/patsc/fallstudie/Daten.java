@@ -48,7 +48,7 @@ public class Daten {
         try{
             erhöheSpielerAnzahl();
             if (spieler != null){
-                SpielerListe.add(spieler);
+                SpielerListe.add(spieler); //ToDo hier tritt ein NullPointer auf!
             }
             else{
                 throw new Exception("Spieler == null");

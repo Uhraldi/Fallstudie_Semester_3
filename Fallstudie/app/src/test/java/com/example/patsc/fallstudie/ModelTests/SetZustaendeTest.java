@@ -44,7 +44,7 @@ public class SetZustaendeTest {
         }else{
             fail("Mehr als ein Zustand true");
         }
-    assertTrue(isPassed());
+    Assert.assertTrue(isPassed());
 
     }
 
