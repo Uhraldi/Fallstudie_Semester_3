@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie;
 
-import com.example.patsc.fallstudie.Spieler;
+import com.example.patsc.fallstudie.Model;
 
 /**
  * Created by Jonas on 01.01.17.
@@ -28,6 +28,9 @@ public class Runde {
 
     public void erhöheRundenNr () {
         RundenNr++;
+        if (RundenNr > 10) {
+            zeigeHighscoreListe();
+        }
     } // ToDo Prüfung einfügen
 
     /*public void beendeRunde() {
