@@ -34,6 +34,30 @@ public class GehaeuseTest {
         }
     }
 
+
+    @Theory
+    public void GehaeuseKorrekturTest(String GehaeuseWerte){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleGehaeuse(GehaeuseWerte);
+            TestBestellposition.korrigiereGehaeuse("Glas");
+        }catch (Exception e){
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void GehausekorrekturFailTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleGehaeuse("Glas");
+            TestBestellposition.korrigiereGehaeuse("FAIL");
+        } catch (Exception e){
+            String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
+            Assert.assertEquals(msg, e.getMessage());
+        }
+    }
+
     @Test
     public void bestelleGehaeuseFailTest(){
         Bestellposition TestBestellposition = new Bestellposition();

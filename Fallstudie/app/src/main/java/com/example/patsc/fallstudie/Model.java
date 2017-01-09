@@ -211,6 +211,8 @@ public class  Model {
      * @param passwort
      */
 
+
+/*
     //TODO: if-Abfrage richtig implementieren
     public boolean login (String name, String passwort){
         if (name.equals(Spieler.getName()) && passwort.equals(Spieler.getPasswort())) {
@@ -218,6 +220,8 @@ public class  Model {
         }
             return false; //falls Name und Passwort nicht zusammengehören
     }
+*/
+
 
   /*  public void login(String name, String passwort){
 
