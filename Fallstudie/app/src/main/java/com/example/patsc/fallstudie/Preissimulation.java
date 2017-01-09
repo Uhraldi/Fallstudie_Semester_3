@@ -7,7 +7,7 @@ import com.example.patsc.fallstudie.Bestandteile.Designer;
  * Created by Jonas on 02.01.17.
  */
 
-public class Preissimulation extends Designer {
+public class Preissimulation{
 
     private double Einkaufspreis;
     private double Verkaufspreis;
