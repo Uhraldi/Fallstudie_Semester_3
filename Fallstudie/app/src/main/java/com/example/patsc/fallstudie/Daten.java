@@ -23,6 +23,7 @@ public class Daten {
 
     public Daten(){
         ladeDaten();
+        SpielerListe = new ArrayList<Spieler>();
     } // Ende Konstruktor
 
     public int getSpielerAnzahl() {
@@ -39,7 +40,6 @@ public class Daten {
         SpielerAnzahl++;
     }
     public void ladeDaten(){
-        //ToDo
     }
     public void speichereDaten(){
         //ToDO
