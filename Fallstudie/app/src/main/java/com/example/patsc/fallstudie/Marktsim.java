@@ -108,7 +108,7 @@ public class Marktsim {
 
         }
 
-        Collections.sort(); // ToDo Sortieren notwendig?
+
 
         for(int i = 0; i<anzSpieler ; i++){
 
