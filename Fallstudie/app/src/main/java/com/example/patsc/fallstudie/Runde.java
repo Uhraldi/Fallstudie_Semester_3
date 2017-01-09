@@ -28,13 +28,14 @@ public class Runde {
 
     public void erhöheRundenNr () {
         RundenNr++;
-    }
+    } // ToDo Prüfung einfügen
 
     /*public void beendeRunde() {
         // ToDo
 
     }*/
 
+    /*
     public void setRundenNr(int rundenNr) {
         try {
             if (rundenNr <= 1) {
@@ -51,7 +52,9 @@ public class Runde {
         }
     }
 
-    public void zeigeHighscoreListe() {
+    *///ToDo überflüssig?
+
+    public void zeigeHighscoreListe() {//ToDo Runde prüfen, nicht über 10.
         try {
             if (RundenNr > 10) {
                 starteNeueRunde(RundenNr);
@@ -61,6 +64,7 @@ public class Runde {
             System.err.println(e);
         }
     }
+
 
     public void starteNeueRunde(int rundenNr) {
         rundenNr = 1;
