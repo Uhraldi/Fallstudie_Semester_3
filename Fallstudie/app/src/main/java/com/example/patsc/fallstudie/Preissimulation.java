@@ -9,6 +9,7 @@ import com.example.patsc.fallstudie.Bestandteile.Designer;
 
 public class Preissimulation{
 
+    // Wichtige Attribute
     private double Einkaufspreis;
     private double Verkaufspreis;
     private int RundenNr;
@@ -46,13 +47,28 @@ public class Preissimulation{
     private double WerbungEkp;
     private double WerbungVkp;
 
+
+    // Konstruktor für die Preissimulation
+    public Preissimulation (double Einkaufspreis, double Verkaufspreis, int RundenNr, Bestellung bestellung) {
+        this.Einkaufspreis = Einkaufspreis;
+        this.Verkaufspreis = Verkaufspreis;
+        this.RundenNr = RundenNr;
+        this.bestellung = bestellung;
+    }
+
+
+
     // zum Test: Bestellung bestellung = new Bestellung();
 
+    // Getter-Methoden
     public double getEinkaufspreis() { return Einkaufspreis; }
     public double getVerkaufspreis() { return Verkaufspreis; }
-
     public int getRundenNr() { return RundenNr; }
+
     public void setRundenNr(int rundenNr) { RundenNr = rundenNr; }
+
+
+    // Methoden für die einzelnen Bestellschritte
 
     public void berechneDesigner(String auswahlDesigner) {
         switch (auswahlDesigner) {
@@ -323,6 +339,8 @@ public class Preissimulation{
         }
     }
 
+
+    // Methode um endgültig den Preis zu berechnen
 
     public void berechnePreis(double Preis) {
        Einkaufspreis = DesignerEkp
