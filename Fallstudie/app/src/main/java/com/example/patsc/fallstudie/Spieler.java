@@ -29,7 +29,7 @@ public class Spieler {
      *                 Am Beginn hat jeder Spieler 1000 Punkte.
      */
 
-    public Spieler(String name, String passwort, Daten daten) {
+    public Spieler(String name, String passwort, Daten daten) throws Exception {
         this.daten=daten;
         setName(name);
         setGuthaben(Anfangsguthaben);
@@ -112,17 +112,14 @@ public class Spieler {
      *
      * @param punkte
      */
-    public void setPunkte(int punkte) {
-        try {
+    public void setPunkte(int punkte) throws Exception {
             if (punkte < 0) {
                 Punkte = 0;
                 throw new Exception("Punkte kleiner als 0, automatisch auf 0 gesetzt");
             } else {
                 Punkte = punkte;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }  //ToDo throw
+
     }// Ende setPunkte
 
     public void beendeRunde() {

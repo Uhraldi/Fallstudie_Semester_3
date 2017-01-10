@@ -28,9 +28,11 @@ public class setDesignerTest {
     @Theory
     public void setDesignerTest(String DesignerWerte){
         try {
+            TestModel.setSCHRITT_DESIGNER_boolean(true);
             TestModel.setDesigner(DesignerWerte);
         }catch (Exception e){
-            fail(e.getMessage());
+            e.printStackTrace();
+            fail();
             }
         }
 

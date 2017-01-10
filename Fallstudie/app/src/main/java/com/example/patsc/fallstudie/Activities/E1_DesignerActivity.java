@@ -84,7 +84,7 @@ public class E1_DesignerActivity extends AppCompatActivity {
 
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
-    public void goToNextActivity (View view) {
+    public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Model um Designer zu setzen
         IntroductionActivity.model.setDesigner(auswahlDesigner);

@@ -19,6 +19,9 @@ public class SpielerTest {
     Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
     boolean thrown = false;
 
+    public SpielerTest() throws Exception {
+    }
+
     @Test
     public void getNameTest(){
         Assert.assertTrue(TestSpieler.getName().equals("testname"));
@@ -87,7 +90,11 @@ public class SpielerTest {
 
     @Test
     public void setPunkteTest(){
-        TestSpieler.setPunkte(10000);
+        try {
+            TestSpieler.setPunkte(10000);
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
         Assert.assertTrue(TestSpieler.getPunkte() == 10000);
     }
 

@@ -15,6 +15,9 @@ public class RundeTest {
     int StartRunde = 1;
     Runde TestRunde = new Runde(StartRunde, TestSpieler);
 
+    public RundeTest() throws Exception {
+    }
+
     @Test
     public void erhoeheRundenNrTest(){
         int NeueRundenNr = StartRunde + 1;

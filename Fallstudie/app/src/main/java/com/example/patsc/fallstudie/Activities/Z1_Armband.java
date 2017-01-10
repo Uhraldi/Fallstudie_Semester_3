@@ -25,27 +25,31 @@ public class Z1_Armband extends AppCompatActivity {
 
         //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
         TextView z1armband_info_textiew = (TextView) findViewById(R.id.z1armband_info_textview);
-        switch (IntroductionActivity.model.getArmband()){
-            case "Leder": {
-                z1armband_info_textiew.setText(R.string.z1leder_info_textview);
-                break;
+        try {
+            switch (IntroductionActivity.model.getArmband()){
+                case "Leder": {
+                    z1armband_info_textiew.setText(R.string.z1leder_info_textview);
+                    break;
+                }
+                case "Kunstleder": {
+                    z1armband_info_textiew.setText(R.string.z1kunstleder_info_textview);
+                    break;
+                }
+                case "Holz": {
+                    z1armband_info_textiew.setText(R.string.z1holz_info_textview);
+                    break;
+                }
+                case "Textil": {
+                    z1armband_info_textiew.setText(R.string.z1textil_info_textview);
+                    break;
+                }
+                case "Metall": {
+                    z1armband_info_textiew.setText(R.string.z1metall_info_textview);
+                    break;
+                }
             }
-            case "Kunstleder": {
-                z1armband_info_textiew.setText(R.string.z1kunstleder_info_textview);
-                break;
-            }
-            case "Holz": {
-                z1armband_info_textiew.setText(R.string.z1holz_info_textview);
-                break;
-            }
-            case "Textil": {
-                z1armband_info_textiew.setText(R.string.z1textil_info_textview);
-                break;
-            }
-            case "Metall": {
-                z1armband_info_textiew.setText(R.string.z1metall_info_textview);
-                break;
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 
@@ -103,7 +107,7 @@ public class Z1_Armband extends AppCompatActivity {
 
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
-    public void goToNextActivity (View view) {
+    public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Model um Spinner Auswahl zu setzen, mit Prüfung ob anderer Wert als vorher
         if(IntroductionActivity.model.getArmband().equals(auswahlArmband)) {

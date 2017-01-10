@@ -30,7 +30,7 @@ public class Marktsim {
     Model model = new Model();
 
 
-    public ArrayList berechneAbsatz(double[] pkz){
+    public ArrayList berechneAbsatz(double[] pkz) throws Exception {
 
         prozentualeVorteile.clear(); // Leeren der Arraylists vor neuer Berechnung
         vkparray.clear();

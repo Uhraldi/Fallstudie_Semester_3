@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //Methode zum Registrieren, schickt Daten ins Backend und startet Login Activity neu
-    public void register (View view){
+    public void register (View view)throws Exception{
         IntroductionActivity.model.registrierung(inputUsername, inputPassword);
         Intent intent = new Intent(this, E1_DesignerActivity.class);
         startActivity(intent); // Absturz der App 1.15
