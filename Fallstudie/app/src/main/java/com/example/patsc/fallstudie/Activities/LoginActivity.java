@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.patsc.fallstudie.Model;
 import com.example.patsc.fallstudie.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -13,10 +14,12 @@ public class LoginActivity extends AppCompatActivity {
     String inputUsername;
     String inputPassword;
 
+    Model model;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        model = IntroductionActivity.model;
         IntroductionActivity.model.setActivity_Login();
 
         //Verknuepfen von EditText mit UI-Element per ID
@@ -32,13 +35,16 @@ public class LoginActivity extends AppCompatActivity {
     public void register (View view){
         IntroductionActivity.model.registrierung(inputUsername, inputPassword);
         Intent intent = new Intent(this, E1_DesignerActivity.class);
-        startActivity(intent);
+        startActivity(intent); // Absturz der App 1.15
+
         finish();
+
+
     }
 
 
     //Methode zum Login, prüft ob Nutzername/Passwort-Kombination richtig ist und leitet dann erst weiter
-/*    public void login (View view) {
+/*   public void login (View view) {
         if(IntroductionActivity.model.login(inputUsername, inputPassword)) {
             Intent intent = new Intent(this, E1_DesignerActivity.class);
             startActivity(intent);

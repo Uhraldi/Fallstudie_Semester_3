@@ -162,7 +162,7 @@ public class  Model {
     public void setZustand_Bestellung(boolean Zustand){
         setzeAlleZustaendeFalse();
         Zustand_Bestellung = true;
-        Bestellung bestellung = daten.getDieserSpieler().getBestellung(); //ToDo auch hier tritt ein Nullpointer auf, verbindung mit dem in Daten?
+        Bestellung bestellung = aktiverSpieler.getBestellung(); //Aenderung 2.01 daten.getDieserSpieler() gefixt//ToDo auch hier tritt ein Nullpointer auf, verbindung mit dem in Daten?
         bestellung.neueBestellpositon();
         bestellung.getBestellposition(daten.getRundenAnzahl()); // Wie man die Bestellposition bekomt
         //Einfügen der Werte in die Bestllposition mittels der Buttons aktives pushen
@@ -366,9 +366,9 @@ public class  Model {
         setZustand_Spielbeginn(true);
     }
     public void setActivity_E1 () {
-        aktiverSpieler.getBestellung().neueBestellpositon();
+      aktiverSpieler.getBestellung().neueBestellpositon(); // Absturz 1.54; aktiver SPier in registrierung zugeordnet Fix 1.58
         //ToDo RUndenanzahl erhöhen
-        setZustand_Bestellung(true);
+        setZustand_Bestellung(true); // Absturz 2.01 fix 2.04
         setSCHRITT_DESIGNER_boolean(true);
     }
     public void setActivity_E2 () {
@@ -1003,12 +1003,14 @@ public class  Model {
      * @param name
      * @param passwort
      */ public void registrierung(String name, String passwort){
-        try {
+        Spieler spieler = new Spieler(name,passwort,getDaten());
+        aktiverSpieler= spieler;
+        /* try {
             aktiverSpieler =   new Spieler(name, passwort, daten);
         }
         catch (Exception e1) {
             e1.printStackTrace();
-        }
+        }*/
     } // Ende registrierung()
     /**
      * Aufrug wenn Login bestätigt wird (Button in UI)
@@ -1018,6 +1020,8 @@ public class  Model {
      * @param name
      * @param passwort
      */ public boolean login (String name, String passwort){
+        Spieler spieler = new Spieler(name,passwort,getDaten());
+        spieler= aktiverSpieler;
         if (name.equals(aktiverSpieler.getName()) && passwort.equals(aktiverSpieler.getPasswort())) {
             return true; //falls Name und Passwort von Spieler übereinstimmen
         }

@@ -13,7 +13,7 @@ import com.example.patsc.fallstudie.R;
 
 public class E9_KaufvolumenActivity extends AppCompatActivity {
 
-    float auswahlKaufvolumen;
+    int auswahlKaufvolumen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class E9_KaufvolumenActivity extends AppCompatActivity {
 
         //speichere Eingabewert in Variable
         String kaufvolumenString = kaufvolumen_input.getText().toString();
-        auswahlKaufvolumen = Float.parseFloat(kaufvolumenString);
+        auswahlKaufvolumen = Integer.parseInt(kaufvolumenString);// Absturz 2.17 ToDo // Testende
 
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
