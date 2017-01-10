@@ -15,7 +15,11 @@ import static org.junit.Assert.fail;
 public class DatenTest {
 
     Daten TestDaten = new Daten();
+
     Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
+
+    public DatenTest() throws Exception {
+    }
 
     @Test
     public void SpielerAnzahlTest(){

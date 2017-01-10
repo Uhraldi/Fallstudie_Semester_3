@@ -162,7 +162,7 @@ public class  Model {
     public void setZustand_Bestellung(boolean Zustand){
         setzeAlleZustaendeFalse();
         Zustand_Bestellung = true;
-        Bestellung bestellung = daten.getDieserSpieler().getBestellung(); //ToDo auch hier tritt ein Nullpointer auf, verbindung mit dem in Daten?
+        Bestellung bestellung = aktiverSpieler.getBestellung(); //Aenderung 2.01 daten.getDieserSpieler() gefixt//ToDo auch hier tritt ein Nullpointer auf, verbindung mit dem in Daten?
         bestellung.neueBestellpositon();
         bestellung.getBestellposition(daten.getRundenAnzahl()); // Wie man die Bestellposition bekomt
         //Einfügen der Werte in die Bestllposition mittels der Buttons aktives pushen
@@ -366,9 +366,9 @@ public class  Model {
         setZustand_Spielbeginn(true);
     }
     public void setActivity_E1 () {
-        aktiverSpieler.getBestellung().neueBestellpositon();
+      aktiverSpieler.getBestellung().neueBestellpositon(); // Absturz 1.54; aktiver SPier in registrierung zugeordnet Fix 1.58
         //ToDo RUndenanzahl erhöhen
-        setZustand_Bestellung(true);
+        setZustand_Bestellung(true); // Absturz 2.01 fix 2.04
         setSCHRITT_DESIGNER_boolean(true);
     }
     public void setActivity_E2 () {
@@ -451,12 +451,12 @@ public class  Model {
      * Aufruf in Activity
      * @param designerAuswahl
      */
-    public void setDesigner (String designerAuswahl){
+    public void setDesigner (String designerAuswahl) throws Exception{
         //Prüfung ob die Wahl des Designers erlaubt ist
-        try{
+
             if (SCHRITT_DESIGNER_boolean){
                 if(designerAuswahl == DESIGNER_WAHL_LOWBUDGET ||designerAuswahl == DESIGNER_WAHL_MARKEN || designerAuswahl==DESINGER_WAHL_MITTELMAESIG ){
-                    aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleDesigner(designerAuswahl);
+                    aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleDesigner(designerAuswahl); //ToDo Nullpointer Exception
                     setzeAlleSchritteFalse();}
                 else{
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
@@ -465,12 +465,9 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }// Ende setDesigner
-    public void setArmband (String armbandAuswahl){
-        try{
+
+    } // Ende SetDesigner
+    public void setArmband (String armbandAuswahl) throws Exception{
             if (SCHRITT_ARMBAND_boolean){
                 if(armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER|| armbandAuswahl==ARMBAND_WAHL_LEDER || armbandAuswahl==ARMBAND_WAHL_METALL|| armbandAuswahl==ARMBAND_WAHL_TEXTIL){
                     aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleArmband(armbandAuswahl);
@@ -482,12 +479,8 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }// Ende SetArmband
-    public void setArmbandNeu (String armbandAuswahl){              //nach Zufall Z3
-        try{
+        }// Ende SetArmband
+    public void setArmbandNeu (String armbandAuswahl)throws Exception{              //nach Zufall Z3
             if (AENDERE_ARMBAND_boolean){
                 if(armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER|| armbandAuswahl==ARMBAND_WAHL_LEDER || armbandAuswahl==ARMBAND_WAHL_METALL|| armbandAuswahl==ARMBAND_WAHL_TEXTIL)
                 // Prüfung ob das Material schon einmal gewaehlt wurde in Activity
@@ -500,12 +493,8 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }// Ende setArmbandNeu
-    public void setUhrwerk (String uhrwerkAuswahl){
-        try{
+    public void setUhrwerk (String uhrwerkAuswahl) throws Exception{
             if (SCHRITT_UHRWERK_boolean){
                 if(uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTROMECHANISCH)||uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTRONISCH)||uhrwerkAuswahl.equals(UHRWERK_WAHL_MECHANISCH))
                 { aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleUhrwerk(uhrwerkAuswahl);
@@ -517,12 +506,8 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//Ende setUhrwek
-    public void setGehaeuse (String gehaeuseAuswahl){
-        try{
+    }//Ende setUhrwek //
+    public void setGehaeuse (String gehaeuseAuswahl)throws Exception{
             if (SCHRITT_GEHAUESE_boolean){
                 if(gehaeuseAuswahl.equals(GEHAEUSE_WAHL_GLAS)|| gehaeuseAuswahl.equals(GEHAEUSE_WAHL_HOLZ)||gehaeuseAuswahl.equals(GEHAEUSE_WAHL_KUNSTSTOFF)||gehaeuseAuswahl.equals(GEHAEUSE_WAHL_METALL))
                 { aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleGehaeuse(gehaeuseAuswahl);
@@ -534,12 +519,8 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }// Ende setGehaeuse
-    public void setGehaeuseNeu (String gehaeuseAuswahl){                //nach Zufall Z2
-        try{
+    public void setGehaeuseNeu (String gehaeuseAuswahl) throws Exception{                //nach Zufall Z
             if (AENDERE_GEHAEUSE_boolean){
                 if(gehaeuseAuswahl.equals(GEHAEUSE_WAHL_GLAS)|| gehaeuseAuswahl.equals(GEHAEUSE_WAHL_HOLZ)||gehaeuseAuswahl.equals(GEHAEUSE_WAHL_KUNSTSTOFF)||gehaeuseAuswahl.equals(GEHAEUSE_WAHL_METALL)) {
                     aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).korrigiereGehaeuse(gehaeuseAuswahl);
@@ -552,12 +533,9 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     } // Ende setGehaeuseNeu
-    public void setVersandart (String versandartAuswahl){
-        try{
+    public void setVersandart (String versandartAuswahl)throws  Exception{
             if (SCHRITT_VERSANDART_boolean){
                 if(versandartAuswahl.equals(VERSANDART_WAHL_FLUGZEUG)||versandartAuswahl.equals(VERSANDART_WAHL_LANDWEG)||versandartAuswahl.equals(VESANDART_WAHL_SCHIFF))
                 { aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleVersandart(versandartAuswahl);
@@ -569,12 +547,8 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    } //Ende set Versandart
-    public void setWasserdichtheit (String wasserdichtheitAuswahl){
-        try{
+    } //Ende set Versandart //
+    public void setWasserdichtheit (String wasserdichtheitAuswahl)throws Exception{
             if (SCHRITT_DICHTHEIT_boolean){
                 if(wasserdichtheitAuswahl.equals(WASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT)||wasserdichtheitAuswahl.equals(WASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT)||wasserdichtheitAuswahl.equals(WASSERDICHTHEIT_WAHL_WASSERDICHT))
                 { aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleWasserdichtheit(wasserdichtheitAuswahl);
@@ -586,12 +560,8 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     } // Ende setWasserdichtheit
-    public void setZusammenbau (String zusammenbauAuswahl){
-        try{
+    public void setZusammenbau (String zusammenbauAuswahl)throws Exception{
             if (SCHRITT_ZUSAMMENBAU_boolean){
                 if(zusammenbauAuswahl.equals(ZUSAMMENBAU_WAHL_ASIEN)||zusammenbauAuswahl.equals(ZUSAMMENBAU_WAHL_DEUTSCHLAND)||zusammenbauAuswahl.equals(ZUSAMMENBAU_WAHL_OSTEUROPA)||zusammenbauAuswahl.equals(ZUSAMMENBAU_WAHL_SCHWEIZ))
                 { aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleZusamenbau(zusammenbauAuswahl);
@@ -603,12 +573,8 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     } // Ende setZusammebau
-    public void setZusammenbauNeu (String zusammenbauAuswahl){              //nach Zufall Z3
-        try{
+    public void setZusammenbauNeu (String zusammenbauAuswahl)throws Exception{              //nach Zufall Z3
             if (AENDERE_ZUSAMMENBAU_boolean){
                 if(zusammenbauAuswahl.equals(ZUSAMMENBAU_WAHL_ASIEN)||zusammenbauAuswahl.equals(ZUSAMMENBAU_WAHL_DEUTSCHLAND)||zusammenbauAuswahl.equals(ZUSAMMENBAU_WAHL_OSTEUROPA)||zusammenbauAuswahl.equals(ZUSAMMENBAU_WAHL_SCHWEIZ))
                 {aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).korrigiereZusammenbau(zusammenbauAuswahl);
@@ -621,12 +587,8 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }// Ende setZusammenbauNeu
-    public void setWerbung (String werbungAuswahl){
-        try{
+    public void setWerbung (String werbungAuswahl)throws Exception{
             if (SCHRITT_WERBUNG_boolean){
                 if(werbungAuswahl.equals(WERBUNG_WAHL_MITTEL)||werbungAuswahl.equals(WERBUNG_WAHL_VIEL)||werbungAuswahl.equals(WERBUNG_WAHL_WENIG))
                 { aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleWerbung(werbungAuswahl);
@@ -638,12 +600,8 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }//Ende set Werbung
-    public void setKaufvolumen (float kaufvolumenAuswahl){
-        try{
+    public void setKaufvolumen (float kaufvolumenAuswahl)throws Exception{
             if (SCHRITT_KAUFVOLUMEN_boolean){
                 int kaufVolumen = ((int) kaufvolumenAuswahl);
                 aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleMenge(kaufVolumen);
@@ -651,12 +609,9 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//Ende setKaufvolumen
-    public void setVerkaufspreis (float verkaufspreisAuswahl){
-        try{
+
+    }//Ende setKaufvolumen //
+    public void setVerkaufspreis (float verkaufspreisAuswahl)throws Exception{
             if (SCHRITT_VERKAUFSPREIS_boolean){
                 double verkaufspreis = ((double)verkaufspreisAuswahl);
                 aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).bestelleVKP(verkaufspreis);
@@ -664,15 +619,11 @@ public class  Model {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }// Ende Verkaufspreis
+    }// Ende Verkaufspreis //
 
     //Methoden zum abholen der Bestellpositionen, zur Anzeige er Bestellzusammenfassung
-    public String getDesigner ( ){
+    public String getDesigner ( )throws Exception{
         String designer ="";
-        try{
             if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getDesigner().isLowBudget()){
                 designer = DESIGNER_WAHL_LOWBUDGET;
             }
@@ -686,15 +637,11 @@ public class  Model {
 
                 throw new Exception("Keine Wahl getroffen");
             }
-        } // Ende try
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        // Ende try
         return designer;
     }// Ende getDesigner
-    public String getArmband ( ){
+    public String getArmband ( )throws Exception{
         String armband ="";
-        try {
             if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isHolz()){
                 armband = ARMBAND_WAHL_HOLZ;
             }
@@ -714,15 +661,10 @@ public class  Model {
 
                 throw new Exception("Keine Wahl getroffen");
             }
-        } // Ende try
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         return armband;
     }// Ende get Armband
-    public String getUhrwerk ( ) {
+    public String getUhrwerk ( ) throws Exception{
         String uhrwerk = "";
-        try{
             if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getUhrwerk().isElektromechanisch()){
                 uhrwerk = UHRWERK_WAHL_ELEKTROMECHANISCH;
             }
@@ -733,15 +675,11 @@ public class  Model {
                 uhrwerk = UHRWERK_WAHL_MECHANISCH;}
             else{
                 throw new Exception("Keine Wahl im Uhrwerk getroffen.");
-            }}
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+            }
         return uhrwerk;
     }// Ende getUhrwerk
-    public String getGehaeuse ( ){
+    public String getGehaeuse ( ) throws Exception{
         String gehaeuse ="";
-        try{
             if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getGehaeuse().isMetall()){
                 gehaeuse = GEHAEUSE_WAHL_METALL;
             }
@@ -757,15 +695,10 @@ public class  Model {
             else{
                 throw new Exception("Keine Auswahl des Gehaueses getroffen.");
             }
-        }//Ende try
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         return gehaeuse;
     } // Ende getGehaeuse
-    public String getVersandart ( ){
+    public String getVersandart ( )throws Exception{
         String versandart="";
-        try{
             if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVersandart().isFlugzeug()){
                 versandart = VERSANDART_WAHL_FLUGZEUG;
             }
@@ -778,15 +711,10 @@ public class  Model {
             else{
                 throw new Exception("Keine Auswahl der Versandart getroffen.");
             }
-        }//Ende try
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         return versandart;
     }//Ende getVersandart
-    public String getWasserdichtheit ( ){
+    public String getWasserdichtheit ( )throws Exception{
         String dichtheit = "";
-        try{
             if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getWasserdichtheit().isNichtWassergeschützt()){
                 dichtheit=WASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT;
             }
@@ -799,15 +727,10 @@ public class  Model {
             else{
                 throw new Exception("Keine Auswahl der Wasserdichtheit getroffen.");
             }
-        }//Ende try
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         return dichtheit;
     }// ENde getWasserdichtheit
-    public String getZusammenbau (){
+    public String getZusammenbau ()throws Exception{
         String zusammenbau = "";
-        try{
             if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isAsien()){
                 zusammenbau = ZUSAMMENBAU_WAHL_ASIEN;
             }
@@ -823,15 +746,10 @@ public class  Model {
             else{
                 throw new Exception("Keine Auswahl bei dem Zusamenbau getroffen.");
             }
-        }//Ende try
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         return zusammenbau;
     } // Ende getZussamenbau
-    public String getWerbung ( ){
+    public String getWerbung ( )throws Exception{
         String werbung ="";
-        try{
             if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getWerbung().isMittel()){
                 werbung = WERBUNG_WAHL_MITTEL;
             }
@@ -844,10 +762,6 @@ public class  Model {
             else{
                 throw new Exception("Keine Auswahl bei dem Zusamenbau getroffen.");
             }
-        }//Ende try
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         return werbung;
     } // Ende get Werbung
     public float getKaufvolumen ( ){
@@ -875,13 +789,12 @@ public class  Model {
 
     // Methoden für die Ereignisse
     //Methoden zum Überprüfen ob ein Zufall eingetreten ist, entsprechende Weiterleitung der Activities
-    public boolean isZufall1 (){ // Zufall 1 = Armband Ändern
+    public boolean isZufall1 ()throws Exception{ // Zufall 1 = Armband Ändern
         double zufallszahl = Math.random();
         AENDERE_ARMBAND_boolean=false;
         AENDERE_GEHAEUSE_boolean =false;
         AENDERE_ZUSAMMENBAU_boolean = false;
         double wahrscheinlichkeit = 0;
-        try {
             if (aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().isHolz()){
                 wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getArmband().getHolzRisiko();
             }
@@ -901,11 +814,6 @@ public class  Model {
                 throw new Exception("Keine Auswahl fuer Armband getroffen");
             }
 
-        }//Ende try
-
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         if (zufallszahl<=wahrscheinlichkeit){
             AENDERE_ARMBAND_boolean =true;
             return true;
@@ -914,13 +822,12 @@ public class  Model {
             return false;
         }
     }// Ende isZufall1
-    public boolean isZufall2 (){ // Zufall 2 = Gehäuse Ändern
+    public boolean isZufall2 ()throws Exception{ // Zufall 2 = Gehäuse Ändern
         double zufallszahl = Math.random();
         AENDERE_ARMBAND_boolean=false;
         AENDERE_GEHAEUSE_boolean =false;
         AENDERE_ZUSAMMENBAU_boolean = false;
         double wahrscheinlichkeit = 0;
-        try {
             if (getGehaeuse().equals(GEHAEUSE_WAHL_KUNSTSTOFF)){
                 wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getGehaeuse().getKunststoffRisiko();
             }
@@ -936,11 +843,6 @@ public class  Model {
             else{
                 throw new Exception("Keine Auswahl des Gehaeuses getroffen.");
             }
-        }//Ende try
-
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         if (zufallszahl<=wahrscheinlichkeit){
             AENDERE_GEHAEUSE_boolean =true;
             return true;
@@ -949,13 +851,12 @@ public class  Model {
             return false;
         }
     }// Ende isZufall2
-    public boolean isZufall3 (){ // Zufall 3 = Zusammenbau Ändern
+    public boolean isZufall3 ()throws Exception{ // Zufall 3 = Zusammenbau Ändern
         double zufallszahl = Math.random();
         AENDERE_ARMBAND_boolean=false;
         AENDERE_GEHAEUSE_boolean =false;
         AENDERE_ZUSAMMENBAU_boolean = false;
         double wahrscheinlichkeit = 0;
-        try {
             if (getZusammenbau().equals(ZUSAMMENBAU_WAHL_ASIEN)){
                 wahrscheinlichkeit = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getAsienRisiko();
             }
@@ -972,11 +873,6 @@ public class  Model {
             else{
                 throw new Exception("Keine Auswahl des Gehaeuses getroffen.");
             }
-        }//Ende try
-
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         if (zufallszahl<=wahrscheinlichkeit){
             AENDERE_GEHAEUSE_boolean =true;
             return true;
@@ -1002,13 +898,15 @@ public class  Model {
      * Parameter werden von UI übergeben
      * @param name
      * @param passwort
-     */ public void registrierung(String name, String passwort){
-        try {
+     */ public void registrierung(String name, String passwort) throws Exception{
+        Spieler spieler = new Spieler(name,passwort,getDaten());
+        aktiverSpieler= spieler;
+        /* try {
             aktiverSpieler =   new Spieler(name, passwort, daten);
         }
         catch (Exception e1) {
             e1.printStackTrace();
-        }
+        }*/
     } // Ende registrierung()
     /**
      * Aufrug wenn Login bestätigt wird (Button in UI)
@@ -1017,7 +915,9 @@ public class  Model {
      * ToDo if abfrage
      * @param name
      * @param passwort
-     */ public boolean login (String name, String passwort){
+     */ public boolean login (String name, String passwort) throws Exception{
+        Spieler spieler = new Spieler(name,passwort,getDaten());
+        spieler= aktiverSpieler;
         if (name.equals(aktiverSpieler.getName()) && passwort.equals(aktiverSpieler.getPasswort())) {
             return true; //falls Name und Passwort von Spieler übereinstimmen
         }
@@ -1033,6 +933,8 @@ public class  Model {
 
     //ToDo Spielfortsetzen
 
+
+    public String[] getNamen(){} // ToDo Liste der geordneten Spielernamen
 
     //  Mehrfach genutzte Datenabfrage.
     public int getRunde(){
@@ -1069,9 +971,8 @@ public class  Model {
      * Methode für die Marktsiumulation
      * @return gibt eine Liste der einzelnen Bestellpositionen fuer jeden Speieler zurueck
      */
-    public Bestellposition[] getBestellpositionen(){
+    public Bestellposition[] getBestellpositionen()throws Exception{
         Bestellposition[] bestellpositionen = new Bestellposition[daten.getSpielerAnzahl()];
-        try {
             if (daten.getSpielerListe() == null) {
                 throw new Exception("Spieler Liste leer");
             }
@@ -1084,10 +985,6 @@ public class  Model {
                 }
             }// Ende for
 
-        }//Ende Try
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         return bestellpositionen;
     }  // Ende getBestellpositionen
 

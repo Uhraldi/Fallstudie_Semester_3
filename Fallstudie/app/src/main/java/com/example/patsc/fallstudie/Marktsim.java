@@ -2,11 +2,20 @@ package com.example.patsc.fallstudie;
 
 import java.util.*;
 
+
 /**
  * Created by dominik on 30.12.2016. Not testable.
  */
 
 public class Marktsim {
+
+    public Marktsim(double[] pkz){
+
+        for(int i = 0; i < pkz.length ; i++){
+            pkzarray.set(i,pkz[i]);
+        }
+        berechneAbsatz();
+    }
     private Daten daten = new Daten();
     private int anzSpieler = daten.getSpielerAnzahl();
     private int AnzKäufer = anzSpieler * 8000;   // Abfrage der Spieleranzahl, mult. mit 8000
@@ -29,8 +38,13 @@ public class Marktsim {
     ArrayList diff = new ArrayList();
     Model model = new Model();
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
 
-    public ArrayList berechneAbsatz(double[] pkz){
+    public ArrayList berechneAbsatz() throws Exception {
 
         prozentualeVorteile.clear(); // Leeren der Arraylists vor neuer Berechnung
         vkparray.clear();
@@ -45,16 +59,13 @@ public class Marktsim {
             bestellpos.set(i,bp[i]);
         }
 
-        for(int i = 0; i < pkz.length ; i++){
-            pkzarray.set(i,pkz[i]);
-        }
 
         int lverteilung = randInt(40,60);               //Verteilung low-zufall
         int hverteilung = 100 - lverteilung;            //Verteilung 100 Prozent - low-verteilung
         lvertKäufer = lverteilung/100 * lKäufer;    // Berechnung Anzahl low-budget-Käufer
         hvertKäufer = hverteilung/100 * hKäufer;    // Berechnung Anzahl low-budget-Käufer
 
-        this.berechnePreissegmente();        // Verteilung der Käufer auf l1-3 und l1-3 zufällig
+        berechnePreissegmente();        // Verteilung der Käufer auf l1-3 und l1-3 zufällig
 
         for (Bestellposition s:  this.bestellpos) {
             double zw = 0;
@@ -301,8 +312,14 @@ public class Marktsim {
         return highestp;
     }
 
-    public ArrayList<Double> getMarktanteil() {
-        return marktanteil;
+    public double getMarktanteil(String namen) {
+        HashMap <String,Double>h = new HashMap<String,Double>();
+        String[] u = model.getNamen();
+
+        for(int i = 0; i < u.length; i++) {
+            h.put(u[i],marktanteil.get(i));
+        }
+        return h.get(namen);
     }
 
     public ArrayList<Double> getSummierterGewinn() {

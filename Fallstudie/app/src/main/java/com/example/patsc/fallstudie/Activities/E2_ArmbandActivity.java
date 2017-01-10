@@ -83,7 +83,7 @@ public class E2_ArmbandActivity extends AppCompatActivity {
 
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
-    public void goToNextActivity (View view) {
+    public void goToNextActivity (View view)throws Exception {
 
         //Methodenaufruf von Model um Spinner Auswahl zu setzen
         IntroductionActivity.model.setArmband(auswahlArmband);

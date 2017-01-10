@@ -18,6 +18,7 @@ import static junit.framework.TestCase.fail;
 public class ZusammenbauTest {
 
 
+
     public static @DataPoints
     String[] ProduktionsOrtWerte =
             {"Deutschland", "Asien", "Osteuropa", "Schweiz"};
@@ -43,6 +44,8 @@ public class ZusammenbauTest {
         }
     }
 
+
+
     @Test
     public void bestelleZusammenbauFailTest(){
         Bestellposition TestBestellposition = new Bestellposition();
@@ -64,6 +67,7 @@ public class ZusammenbauTest {
         }
         Assert.assertTrue(TestBestellposition.getZusammenbau().isDeutschland());
     }
+
 
 
 

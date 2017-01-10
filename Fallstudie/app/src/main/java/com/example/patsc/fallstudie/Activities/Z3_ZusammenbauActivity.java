@@ -26,23 +26,27 @@ public class Z3_ZusammenbauActivity extends AppCompatActivity {
 
         //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
         TextView z3zusammenbau_info_textview = (TextView) findViewById(R.id.z3zusammenbau_info_textview);
-        switch (IntroductionActivity.model.getGehaeuse()){
-            case "Deutschland": {
-                z3zusammenbau_info_textview.setText(R.string.z3deutschland_info_textview);
-                break;
+        try {
+            switch (IntroductionActivity.model.getGehaeuse()){
+                case "Deutschland": {
+                    z3zusammenbau_info_textview.setText(R.string.z3deutschland_info_textview);
+                    break;
+                }
+                case "Asien": {
+                    z3zusammenbau_info_textview.setText(R.string.z3asien_info_textview);
+                    break;
+                }
+                case "Osteuropa": {
+                    z3zusammenbau_info_textview.setText(R.string.z3osteuropa_info_textview);
+                    break;
+                }
+                case "Schweiz": {
+                    z3zusammenbau_info_textview.setText(R.string.z3schweiz_info_textview);
+                    break;
+                }
             }
-            case "Asien": {
-                z3zusammenbau_info_textview.setText(R.string.z3asien_info_textview);
-                break;
-            }
-            case "Osteuropa": {
-                z3zusammenbau_info_textview.setText(R.string.z3osteuropa_info_textview);
-                break;
-            }
-            case "Schweiz": {
-                z3zusammenbau_info_textview.setText(R.string.z3schweiz_info_textview);
-                break;
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
@@ -97,7 +101,7 @@ public class Z3_ZusammenbauActivity extends AppCompatActivity {
     }
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
-    public void goToNextActivity (View view) {
+    public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Model um Spinner Auswahl zu setzen
         if(IntroductionActivity.model.getZusammenbau().equals(auswahlZusammenbau)) {

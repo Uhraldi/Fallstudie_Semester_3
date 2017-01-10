@@ -25,23 +25,27 @@ public class Z2_Gehaeuse extends AppCompatActivity {
 
         //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
         TextView z2gehaeuse_info_textiew = (TextView) findViewById(R.id.z2gehaeuse_info_textview);
-        switch (IntroductionActivity.model.getGehaeuse()){
-            case "Glas": {
-                z2gehaeuse_info_textiew.setText(R.string.z2glas_info_textview);
-                break;
+        try {
+            switch (IntroductionActivity.model.getGehaeuse()){
+                case "Glas": {
+                    z2gehaeuse_info_textiew.setText(R.string.z2glas_info_textview);
+                    break;
+                }
+                case "Holz": {
+                    z2gehaeuse_info_textiew.setText(R.string.z2holz_info_textview);
+                    break;
+                }
+                case "Kunststoff": {
+                    z2gehaeuse_info_textiew.setText(R.string.z2kunststoff_info_textview);
+                    break;
+                }
+                case "Metall": {
+                    z2gehaeuse_info_textiew.setText(R.string.z2metall_info_textview);
+                    break;
+                }
             }
-            case "Holz": {
-                z2gehaeuse_info_textiew.setText(R.string.z2holz_info_textview);
-                break;
-            }
-            case "Kunststoff": {
-                z2gehaeuse_info_textiew.setText(R.string.z2kunststoff_info_textview);
-                break;
-            }
-            case "Metall": {
-                z2gehaeuse_info_textiew.setText(R.string.z2metall_info_textview);
-                break;
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
@@ -96,7 +100,7 @@ public class Z2_Gehaeuse extends AppCompatActivity {
     }
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
-    public void goToNextActivity(View view) {
+    public void goToNextActivity(View view) throws Exception {
 
         //Methodenaufruf von Model um Spinner Auswahl zu setzen
         if(IntroductionActivity.model.getGehaeuse().equals(auswahlGehaeuse)) {

@@ -13,7 +13,7 @@ import com.example.patsc.fallstudie.R;
 
 public class E9_KaufvolumenActivity extends AppCompatActivity {
 
-    float auswahlKaufvolumen;
+    int auswahlKaufvolumen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class E9_KaufvolumenActivity extends AppCompatActivity {
 
         //speichere Eingabewert in Variable
         String kaufvolumenString = kaufvolumen_input.getText().toString();
-        auswahlKaufvolumen = Float.parseFloat(kaufvolumenString);
+        auswahlKaufvolumen = Integer.parseInt(kaufvolumenString);// Absturz 2.17 ToDo // Testende
 
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
@@ -38,7 +38,7 @@ public class E9_KaufvolumenActivity extends AppCompatActivity {
     }
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
-    public void goToNextActivity (View view) {
+    public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Model um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
         if (auswahlKaufvolumen < 100 || auswahlKaufvolumen > 10000){

@@ -29,7 +29,7 @@ public class E10_VerkaufspreisActivity extends AppCompatActivity {
 
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
-   public void goToNextActivity (View view) {
+   public void goToNextActivity (View view) throws Exception {
 
        //Methodenaufruf von Model um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
        if (auswahlVerkaufspreis < 5 || auswahlVerkaufspreis > 1500){

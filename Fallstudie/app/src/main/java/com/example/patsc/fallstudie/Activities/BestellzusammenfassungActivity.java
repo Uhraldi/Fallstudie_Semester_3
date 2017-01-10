@@ -21,25 +21,53 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
         //designer_auswahl_output_textview.setText(IntroductionActivity.model.getDesigner());
 
         TextView armband_auswahl_output_textview = (TextView) findViewById(R.id.armband_auswahl_output_textview);
-        armband_auswahl_output_textview.setText(IntroductionActivity.model.getArmband());
+        try {
+            armband_auswahl_output_textview.setText(IntroductionActivity.model.getArmband());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         TextView uhrwerk_auswahl_output_textview = (TextView) findViewById(R.id.uhrwerk_auswahl_output_textview);
-        uhrwerk_auswahl_output_textview.setText(IntroductionActivity.model.getUhrwerk());
+        try {
+            uhrwerk_auswahl_output_textview.setText(IntroductionActivity.model.getUhrwerk());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         TextView gehaeuse_auswahl_output_textview = (TextView) findViewById(R.id.gehaeuse_auswahl_output_textview);
-        gehaeuse_auswahl_output_textview.setText(IntroductionActivity.model.getGehaeuse());
+        try {
+            gehaeuse_auswahl_output_textview.setText(IntroductionActivity.model.getGehaeuse());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         TextView versandart_auswahl_output_textview = (TextView) findViewById(R.id.versandart_auswahl_output_textview);
-        versandart_auswahl_output_textview.setText(IntroductionActivity.model.getVersandart());
+        try {
+            versandart_auswahl_output_textview.setText(IntroductionActivity.model.getVersandart());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         TextView wasserdichtheit_auswahl_output_textview = (TextView) findViewById(R.id.wasserdichtheit_auswahl_output_textview);
-        wasserdichtheit_auswahl_output_textview.setText(IntroductionActivity.model.getWasserdichtheit());
+        try {
+            wasserdichtheit_auswahl_output_textview.setText(IntroductionActivity.model.getWasserdichtheit());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         TextView zusammenbau_auswahl_output_textview = (TextView) findViewById(R.id.zusammenbau_auswahl_output_textview);
-        zusammenbau_auswahl_output_textview.setText(IntroductionActivity.model.getZusammenbau());
+        try {
+            zusammenbau_auswahl_output_textview.setText(IntroductionActivity.model.getZusammenbau());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         TextView werbung_auswahl_output_textview = (TextView) findViewById(R.id.werbung_auswahl_output_textview);
-        werbung_auswahl_output_textview.setText(IntroductionActivity.model.getWerbung());
+        try {
+            werbung_auswahl_output_textview.setText(IntroductionActivity.model.getWerbung());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         TextView kaufvolumen_auswahl_output_textview = (TextView) findViewById(R.id.kaufvolumen_auswahl_output_textview);
         kaufvolumen_auswahl_output_textview.setText(String.valueOf(IntroductionActivity.model.getKaufvolumen()));
@@ -53,7 +81,7 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
     }
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
-    public void goToNextActivity(View view) {
+    public void goToNextActivity(View view) throws Exception {
 
         Intent z1 = new Intent(this, Z1_Armband.class);
         Intent z2 = new Intent(this, Z2_Gehaeuse.class);

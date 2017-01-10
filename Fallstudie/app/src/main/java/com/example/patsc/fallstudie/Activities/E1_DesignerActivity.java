@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.patsc.fallstudie.Model;
 import com.example.patsc.fallstudie.R;
 
 
@@ -16,8 +17,7 @@ public class E1_DesignerActivity extends AppCompatActivity {
 
     private Spinner DesignerSpinner;
     String auswahlDesigner;
-
-
+    Model model;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,16 +28,17 @@ public class E1_DesignerActivity extends AppCompatActivity {
         }*/
 
         setContentView(R.layout.activity_e1_designer);
-        IntroductionActivity.model.setActivity_E1();
+        model = IntroductionActivity.model;
+       IntroductionActivity.model.setActivity_E1(); // ToDo Absturz der App auch bei Aufruf anderer Methoden
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
-        addItemsToDesignerSpinner();
+          addItemsToDesignerSpinner();
 
         //fuegt dem Spinner einen Listener hinzu
         addListenertoDesigner_Spinner();
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
-        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
+       TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
         gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
         stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
@@ -83,7 +84,7 @@ public class E1_DesignerActivity extends AppCompatActivity {
 
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
-    public void goToNextActivity (View view) {
+    public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Model um Designer zu setzen
         IntroductionActivity.model.setDesigner(auswahlDesigner);
