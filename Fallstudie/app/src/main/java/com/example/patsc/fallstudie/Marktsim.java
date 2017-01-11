@@ -25,7 +25,7 @@ public class Marktsim {
     private float lowestp = 1500;
     private int lvertKäufer = 0, hvertKäufer = 0;
     private static double startguthaben = 10000;
-    ArrayList <Bestellposition> bestellpos = new ArrayList();
+    ArrayList <Auftrag> bestellpos = new ArrayList();
     private float l1,l2,l3,h1,h2,h3,l1v,l2v,l3v,h1v,h2v,h3v;  //l1.. usw Preissegmentgrenzen //l1v.. usw Verteilung der Kunden auf die Preissegmente
     ArrayList absatzreturn = new ArrayList();
     ArrayList<Double> marktanteil = new ArrayList<Double>();
@@ -36,7 +36,7 @@ public class Marktsim {
     ArrayList mengearray = new ArrayList();
     ArrayList pkzarray = new ArrayList();
     ArrayList diff = new ArrayList();
-    Model model = new Model();
+    Controller Controller = new Controller();
 
     /**
      *
@@ -53,7 +53,7 @@ public class Marktsim {
         diff.clear();
         absatzreturn.clear();
 
-        Bestellposition[] bp = model.getBestellpositionen();
+        Auftrag[] bp = Controller.getBestellpositionen();
 
         for(int i = 0; i < bp.length ;i++){
             bestellpos.set(i,bp[i]);
@@ -67,7 +67,7 @@ public class Marktsim {
 
         berechnePreissegmente();        // Verteilung der Käufer auf l1-3 und l1-3 zufällig
 
-        for (Bestellposition s:  this.bestellpos) {
+        for (Auftrag s:  this.bestellpos) {
             double zw = 0;
             if(s.getVersandart().isFlugzeug()){
                 zw += s.getVersandart().getFlugzeugZufall();
@@ -90,11 +90,11 @@ public class Marktsim {
             prozentualeVorteile.add(zw);
         }
 
-        for(Bestellposition p: this.bestellpos){   // Menge-Abfrage
+        for(Auftrag p: this.bestellpos){   // Menge-Abfrage
             mengearray.add(p.getMenge());
         }
 
-        for(Bestellposition e: this.bestellpos){   // VKP-Abfrage
+        for(Auftrag e: this.bestellpos){   // VKP-Abfrage
             vkparray.add(e.getVkp());
         }
 
@@ -314,7 +314,7 @@ public class Marktsim {
 
     public double getMarktanteil(String namen) {
         HashMap <String,Double>h = new HashMap<String,Double>();
-        String[] u = model.getNamen();
+        String[] u = Controller.getNamen();
 
         for(int i = 0; i < u.length; i++) {
             h.put(u[i],marktanteil.get(i));

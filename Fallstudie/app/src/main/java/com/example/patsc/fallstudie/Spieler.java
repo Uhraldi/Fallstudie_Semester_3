@@ -18,8 +18,8 @@ public class Spieler {
     private int AnfangsMarktanteil = 0; // Marktanteil in Prozent vor der ersten RUnde
     private int AnfagsPunkte = 1000; // Punkt des Spielers vor der ersten Runde
     private final Daten daten;
-    private Bestellung bestellung; // ToDo Methoden, Konstruktor
-    public Bestellung getBestellung(){return bestellung;}
+    private Auftragssammlung auftragssammlung; // ToDo Methoden, Konstruktor
+    public Auftragssammlung getAuftragssammlung(){return auftragssammlung;}
     /**
      * Konstruktor für den Spieler.
      *
@@ -34,7 +34,7 @@ public class Spieler {
         setName(name);
         setGuthaben(Anfangsguthaben);
         setPasswort(passwort);
-        bestellung = new Bestellung();
+        auftragssammlung = new Auftragssammlung();
         setMarktanteil(AnfangsMarktanteil);
         setPunkte(AnfagsPunkte);
         daten.addSpielerListe(this); // Hinzufügen des Spielers in die Liste

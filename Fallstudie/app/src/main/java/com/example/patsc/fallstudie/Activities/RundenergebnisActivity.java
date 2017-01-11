@@ -11,29 +11,29 @@ public class RundenergebnisActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rundenergebnis);
-        IntroductionActivity.model.setActivity_Rundenergebnis();
+        IntroductionActivity.Controller.setActivity_Rundenergebnis();
 
-        //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Model-Methoden zum Anzeigen der Rundenergebnisse
+        //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Controller-Methoden zum Anzeigen der Rundenergebnisse
 /*        TextView spieler_output = (TextView) findViewById(R.id.spieler_output);
-        spieler_output.setText(IntroductionActivity.model.getSpielername());
+        spieler_output.setText(IntroductionActivity.Controller.getSpielername());
 
         TextView runde_output = (TextView) findViewById(R.id.runde_output);
-        runde_output.setText(IntroductionActivity.model.getRunde());
+        runde_output.setText(IntroductionActivity.Controller.getRunde());
 
         TextView absatz_output = (TextView) findViewById(R.id.absatz_output);
-        absatz_output.setText(IntroductionActivity.model.getAbsatz());
+        absatz_output.setText(IntroductionActivity.Controller.getAbsatz());
 
         TextView marktanteil_output = (TextView) findViewById(R.id.marktanteil_output);
-        marktanteil_output.setText(IntroductionActivity.model.getMarktanteil());
+        marktanteil_output.setText(IntroductionActivity.Controller.getMarktanteil());
 
         TextView gewinn_output = (TextView) findViewById(R.id.gewinn_output);
-        gewinn_output.setText(IntroductionActivity.model.getGewinn());
+        gewinn_output.setText(IntroductionActivity.Controller.getGewinn());
 
         TextView guthaben_output = (TextView) findViewById(R.id.guthaben_output);
-        guthaben_output.setText(IntroductionActivity.model.getGuthaben());
+        guthaben_output.setText(IntroductionActivity.Controller.getGuthaben());
 
         TextView position_output = (TextView) findViewById(R.id.position_output);
-        position_output.setText(IntroductionActivity.model.getPosition());*/
+        position_output.setText(IntroductionActivity.Controller.getPosition());*/
     }
 
 

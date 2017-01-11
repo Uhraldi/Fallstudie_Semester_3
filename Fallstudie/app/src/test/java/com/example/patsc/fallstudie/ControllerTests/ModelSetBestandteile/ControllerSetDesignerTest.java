@@ -1,6 +1,6 @@
-package com.example.patsc.fallstudie.ModelTests.ModelSetBestandteile;
+package com.example.patsc.fallstudie.ControllerTests.ControllerSetBestandteile;
 
-import com.example.patsc.fallstudie.Model;
+import com.example.patsc.fallstudie.Controller;
 
 import junit.framework.Assert;
 
@@ -17,19 +17,19 @@ import static junit.framework.TestCase.fail;
  */
 
 @RunWith(Theories.class)
-public class ModelSetDesignerTest {
+public class ControllerSetDesignerTest {
 
     public static @DataPoints
     String[] DesignerWerte =
             {"Marken", "Mittelmäßig", "LowBudget"};
-    Model TestModel = new Model();
+    Controller TestController = new Controller();
     boolean thrown = false;
 
     @Theory
     public void setDesignerTest(String DesignerWerte){
         try {
-            TestModel.setSCHRITT_DESIGNER_boolean(true);
-            TestModel.setDesigner(DesignerWerte);
+            TestController.setSCHRITT_FORSCHUNG_boolean(true);
+            TestController.setDesigner(DesignerWerte);
         }catch (Exception e){
             e.printStackTrace();
             fail();
@@ -39,7 +39,7 @@ public class ModelSetDesignerTest {
     @Test
     public void setDesignerFailTest(){
         try {
-            TestModel.setDesigner("Falsche Eingabe");
+            TestController.setDesigner("Falsche Eingabe");
         }catch(Exception e){
             thrown = true;
         }

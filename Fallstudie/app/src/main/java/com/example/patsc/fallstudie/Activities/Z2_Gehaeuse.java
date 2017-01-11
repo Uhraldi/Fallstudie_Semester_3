@@ -21,12 +21,12 @@ public class Z2_Gehaeuse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_z2_gehaeuse);
-        IntroductionActivity.model.setActivity_Z2();
+        IntroductionActivity.Controller.setActivity_Z2();
 
         //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
         TextView z2gehaeuse_info_textiew = (TextView) findViewById(R.id.z2gehaeuse_info_textview);
         try {
-            switch (IntroductionActivity.model.getGehaeuse()){
+            switch (IntroductionActivity.Controller.getGehaeuse()){
                 case "Glas": {
                     z2gehaeuse_info_textiew.setText(R.string.z2glas_info_textview);
                     break;
@@ -56,9 +56,9 @@ public class Z2_Gehaeuse extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
 
     }
 
@@ -102,18 +102,18 @@ public class Z2_Gehaeuse extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity(View view) throws Exception {
 
-        //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        if(IntroductionActivity.model.getGehaeuse().equals(auswahlGehaeuse)) {
+        //Methodenaufruf von Controller um Spinner Auswahl zu setzen
+        if(IntroductionActivity.Controller.getGehaeuse().equals(auswahlGehaeuse)) {
             Toast toast = Toast.makeText(this, "Diese Option geht leider nicht mehr", Toast.LENGTH_SHORT);
         } else {
-            IntroductionActivity.model.setGehaeuseNeu(auswahlGehaeuse);
+            IntroductionActivity.Controller.setGehaeuseNeu(auswahlGehaeuse);
         }
 
         Intent z3 = new Intent(this, Z3_ZusammenbauActivity.class);
         Intent keinZufall = new Intent(this, BerechnungActivity.class);
 
         //Abfrage ob Zufall Z3 eingetreten ist und entsprechende Weiterleitung
-        if (IntroductionActivity.model.isZufall3()){
+        if (IntroductionActivity.Controller.isZufall3()){
             startActivity(z3);
         }  else {
             startActivity(keinZufall);

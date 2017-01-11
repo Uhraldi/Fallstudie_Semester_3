@@ -17,7 +17,7 @@ public class E10_VerkaufspreisActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e10_verkaufspreis);
-        IntroductionActivity.model.setActivity_E10();
+        IntroductionActivity.Controller.setActivity_E10();
 
         //Verknuepfen von EditText mit UI-Element per ID
         EditText verkaufspreis_input = (EditText) findViewById(R.id.verkaufspreis_input);
@@ -31,12 +31,12 @@ public class E10_VerkaufspreisActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
    public void goToNextActivity (View view) throws Exception {
 
-       //Methodenaufruf von Model um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
+       //Methodenaufruf von Controller um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
        if (auswahlVerkaufspreis < 5 || auswahlVerkaufspreis > 1500){
            Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
            toast.show();
        } else {
-           IntroductionActivity.model.setKaufvolumen(auswahlVerkaufspreis);
+           IntroductionActivity.Controller.setKaufvolumen(auswahlVerkaufspreis);
            Intent intent = new Intent(this, BestellzusammenfassungActivity.class);
            finish();
            startActivity(intent);
@@ -45,7 +45,7 @@ public class E10_VerkaufspreisActivity extends AppCompatActivity {
 
  /*   //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
     public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, E9_KaufvolumenActivity.class);
+        Intent intent = new Intent (this, E9_ProduktionsvolumenActivity.class);
         startActivity(intent);
     }*/
 }

@@ -1,6 +1,6 @@
-package com.example.patsc.fallstudie.ModelTests;
+package com.example.patsc.fallstudie.ControllerTests;
 
-import com.example.patsc.fallstudie.Model;
+import com.example.patsc.fallstudie.Controller;
 
 import junit.framework.Assert;
 
@@ -10,7 +10,7 @@ import org.junit.Test;
  * Created by julian on 07.01.2017.
  */
 
-public class ModelGetterTests {
+public class ControllerGetterTests {
 
     public final String SCHRITT_DESIGNER = "SCHRITT_DESIGNER"; // erster Schritt Wahl des Designers
     public final String SCHRITT_ARMBAND = "SCHRITT_ARMBAND"; // zweite Schritt Wahl des Armbands
@@ -22,61 +22,61 @@ public class ModelGetterTests {
     public final String SCHRITT_KAUFVOLUMEN = "SCHRITT_KAUFVOLUMEN"; // achter Schritt Wahl des Kaufvolumens
     public final String SCHRITT_VERSANDART = "SCHRITT_VERSANDART"; // neunter Schritt Wahl der Versandart
     public final String SCHRITT_VERKAUFSPREIS = "SCHRITT_VERKAUFSPREIS"; // zehnter Schritt Wahl der Versandart
-    Model TestModel = new Model();
+    Controller TestController = new Controller();
 
 
     @Test
     public void getSchrittDesignerTest(){
 
-        Assert.assertEquals(SCHRITT_DESIGNER, TestModel.getSCHRITT_DESIGNER());
+        Assert.assertEquals(SCHRITT_DESIGNER, TestController.getSCHRITT_FORSCHUNG());
     }
 
     @Test
     public void getSchrittArmbandTest(){
-        Assert.assertEquals(SCHRITT_ARMBAND, TestModel.getSCHRITT_ARMBAND());
+        Assert.assertEquals(SCHRITT_ARMBAND, TestController.getSCHRITT_ARMBAND());
     }
 
     @Test
     public void getSchrittUhrwerkTest(){
-        Assert.assertEquals(SCHRITT_UHRWERK, TestModel.getSCHRITT_UHRWERK());
+        Assert.assertEquals(SCHRITT_UHRWERK, TestController.getSCHRITT_UHRWERK());
     }
 
     @Test
     public void getSchrittGehaeuseTest(){
-        Assert.assertEquals(SCHRITT_GEHAUESE, TestModel.getSCHRITT_GEHAUESE());
+        Assert.assertEquals(SCHRITT_GEHAUESE, TestController.getSCHRITT_GEHAUESE());
     }
 
     @Test
     public void getSchrittDichtheitTest(){
-        Assert.assertEquals(SCHRITT_DICHTHEIT, TestModel.getSCHRITT_DICHTHEIT());
+        Assert.assertEquals(SCHRITT_DICHTHEIT, TestController.getSCHRITT_DICHTHEIT());
     }
 
     /*
 
     @Test
     public void getSchrittZusammenbauTest(){
-        Assert.assertEquals(SCHRITT_ZUSAMMENBAU, TestModel.getSCHRITT_ZUSAMMENBAU());
+        Assert.assertEquals(SCHRITT_ZUSAMMENBAU, TestController.getSCHRITT_ZUSAMMENBAU());
     }
     */
 
     @Test
     public void getSchrittWerbungTest(){
-        Assert.assertEquals(SCHRITT_KAUFVOLUMEN, TestModel.getSCHRITT_KAUFVOLUMEN());
+        Assert.assertEquals(SCHRITT_KAUFVOLUMEN, TestController.getSCHRITT_PRODUKTIONSVOLUMEN());
     }
 
     @Test
     public void getSchrittKaufvolumenTest(){
-        Assert.assertEquals(SCHRITT_KAUFVOLUMEN, TestModel.getSCHRITT_KAUFVOLUMEN());
+        Assert.assertEquals(SCHRITT_KAUFVOLUMEN, TestController.getSCHRITT_PRODUKTIONSVOLUMEN());
     }
 
     @Test
     public void getSchrittVersandartTest(){
-        Assert.assertEquals(SCHRITT_VERSANDART, TestModel.getSCHRITT_VERSANDART());
+        Assert.assertEquals(SCHRITT_VERSANDART, TestController.getSCHRITT_VERSANDART());
     }
 
     @Test
     public void getSchrittVerkaufspreisTest(){
-        Assert.assertEquals(SCHRITT_VERKAUFSPREIS, TestModel.getSCHRITT_VERKAUFSPREIS());
+        Assert.assertEquals(SCHRITT_VERKAUFSPREIS, TestController.getSCHRITT_VERKAUFSPREIS());
     }
 
 }

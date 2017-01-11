@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.BestandTeileTests;
 
-import com.example.patsc.fallstudie.Bestellposition;
+import com.example.patsc.fallstudie.Auftrag;
 
 import junit.framework.Assert;
 
@@ -26,9 +26,9 @@ public class GehaeuseTest {
 
     @Theory
     public void bestelleGehauseTest(String GehaeuseWerte){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleGehaeuse(GehaeuseWerte);
+            testAuftrag.bestelleGehaeuse(GehaeuseWerte);
         }catch (Exception e){
             fail("Sollte kein Fehler werfen");
         }
@@ -37,10 +37,10 @@ public class GehaeuseTest {
 
     @Theory
     public void GehaeuseKorrekturTest(String GehaeuseWerte){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleGehaeuse(GehaeuseWerte);
-            TestBestellposition.korrigiereGehaeuse("Glas");
+            testAuftrag.bestelleGehaeuse(GehaeuseWerte);
+            testAuftrag.korrigiereGehaeuse("Glas");
         }catch (Exception e){
             fail(e.getMessage());
         }
@@ -48,10 +48,10 @@ public class GehaeuseTest {
 
     @Test
     public void GehausekorrekturFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleGehaeuse("Glas");
-            TestBestellposition.korrigiereGehaeuse("FAIL");
+            testAuftrag.bestelleGehaeuse("Glas");
+            testAuftrag.korrigiereGehaeuse("FAIL");
         } catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -60,9 +60,9 @@ public class GehaeuseTest {
 
     @Test
     public void bestelleGehaeuseFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleGehaeuse("FAIL");
+            testAuftrag.bestelleGehaeuse("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -71,13 +71,13 @@ public class GehaeuseTest {
 
     @Test
     public void getGehaeuseTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleGehaeuse("Glas");
+            testAuftrag.bestelleGehaeuse("Glas");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(TestBestellposition.getGehaeuse().isGlas());
+        Assert.assertTrue(testAuftrag.getGehaeuse().isGlas());
 
     }
 

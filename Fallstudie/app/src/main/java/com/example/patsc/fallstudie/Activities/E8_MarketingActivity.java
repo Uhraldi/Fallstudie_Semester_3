@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
-public class E8_WerbungActivity extends AppCompatActivity {
+public class E8_MarketingActivity extends AppCompatActivity {
 
     private Spinner WerbungSpinner;
     private String auswahlWerbung;
@@ -21,7 +21,7 @@ public class E8_WerbungActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e8_werbung);
-        IntroductionActivity.model.setActivity_E8();
+        IntroductionActivity.Controller.setActivity_E8();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToWerbungSpinner();
@@ -31,9 +31,9 @@ public class E8_WerbungActivity extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
 
     }
 
@@ -77,17 +77,17 @@ public class E8_WerbungActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        IntroductionActivity.model.setWerbung(auswahlWerbung);
+        //Methodenaufruf von Controller um Spinner Auswahl zu setzen
+        IntroductionActivity.Controller.setWerbung(auswahlWerbung);
 
-        Intent intent = new Intent(this, E9_KaufvolumenActivity.class);
+        Intent intent = new Intent(this, E9_ProduktionsvolumenActivity.class);
         finish();
         startActivity(intent);
     }
 
     //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
 /*    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, E7_ZusammenbauActivity.class);
+        Intent intent = new Intent (this, E7_ZeitarbeiterActivity.class);
         startActivity(intent);
     }*/
 }

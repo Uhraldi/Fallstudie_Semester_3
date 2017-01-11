@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.example.patsc.fallstudie.R;
 
 
-public class E9_KaufvolumenActivity extends AppCompatActivity {
+public class E9_ProduktionsvolumenActivity extends AppCompatActivity {
 
     int auswahlKaufvolumen;
 
@@ -19,7 +19,7 @@ public class E9_KaufvolumenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e9_kaufvolumen);
-        IntroductionActivity.model.setActivity_E9();
+        IntroductionActivity.Controller.setActivity_E9();
 
         //Verknuepfen von EditText mit UI-Element per ID
         EditText kaufvolumen_input = (EditText) findViewById(R.id.kaufvolumen_input);
@@ -31,21 +31,21 @@ public class E9_KaufvolumenActivity extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
 
     }
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Model um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
+        //Methodenaufruf von Controller um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
         if (auswahlKaufvolumen < 100 || auswahlKaufvolumen > 10000){
             Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
             toast.show();
         } else {
-            IntroductionActivity.model.setKaufvolumen(auswahlKaufvolumen);
+            IntroductionActivity.Controller.setKaufvolumen(auswahlKaufvolumen);
             Intent intent = new Intent(this, E10_VerkaufspreisActivity.class);
             finish();
             startActivity(intent);
@@ -55,7 +55,7 @@ public class E9_KaufvolumenActivity extends AppCompatActivity {
 
     //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
 /*    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, E8_WerbungActivity.class);
+        Intent intent = new Intent (this, E8_MarketingActivity.class);
         startActivity(intent);
     }*/
 }

@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
-import static com.example.patsc.fallstudie.Activities.IntroductionActivity.model;
+import static com.example.patsc.fallstudie.Activities.IntroductionActivity.Controller;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        IntroductionActivity.model.setActivity_Login();
+        IntroductionActivity.Controller.setActivity_Login();
 
         //Verknuepfen von EditText mit UI-Element per ID
         EditText login_username_input = (EditText) findViewById(R.id.login_username_input);
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //Aufruf der Methode zum Registrieren, schickt Daten ins Backend und startet Login Activity neu
     public void register (View view)throws Exception{
-        model.registrierung(inputUsername, inputPassword);
+        Controller.registrierung(inputUsername, inputPassword);
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
@@ -44,8 +44,8 @@ public class LoginActivity extends AppCompatActivity {
 
     //Aufruf der Methode zum Login, prüft ob Nutzername/Passwort-Kombination richtig ist und leitet dann erst weiter
    public void login (View view) throws Exception {
-        if(model.login(inputUsername, inputPassword)) {
-            Intent intent = new Intent(this, E1_DesignerActivity.class);
+        if(Controller.login(inputUsername, inputPassword)) {
+            Intent intent = new Intent(this, E1_ForschungActivity.class);
             startActivity(intent);
             finish();
         } else {

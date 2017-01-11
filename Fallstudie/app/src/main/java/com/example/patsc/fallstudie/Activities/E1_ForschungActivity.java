@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
-import static com.example.patsc.fallstudie.Activities.IntroductionActivity.model;
+import static com.example.patsc.fallstudie.Activities.IntroductionActivity.Controller;
 
 
-public class E1_DesignerActivity extends AppCompatActivity {
+public class E1_ForschungActivity extends AppCompatActivity {
 
     private Spinner DesignerSpinner;
     String auswahlDesigner;
@@ -29,7 +29,7 @@ public class E1_DesignerActivity extends AppCompatActivity {
         }*/
 
         setContentView(R.layout.activity_e1_designer);
-        IntroductionActivity.model.setActivity_E1(); // ToDo Absturz der App auch bei Aufruf anderer Methoden
+        IntroductionActivity.Controller.setActivity_E1(); // ToDo Absturz der App auch bei Aufruf anderer Methoden
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
           addItemsToDesignerSpinner();
@@ -39,9 +39,9 @@ public class E1_DesignerActivity extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(Controller.getVarKosten()));
 
         }
 
@@ -86,8 +86,8 @@ public class E1_DesignerActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Model um Designer zu setzen
-        model.setDesigner(auswahlDesigner);
+        //Methodenaufruf von Controller um Designer zu setzen
+        Controller.setDesigner(auswahlDesigner);
 
         Intent intent = new Intent(this, E2_ArmbandActivity.class);
         startActivity(intent);

@@ -27,7 +27,7 @@ public class E3_UhrwerkActivity extends AppCompatActivity {
         }*/
 
         setContentView(R.layout.activity_e3_uhrwerk);
-        IntroductionActivity.model.setActivity_E3();
+        IntroductionActivity.Controller.setActivity_E3();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToUhrwerkSpinner();
@@ -37,9 +37,9 @@ public class E3_UhrwerkActivity extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
 
     }
 
@@ -83,8 +83,8 @@ public class E3_UhrwerkActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        IntroductionActivity.model.setUhrwerk(auswahlUhrwerk);
+        //Methodenaufruf von Controller um Spinner Auswahl zu setzen
+        IntroductionActivity.Controller.setUhrwerk(auswahlUhrwerk);
 
         Intent intent = new Intent(this, E4_GehaeuseActivity.class);
         finish();

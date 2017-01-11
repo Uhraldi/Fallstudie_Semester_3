@@ -14,66 +14,66 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bestellzusammenfassung);
-        IntroductionActivity.model.setActivity_Bestellzusammenfassung();
+        IntroductionActivity.Controller.setActivity_Bestellzusammenfassung();
 
-        //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Model-Methoden zum Anzeigen der Bestellpositionen
+        //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Controller-Methoden zum Anzeigen der Bestellpositionen
         TextView designer_auswahl_output_textview = (TextView) findViewById(R.id.designer_auswahl_output_textview);
-        //designer_auswahl_output_textview.setText(IntroductionActivity.model.getDesigner());
+        //designer_auswahl_output_textview.setText(IntroductionActivity.Controller.getDesigner());
 
         TextView armband_auswahl_output_textview = (TextView) findViewById(R.id.armband_auswahl_output_textview);
         try {
-            armband_auswahl_output_textview.setText(IntroductionActivity.model.getArmband());
+            armband_auswahl_output_textview.setText(IntroductionActivity.Controller.getArmband());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView uhrwerk_auswahl_output_textview = (TextView) findViewById(R.id.uhrwerk_auswahl_output_textview);
         try {
-            uhrwerk_auswahl_output_textview.setText(IntroductionActivity.model.getUhrwerk());
+            uhrwerk_auswahl_output_textview.setText(IntroductionActivity.Controller.getUhrwerk());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView gehaeuse_auswahl_output_textview = (TextView) findViewById(R.id.gehaeuse_auswahl_output_textview);
         try {
-            gehaeuse_auswahl_output_textview.setText(IntroductionActivity.model.getGehaeuse());
+            gehaeuse_auswahl_output_textview.setText(IntroductionActivity.Controller.getGehaeuse());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView versandart_auswahl_output_textview = (TextView) findViewById(R.id.versandart_auswahl_output_textview);
         try {
-            versandart_auswahl_output_textview.setText(IntroductionActivity.model.getVersandart());
+            versandart_auswahl_output_textview.setText(IntroductionActivity.Controller.getVersandart());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView wasserdichtheit_auswahl_output_textview = (TextView) findViewById(R.id.wasserdichtheit_auswahl_output_textview);
         try {
-            wasserdichtheit_auswahl_output_textview.setText(IntroductionActivity.model.getWasserdichtheit());
+            wasserdichtheit_auswahl_output_textview.setText(IntroductionActivity.Controller.getWasserdichtheit());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView zusammenbau_auswahl_output_textview = (TextView) findViewById(R.id.zusammenbau_auswahl_output_textview);
         try {
-            zusammenbau_auswahl_output_textview.setText(IntroductionActivity.model.getZusammenbau());
+            zusammenbau_auswahl_output_textview.setText(IntroductionActivity.Controller.getZusammenbau());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView werbung_auswahl_output_textview = (TextView) findViewById(R.id.werbung_auswahl_output_textview);
         try {
-            werbung_auswahl_output_textview.setText(IntroductionActivity.model.getWerbung());
+            werbung_auswahl_output_textview.setText(IntroductionActivity.Controller.getWerbung());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView kaufvolumen_auswahl_output_textview = (TextView) findViewById(R.id.kaufvolumen_auswahl_output_textview);
-        kaufvolumen_auswahl_output_textview.setText(String.valueOf(IntroductionActivity.model.getKaufvolumen()));
+        kaufvolumen_auswahl_output_textview.setText(String.valueOf(IntroductionActivity.Controller.getKaufvolumen()));
 
         TextView verkaufspreis_auswahl_output_textview = (TextView) findViewById(R.id.verkaufspreis_auswahl_output_textview);
-        verkaufspreis_auswahl_output_textview.setText(String.valueOf(IntroductionActivity.model.getVerkaufspreis()));
+        verkaufspreis_auswahl_output_textview.setText(String.valueOf(IntroductionActivity.Controller.getVerkaufspreis()));
 
 
 
@@ -89,11 +89,11 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
         Intent keinZufall = new Intent(this, BerechnungActivity.class);
 
         //Abfrage ob Zufall Z1-Z3 eingetreten ist und entsprechende Weiterleitung
-        if (IntroductionActivity.model.isZufall1()){
+        if (IntroductionActivity.Controller.isZufall1()){
             startActivity(z1);
-        } else if (IntroductionActivity.model.isZufall2()){
+        } else if (IntroductionActivity.Controller.isZufall2()){
             startActivity(z2);
-        } else if (IntroductionActivity.model.isZufall3()){
+        } else if (IntroductionActivity.Controller.isZufall3()){
             startActivity(z3);
         } else {
             startActivity(keinZufall);

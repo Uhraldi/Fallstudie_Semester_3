@@ -12,7 +12,7 @@ public class Preissimulation{
     private double Einkaufspreis;
     private double Verkaufspreis;
     private int RundenNr;
-    private Bestellung bestellung;
+    private Auftragssammlung auftragssammlung;
 
     // 1. Schritt
     private double DesignerEkp;
@@ -48,14 +48,14 @@ public class Preissimulation{
 
 
     // Konstruktor für die Preissimulation
-    public Preissimulation (int RundenNr, Bestellung bestellung) {
+    public Preissimulation (int RundenNr, Auftragssammlung auftragssammlung) {
         this.RundenNr = RundenNr;
-        this.bestellung = bestellung;
+        this.auftragssammlung = auftragssammlung;
     }
 
 
 
-    // zum Test: Bestellung bestellung = new Bestellung();
+    // zum Test: Auftragssammlung auftragssammlung = new Auftragssammlung();
 
     // Getter-Methoden
     public double getEinkaufspreis() { return Einkaufspreis; }
@@ -68,23 +68,23 @@ public class Preissimulation{
     public void berechneDesigner(String auswahlDesigner) {
         switch (auswahlDesigner) {
             case "Marken": {
-                DesignerEkp = bestellung.getBestellposition(RundenNr).getDesigner().getMarkenEKP();
+                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getDesigner().getMarkenEKP();
                 DesignerVkp = (DesignerEkp
-                        * bestellung.getBestellposition(RundenNr).getDesigner().getMarkenPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getDesigner().getMarkenPWS())
                         + DesignerEkp;
                 break;
             }
             case "Mittelmäßig": {
-                DesignerEkp = bestellung.getBestellposition(RundenNr).getDesigner().getMittelmaessigEKP();
+                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getDesigner().getMittelmaessigEKP();
                 DesignerVkp = (DesignerEkp
-                        * bestellung.getBestellposition(RundenNr).getDesigner().getMittelmaessigPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getDesigner().getMittelmaessigPWS())
                         + DesignerEkp;
                 break;
             }
             case "Low Budget": {
-                DesignerEkp = bestellung.getBestellposition(RundenNr).getDesigner().getLowBudgetEKP();
+                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getDesigner().getLowBudgetEKP();
                 DesignerVkp = (DesignerEkp
-                        * bestellung.getBestellposition(RundenNr).getDesigner().getLowBudgetPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getDesigner().getLowBudgetPWS())
                         + DesignerEkp;
                 break;
             }
@@ -96,47 +96,47 @@ public class Preissimulation{
     public void berechneArmband(String auswahlArmband) {
         switch (auswahlArmband) {
             case "Leder": {
-                ArmbandEkp = bestellung.getBestellposition(RundenNr).getArmband().getLederEKP();
+                ArmbandEkp = auftragssammlung.getBestellposition(RundenNr).getArmband().getLederEKP();
                 ArmbandVkp = (ArmbandEkp
-                        * bestellung.getBestellposition(RundenNr).getArmband().getLederPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getLederPWS())
                         + (ArmbandEkp
-                        * bestellung.getBestellposition(RundenNr).getArmband().getLederZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getLederZufall())
                         + ArmbandEkp;
                 break;
             }
             case "Kunstleder": {
-                ArmbandEkp = bestellung.getBestellposition(RundenNr).getArmband().getKunstlederEKP();
+                ArmbandEkp = auftragssammlung.getBestellposition(RundenNr).getArmband().getKunstlederEKP();
                 ArmbandVkp = (ArmbandEkp
-                        * bestellung.getBestellposition(RundenNr).getArmband().getKunstlederPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getKunstlederPWS())
                         + (ArmbandEkp
-                        * bestellung.getBestellposition(RundenNr).getArmband().getKunstlederZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getKunstlederZufall())
                         + ArmbandEkp;
                 break;
             }
             case "Holz": {
-                ArmbandEkp = bestellung.getBestellposition(RundenNr).getArmband().getHolzEKP();
+                ArmbandEkp = auftragssammlung.getBestellposition(RundenNr).getArmband().getHolzEKP();
                 ArmbandVkp = (ArmbandEkp
-                        * bestellung.getBestellposition(RundenNr).getArmband().getHolzPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getHolzPWS())
                         + (ArmbandEkp
-                        * bestellung.getBestellposition(RundenNr).getArmband().getHolzZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getHolzZufall())
                         + ArmbandEkp;
                 break;
             }
             case "Textil": {
-                ArmbandEkp = bestellung.getBestellposition(RundenNr).getArmband().getTextilEKP();
+                ArmbandEkp = auftragssammlung.getBestellposition(RundenNr).getArmband().getTextilEKP();
                 ArmbandVkp = (ArmbandEkp
-                        * bestellung.getBestellposition(RundenNr).getArmband().getTextilPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getTextilPWS())
                         + (ArmbandEkp
-                        * bestellung.getBestellposition(RundenNr).getArmband().getTextilZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getTextilZufall())
                         + ArmbandEkp;
                 break;
             }
             case "Metall": {
-                ArmbandEkp = bestellung.getBestellposition(RundenNr).getArmband().getMetallEKP();
+                ArmbandEkp = auftragssammlung.getBestellposition(RundenNr).getArmband().getMetallEKP();
                 ArmbandVkp = (ArmbandEkp
-                        * bestellung.getBestellposition(RundenNr).getArmband().getMetallPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getMetallPWS())
                         + (ArmbandEkp
-                        * bestellung.getBestellposition(RundenNr).getArmband().getMetallZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getMetallZufall())
                         + ArmbandEkp;
                 break;
             }
@@ -147,23 +147,23 @@ public class Preissimulation{
     public void berechneUhrwerk(String auswahlUhrwerk) {
         switch (auswahlUhrwerk) {
             case "Mechanisch": {
-                UhrwerkEkp = bestellung.getBestellposition(RundenNr).getUhrwerk().getMechanischEKP();
+                UhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getMechanischEKP();
                 UhrwerkVkp = (UhrwerkEkp
-                        * bestellung.getBestellposition(RundenNr).getUhrwerk().getMechanischPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getMechanischPWS())
                         + UhrwerkEkp;
                 break;
             }
             case "Elektromechanisch": {
-                UhrwerkEkp = bestellung.getBestellposition(RundenNr).getUhrwerk().getElektromechanischEKP();
+                UhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getElektromechanischEKP();
                 UhrwerkVkp = (UhrwerkEkp
-                        * bestellung.getBestellposition(RundenNr).getUhrwerk().getElektromechanischPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getElektromechanischPWS())
                         + UhrwerkEkp;
                 break;
             }
             case "Elektronisch": {
-                UhrwerkEkp = bestellung.getBestellposition(RundenNr).getUhrwerk().getElektronischEKP();
+                UhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getElektronischEKP();
                 UhrwerkVkp = (UhrwerkEkp
-                        * bestellung.getBestellposition(RundenNr).getUhrwerk().getEletronischPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getEletronischPWS())
                         + UhrwerkEkp;
                 break;
             }
@@ -174,38 +174,38 @@ public class Preissimulation{
     public void berechneGehäuseUhrwerk(String auswahlGehäuseUhrwerk) {
         switch (auswahlGehäuseUhrwerk) {
             case "Glas": {
-                GehäuseUhrwerkEkp = bestellung.getBestellposition(RundenNr).getGehaeuse().getGlasEKP();
+                GehäuseUhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getGlasEKP();
                 GehäuseUhrwerkVkp = (GehäuseUhrwerkEkp
-                        * bestellung.getBestellposition(RundenNr).getGehaeuse().getGlasPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getGlasPWS())
                         + (GehäuseUhrwerkEkp
-                        * bestellung.getBestellposition(RundenNr).getGehaeuse().getGlasZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getGlasZufall())
                         + GehäuseUhrwerkEkp;
                 break;
             }
             case "Holz": {
-                GehäuseUhrwerkEkp = bestellung.getBestellposition(RundenNr).getGehaeuse().getHolzEKP();
+                GehäuseUhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getHolzEKP();
                 GehäuseUhrwerkVkp = (GehäuseUhrwerkEkp
-                        * bestellung.getBestellposition(RundenNr).getGehaeuse().getHolzPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getHolzPWS())
                         + (GehäuseUhrwerkEkp
-                        * bestellung.getBestellposition(RundenNr).getGehaeuse().getHolzZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getHolzZufall())
                         + GehäuseUhrwerkEkp;
                 break;
             }
             case "Kunststoff": {
-                GehäuseUhrwerkEkp = bestellung.getBestellposition(RundenNr).getGehaeuse().getKunststoffEKP();
+                GehäuseUhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getKunststoffEKP();
                 GehäuseUhrwerkVkp = (GehäuseUhrwerkEkp
-                        * bestellung.getBestellposition(RundenNr).getGehaeuse().getKunststoffPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getKunststoffPWS())
                         + (GehäuseUhrwerkEkp
-                        * bestellung.getBestellposition(RundenNr).getGehaeuse().getKunststoffZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getKunststoffZufall())
                         + GehäuseUhrwerkEkp;
                 break;
             }
             case "Metall": {
-                GehäuseUhrwerkEkp = bestellung.getBestellposition(RundenNr).getGehaeuse().getMetallEKP();
+                GehäuseUhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getMetallEKP();
                 GehäuseUhrwerkVkp = (GehäuseUhrwerkEkp
-                        * bestellung.getBestellposition(RundenNr).getGehaeuse().getMetallPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getMetallPWS())
                         + (GehäuseUhrwerkEkp
-                        * bestellung.getBestellposition(RundenNr).getGehaeuse().getMetallZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getMetallZufall())
                         + GehäuseUhrwerkEkp;
                 break;
             }
@@ -216,29 +216,29 @@ public class Preissimulation{
     public void berechneVersandart(String auswahlVersandart) {
         switch (auswahlVersandart) {
             case "Flugzeug": {
-                VersandartEkp = bestellung.getBestellposition(RundenNr).getVersandart().getFlugzeugEKP();
+                VersandartEkp = auftragssammlung.getBestellposition(RundenNr).getVersandart().getFlugzeugEKP();
                 VersandartVkp = (VersandartEkp
-                        * bestellung.getBestellposition(RundenNr).getVersandart().getFlugzeugPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getFlugzeugPWS())
                         + (VersandartEkp
-                        * bestellung.getBestellposition(RundenNr).getVersandart().getFlugzeugZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getFlugzeugZufall())
                         + VersandartEkp;
                 break;
             }
             case "Schiff": {
-                VersandartEkp = bestellung.getBestellposition(RundenNr).getVersandart().getSchiffEKP();
+                VersandartEkp = auftragssammlung.getBestellposition(RundenNr).getVersandart().getSchiffEKP();
                 VersandartVkp = (VersandartEkp
-                        * bestellung.getBestellposition(RundenNr).getVersandart().getSchiffPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getSchiffPWS())
                         + (VersandartEkp
-                        * bestellung.getBestellposition(RundenNr).getVersandart().getSchiffZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getSchiffZufall())
                         + VersandartEkp;
                 break;
             }
             case "Landweg": {
-                VersandartEkp = bestellung.getBestellposition(RundenNr).getVersandart().getLandwegEKP();
+                VersandartEkp = auftragssammlung.getBestellposition(RundenNr).getVersandart().getLandwegEKP();
                 VersandartVkp = (VersandartEkp
-                        * bestellung.getBestellposition(RundenNr).getVersandart().getLandwegPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getLandwegPWS())
                         + (VersandartEkp
-                        * bestellung.getBestellposition(RundenNr).getVersandart().getLandwegZufall())
+                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getLandwegZufall())
                         + VersandartEkp;
                 break;
             }
@@ -249,23 +249,23 @@ public class Preissimulation{
     public void berechneWasserdichtheit(String auswahlWasserdichtheit) {
         switch (auswahlWasserdichtheit) {
             case "nicht wassergeschützt": {
-                WasserdichtheitEkp = bestellung.getBestellposition(RundenNr).getWasserdichtheit().getNichtWassergeschütztEKP();
+                WasserdichtheitEkp = auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getNichtWassergeschütztEKP();
                 WasserdichtheitVkp = (WasserdichtheitEkp
-                        * bestellung.getBestellposition(RundenNr).getWasserdichtheit().getNichtWassergeschütztPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getNichtWassergeschütztPWS())
                         + WasserdichtheitEkp;
                 break;
             }
             case "spritzwassergeschützt": {
-                WasserdichtheitEkp = bestellung.getBestellposition(RundenNr).getWasserdichtheit().getSpritzwassergeschütztEKP();
+                WasserdichtheitEkp = auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getSpritzwassergeschütztEKP();
                 WasserdichtheitVkp = (WasserdichtheitEkp
-                        * bestellung.getBestellposition(RundenNr).getWasserdichtheit().getSpritzwassergeschütztPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getSpritzwassergeschütztPWS())
                         + WasserdichtheitEkp;
                 break;
             }
             case "wasserdicht": {
-                WasserdichtheitEkp = bestellung.getBestellposition(RundenNr).getWasserdichtheit().getWasserdichtEKP();
+                WasserdichtheitEkp = auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getWasserdichtEKP();
                 WasserdichtheitVkp = (WasserdichtheitEkp
-                        * bestellung.getBestellposition(RundenNr).getWasserdichtheit().getWasserdichtPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getWasserdichtPWS())
                         + WasserdichtheitEkp;
                 break;
             }
@@ -276,30 +276,30 @@ public class Preissimulation{
     public void berechneProduktionsort (String auswahlProduktionsort) {
         switch (auswahlProduktionsort) {
             case "Deutschland": {
-                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getZusammenbau().getDeutschlandEKP();
+                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getDeutschlandEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * bestellung.getBestellposition(RundenNr).getZusammenbau().getDeutschlandPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getDeutschlandPWS())
                         + ProduktionsortEkp;
                 break;
             }
             case "Asien": {
-                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getZusammenbau().getAsienEKP();
+                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getAsienEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * bestellung.getBestellposition(RundenNr).getZusammenbau().getAsienPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getAsienPWS())
                         + ProduktionsortEkp;
                 break;
             }
             case "Osteuropa": {
-                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getZusammenbau().getOsteuropaEKP();
+                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getOsteuropaEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * bestellung.getBestellposition(RundenNr).getZusammenbau().getOsteuropaPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getOsteuropaPWS())
                         + ProduktionsortEkp;
                 break;
             }
             case "Schweiz": {
-                ProduktionsortEkp = bestellung.getBestellposition(RundenNr).getZusammenbau().getSchweizEKP();
+                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getSchweizEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * bestellung.getBestellposition(RundenNr).getZusammenbau().getSchweizPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getSchweizPWS())
                         + ProduktionsortEkp;
                 break;
             }
@@ -310,23 +310,23 @@ public class Preissimulation{
     public void berechneWerbung (String auswahlWerbung) {
         switch (auswahlWerbung) {
             case "viel": {
-                WerbungEkp = bestellung.getBestellposition(RundenNr).getWerbung().getVielEKP();
+                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getWerbung().getVielEKP();
                 WerbungVkp = (WerbungEkp
-                        * bestellung.getBestellposition(RundenNr).getWerbung().getVielPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getWerbung().getVielPWS())
                         + WerbungEkp;
                 break;
             }
             case "mittel": {
-                WerbungEkp = bestellung.getBestellposition(RundenNr).getWerbung().getMittelEKP();
+                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getWerbung().getMittelEKP();
                 WerbungVkp = (WerbungEkp
-                        * bestellung.getBestellposition(RundenNr).getWerbung().getMittelPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getWerbung().getMittelPWS())
                         + WerbungEkp;
                 break;
             }
             case "wenig": {
-                WerbungEkp = bestellung.getBestellposition(RundenNr).getWerbung().getWenigEKP();
+                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getWerbung().getWenigEKP();
                 WerbungVkp = (WerbungEkp
-                        * bestellung.getBestellposition(RundenNr).getWerbung().getWenigPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getWerbung().getWenigPWS())
                         + WerbungEkp;
                 break;
             }
@@ -339,23 +339,23 @@ public class Preissimulation{
 
     public void berechnePreis() {
        Einkaufspreis = DesignerEkp
-                        + ArmbandEkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + UhrwerkEkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + GehäuseUhrwerkEkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + VersandartEkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + WasserdichtheitEkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + ProduktionsortEkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + WerbungEkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + ArmbandEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + UhrwerkEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + GehäuseUhrwerkEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + VersandartEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + WasserdichtheitEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + ProduktionsortEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + WerbungEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
                         ;
 
        Verkaufspreis = DesignerVkp
-                        + ArmbandVkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + UhrwerkVkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + GehäuseUhrwerkVkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + VersandartVkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + WasserdichtheitVkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + ProduktionsortVkp * bestellung.getBestellposition(RundenNr).getMenge()
-                        + WerbungVkp * bestellung.getBestellposition(RundenNr).getMenge()
+                        + ArmbandVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + UhrwerkVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + GehäuseUhrwerkVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + VersandartVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + WasserdichtheitVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + ProduktionsortVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + WerbungVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
                         ;
     }
 

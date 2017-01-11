@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.BestandTeileTests;
 
-import com.example.patsc.fallstudie.Bestellposition;
+import com.example.patsc.fallstudie.Auftrag;
 
 import junit.framework.Assert;
 
@@ -24,9 +24,9 @@ public class VersandArtTest {
 
     @Theory
     public void bestelleVersandTest(String VersandartWerteWerte){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleVersandart(VersandartWerteWerte);
+            testAuftrag.bestelleVersandart(VersandartWerteWerte);
         }catch (Exception e){
             fail("Sollte kein Fehler werfen");
         }
@@ -34,9 +34,9 @@ public class VersandArtTest {
 
     @Test
     public void bestelleVersandsrtFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleVersandart("FAIL");
+            testAuftrag.bestelleVersandart("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -45,13 +45,13 @@ public class VersandArtTest {
 
     @Test
     public void getVersandArtTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleVersandart("Schiff");
+            testAuftrag.bestelleVersandart("Schiff");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(TestBestellposition.getVersandart().isSchiff());
+        Assert.assertTrue(testAuftrag.getVersandart().isSchiff());
 
     }
 

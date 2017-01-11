@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.BestandTeileTests;
 
-import com.example.patsc.fallstudie.Bestellposition;
+import com.example.patsc.fallstudie.Auftrag;
 
 import junit.framework.Assert;
 
@@ -25,9 +25,9 @@ public class WerbungTest {
 
     @Theory
     public void bestelleWerbungTest(String WerbungWerte){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleWerbung(WerbungWerte);
+            testAuftrag.bestelleWerbung(WerbungWerte);
         }catch (Exception e){
             fail("Sollte kein Fehler werfen");
         }
@@ -35,9 +35,9 @@ public class WerbungTest {
 
     @Test
     public void bestelleWerbungFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleWerbung("FAIL");
+            testAuftrag.bestelleWerbung("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -46,13 +46,13 @@ public class WerbungTest {
 
     @Test
     public void getWerbungTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleWerbung("viel");
+            testAuftrag.bestelleWerbung("viel");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(TestBestellposition.getWerbung().isViel());
+        Assert.assertTrue(testAuftrag.getWerbung().isViel());
     }
 
 }

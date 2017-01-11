@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.ScenarioTest;
 
-import com.example.patsc.fallstudie.Bestellung;
+import com.example.patsc.fallstudie.Auftragssammlung;
 import com.example.patsc.fallstudie.Daten;
 import com.example.patsc.fallstudie.Preissimulation;
 import com.example.patsc.fallstudie.Spieler;
@@ -15,13 +15,13 @@ import static junit.framework.TestCase.fail;
  */
 
 /*
-   Bestellposition MarksUhrArmband = new Bestellposition();
-        Bestellposition MarksUhrDesigner = new Bestellposition();
-        Bestellposition MarksUhrGehaeuse = new Bestellposition();
-        Bestellposition MarksUhrProduktionsort = new Bestellposition();
-        Bestellposition MarksUhr = new Bestellposition();
-        Bestellposition MarksUhrArmband = new Bestellposition();
-        Bestellposition MarksUhrArmband = new Bestellposition();
+   Auftrag MarksUhrArmband = new Auftrag();
+        Auftrag MarksUhrDesigner = new Auftrag();
+        Auftrag MarksUhrGehaeuse = new Auftrag();
+        Auftrag MarksUhrProduktionsort = new Auftrag();
+        Auftrag MarksUhr = new Auftrag();
+        Auftrag MarksUhrArmband = new Auftrag();
+        Auftrag MarksUhrArmband = new Auftrag();
  */
 
     /*
@@ -33,7 +33,7 @@ import static junit.framework.TestCase.fail;
      */
 
 
-    //Überprüfung of Bestellung Stimmt
+    //Überprüfung of Auftragssammlung Stimmt
     /*
     if (
                MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getArmband().isLeder() &&
@@ -53,7 +53,7 @@ import static junit.framework.TestCase.fail;
         Assert.assertTrue(passed);
      */
 
-public class SpielerMachtBestellungTest {
+public class SpielerMachtAuftragssammlungTest {
 
 
     Daten SpielDaten = new Daten();
@@ -62,39 +62,39 @@ public class SpielerMachtBestellungTest {
     Preissimulation TestPreisSim = null;
     Double[] pkz = null;
 
-    public SpielerMachtBestellungTest() throws Exception {
+    public SpielerMachtAuftragssammlungTest() throws Exception {
     }
 
-    public void bestellen(Bestellung bestellung, String Armband, String Designer, String Gehaeuse, String Zusammenbau, String Uhrwerk, String Werbung, String Wasserdichtheit, String Versandart, Double VKP, int Menge, Daten Daten, Preissimulation Preissimulation) throws  Exception {
+    public void bestellen(Auftragssammlung auftragssammlung, String Armband, String Designer, String Gehaeuse, String Zusammenbau, String Uhrwerk, String Werbung, String Wasserdichtheit, String Versandart, Double VKP, int Menge, Daten Daten, Preissimulation Preissimulation) throws  Exception {
 
-        bestellung.getBestellposition(Daten.getRundenAnzahl()).bestelleArmband(Armband);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleArmband(Armband);
         Preissimulation.berechneArmband(Armband);
-        bestellung.getBestellposition(Daten.getRundenAnzahl()).bestelleDesigner(Designer);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleDesigner(Designer);
         Preissimulation.berechneDesigner(Designer);
-        bestellung.getBestellposition(Daten.getRundenAnzahl()).bestelleGehaeuse(Gehaeuse);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleGehaeuse(Gehaeuse);
         Preissimulation.berechneGehäuseUhrwerk(Gehaeuse);
-        bestellung.getBestellposition(Daten.getRundenAnzahl()).bestelleZusamenbau(Zusammenbau);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleZusamenbau(Zusammenbau);
         Preissimulation.berechneProduktionsort(Zusammenbau);
-        bestellung.getBestellposition(Daten.getRundenAnzahl()).bestelleUhrwerk(Uhrwerk);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleUhrwerk(Uhrwerk);
         Preissimulation.berechneUhrwerk(Uhrwerk);
-        bestellung.getBestellposition(Daten.getRundenAnzahl()).bestelleWerbung(Werbung);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleWerbung(Werbung);
         Preissimulation.berechneWerbung(Werbung);
-        bestellung.getBestellposition(Daten.getRundenAnzahl()).bestelleWasserdichtheit(Wasserdichtheit);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleWasserdichtheit(Wasserdichtheit);
         Preissimulation.berechneWasserdichtheit(Wasserdichtheit);
-        bestellung.getBestellposition(Daten.getRundenAnzahl()).bestelleVersandart(Versandart);
-        bestellung.getBestellposition(Daten.getRundenAnzahl()).bestelleVKP(VKP);
-        bestellung.getBestellposition(Daten.getRundenAnzahl()).bestelleMenge(Menge);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleVersandart(Versandart);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleVKP(VKP);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleMenge(Menge);
     }
 
 
     @Test
     public void Runde1Test(){
         System.out.println("Spieler " + Mark.getName() + " hat das Spiel betreten. Sein Guthaben beträgt: " + Mark.getGuthaben()+ "€, sein Marktanteil beträgt " + Mark.getMarktanteil() + "% und er hat "+ Mark.getPunkte() + " Punkte!");
-        Bestellung MarksTestBestellung = Mark.getBestellung();
-        MarksTestBestellung.neueBestellpositon();
-        Preissimulation MarksPreissim = new Preissimulation(SpielDaten.getRundenAnzahl(), MarksTestBestellung);
+        Auftragssammlung marksTestAuftragssammlung = Mark.getAuftragssammlung();
+        marksTestAuftragssammlung.neueBestellpositon();
+        Preissimulation MarksPreissim = new Preissimulation(SpielDaten.getRundenAnzahl(), marksTestAuftragssammlung);
         try {
-            bestellen(MarksTestBestellung, "Leder", "LowBudget", "Glas", "Asien", "Mechanisch","viel","Nicht Wassergeschützt", "Schiff", 1000.0 , 10000, SpielDaten, TestPreisSim);
+            bestellen(marksTestAuftragssammlung, "Leder", "LowBudget", "Glas", "Asien", "Mechanisch","viel","Nicht Wassergeschützt", "Schiff", 1000.0 , 10000, SpielDaten, TestPreisSim);
             TestPreisSim.berechnePreis();
             System.out.println(TestPreisSim.getEinkaufspreis());
             System.out.println(TestPreisSim.getVerkaufspreis());

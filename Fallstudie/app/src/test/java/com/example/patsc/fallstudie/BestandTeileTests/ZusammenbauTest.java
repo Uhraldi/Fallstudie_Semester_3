@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.BestandTeileTests;
 
-import com.example.patsc.fallstudie.Bestellposition;
+import com.example.patsc.fallstudie.Auftrag;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,9 +25,9 @@ public class ZusammenbauTest {
 
     @Theory
     public void bestelleZusammenbauTest(String ProduktionsOrtWerte){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleZusamenbau(ProduktionsOrtWerte);
+            testAuftrag.bestelleZusamenbau(ProduktionsOrtWerte);
         }catch (Exception e){
             fail("Sollte kein Fehler werfen");
         }
@@ -35,10 +35,10 @@ public class ZusammenbauTest {
 
     @Theory
     public void korrigiereZusammenbauTest(String ProduktionsOrtWerte){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleZusamenbau(ProduktionsOrtWerte);
-            TestBestellposition.korrigiereZusammenbau("Asien");
+            testAuftrag.bestelleZusamenbau(ProduktionsOrtWerte);
+            testAuftrag.korrigiereZusammenbau("Asien");
         }catch (Exception e){
             fail(e.getMessage());
         }
@@ -48,9 +48,9 @@ public class ZusammenbauTest {
 
     @Test
     public void bestelleZusammenbauFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleZusamenbau("FAIL");
+            testAuftrag.bestelleZusamenbau("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -59,13 +59,13 @@ public class ZusammenbauTest {
 
     @Test
     public void getZusammenbauTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleZusamenbau("Deutschland");
+            testAuftrag.bestelleZusamenbau("Deutschland");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(TestBestellposition.getZusammenbau().isDeutschland());
+        Assert.assertTrue(testAuftrag.getZusammenbau().isDeutschland());
     }
 
 

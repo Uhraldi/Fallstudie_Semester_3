@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
-public class E7_ZusammenbauActivity extends AppCompatActivity {
+public class E7_ZeitarbeiterActivity extends AppCompatActivity {
 
     private Spinner ZusammenbauSpinner;
     private String auswahlZusammenbau;
@@ -21,7 +21,7 @@ public class E7_ZusammenbauActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e7_zusammenbau);
-        IntroductionActivity.model.setActivity_E7();
+        IntroductionActivity.Controller.setActivity_E7();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToZusammenbauSpinner();
@@ -31,9 +31,9 @@ public class E7_ZusammenbauActivity extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
 
     }
 
@@ -77,10 +77,10 @@ public class E7_ZusammenbauActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        IntroductionActivity.model.setZusammenbau(auswahlZusammenbau);
+        //Methodenaufruf von Controller um Spinner Auswahl zu setzen
+        IntroductionActivity.Controller.setZusammenbau(auswahlZusammenbau);
 
-        Intent intent = new Intent(this, E8_WerbungActivity.class);
+        Intent intent = new Intent(this, E8_MarketingActivity.class);
         finish();
         startActivity(intent);
     }

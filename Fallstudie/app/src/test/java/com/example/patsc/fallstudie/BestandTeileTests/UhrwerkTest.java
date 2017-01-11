@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.BestandTeileTests;
 
-import com.example.patsc.fallstudie.Bestellposition;
+import com.example.patsc.fallstudie.Auftrag;
 
 import junit.framework.Assert;
 
@@ -25,18 +25,18 @@ public class UhrwerkTest {
 
     @Theory
     public void bestelleUhrwerkTest(String UhrwerkWerte){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleUhrwerk(UhrwerkWerte);
+            testAuftrag.bestelleUhrwerk(UhrwerkWerte);
         }catch (Exception e){
             fail("Sollte kein Fehler werfen");
         }
     }
 
     @Test public void bestelleUhrwerkFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleUhrwerk("FAIL");
+            testAuftrag.bestelleUhrwerk("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -45,13 +45,13 @@ public class UhrwerkTest {
 
     @Test
     public void getUhrwerktTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleUhrwerk("Mechanisch");
+            testAuftrag.bestelleUhrwerk("Mechanisch");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(TestBestellposition.getUhrwerk().isMechanisch());
+        Assert.assertTrue(testAuftrag.getUhrwerk().isMechanisch());
     }
 
 

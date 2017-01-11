@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.BestandTeileTests;
 
-import com.example.patsc.fallstudie.Bestellposition;
+import com.example.patsc.fallstudie.Auftrag;
 
 import junit.framework.Assert;
 
@@ -25,9 +25,9 @@ public class DesignerTest {
 
     @Theory
     public void bestelleDesignerTest(String DesignerWerte){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleDesigner(DesignerWerte);
+            testAuftrag.bestelleDesigner(DesignerWerte);
         }catch (Exception e){
             fail("Fehler bei Variable: "+ DesignerWerte );
         }
@@ -35,9 +35,9 @@ public class DesignerTest {
 
     @Test
     public void bestelleDesignerFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleDesigner("FAIL");
+            testAuftrag.bestelleDesigner("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -46,13 +46,13 @@ public class DesignerTest {
 
     @Test
     public void getDesignerTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleDesigner("Marken");
+            testAuftrag.bestelleDesigner("Marken");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(TestBestellposition.getDesigner().isMarken());
+        Assert.assertTrue(testAuftrag.getDesigner().isMarken());
 
     }
 

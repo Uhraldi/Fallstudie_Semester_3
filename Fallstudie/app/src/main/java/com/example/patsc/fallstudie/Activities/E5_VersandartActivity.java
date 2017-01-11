@@ -21,7 +21,7 @@ public class E5_VersandartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e5_versandart);
-        IntroductionActivity.model.setActivity_E5();
+        IntroductionActivity.Controller.setActivity_E5();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToVersandartSpinner();
@@ -31,9 +31,9 @@ public class E5_VersandartActivity extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
 
     }
 
@@ -77,8 +77,8 @@ public class E5_VersandartActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        IntroductionActivity.model.setVersandart(auswahlVersandart);
+        //Methodenaufruf von Controller um Spinner Auswahl zu setzen
+        IntroductionActivity.Controller.setVersandart(auswahlVersandart);
 
         Intent intent = new Intent(this, E6_WasserdichtheitActivity.class);
         finish();

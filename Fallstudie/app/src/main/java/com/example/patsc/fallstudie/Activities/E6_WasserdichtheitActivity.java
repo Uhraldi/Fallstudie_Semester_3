@@ -21,7 +21,7 @@ public class E6_WasserdichtheitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e6_wasserdichtheit);
-        IntroductionActivity.model.setActivity_E6();
+        IntroductionActivity.Controller.setActivity_E6();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToWasserdichtheitSpinner();
@@ -31,9 +31,9 @@ public class E6_WasserdichtheitActivity extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
 
     }
 
@@ -77,10 +77,10 @@ public class E6_WasserdichtheitActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        IntroductionActivity.model.setWasserdichtheit(auswahlWasserdichtheit);
+        //Methodenaufruf von Controller um Spinner Auswahl zu setzen
+        IntroductionActivity.Controller.setWasserdichtheit(auswahlWasserdichtheit);
 
-        Intent intent = new Intent(this, E7_ZusammenbauActivity.class);
+        Intent intent = new Intent(this, E7_ZeitarbeiterActivity.class);
         finish();
         startActivity(intent);
     }

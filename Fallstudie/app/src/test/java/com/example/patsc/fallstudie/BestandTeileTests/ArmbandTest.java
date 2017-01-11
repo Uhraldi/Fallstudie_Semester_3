@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.BestandTeileTests;
 
-import com.example.patsc.fallstudie.Bestellposition;
+import com.example.patsc.fallstudie.Auftrag;
 
 import junit.framework.Assert;
 
@@ -26,9 +26,9 @@ public class ArmbandTest {
 
     @Theory
     public void bestelleArmbandTest(String ArmbandWerte){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleArmband(ArmbandWerte);
+            testAuftrag.bestelleArmband(ArmbandWerte);
         }catch (Exception e){
             fail(e.getMessage());
         }
@@ -38,10 +38,10 @@ public class ArmbandTest {
 
     @Theory
     public void ArmbandkorrekturTest(String ArmbandWerte){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleArmband(ArmbandWerte);
-            TestBestellposition.korrigiereArmband("Leder");
+            testAuftrag.bestelleArmband(ArmbandWerte);
+            testAuftrag.korrigiereArmband("Leder");
         }catch (Exception e) {
             fail(e.getMessage());
         }
@@ -49,10 +49,10 @@ public class ArmbandTest {
 
     @Test
     public void ArmbandkorrekturFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleArmband("Leder");
-            TestBestellposition.korrigiereArmband("FAIL");
+            testAuftrag.bestelleArmband("Leder");
+            testAuftrag.korrigiereArmband("FAIL");
         }catch (Exception e) {
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -63,9 +63,9 @@ public class ArmbandTest {
 
     @Test
     public void bestelleArmbandFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleArmband("FAIL");
+            testAuftrag.bestelleArmband("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -74,13 +74,13 @@ public class ArmbandTest {
 
     @Test
     public void getArmbandTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleArmband("Leder");
+            testAuftrag.bestelleArmband("Leder");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(TestBestellposition.getArmband().isLeder());
+        Assert.assertTrue(testAuftrag.getArmband().isLeder());
 
     }
 

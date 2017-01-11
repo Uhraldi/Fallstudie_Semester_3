@@ -25,15 +25,15 @@
         </activity>
         <activity android:name=".Activities.IntroductionActivity" />
         <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".Activities.E1_DesignerActivity" />
+        <activity android:name=".Activities.E1_ForschungActivity" />
         <activity android:name=".Activities.E2_ArmbandActivity" />
         <activity android:name=".Activities.E3_UhrwerkActivity" />
         <activity android:name=".Activities.E4_GehaeuseActivity" />
         <activity android:name=".Activities.E5_VersandartActivity" />
         <activity android:name=".Activities.E6_WasserdichtheitActivity" />
-        <activity android:name=".Activities.E7_ZusammenbauActivity" />
-        <activity android:name=".Activities.E8_WerbungActivity" />
-        <activity android:name=".Activities.E9_KaufvolumenActivity" />
+        <activity android:name=".Activities.E7_ZeitarbeiterActivity" />
+        <activity android:name=".Activities.E8_MarketingActivity" />
+        <activity android:name=".Activities.E9_ProduktionsvolumenActivity" />
         <activity android:name=".Activities.E10_VerkaufspreisActivity" />
         <activity android:name=".Activities.BestellzusammenfassungActivity" />
         <activity android:name=".Activities.Z1_Armband" />

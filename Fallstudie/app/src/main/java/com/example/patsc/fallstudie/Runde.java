@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie;
 
-import com.example.patsc.fallstudie.Model;
+import com.example.patsc.fallstudie.Controller;
 
 /**
  * Created by Jonas on 01.01.17.
@@ -10,7 +10,7 @@ public class Runde {
 
     private int RundenNr; // Welche Runde gerade gespielt wird
     private Spieler spieler; // Spieler, der die Runde spielt
-    private Model model;
+    private Controller Controller;
 
     /*
     Konstruktor für die Runde
@@ -33,7 +33,7 @@ public class Runde {
         RundenNr++;
         if (RundenNr > 10) {
             zeigeHighscoreListe();
-            model.setZustand_Spielbeginn(true);
+            Controller.setZustand_Spielbeginn(true);
         }
     } //
 

@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.BestandTeileTests;
 
-import com.example.patsc.fallstudie.Bestellposition;
+import com.example.patsc.fallstudie.Auftrag;
 
 import junit.framework.Assert;
 
@@ -25,9 +25,9 @@ public class WasserdichtheitsTest {
 
     @Theory
     public void bestelleWasserdichtheitTest(String WasserdichtheitWerte){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleWasserdichtheit(WasserdichtheitWerte);
+            testAuftrag.bestelleWasserdichtheit(WasserdichtheitWerte);
         }catch (Exception e){
             fail("Sollte kein Fehler werfen");
         }
@@ -35,9 +35,9 @@ public class WasserdichtheitsTest {
 
     @Test
     public void bestelleWasserdichtheitFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try {
-            TestBestellposition.bestelleWasserdichtheit("FAIL");
+            testAuftrag.bestelleWasserdichtheit("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -46,13 +46,13 @@ public class WasserdichtheitsTest {
 
     @Test
     public void getWasserdichtheitsFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
+        Auftrag testAuftrag = new Auftrag();
         try{
-            TestBestellposition.bestelleWasserdichtheit("Nicht Wassergeschützt");
+            testAuftrag.bestelleWasserdichtheit("Nicht Wassergeschützt");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(TestBestellposition.getWasserdichtheit().isNichtWassergeschützt());
+        Assert.assertTrue(testAuftrag.getWasserdichtheit().isNichtWassergeschützt());
 
     }
 

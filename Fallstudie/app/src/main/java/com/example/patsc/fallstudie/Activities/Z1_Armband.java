@@ -21,12 +21,12 @@ public class Z1_Armband extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_z1_armband);
-        IntroductionActivity.model.setActivity_Z1();
+        IntroductionActivity.Controller.setActivity_Z1();
 
         //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
         TextView z1armband_info_textiew = (TextView) findViewById(R.id.z1armband_info_textview);
         try {
-            switch (IntroductionActivity.model.getArmband()){
+            switch (IntroductionActivity.Controller.getArmband()){
                 case "Leder": {
                     z1armband_info_textiew.setText(R.string.z1leder_info_textview);
                     break;
@@ -61,9 +61,9 @@ public class Z1_Armband extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
 
     }
 
@@ -109,11 +109,11 @@ public class Z1_Armband extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Model um Spinner Auswahl zu setzen, mit Prüfung ob anderer Wert als vorher
-        if(IntroductionActivity.model.getArmband().equals(auswahlArmband)) {
+        //Methodenaufruf von Controller um Spinner Auswahl zu setzen, mit Prüfung ob anderer Wert als vorher
+        if(IntroductionActivity.Controller.getArmband().equals(auswahlArmband)) {
             Toast toast = Toast.makeText(this, "Diese Option geht leider nicht mehr", Toast.LENGTH_SHORT);
         } else {
-            IntroductionActivity.model.setArmbandNeu(auswahlArmband);
+            IntroductionActivity.Controller.setArmbandNeu(auswahlArmband);
         }
 
         Intent z2 = new Intent(this, Z2_Gehaeuse.class);
@@ -121,9 +121,9 @@ public class Z1_Armband extends AppCompatActivity {
         Intent keinZufall = new Intent(this, BerechnungActivity.class);
 
         //Abfrage ob Zufall Z2-Z3 eingetreten ist und entsprechende Weiterleitung
-        if (IntroductionActivity.model.isZufall2()){
+        if (IntroductionActivity.Controller.isZufall2()){
             startActivity(z2);
-        } else if (IntroductionActivity.model.isZufall3()){
+        } else if (IntroductionActivity.Controller.isZufall3()){
             startActivity(z3);
         } else {
             startActivity(keinZufall);

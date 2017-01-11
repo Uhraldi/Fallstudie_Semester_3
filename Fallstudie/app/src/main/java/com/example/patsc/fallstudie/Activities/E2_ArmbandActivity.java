@@ -28,7 +28,7 @@ public class E2_ArmbandActivity extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_e2_armband);
-        IntroductionActivity.model.setActivity_E2();
+        IntroductionActivity.Controller.setActivity_E2();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToArmbandSpinner();
@@ -38,9 +38,9 @@ public class E2_ArmbandActivity extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
 
     }
 
@@ -85,8 +85,8 @@ public class E2_ArmbandActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view)throws Exception {
 
-        //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        IntroductionActivity.model.setArmband(auswahlArmband);
+        //Methodenaufruf von Controller um Spinner Auswahl zu setzen
+        IntroductionActivity.Controller.setArmband(auswahlArmband);
 
         Intent intent = new Intent(this, E3_UhrwerkActivity.class);
         startActivity(intent);

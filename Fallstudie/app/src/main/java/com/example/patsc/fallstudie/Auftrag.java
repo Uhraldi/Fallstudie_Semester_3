@@ -5,7 +5,7 @@ import com.example.patsc.fallstudie.Bestandteile.*;
  * testable
  */
 
-public class Bestellposition {
+public class Auftrag {
 
     /**
      * Variablen deklarieren und instanziieren

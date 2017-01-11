@@ -22,12 +22,12 @@ public class Z3_ZusammenbauActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_z3_zusammenbau);
-        IntroductionActivity.model.setActivity_Z3();
+        IntroductionActivity.Controller.setActivity_Z3();
 
         //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
         TextView z3zusammenbau_info_textview = (TextView) findViewById(R.id.z3zusammenbau_info_textview);
         try {
-            switch (IntroductionActivity.model.getGehaeuse()){
+            switch (IntroductionActivity.Controller.getGehaeuse()){
                 case "Deutschland": {
                     z3zusammenbau_info_textview.setText(R.string.z3deutschland_info_textview);
                     break;
@@ -57,9 +57,9 @@ public class Z3_ZusammenbauActivity extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
 
     }
 
@@ -103,11 +103,11 @@ public class Z3_ZusammenbauActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Model um Spinner Auswahl zu setzen
-        if(IntroductionActivity.model.getZusammenbau().equals(auswahlZusammenbau)) {
+        //Methodenaufruf von Controller um Spinner Auswahl zu setzen
+        if(IntroductionActivity.Controller.getZusammenbau().equals(auswahlZusammenbau)) {
             Toast toast = Toast.makeText(this, "Diese Option geht leider nicht mehr", Toast.LENGTH_SHORT);
         } else {
-            IntroductionActivity.model.setZusammenbauNeu(auswahlZusammenbau);
+            IntroductionActivity.Controller.setZusammenbauNeu(auswahlZusammenbau);
         }
 
         Intent intent = new Intent(this, BerechnungActivity.class);
