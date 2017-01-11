@@ -425,7 +425,7 @@ public class  Model {
         setZustand_Ereignis(true);
         setAENDERE_ZUSAMMENBAU_boolean(true);
     }
-    public void setActivity_Berechnung () {
+    public void setActivity_Berechnung () throws Exception {
         setZustand_Lieferung(true);
 
         //Hier Preis und Marktsimulation durchführen!
@@ -436,8 +436,8 @@ public class  Model {
         double kosten = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getFixKosten() + aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVarKosten();
         Preissimulation preissim = new Preissimulation(kosten, aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVkp(), daten.getRundenAnzahl(), aktiverSpieler.getBestellung()); //ToDo
         aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).setPreissim(preissim);
-        //Marktsim marktsim = new Marktsim(); //ToDo
-        //aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).setMarktsim(marktsim); ToDo evtl in MarktSim ausgübt
+        Marktsim marktsim = new Marktsim(getPreissimulationenPreis());
+        aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
 
     }
     public void setActivity_Rundenergebnis () {
@@ -992,6 +992,19 @@ public class  Model {
         return bestellpositionen;
     }  // Ende getBestellpositionen
 
-
+    public double[] getPreissimulationenPreis () throws Exception {
+        double[] Preise = new double[daten.getSpielerAnzahl()];
+        if (daten.getSpielerListe() == null) {
+            throw new Exception("Spieler Liste leer");
+        }
+        for (int i = 0; i < daten.getSpielerAnzahl(); i++) {
+            if (daten.getSpielerListe().get(i).getBestellung().getBestellposition(daten.getRundenAnzahl()) != null)
+                Preise[i] = daten.getSpielerListe().get(i).getBestellung().getBestellposition(daten.getRundenAnzahl()).getPreissimulation().getVerkaufspreis();
+            else {
+                throw new Exception("Kein Objekt gefunden");
+            }
+        }
+        return Preise;
+    } // Ende Preissimulation
 } // ENDE KLASSE
 
