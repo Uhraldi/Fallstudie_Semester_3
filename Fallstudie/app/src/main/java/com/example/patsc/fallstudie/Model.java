@@ -433,10 +433,11 @@ public class  Model {
 
         //ToDo Prüfung ob alle Spieler Werte eingegeben haben
         // ToDO DB abruf
-        Preissimulation preissim = new Preissimulation();
+        double kosten = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getFixKosten() + aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVarKosten();
+        Preissimulation preissim = new Preissimulation(kosten, aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVkp(), daten.getRundenAnzahl(), aktiverSpieler.getBestellung()); //ToDo
         aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).setPreissim(preissim);
-        Marktsim marktsim = new Marktsim();
-        aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).setMarktsim(marktsim);
+        //Marktsim marktsim = new Marktsim(); //ToDo
+        //aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).setMarktsim(marktsim); ToDo evtl in MarktSim ausgübt
 
     }
     public void setActivity_Rundenergebnis () {
@@ -934,7 +935,9 @@ public class  Model {
     //ToDo Spielfortsetzen
 
 
-    public String[] getNamen(){} // ToDo Liste der geordneten Spielernamen
+    public String[] getNamen(){
+        return new String[3];
+    } // ToDo Liste der geordneten Spielernamen
 
     //  Mehrfach genutzte Datenabfrage.
     public int getRunde(){

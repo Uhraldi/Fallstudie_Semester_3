@@ -14,7 +14,7 @@ public class Marktsim {
         for(int i = 0; i < pkz.length ; i++){
             pkzarray.set(i,pkz[i]);
         }
-        berechneAbsatz();
+        berechneAbsatz(); //ToDo Exception Handling
     }
     private Daten daten = new Daten();
     private int anzSpieler = daten.getSpielerAnzahl();
