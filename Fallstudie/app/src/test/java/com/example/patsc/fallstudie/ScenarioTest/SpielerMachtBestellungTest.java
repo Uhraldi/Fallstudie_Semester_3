@@ -62,6 +62,9 @@ public class SpielerMachtBestellungTest {
     Preissimulation TestPreisSim = null;
     Double[] pkz = null;
 
+    public SpielerMachtBestellungTest() throws Exception {
+    }
+
     public void bestellen(Bestellung bestellung, String Armband, String Designer, String Gehaeuse, String Zusammenbau, String Uhrwerk, String Werbung, String Wasserdichtheit, String Versandart, Double VKP, int Menge, Daten Daten, Preissimulation Preissimulation) throws  Exception {
 
         bestellung.getBestellposition(Daten.getRundenAnzahl()).bestelleArmband(Armband);
@@ -93,6 +96,8 @@ public class SpielerMachtBestellungTest {
         try {
             bestellen(MarksTestBestellung, "Leder", "LowBudget", "Glas", "Asien", "Mechanisch","viel","Nicht Wassergeschützt", "Schiff", 1000.0 , 10000, SpielDaten, TestPreisSim);
             TestPreisSim.berechnePreis();
+            System.out.println(TestPreisSim.getEinkaufspreis());
+            System.out.println(TestPreisSim.getVerkaufspreis());
 
         }catch (Exception e){
             fail();

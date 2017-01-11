@@ -434,7 +434,7 @@ public class  Model {
         //ToDo Prüfung ob alle Spieler Werte eingegeben haben
         // ToDO DB abruf
         double kosten = aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getFixKosten() + aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVarKosten();
-        Preissimulation preissim = new Preissimulation(kosten, aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).getVkp(), daten.getRundenAnzahl(), aktiverSpieler.getBestellung()); //ToDo
+        Preissimulation preissim = new Preissimulation(daten.getRundenAnzahl(), aktiverSpieler.getBestellung()); //ToDo
         aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).setPreissim(preissim);
         Marktsim marktsim = new Marktsim(getPreissimulationenPreis());
         aktiverSpieler.getBestellung().getBestellposition(daten.getRundenAnzahl()).setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt

@@ -29,18 +29,14 @@ public class Spieler {
      *                 Am Beginn hat jeder Spieler 1000 Punkte.
      */
 
-    public Spieler(String name, String passwort, Daten daten) {
+    public Spieler(String name, String passwort, Daten daten)throws Exception {
         this.daten=daten;
         setName(name);
         setGuthaben(Anfangsguthaben);
         setPasswort(passwort);
         bestellung = new Bestellung();
-        try {
-            setMarktanteil(AnfangsMarktanteil);
-            setPunkte(AnfagsPunkte);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        setMarktanteil(AnfangsMarktanteil);
+        setPunkte(AnfagsPunkte);
         daten.addSpielerListe(this); // Hinzufügen des Spielers in die Liste
     } // Ende Konstruktor
 
