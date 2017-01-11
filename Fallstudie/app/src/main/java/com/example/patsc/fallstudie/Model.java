@@ -916,7 +916,8 @@ public class  Model {
      * ToDo if abfrage
      * @param name
      * @param passwort
-     */ public boolean login (String name, String passwort) throws Exception{
+     */
+    public boolean login (String name, String passwort) throws Exception{
         Spieler spieler = new Spieler(name,passwort,getDaten());
         spieler= aktiverSpieler;
         if (name.equals(aktiverSpieler.getName()) && passwort.equals(aktiverSpieler.getPasswort())) {
