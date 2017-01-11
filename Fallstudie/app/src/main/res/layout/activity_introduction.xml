@@ -8,23 +8,18 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.patsc.fallstudie.Activities.IntroductionActivity">
+    tools:context="com.example.patsc.fallstudie.Activities.IntroductionActivity"
+android:background="@drawable/light_blue_bg"
+    >
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </ScrollView>
-
-    <Button
-        android:text="@string/verstanden_button"
+<!--
+    <ImageView
+        android:src="@drawable/watch_bg"
+        android:scaleType = "centerCrop"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:onClick="goToNextActivity"
-        android:layout_below="@+id/designer_info_textview"
-        android:layout_centerHorizontal="true" />
+        android:layout_height="wrap_content" />
+-->
+
 
     <TextView
         android:text="@string/introduction_info_textview"
@@ -33,6 +28,18 @@
         android:id="@+id/designer_info_textview"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif" />
+
+    <Button
+        android:text="@string/verstanden_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:onClick="goToNextActivity"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp" />
 
 </RelativeLayout>
