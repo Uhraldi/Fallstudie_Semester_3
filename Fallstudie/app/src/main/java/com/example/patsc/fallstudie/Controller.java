@@ -126,9 +126,9 @@ public class Controller {
     public void setSCHRITT_FORSCHUNG_boolean(boolean SCHRITT_FORSCHUNG_boolean) {
         this.SCHRITT_FORSCHUNG_boolean = SCHRITT_FORSCHUNG_boolean;
     }
-    public void setSCHRITT_DICHTHEIT_boolean(boolean SCHRITT_DICHTHEIT_boolean) {
-        this.SCHRITT_DICHTHEIT_boolean = SCHRITT_DICHTHEIT_boolean;
-    }
+   // public void setSCHRITT_DICHTHEIT_boolean(boolean SCHRITT_DICHTHEIT_boolean) {
+   //     this.SCHRITT_DICHTHEIT_boolean = SCHRITT_DICHTHEIT_boolean;
+   // }
     public void setSCHRITT_GEHAUESE_boolean(boolean SCHRITT_GEHAUESE_boolean) {
         this.SCHRITT_GEHAUESE_boolean = SCHRITT_GEHAUESE_boolean;
     }
@@ -191,9 +191,9 @@ public class Controller {
     public boolean isSCHRITT_FORSCHUNG_boolean() {
         return SCHRITT_FORSCHUNG_boolean;
     }
-    public boolean isSCHRITT_DICHTHEIT_boolean() {
-        return SCHRITT_DICHTHEIT_boolean;
-    }
+  //  public boolean isSCHRITT_DICHTHEIT_boolean() {
+     //   return SCHRITT_DICHTHEIT_boolean;
+    //}
     public boolean isSCHRITT_GEHAUESE_boolean() {
         return SCHRITT_GEHAUESE_boolean;
     }
@@ -269,9 +269,9 @@ public class Controller {
 
         return SCHRITT_FORSCHUNG;
     }
-    public String getSCHRITT_DICHTHEIT() {
-        return SCHRITT_DICHTHEIT;
-    }
+   // public String getSCHRITT_DICHTHEIT() {
+     //   return SCHRITT_DICHTHEIT;
+    //}
     public String getSCHRITT_GEHAUESE() {
         return SCHRITT_GEHAUESE;
     }
@@ -305,15 +305,15 @@ public class Controller {
     public String getVESANDART_WAHL_SCHIFF() {
         return VESANDART_WAHL_SCHIFF;
     }
-    public String getWASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT() {
-        return WASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT;
-    }
-    public String getWASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT() {
-        return WASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT;
-    }
-    public String getWASSERDICHTHEIT_WAHL_WASSERDICHT() {
-        return WASSERDICHTHEIT_WAHL_WASSERDICHT;
-    }
+   // public String getWASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT() {
+       // return WASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT;
+    ///}
+    //public String getWASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT() {
+    //    return WASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT;
+   // }
+   // public String getWASSERDICHTHEIT_WAHL_WASSERDICHT() {
+    //    return WASSERDICHTHEIT_WAHL_WASSERDICHT;
+   // }
     public String getMARKETING_WAHL_PRINTWERBUNG() {
         return MARKETING_WAHL_PRINTWERBUNG;
     }
@@ -338,7 +338,7 @@ public class Controller {
     public String getSchrittDesigner(){return SCHRITT_FORSCHUNG;}
     public String getSchrittArmband(){return SCHRITT_ARMBAND;}
     public String getSchrittUhrwerk(){return SCHRITT_UHRWERK;}
-    public String getSchrittDichtheit(){return SCHRITT_DICHTHEIT;}
+  //  public String getSchrittDichtheit(){return SCHRITT_DICHTHEIT;}
     public String getSchrittGehauese(){return SCHRITT_GEHAUESE;}
     public String getSchrittZusammenbau(){return SCHRITT_ZEITARBEITER;}
     public String getSchrittWerbung(){return SCHRITT_MARKETING;}
@@ -388,10 +388,10 @@ public class Controller {
         setSCHRITT_VERSANDART_boolean(true);
 
     }
-    public void setActivity_E6 () {
-        setZustand_Bestellung(true);
-        setSCHRITT_DICHTHEIT_boolean(true);
-    }
+  //  public void setActivity_E6 () {
+  //      setZustand_Bestellung(true);
+  //      setSCHRITT_DICHTHEIT_boolean(true);
+  //  }
     public void setActivity_E7 () {
         setZustand_Bestellung(true);
         setSCHRITT_ZEITARBEITER_boolean(true);
@@ -549,7 +549,7 @@ public class Controller {
                 throw new Exception("Falscher Bestellschritt");
             }
     } //Ende set Versandart //
-    public void setWasserdichtheit (String wasserdichtheitAuswahl)throws Exception{
+    /*public void setWasserdichtheit (String wasserdichtheitAuswahl)throws Exception{
             if (SCHRITT_DICHTHEIT_boolean){
                 if(wasserdichtheitAuswahl.equals(WASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT)||wasserdichtheitAuswahl.equals(WASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT)||wasserdichtheitAuswahl.equals(WASSERDICHTHEIT_WAHL_WASSERDICHT))
                 { aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleWasserdichtheit(wasserdichtheitAuswahl);
@@ -561,20 +561,20 @@ public class Controller {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-    } // Ende setWasserdichtheit
-    public void setZusammenbau (String zusammenbauAuswahl)throws Exception{
-            if (SCHRITT_ZEITARBEITER_boolean){
-                if(zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_PRAKTIKANT)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_GESELLE)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_Lehrling)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_MEISTER))
-                { aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleZusamenbau(zusammenbauAuswahl);
-                    setzeAlleSchritteFalse();}
-                else{
-                    throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
-                }
-            }
-            else{
-                throw new Exception("Falscher Bestellschritt");
-            }
-    } // Ende setZusammebau
+    } // Ende setWasserdichtheit*/
+  //  public void setZusammenbau (String zusammenbauAuswahl)throws Exception{
+    //      if (SCHRITT_ZEITARBEITER_boolean){
+  //        if(zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_PRAKTIKANT)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_GESELLE)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_Lehrling)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_MEISTER))
+  //        { aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleZusamenbau(zusammenbauAuswahl);
+    //            setzeAlleSchritteFalse();}
+    //       else{
+    //          throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
+    //      }
+    //  }
+    //  else{
+    //      throw new Exception("Falscher Bestellschritt");
+    //  }
+  //} // Ende setZusammebau
     public void setZusammenbauNeu (String zusammenbauAuswahl)throws Exception{              //nach Zufall Z3
             if (AENDERE_ZEITARBEITER_boolean){
                 if(zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_PRAKTIKANT)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_GESELLE)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_Lehrling)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_MEISTER))
@@ -714,7 +714,7 @@ public class Controller {
             }
         return versandart;
     }//Ende getVersandart
-    public String getWasserdichtheit ( )throws Exception{
+    /*public String getWasserdichtheit ( )throws Exception{
         String dichtheit = "";
             if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getWasserdichtheit().isNichtWassergeschützt()){
                 dichtheit=WASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT;
@@ -729,7 +729,7 @@ public class Controller {
                 throw new Exception("Keine Auswahl der Wasserdichtheit getroffen.");
             }
         return dichtheit;
-    }// ENde getWasserdichtheit
+    }// ENde getWasserdichtheit*/
     public String getZusammenbau ()throws Exception{
         String zusammenbau = "";
             if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isAsien()){
@@ -962,7 +962,7 @@ public class Controller {
         SCHRITT_ARMBAND_boolean  = false;// zweite Schritt Wahl des Armbands
         SCHRITT_UHRWERK_boolean  = false;// dritter Schritt Wahl des Uhrwerks und der Uhrenart
         SCHRITT_GEHAUESE_boolean  = false;// vierter Schritt Wahl des Gehäuses für die Uhr
-        SCHRITT_DICHTHEIT_boolean  = false;// fuenfter Schritt Wahl der Dichtheit
+        //SCHRITT_DICHTHEIT_boolean  = false;// fuenfter Schritt Wahl der Dichtheit
         SCHRITT_ZEITARBEITER_boolean = false;// sechster Schritt Wahl Zusammenbau
         SCHRITT_MARKETING_boolean = false; // siebter Schritt Wahl des Werbeetars
         SCHRITT_PRODUKTIONSVOLUMEN_boolean = false; // achter Schritt Wahl des Kaufvolumens
