@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.ModelTests.setBestandteile;
+package com.example.patsc.fallstudie.ModelTests.ModelSetBestandteile;
 
 import com.example.patsc.fallstudie.Model;
 
@@ -17,7 +17,7 @@ import static junit.framework.TestCase.fail;
  */
 
 @RunWith(Theories.class)
-public class setDesignerTest {
+public class ModelSetDesignerTest {
 
     public static @DataPoints
     String[] DesignerWerte =

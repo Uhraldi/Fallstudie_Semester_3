@@ -9,9 +9,9 @@ import java.util.*;
 
 public class Marktsim {
 
-    public Marktsim(double[] pkz){
+    public Marktsim(double[] pkz) throws Exception {
 
-        for(int i = 0; i < pkz.length ; i++){
+        for(int i = 0; i < pkz.length; i++){
             pkzarray.set(i,pkz[i]);
         }
         berechneAbsatz(); //ToDo Exception Handling

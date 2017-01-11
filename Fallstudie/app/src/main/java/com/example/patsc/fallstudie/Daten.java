@@ -40,6 +40,7 @@ public class Daten {
         SpielerAnzahl++;
     }
     public void ladeDaten(){
+        //ToDO gewollt leer?
     }
     public void speichereDaten(){
         //ToDO

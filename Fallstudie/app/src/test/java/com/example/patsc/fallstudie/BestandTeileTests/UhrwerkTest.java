@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.BestellpositionTests;
+package com.example.patsc.fallstudie.BestandTeileTests;
 
 import com.example.patsc.fallstudie.Bestellposition;
 
@@ -15,29 +15,28 @@ import static junit.framework.Assert.fail;
 /**
  * Created by julia on 03.01.2017.
  */
-@RunWith(Theories.class)
-public class DesignerTest {
 
+@RunWith(Theories.class)
+public class UhrwerkTest {
     public static @DataPoints
-    String[] DesignerWerte =
-            {"Marken", "Mittelmäßig", "LowBudget"};
+    String[] UhrwerkWerte =
+            {"Mechanisch", "Elektromechanisch", "Elektronisch"};
 
 
     @Theory
-    public void bestelleDesignerTest(String DesignerWerte){
+    public void bestelleUhrwerkTest(String UhrwerkWerte){
         Bestellposition TestBestellposition = new Bestellposition();
         try {
-            TestBestellposition.bestelleDesigner(DesignerWerte);
+            TestBestellposition.bestelleUhrwerk(UhrwerkWerte);
         }catch (Exception e){
-            fail("Fehler bei Variable: "+ DesignerWerte );
+            fail("Sollte kein Fehler werfen");
         }
     }
 
-    @Test
-    public void bestelleDesignerFailTest(){
+    @Test public void bestelleUhrwerkFailTest(){
         Bestellposition TestBestellposition = new Bestellposition();
         try {
-            TestBestellposition.bestelleDesigner("FAIL");
+            TestBestellposition.bestelleUhrwerk("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -45,15 +44,15 @@ public class DesignerTest {
     }
 
     @Test
-    public void getDesignerTest(){
+    public void getUhrwerktTest(){
         Bestellposition TestBestellposition = new Bestellposition();
         try{
-            TestBestellposition.bestelleDesigner("Marken");
+            TestBestellposition.bestelleUhrwerk("Mechanisch");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(TestBestellposition.getDesigner().isMarken());
-
+        Assert.assertTrue(TestBestellposition.getUhrwerk().isMechanisch());
     }
+
 
 }

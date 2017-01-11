@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.BestellpositionTests;
+package com.example.patsc.fallstudie.BestandTeileTests;
 
 import com.example.patsc.fallstudie.Bestellposition;
 

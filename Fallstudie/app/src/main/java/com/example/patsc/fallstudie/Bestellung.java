@@ -16,7 +16,7 @@ public class Bestellung {
 
     }
 //umbenannt
-    public void neueBestellpositon(){
+    public void neueBestellpositon( ){
         positionen.add(new Bestellposition());
     }
 

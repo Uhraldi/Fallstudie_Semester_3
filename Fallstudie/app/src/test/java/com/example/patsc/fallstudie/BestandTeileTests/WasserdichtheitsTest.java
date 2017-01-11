@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.BestellpositionTests;
+package com.example.patsc.fallstudie.BestandTeileTests;
 
 import com.example.patsc.fallstudie.Bestellposition;
 
@@ -13,30 +13,31 @@ import org.junit.runner.RunWith;
 import static junit.framework.Assert.fail;
 
 /**
- * Created by julian on 03.01.2017.
+ * Created by julia on 03.01.2017.
  */
 
 @RunWith(Theories.class)
-public class VersandArtTest {
+public class WasserdichtheitsTest {
 
-    public static @DataPoints String[] VersandartWerte =
-            {"Flugzeug", "Schiff", "Landweg"};
+    public static @DataPoints
+    String[] WasserdichtheitWerte =
+            {"Nicht Wassergeschützt", "Spritzwassergeschützt", "Wasserdicht"};
 
     @Theory
-    public void bestelleVersandTest(String VersandartWerteWerte){
+    public void bestelleWasserdichtheitTest(String WasserdichtheitWerte){
         Bestellposition TestBestellposition = new Bestellposition();
         try {
-            TestBestellposition.bestelleVersandart(VersandartWerteWerte);
+            TestBestellposition.bestelleWasserdichtheit(WasserdichtheitWerte);
         }catch (Exception e){
             fail("Sollte kein Fehler werfen");
         }
     }
 
     @Test
-    public void bestelleVersandsrtFailTest(){
+    public void bestelleWasserdichtheitFailTest(){
         Bestellposition TestBestellposition = new Bestellposition();
         try {
-            TestBestellposition.bestelleVersandart("FAIL");
+            TestBestellposition.bestelleWasserdichtheit("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -44,14 +45,14 @@ public class VersandArtTest {
     }
 
     @Test
-    public void getVersandArtTest(){
+    public void getWasserdichtheitsFailTest(){
         Bestellposition TestBestellposition = new Bestellposition();
         try{
-            TestBestellposition.bestelleVersandart("Schiff");
+            TestBestellposition.bestelleWasserdichtheit("Nicht Wassergeschützt");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(TestBestellposition.getVersandart().isSchiff());
+        Assert.assertTrue(TestBestellposition.getWasserdichtheit().isNichtWassergeschützt());
 
     }
 

@@ -29,14 +29,18 @@ public class Spieler {
      *                 Am Beginn hat jeder Spieler 1000 Punkte.
      */
 
-    public Spieler(String name, String passwort, Daten daten) throws Exception {
+    public Spieler(String name, String passwort, Daten daten) {
         this.daten=daten;
         setName(name);
         setGuthaben(Anfangsguthaben);
-        setMarktanteil(AnfangsMarktanteil);
         setPasswort(passwort);
         bestellung = new Bestellung();
-        setPunkte(AnfagsPunkte);
+        try {
+            setMarktanteil(AnfangsMarktanteil);
+            setPunkte(AnfagsPunkte);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         daten.addSpielerListe(this); // Hinzufügen des Spielers in die Liste
     } // Ende Konstruktor
 
@@ -74,8 +78,7 @@ public class Spieler {
      *
      * @param marktanteil
      */
-    public void setMarktanteil(double marktanteil) {
-        try {
+    public void setMarktanteil(double marktanteil)throws Exception {
             if (marktanteil < 100 && marktanteil > 0) {
                 Marktanteil = marktanteil;
             } else if (marktanteil > 100) {
@@ -83,9 +86,8 @@ public class Spieler {
             } else if (marktanteil < 0) {
                 throw new Exception("Marktanteil unter 0%");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+
 
     } // Ende setMarktanteil
 

@@ -48,12 +48,17 @@ public class SpielerTest {
         Assert.assertTrue(TestSpieler.getMarktanteil() == 0);
     }
 
-    /*
+
     @Test
     public void setMarktanteilTest(){
         Daten TestDaten = new Daten();
-        Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
-        TestSpieler.setMarktanteil(10);
+        Spieler TestSpieler = null;
+        try {
+            TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
+            TestSpieler.setMarktanteil(10);
+        } catch (Exception e) {
+            fail();
+        }
         Assert.assertTrue(TestSpieler.getMarktanteil() == 10);
     }
 
@@ -81,7 +86,7 @@ public class SpielerTest {
         Assert.assertTrue(thrown);
     }
 
-    */
+
 
     @Test
     public void getStartpunkteTest(){

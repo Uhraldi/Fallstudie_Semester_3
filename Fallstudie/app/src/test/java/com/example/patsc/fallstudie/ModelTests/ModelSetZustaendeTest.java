@@ -16,7 +16,7 @@ import static junit.framework.TestCase.fail;
  * Created by julian on 07.01.2017.
  */
 
-public class SetZustaendeTest {
+public class ModelSetZustaendeTest {
     private Model TestModel = new Model();
     private Daten TestDaten = TestModel.getDaten();
     Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
@@ -24,7 +24,7 @@ public class SetZustaendeTest {
 
     private boolean Testpassed;
 
-    public SetZustaendeTest() throws Exception {
+    public ModelSetZustaendeTest() throws Exception {
     }
 
     private boolean isPassed(){

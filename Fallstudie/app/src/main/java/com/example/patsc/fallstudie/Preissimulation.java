@@ -1,7 +1,6 @@
 package com.example.patsc.fallstudie;
 
 
-import com.example.patsc.fallstudie.Bestandteile.Designer;
 
 /**
  * Created by Jonas on 02.01.17.
@@ -49,9 +48,7 @@ public class Preissimulation{
 
 
     // Konstruktor für die Preissimulation
-    public Preissimulation (double Einkaufspreis, double Verkaufspreis, int RundenNr, Bestellung bestellung) {
-        this.Einkaufspreis = Einkaufspreis;
-        this.Verkaufspreis = Verkaufspreis;
+    public Preissimulation (int RundenNr, Bestellung bestellung) {
         this.RundenNr = RundenNr;
         this.bestellung = bestellung;
     }
@@ -63,9 +60,7 @@ public class Preissimulation{
     // Getter-Methoden
     public double getEinkaufspreis() { return Einkaufspreis; }
     public double getVerkaufspreis() { return Verkaufspreis; }
-    public int getRundenNr() { return RundenNr; }
 
-    public void setRundenNr(int rundenNr) { RundenNr = rundenNr; }
 
 
     // Methoden für die einzelnen Bestellschritte
@@ -342,7 +337,7 @@ public class Preissimulation{
 
     // Methode um endgültig den Preis zu berechnen
 
-    public void berechnePreis(double Preis) {
+    public void berechnePreis() {
        Einkaufspreis = DesignerEkp
                         + ArmbandEkp * bestellung.getBestellposition(RundenNr).getMenge()
                         + UhrwerkEkp * bestellung.getBestellposition(RundenNr).getMenge()

@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.BestellpositionTests;
+package com.example.patsc.fallstudie.BestandTeileTests;
 
 import com.example.patsc.fallstudie.Bestellposition;
 
@@ -17,71 +17,69 @@ import static junit.framework.Assert.fail;
  */
 
 @RunWith(Theories.class)
-public class ArmbandTest {
+public class GehaeuseTest {
 
     public static @DataPoints
-    String[] ArmbandWerte =
-            {"Leder", "Kunstleder", "Holz", "Textil", "Metall"};
+    String[] GehaeuseWerte =
+            {"Glas", "Kunststoff", "Holz", "Metall"};
 
 
     @Theory
-    public void bestelleArmbandTest(String ArmbandWerte){
+    public void bestelleGehauseTest(String GehaeuseWerte){
         Bestellposition TestBestellposition = new Bestellposition();
         try {
-            TestBestellposition.bestelleArmband(ArmbandWerte);
+            TestBestellposition.bestelleGehaeuse(GehaeuseWerte);
+        }catch (Exception e){
+            fail("Sollte kein Fehler werfen");
+        }
+    }
+
+
+    @Theory
+    public void GehaeuseKorrekturTest(String GehaeuseWerte){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try{
+            TestBestellposition.bestelleGehaeuse(GehaeuseWerte);
+            TestBestellposition.korrigiereGehaeuse("Glas");
         }catch (Exception e){
             fail(e.getMessage());
         }
     }
 
-
-
-    @Theory
-    public void ArmbandkorrekturTest(String ArmbandWerte){
+    @Test
+    public void GehausekorrekturFailTest(){
         Bestellposition TestBestellposition = new Bestellposition();
         try{
-            TestBestellposition.bestelleArmband(ArmbandWerte);
-            TestBestellposition.korrigiereArmband("Leder");
-        }catch (Exception e) {
-            fail(e.getMessage());
-        }
-    }
-
-    @Test
-    public void ArmbandkorrekturFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
-        try{
-            TestBestellposition.bestelleArmband("Leder");
-            TestBestellposition.korrigiereArmband("FAIL");
-        }catch (Exception e) {
-            String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
-            Assert.assertEquals(msg, e.getMessage());
-        }
-    }
-
-
-
-    @Test
-    public void bestelleArmbandFailTest(){
-        Bestellposition TestBestellposition = new Bestellposition();
-        try {
-            TestBestellposition.bestelleArmband("FAIL");
-        }catch (Exception e){
+            TestBestellposition.bestelleGehaeuse("Glas");
+            TestBestellposition.korrigiereGehaeuse("FAIL");
+        } catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
         }
     }
 
     @Test
-    public void getArmbandTest(){
+    public void bestelleGehaeuseFailTest(){
+        Bestellposition TestBestellposition = new Bestellposition();
+        try {
+            TestBestellposition.bestelleGehaeuse("FAIL");
+        }catch (Exception e){
+            String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
+            Assert.assertEquals(msg, e.getMessage());
+        }
+    }
+
+    @Test
+    public void getGehaeuseTest(){
         Bestellposition TestBestellposition = new Bestellposition();
         try{
-            TestBestellposition.bestelleArmband("Leder");
+            TestBestellposition.bestelleGehaeuse("Glas");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(TestBestellposition.getArmband().isLeder());
+        Assert.assertTrue(TestBestellposition.getGehaeuse().isGlas());
 
     }
+
 
 }
