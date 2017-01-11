@@ -935,6 +935,8 @@ public class  Model {
     //ToDo Spielfortsetzen
 
 
+    public String[] getNamen(){} // ToDo Liste der geordneten Spielernamen
+
     //  Mehrfach genutzte Datenabfrage.
     public int getRunde(){
         return daten.getRundenAnzahl();
