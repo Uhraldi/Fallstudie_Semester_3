@@ -9,15 +9,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.patsc.fallstudie.Model;
 import com.example.patsc.fallstudie.R;
+
+import static com.example.patsc.fallstudie.Activities.IntroductionActivity.model;
 
 
 public class E1_DesignerActivity extends AppCompatActivity {
 
     private Spinner DesignerSpinner;
     String auswahlDesigner;
-    Model model;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +29,7 @@ public class E1_DesignerActivity extends AppCompatActivity {
         }*/
 
         setContentView(R.layout.activity_e1_designer);
-        model = IntroductionActivity.model;
-       IntroductionActivity.model.setActivity_E1(); // ToDo Absturz der App auch bei Aufruf anderer Methoden
+        IntroductionActivity.model.setActivity_E1(); // ToDo Absturz der App auch bei Aufruf anderer Methoden
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
           addItemsToDesignerSpinner();
@@ -39,9 +39,9 @@ public class E1_DesignerActivity extends AppCompatActivity {
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.model.getFixKosten()));
+        gesamtkosten_output.setText(String.valueOf(model.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.model.getVarKosten()));
+        stueckkosten_output.setText(String.valueOf(model.getVarKosten()));
 
         }
 
@@ -87,7 +87,7 @@ public class E1_DesignerActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Model um Designer zu setzen
-        IntroductionActivity.model.setDesigner(auswahlDesigner);
+        model.setDesigner(auswahlDesigner);
 
         Intent intent = new Intent(this, E2_ArmbandActivity.class);
         startActivity(intent);
