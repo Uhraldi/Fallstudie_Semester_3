@@ -426,7 +426,11 @@ public class Controller {
         setZustand_Ereignis(true);
         setAENDERE_ZEITARBEITER_boolean(true);
     }
+<<<<<<< HEAD
+    public void setActivity_Berechnung () {
+=======
     public void setActivity_Berechnung (){
+>>>>>>> e81b62d3aaef6bfdc8b27b40f1011c0fc4335908
         try {
             setZustand_Lieferung(true);
 
@@ -440,9 +444,14 @@ public class Controller {
             aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).setPreissim(preissim);
             Marktsim marktsim = new Marktsim(getPreissimulationenPreis());
             aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
+<<<<<<< HEAD
+        }catch (Exception e){
+            //ToDo
+=======
         }
         catch(Exception e){
             e.printStackTrace();
+>>>>>>> e81b62d3aaef6bfdc8b27b40f1011c0fc4335908
         }
     }
     public void setActivity_Rundenergebnis () {
