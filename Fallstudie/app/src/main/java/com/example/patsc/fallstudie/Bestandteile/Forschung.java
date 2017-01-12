@@ -73,14 +73,16 @@ public class Forschung {
     /**
      * Variablen-Setter
      */
+
+    //Forschung Hoch
     public void setMarken(boolean marken) {
         this.marken = marken;
     }
-
+    //Forschung Mittelmäßig
     public void setMittelmaessig(boolean mittelmaessig) {
         this.mittelmaessig = mittelmaessig;
     }
-
+    //Forschung Low
     public void setLowBudget(boolean lowBudget) {
         this.lowBudget = lowBudget;
     }

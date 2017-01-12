@@ -475,20 +475,25 @@ public class Controller {
      * Aufruf in Activity
      * @param designerAuswahl
      */
-    public void setForschung (String designerAuswahl) throws Exception{
+    public void setForschung (String designerAuswahl){
         //Prüfung ob die Wahl des Designers erlaubt ist
-
-            if (SCHRITT_FORSCHUNG_boolean){
-                if(designerAuswahl == FORSCHUNG_WAHL_LOWBUDGET ||designerAuswahl == FORSCHUNG_WAHL_HOCH || designerAuswahl== FORSCHUNG_WAHL_MITTELMAESIG){
+        try {
+            if (SCHRITT_FORSCHUNG_boolean) {
+                if (designerAuswahl == FORSCHUNG_WAHL_LOWBUDGET || designerAuswahl == FORSCHUNG_WAHL_HOCH || designerAuswahl == FORSCHUNG_WAHL_MITTELMAESIG) {
                     aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleForschung(designerAuswahl); //ToDo Nullpointer Exception
-                    setzeAlleSchritteFalse();}
-                else{
+                    setzeAlleSchritteFalse();
+                } else {
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
                 }
-            }
-            else{
+            } else {
                 throw new Exception("Falscher Bestellschritt");
             }
+        }
+        //Wahl wird standardmässig auf Mittelmaessig gesetzt
+        catch (Exception e){
+            aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleForschung("3000€ Investition"); //ToDo Nullpointer Exception s.o.
+            e.printStackTrace();
+        }
 
     } // Ende SetDesigner
     public void setArmband (String armbandAuswahl) throws Exception{
