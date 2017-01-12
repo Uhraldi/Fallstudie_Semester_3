@@ -645,6 +645,20 @@ public class Controller {
             }
     }// Ende Verkaufspreis //
 
+
+
+    // TODO: Methoden zum Einstellen und Kuendigen von Mitarbeitern
+    public void einstellen (int anzahlMitarbeiter) {
+
+    }
+
+    public  void kuendigen (int anzahlMitarbeiter){
+    }
+
+
+
+
+
     //Methoden zum abholen der Bestellpositionen, zur Anzeige er Bestellzusammenfassung
     public String getDesigner ( )throws Exception{
         String designer ="";

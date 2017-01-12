@@ -21,6 +21,128 @@
         android:layout_alignParentEnd="true"
         android:onClick="goToNextActivity"/>
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView3" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/gesamtkosten_textview"
+        android:layout_toRightOf="@+id/gesamtkosten_textview"
+        android:layout_toEndOf="@+id/gesamtkosten_textview"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:id="@+id/gesamtkosten_output"
+        android:layout_alignTop="@+id/gesamtkosten_textview"
+        android:textSize="16sp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stueckkosten_output"
+        android:layout_alignBaseline="@+id/stueckpreis_textview"
+        android:layout_alignBottom="@+id/stueckpreis_textview"
+        android:layout_toRightOf="@+id/stueckpreis_textview"
+        android:layout_toEndOf="@+id/stueckpreis_textview"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:text="Treffen einer Personalentscheidung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:id="@+id/textView38"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView38"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:text="Mitarbeiter einstellen:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView38"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"
+            android:id="@+id/einstellen_radiobutton"
+            android:onClick="onRadioButtonClicked"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Mitarbeiter kündigen:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/kuendigen_radiobutton"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/einstellen_input"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onRadioButtonClicked"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/einstellen_input"
+        android:hint="z.B. 2"
+        android:layout_below="@+id/textView38"
+        android:layout_toRightOf="@+id/stueckkosten_output"
+        android:layout_toEndOf="@+id/stueckkosten_output"
+        android:layout_marginTop="17dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/kuendigen_input"
+        android:hint="z.B. 2"
+        android:layout_below="@+id/einstellen_input"
+        android:layout_alignLeft="@+id/einstellen_input"
+        android:layout_alignStart="@+id/einstellen_input" />
+
+    <TextView
+        android:text="@string/stueckkosten_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stueckpreis_textview"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/gesamtkosten_output"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="@string/gesamtkosten_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gesamtkosten_textview"
+        android:textSize="16sp"
+        android:layout_marginTop="84dp"
+        android:layout_below="@+id/kuendigen_input"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
