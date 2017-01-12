@@ -22,7 +22,7 @@ public class ForschungActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_forschung);
-        IntroductionActivity.Controller.setActivity_Forschung(); // ToDo: neu benannt, fehlt noch im Controller
+        IntroductionActivity.Controller.setActivity_Forschung();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
           addItemsToForschungSpinner();
@@ -78,7 +78,7 @@ public class ForschungActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Forschung zu setzen
-        IntroductionActivity.Controller.setForschung(auswahlForschung); //ToDo: neu benannt, fehlt noch im Controller
+        IntroductionActivity.Controller.setForschung(auswahlForschung);
         Intent intent = new Intent(this, MarketingActivity.class);
         startActivity(intent);
         finish();

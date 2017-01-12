@@ -21,7 +21,7 @@ public class VersandartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_versandart);
-        IntroductionActivity.Controller.setActivity_Versandart(); //ToDo: neu benannt, fehlt noch im Controller
+        IntroductionActivity.Controller.setActivity_Versandart();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToVersandartSpinner();

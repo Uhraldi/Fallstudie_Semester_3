@@ -19,7 +19,7 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produktionsvolumen);
-        IntroductionActivity.Controller.setActivity_Produktionsvolumen(); //ToDo: neu benannt, fehlt noch im Controller
+        IntroductionActivity.Controller.setActivity_Produktionsvolumen();
 
         //Verknuepfen von EditText mit UI-Element per ID
         EditText Produktionsvolumen_input = (EditText) findViewById(R.id.produktionsvolumen_input);
@@ -46,7 +46,7 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
             toast.show();
         } else {
-            IntroductionActivity.Controller.setProduktionsvolumen(auswahlProduktionsvolumen);  //ToDo: neu benannt, fehlt noch im Controller
+            IntroductionActivity.Controller.setProduktionsvolumen(auswahlProduktionsvolumen);
             Intent intent = new Intent(this, VerkaufspreisActivity.class);
             finish();
             startActivity(intent);

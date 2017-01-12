@@ -13,6 +13,7 @@ public class PersonalwesenActivity extends AppCompatActivity { //TODO: Personalw
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personalwesen);
+        IntroductionActivity.Controller.setActivity_Personalwesen();
     }
 
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren

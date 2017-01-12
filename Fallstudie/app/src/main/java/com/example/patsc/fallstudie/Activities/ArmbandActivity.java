@@ -22,7 +22,7 @@ public class ArmbandActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_armband);
-        IntroductionActivity.Controller.setActivity_Armband();  //ToDo: neu benannt, fehlt noch im Controller
+        IntroductionActivity.Controller.setActivity_Armband();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToArmbandSpinner();

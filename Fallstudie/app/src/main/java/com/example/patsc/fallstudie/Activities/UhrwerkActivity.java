@@ -22,7 +22,7 @@ public class UhrwerkActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_uhrwerk);
-        IntroductionActivity.Controller.setActivity_Uhrwerk();  //ToDo: neu benannt, fehlt noch im Controller
+        IntroductionActivity.Controller.setActivity_Uhrwerk();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToUhrwerkSpinner();

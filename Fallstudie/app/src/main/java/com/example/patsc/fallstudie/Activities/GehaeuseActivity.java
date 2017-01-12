@@ -21,7 +21,7 @@ public class GehaeuseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gehaeuse);
-        IntroductionActivity.Controller.setActivity_Gehaeuse();  //ToDo: neu benannt, fehlt noch im Controller
+        IntroductionActivity.Controller.setActivity_Gehaeuse();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToGehaeuseSpinner();

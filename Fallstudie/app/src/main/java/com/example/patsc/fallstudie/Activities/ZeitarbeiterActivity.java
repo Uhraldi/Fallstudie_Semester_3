@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.patsc.fallstudie.Controller;
 import com.example.patsc.fallstudie.R;
 
 public class ZeitarbeiterActivity extends AppCompatActivity {
@@ -22,7 +21,7 @@ public class ZeitarbeiterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zeitarbeiter);
-        IntroductionActivity.Controller.setActivity_Zeitarbeiter(); //ToDo: neu benannt, fehlt noch im Controller
+        IntroductionActivity.Controller.setActivity_Zeitarbeiter();
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToZeitarbeiterSpinner();
@@ -77,7 +76,7 @@ public class ZeitarbeiterActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        IntroductionActivity.Controller.setZeitarbeiter(auswahlZeitarbeiter); //ToDo: neu benannt, fehlt noch im Controller
+        IntroductionActivity.Controller.setZeitarbeiter(auswahlZeitarbeiter);
         Intent intent = new Intent(this, ForschungActivity.class);
         finish();
         startActivity(intent);

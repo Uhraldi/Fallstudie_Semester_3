@@ -5,12 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
-
-import static android.webkit.WebSettings.PluginState.ON;
 
 public class MarketingActivity extends AppCompatActivity {
 
@@ -22,7 +19,7 @@ public class MarketingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marketing);
-        IntroductionActivity.Controller.setActivity_Marketing(); //ToDo: neu benannt, fehlt noch im Controller
+        IntroductionActivity.Controller.setActivity_Marketing();
 
         //Verknüpft Checkboxes
         fernsehwerbung_checkbox = (CheckBox)findViewById(R.id.fernsehwerbung_checkbox);
@@ -45,7 +42,7 @@ public class MarketingActivity extends AppCompatActivity {
 
         //Übergabe der Checkbox-Werte an Controller
         if (fernsehwerbung_checkbox.isChecked()){
-            IntroductionActivity.Controller.setMarketing("Fernsehwerbung"); //ToDo: neu benannt, fehlt noch im Controller
+            IntroductionActivity.Controller.setMarketing("Fernsehwerbung");
         }
         if (radiowerbung_checkbox.isChecked()){
             IntroductionActivity.Controller.setMarketing("Radiowerbung");

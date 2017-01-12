@@ -361,30 +361,39 @@ public class Controller {
 
     // Methoden die von dem UI Aufgerufen werden
     //Methoden zum setzen der aktuellen UI-Activity (aufgerufen in onCreate)
+
     public void setActivity_Login () {
         setzeAlleZustaendeFalse();
         setzeAlleSchritteFalse();
         setZustand_Spielbeginn(true);
     }
-    public void setActivity_E1 () {
+
+    //TODO: Methode füllen
+    public void setActivity_Personalwesen () {
+
+
+    }
+
+
+    public void setActivity_Forschung () {
       aktiverSpieler.getAuftragssammlung().neueBestellpositon(); // Absturz 1.54; aktiver SPier in registrierung zugeordnet Fix 1.58
         //ToDo RUndenanzahl erhöhen
         setZustand_Bestellung(true); // Absturz 2.01 fix 2.04
         setSCHRITT_FORSCHUNG_boolean(true);
     }
-    public void setActivity_E2 () {
+    public void setActivity_Armband () {
         setZustand_Bestellung(true);
         setSCHRITT_ARMBAND_boolean(true);
     }
-    public void setActivity_E3 () {
+    public void setActivity_Uhrwerk () {
         setZustand_Bestellung(true);
         setSCHRITT_UHRWERK_boolean(true);
     }
-    public void setActivity_E4 () {
+    public void setActivity_Gehaeuse () {
         setZustand_Bestellung(true);
         setSCHRITT_GEHAUESE_boolean(true);
     }
-    public void setActivity_E5 () {
+    public void setActivity_Versandart () {
         setZustand_Bestellung(true);
         setSCHRITT_VERSANDART_boolean(true);
         aktiverSpieler.getAuftragssammlung().neueBestellpositon(); // neu
@@ -393,19 +402,19 @@ public class Controller {
   //      setZustand_Bestellung(true);
   //      setSCHRITT_DICHTHEIT_boolean(true);
   //  }
-    public void setActivity_E7 () {
+    public void setActivity_Zeitarbeiter () {
         setZustand_Bestellung(true);
         setSCHRITT_ZEITARBEITER_boolean(true);
     }
-    public void setActivity_E8 () {
+    public void setActivity_Marketing () {
         setZustand_Bestellung(true);
         setSCHRITT_MARKETING_boolean(true);
     }
-    public void setActivity_E9 () {
+    public void setActivity_Produktionsvolumen () {
         setZustand_Bestellung(true);
         setSCHRITT_PRODUKTIONSVOLUMEN_boolean(true);
     }
-    public void setActivity_E10 () {
+    public void setActivity_Verkaufspreis () {
         setZustand_Bestellung(true);
         setSCHRITT_VERKAUFSPREIS_boolean(true);
 
@@ -466,7 +475,7 @@ public class Controller {
      * Aufruf in Activity
      * @param designerAuswahl
      */
-    public void setDesigner (String designerAuswahl) throws Exception{
+    public void setForschung (String designerAuswahl) throws Exception{
         //Prüfung ob die Wahl des Designers erlaubt ist
 
             if (SCHRITT_FORSCHUNG_boolean){
@@ -576,7 +585,7 @@ public class Controller {
                 throw new Exception("Falscher Bestellschritt");
             }
     } // Ende setWasserdichtheit*/
-    public void setZusammenbau (String zusammenbauAuswahl)throws Exception{
+    public void setZeitarbeiter (String zusammenbauAuswahl)throws Exception{
         if (SCHRITT_ZEITARBEITER_boolean){
           if(zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_PRAKTIKANT)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_GESELLE)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_Lehrling)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_MEISTER))
           { aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleZeitarbeiter(zusammenbauAuswahl);
@@ -603,7 +612,7 @@ public class Controller {
                 throw new Exception("Falscher Bestellschritt");
             }
     }// Ende setZusammenbauNeu
-    public void setWerbung (String werbungAuswahl)throws Exception{
+    public void setMarketing (String werbungAuswahl)throws Exception{
             if (SCHRITT_MARKETING_boolean){
                 if(werbungAuswahl.equals(MARKETING_WAHL_PRINTWERBUNG)||werbungAuswahl.equals(MARKETING_WAHL_FERNSEHWERBUNG)||werbungAuswahl.equals(MARKETING_WAHL_RADIOWERBUNG))
                 { aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleWerbung(werbungAuswahl);
@@ -616,7 +625,7 @@ public class Controller {
                 throw new Exception("Falscher Bestellschritt");
             }
     }//Ende set Marketing
-    public void setKaufvolumen (float kaufvolumenAuswahl)throws Exception{
+    public void setProduktionsvolumen (float kaufvolumenAuswahl)throws Exception{
             if (SCHRITT_PRODUKTIONSVOLUMEN_boolean){
                 int kaufVolumen = ((int) kaufvolumenAuswahl);
                 aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleMenge(kaufVolumen);
