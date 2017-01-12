@@ -435,11 +435,8 @@ public class Controller {
         setZustand_Ereignis(true);
         setAENDERE_ZEITARBEITER_boolean(true);
     }
-<<<<<<< HEAD
-    public void setActivity_Berechnung () {
-=======
+
     public void setActivity_Berechnung (){
->>>>>>> e81b62d3aaef6bfdc8b27b40f1011c0fc4335908
         try {
             setZustand_Lieferung(true);
 
@@ -453,14 +450,8 @@ public class Controller {
             aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).setPreissim(preissim);
             Marktsim marktsim = new Marktsim(getPreissimulationenPreis());
             aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
-<<<<<<< HEAD
         }catch (Exception e){
-            //ToDo
-=======
-        }
-        catch(Exception e){
             e.printStackTrace();
->>>>>>> e81b62d3aaef6bfdc8b27b40f1011c0fc4335908
         }
     }
     public void setActivity_Rundenergebnis () {
@@ -491,24 +482,32 @@ public class Controller {
         }
         //Wahl wird standardmässig auf Mittelmaessig gesetzt
         catch (Exception e){
-            aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleForschung("3000€ Investition"); //ToDo Nullpointer Exception s.o.
+            aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleForschung(FORSCHUNG_WAHL_MITTELMAESIG); //ToDo Nullpointer Exception s.o. L483
+            setzeAlleSchritteFalse();
             e.printStackTrace();
         }
 
     } // Ende SetDesigner
-    public void setArmband (String armbandAuswahl) throws Exception{
-            if (SCHRITT_ARMBAND_boolean){
-                if(armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER|| armbandAuswahl==ARMBAND_WAHL_LEDER || armbandAuswahl==ARMBAND_WAHL_METALL|| armbandAuswahl==ARMBAND_WAHL_TEXTIL){
+    public void setArmband (String armbandAuswahl) {
+        try {
+            if (SCHRITT_ARMBAND_boolean) {
+                if (armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER || armbandAuswahl == ARMBAND_WAHL_LEDER || armbandAuswahl == ARMBAND_WAHL_METALL || armbandAuswahl == ARMBAND_WAHL_TEXTIL) {
                     aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleArmband(armbandAuswahl);
-                    setzeAlleSchritteFalse();}
-                else{
+                    setzeAlleSchritteFalse();
+                } else {
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
                 }
-            }
-            else{
+            } else {
                 throw new Exception("Falscher Bestellschritt");
             }
-        }// Ende SetArmband
+        }
+        catch (Exception e){
+            aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleArmband(ARMBAND_WAHL_HOLZ); //ToDO Nullpointer Exception
+            //Klasse Auftragssammlung (ArrayList) Methode getBestellposition
+            setzeAlleSchritteFalse();
+            e.printStackTrace();
+        }
+    }// Ende SetArmband
     public void setArmbandNeu (String armbandAuswahl)throws Exception{              //nach Zufall Z3
             if (AENDERE_ARMBAND_boolean){
                 if(armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER|| armbandAuswahl==ARMBAND_WAHL_LEDER || armbandAuswahl==ARMBAND_WAHL_METALL|| armbandAuswahl==ARMBAND_WAHL_TEXTIL)
