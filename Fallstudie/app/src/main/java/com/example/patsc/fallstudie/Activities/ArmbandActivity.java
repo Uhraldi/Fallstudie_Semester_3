@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
-public class E2_ArmbandActivity extends AppCompatActivity {
+public class ArmbandActivity extends AppCompatActivity {
 
     String auswahlArmband;
     private Spinner ArmbandSpinner;
@@ -21,14 +21,8 @@ public class E2_ArmbandActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //prüft ob Spinner bereits eine Auswahl hatte und stellt diese dann wieder her
- /*       if (savedInstanceState != null) {
-            ArmbandSpinner.setSelection(savedInstanceState.getInt("ArmbandSpinner", 0));
-        }*/
-
-
-        setContentView(R.layout.activity_e2_armband);
-        IntroductionActivity.Controller.setActivity_E2();
+        setContentView(R.layout.activity_armband);
+        IntroductionActivity.Controller.setActivity_Armband();  //ToDo: neu benannt, fehlt noch im Controller
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToArmbandSpinner();
@@ -54,7 +48,6 @@ public class E2_ArmbandActivity extends AppCompatActivity {
                 R.array.armband_spinner_array,
                 android.R.layout.simple_spinner_item);
 
-        //armbandSpinner.setDropDownViewResource(android.R.layout.simple_spinner);
 
         ArmbandSpinner.setAdapter(armband_spinner_adapter);
     }
@@ -88,30 +81,11 @@ public class E2_ArmbandActivity extends AppCompatActivity {
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
         IntroductionActivity.Controller.setArmband(auswahlArmband);
 
-        Intent intent = new Intent(this, E3_UhrwerkActivity.class);
+        Intent intent = new Intent(this, UhrwerkActivity.class);
         startActivity(intent);
         finish();
     }
 
-
-
-    //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
-/*
-    public void goToPreviousActivity (View view) {
-        this.finish();
-    }
-*/
-
-
-
-/*
-    //speichert den aktuellen Zustand des Spinners (um wiederhergestellt werden zu können)
-    @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putInt("ArmbandSpinner", ArmbandSpinner.getSelectedItemPosition());
-    }
-*/
 
 }
 

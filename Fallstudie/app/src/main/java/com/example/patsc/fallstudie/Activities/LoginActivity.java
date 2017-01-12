@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         Controller.registrierung(inputUsername, inputPassword);
       //geaendet patsch 12.01 9.56
         //  Intent intent = new Intent(this, LoginActivity.class);//alt
-        Intent intent = new Intent(this,E7_ZeitarbeiterActivity.class); //neu
+        Intent intent = new Intent(this,PersonalwesenActivity.class); //neu
         startActivity(intent);
         finish();
 
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     //Aufruf der Methode zum Login, prüft ob Nutzername/Passwort-Kombination richtig ist und leitet dann erst weiter
    public void login (View view) throws Exception {
         if(Controller.login(inputUsername, inputPassword)) {
-            Intent intent = new Intent(this, E1_ForschungActivity.class);
+            Intent intent = new Intent(this, PersonalwesenActivity.class);
             startActivity(intent);
             finish();
         } else {

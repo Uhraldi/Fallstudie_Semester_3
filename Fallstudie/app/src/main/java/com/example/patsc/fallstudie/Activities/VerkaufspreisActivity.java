@@ -9,15 +9,15 @@ import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
-public class E10_VerkaufspreisActivity extends AppCompatActivity {
+public class VerkaufspreisActivity extends AppCompatActivity {
 
     float auswahlVerkaufspreis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_e10_verkaufspreis);
-        IntroductionActivity.Controller.setActivity_E10();
+        setContentView(R.layout.activity_verkaufspreis);
+        IntroductionActivity.Controller.setActivity_Verkaufspreis();
 
         //Verknuepfen von EditText mit UI-Element per ID
         EditText verkaufspreis_input = (EditText) findViewById(R.id.verkaufspreis_input);
@@ -36,16 +36,11 @@ public class E10_VerkaufspreisActivity extends AppCompatActivity {
            Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
            toast.show();
        } else {
-           IntroductionActivity.Controller.setKaufvolumen(auswahlVerkaufspreis);
+           IntroductionActivity.Controller.setVerkaufspreis(auswahlVerkaufspreis);
            Intent intent = new Intent(this, BestellzusammenfassungActivity.class);
            finish();
            startActivity(intent);
        }
     }
 
- /*   //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
-    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, E9_ProduktionsvolumenActivity.class);
-        startActivity(intent);
-    }*/
 }

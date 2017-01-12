@@ -25,23 +25,24 @@
         </activity>
         <activity android:name=".Activities.IntroductionActivity" />
         <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".Activities.E1_ForschungActivity" />
-        <activity android:name=".Activities.E2_ArmbandActivity" />
-        <activity android:name=".Activities.E3_UhrwerkActivity" />
-        <activity android:name=".Activities.E4_GehaeuseActivity" />
-        <activity android:name=".Activities.E5_VersandartActivity" />
-        <activity android:name=".Activities.E6_WasserdichtheitActivity" />
-        <activity android:name=".Activities.E7_ZeitarbeiterActivity" />
-        <activity android:name=".Activities.E8_MarketingActivity" />
-        <activity android:name=".Activities.E9_ProduktionsvolumenActivity" />
-        <activity android:name=".Activities.E10_VerkaufspreisActivity" />
+        <activity android:name=".Activities.ForschungActivity" />
+        <activity android:name=".Activities.ArmbandActivity" />
+        <activity android:name=".Activities.UhrwerkActivity" />
+        <activity android:name=".Activities.GehaeuseActivity" />
+        <activity android:name=".Activities.VersandartActivity" />
+        <activity android:name=".Activities.WasserdichtheitActivity" />
+        <activity android:name=".Activities.ZeitarbeiterActivity" />
+        <activity android:name=".Activities.MarketingActivity" />
+        <activity android:name=".Activities.ProduktionsvolumenActivity" />
+        <activity android:name=".Activities.VerkaufspreisActivity" />
         <activity android:name=".Activities.BestellzusammenfassungActivity" />
-        <activity android:name=".Activities.Z1_Armband" />
-        <activity android:name=".Activities.Z2_Gehaeuse" />
+        <activity android:name=".Activities.Z1_ArmbandActivity" />
+        <activity android:name=".Activities.Z2_GehaeuseActivity" />
         <activity android:name=".Activities.Z3_ZusammenbauActivity" />
         <activity android:name=".Activities.BerechnungActivity" />
         <activity android:name=".Activities.RundenergebnisActivity" />
-        <activity android:name=".Activities.BestenlisteActivity"></activity>
+        <activity android:name=".Activities.BestenlisteActivity" />
+        <activity android:name=".Activities.PersonalwesenActivity"></activity>
     </application>
 
 </manifest>

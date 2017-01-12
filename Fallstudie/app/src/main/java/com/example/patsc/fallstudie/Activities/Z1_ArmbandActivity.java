@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
-public class Z1_Armband extends AppCompatActivity {
+public class Z1_ArmbandActivity extends AppCompatActivity {
 
     private Spinner ArmbandSpinner;
     private String auswahlArmband;
@@ -116,7 +116,7 @@ public class Z1_Armband extends AppCompatActivity {
             IntroductionActivity.Controller.setArmbandNeu(auswahlArmband);
         }
 
-        Intent z2 = new Intent(this, Z2_Gehaeuse.class);
+        Intent z2 = new Intent(this, Z2_GehaeuseActivity.class);
         Intent z3 = new Intent(this, Z3_ZusammenbauActivity.class);
         Intent keinZufall = new Intent(this, BerechnungActivity.class);
 

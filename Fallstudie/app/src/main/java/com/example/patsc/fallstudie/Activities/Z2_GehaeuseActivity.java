@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
-public class Z2_Gehaeuse extends AppCompatActivity {
+public class Z2_GehaeuseActivity extends AppCompatActivity {
 
     private Spinner GehaeuseSpinner;
     private String auswahlGehaeuse;
@@ -124,7 +124,7 @@ public class Z2_Gehaeuse extends AppCompatActivity {
 
 //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
 /*    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, E3_UhrwerkActivity.class);
+        Intent intent = new Intent (this, UhrwerkActivity.class);
         startActivity(intent);
     }*/
 

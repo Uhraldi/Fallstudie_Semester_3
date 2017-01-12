@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_e3_uhrwerk"
+    android:id="@+id/activity_e1_forschung"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.patsc.fallstudie.Activities.E3_UhrwerkActivity">
+    tools:context=".Activities.ForschungActivity"
+    android:background="@drawable/light_blue_bg"
+    >
 
 
 
@@ -26,30 +28,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
-        android:id="@+id/uhrwerk_spinner"
-        android:layout_below="@+id/uhrwerk_textview"
+        android:id="@+id/forschung_spinner"
+        android:layout_below="@+id/forschung_textview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="@string/uhrwerk_info_textview"
+        android:text="@string/forschung_info_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/uhrwerk_info_textview" />
+        android:id="@+id/forschung_info_textview" />
 
     <TextView
-        android:text="@string/uhrwerk_textview"
+        android:text="@string/forschung_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/uhrwerk_textview"
+        android:id="@+id/forschung_textview"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_marginTop="56dp"
-        android:layout_below="@+id/uhrwerk_info_textview"
+        android:layout_below="@+id/forschung_info_textview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="@string/gesamtkosten_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forschung_spinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="111dp"
+        android:id="@+id/gesamtkosten_textview"
+        android:textSize="18sp" />
 
     <TextView
         android:text="@string/stueckkosten_textview"
@@ -60,10 +73,10 @@
         android:layout_below="@+id/gesamtkosten_textview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:text="TextView"
+        android:text="textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/gesamtkosten_textview"
@@ -73,10 +86,10 @@
         android:layout_marginStart="14dp"
         android:id="@+id/gesamtkosten_output"
         android:layout_alignTop="@+id/gesamtkosten_textview"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:text="TextView"
+        android:text="3,45"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/stueckkosten_output"
@@ -86,29 +99,17 @@
         android:layout_toEndOf="@+id/stueckpreis_textview"
         android:layout_marginLeft="14dp"
         android:layout_marginStart="14dp"
-        android:textSize="16sp" />
+        android:textSize="18sp"
+        tools:text="textview" />
 
-    <TextView
-        android:text="@string/gesamtkosten_textview"
+    <!--<Button
+        android:text="@string/zurueck_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
-        android:id="@+id/gesamtkosten_textview"
-        android:textSize="16sp"
-        android:layout_below="@+id/uhrwerk_spinner"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <!--
-        <Button
-            android:text="@string/zurueck_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/zurueck_button"
-            android:onClick="goToPreviousActivity"/>
-    -->
+        android:layout_alignParentStart="true"
+        android:id="@+id/zurueck_button"
+        android:onClick="goToPreviousActivity"/>-->
 
 </RelativeLayout>

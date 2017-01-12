@@ -11,22 +11,22 @@ import android.widget.Toast;
 import com.example.patsc.fallstudie.R;
 
 
-public class E9_ProduktionsvolumenActivity extends AppCompatActivity {
+public class ProduktionsvolumenActivity extends AppCompatActivity {
 
-    int auswahlKaufvolumen;
+    int auswahlProduktionsvolumen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_e9_kaufvolumen);
-        IntroductionActivity.Controller.setActivity_E9();
+        setContentView(R.layout.activity_produktionsvolumen);
+        IntroductionActivity.Controller.setActivity_Produktionsvolumen(); //ToDo: neu benannt, fehlt noch im Controller
 
         //Verknuepfen von EditText mit UI-Element per ID
-        EditText kaufvolumen_input = (EditText) findViewById(R.id.kaufvolumen_input);
+        EditText Produktionsvolumen_input = (EditText) findViewById(R.id.produktionsvolumen_input);
 
         //speichere Eingabewert in Variable
-        String kaufvolumenString = kaufvolumen_input.getText().toString();
-        auswahlKaufvolumen = Integer.parseInt(kaufvolumenString);// Absturz 2.17 ToDo // Testende
+        String ProduktionsvolumenString = Produktionsvolumen_input.getText().toString();
+        auswahlProduktionsvolumen = Integer.parseInt(ProduktionsvolumenString);// Absturz 2.17 ToDo // Testende
 
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
@@ -41,21 +41,17 @@ public class E9_ProduktionsvolumenActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
-        if (auswahlKaufvolumen < 100 || auswahlKaufvolumen > 10000){
+
+        if (auswahlProduktionsvolumen < 100 || auswahlProduktionsvolumen > 10000){
             Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
             toast.show();
         } else {
-            IntroductionActivity.Controller.setKaufvolumen(auswahlKaufvolumen);
-            Intent intent = new Intent(this, E10_VerkaufspreisActivity.class);
+            IntroductionActivity.Controller.setProduktionsvolumen(auswahlProduktionsvolumen);  //ToDo: neu benannt, fehlt noch im Controller
+            Intent intent = new Intent(this, VerkaufspreisActivity.class);
             finish();
             startActivity(intent);
         }
 
     }
 
-    //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
-/*    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, E8_MarketingActivity.class);
-        startActivity(intent);
-    }*/
 }

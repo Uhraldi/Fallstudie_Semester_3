@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_e6_wasserdichtheit"
+    android:id="@+id/activity_e8_marketing"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.patsc.fallstudie.Activities.E6_WasserdichtheitActivity">
-
+    tools:context=".Activities.MarketingActivity">
 
 
     <Button
@@ -22,45 +21,14 @@
         android:layout_alignParentEnd="true"
         android:onClick="goToNextActivity"/>
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:id="@+id/wasserdichtheit_spinner"
-        android:layout_below="@+id/wasserdichtheit_textview"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <TextView
-        android:text="@string/wasserdichtheit_info_textview"
+        android:text="@string/marketing_info_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/wasserdichtheit_info_textview" />
-
-    <TextView
-        android:text="@string/wasserdichtheit_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/wasserdichtheit_textview"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:layout_marginTop="56dp"
-        android:layout_below="@+id/wasserdichtheit_info_textview"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="@string/gesamtkosten_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/wasserdichtheit_spinner"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="111dp"
-        android:id="@+id/gesamtkosten_textview"
-        android:textSize="16sp" />
+        android:id="@+id/marketing_info_textview" />
 
     <TextView
         android:text="@string/stueckkosten_textview"
@@ -99,17 +67,71 @@
         android:layout_marginStart="14dp"
         android:textSize="16sp" />
 
-<!--
-    <Button
-        android:text="@string/zurueck_button"
+    <TextView
+        android:text="@string/marketing_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/marketing_textview"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/marketing_info_textview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:text="Fernsehwerbung (5000€)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fernsehwerbung_checkbox"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/marketing_textview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/zurueck_button"
-        android:onClick="goToPreviousActivity"/>
--->
+        android:onClick="onCheckboxClicked"/>
+
+    <TextView
+        android:text="@string/gesamtkosten_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:id="@+id/gesamtkosten_textview"
+        android:textSize="16sp"
+        android:layout_below="@+id/printwerbung_checkbox"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:text="Radiowerbung (3000€)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radiowerbung_checkbox"
+        android:layout_below="@+id/fernsehwerbung_checkbox"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:text="Printwerbung (1000€)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/printwerbung_checkbox"
+        android:layout_below="@+id/radiowerbung_checkbox"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onCheckboxClicked"/>
+
+    <!--
+        <Button
+            android:text="@string/zurueck_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/zurueck_button"
+            android:onClick="goToPreviousActivity"/>
+    -->
+
 
 
 </RelativeLayout>

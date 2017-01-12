@@ -83,8 +83,8 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity(View view) throws Exception {
 
-        Intent z1 = new Intent(this, Z1_Armband.class);
-        Intent z2 = new Intent(this, Z2_Gehaeuse.class);
+        Intent z1 = new Intent(this, Z1_ArmbandActivity.class);
+        Intent z2 = new Intent(this, Z2_GehaeuseActivity.class);
         Intent z3 = new Intent(this, Z3_ZusammenbauActivity.class);
         Intent keinZufall = new Intent(this, BerechnungActivity.class);
 

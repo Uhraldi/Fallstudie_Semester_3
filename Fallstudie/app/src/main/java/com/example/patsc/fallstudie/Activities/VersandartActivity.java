@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
-public class E5_VersandartActivity extends AppCompatActivity {
+public class VersandartActivity extends AppCompatActivity {
 
     private Spinner VersandartSpinner;
     String auswahlVersandart;
@@ -20,8 +20,8 @@ public class E5_VersandartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_e5_versandart);
-        IntroductionActivity.Controller.setActivity_E5();
+        setContentView(R.layout.activity_versandart);
+        IntroductionActivity.Controller.setActivity_Versandart(); //ToDo: neu benannt, fehlt noch im Controller
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToVersandartSpinner();
@@ -46,8 +46,6 @@ public class E5_VersandartActivity extends AppCompatActivity {
         ArrayAdapter versandart_spinner_adapter = ArrayAdapter.createFromResource(this,
                 R.array.versandart_spinner_array,
                 android.R.layout.simple_spinner_item);
-
-        //versandartSpinner.setDropDownViewResource(android.R.layout.simple_spinner);
 
         VersandartSpinner.setAdapter(versandart_spinner_adapter);
     }
@@ -80,14 +78,9 @@ public class E5_VersandartActivity extends AppCompatActivity {
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
         IntroductionActivity.Controller.setVersandart(auswahlVersandart);
 
-        Intent intent = new Intent(this, E9_ProduktionsvolumenActivity.class);
+        Intent intent = new Intent(this, ProduktionsvolumenActivity.class);
         finish();
         startActivity(intent);
     }
 
-    //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
-/*    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, E4_GehaeuseActivity.class);
-        startActivity(intent);
-    }*/
 }

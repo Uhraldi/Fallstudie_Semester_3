@@ -9,25 +9,26 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.patsc.fallstudie.Controller;
 import com.example.patsc.fallstudie.R;
 
-public class E7_ZeitarbeiterActivity extends AppCompatActivity {
+public class ZeitarbeiterActivity extends AppCompatActivity {
 
-    private Spinner ZusammenbauSpinner;
-    private String auswahlZusammenbau;
+    private Spinner ZeitarbeiterSpinner;
+    private String auswahlZeitarbeiter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_e7_zusammenbau);
-        IntroductionActivity.Controller.setActivity_E7();
+        setContentView(R.layout.activity_zeitarbeiter);
+        IntroductionActivity.Controller.setActivity_Zeitarbeiter(); //ToDo: neu benannt, fehlt noch im Controller
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
-        addItemsToZusammenbauSpinner();
+        addItemsToZeitarbeiterSpinner();
 
         //fuegt dem Spinner einen Listener hinzu
-        addListenertoZusammenbauSpinner();
+        addListenertoZeitarbeiterSpinner();
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
@@ -39,31 +40,29 @@ public class E7_ZeitarbeiterActivity extends AppCompatActivity {
 
 
     //Methode um Spinner die Werte aus dem String-Array hinzuzufuegen
-    public void addItemsToZusammenbauSpinner(){
+    public void addItemsToZeitarbeiterSpinner(){
 
-        ZusammenbauSpinner = (Spinner) findViewById(R.id.zusammenbau_spinner);
+        ZeitarbeiterSpinner = (Spinner) findViewById(R.id.zeitarbeiter_spinner);
 
-        ArrayAdapter zusammenbau_spinner_adapter = ArrayAdapter.createFromResource(this,
-                R.array.zusammenbau_spinner_array,
+        ArrayAdapter Zeitarbeiter_spinner_adapter = ArrayAdapter.createFromResource(this,
+                R.array.zeitarbeiter_spinner_array,
                 android.R.layout.simple_spinner_item);
 
-        //zusammenbauSpinner.setDropDownViewResource(android.R.layout.simple_spinner);
-
-        ZusammenbauSpinner.setAdapter(zusammenbau_spinner_adapter);
+        ZeitarbeiterSpinner.setAdapter(Zeitarbeiter_spinner_adapter);
     }
 
 
     //Methode um dem Spinner einen Listener hinzuzufuegen
-    public void addListenertoZusammenbauSpinner(){
+    public void addListenertoZeitarbeiterSpinner(){
 
-        ZusammenbauSpinner = (Spinner) findViewById(R.id.zusammenbau_spinner);
+        ZeitarbeiterSpinner = (Spinner) findViewById(R.id.zeitarbeiter_spinner);
 
-        ZusammenbauSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        ZeitarbeiterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
-                String ItemSelectedInZusammenbauSpinner = parent.getItemAtPosition(pos).toString();
-                String[] separated = ItemSelectedInZusammenbauSpinner.split("\\(");
-                auswahlZusammenbau = separated[0].trim();
+                String ItemSelectedInZeitarbeiterSpinner = parent.getItemAtPosition(pos).toString();
+                String[] separated = ItemSelectedInZeitarbeiterSpinner.split("\\(");
+                auswahlZeitarbeiter = separated[0].trim();
             }
 
             @Override
@@ -78,17 +77,10 @@ public class E7_ZeitarbeiterActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        IntroductionActivity.Controller.setSCHRITT_ZEITARBEITER_boolean(true); //ToDo geändert
-        //ToDO Zeitarbeitersetzen
-        IntroductionActivity.Controller.setZusammenbau(auswahlZusammenbau);
-        Intent intent = new Intent(this, E1_ForschungActivity.class);
+        IntroductionActivity.Controller.setZeitarbeiter(auswahlZeitarbeiter); //ToDo: neu benannt, fehlt noch im Controller
+        Intent intent = new Intent(this, ForschungActivity.class);
         finish();
         startActivity(intent);
     }
 
-    //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
-/*    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, E6_WasserdichtheitActivity.class);
-        startActivity(intent);
-    }*/
 }

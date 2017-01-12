@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
-public class E4_GehaeuseActivity extends AppCompatActivity {
+public class GehaeuseActivity extends AppCompatActivity {
 
     private Spinner GehaeuseSpinner;
     String auswahlGehaeuse;
@@ -20,8 +20,8 @@ public class E4_GehaeuseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_e4_gehaeuse);
-        IntroductionActivity.Controller.setActivity_E4();
+        setContentView(R.layout.activity_gehaeuse);
+        IntroductionActivity.Controller.setActivity_Gehaeuse();  //ToDo: neu benannt, fehlt noch im Controller
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToGehaeuseSpinner();
@@ -46,8 +46,6 @@ public class E4_GehaeuseActivity extends AppCompatActivity {
         ArrayAdapter gehaeuse_spinner_adapter = ArrayAdapter.createFromResource(this,
                 R.array.gehaeuse_spinner_array,
                 android.R.layout.simple_spinner_item);
-
-        //gehaeuseSpinner.setDropDownViewResource(android.R.layout.simple_spinner);
 
         GehaeuseSpinner.setAdapter(gehaeuse_spinner_adapter);
     }
@@ -80,14 +78,10 @@ public class E4_GehaeuseActivity extends AppCompatActivity {
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
         IntroductionActivity.Controller.setGehaeuse(auswahlGehaeuse);
 
-        Intent intent = new Intent(this, E5_VersandartActivity.class);
+        Intent intent = new Intent(this, VersandartActivity.class);
         finish();
         startActivity(intent);
     }
 
-    //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
-/*    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, E3_UhrwerkActivity.class);
-        startActivity(intent);
-    }*/
+
 }
