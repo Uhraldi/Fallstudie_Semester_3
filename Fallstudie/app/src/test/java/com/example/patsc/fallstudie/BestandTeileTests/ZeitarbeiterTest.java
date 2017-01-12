@@ -15,19 +15,19 @@ import static junit.framework.TestCase.fail;
  * Created by julia on 03.01.2017.
  */
 @RunWith(Theories.class)
-public class ZusammenbauTest {
+public class ZeitarbeiterTest {
 
 
 
     public static @DataPoints
     String[] ProduktionsOrtWerte =
-            {"Deutschland", "Asien", "Osteuropa", "Schweiz"};
+            {"Geselle", "Praktikant", "Lehrling", "Meister"};
 
     @Theory
     public void bestelleZusammenbauTest(String ProduktionsOrtWerte){
         Auftrag testAuftrag = new Auftrag();
         try {
-            testAuftrag.bestelleZusamenbau(ProduktionsOrtWerte);
+            testAuftrag.bestelleZeitarbeiter(ProduktionsOrtWerte);
         }catch (Exception e){
             fail("Sollte kein Fehler werfen");
         }
@@ -37,8 +37,8 @@ public class ZusammenbauTest {
     public void korrigiereZusammenbauTest(String ProduktionsOrtWerte){
         Auftrag testAuftrag = new Auftrag();
         try{
-            testAuftrag.bestelleZusamenbau(ProduktionsOrtWerte);
-            testAuftrag.korrigiereZusammenbau("Asien");
+            testAuftrag.bestelleZeitarbeiter(ProduktionsOrtWerte);
+            testAuftrag.korrigiereZusammenbau("Praktikant");
         }catch (Exception e){
             fail(e.getMessage());
         }
@@ -50,7 +50,7 @@ public class ZusammenbauTest {
     public void bestelleZusammenbauFailTest(){
         Auftrag testAuftrag = new Auftrag();
         try {
-            testAuftrag.bestelleZusamenbau("FAIL");
+            testAuftrag.bestelleZeitarbeiter("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -61,11 +61,11 @@ public class ZusammenbauTest {
     public void getZusammenbauTest(){
         Auftrag testAuftrag = new Auftrag();
         try{
-            testAuftrag.bestelleZusamenbau("Deutschland");
+            testAuftrag.bestelleZeitarbeiter("Geselle");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(testAuftrag.getZusammenbau().isDeutschland());
+        Assert.assertTrue(testAuftrag.getZusammenbau().isGeselle());
     }
 
 

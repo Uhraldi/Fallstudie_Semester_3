@@ -18,7 +18,7 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
 
         //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Controller-Methoden zum Anzeigen der Bestellpositionen
         TextView designer_auswahl_output_textview = (TextView) findViewById(R.id.designer_auswahl_output_textview);
-        //designer_auswahl_output_textview.setText(IntroductionActivity.Controller.getDesigner());
+        //designer_auswahl_output_textview.setText(IntroductionActivity.Controller.getForschung());
 
         TextView armband_auswahl_output_textview = (TextView) findViewById(R.id.armband_auswahl_output_textview);
         try {
@@ -48,12 +48,12 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        TextView wasserdichtheit_auswahl_output_textview = (TextView) findViewById(R.id.wasserdichtheit_auswahl_output_textview);
+       /* TextView wasserdichtheit_auswahl_output_textview = (TextView) findViewById(R.id.wasserdichtheit_auswahl_output_textview);
         try {
             wasserdichtheit_auswahl_output_textview.setText(IntroductionActivity.Controller.getWasserdichtheit());
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
         TextView zusammenbau_auswahl_output_textview = (TextView) findViewById(R.id.zusammenbau_auswahl_output_textview);
         try {

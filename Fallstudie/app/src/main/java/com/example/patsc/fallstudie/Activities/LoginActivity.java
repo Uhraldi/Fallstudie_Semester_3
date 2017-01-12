@@ -34,7 +34,9 @@ public class LoginActivity extends AppCompatActivity {
     //Aufruf der Methode zum Registrieren, schickt Daten ins Backend und startet Login Activity neu
     public void register (View view)throws Exception{
         Controller.registrierung(inputUsername, inputPassword);
-        Intent intent = new Intent(this, LoginActivity.class);
+      //geaendet patsch 12.01 9.56
+        //  Intent intent = new Intent(this, LoginActivity.class);//alt
+        Intent intent = new Intent(this,E7_ZeitarbeiterActivity.class); //neu
         startActivity(intent);
         finish();
 

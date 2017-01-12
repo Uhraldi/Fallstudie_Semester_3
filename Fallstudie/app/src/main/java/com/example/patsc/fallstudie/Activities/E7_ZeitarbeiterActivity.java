@@ -78,7 +78,7 @@ public class E7_ZeitarbeiterActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        IntroductionActivity.Controller.setZusammenbau(auswahlZusammenbau);
+        IntroductionActivity.Controller.setSCHRITT_ZEITARBEITER_boolean(true); //ToDo geändert
 
         Intent intent = new Intent(this, E8_MarketingActivity.class);
         finish();

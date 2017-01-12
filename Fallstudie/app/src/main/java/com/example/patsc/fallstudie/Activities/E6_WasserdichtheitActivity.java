@@ -21,8 +21,8 @@ public class E6_WasserdichtheitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e6_wasserdichtheit);
-        IntroductionActivity.Controller.setActivity_E6();
-
+        //IntroductionActivity.Controller.setActivity_E6();
+        //ToDO Activity E6 Wasserdichtheit raus...
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToWasserdichtheitSpinner();
 
@@ -78,7 +78,8 @@ public class E6_WasserdichtheitActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        IntroductionActivity.Controller.setWasserdichtheit(auswahlWasserdichtheit);
+      //ToDo Wasserdichtheit ist ja raus...
+      //  IntroductionActivity.Controller.setWasserdichtheit(auswahlWasserdichtheit);
 
         Intent intent = new Intent(this, E7_ZeitarbeiterActivity.class);
         finish();

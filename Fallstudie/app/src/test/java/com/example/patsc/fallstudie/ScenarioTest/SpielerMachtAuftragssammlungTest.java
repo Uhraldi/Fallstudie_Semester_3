@@ -37,11 +37,11 @@ import static junit.framework.TestCase.fail;
     /*
     if (
                MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getArmband().isLeder() &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getDesigner().isLowBudget() &&
+               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getForschung().isLowBudget() &&
                MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getGehaeuse().isGlas() &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getZusammenbau().isAsien() &&
+               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getZusammenbau().isPraktikant() &&
                MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getUhrwerk().isMechanisch() &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getWerbung().isViel() &&
+               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getMarketing().isFernsehwerbung() &&
                MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getWasserdichtheit().isNichtWassergeschützt() &&
                MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getVersandart().isSchiff() &&
                MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getVkp() == 1000.0 &&
@@ -69,11 +69,11 @@ public class SpielerMachtAuftragssammlungTest {
 
         auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleArmband(Armband);
         Preissimulation.berechneArmband(Armband);
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleDesigner(Designer);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleForschung(Designer);
         Preissimulation.berechneDesigner(Designer);
         auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleGehaeuse(Gehaeuse);
         Preissimulation.berechneGehäuseUhrwerk(Gehaeuse);
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleZusamenbau(Zusammenbau);
+        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleZeitarbeiter(Zusammenbau);
         Preissimulation.berechneProduktionsort(Zusammenbau);
         auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleUhrwerk(Uhrwerk);
         Preissimulation.berechneUhrwerk(Uhrwerk);
@@ -94,7 +94,7 @@ public class SpielerMachtAuftragssammlungTest {
         marksTestAuftragssammlung.neueBestellpositon();
         Preissimulation MarksPreissim = new Preissimulation(SpielDaten.getRundenAnzahl(), marksTestAuftragssammlung);
         try {
-            bestellen(marksTestAuftragssammlung, "Leder", "LowBudget", "Glas", "Asien", "Mechanisch","viel","Nicht Wassergeschützt", "Schiff", 1000.0 , 10000, SpielDaten, TestPreisSim);
+            bestellen(marksTestAuftragssammlung, "Leder", "LowBudget", "Glas", "Praktikant", "Mechanisch","Fernsehwerbung","Nicht Wassergeschützt", "Schiff", 1000.0 , 10000, SpielDaten, TestPreisSim);
             TestPreisSim.berechnePreis();
             System.out.println(TestPreisSim.getEinkaufspreis());
             System.out.println(TestPreisSim.getVerkaufspreis());

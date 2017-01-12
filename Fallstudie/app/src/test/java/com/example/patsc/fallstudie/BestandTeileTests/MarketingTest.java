@@ -16,11 +16,11 @@ import static junit.framework.Assert.fail;
  * Created by julia on 03.01.2017.
  */
 @RunWith(Theories.class)
-public class WerbungTest {
+public class MarketingTest {
 
     public static @DataPoints
     String[] WerbungWerte =
-            {"viel", "mittel", "wenig"};
+            {"Fernsehwerbung", "mittel", "wenig"};
 
 
     @Theory
@@ -48,11 +48,11 @@ public class WerbungTest {
     public void getWerbungTest(){
         Auftrag testAuftrag = new Auftrag();
         try{
-            testAuftrag.bestelleWerbung("viel");
+            testAuftrag.bestelleWerbung("Fernsehwerbung");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(testAuftrag.getWerbung().isViel());
+        Assert.assertTrue(testAuftrag.getMarketing().isFernsehwerbung());
     }
 
 }
