@@ -425,20 +425,23 @@ public class Controller {
         setZustand_Ereignis(true);
         setAENDERE_ZEITARBEITER_boolean(true);
     }
-    public void setActivity_Berechnung () throws Exception {
-        setZustand_Lieferung(true);
+    public void setActivity_Berechnung () {
+        try {
+            setZustand_Lieferung(true);
 
-        //Hier Preis und Marktsimulation durchführen!
-        // erstellen der Preissimulation
+            //Hier Preis und Marktsimulation durchführen!
+            // erstellen der Preissimulation
 
-        //ToDo Prüfung ob alle Spieler Werte eingegeben haben
-        // ToDO DB abruf
-        double kosten = aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getFixKosten() + aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getVarKosten();
-        Preissimulation preissim = new Preissimulation(daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung()); //ToDo
-        aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).setPreissim(preissim);
-        Marktsim marktsim = new Marktsim(getPreissimulationenPreis());
-        aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
-
+            //ToDo Prüfung ob alle Spieler Werte eingegeben haben
+            // ToDO DB abruf
+            double kosten = aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getFixKosten() + aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getVarKosten();
+            Preissimulation preissim = new Preissimulation(daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung()); //ToDo
+            aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).setPreissim(preissim);
+            Marktsim marktsim = new Marktsim(getPreissimulationenPreis());
+            aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
+        }catch (Exception e){
+            //ToDo
+        }
     }
     public void setActivity_Rundenergebnis () {
         setZustand_Lieferung(true);
