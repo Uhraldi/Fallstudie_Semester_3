@@ -78,14 +78,14 @@ public class Marktsim {
             if(s.getVersandart().isSchiff()){
                 zw += s.getVersandart().getSchiffZufall();
             }
-            if(s.getWerbung().isViel()){
-                zw += s.getWerbung().getVielPWS();
+            if(s.getMarketing().isFernsehwerbung()){
+                zw += s.getMarketing().getFernsehwerbungPWS();
             }
-            if(s.getWerbung().isMittel()){
-                zw += s.getWerbung().getMittelPWS();
+            if(s.getMarketing().isRadiowerbung()){
+                zw += s.getMarketing().getRadiowerbungPWS();
             }
-            if(s.getWerbung().isWenig()){
-                zw += s.getWerbung().getWenigPWS();
+            if(s.getMarketing().isPrintwerbung()){
+                zw += s.getMarketing().getPrintwerbungPWS();
             }
             prozentualeVorteile.add(zw);
         }

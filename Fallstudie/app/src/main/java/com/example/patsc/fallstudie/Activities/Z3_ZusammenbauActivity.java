@@ -28,20 +28,20 @@ public class Z3_ZusammenbauActivity extends AppCompatActivity {
         TextView z3zusammenbau_info_textview = (TextView) findViewById(R.id.z3zusammenbau_info_textview);
         try {
             switch (IntroductionActivity.Controller.getGehaeuse()){
-                case "Deutschland": {
-                    z3zusammenbau_info_textview.setText(R.string.z3deutschland_info_textview);
+                case "Geselle": {
+                    z3zusammenbau_info_textview.setText(R.string.z3Geselle_info_textview);
                     break;
                 }
-                case "Asien": {
-                    z3zusammenbau_info_textview.setText(R.string.z3asien_info_textview);
+                case "Praktikant": {
+                    z3zusammenbau_info_textview.setText(R.string.z3Praktikant_info_textview);
                     break;
                 }
-                case "Osteuropa": {
-                    z3zusammenbau_info_textview.setText(R.string.z3osteuropa_info_textview);
+                case "Lehrling": {
+                    z3zusammenbau_info_textview.setText(R.string.z3Lehrling_info_textview);
                     break;
                 }
-                case "Schweiz": {
-                    z3zusammenbau_info_textview.setText(R.string.z3schweiz_info_textview);
+                case "Meister": {
+                    z3zusammenbau_info_textview.setText(R.string.z3Meister_info_textview);
                     break;
                 }
             }

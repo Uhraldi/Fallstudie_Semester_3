@@ -86,7 +86,7 @@ public class E1_ForschungActivity extends AppCompatActivity {
     //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Controller um Designer zu setzen
+        //Methodenaufruf von Controller um Forschung zu setzen
         Controller.setDesigner(auswahlDesigner);
 
         Intent intent = new Intent(this, E2_ArmbandActivity.class);

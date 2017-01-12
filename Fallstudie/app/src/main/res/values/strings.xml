@@ -102,10 +102,10 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="zusammenbau_info_textview">Hier können Sie den Produktionsort für Ihre Uhren auswählen. Die Wahl des Produktionsortes und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
     <string name="zusammenbau_textview">Auswahl des Produktionsorts</string>
     <string-array name="zusammenbau_spinner_array">
-        <item>Deutschland (4,5€)</item>
-        <item>Asien (0,5€)</item>
-        <item>Osteuropa (0,5€)</item>
-        <item>Schweiz (5€)</item>
+        <item>Geselle (4,5€)</item>
+        <item>Praktikant (0,5€)</item>
+        <item>Lehrling (0,5€)</item>
+        <item>Meister (5€)</item>
     </string-array>
 
 
@@ -114,9 +114,9 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="werbung_info_textview">Hier können Sie den Umfang der Werbung für Ihre Uhren auswählen. Der Umfang der Werbung und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen.</string>
     <string name="werbung_textview">Auswahl des Werbeumfangs</string>
     <string-array name="werbung_spinner_array">
-        <item>viel (5000€)</item>
-        <item>mittel (3000€)</item>
-        <item>wenig (1000€)</item>
+        <item>fernsehwerbung (5000€)</item>
+        <item>radiowerbung (3000€)</item>
+        <item>printwerbung (1000€)</item>
     </string-array>
 
 
@@ -170,14 +170,14 @@ Aufgrund der gesellschaftlichen Kritik an Kunststoff können Sie leider kein Geh
     <string name="z2metall_info_textview">"Upps!
 Aufgrund eines Streiks in der Metallbranche können Sie leider kein Gehäuse aus Metall auswählen. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
 
-    <string name="z3deutschland_info_textview">"Upps!
-Aufgrund eines Streiks in den Fabriken können Sie leider nicht den Produktionsort Deutschland auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
-    <string name="z3asien_info_textview">"Upps!
-Aufgrund einer Naturkatastrophe können Sie leider nicht den Produktionsort Asien auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
-    <string name="z3osteuropa_info_textview">"Upps!
-Aufgrund eines Putsches können Sie leider nicht den Produktionsort Osteuropa auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
-    <string name="z3schweiz_info_textview">"Upps!
-Aufgrund eines Streiks in den Fabriken können Sie leider nicht den Produktionsort Schweiz auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
+    <string name="z3Geselle_info_textview">"Upps!
+Aufgrund eines Streiks in den Fabriken können Sie leider nicht den Produktionsort Geselle auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
+    <string name="z3Praktikant_info_textview">"Upps!
+Aufgrund einer Naturkatastrophe können Sie leider nicht den Produktionsort Praktikant auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
+    <string name="z3Lehrling_info_textview">"Upps!
+Aufgrund eines Putsches können Sie leider nicht den Produktionsort Lehrling auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
+    <string name="z3Meister_info_textview">"Upps!
+Aufgrund eines Streiks in den Fabriken können Sie leider nicht den Produktionsort Meister auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
 
     //String fuer Berechnung
     <string name="berechnung_info_textview">Die Bestellung wurde getätigt und die Produktion ist angelaufen. Bitte haben Sie etwas Geduld.</string>

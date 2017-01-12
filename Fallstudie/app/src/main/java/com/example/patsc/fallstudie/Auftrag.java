@@ -1,5 +1,6 @@
 package com.example.patsc.fallstudie;
 import com.example.patsc.fallstudie.Bestandteile.*;
+
 /**
  * Created by vince on 01.01.2017.
  * testable
@@ -11,7 +12,7 @@ public class Auftrag {
      * Variablen deklarieren und instanziieren
      */
     private double fixKosten = 0;
-    private double varKosten = 0;
+    private double varKosten = 232323;
     private double pws = 0;
     private int menge = 0;
     private double vkp = 0;
@@ -25,13 +26,13 @@ public class Auftrag {
      * Objekte deklarieren und instanziieren
      */
     private Armband armband = new Armband();
-    private Designer designer = new Designer();
+    private Forschung forschung = new Forschung();
     private Gehaeuse gehaeuse = new Gehaeuse();
-    private Zusammenbau zusamenbau = new Zusammenbau();
+    private Zeitarbeiter zeitarbeiter = new Zeitarbeiter();
     private Uhrwerk uhrwerk = new Uhrwerk();
     private Versandart versandart = new Versandart();
     private Wasserdichtheit wasserdichtheit = new Wasserdichtheit();
-    private Werbung werbung = new Werbung();
+    private Marketing marketing = new Marketing();
     private Marktsim marktsim = null;
     private Preissimulation preissim = null;
 
@@ -70,6 +71,18 @@ public class Auftrag {
             }
         }
     }*/
+
+    /**
+     * Setter für die Variablen Kosten
+     * @param varKosten1 neuer Wert fuer die varKosten
+     * ToDO Prüfung erlaubter Wert
+     * ToDo alter + neuer Wert
+     */
+    public void setVarKosten(double varKosten1){
+
+        varKosten = varKosten1;
+
+    }
 
     /**
      * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
@@ -129,24 +142,26 @@ public class Auftrag {
      * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
      * @throws Exception
      */
-    public void bestelleDesigner(String eingabe) throws Exception{
+    public void bestelleForschung(String eingabe) throws Exception{
         switch(eingabe){
-            case "Marken": {
-                designer.setMarken(true);
-                fixKosten += designer.getMarkenEKP();
-                pws += designer.getMarkenPWS();
+            case Controller.FORSCHUNG_WAHL_HOCH: {
+                forschung.setMarken(true);
+                //Aenderungen patsch 12.01 10.23
+               // fixKosten += forschung.getMarkenEKP();
+                fixKosten = forschung.getMarkenEKP(); //neu
+                pws += forschung.getMarkenPWS();
                 break;
             }
-            case "Mittelmäßig": {
-                designer.setMittelmaessig(true);
-                fixKosten += designer.getMittelmaessigEKP();
-                pws += designer.getMittelmaessigPWS();
+            case Controller.FORSCHUNG_WAHL_MITTELMAESIG: {
+                forschung.setMittelmaessig(true);
+                fixKosten += forschung.getMittelmaessigEKP();
+                pws += forschung.getMittelmaessigPWS();
                 break;
             }
-            case "LowBudget": {
-                designer.setLowBudget(true);
-                fixKosten += designer.getLowBudgetEKP();
-                pws += designer.getLowBudgetPWS();
+            case Controller.FORSCHUNG_WAHL_LOWBUDGET: {
+                forschung.setLowBudget(true);
+                fixKosten += forschung.getLowBudgetEKP();
+                pws += forschung.getLowBudgetPWS();
                 break;
             }
             default: {
@@ -205,37 +220,38 @@ public class Auftrag {
      * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
      * @throws Exception
      */
-    public void bestelleZusamenbau(String eingabe) throws Exception{
+    public void bestelleZeitarbeiter(String eingabe) throws Exception{
         switch(eingabe) {
-            case "Deutschland": {
-                zusamenbau.setDeutschland(true);
-                varKosten += zusamenbau.getDeutschlandEKP();
-                pws += zusamenbau.getDeutschlandPWS();
-                risikoZusammenbau = zusamenbau.getDeutschlandRisiko();
+            case "Geselle": {
+                zeitarbeiter.setGeselle(true);
+                setVarKosten(979797979); //neu
+                pws += zeitarbeiter.getGesellePWS();
+                risikoZusammenbau = zeitarbeiter.getGeselleRisiko();
                 break;
             }
-            case "Asien": {
-                zusamenbau.setAsien(true);
-                varKosten += zusamenbau.getAsienEKP();
-                pws += zusamenbau.getAsienPWS();
-                risikoZusammenbau = zusamenbau.getAsienRisiko();
+            case "Praktikant": {
+                zeitarbeiter.setPraktikant(true);
+                varKosten += zeitarbeiter.getPraktikantEKP();
+                pws += zeitarbeiter.getPraktikantPWS();
+                risikoZusammenbau = zeitarbeiter.getPraktikantRisiko();
                 break;
             }
-            case "Osteuropa": {
-                zusamenbau.setOsteuropa(true);
-                varKosten += zusamenbau.getOsteuropaEKP();
-                pws += zusamenbau.getOsteuropaPWS();
-                risikoZusammenbau = zusamenbau.getOsteuropaRisiko();
+            case "Lehrling": {
+                zeitarbeiter.setLehrling(true);
+                varKosten += zeitarbeiter.getLehrlingEKP();
+                pws += zeitarbeiter.getLehrlingPWS();
+                risikoZusammenbau = zeitarbeiter.getLehrlingRisiko();
                 break;
             }
-            case "Schweiz": {
-                zusamenbau.setSchweiz(true);
-                varKosten += zusamenbau.getSchweizEKP();
-                pws += zusamenbau.getSchweizPWS();
-                risikoZusammenbau = zusamenbau.getSchweizRisiko();
+            case "Meister": {
+                zeitarbeiter.setMeister(true);
+                varKosten += zeitarbeiter.getMeisterEKP();
+                pws += zeitarbeiter.getMeisterPWS();
+                risikoZusammenbau = zeitarbeiter.getMeisterRisiko();
                 break;
             }
             default: {
+               // varKosten = 999999;
                 throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
             }
         }
@@ -344,22 +360,22 @@ public class Auftrag {
      */
     public void bestelleWerbung(String eingabe) throws Exception {
         switch (eingabe) {
-            case "viel": {
-                werbung.setViel(true);
-                fixKosten += werbung.getVielEKP();
-                pws += werbung.getVielPWS();
+            case Controller.MARKETING_WAHL_FERNSEHWERBUNG: {
+                marketing.setFernsehwerbung(true);
+                fixKosten += marketing.getFernsehwerbungEKP();
+                pws += marketing.getFernsehwerbungPWS();
                 break;
             }
-            case "mittel": {
-                werbung.setMittel(true);
-                fixKosten += werbung.getMittelEKP();
-                pws += werbung.getMittelPWS();
+            case Controller.MARKETING_WAHL_RADIOWERBUNG: {
+                marketing.setRadiowerbung(true);
+                fixKosten += marketing.getRadiowerbungEKP();
+                pws += marketing.getRadiowerbungPWS();
                 break;
             }
-            case "wenig": {
-                werbung.setWenig(true);
-                fixKosten += werbung.getWenigEKP();
-                pws += werbung.getWenigPWS();
+            case Controller.MARKETING_WAHL_PRINTWERBUNG: {
+                marketing.setPrintwerbung(true);
+                fixKosten += marketing.getWenigEKP();
+                pws += marketing.getPrintwerbungPWS();
                 break;
             }
             default: {
@@ -465,36 +481,36 @@ public class Auftrag {
     }
 
     /**
-     * Methode, die ausgelöst wird, wenn das Risikoereignis im Zusammenbau ausgelöst woird. Alle relevanten Änderungen an den Variablen weden zurückgerollt und mit der neien eingabe erneut ausgeführt
+     * Methode, die ausgelöst wird, wenn das Risikoereignis im Zeitarbeiter ausgelöst woird. Alle relevanten Änderungen an den Variablen weden zurückgerollt und mit der neien eingabe erneut ausgeführt
      * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
      * @throws Exception
      */
     public void korrigiereZusammenbau(String eingabe) throws Exception{
-        if(zusamenbau.isDeutschland()){
-            zusamenbau.setDeutschland(false);
-            varKosten -= zusamenbau.getDeutschlandEKP();
-            pws -= zusamenbau.getDeutschlandPWS();
+        if(zeitarbeiter.isGeselle()){
+            zeitarbeiter.setGeselle(false);
+            varKosten -= zeitarbeiter.getGeselleEKP();
+            pws -= zeitarbeiter.getGesellePWS();
             risikoZusammenbau = 0;
-        }else if(zusamenbau.isAsien()){
-            zusamenbau.setAsien(false);
-            varKosten -= zusamenbau.getAsienEKP();
-            pws -= zusamenbau.getAsienPWS();
+        }else if(zeitarbeiter.isPraktikant()){
+            zeitarbeiter.setPraktikant(false);
+            varKosten -= zeitarbeiter.getPraktikantEKP();
+            pws -= zeitarbeiter.getPraktikantPWS();
             risikoZusammenbau = 0;
-        }else if (zusamenbau.isOsteuropa()) {
-            zusamenbau.setOsteuropa(false);
-            varKosten -= zusamenbau.getOsteuropaEKP();
-            pws -= zusamenbau.getOsteuropaPWS();
+        }else if (zeitarbeiter.isLehrling()) {
+            zeitarbeiter.setLehrling(false);
+            varKosten -= zeitarbeiter.getLehrlingEKP();
+            pws -= zeitarbeiter.getLehrlingPWS();
             risikoZusammenbau = 0;
-        }else if(zusamenbau.isSchweiz()){
-            zusamenbau.setSchweiz(false);
-            varKosten -= zusamenbau.getSchweizEKP();
-            pws -= zusamenbau.getSchweizPWS();
+        }else if(zeitarbeiter.isMeister()){
+            zeitarbeiter.setMeister(false);
+            varKosten -= zeitarbeiter.getMeisterEKP();
+            pws -= zeitarbeiter.getMeisterPWS();
             risikoZusammenbau = 0;
         }else{
             throw new Exception();
         }
         varKosten += getStrafe();
-        bestelleZusamenbau(eingabe);
+        bestelleZeitarbeiter(eingabe);
     }
 
 
@@ -545,8 +561,8 @@ public class Auftrag {
     /**
      * Bestandteil-Getter
      */
-    public Designer getDesigner() {
-        return designer;
+    public Forschung getForschung() {
+        return forschung;
     }
 
     public Armband getArmband() {
@@ -561,20 +577,20 @@ public class Auftrag {
         return gehaeuse;
     }
 
-    public Zusammenbau getZusammenbau() {
-        return zusamenbau;
+    public Zeitarbeiter getZusammenbau() {
+        return zeitarbeiter;
     }
 
     public Versandart getVersandart() {
         return versandart;
     }
 
-    public Wasserdichtheit getWasserdichtheit() {
-        return wasserdichtheit;
-    }
+    //public Wasserdichtheit getWasserdichtheit() {
+    //    return wasserdichtheit;
+    //}
 
-    public Werbung getWerbung() {
-        return werbung;
+    public Marketing getMarketing() {
+        return marketing;
     }
 
     public Preissimulation getPreissimulation(){

@@ -68,23 +68,23 @@ public class Preissimulation{
     public void berechneDesigner(String auswahlDesigner) {
         switch (auswahlDesigner) {
             case "Marken": {
-                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getDesigner().getMarkenEKP();
+                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getForschung().getMarkenEKP();
                 DesignerVkp = (DesignerEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getDesigner().getMarkenPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getForschung().getMarkenPWS())
                         + DesignerEkp;
                 break;
             }
             case "Mittelmäßig": {
-                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getDesigner().getMittelmaessigEKP();
+                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getForschung().getMittelmaessigEKP();
                 DesignerVkp = (DesignerEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getDesigner().getMittelmaessigPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getForschung().getMittelmaessigPWS())
                         + DesignerEkp;
                 break;
             }
             case "Low Budget": {
-                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getDesigner().getLowBudgetEKP();
+                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getForschung().getLowBudgetEKP();
                 DesignerVkp = (DesignerEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getDesigner().getLowBudgetPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getForschung().getLowBudgetPWS())
                         + DesignerEkp;
                 break;
             }
@@ -246,7 +246,7 @@ public class Preissimulation{
         }
     }
 
-    public void berechneWasserdichtheit(String auswahlWasserdichtheit) {
+  /*  public void berechneWasserdichtheit(String auswahlWasserdichtheit) {
         switch (auswahlWasserdichtheit) {
             case "nicht wassergeschützt": {
                 WasserdichtheitEkp = auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getNichtWassergeschütztEKP();
@@ -271,35 +271,35 @@ public class Preissimulation{
             }
             default: System.err.println();
         }
-    }
+    }*/
 
     public void berechneProduktionsort (String auswahlProduktionsort) {
         switch (auswahlProduktionsort) {
-            case "Deutschland": {
-                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getDeutschlandEKP();
+            case "Geselle": {
+                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getGeselleEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getDeutschlandPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getGesellePWS())
                         + ProduktionsortEkp;
                 break;
             }
-            case "Asien": {
-                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getAsienEKP();
+            case "Praktikant": {
+                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getPraktikantEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getAsienPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getPraktikantPWS())
                         + ProduktionsortEkp;
                 break;
             }
-            case "Osteuropa": {
-                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getOsteuropaEKP();
+            case "Lehrling": {
+                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getLehrlingEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getOsteuropaPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getLehrlingPWS())
                         + ProduktionsortEkp;
                 break;
             }
-            case "Schweiz": {
-                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getSchweizEKP();
+            case "Meister": {
+                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getMeisterEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getSchweizPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getMeisterPWS())
                         + ProduktionsortEkp;
                 break;
             }
@@ -309,24 +309,24 @@ public class Preissimulation{
 
     public void berechneWerbung (String auswahlWerbung) {
         switch (auswahlWerbung) {
-            case "viel": {
-                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getWerbung().getVielEKP();
+            case "Fernsehwerbung": {
+                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getMarketing().getFernsehwerbungEKP();
                 WerbungVkp = (WerbungEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getWerbung().getVielPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getMarketing().getFernsehwerbungPWS())
                         + WerbungEkp;
                 break;
             }
             case "mittel": {
-                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getWerbung().getMittelEKP();
+                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getMarketing().getRadiowerbungEKP();
                 WerbungVkp = (WerbungEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getWerbung().getMittelPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getMarketing().getRadiowerbungPWS())
                         + WerbungEkp;
                 break;
             }
             case "wenig": {
-                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getWerbung().getWenigEKP();
+                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getMarketing().getWenigEKP();
                 WerbungVkp = (WerbungEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getWerbung().getWenigPWS())
+                        * auftragssammlung.getBestellposition(RundenNr).getMarketing().getPrintwerbungPWS())
                         + WerbungEkp;
                 break;
             }

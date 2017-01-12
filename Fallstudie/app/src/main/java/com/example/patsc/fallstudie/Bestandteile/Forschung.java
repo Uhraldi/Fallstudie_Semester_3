@@ -6,7 +6,7 @@ package com.example.patsc.fallstudie.Bestandteile;
  */
 
 
-public class Designer {
+public class Forschung {
 
 
     //Auswahlen
@@ -27,7 +27,7 @@ public class Designer {
     /**
      * Constructor
      */
-    public Designer() {
+    public Forschung() {
 
     }
 

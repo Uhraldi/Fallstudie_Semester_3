@@ -16,7 +16,7 @@ import static junit.framework.Assert.fail;
  * Created by julia on 03.01.2017.
  */
 @RunWith(Theories.class)
-public class DesignerTest {
+public class ForschungTest {
 
     public static @DataPoints
     String[] DesignerWerte =
@@ -27,7 +27,7 @@ public class DesignerTest {
     public void bestelleDesignerTest(String DesignerWerte){
         Auftrag testAuftrag = new Auftrag();
         try {
-            testAuftrag.bestelleDesigner(DesignerWerte);
+            testAuftrag.bestelleForschung(DesignerWerte);
         }catch (Exception e){
             fail("Fehler bei Variable: "+ DesignerWerte );
         }
@@ -37,7 +37,7 @@ public class DesignerTest {
     public void bestelleDesignerFailTest(){
         Auftrag testAuftrag = new Auftrag();
         try {
-            testAuftrag.bestelleDesigner("FAIL");
+            testAuftrag.bestelleForschung("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -48,11 +48,11 @@ public class DesignerTest {
     public void getDesignerTest(){
         Auftrag testAuftrag = new Auftrag();
         try{
-            testAuftrag.bestelleDesigner("Marken");
+            testAuftrag.bestelleForschung("Marken");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(testAuftrag.getDesigner().isMarken());
+        Assert.assertTrue(testAuftrag.getForschung().isMarken());
 
     }
 

@@ -19,9 +19,9 @@ public class Controller {
     /**
      * Strings für die Übergabe der Auswahl
      */
-    private final String FORSCHUNG_WAHL_LOWBUDGET = "1000€ Investition";
-    private final String FORSCHUNG_WAHL_MITTELMAESIG = "3000€ Investition";
-    private final String FORSCHUNG_WAHL_HOCH = "5000€ Investition";
+    public static final String FORSCHUNG_WAHL_LOWBUDGET = "1000€ Investition";
+    public static final String FORSCHUNG_WAHL_MITTELMAESIG = "3000€ Investition";
+    public static final String FORSCHUNG_WAHL_HOCH = "5000€ Investition";
 
     private final String ARMBAND_WAHL_LEDER = "Leder";
     private final String ARMBAND_WAHL_KUNSTLEDER = "Kunstleder";
@@ -51,9 +51,9 @@ public class Controller {
     private final String ZEITARBEITER_WAHL_Lehrling ="Lehrling";
     private final String ZEITARBEITER_WAHL_MEISTER ="Meister";
 
-    private final String MARKETING_WAHL_FERNSEHWERBUNG = "Fernsehwerbung";
-    private final String MARKETING_WAHL_RADIOWERBUNG = "Radiowerbung";
-    private final String MARKETING_WAHL_PRINTWERBUNG = "Printwerbung";
+    public static final String MARKETING_WAHL_RADIOWERBUNG = "Radiowerbung";
+    public static final String MARKETING_WAHL_PRINTWERBUNG = "Printwerbung";
+    public static final String MARKETING_WAHL_FERNSEHWERBUNG = "Fernsehwerbung";
 
     // Einzelne Schritte in dem Auswahlprozess
     private final String SCHRITT_FORSCHUNG = "SCHRITT_FORSCHUNG"; // erster Schritt Wahl des Designers
@@ -61,7 +61,7 @@ public class Controller {
     private final String SCHRITT_UHRWERK = "SCHRITT_UHRWERK"; // dritter Schritt Wahl des Uhrwerks und der Uhrenart
     private final String SCHRITT_GEHAUESE = "SCHRITT_GEHAUSE"; // vierter Schritt Wahl des Gehäuses für die Uhr
    // private final String SCHRITT_DICHTHEIT = "SCHRITT_DICHTHEIT"; // fuenfter Schritt Wahl der Dichtheit
-    private final String SCHRITT_ZEITARBEITER = "SCHRITT_ZEITARBEITER"; // sechster Schritt Wahl Zusammenbau
+    private final String SCHRITT_ZEITARBEITER = "SCHRITT_ZEITARBEITER"; // sechster Schritt Wahl Zeitarbeiter
     private final String SCHRITT_MARKETING = "SCHRITT_MARKETING"; // siebter Schritt Wahl des Werbeetars
     private final String SCHRITT_PRODUKTIONSVOLUMEN = "SCHRITT_PRODUKTIONSVOLUMEN"; // achter Schritt Wahl des Kaufvolumens
     private final String SCHRITT_VERSANDART = "SCHRITT_VERSANDART"; // neunter Schritt Wahl der Versandart
@@ -78,10 +78,10 @@ public class Controller {
     private boolean SCHRITT_ARMBAND_boolean  = false;// zweite Schritt Wahl des Armbands
     private boolean SCHRITT_UHRWERK_boolean  = false;// dritter Schritt Wahl des Uhrwerks und der Uhrenart
 
-    // Zustandsvariablen fuer die Schritte bei dem Zusammenbau
+    // Zustandsvariablen fuer die Schritte bei dem Zeitarbeiter
     private boolean SCHRITT_GEHAUESE_boolean  = false;// vierter Schritt Wahl des Gehäuses für die Uhr
     //private boolean SCHRITT_DICHTHEIT_boolean  = false;// fuenfter Schritt Wahl der Dichtheit
-    private boolean SCHRITT_ZEITARBEITER_boolean = false;// sechster Schritt Wahl Zusammenbau
+    private boolean SCHRITT_ZEITARBEITER_boolean = false;// sechster Schritt Wahl Zeitarbeiter
     private boolean SCHRITT_MARKETING_boolean = false; // siebter Schritt Wahl des Werbeetars
     private boolean SCHRITT_PRODUKTIONSVOLUMEN_boolean = false; // achter Schritt Wahl des Kaufvolumens
     private boolean SCHRITT_VERSANDART_boolean  = false; // neunter Schritt Wahl der Versandart
@@ -97,6 +97,7 @@ public class Controller {
      */
     public Controller(){
         daten = new Daten(); // erzeugung der Klasse Daten
+
     }
 
 
@@ -332,7 +333,7 @@ public class Controller {
     public String getZEITARBEITER_WAHL_Lehrling() {
         return ZEITARBEITER_WAHL_Lehrling;
     }
-    public String getZUSAMMENBAU_WAHL_SCHWEIZ() {
+    public String getZUSAMMENBAU_WAHL_Meister() {
         return ZEITARBEITER_WAHL_MEISTER;
     }
     public String getSchrittDesigner(){return SCHRITT_FORSCHUNG;}
@@ -386,7 +387,7 @@ public class Controller {
     public void setActivity_E5 () {
         setZustand_Bestellung(true);
         setSCHRITT_VERSANDART_boolean(true);
-
+        aktiverSpieler.getAuftragssammlung().neueBestellpositon(); // neu
     }
   //  public void setActivity_E6 () {
   //      setZustand_Bestellung(true);
@@ -425,7 +426,11 @@ public class Controller {
         setZustand_Ereignis(true);
         setAENDERE_ZEITARBEITER_boolean(true);
     }
+<<<<<<< HEAD
     public void setActivity_Berechnung () {
+=======
+    public void setActivity_Berechnung (){
+>>>>>>> e81b62d3aaef6bfdc8b27b40f1011c0fc4335908
         try {
             setZustand_Lieferung(true);
 
@@ -439,8 +444,14 @@ public class Controller {
             aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).setPreissim(preissim);
             Marktsim marktsim = new Marktsim(getPreissimulationenPreis());
             aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
+<<<<<<< HEAD
         }catch (Exception e){
             //ToDo
+=======
+        }
+        catch(Exception e){
+            e.printStackTrace();
+>>>>>>> e81b62d3aaef6bfdc8b27b40f1011c0fc4335908
         }
     }
     public void setActivity_Rundenergebnis () {
@@ -460,7 +471,7 @@ public class Controller {
 
             if (SCHRITT_FORSCHUNG_boolean){
                 if(designerAuswahl == FORSCHUNG_WAHL_LOWBUDGET ||designerAuswahl == FORSCHUNG_WAHL_HOCH || designerAuswahl== FORSCHUNG_WAHL_MITTELMAESIG){
-                    aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleDesigner(designerAuswahl); //ToDo Nullpointer Exception
+                    aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleForschung(designerAuswahl); //ToDo Nullpointer Exception
                     setzeAlleSchritteFalse();}
                 else{
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
@@ -565,19 +576,19 @@ public class Controller {
                 throw new Exception("Falscher Bestellschritt");
             }
     } // Ende setWasserdichtheit*/
-  //  public void setZusammenbau (String zusammenbauAuswahl)throws Exception{
-    //      if (SCHRITT_ZEITARBEITER_boolean){
-  //        if(zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_PRAKTIKANT)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_GESELLE)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_Lehrling)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_MEISTER))
-  //        { aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleZusamenbau(zusammenbauAuswahl);
-    //            setzeAlleSchritteFalse();}
-    //       else{
-    //          throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
-    //      }
-    //  }
-    //  else{
-    //      throw new Exception("Falscher Bestellschritt");
-    //  }
-  //} // Ende setZusammebau
+    public void setZusammenbau (String zusammenbauAuswahl)throws Exception{
+        if (SCHRITT_ZEITARBEITER_boolean){
+          if(zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_PRAKTIKANT)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_GESELLE)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_Lehrling)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_MEISTER))
+          { aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleZeitarbeiter(zusammenbauAuswahl);
+              setzeAlleSchritteFalse();}
+         else{
+              throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
+          }
+      }
+      else{
+          throw new Exception("Falscher Bestellschritt");
+      }
+  } // Ende setZusammebau
     public void setZusammenbauNeu (String zusammenbauAuswahl)throws Exception{              //nach Zufall Z3
             if (AENDERE_ZEITARBEITER_boolean){
                 if(zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_PRAKTIKANT)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_GESELLE)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_Lehrling)||zusammenbauAuswahl.equals(ZEITARBEITER_WAHL_MEISTER))
@@ -604,7 +615,7 @@ public class Controller {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-    }//Ende set Werbung
+    }//Ende set Marketing
     public void setKaufvolumen (float kaufvolumenAuswahl)throws Exception{
             if (SCHRITT_PRODUKTIONSVOLUMEN_boolean){
                 int kaufVolumen = ((int) kaufvolumenAuswahl);
@@ -628,13 +639,13 @@ public class Controller {
     //Methoden zum abholen der Bestellpositionen, zur Anzeige er Bestellzusammenfassung
     public String getDesigner ( )throws Exception{
         String designer ="";
-            if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getDesigner().isLowBudget()){
+            if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getForschung().isLowBudget()){
                 designer = FORSCHUNG_WAHL_LOWBUDGET;
             }
-            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getDesigner().isMarken()){
+            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getForschung().isMarken()){
                 designer = FORSCHUNG_WAHL_HOCH;
             }
-            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getDesigner().isMittelmaessig()){
+            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getForschung().isMittelmaessig()){
                 designer = FORSCHUNG_WAHL_MITTELMAESIG;
             }
             else{
@@ -643,7 +654,7 @@ public class Controller {
             }
         // Ende try
         return designer;
-    }// Ende getDesigner
+    }// Ende getForschung
     public String getArmband ( )throws Exception{
         String armband ="";
             if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getArmband().isHolz()){
@@ -735,16 +746,16 @@ public class Controller {
     }// ENde getWasserdichtheit*/
     public String getZusammenbau ()throws Exception{
         String zusammenbau = "";
-            if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isAsien()){
+            if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isPraktikant()){
                 zusammenbau = ZEITARBEITER_WAHL_PRAKTIKANT;
             }
-            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isDeutschland()){
+            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isGeselle()){
                 zusammenbau = ZEITARBEITER_WAHL_GESELLE;
             }
-            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isOsteuropa()){
+            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isLehrling()){
                 zusammenbau = ZEITARBEITER_WAHL_Lehrling;
             }
-            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isSchweiz()){
+            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().isMeister()){
                 zusammenbau =ZEITARBEITER_WAHL_MEISTER;
             }
             else{
@@ -754,20 +765,20 @@ public class Controller {
     } // Ende getZussamenbau
     public String getWerbung ( )throws Exception{
         String werbung ="";
-            if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getWerbung().isMittel()){
+            if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getMarketing().isRadiowerbung()){
                 werbung = MARKETING_WAHL_PRINTWERBUNG;
             }
-            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getWerbung().isViel()){
+            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getMarketing().isFernsehwerbung()){
                 werbung = MARKETING_WAHL_FERNSEHWERBUNG;
             }
-            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getWerbung().isWenig()){
+            else if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getMarketing().isPrintwerbung()){
                 werbung = MARKETING_WAHL_RADIOWERBUNG;
             }
             else{
                 throw new Exception("Keine Auswahl bei dem Zusamenbau getroffen.");
             }
         return werbung;
-    } // Ende get Werbung
+    } // Ende get Marketing
     public float getKaufvolumen ( ){
         float kv = (float)aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getMenge();
         return kv;
@@ -779,11 +790,27 @@ public class Controller {
 
     // Methoden zum Aufrufen der Bonären Werte
     public float getFixKosten() {
+        if (aktiverSpieler ==null){
+            return 222222;
+        }
+        else {
+            if (aktiverSpieler.getAuftragssammlung() == null) {
+                return 33333;
+            } else {
+                if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()) == null) {
+                    return 44444;
+                } else {
+                    if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getFixKosten() == 0) {
+                        return 555555; // Hier Fehler
+                    }
+                }
+            }
+        }
         float fixKosten = (float) aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getFixKosten();
         return fixKosten;
     }
     public float getVarKosten(){
-        float varKosten =(float) aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getVarKosten();
+        float varKosten =(float) aktiverSpieler.getAuftragssammlung().getBestellposition(0).getVarKosten();
         return varKosten;
     }
     public double getGuthaben(){
@@ -855,24 +882,24 @@ public class Controller {
             return false;
         }
     }// Ende isZufall2
-    public boolean isZufall3 ()throws Exception{ // Zufall 3 = Zusammenbau Ändern
+    public boolean isZufall3 ()throws Exception{ // Zufall 3 = Zeitarbeiter Ändern
         double zufallszahl = Math.random();
         AENDERE_ARMBAND_boolean=false;
         AENDERE_GEHAEUSE_boolean =false;
         AENDERE_ZEITARBEITER_boolean = false;
         double wahrscheinlichkeit = 0;
             if (getZusammenbau().equals(ZEITARBEITER_WAHL_PRAKTIKANT)){
-                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getAsienRisiko();
+                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getPraktikantRisiko();
             }
             else if (getZusammenbau().equals(ZEITARBEITER_WAHL_MEISTER)){
-                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getSchweizRisiko();
+                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getMeisterRisiko();
             }
             else if (getZusammenbau().equals(ZEITARBEITER_WAHL_Lehrling)){
-                wahrscheinlichkeit =  aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getAsienRisiko();
+                wahrscheinlichkeit =  aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getPraktikantRisiko();
 
             }
             else if (getZusammenbau().equals(ZEITARBEITER_WAHL_GESELLE)){
-                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getDeutschlandRisiko();
+                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getZusammenbau().getGeselleRisiko();
             }
             else{
                 throw new Exception("Keine Auswahl des Gehaeuses getroffen.");
@@ -966,7 +993,7 @@ public class Controller {
         SCHRITT_UHRWERK_boolean  = false;// dritter Schritt Wahl des Uhrwerks und der Uhrenart
         SCHRITT_GEHAUESE_boolean  = false;// vierter Schritt Wahl des Gehäuses für die Uhr
         //SCHRITT_DICHTHEIT_boolean  = false;// fuenfter Schritt Wahl der Dichtheit
-        SCHRITT_ZEITARBEITER_boolean = false;// sechster Schritt Wahl Zusammenbau
+        SCHRITT_ZEITARBEITER_boolean = false;// sechster Schritt Wahl Zeitarbeiter
         SCHRITT_MARKETING_boolean = false; // siebter Schritt Wahl des Werbeetars
         SCHRITT_PRODUKTIONSVOLUMEN_boolean = false; // achter Schritt Wahl des Kaufvolumens
         SCHRITT_VERSANDART_boolean  = false; // neunter Schritt Wahl der Versandart

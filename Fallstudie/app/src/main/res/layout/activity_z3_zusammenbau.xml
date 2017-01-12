@@ -31,7 +31,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="@string/z3asien_info_textview"
+        android:text="@string/z3Praktikant_info_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

@@ -17,7 +17,7 @@ import static junit.framework.TestCase.fail;
  */
 
 @RunWith(Theories.class)
-public class ControllerSetDesignerTest {
+public class ControllerSetForschungTest {
 
     public static @DataPoints
     String[] DesignerWerte =
