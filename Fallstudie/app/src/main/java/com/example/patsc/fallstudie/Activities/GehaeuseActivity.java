@@ -78,7 +78,7 @@ public class GehaeuseActivity extends AppCompatActivity {
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
         IntroductionActivity.Controller.setGehaeuse(auswahlGehaeuse);
 
-        Intent intent = new Intent(this, VersandartActivity.class);
+        Intent intent = new Intent(this, BezahlartActivity.class);
         finish();
         startActivity(intent);
     }

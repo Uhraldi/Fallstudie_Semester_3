@@ -75,15 +75,11 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     </string-array>
 
 
-    //Strings fuer Versandart
+    //Strings fuer Bezahlart
 
-    <string name="versandart_info_textview">Hier können Sie die Versandart für Ihre Uhren auswählen. Die Wahl der Versandart und somit eine schnellere oder langsamere Lieferung beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
-    <string name="versandart_textview">Wahl der Versandart zum Absatz der Uhren an Kunden</string>
-    <string-array name="versandart_spinner_array">
-        <item>Overnight (3€)</item>
-        <item>Standard (1€)</item>
-        <item>Express (2€)</item>
-    </string-array>
+    <string name="bezahlart_info_textview">Hier können Sie die bezahlart für Ihre Uhren auswählen. Die Wahl der bezahlart und somit eine schnellere oder langsamere Lieferung beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
+    <string name="bezahlart_textview">Anbieten von folgenden Bezahlarten: </string>
+
 
 
     //Strings fuer E6_Wasserdichtheit
@@ -136,7 +132,7 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="bestellzsmfassung_armband_textview">Armbandmaterial:</string>
     <string name="bestellzsmfassung_uhrwerk_textview">Uhrwerkart:</string>
     <string name="bestellzsmfassung_gehaeuse_textview">Gehäusematerial:</string>
-    <string name="bestellzsmfassung_versandart_textview">Versandart:</string>
+    <string name="bestellzsmfassung_bezahlart_textview">bezahlart:</string>
     <string name="bestellzsmfassung_wasserdichtheit_textview">Wasserdichtheit:</string>
     <string name="bestellzsmfassung_zeitarbeiter_textview">Produktionsstätte:</string>
     <string name="bestellzsmfassung_marketing_textview">marketing:</string>

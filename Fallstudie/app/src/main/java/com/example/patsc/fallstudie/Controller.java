@@ -393,7 +393,7 @@ public class Controller {
         setZustand_Bestellung(true);
         setSCHRITT_GEHAUESE_boolean(true);
     }
-    public void setActivity_Versandart () {
+    public void setActivity_Bezahlart () {      //TODO: Anpassung des Namens
         setZustand_Bestellung(true);
         setSCHRITT_VERSANDART_boolean(true);
         aktiverSpieler.getAuftragssammlung().neueBestellpositon(); // neu
@@ -559,7 +559,7 @@ public class Controller {
             }
 
     } // Ende setGehaeuseNeu
-    public void setVersandart (String versandartAuswahl)throws  Exception{
+    public void setBezahlart (String versandartAuswahl)throws  Exception{    //TODO: Anpassung Namen
             if (SCHRITT_VERSANDART_boolean){
                 if(versandartAuswahl.equals(VERSANDART_WAHL_FLUGZEUG)||versandartAuswahl.equals(VERSANDART_WAHL_LANDWEG)||versandartAuswahl.equals(VESANDART_WAHL_SCHIFF))
                 { aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).bestelleVersandart(versandartAuswahl);

@@ -88,7 +88,7 @@ public class WasserdichtheitActivity extends AppCompatActivity {
 
     //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
 /*    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, VersandartActivity.class);
+        Intent intent = new Intent (this, BezahlartActivity.class);
         startActivity(intent);
     }*/
 }
