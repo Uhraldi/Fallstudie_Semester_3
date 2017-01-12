@@ -79,8 +79,7 @@ public class E8_MarketingActivity extends AppCompatActivity {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
         IntroductionActivity.Controller.setWerbung(auswahlWerbung);
-
-        Intent intent = new Intent(this, E9_ProduktionsvolumenActivity.class);
+        Intent intent = new Intent(this, E2_ArmbandActivity.class);
         finish();
         startActivity(intent);
     }

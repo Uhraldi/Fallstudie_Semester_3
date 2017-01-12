@@ -79,8 +79,9 @@ public class E7_ZeitarbeiterActivity extends AppCompatActivity {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
         IntroductionActivity.Controller.setSCHRITT_ZEITARBEITER_boolean(true); //ToDo geändert
-
-        Intent intent = new Intent(this, E8_MarketingActivity.class);
+        //ToDO Zeitarbeitersetzen
+        IntroductionActivity.Controller.setZusammenbau(auswahlZusammenbau);
+        Intent intent = new Intent(this, E1_ForschungActivity.class);
         finish();
         startActivity(intent);
     }

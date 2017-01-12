@@ -12,7 +12,7 @@ public class Auftrag {
      * Variablen deklarieren und instanziieren
      */
     private double fixKosten = 0;
-    private double varKosten = 232323;
+    private double varKosten = 0;
     private double pws = 0;
     private int menge = 0;
     private double vkp = 0;

@@ -781,22 +781,6 @@ public class Controller {
 
     // Methoden zum Aufrufen der Bonären Werte
     public float getFixKosten() {
-        if (aktiverSpieler ==null){
-            return 222222;
-        }
-        else {
-            if (aktiverSpieler.getAuftragssammlung() == null) {
-                return 33333;
-            } else {
-                if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()) == null) {
-                    return 44444;
-                } else {
-                    if (aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getFixKosten() == 0) {
-                        return 555555; // Hier Fehler
-                    }
-                }
-            }
-        }
         float fixKosten = (float) aktiverSpieler.getAuftragssammlung().getBestellposition(daten.getRundenAnzahl()).getFixKosten();
         return fixKosten;
     }

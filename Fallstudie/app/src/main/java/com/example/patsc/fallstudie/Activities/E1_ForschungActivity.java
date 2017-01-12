@@ -87,9 +87,9 @@ public class E1_ForschungActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Forschung zu setzen
-        Controller.setDesigner(auswahlDesigner);
-
-        Intent intent = new Intent(this, E2_ArmbandActivity.class);
+        //Controller.setDesigner(auswahlDesigner); // ALT
+        IntroductionActivity.Controller.setZusammenbau(auswahlDesigner);// NEU
+        Intent intent = new Intent(this, E8_MarketingActivity.class);
         startActivity(intent);
         finish();
     }
