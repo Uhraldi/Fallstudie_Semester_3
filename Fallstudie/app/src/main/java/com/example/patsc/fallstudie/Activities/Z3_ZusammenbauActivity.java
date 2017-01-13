@@ -104,10 +104,10 @@ public class Z3_ZusammenbauActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        if(IntroductionActivity.Controller.getZusammenbau().equals(auswahlZusammenbau)) {
+        if(IntroductionActivity.Controller.getZeitarbeiter().equals(auswahlZusammenbau)) {
             Toast toast = Toast.makeText(this, "Diese Option geht leider nicht mehr", Toast.LENGTH_SHORT);
         } else {
-            IntroductionActivity.Controller.setZusammenbauNeu(auswahlZusammenbau);
+            IntroductionActivity.Controller.setZeitarbeiterNeu(auswahlZusammenbau);
         }
 
         Intent intent = new Intent(this, BerechnungActivity.class);

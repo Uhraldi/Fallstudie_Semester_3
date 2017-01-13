@@ -295,25 +295,25 @@ public class Auftrag {
      */
     public void bestelleVersandart(String eingabe) throws Exception {
         switch (eingabe) {
-            case "Flugzeug": {
-                versandart.setFlugzeug(true);
-                varKosten += versandart.getFlugzeugEKP();
-                pws += versandart.getFlugzeugPWS();
-                zufall += versandart.getFlugzeugZufall();
+            case "Kreditkarte": {
+                versandart.setKreditkarte(true);
+                varKosten += versandart.getKreditkarteEKP();
+                pws += versandart.getKreditkartePWS();
+                zufall += versandart.getKreditkarteZufall();
                 break;
             }
-            case "Schiff": {
-                versandart.setSchiff(true);
-                varKosten += versandart.getSchiffEKP();
-                pws += versandart.getSchiffPWS();
-                zufall += versandart.getSchiffZufall();
+            case "Rechnung": {
+                versandart.setRechnung(true);
+                varKosten += versandart.getRechnungEKP();
+                pws += versandart.getRechnungPWS();
+                zufall += versandart.getRechnungZufall();
                 break;
             }
-            case "Landweg": {
-                versandart.setLandweg(true);
-                varKosten += versandart.getLandwegEKP();
-                pws += versandart.getLandwegPWS();
-                zufall += versandart.getLandwegZufall();
+            case "PayPal": {
+                versandart.setPayPal(true);
+                varKosten += versandart.getPayPalEKP();
+                pws += versandart.getPayPalPWS();
+                zufall += versandart.getPayPalZufall();
                 break;
             }
             default: {
@@ -485,7 +485,7 @@ public class Auftrag {
      * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
      * @throws Exception
      */
-    public void korrigiereZusammenbau(String eingabe) throws Exception{
+    public void korriegiereZeitarbeiter(String eingabe) throws Exception{
         if(zeitarbeiter.isGeselle()){
             zeitarbeiter.setGeselle(false);
             varKosten -= zeitarbeiter.getGeselleEKP();

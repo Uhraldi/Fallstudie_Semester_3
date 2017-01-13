@@ -47,7 +47,7 @@ public class ControllerSetZustaendeTest {
         TestController.setSCHRITT_PRODUKTIONSVOLUMEN_boolean(true);
         TestController.setSCHRITT_UHRWERK_boolean(true);
         TestController.setSCHRITT_VERKAUFSPREIS_boolean(true);
-        TestController.setSCHRITT_VERSANDART_boolean(true);
+        TestController.setSCHRITT_BEZAHLART_boolean(true);
         TestController.setSCHRITT_MARKETING_boolean(true);
         TestController.setSCHRITT_ZEITARBEITER_boolean(true);
        // System.err.println("Alle Schritte auf True gesetzt");
@@ -133,7 +133,7 @@ public class ControllerSetZustaendeTest {
         TestController.setActivity_E5();
         if (
                 TestController.isZustand_Bestellung() &&
-                        TestController.isSCHRITT_VERSANDART_boolean()){
+                        TestController.isSCHRITT_BEZAHLART_boolean()){
             Testpassed = true;
         }else{
             fail("Mehr als ein Zustand true");

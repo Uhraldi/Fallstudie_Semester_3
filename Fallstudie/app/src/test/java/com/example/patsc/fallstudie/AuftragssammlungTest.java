@@ -20,7 +20,7 @@ public class AuftragssammlungTest {
         Auftrag testAuftrag = new Auftrag();
         Auftragssammlung testAuftragssammlung = new Auftragssammlung();
         testAuftragssammlung.neueBestellpositon();
-        testAuftragssammlung.getBestellposition(0);
+        testAuftragssammlung.getAuftrag(0);
 
     }
 
