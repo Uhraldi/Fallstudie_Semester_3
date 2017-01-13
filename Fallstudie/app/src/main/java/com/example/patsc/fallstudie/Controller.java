@@ -494,12 +494,12 @@ public class Controller {
         }
         //Wahl wird standardmässig auf Mittelmaessig gesetzt
         catch (Exception e){
-          //  aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleForschung(FORSCHUNG_WAHL_MITTELMAESIG); //ToDo Nullpointer Exception s.o. L483
+            aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().setMittelmaessig(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
 
-    } // Ende SetDesigner
+    } // Ende SetForschung
     public void setArmband (String armbandAuswahl) {
         try {
             if (SCHRITT_ARMBAND_boolean) {
@@ -513,9 +513,9 @@ public class Controller {
                 throw new Exception("Falscher Bestellschritt");
             }
         }
+        //Wahl wird standardmässig auf Holz gesetzt
         catch (Exception e){
-         //   aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleArmband(ARMBAND_WAHL_HOLZ); //ToDO Nullpointer Exception
-            //Klasse Auftragssammlung (ArrayList) Methode getAuftrag
+            aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getArmband().setHolz(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
