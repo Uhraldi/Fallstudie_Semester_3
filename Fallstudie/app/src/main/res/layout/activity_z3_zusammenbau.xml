@@ -40,7 +40,7 @@
         android:id="@+id/z3zusammenbau_info_textview" />
 
     <TextView
-        android:text="@string/zusammenbau_textview"
+        android:text="@string/zeitarbeiter_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/zusammenbau_textview"

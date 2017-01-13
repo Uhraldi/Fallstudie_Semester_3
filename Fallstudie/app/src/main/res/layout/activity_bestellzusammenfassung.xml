@@ -22,7 +22,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="@string/bestellzsmfassung_designer_textview"
+                android:text="@string/bestellzsmfassung_forschung_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_designer_textview"
@@ -98,7 +98,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:text="@string/bestellzsmfassung_versandart_textview"
+                android:text="@string/bestellzsmfassung_bezahlart_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_versandart_textview"
@@ -136,7 +136,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="@string/bestellzsmfassung_zusammenbau_textview"
+                android:text="@string/bestellzsmfassung_zeitarbeiter_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_zusammenbau_textview"
@@ -155,7 +155,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="@string/bestellzsmfassung_werbung_textview"
+                android:text="@string/bestellzsmfassung_marketing_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_werbung_textview"
@@ -174,7 +174,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="@string/bestellzsmfassung_kaufvolumen_textview"
+                android:text="@string/bestellzsmfassung_produktionsvolumen_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_kaufvolumen_textview"
