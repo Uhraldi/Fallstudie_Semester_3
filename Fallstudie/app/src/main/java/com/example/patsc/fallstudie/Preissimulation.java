@@ -324,7 +324,7 @@ public class Preissimulation{
                 break;
             }
             case "wenig": {
-                WerbungEkp = auftragssammlung.getAuftrag(RundenNr).getMarketing().getWenigEKP();
+                WerbungEkp = auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungEKP();
                 WerbungVkp = (WerbungEkp
                         * auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungPWS())
                         + WerbungEkp;

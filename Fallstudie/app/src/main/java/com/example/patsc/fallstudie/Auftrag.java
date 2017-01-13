@@ -374,7 +374,7 @@ public class Auftrag {
             }
             case Controller.MARKETING_WAHL_PRINTWERBUNG: {
                 marketing.setPrintwerbung(true);
-                fixKosten += marketing.getWenigEKP();
+                fixKosten += marketing.getPrintwerbungEKP();
                 pws += marketing.getPrintwerbungPWS();
                 break;
             }

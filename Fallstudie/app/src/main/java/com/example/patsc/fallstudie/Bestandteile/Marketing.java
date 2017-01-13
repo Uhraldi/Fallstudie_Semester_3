@@ -15,7 +15,7 @@ public class Marketing {
     //EKPs
     private double FernsehwerbungEKP = 5000;
     private double RadiowerbungEKP = 3000;
-    private double wenigEKP = 1000;
+    private double PrintwerbungEKP = 1000;
 
     //PWSs
     private double FernsehwerbungPWS = 0.4;
@@ -53,8 +53,8 @@ public class Marketing {
         return RadiowerbungEKP;
     }
 
-    public double getWenigEKP() {
-        return wenigEKP;
+    public double getPrintwerbungEKP() {
+        return PrintwerbungEKP;
     }
 
     public double getFernsehwerbungPWS() {
