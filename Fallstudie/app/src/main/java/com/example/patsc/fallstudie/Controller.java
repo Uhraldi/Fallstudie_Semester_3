@@ -61,7 +61,7 @@ public class Controller {
     public static final String SCHRITT_UHRWERK = "SCHRITT_UHRWERK"; // dritter Schritt Wahl des Uhrwerks und der Uhrenart
     public static final String SCHRITT_GEHAUESE = "SCHRITT_GEHAUSE"; // vierter Schritt Wahl des Gehäuses für die Uhr
    // private final String SCHRITT_DICHTHEIT = "SCHRITT_DICHTHEIT"; // fuenfter Schritt Wahl der Dichtheit
-   public static  final String SCHRITT_ZEITARBEITER = "SCHRITT_ZEITARBEITER"; // sechster Schritt Wahl Zeitarbeiter
+    public static  final String SCHRITT_ZEITARBEITER = "SCHRITT_ZEITARBEITER"; // sechster Schritt Wahl Zeitarbeiter
     public static  final String SCHRITT_MARKETING = "SCHRITT_MARKETING"; // siebter Schritt Wahl des Werbeetars
     public static final String SCHRITT_PRODUKTIONSVOLUMEN = "SCHRITT_PRODUKTIONSVOLUMEN"; // achter Schritt Wahl des Kaufvolumens
     public static final String SCHRITT_BEZAHLART = "SCHRITT_BEZAHLART"; // neunter Schritt Wahl der Versandart
@@ -107,6 +107,17 @@ public class Controller {
      * keine String Methode da final
      */
 
+    /*
+    How To für Jonas
+    // PRüfung des vorherigen Wertes, darf der neue boolean für diesen Schritt gesetzt werden?
+    Wenn ja weitergehen
+    Sonst Exception
+
+    setze alle boolean werte false
+    setze den neuen wert true
+
+    Das wars!
+     */
     public void setAENDERE_ARMBAND_boolean(boolean AENDERE_ARMBAND_boolean) {
         this.AENDERE_ARMBAND_boolean = AENDERE_ARMBAND_boolean;
     }
@@ -483,12 +494,12 @@ public class Controller {
         }
         //Wahl wird standardmässig auf Mittelmaessig gesetzt
         catch (Exception e){
-          //  aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleForschung(FORSCHUNG_WAHL_MITTELMAESIG); //ToDo Nullpointer Exception s.o. L483
+            aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().setMittelmaessig(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
 
-    } // Ende SetDesigner
+    } // Ende SetForschung
     public void setArmband (String armbandAuswahl) {
         try {
             if (SCHRITT_ARMBAND_boolean) {
@@ -502,9 +513,9 @@ public class Controller {
                 throw new Exception("Falscher Bestellschritt");
             }
         }
+        //Wahl wird standardmässig auf Holz gesetzt
         catch (Exception e){
-         //   aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleArmband(ARMBAND_WAHL_HOLZ); //ToDO Nullpointer Exception
-            //Klasse Auftragssammlung (ArrayList) Methode getAuftrag
+            aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getArmband().setHolz(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -567,8 +578,11 @@ public class Controller {
     public void setBezahlart (String bezahlartAuswahl)throws  Exception{    //TODO: Anpassung Namen
             if (SCHRITT_BEZAHLART_boolean){
                 if(bezahlartAuswahl.equals(BEZAHLART_WAHL_KREDITKARTE)|| bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL)|| bezahlartAuswahl.equals(BEZAHLART_WAHL_RECHNUNG))
-                { aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleVersandart(bezahlartAuswahl);
-                    setzeAlleSchritteFalse();}
+                { aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleVersandart(bezahlartAuswahl);}
+                //letzte Auswahl die gesetzt werden kan
+                else if (bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL)){
+                    setzeAlleSchritteFalse();
+                }
                 else{
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
                 }
@@ -609,7 +623,11 @@ public class Controller {
             if (SCHRITT_MARKETING_boolean){
                 if(marketingAuswahl.equals(MARKETING_WAHL_PRINTWERBUNG)||marketingAuswahl.equals(MARKETING_WAHL_FERNSEHWERBUNG)||marketingAuswahl.equals(MARKETING_WAHL_RADIOWERBUNG))
                 { aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleWerbung(marketingAuswahl);
-                    setzeAlleSchritteFalse();}
+                    }
+                // letzter Schritt der gesetzt werden kann; danach kann kein anderer mehr hinzukommen
+                else if (  marketingAuswahl.equals(MARKETING_WAHL_PRINTWERBUNG)){
+                    setzeAlleSchritteFalse();
+                }
                 else{
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
                 }
@@ -648,11 +666,7 @@ public class Controller {
     public  void kuendigen (int anzahlMitarbeiter){
     }
 
-
-
-
-
-    //Methoden zum abholen der Bestellpositionen, zur Anzeige er Bestellzusammenfassung
+        //Methoden zum abholen der Bestellpositionen, zur Anzeige er Bestellzusammenfassung
     public String getForschung( )throws Exception{
         String forschung ="";
             if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().isLowBudget()){
@@ -689,7 +703,6 @@ public class Controller {
                 armband = ARMBAND_WAHL_TEXTIL;
             }
             else{
-
                 throw new Exception("Keine Wahl getroffen");
             }
         return armband;
@@ -751,12 +764,19 @@ public class Controller {
     public String getBezahlart( )throws Exception{
         String bezahlart ="";
             if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getVersandart().isKreditkarte()){
+
                 bezahlart = BEZAHLART_WAHL_KREDITKARTE;
             }
             else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getVersandart().isPayPal()){
+                if (!bezahlart.equals("")){
+                    bezahlart = bezahlart + ", ";
+                }
                 bezahlart = BEZAHLART_WAHL_PAYPAL;
             }
             else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getVersandart().isRechnung()){
+                if (!bezahlart.equals("")){
+                    bezahlart = bezahlart + ", ";
+                }
                 bezahlart = BEZAHLART_WAHL_RECHNUNG;
             }
             else{
@@ -764,15 +784,23 @@ public class Controller {
             }
         return bezahlart;
     }//Ende getBezahlart
+
+    //ToDo mehrfachauswahl
     public String getMarketing( )throws Exception{
         String marketing ="";
             if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getMarketing().isRadiowerbung()){
                 marketing = MARKETING_WAHL_PRINTWERBUNG;
             }
             else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getMarketing().isFernsehwerbung()){
+                if (!marketing.equals("")){
+                    marketing = marketing + ", ";
+                }
                 marketing = MARKETING_WAHL_FERNSEHWERBUNG;
             }
             else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getMarketing().isPrintwerbung()){
+                if (!marketing.equals("")){
+                    marketing = marketing + ", ";
+                }
                 marketing = MARKETING_WAHL_RADIOWERBUNG;
             }
             else{
