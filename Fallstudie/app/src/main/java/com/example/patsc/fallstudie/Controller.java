@@ -513,67 +513,94 @@ public class Controller {
                 throw new Exception("Falscher Bestellschritt");
             }
         }
-        //Wahl wird standardmässig auf Holz gesetzt
+        //Wahl wird standardmässig auf Leder gesetzt
         catch (Exception e){
-            aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getArmband().setHolz(true);
+            aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getArmband().setLeder(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
     }// Ende SetArmband
-    public void setArmbandNeu (String armbandAuswahl)throws Exception{              //nach Zufall Z3
-            if (AENDERE_ARMBAND_boolean){
-                if(armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER|| armbandAuswahl==ARMBAND_WAHL_LEDER || armbandAuswahl==ARMBAND_WAHL_METALL|| armbandAuswahl==ARMBAND_WAHL_TEXTIL)
+    public void setArmbandNeu (String armbandAuswahl){              //nach Zufall Z3
+        try {
+            if (AENDERE_ARMBAND_boolean) {
+                if (armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER || armbandAuswahl == ARMBAND_WAHL_LEDER || armbandAuswahl == ARMBAND_WAHL_METALL || armbandAuswahl == ARMBAND_WAHL_TEXTIL)
                 // Prüfung ob das Material schon einmal gewaehlt wurde in Activity
-                { aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleArmband(armbandAuswahl);
-                    AENDERE_ARMBAND_boolean=false;}
-                else{
+                {
+                    aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleArmband(armbandAuswahl);
+                    AENDERE_ARMBAND_boolean = false;
+                } else {
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
                 }
-            }
-            else{
+            } else {
                 throw new Exception("Falscher Bestellschritt");
             }
+        }
+        //Wahl wird standarmäßig auf Kunstleder gesetzt
+        catch (Exception e){
+            aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getArmband().setKunstleder(true);
+            AENDERE_ARMBAND_boolean = false;
+            e.printStackTrace();
+            //ToDO vorherige Auswahl war Kunstleder
+            }
+        }
     }// Ende setArmbandNeu
-    public void setUhrwerk (String uhrwerkAuswahl) throws Exception{
-            if (SCHRITT_UHRWERK_boolean){
-                if(uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTROMECHANISCH)||uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTRONISCH)||uhrwerkAuswahl.equals(UHRWERK_WAHL_MECHANISCH))
-                { aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleUhrwerk(uhrwerkAuswahl);
-                    setzeAlleSchritteFalse();}
-                else{
-                    throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
-                }
-            }
-            else{
-                throw new Exception("Falscher Bestellschritt");
-            }
+    public void setUhrwerk (String uhrwerkAuswahl){
+         try {
+             if (SCHRITT_UHRWERK_boolean) {
+                 if (uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTROMECHANISCH) || uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTRONISCH) || uhrwerkAuswahl.equals(UHRWERK_WAHL_MECHANISCH)) {
+                     aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleUhrwerk(uhrwerkAuswahl);
+                     setzeAlleSchritteFalse();
+                 } else {
+                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
+                 }
+             } else {
+                 throw new Exception("Falscher Bestellschritt");
+             }
+         }
+         //Wahl wird standardmäßig auf Elektronisch gesetzt
+         catch (Exception e) {
+             aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getUhrwerk().setElektronisch(true);
+             setzeAlleSchritteFalse();
+         }
     }//Ende setUhrwek //
-    public void setGehaeuse (String gehaeuseAuswahl)throws Exception{
-            if (SCHRITT_GEHAUESE_boolean){
-                if(gehaeuseAuswahl.equals(GEHAEUSE_WAHL_GLAS)|| gehaeuseAuswahl.equals(GEHAEUSE_WAHL_HOLZ)||gehaeuseAuswahl.equals(GEHAEUSE_WAHL_KUNSTSTOFF)||gehaeuseAuswahl.equals(GEHAEUSE_WAHL_METALL))
-                { aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleGehaeuse(gehaeuseAuswahl);
-                    setzeAlleSchritteFalse();}
-                else{
-                    throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
-                }
-            }
-            else{
-                throw new Exception("Falscher Bestellschritt");
-            }
+    public void setGehaeuse (String gehaeuseAuswahl){
+         try {
+             if (SCHRITT_GEHAUESE_boolean) {
+                 if (gehaeuseAuswahl.equals(GEHAEUSE_WAHL_GLAS) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_HOLZ) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_KUNSTSTOFF) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_METALL)) {
+                     aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleGehaeuse(gehaeuseAuswahl);
+                     setzeAlleSchritteFalse();
+                 } else {
+                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
+                 }
+             } else {
+                 throw new Exception("Falscher Bestellschritt");
+             }
+         }
+         //Wahl wird standardmäßig auf Metall gesetzt
+         catch (Exception e) {
+             aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getGehaeuse().setMetall(true);
+             setzeAlleSchritteFalse();
+         }
     }// Ende setGehaeuse
-    public void setGehaeuseNeu (String gehaeuseAuswahl) throws Exception{                //nach Zufall Z
-            if (AENDERE_GEHAEUSE_boolean){
-                if(gehaeuseAuswahl.equals(GEHAEUSE_WAHL_GLAS)|| gehaeuseAuswahl.equals(GEHAEUSE_WAHL_HOLZ)||gehaeuseAuswahl.equals(GEHAEUSE_WAHL_KUNSTSTOFF)||gehaeuseAuswahl.equals(GEHAEUSE_WAHL_METALL)) {
-                    aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).korrigiereGehaeuse(gehaeuseAuswahl);
-                    AENDERE_GEHAEUSE_boolean=false;
-                }
-                else{
-                    throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
-                }
-            }
-            else{
-                throw new Exception("Falscher Bestellschritt");
-            }
-
+    public void setGehaeuseNeu (String gehaeuseAuswahl){                //nach Zufall Z
+         try {
+             if (AENDERE_GEHAEUSE_boolean) {
+                 if (gehaeuseAuswahl.equals(GEHAEUSE_WAHL_GLAS) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_HOLZ) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_KUNSTSTOFF) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_METALL)) {
+                     aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).korrigiereGehaeuse(gehaeuseAuswahl);
+                     AENDERE_GEHAEUSE_boolean = false;
+                 } else {
+                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
+                 }
+             } else {
+                 throw new Exception("Falscher Bestellschritt");
+             }
+         }
+         //Wahl wird standardmäßig auf Holz gesetzt
+         catch (Exception e) {
+             aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getGehaeuse().setHolz(true);
+             AENDERE_GEHAEUSE_boolean = false;
+             //ToDO vorherige Auswahl war Holz
+         }
     } // Ende setGehaeuseNeu
     public void setBezahlart (String bezahlartAuswahl)throws  Exception{    //TODO: Anpassung Namen
             if (SCHRITT_BEZAHLART_boolean){
