@@ -26,4 +26,8 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.0'
     testCompile 'junit:junit:4.12'
     compile files('src/main/java/com/example/patsc/fallstudie/libs/gson-2.8.0.jar')
+    compile files('src/main/java/com/example/patsc/fallstudie/libs/jaxrs-ri/lib/jersey-client.jar')
+    compile files('src/main/java/com/example/patsc/fallstudie/libs/jaxrs-ri/lib/jersey-common.jar')
+    compile files('src/main/java/com/example/patsc/fallstudie/libs/jaxrs-ri/lib/jersey-container-servlet.jar')
+    compile files('src/main/java/com/example/patsc/fallstudie/libs/jaxrs-ri/api/javax.ws.rs-api-2.0.1.jar')
 }
