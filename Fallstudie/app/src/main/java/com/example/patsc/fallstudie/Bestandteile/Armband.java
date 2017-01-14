@@ -38,6 +38,10 @@ public class Armband {
     private double metallRisiko = 0.08;
 
     //Zufall (z.B. Beliebtheit)
+    //ToDo
+    /*
+    Zufall:
+     */
     private double lederZufall = Math.random()*0.1;
     private double kunstlederZufall = Math.random()*0.1;
     private double holzZufall = Math.random()*0.1;

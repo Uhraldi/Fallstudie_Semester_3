@@ -68,23 +68,23 @@ public class Preissimulation{
     public void berechneDesigner(String auswahlDesigner) {
         switch (auswahlDesigner) {
             case "Marken": {
-                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getForschung().getMarkenEKP();
+                DesignerEkp = auftragssammlung.getAuftrag(RundenNr).getForschung().getMarkenEKP();
                 DesignerVkp = (DesignerEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getForschung().getMarkenPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getForschung().getMarkenPWS())
                         + DesignerEkp;
                 break;
             }
             case "Mittelmäßig": {
-                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getForschung().getMittelmaessigEKP();
+                DesignerEkp = auftragssammlung.getAuftrag(RundenNr).getForschung().getMittelmaessigEKP();
                 DesignerVkp = (DesignerEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getForschung().getMittelmaessigPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getForschung().getMittelmaessigPWS())
                         + DesignerEkp;
                 break;
             }
             case "Low Budget": {
-                DesignerEkp = auftragssammlung.getBestellposition(RundenNr).getForschung().getLowBudgetEKP();
+                DesignerEkp = auftragssammlung.getAuftrag(RundenNr).getForschung().getLowBudgetEKP();
                 DesignerVkp = (DesignerEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getForschung().getLowBudgetPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getForschung().getLowBudgetPWS())
                         + DesignerEkp;
                 break;
             }
@@ -96,47 +96,47 @@ public class Preissimulation{
     public void berechneArmband(String auswahlArmband) {
         switch (auswahlArmband) {
             case "Leder": {
-                ArmbandEkp = auftragssammlung.getBestellposition(RundenNr).getArmband().getLederEKP();
+                ArmbandEkp = auftragssammlung.getAuftrag(RundenNr).getArmband().getLederEKP();
                 ArmbandVkp = (ArmbandEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getLederPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getArmband().getLederPWS())
                         + (ArmbandEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getLederZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getArmband().getLederZufall())
                         + ArmbandEkp;
                 break;
             }
             case "Kunstleder": {
-                ArmbandEkp = auftragssammlung.getBestellposition(RundenNr).getArmband().getKunstlederEKP();
+                ArmbandEkp = auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederEKP();
                 ArmbandVkp = (ArmbandEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getKunstlederPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederPWS())
                         + (ArmbandEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getKunstlederZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederZufall())
                         + ArmbandEkp;
                 break;
             }
             case "Holz": {
-                ArmbandEkp = auftragssammlung.getBestellposition(RundenNr).getArmband().getHolzEKP();
+                ArmbandEkp = auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzEKP();
                 ArmbandVkp = (ArmbandEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getHolzPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzPWS())
                         + (ArmbandEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getHolzZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzZufall())
                         + ArmbandEkp;
                 break;
             }
             case "Textil": {
-                ArmbandEkp = auftragssammlung.getBestellposition(RundenNr).getArmband().getTextilEKP();
+                ArmbandEkp = auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilEKP();
                 ArmbandVkp = (ArmbandEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getTextilPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilPWS())
                         + (ArmbandEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getTextilZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilZufall())
                         + ArmbandEkp;
                 break;
             }
             case "Metall": {
-                ArmbandEkp = auftragssammlung.getBestellposition(RundenNr).getArmband().getMetallEKP();
+                ArmbandEkp = auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallEKP();
                 ArmbandVkp = (ArmbandEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getMetallPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallPWS())
                         + (ArmbandEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getArmband().getMetallZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallZufall())
                         + ArmbandEkp;
                 break;
             }
@@ -147,23 +147,23 @@ public class Preissimulation{
     public void berechneUhrwerk(String auswahlUhrwerk) {
         switch (auswahlUhrwerk) {
             case "Mechanisch": {
-                UhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getMechanischEKP();
+                UhrwerkEkp = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getMechanischEKP();
                 UhrwerkVkp = (UhrwerkEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getMechanischPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getMechanischPWS())
                         + UhrwerkEkp;
                 break;
             }
             case "Elektromechanisch": {
-                UhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getElektromechanischEKP();
+                UhrwerkEkp = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getElektromechanischEKP();
                 UhrwerkVkp = (UhrwerkEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getElektromechanischPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getElektromechanischPWS())
                         + UhrwerkEkp;
                 break;
             }
             case "Elektronisch": {
-                UhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getElektronischEKP();
+                UhrwerkEkp = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getElektronischEKP();
                 UhrwerkVkp = (UhrwerkEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getUhrwerk().getEletronischPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getEletronischPWS())
                         + UhrwerkEkp;
                 break;
             }
@@ -174,38 +174,38 @@ public class Preissimulation{
     public void berechneGehäuseUhrwerk(String auswahlGehäuseUhrwerk) {
         switch (auswahlGehäuseUhrwerk) {
             case "Glas": {
-                GehäuseUhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getGlasEKP();
+                GehäuseUhrwerkEkp = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasEKP();
                 GehäuseUhrwerkVkp = (GehäuseUhrwerkEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getGlasPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasPWS())
                         + (GehäuseUhrwerkEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getGlasZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasZufall())
                         + GehäuseUhrwerkEkp;
                 break;
             }
             case "Holz": {
-                GehäuseUhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getHolzEKP();
+                GehäuseUhrwerkEkp = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzEKP();
                 GehäuseUhrwerkVkp = (GehäuseUhrwerkEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getHolzPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzPWS())
                         + (GehäuseUhrwerkEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getHolzZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzZufall())
                         + GehäuseUhrwerkEkp;
                 break;
             }
             case "Kunststoff": {
-                GehäuseUhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getKunststoffEKP();
+                GehäuseUhrwerkEkp = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffEKP();
                 GehäuseUhrwerkVkp = (GehäuseUhrwerkEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getKunststoffPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffPWS())
                         + (GehäuseUhrwerkEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getKunststoffZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffZufall())
                         + GehäuseUhrwerkEkp;
                 break;
             }
             case "Metall": {
-                GehäuseUhrwerkEkp = auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getMetallEKP();
+                GehäuseUhrwerkEkp = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallEKP();
                 GehäuseUhrwerkVkp = (GehäuseUhrwerkEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getMetallPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallPWS())
                         + (GehäuseUhrwerkEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getGehaeuse().getMetallZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallZufall())
                         + GehäuseUhrwerkEkp;
                 break;
             }
@@ -215,30 +215,30 @@ public class Preissimulation{
 
     public void berechneVersandart(String auswahlVersandart) {
         switch (auswahlVersandart) {
-            case "Flugzeug": {
-                VersandartEkp = auftragssammlung.getBestellposition(RundenNr).getVersandart().getFlugzeugEKP();
+            case "Kreditkarte": {
+                VersandartEkp = auftragssammlung.getAuftrag(RundenNr).getVersandart().getKreditkarteEKP();
                 VersandartVkp = (VersandartEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getFlugzeugPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getVersandart().getKreditkartePWS())
                         + (VersandartEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getFlugzeugZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getVersandart().getKreditkarteZufall())
                         + VersandartEkp;
                 break;
             }
-            case "Schiff": {
-                VersandartEkp = auftragssammlung.getBestellposition(RundenNr).getVersandart().getSchiffEKP();
+            case "Rechnung": {
+                VersandartEkp = auftragssammlung.getAuftrag(RundenNr).getVersandart().getRechnungEKP();
                 VersandartVkp = (VersandartEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getSchiffPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getVersandart().getRechnungPWS())
                         + (VersandartEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getSchiffZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getVersandart().getRechnungZufall())
                         + VersandartEkp;
                 break;
             }
-            case "Landweg": {
-                VersandartEkp = auftragssammlung.getBestellposition(RundenNr).getVersandart().getLandwegEKP();
+            case "PayPal": {
+                VersandartEkp = auftragssammlung.getAuftrag(RundenNr).getVersandart().getPayPalEKP();
                 VersandartVkp = (VersandartEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getLandwegPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getVersandart().getPayPalPWS())
                         + (VersandartEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getVersandart().getLandwegZufall())
+                        * auftragssammlung.getAuftrag(RundenNr).getVersandart().getPayPalZufall())
                         + VersandartEkp;
                 break;
             }
@@ -249,23 +249,23 @@ public class Preissimulation{
   /*  public void berechneWasserdichtheit(String auswahlWasserdichtheit) {
         switch (auswahlWasserdichtheit) {
             case "nicht wassergeschützt": {
-                WasserdichtheitEkp = auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getNichtWassergeschütztEKP();
+                WasserdichtheitEkp = auftragssammlung.getAuftrag(RundenNr).getWasserdichtheit().getNichtWassergeschütztEKP();
                 WasserdichtheitVkp = (WasserdichtheitEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getNichtWassergeschütztPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getWasserdichtheit().getNichtWassergeschütztPWS())
                         + WasserdichtheitEkp;
                 break;
             }
             case "spritzwassergeschützt": {
-                WasserdichtheitEkp = auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getSpritzwassergeschütztEKP();
+                WasserdichtheitEkp = auftragssammlung.getAuftrag(RundenNr).getWasserdichtheit().getSpritzwassergeschütztEKP();
                 WasserdichtheitVkp = (WasserdichtheitEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getSpritzwassergeschütztPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getWasserdichtheit().getSpritzwassergeschütztPWS())
                         + WasserdichtheitEkp;
                 break;
             }
             case "wasserdicht": {
-                WasserdichtheitEkp = auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getWasserdichtEKP();
+                WasserdichtheitEkp = auftragssammlung.getAuftrag(RundenNr).getWasserdichtheit().getWasserdichtEKP();
                 WasserdichtheitVkp = (WasserdichtheitEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getWasserdichtheit().getWasserdichtPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getWasserdichtheit().getWasserdichtPWS())
                         + WasserdichtheitEkp;
                 break;
             }
@@ -276,30 +276,30 @@ public class Preissimulation{
     public void berechneProduktionsort (String auswahlProduktionsort) {
         switch (auswahlProduktionsort) {
             case "Geselle": {
-                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getGeselleEKP();
+                ProduktionsortEkp = auftragssammlung.getAuftrag(RundenNr).getZusammenbau().getGeselleEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getGesellePWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getZusammenbau().getGesellePWS())
                         + ProduktionsortEkp;
                 break;
             }
             case "Praktikant": {
-                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getPraktikantEKP();
+                ProduktionsortEkp = auftragssammlung.getAuftrag(RundenNr).getZusammenbau().getPraktikantEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getPraktikantPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getZusammenbau().getPraktikantPWS())
                         + ProduktionsortEkp;
                 break;
             }
             case "Lehrling": {
-                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getLehrlingEKP();
+                ProduktionsortEkp = auftragssammlung.getAuftrag(RundenNr).getZusammenbau().getLehrlingEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getLehrlingPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getZusammenbau().getLehrlingPWS())
                         + ProduktionsortEkp;
                 break;
             }
             case "Meister": {
-                ProduktionsortEkp = auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getMeisterEKP();
+                ProduktionsortEkp = auftragssammlung.getAuftrag(RundenNr).getZusammenbau().getMeisterEKP();
                 ProduktionsortVkp = (ProduktionsortEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getZusammenbau().getMeisterPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getZusammenbau().getMeisterPWS())
                         + ProduktionsortEkp;
                 break;
             }
@@ -310,23 +310,23 @@ public class Preissimulation{
     public void berechneWerbung (String auswahlWerbung) {
         switch (auswahlWerbung) {
             case "Fernsehwerbung": {
-                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getMarketing().getFernsehwerbungEKP();
+                WerbungEkp = auftragssammlung.getAuftrag(RundenNr).getMarketing().getFernsehwerbungEKP();
                 WerbungVkp = (WerbungEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getMarketing().getFernsehwerbungPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getMarketing().getFernsehwerbungPWS())
                         + WerbungEkp;
                 break;
             }
             case "mittel": {
-                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getMarketing().getRadiowerbungEKP();
+                WerbungEkp = auftragssammlung.getAuftrag(RundenNr).getMarketing().getRadiowerbungEKP();
                 WerbungVkp = (WerbungEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getMarketing().getRadiowerbungPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getMarketing().getRadiowerbungPWS())
                         + WerbungEkp;
                 break;
             }
             case "wenig": {
-                WerbungEkp = auftragssammlung.getBestellposition(RundenNr).getMarketing().getWenigEKP();
+                WerbungEkp = auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungEKP();
                 WerbungVkp = (WerbungEkp
-                        * auftragssammlung.getBestellposition(RundenNr).getMarketing().getPrintwerbungPWS())
+                        * auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungPWS())
                         + WerbungEkp;
                 break;
             }
@@ -339,23 +339,23 @@ public class Preissimulation{
 
     public void berechnePreis() {
        Einkaufspreis = DesignerEkp
-                        + ArmbandEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + UhrwerkEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + GehäuseUhrwerkEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + VersandartEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + WasserdichtheitEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + ProduktionsortEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + WerbungEkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + ArmbandEkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + UhrwerkEkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + GehäuseUhrwerkEkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + VersandartEkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + WasserdichtheitEkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + ProduktionsortEkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + WerbungEkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
                         ;
 
        Verkaufspreis = DesignerVkp
-                        + ArmbandVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + UhrwerkVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + GehäuseUhrwerkVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + VersandartVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + WasserdichtheitVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + ProduktionsortVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
-                        + WerbungVkp * auftragssammlung.getBestellposition(RundenNr).getMenge()
+                        + ArmbandVkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + UhrwerkVkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + GehäuseUhrwerkVkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + VersandartVkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + WasserdichtheitVkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + ProduktionsortVkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
+                        + WerbungVkp * auftragssammlung.getAuftrag(RundenNr).getMenge()
                         ;
     }
 

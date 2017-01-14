@@ -25,27 +25,27 @@ import static junit.framework.TestCase.fail;
  */
 
     /*
-    MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).setPreissim(
-                  MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getFixKosten()+
-                  (MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getVarKosten()) *
-                          (double)MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getMenge(),
-                  MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getVkp(), MarksTestBestellung);
+    MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).setPreissim(
+                  MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getFixKosten()+
+                  (MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getVarKosten()) *
+                          (double)MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getMenge(),
+                  MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getVkp(), MarksTestBestellung);
      */
 
 
     //Überprüfung of Auftragssammlung Stimmt
     /*
     if (
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getArmband().isLeder() &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getForschung().isLowBudget() &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getGehaeuse().isGlas() &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getZusammenbau().isPraktikant() &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getUhrwerk().isMechanisch() &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getMarketing().isFernsehwerbung() &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getWasserdichtheit().isNichtWassergeschützt() &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getVersandart().isSchiff() &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getVkp() == 1000.0 &&
-               MarksTestBestellung.getBestellposition(SpielDaten.getRundenAnzahl()).getMenge() == 10000
+               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getArmband().isLeder() &&
+               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getForschung().isLowBudget() &&
+               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getGehaeuse().isGlas() &&
+               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getZeitarbeiter().isPraktikant() &&
+               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getUhrwerk().isMechanisch() &&
+               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getMarketing().isFernsehwerbung() &&
+               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getWasserdichtheit().isNichtWassergeschützt() &&
+               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getBezahlart().isRechnung() &&
+               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getVkp() == 1000.0 &&
+               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getMenge() == 10000
                ){
           passed = true;
 
@@ -67,23 +67,23 @@ public class SpielerMachtAuftragssammlungTest {
 
     public void bestellen(Auftragssammlung auftragssammlung, String Armband, String Designer, String Gehaeuse, String Zusammenbau, String Uhrwerk, String Werbung, String Wasserdichtheit, String Versandart, Double VKP, int Menge, Daten Daten, Preissimulation Preissimulation) throws  Exception {
 
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleArmband(Armband);
+        auftragssammlung.getAuftrag(Daten.getRundenAnzahl()).bestelleArmband(Armband);
         Preissimulation.berechneArmband(Armband);
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleForschung(Designer);
+        auftragssammlung.getAuftrag(Daten.getRundenAnzahl()).bestelleForschung(Designer);
         Preissimulation.berechneDesigner(Designer);
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleGehaeuse(Gehaeuse);
+        auftragssammlung.getAuftrag(Daten.getRundenAnzahl()).bestelleGehaeuse(Gehaeuse);
         Preissimulation.berechneGehäuseUhrwerk(Gehaeuse);
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleZeitarbeiter(Zusammenbau);
+        auftragssammlung.getAuftrag(Daten.getRundenAnzahl()).bestelleZeitarbeiter(Zusammenbau);
         Preissimulation.berechneProduktionsort(Zusammenbau);
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleUhrwerk(Uhrwerk);
+        auftragssammlung.getAuftrag(Daten.getRundenAnzahl()).bestelleUhrwerk(Uhrwerk);
         Preissimulation.berechneUhrwerk(Uhrwerk);
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleWerbung(Werbung);
+        auftragssammlung.getAuftrag(Daten.getRundenAnzahl()).bestelleWerbung(Werbung);
         Preissimulation.berechneWerbung(Werbung);
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleWasserdichtheit(Wasserdichtheit);
-        Preissimulation.berechneWasserdichtheit(Wasserdichtheit);
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleVersandart(Versandart);
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleVKP(VKP);
-        auftragssammlung.getBestellposition(Daten.getRundenAnzahl()).bestelleMenge(Menge);
+        auftragssammlung.getAuftrag(Daten.getRundenAnzahl()).bestelleWasserdichtheit(Wasserdichtheit);
+       // Preissimulation.berechneWasserdichtheit(Wasserdichtheit);
+        auftragssammlung.getAuftrag(Daten.getRundenAnzahl()).bestelleVersandart(Versandart);
+        auftragssammlung.getAuftrag(Daten.getRundenAnzahl()).bestelleVKP(VKP);
+        auftragssammlung.getAuftrag(Daten.getRundenAnzahl()).bestelleMenge(Menge);
     }
 
 
@@ -94,7 +94,7 @@ public class SpielerMachtAuftragssammlungTest {
         marksTestAuftragssammlung.neueBestellpositon();
         Preissimulation MarksPreissim = new Preissimulation(SpielDaten.getRundenAnzahl(), marksTestAuftragssammlung);
         try {
-            bestellen(marksTestAuftragssammlung, "Leder", "LowBudget", "Glas", "Praktikant", "Mechanisch","Fernsehwerbung","Nicht Wassergeschützt", "Schiff", 1000.0 , 10000, SpielDaten, TestPreisSim);
+            bestellen(marksTestAuftragssammlung, "Leder", "LowBudget", "Glas", "Praktikant", "Mechanisch","Fernsehwerbung","Nicht Wassergeschützt", "Rechnung", 1000.0 , 10000, SpielDaten, TestPreisSim);
             TestPreisSim.berechnePreis();
             System.out.println(TestPreisSim.getEinkaufspreis());
             System.out.println(TestPreisSim.getVerkaufspreis());

@@ -20,7 +20,7 @@ import static junit.framework.Assert.fail;
 public class VersandArtTest {
 
     public static @DataPoints String[] VersandartWerte =
-            {"Flugzeug", "Schiff", "Landweg"};
+            {"Kreditkarte", "Rechnung", "PayPal"};
 
     @Theory
     public void bestelleVersandTest(String VersandartWerteWerte){
@@ -47,11 +47,11 @@ public class VersandArtTest {
     public void getVersandArtTest(){
         Auftrag testAuftrag = new Auftrag();
         try{
-            testAuftrag.bestelleVersandart("Schiff");
+            testAuftrag.bestelleVersandart("Rechnung");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(testAuftrag.getVersandart().isSchiff());
+        Assert.assertTrue(testAuftrag.getVersandart().isRechnung());
 
     }
 

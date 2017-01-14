@@ -38,7 +38,7 @@ public class ZeitarbeiterTest {
         Auftrag testAuftrag = new Auftrag();
         try{
             testAuftrag.bestelleZeitarbeiter(ProduktionsOrtWerte);
-            testAuftrag.korrigiereZusammenbau("Praktikant");
+            testAuftrag.korriegiereZeitarbeiter("Praktikant");
         }catch (Exception e){
             fail(e.getMessage());
         }

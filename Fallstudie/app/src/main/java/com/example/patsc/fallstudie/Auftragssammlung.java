@@ -20,7 +20,7 @@ public class Auftragssammlung {
         positionen.add(new Auftrag());
     }
 
-    public Auftrag getBestellposition(int i){
+    public Auftrag getAuftrag(int i){
         return positionen.get(i);
     }
 

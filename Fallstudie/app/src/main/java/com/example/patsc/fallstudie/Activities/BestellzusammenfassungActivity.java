@@ -43,7 +43,7 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
 
         TextView versandart_auswahl_output_textview = (TextView) findViewById(R.id.versandart_auswahl_output_textview);
         try {
-            versandart_auswahl_output_textview.setText(IntroductionActivity.Controller.getVersandart());
+            versandart_auswahl_output_textview.setText(IntroductionActivity.Controller.getBezahlart());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,14 +57,14 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
 
         TextView zusammenbau_auswahl_output_textview = (TextView) findViewById(R.id.zusammenbau_auswahl_output_textview);
         try {
-            zusammenbau_auswahl_output_textview.setText(IntroductionActivity.Controller.getZusammenbau());
+            zusammenbau_auswahl_output_textview.setText(IntroductionActivity.Controller.getZeitarbeiter());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView werbung_auswahl_output_textview = (TextView) findViewById(R.id.werbung_auswahl_output_textview);
         try {
-            werbung_auswahl_output_textview.setText(IntroductionActivity.Controller.getWerbung());
+            werbung_auswahl_output_textview.setText(IntroductionActivity.Controller.getMarketing());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -53,7 +53,7 @@ public class Marktsim {
         diff.clear();
         absatzreturn.clear();
 
-        Auftrag[] bp = Controller.getBestellpositionen();
+        Auftrag[] bp = Controller.getAuftrage();
 
         for(int i = 0; i < bp.length ;i++){
             bestellpos.set(i,bp[i]);
@@ -69,14 +69,14 @@ public class Marktsim {
 
         for (Auftrag s:  this.bestellpos) {
             double zw = 0;
-            if(s.getVersandart().isFlugzeug()){
-                zw += s.getVersandart().getFlugzeugZufall();
+            if(s.getVersandart().isKreditkarte()){
+                zw += s.getVersandart().getKreditkarteZufall();
             }
-            if(s.getVersandart().isLandweg()){
-                zw += s.getVersandart().getLandwegZufall();
+            if(s.getVersandart().isPayPal()){
+                zw += s.getVersandart().getPayPalZufall();
             }
-            if(s.getVersandart().isSchiff()){
-                zw += s.getVersandart().getSchiffZufall();
+            if(s.getVersandart().isRechnung()){
+                zw += s.getVersandart().getRechnungZufall();
             }
             if(s.getMarketing().isFernsehwerbung()){
                 zw += s.getMarketing().getFernsehwerbungPWS();
