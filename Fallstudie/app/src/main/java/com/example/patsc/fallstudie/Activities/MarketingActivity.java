@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
@@ -52,8 +53,14 @@ public class MarketingActivity extends AppCompatActivity {
         }
 
         Intent intent = new Intent(this, ArmbandActivity.class);
+        if (fernsehwerbung_checkbox.isChecked() || radiowerbung_checkbox.isChecked() || printwerbung_checkbox.isChecked()){
+            startActivity(intent);
+        } else {
+            Toast toast = Toast.makeText(this, "Bitte mindestens eine Option wählen", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
         finish();
-        startActivity(intent);
     }
 
 }
