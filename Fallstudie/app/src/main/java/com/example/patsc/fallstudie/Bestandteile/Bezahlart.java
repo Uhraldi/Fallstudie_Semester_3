@@ -4,7 +4,7 @@ package com.example.patsc.fallstudie.Bestandteile;
  * testable
  */
 
-public class Versandart {
+public class Bezahlart {
 
     //Auswahlen
     private boolean Kreditkarte = false;
@@ -30,7 +30,7 @@ public class Versandart {
     /**
      * Constructor
      */
-    public Versandart(){
+    public Bezahlart(){
 
     }
 
