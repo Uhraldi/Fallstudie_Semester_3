@@ -6,7 +6,7 @@ package com.example.patsc.fallstudie;
  * Created by Jonas on 02.01.17.
  */
 
-public class Preissimulation{
+public class Preissimulation {
 
     /*
     Wichtige Attribute
@@ -30,8 +30,15 @@ public class Preissimulation{
     private double Produktionsvolumen = auftragssammlung.getAuftrag(RundenNr).getMenge();
     private double Gesamtkosten;
     private double Stückkosten;
-    private double Reservationspreis;
 
+    private double Reservationspreis;
+    private double ReservapPersonalwesen;
+    private double ReservapZeitarbeiter;
+    private double ReservapForschung;
+    private double ReservapMarketing;
+    private double ReservapArmband;
+    private double ReservapUhrwerk;
+    private double ReservapGehäuse;
 
     /*
     Konstruktor für die Preissimulation
@@ -119,7 +126,7 @@ public class Preissimulation{
             default: System.err.println();
         }
         Fixkosten = FixkostenPersonalwesen + FixkostenForschung + FixkostenMarketing + FixkostenBezahlart;
-    }
+    } // Ende berechneFixkosten()
 
     /*
     Berechne die Variablen Stückkosten für einen Auftrag
@@ -203,7 +210,7 @@ public class Preissimulation{
         }
         VariableStückKosten = VariableStückkostenZeitarbeiter + VariableStückkostenArmband +
                 VariableStückkostenUhrwerk + VariableStückkostenGehäuse;
-    }
+    } // Ende berechneVariableStückkosten()
 
     /*
     Berechne die Variablen Kosten
@@ -229,11 +236,151 @@ public class Preissimulation{
     /*
     Berechne den Reservationspreis
      */
-    public void berechneReservationspreis() {
-        // ToDO
-    }
+    public void berechneReservationspreis(String ReservationspreisPersonalwesen, String ReservationspreisZeitarbeiter,
+                                          String ReservationspreisForschung, String ReservationspreisMarketing,
+                                          String ReservationspreisArmband, String ReservationspreisUhrwerk,
+                                          String ReservationspreisGehäuse) {
+        switch (ReservationspreisPersonalwesen) {
+            case "Eingestellte": {
+                // ReservapPersonalwesen = FixkostenPersonalwesen * (1 + )
+                break;
+            }
+            case "Veränderung": {
+                // ReservapPersonalwesen = FixkostenPersonalwesen * (1 + )
+                break;
+            }
+            default: System.err.println();
+        }
+        switch (ReservationspreisZeitarbeiter) {
+            case "Geselle": {
+                ReservapZeitarbeiter = VariableStückkostenZeitarbeiter *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getGesellePWS());
+                break;
+            }
+            case "Praktikant": {
+                ReservapZeitarbeiter = VariableStückkostenZeitarbeiter *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getPraktikantPWS());
+                break;
+            }
+            case "Lehrling": {
+                ReservapZeitarbeiter = VariableStückkostenZeitarbeiter *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getLehrlingPWS());
+                break;
+            }
+            case "Meister": {
+                ReservapZeitarbeiter = VariableStückkostenZeitarbeiter *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getMeisterPWS());
+                break;
+            }
+            default: System.err.println();
+        }
+        switch (ReservationspreisForschung) {
+            case "2500€ Investition": {
+                ReservapForschung = FixkostenForschung *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition2500PWS());
+                break;
+            }
+            case "1500€ Investition": {
+                ReservapForschung = FixkostenForschung *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition1500PWS());
+                break;
+            }
+            case "500€ Investition": {
+                ReservapForschung = FixkostenForschung *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition500PWS());
+                break;
+            }
+            default: System.err.println();
+        }
+        switch (ReservationspreisMarketing) {
+            case "Fernsehwerbung": {
+                ReservapMarketing = FixkostenMarketing *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getFernsehwerbungPWS());
+                break;
+            }
+            case "Radiowerbung": {
+                ReservapMarketing = FixkostenMarketing *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getRadiowerbungPWS());
+                break;
+            }
+            case "Printwerbung": {
+                ReservapMarketing = FixkostenMarketing *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungPWS());
+                break;
+            }
+            default: System.err.println();
+        }
+        switch (ReservationspreisArmband) {
+            case "Leder": {
+                ReservapArmband = VariableStückkostenArmband *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getLederPWS());
+                break;
+            }
+            case "Kunstleder": {
+                ReservapArmband = VariableStückkostenArmband *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederPWS());
+                break;
+            }
+            case "Holz": {
+                ReservapArmband = VariableStückkostenArmband *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzPWS());
+                break;
+            }
+            case "Textil": {
+                ReservapArmband = VariableStückkostenArmband *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilPWS());
+                break;
+            }
+            case "Metall": {
+                ReservapArmband = VariableStückkostenArmband *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallPWS());
+                break;
+            }
+            default: System.err.println();
+        }
+        switch (ReservationspreisUhrwerk) {
+            case "Mechanisch": {
+                ReservapUhrwerk = VariableStückkostenUhrwerk *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getMechanischPWS());
+                break;
+            }
+            case "Elektromechanisch": {
+                ReservapUhrwerk = VariableStückkostenUhrwerk *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getElektromechanischPWS());
+                break;
+            }
+            case "Elektronisch": {
+                ReservapUhrwerk = VariableStückkostenUhrwerk *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getEletronischPWS());
+                break;
+            }
+            default: System.err.println();
+        }
+        switch (ReservationspreisGehäuse) {
+            case "Glas": {
+                ReservapGehäuse = VariableStückkostenGehäuse *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasPWS());
+                break;
+            }
+            case "Holz": {
+                ReservapGehäuse = VariableStückkostenGehäuse *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzPWS());
+                break;
+            }
+            case "Kunststoff": {
+                ReservapGehäuse = VariableStückkostenGehäuse *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffPWS());
+                break;
+            }
+            case "Metall": {
+                ReservapGehäuse = VariableStückkostenGehäuse *
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallPWS());
+                break;
+            }
+            default: System.err.println();
+        }
+        Reservationspreis = (ReservapPersonalwesen + ReservapForschung + ReservapMarketing + FixkostenBezahlart)
+                + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse) * Produktionsvolumen);
+    } // Ende berechneReservationspreis()
 
-
-
-
-} //Ende Klasse
+} // Ende Klasse
