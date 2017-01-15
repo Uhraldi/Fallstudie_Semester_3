@@ -145,7 +145,8 @@ public class Auftrag {
     public void bestelleForschung(String eingabe) throws Exception{
         switch(eingabe){
             case Controller.FORSCHUNG_WAHL_HOCH: {
-                forschung.setMarken(true);
+                forschung.setInvestition2500(true); //Fehler korrigiert
+                //forschung.setMarken(true);
                 //Aenderungen patsch 12.01 10.23
                // fixKosten += forschung.getFixkostenInvestition2500();
                 fixKosten = forschung.getFixkostenInvestition2500(); //neu
