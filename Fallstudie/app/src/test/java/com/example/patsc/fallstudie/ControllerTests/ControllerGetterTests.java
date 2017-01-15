@@ -20,8 +20,8 @@ public class ControllerGetterTests {
     public final String SCHRITT_ZUSAMMENBAU = "SCHRITT_ZUSAMMENBAU"; // sechster Schritt Wahl Zeitarbeiter
     public final String SCHRITT_WERBUNG = "SCHRITT_WEBUNG"; // siebter Schritt Wahl des Werbeetars
     public final String SCHRITT_KAUFVOLUMEN = "SCHRITT_KAUFVOLUMEN"; // achter Schritt Wahl des Kaufvolumens
-    public final String SCHRITT_VERSANDART = "SCHRITT_BEZAHLART"; // neunter Schritt Wahl der Versandart
-    public final String SCHRITT_VERKAUFSPREIS = "SCHRITT_VERKAUFSPREIS"; // zehnter Schritt Wahl der Versandart
+    public final String SCHRITT_VERSANDART = "SCHRITT_BEZAHLART"; // neunter Schritt Wahl der Bezahlart
+    public final String SCHRITT_VERKAUFSPREIS = "SCHRITT_VERKAUFSPREIS"; // zehnter Schritt Wahl der Bezahlart
     Controller TestController = new Controller();
 
 

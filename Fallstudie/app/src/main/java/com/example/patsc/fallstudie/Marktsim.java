@@ -69,14 +69,14 @@ public class Marktsim {
 
         for (Auftrag s:  this.bestellpos) {
             double zw = 0;
-            if(s.getVersandart().isKreditkarte()){
-                zw += s.getVersandart().getKreditkarteZufall();
+            if(s.getBezahlart().isKreditkarte()){
+                zw += s.getBezahlart().getKreditkarteZufall();
             }
-            if(s.getVersandart().isPayPal()){
-                zw += s.getVersandart().getPayPalZufall();
+            if(s.getBezahlart().isPayPal()){
+                zw += s.getBezahlart().getPayPalZufall();
             }
-            if(s.getVersandart().isRechnung()){
-                zw += s.getVersandart().getRechnungZufall();
+            if(s.getBezahlart().isRechnung()){
+                zw += s.getBezahlart().getRechnungZufall();
             }
             if(s.getMarketing().isFernsehwerbung()){
                 zw += s.getMarketing().getFernsehwerbungPWS();

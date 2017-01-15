@@ -64,8 +64,8 @@ public class Controller {
     public static  final String SCHRITT_ZEITARBEITER = "SCHRITT_ZEITARBEITER"; // sechster Schritt Wahl Zeitarbeiter
     public static  final String SCHRITT_MARKETING = "SCHRITT_MARKETING"; // siebter Schritt Wahl des Werbeetars
     public static final String SCHRITT_PRODUKTIONSVOLUMEN = "SCHRITT_PRODUKTIONSVOLUMEN"; // achter Schritt Wahl des Kaufvolumens
-    public static final String SCHRITT_BEZAHLART = "SCHRITT_BEZAHLART"; // neunter Schritt Wahl der Versandart
-    public static final String SCHRITT_VERKAUFSPREIS = "SCHRITT_VERKAUFSPREIS"; // zehnter Schritt Wahl der Versandart
+    public static final String SCHRITT_BEZAHLART = "SCHRITT_BEZAHLART"; // neunter Schritt Wahl der Bezahlart
+    public static final String SCHRITT_VERKAUFSPREIS = "SCHRITT_VERKAUFSPREIS"; // zehnter Schritt Wahl der Bezahlart
     public static final String SCHRITT_PERSONALWESEN = "SCHRITT_PERSONALWESEN";
     // Zustände während der Auftragssammlung
     private boolean SCHRITT_FORSCHUNG_boolean = false;// erster Schritt Wahl des Designers
@@ -84,7 +84,7 @@ public class Controller {
     private boolean SCHRITT_ZEITARBEITER_boolean = false;// sechster Schritt Wahl Zeitarbeiter
     private boolean SCHRITT_MARKETING_boolean = false; // siebter Schritt Wahl des Werbeetars
     private boolean SCHRITT_PRODUKTIONSVOLUMEN_boolean = false; // achter Schritt Wahl des Kaufvolumens
-    private boolean SCHRITT_BEZAHLART_boolean = false; // neunter Schritt Wahl der Versandart
+    private boolean SCHRITT_BEZAHLART_boolean = false; // neunter Schritt Wahl der Bezahlart
     private boolean SCHRITT_VERKAUFSPREIS_boolean = false;
     private boolean SCHRITT_PERSONALWESEN_boolean = false;
 
@@ -296,7 +296,7 @@ public class Controller {
     public String getSCHRITT_UHRWERK() {
         return SCHRITT_UHRWERK;
     }
-    public String getSCHRITT_VERSANDART() {
+    public String getSCHRITT_BEZAHLART() {
         return SCHRITT_BEZAHLART;
     }
     public String getSCHRITT_MARKETING() {
@@ -311,13 +311,13 @@ public class Controller {
     public String getUHRWERK_WAHL_MECHANISCH() {
         return UHRWERK_WAHL_MECHANISCH;
     }
-    public String getVERSANDART_WAHL_Kreditkarte() {
+    public String getBEZAHLART_WAHL_Kreditkarte() {
         return BEZAHLART_WAHL_KREDITKARTE;
     }
-    public String getVERSANDART_WAHL_PayPal() {
+    public String getBEZAHLART_WAHL_PayPal() {
         return BEZAHLART_WAHL_PAYPAL;
     }
-    public String getVESANDART_WAHL_Rechnung() {
+    public String getBEZAHLART_WAHL_Rechnung() {
         return BEZAHLART_WAHL_RECHNUNG;
     }
    // public String getWASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT() {
@@ -358,7 +358,7 @@ public class Controller {
     public String getSchrittZusammenbau(){return SCHRITT_ZEITARBEITER;}
     public String getSchrittWerbung(){return SCHRITT_MARKETING;}
     public String getSchrittKaufvolumen(){return SCHRITT_PRODUKTIONSVOLUMEN;}
-    public String getSchrittVersandart(){return SCHRITT_BEZAHLART;}
+    public String getSchrittBezahlart(){return SCHRITT_BEZAHLART;}
     public String getSchrittVerkaufspreis(){return SCHRITT_VERKAUFSPREIS;}
 
     public Daten getDaten(){
@@ -605,7 +605,7 @@ public class Controller {
     public void setBezahlart (String bezahlartAuswahl)throws  Exception{    //TODO: Anpassung Namen
             if (SCHRITT_BEZAHLART_boolean){
                 if(bezahlartAuswahl.equals(BEZAHLART_WAHL_KREDITKARTE)|| bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL)|| bezahlartAuswahl.equals(BEZAHLART_WAHL_RECHNUNG))
-                { aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleVersandart(bezahlartAuswahl);}
+                { aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).bestelleBezahlart(bezahlartAuswahl);}
                 //letzte Auswahl die gesetzt werden kan
                 else if (bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL)){
                     setzeAlleSchritteFalse();
@@ -617,7 +617,7 @@ public class Controller {
             else{
                 throw new Exception("Falscher Bestellschritt");
             }
-    } //Ende set Versandart //
+    } //Ende set Bezahlart //
 
     public void setZeitarbeiter (String zeitarbeiterAuswahl)throws Exception{
         if (SCHRITT_ZEITARBEITER_boolean){
@@ -790,24 +790,24 @@ public class Controller {
     } // Ende getGehaeuse
     public String getBezahlart( )throws Exception{
         String bezahlart ="";
-            if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getVersandart().isKreditkarte()){
+            if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getBezahlart().isKreditkarte()){
 
                 bezahlart = BEZAHLART_WAHL_KREDITKARTE;
             }
-            else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getVersandart().isPayPal()){
+            else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getBezahlart().isPayPal()){
                 if (!bezahlart.equals("")){
                     bezahlart = bezahlart + ", ";
                 }
                 bezahlart = BEZAHLART_WAHL_PAYPAL;
             }
-            else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getVersandart().isRechnung()){
+            else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getBezahlart().isRechnung()){
                 if (!bezahlart.equals("")){
                     bezahlart = bezahlart + ", ";
                 }
                 bezahlart = BEZAHLART_WAHL_RECHNUNG;
             }
             else{
-                throw new Exception("Keine Auswahl der Versandart getroffen.");
+                throw new Exception("Keine Auswahl der Bezahlart getroffen.");
             }
         return bezahlart;
     }//Ende getBezahlart
@@ -1036,7 +1036,7 @@ public class Controller {
         SCHRITT_ZEITARBEITER_boolean = false;// sechster Schritt Wahl Zeitarbeiter
         SCHRITT_MARKETING_boolean = false; // siebter Schritt Wahl des Werbeetars
         SCHRITT_PRODUKTIONSVOLUMEN_boolean = false; // achter Schritt Wahl des Kaufvolumens
-        SCHRITT_BEZAHLART_boolean = false; // neunter Schritt Wahl der Versandart
+        SCHRITT_BEZAHLART_boolean = false; // neunter Schritt Wahl der Bezahlart
         SCHRITT_VERKAUFSPREIS_boolean = false;
         SCHRITT_PERSONALWESEN_boolean = false;
     }

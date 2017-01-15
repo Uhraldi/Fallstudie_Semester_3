@@ -30,7 +30,7 @@ public class Auftrag {
     private Gehaeuse gehaeuse = new Gehaeuse();
     private Zeitarbeiter zeitarbeiter = new Zeitarbeiter();
     private Uhrwerk uhrwerk = new Uhrwerk();
-    private Versandart versandart = new Versandart();
+    private Bezahlart bezahlart = new Bezahlart();
     private Wasserdichtheit wasserdichtheit = new Wasserdichtheit();
     private Marketing marketing = new Marketing();
     private Marktsim marktsim = null;
@@ -293,27 +293,27 @@ public class Auftrag {
      * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
      * @throws Exception
      */
-    public void bestelleVersandart(String eingabe) throws Exception {
+    public void bestelleBezahlart(String eingabe) throws Exception {
         switch (eingabe) {
             case "Kreditkarte": {
-                versandart.setKreditkarte(true);
-                varKosten += versandart.getKreditkarteEKP();
-                pws += versandart.getKreditkartePWS();
-                zufall += versandart.getKreditkarteZufall();
+                bezahlart.setKreditkarte(true);
+                varKosten += bezahlart.getKreditkarteEKP();
+                pws += bezahlart.getKreditkartePWS();
+                zufall += bezahlart.getKreditkarteZufall();
                 break;
             }
             case "Rechnung": {
-                versandart.setRechnung(true);
-                varKosten += versandart.getRechnungEKP();
-                pws += versandart.getRechnungPWS();
-                zufall += versandart.getRechnungZufall();
+                bezahlart.setRechnung(true);
+                varKosten += bezahlart.getRechnungEKP();
+                pws += bezahlart.getRechnungPWS();
+                zufall += bezahlart.getRechnungZufall();
                 break;
             }
             case "PayPal": {
-                versandart.setPayPal(true);
-                varKosten += versandart.getPayPalEKP();
-                pws += versandart.getPayPalPWS();
-                zufall += versandart.getPayPalZufall();
+                bezahlart.setPayPal(true);
+                varKosten += bezahlart.getPayPalEKP();
+                pws += bezahlart.getPayPalPWS();
+                zufall += bezahlart.getPayPalZufall();
                 break;
             }
             default: {
@@ -581,8 +581,8 @@ public class Auftrag {
         return zeitarbeiter;
     }
 
-    public Versandart getVersandart() {
-        return versandart;
+    public Bezahlart getBezahlart() {
+        return bezahlart;
     }
 
     //public Wasserdichtheit getWasserdichtheit() {
