@@ -10,8 +10,12 @@ import com.example.patsc.fallstudie.R;
 public class BerechnungActivity extends AppCompatActivity {
 
     /** Dauer der Wartezeit **/
-    private final int CALCULATION_DISPLAY_LENGTH = 10000;
+    private final int CALCULATION_DISPLAY_LENGTH = 10000;  //TODO: richtiges Warten auf andere Spieler
 
+    /**
+     *
+     * @param icicle
+     */
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);

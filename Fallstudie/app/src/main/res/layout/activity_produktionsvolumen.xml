@@ -90,7 +90,7 @@
         android:layout_below="@+id/produktionsvolumen_textview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="zwischen 100-10000" />
+        android:hint="zwischen 100-10.000" />
 
     <TextView
         android:text="@string/gesamtkosten_textview"

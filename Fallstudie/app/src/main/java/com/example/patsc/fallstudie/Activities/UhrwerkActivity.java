@@ -16,7 +16,10 @@ public class UhrwerkActivity extends AppCompatActivity {
     private Spinner UhrwerkSpinner;
     String auswahlUhrwerk;
 
-
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +76,12 @@ public class UhrwerkActivity extends AppCompatActivity {
 
     }
 
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+
+    /**
+     * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+     * @param view
+     * @throws Exception
+     */
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
@@ -83,6 +91,5 @@ public class UhrwerkActivity extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
-
 
 }

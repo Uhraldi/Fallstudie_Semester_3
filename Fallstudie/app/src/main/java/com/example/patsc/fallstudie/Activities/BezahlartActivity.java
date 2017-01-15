@@ -16,6 +16,10 @@ public class BezahlartActivity extends AppCompatActivity {
     CheckBox bankueberweisung_checkbox;
     CheckBox paypal_checkbox;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +41,12 @@ public class BezahlartActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
 
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+     * @param view
+     * @throws Exception
+     */
     public void goToNextActivity (View view) throws Exception {
 
         //Übergabe der Checkbox-Werte an Controller
@@ -46,7 +54,7 @@ public class BezahlartActivity extends AppCompatActivity {
             IntroductionActivity.Controller.setBezahlart("Kreditkarte");
         }
         if (bankueberweisung_checkbox.isChecked()){
-            IntroductionActivity.Controller.setBezahlart("Banküberweisung");
+            IntroductionActivity.Controller.setBezahlart("Rechnung");
         }
         if (paypal_checkbox.isChecked()){
             IntroductionActivity.Controller.setBezahlart("PayPal");

@@ -17,6 +17,10 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
     private Spinner GehaeuseSpinner;
     private String auswahlGehaeuse;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,12 +103,16 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
 
     }
 
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+    /**
+     * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+     * @param view
+     * @throws Exception
+     */
     public void goToNextActivity(View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
         if(IntroductionActivity.Controller.getGehaeuse().equals(auswahlGehaeuse)) {
-            Toast toast = Toast.makeText(this, "Diese Option geht leider nicht mehr", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Diese Option ist leider nicht mehr verfügbar", Toast.LENGTH_SHORT);
         } else {
             IntroductionActivity.Controller.setGehaeuseNeu(auswahlGehaeuse);
         }
@@ -121,12 +129,5 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
 
         finish();
     }
-
-//Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
-/*    public void goToPreviousActivity (View view) {
-        Intent intent = new Intent (this, UhrwerkActivity.class);
-        startActivity(intent);
-    }*/
-
 
 }

@@ -22,7 +22,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="@string/bestellzsmfassung_forschung_textview"
+                android:text="Personalwesen: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_designer_textview"
@@ -32,7 +32,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/designer_auswahl_output_textview"
+                android:id="@+id/personalwesen_output"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -41,7 +41,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="@string/bestellzsmfassung_armband_textview"
+                android:text="Zeitarbeiter: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_armband_textview"
@@ -51,7 +51,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/armband_auswahl_output_textview"
+                android:id="@+id/zeitarbeiter_output"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -60,7 +60,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="@string/bestellzsmfassung_uhrwerk_textview"
+                android:text="Forschungsinvestition:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_uhrwerk_textview"
@@ -70,7 +70,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/uhrwerk_auswahl_output_textview"
+                android:id="@+id/forschung_output"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -79,7 +79,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:text="@string/bestellzsmfassung_gehaeuse_textview"
+                android:text="Marketingkanäle:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_gehaeuse_textview"
@@ -89,7 +89,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/gehaeuse_auswahl_output_textview"
+                android:id="@+id/marketing_output"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -98,7 +98,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:text="@string/bestellzsmfassung_bezahlart_textview"
+                android:text="Armbandmaterial:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_versandart_textview"
@@ -108,7 +108,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/versandart_auswahl_output_textview"
+                android:id="@+id/armband_output"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -117,7 +117,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="@string/bestellzsmfassung_wasserdichtheit_textview"
+                android:text="Uhrwerk:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_wasserdichtheit_textview"
@@ -127,7 +127,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/wasserdichtheit_auswahl_output_textview"
+                android:id="@+id/uhrwerk_output"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -136,7 +136,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="@string/bestellzsmfassung_zeitarbeiter_textview"
+                android:text="Gehäusematerial:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_zusammenbau_textview"
@@ -146,7 +146,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/zusammenbau_auswahl_output_textview"
+                android:id="@+id/gehaeuse_output"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -155,7 +155,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="@string/bestellzsmfassung_marketing_textview"
+                android:text="Bezahlarten: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bestellzsmfassung_werbung_textview"
@@ -165,7 +165,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/werbung_auswahl_output_textview"
+                android:id="@+id/bezahlart_output"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -184,7 +184,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/kaufvolumen_auswahl_output_textview"
+                android:id="@+id/produktionsvolumen_output"
                 android:layout_margin="5dp" />
         </TableRow>
 
@@ -203,20 +203,11 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/verkaufspreis_auswahl_output_textview"
+                android:id="@+id/verkaufspreis_output"
                 android:layout_margin="5dp" />
 
         </TableRow>
     </TableLayout>
-
-    <Button
-        android:text="Bestätige Bestellung"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bestellzsmfassung_button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="goToNextActivity"/>
 
     <TextView
         android:text="@string/bestellzsmfassung_textview"
@@ -226,5 +217,15 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Bestätige Auftrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bestellzsmfassung_button"
+        android:onClick="goToNextActivity"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp" />
 
 </RelativeLayout>

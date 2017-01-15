@@ -79,7 +79,6 @@
         android:layout_alignParentStart="true" />
 
     <CheckBox
-        android:text="Fernsehwerbung (5000€)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fernsehwerbung_checkbox"
@@ -87,7 +86,8 @@
         android:layout_below="@+id/marketing_textview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="onCheckboxClicked"/>
+        android:onClick="onCheckboxClicked"
+        android:text="Fernsehwerbung (13000€)" />
 
     <TextView
         android:text="@string/gesamtkosten_textview"
@@ -101,7 +101,7 @@
         android:layout_alignParentStart="true" />
 
     <CheckBox
-        android:text="Radiowerbung (3000€)"
+        android:text="Radiowerbung (5000€)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/radiowerbung_checkbox"
@@ -111,7 +111,7 @@
         android:onClick="onCheckboxClicked"/>
 
     <CheckBox
-        android:text="Printwerbung (1000€)"
+        android:text="Printwerbung (2000€)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/printwerbung_checkbox"

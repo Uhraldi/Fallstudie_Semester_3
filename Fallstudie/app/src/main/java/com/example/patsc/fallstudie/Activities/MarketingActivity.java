@@ -16,6 +16,10 @@ public class MarketingActivity extends AppCompatActivity {
     CheckBox radiowerbung_checkbox;
     CheckBox printwerbung_checkbox;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +41,11 @@ public class MarketingActivity extends AppCompatActivity {
     }
 
 
-
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+    /**
+     * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+     * @param view
+     * @throws Exception
+     */
     public void goToNextActivity (View view) throws Exception {
 
         //Übergabe der Checkbox-Werte an Controller
@@ -53,6 +60,8 @@ public class MarketingActivity extends AppCompatActivity {
         }
 
         Intent intent = new Intent(this, ArmbandActivity.class);
+
+        //Überprüfung ob mindestens eine Checkbox aktiviert wurde, dann Weiterleitung, sonst Toast
         if (fernsehwerbung_checkbox.isChecked() || radiowerbung_checkbox.isChecked() || printwerbung_checkbox.isChecked()){
             startActivity(intent);
         } else {

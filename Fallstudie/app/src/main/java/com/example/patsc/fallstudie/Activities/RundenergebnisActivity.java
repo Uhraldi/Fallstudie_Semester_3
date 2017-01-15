@@ -13,8 +13,8 @@ public class RundenergebnisActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rundenergebnis);
         IntroductionActivity.Controller.setActivity_Rundenergebnis();
 
-        //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Controller-Methoden zum Anzeigen der Rundenergebnisse
-/*        TextView spieler_output = (TextView) findViewById(R.id.spieler_output);
+/*        //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Controller-Methoden zum Anzeigen der Rundenergebnisse
+       TextView spieler_output = (TextView) findViewById(R.id.spieler_output);
         spieler_output.setText(IntroductionActivity.Controller.getSpielername());
 
         TextView runde_output = (TextView) findViewById(R.id.runde_output);
@@ -33,7 +33,7 @@ public class RundenergebnisActivity extends AppCompatActivity {
         guthaben_output.setText(IntroductionActivity.Controller.getGuthaben());
 
         TextView position_output = (TextView) findViewById(R.id.position_output);
-        position_output.setText(IntroductionActivity.Controller.getPosition());*/
+        position_output.setText(IntroductionActivity.Controller.getPosition()); */
     }
 
 

@@ -17,6 +17,10 @@ public class ForschungActivity extends AppCompatActivity {
     private Spinner ForschungSpinner;
     String auswahlForschung;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +35,7 @@ public class ForschungActivity extends AppCompatActivity {
         addListenertoForschungSpinner();
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
-       TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
+        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
         gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
         stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
@@ -73,12 +77,16 @@ public class ForschungActivity extends AppCompatActivity {
 
     }
 
-
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+    /**
+     * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+     * @param view
+     * @throws Exception
+     */
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Controller um Forschung zu setzen
+        //Methodenaufruf von Controller um Forschungsauswahl zu setzen
         IntroductionActivity.Controller.setForschung(auswahlForschung);
+
         Intent intent = new Intent(this, MarketingActivity.class);
         startActivity(intent);
         finish();

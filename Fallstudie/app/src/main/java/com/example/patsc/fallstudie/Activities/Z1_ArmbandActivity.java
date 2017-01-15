@@ -17,6 +17,10 @@ public class Z1_ArmbandActivity extends AppCompatActivity {
     private Spinner ArmbandSpinner;
     private String auswahlArmband;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,13 +109,16 @@ public class Z1_ArmbandActivity extends AppCompatActivity {
     }
 
 
-
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+    /**
+     * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+     * @param view
+     * @throws Exception
+     */
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen, mit Prüfung ob anderer Wert als vorher
         if(IntroductionActivity.Controller.getArmband().equals(auswahlArmband)) {
-            Toast toast = Toast.makeText(this, "Diese Option geht leider nicht mehr", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Diese Option ist leider nicht mehr verfügbar", Toast.LENGTH_SHORT);
         } else {
             IntroductionActivity.Controller.setArmbandNeu(auswahlArmband);
         }
@@ -131,24 +138,6 @@ public class Z1_ArmbandActivity extends AppCompatActivity {
 
         finish();
     }
-
-    //Methode fuer den zurueck_button um zur vorherigen Activity/Screen zu navigieren
-/*
-    public void goToPreviousActivity (View view) {
-        this.finish();
-    }
-*/
-
-
-
-/*
-    //speichert den aktuellen Zustand des Spinners (um wiederhergestellt werden zu können)
-    @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putInt("ArmbandSpinner", ArmbandSpinner.getSelectedItemPosition());
-    }
-*/
 
 }
 

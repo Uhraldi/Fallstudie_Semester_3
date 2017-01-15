@@ -253,7 +253,7 @@
     </TableLayout>
 
     <TextView
-        android:text='Fernsehwerbungen Dank, dass Sie bei "ManufaktUhr" mitgespielt haben. Wir hoffen, es hat Ihnen gefallen.'
+        android:text='Vielen Dank, dass Sie bei "ManufaktUhr" mitgespielt haben. Wir hoffen, es hat Ihnen gefallen.'
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="114dp"

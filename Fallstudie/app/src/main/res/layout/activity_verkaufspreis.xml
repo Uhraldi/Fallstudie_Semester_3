@@ -33,7 +33,7 @@
         android:id="@+id/verkaufspreis_info_textview" />
 
     <TextView
-        android:text="@string/stueckkosten_textview"
+        android:text="Stückkosten: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
@@ -92,7 +92,7 @@
         android:hint="z.B.: 129,99€" />
 
     <TextView
-        android:text="@string/gesamtkosten_textview"
+        android:text="Gesamtkosten:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="58dp"
@@ -108,7 +108,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/verkaufspreis_textview"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="77dp"
         android:layout_below="@+id/verkaufspreis_info_textview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

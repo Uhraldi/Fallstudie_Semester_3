@@ -858,6 +858,19 @@ public class Controller {
         return guthaben;
     }
 
+
+    //TODO: getGesamtkosten und getStueckkosten fuer Anzeige bei VerkaufspreisActivity
+    public float getGesamtkosten () {
+        return gesamtkosten;
+    }
+
+    public float getStueckkosten () {
+        return stueckkosten;
+    }
+
+
+
+
     // Methoden für die Ereignisse
     //Methoden zum Überprüfen ob ein Zufall eingetreten ist, entsprechende Weiterleitung der Activities
     public boolean isZufall1 ()throws Exception{ // Zufall 1 = Armband Ändern

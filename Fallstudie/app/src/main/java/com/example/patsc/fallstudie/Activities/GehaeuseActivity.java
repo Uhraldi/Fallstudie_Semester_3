@@ -16,7 +16,10 @@ public class GehaeuseActivity extends AppCompatActivity {
     private Spinner GehaeuseSpinner;
     String auswahlGehaeuse;
 
-
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +75,12 @@ public class GehaeuseActivity extends AppCompatActivity {
 
     }
 
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+
+    /**
+     * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+     * @param view
+     * @throws Exception
+     */
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen

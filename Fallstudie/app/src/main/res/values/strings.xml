@@ -5,7 +5,7 @@
 
     //fuer alle Activities
     <string name="gesamtkosten_textview">Fixkosten:</string>
-    <string name="stueckkosten_textview">variable Kosten:</string>
+    <string name="stueckkosten_textview">variable Stückkosten:</string>
     <string name="zurueck_button">Zurück</string>
     <string name="weiter_button">Weiter</string>
 
@@ -23,19 +23,19 @@ Im Anschluss daran kann man eine Runde aussetzen, mit den gleichen Werten noch e
 
     //Strings fuer Login
 
-    <string name="login_info_textview">"Hier können Sie sich mit ihrem Spielernamen und Ihrem Passwort einloggen.
-Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebigen Spielernamen und ein sicheres Passwort aus und klicken Sie auf 'Neuer Account'. Danach geben Sie die zuvor gewählten Daten erneut ein und wählen 'Einloggen'."</string>
+    <string name="login_info_textview">Hier können Sie sich mit ihrem Spielernamen und Ihrem Passwort einloggen.
+    Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebigen Spielernamen und ein sicheres Passwort aus und klicken Sie auf 'Neuer Account'. Anschließend geben Sie Ihre gewählten Anmeldedaten erneut ein und klicken Sie auf 'Einloggen'.</string>
     <string name="login_username_textview">Nutzername</string>
     <string name="login_password_textview">Passwort</string>
 
     //Strings fuer Forschung
 
-    <string name="forschung_info_textview">Hier können Sie den forschung für Ihre Uhren auswählen. Dieser Preis wird nicht pro Uhr sondern für alle Uhren zusammen berechnet. Die Wahl des forschungs und somit die unterschiedliche Qualität beeinflusst wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen.</string>
+    <string name="forschung_info_textview">Hier können Sie entscheiden, wieviel Sie in der aktuellen Periode in Ihre Forschungs- und Entwicklungsabteilung investieren möchten. Diese ist zuständig für Design und Konzeption der Uhr. Höhere Investitionsausgaben spiegeln sich später in einer erhöhten Beliebtheit und Kaufbereitschaft der Kunden wieder. Diese Investitionsausgaben wirken sich auf Ihre Fixkosten aus. </string>
     <string name="forschung_textview">Investitionshöhe für Forschung und Entwicklung</string>
     <string-array name="forschung_spinner_array">
-        <item>5000€ Investition</item>
-        <item>3000€ Investition</item>
-        <item>1000€ Investition</item>
+        <item>15000€ Investition</item>
+        <item>8000€ Investition</item>
+        <item>2500€ Investition</item>
     </string-array>
 
 
@@ -77,7 +77,7 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
 
     //Strings fuer Bezahlart
 
-    <string name="bezahlart_info_textview">Hier können Sie die bezahlart für Ihre Uhren auswählen. Die Wahl der bezahlart und somit eine schnellere oder langsamere Lieferung beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
+    <string name="bezahlart_info_textview">Hier können Sie entscheiden, welche Bezahlarten Sie ihren Kunden anbieten möchten. Für die verschiedenen Bezahlarten ist bei den Anbietern (MasterCard, PayPal etc.) eine jährliche Pauschalgebühr zu entrichten um diese Optionen anbieten zu können. Flexiblere Bezahlmöglichkeiten erhöhen die Kundenzufriedenheit und wirken sich positiv auf mögliche Absatzzahlen aus. Diese Gebühren wirken sich auf Ihre Fixkosten aus. </string>
     <string name="bezahlart_textview">Anbieten von folgenden Bezahlarten: </string>
 
 
@@ -95,7 +95,7 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
 
     //Strings fuer Zeitarbeiter
 
-    <string name="zeitarbeiter_info_textview">Hier können Sie den Produktionsort für Ihre Uhren auswählen. Die Wahl des Produktionsortes und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
+    <string name="zeitarbeiter_info_textview">In Ihrem Unternehmen werden die Uhren von Zeitarbeitern hergestellt. Hier können Sie den Qualifikationsgrad dieser Arbeiter auswählen. Die Wahl des Qualifikationsgrads wirkt sich auf die Qualität und damit auf die Beliebtheit der Uhren aus. Entsprechend sind die Kunden bereit mehr oder weniger für Ihre Uhren zu zahlen. Eventuell kommt es vor, dass gewisse Entscheidungsalternativen auf Grund von unvorhersehbaren Ereignissen nicht mehr verfügbar sind.</string>
     <string name="zeitarbeiter_textview">Qualifikationsgrad der Zeitarbeiter</string>
     <string-array name="zeitarbeiter_spinner_array">
         <item>Geselle (4,5€)</item>
@@ -107,36 +107,36 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
 
     //Strings fuer Marketing
 
-    <string name="marketing_info_textview">Hier können Sie den Umfang der marketing für Ihre Uhren auswählen. Der Umfang der marketing und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen.</string>
+    <string name="marketing_info_textview">Um Ihre Uhren an die Kunden zu bringen, müssen Sie eine Werbekampagne durchführen. Hier können Sie entscheiden welche Kommunikationskanäle dafür verwendet werden sollen. Eine umfangreichere Werbekampagne spricht mehr Kunden an und ermöglicht höhere Absatzzahlen. Diese Investitionsausgaben wirken sich auf Ihre Fixkosten aus.</string>
     <string name="marketing_textview">Umfang der Werbekampagne</string>
 
 
 
     //Strings fuer Produktionsvolumen
 
-    <string name="produktionsvolumen_info_textview">Hier können Sie schließlich angeben, was für eine Menge an Uhren Sie kaufen möchten. Der Gesamtpreis pro Uhr befindet sich unten. Bedenken Sie, dass Sie ihr Budget nicht überschreiten dürfen und mindestens 100 Uhren kaufen müssen sowie höchstens 10.000 Uhren kaufen dürfen.</string>
-    <string name="produktionsvolumen_textview">Festlegung des Produktionsvolumen für die akuelle GeschäftsPeriode</string>
+    <string name="produktionsvolumen_info_textview">Hier können Sie das gewünschte Produktionsvolumen für die aktuelle Periode festlegen. Die aktuellen Fixkosten und variablen Kosten sehen Sie unten. Bedenken Sie, dass Sie ihr Budget nicht überschreiten dürfen und maximal 100 bis 10.000 Uhren produzieren können. </string>
+    <string name="produktionsvolumen_textview">Gewünschtes Produktionsvolumen</string>
 
 
     //Strings fuer Verkaufspreis
 
-    <string name="verkaufspreis_info_textview">In diesem letzten Schritt wählen Sie Ihren geplanten Verkaufspreis der Uhren an. Hierbei handelt es sich um den Stückpreis für eine Uhr.</string>
+    <string name="verkaufspreis_info_textview">Bitte wählen Sie im letzten Schritt den Verkaufspreis (pro Uhr) zu dem Sie ihre Uhren am Absatzmarkt veräußern wollen. Als Grundlage werde Ihnen unten die aktuellen Stückkosten für die Herstellung einer Uhr angezeigt (Die Fixkosten wurden auf das Produktionsvolumen verteilt). Die Gewinnmarge können Sie somit selbst festlegen. </string>
     <string name="verkaufspreis_textview">Festlegung des Verkaufspreis (pro Uhr)</string>
 
 
     //Strings fuer Bestellzusammenfassung
 
-    <string name="bestellzsmfassung_textview">Unten aufgelistet finden Sie Ihre Bestellzusammenfassung, basierend auf
-    den Entscheidungen, die Sie vorab getroffen haben. Bitte bestätigen Sie die Bestellung unten.</string>
-    <string name="bestellzsmfassung_forschung_textview">forschung:</string>
+    <string name="bestellzsmfassung_textview">Unten aufgelistet finden Sie Ihre Auftragszusammenfassung, basierend auf
+    den Entscheidungen, die Sie vorab getroffen haben. Bitte bestätigen Sie den Auftrag unten.</string>
+    <string name="bestellzsmfassung_forschung_textview">Forschungsinvestition:</string>
     <string name="bestellzsmfassung_armband_textview">Armbandmaterial:</string>
     <string name="bestellzsmfassung_uhrwerk_textview">Uhrwerkart:</string>
     <string name="bestellzsmfassung_gehaeuse_textview">Gehäusematerial:</string>
-    <string name="bestellzsmfassung_bezahlart_textview">bezahlart:</string>
+    <string name="bestellzsmfassung_bezahlart_textview">Bezahlarten:</string>
     <string name="bestellzsmfassung_wasserdichtheit_textview">Wasserdichtheit:</string>
-    <string name="bestellzsmfassung_zeitarbeiter_textview">Produktionsstätte:</string>
-    <string name="bestellzsmfassung_marketing_textview">marketing:</string>
-    <string name="bestellzsmfassung_produktionsvolumen_textview">produktionsvolumen:</string>
+    <string name="bestellzsmfassung_zeitarbeiter_textview">Zeitarbeiter:</string>
+    <string name="bestellzsmfassung_marketing_textview">Marketingmaßnahmen:</string>
+    <string name="bestellzsmfassung_produktionsvolumen_textview">Produktionsvolumen:</string>
     <string name="bestellzsmfassung_verkaufspreis_textview">Verkaufspreis:</string>
 
 
@@ -163,15 +163,19 @@ Aufgrund der gesellschaftlichen Kritik an Kunststoff können Sie leider kein Geh
 Aufgrund eines Streiks in der Metallbranche können Sie leider kein Gehäuse aus Metall auswählen. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
 
     <string name="z3Geselle_info_textview">"Upps!
-Aufgrund eines Streiks in den Fabriken können Sie leider nicht den Produktionsort Geselle auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
+Aufgrund der vielen Überstunden der Gesellen können Sie leider keine Gesellen als Zeitarbeiter auswählen. Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
     <string name="z3Praktikant_info_textview">"Upps!
-Aufgrund einer Naturkatastrophe können Sie leider nicht den Produktionsort Praktikant auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
+Aufgrund von anstehenden Pflichtschulungen der Praktikanten können Sie leider keine Praktikanten als Zeitarbeiter auswählen.Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
     <string name="z3Lehrling_info_textview">"Upps!
-Aufgrund eines Putsches können Sie leider nicht den Produktionsort Lehrling auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
+Aufgrund einer grassierenden Grippewelle in den Berufsschulen können Sie leider keine Lehrlinge als Zeitarbeiter auswählen. Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
     <string name="z3Meister_info_textview">"Upps!
-Aufgrund eines Streiks in den Fabriken können Sie leider nicht den Produktionsort Meister auswählen. Bitte entscheiden Sie sich für einen anderen Produktionsort." </string>
+Da alle Meister ausgebucht sind, können Sie leider keine Meister als Zeitarbeiter auswählen. Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
 
     //String fuer Berechnung
-    <string name="berechnung_info_textview">Die Bestellung wurde getätigt und die Produktion ist angelaufen. Bitte haben Sie etwas Geduld.</string>
+    <string name="berechnung_info_textview">Die Bestellungen wurden getätigt und die Produktion ist angelaufen. Bitte haben Sie etwas Geduld.</string>
+
+
+
+    <string name="personalwesen_info_textview">Hier können Sie unternehmensinterne Personalentscheidungen vornehmen.  Zu Beginn haben Sie 5 Mitarbeiter im Unternehmen. Sie können hier enscheiden, ob und wieviele Mitarbeiter Sie einstellen oder kündigen möchten. Diese Entscheidungen werden auf Grund von Kündigungsfristen erst in der nächsten Periode wirksam. Personalkosten wirken sich auf Ihre Fixkosten aus.</string>
 
 </resources>

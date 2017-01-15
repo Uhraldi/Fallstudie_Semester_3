@@ -33,7 +33,6 @@
         <activity android:name=".Activities.UhrwerkActivity" />
         <activity android:name=".Activities.GehaeuseActivity" />
         <activity android:name=".Activities.BezahlartActivity" />
-        <activity android:name=".Activities.WasserdichtheitActivity" />
         <activity android:name=".Activities.ZeitarbeiterActivity" />
         <activity android:name=".Activities.MarketingActivity" />
         <activity android:name=".Activities.ProduktionsvolumenActivity" />

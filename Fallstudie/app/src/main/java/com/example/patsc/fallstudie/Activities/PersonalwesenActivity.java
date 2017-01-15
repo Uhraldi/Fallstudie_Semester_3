@@ -10,13 +10,17 @@ import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
-public class PersonalwesenActivity extends AppCompatActivity { //TODO: Personalwesen
+public class PersonalwesenActivity extends AppCompatActivity {
 
     RadioButton einstellen_radiobutton;
     RadioButton kuendigen_radiobutton;
     int auswahlEinstellen;
     int auswahlKuendigen;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,10 +47,15 @@ public class PersonalwesenActivity extends AppCompatActivity { //TODO: Personalw
         stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
     }
 
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+
+    /**
+     * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+     * @param view
+     * @throws Exception
+     */
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Controller um Personalwesen zu setzen
+        //Methodenaufruf von Controller um Personalwesen zu setzen TODO: funzt einstellen/kuendigen? darf nur eins aktiviert sein?
         if (einstellen_radiobutton.isChecked()) {
             IntroductionActivity.Controller.einstellen(auswahlEinstellen);
         }
@@ -54,7 +63,6 @@ public class PersonalwesenActivity extends AppCompatActivity { //TODO: Personalw
             IntroductionActivity.Controller.kuendigen(auswahlKuendigen);
         }
 
-        //IntroductionActivity.Controller.setPersonalwesen(auswahlPersonalwesen);
         Intent intent = new Intent(this, ZeitarbeiterActivity.class);
         startActivity(intent);
         finish();

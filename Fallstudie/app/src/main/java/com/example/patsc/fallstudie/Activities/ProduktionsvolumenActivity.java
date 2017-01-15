@@ -15,6 +15,10 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
 
     int auswahlProduktionsvolumen;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +30,7 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
 
         //speichere Eingabewert in Variable
         String ProduktionsvolumenString = Produktionsvolumen_input.getText().toString();
-        auswahlProduktionsvolumen = Integer.parseInt(ProduktionsvolumenString);// Absturz 2.17 ToDo // Testende
+        auswahlProduktionsvolumen = Integer.parseInt(ProduktionsvolumenString);
 
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
@@ -37,11 +41,14 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
 
     }
 
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+    /**
+     * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+     * @param view
+     * @throws Exception
+     */
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
-
         if (auswahlProduktionsvolumen < 100 || auswahlProduktionsvolumen > 10000){
             Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
             toast.show();

@@ -16,6 +16,10 @@ public class LoginActivity extends AppCompatActivity {
     String inputUsername;
     String inputPassword;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +35,15 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = login_password_input.getText().toString();
     }
 
-    //Aufruf der Methode zum Registrieren, schickt Daten ins Backend und startet Login Activity neu
+
+    /**
+     * Aufruf der Methode zum Registrieren, schickt Daten ins Backend und startet Login Activity neu
+     * @param view
+     * @throws Exception
+     */
     public void register (View view)throws Exception{
         Controller.registrierung(inputUsername, inputPassword);
-      //geaendet patsch 12.01 9.56
-        //  Intent intent = new Intent(this, LoginActivity.class);//alt
+        //  Intent intent = new Intent(this, LoginActivity.class);//alt   TODO: alte aktivieren
         Intent intent = new Intent(this,PersonalwesenActivity.class); //neu
         startActivity(intent);
         finish();
@@ -44,7 +52,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    //Aufruf der Methode zum Login, prüft ob Nutzername/Passwort-Kombination richtig ist und leitet dann erst weiter
+    /**
+     * Aufruf der Methode zum Login, prüft ob Nutzername/Passwort-Kombination richtig ist und leitet dann erst weiter
+     * @param view
+     * @throws Exception
+     */
    public void login (View view) throws Exception {
         if(Controller.login(inputUsername, inputPassword)) {
             Intent intent = new Intent(this, PersonalwesenActivity.class);
@@ -55,6 +67,5 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
-    
 
 }

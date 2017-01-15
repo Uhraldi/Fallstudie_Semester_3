@@ -80,7 +80,7 @@
         android:layout_alignParentStart="true" />
 
     <CheckBox
-        android:text="Kreditkarte (4000€)"
+        android:text="Kreditkarte (2000€)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bezahlart_textview"
@@ -90,7 +90,7 @@
         android:id="@+id/kreditkarte_checkbox" />
 
     <CheckBox
-        android:text="PayPal (3200€)"
+        android:text="PayPal (1600€)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/paypal_checkbox"
@@ -99,7 +99,7 @@
         android:layout_alignParentStart="true" />
 
     <CheckBox
-        android:text="Banküberweisung (1500€)"
+        android:text="Rechnung (750€)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/bankueberweisung_checkbox"

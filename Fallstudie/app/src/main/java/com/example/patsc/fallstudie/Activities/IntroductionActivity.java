@@ -10,8 +10,12 @@ import com.example.patsc.fallstudie.R;
 
 public class IntroductionActivity extends AppCompatActivity {
 
- static Controller Controller = null;                         //TODo: static ok um von überall drauf zugreifen zu können?
+ static Controller Controller = null;                         //ToDo: static ok um von überall drauf zugreifen zu können?
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +25,13 @@ public class IntroductionActivity extends AppCompatActivity {
         Controller = new Controller();
     }
 
-    //Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+    /**
+     * /Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+     * @param view
+     */
     public void goToNextActivity (View view) {
         Intent intent = new Intent(this, LoginActivity.class);
-        //finish();                      <-- diese Activity leben lassen wegen des Controller Controller Objects
+        //finish();                      <-- diese Activity "leben" lassen wegen des Controller Controller Objects
         startActivity(intent);
     }
 }
