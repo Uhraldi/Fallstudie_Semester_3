@@ -11,10 +11,10 @@ public class Bezahlart {
     private boolean Rechnung = false;
     private boolean PayPal = false;
 
-    //EKPs
-    private double KreditkarteEKP = 5000;
-    private double RechnungEKP = 3000;
-    private double PayPalEKP = 1000;
+    //Fixkosten
+    private double FixkostenKreditkarte = 2000;
+    private double FixkostenRechnung = 750;
+    private double FixkostenPayPal = 1600;
 
     //PWSs
     private double KreditkartePWS = 0.4;
@@ -49,16 +49,16 @@ public class Bezahlart {
         return PayPal;
     }
 
-    public double getKreditkarteEKP() {
-        return KreditkarteEKP;
+    public double getFixkostenKreditkarte() {
+        return FixkostenKreditkarte;
     }
 
-    public double getRechnungEKP() {
-        return RechnungEKP;
+    public double getFixkostenRechnung() {
+        return FixkostenRechnung;
     }
 
-    public double getPayPalEKP() {
-        return PayPalEKP;
+    public double getFixkostenPayPal() {
+        return FixkostenPayPal;
     }
 
     public double getKreditkartePWS() {

@@ -38,6 +38,10 @@ public class Personalwesen {
         this.eingestellte = eingestellte;
     }
 
+    public int getVeraenderung() {
+        return veraenderung;
+    }
+
     public double getPersonalKostenProMitarbeiter() {
         return personalKostenProMitarbeiter;
     }

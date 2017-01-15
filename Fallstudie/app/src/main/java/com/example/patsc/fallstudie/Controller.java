@@ -494,7 +494,7 @@ public class Controller {
         }
         //Wahl wird standardmässig auf Mittelmaessig gesetzt
         catch (Exception e){
-            aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().setMittelmaessig(true);
+            aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().setInvestition1500(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -696,13 +696,13 @@ public class Controller {
         //Methoden zum abholen der Bestellpositionen, zur Anzeige er Bestellzusammenfassung
     public String getForschung( )throws Exception{
         String forschung ="";
-            if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().isLowBudget()){
+            if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().isInvestition500()){
                 forschung = FORSCHUNG_WAHL_LOWBUDGET;
             }
             else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().isMarken()){
                 forschung = FORSCHUNG_WAHL_HOCH;
             }
-            else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().isMittelmaessig()){
+            else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().isInvestition1500()){
                 forschung = FORSCHUNG_WAHL_MITTELMAESIG;
             }
             else{

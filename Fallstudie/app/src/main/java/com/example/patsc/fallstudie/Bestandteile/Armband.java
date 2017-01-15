@@ -1,7 +1,5 @@
 package com.example.patsc.fallstudie.Bestandteile;
 
-import java.util.Random;
-
 /**
  * Created by vince on 30.12.2016.
  * testable
@@ -16,12 +14,12 @@ public class Armband {
     private boolean textil = false;
     private boolean metall = false;
 
-    //EKPs
-    private double lederEKP = 1;
-    private double kunstlederEKP = 0.2;
-    private double holzEKP = 1.45;
-    private double textilEKP = 0.1;
-    private double metallEKP = 1;
+    //Variable Kosten
+    private double VarKostenLeder = 1;
+    private double VarKostenKunstleder = 0.2;
+    private double VarKostenHolz = 1.45;
+    private double VarKostenTextil = 0.1;
+    private double VarKostenMetall = 1;
 
     //PWSs
     private double lederPWS = 0.2;
@@ -78,24 +76,24 @@ public class Armband {
         return metall;
     }
 
-    public double getLederEKP() {
-        return lederEKP;
+    public double getVarKostenLeder() {
+        return VarKostenLeder;
     }
 
-    public double getKunstlederEKP() {
-        return kunstlederEKP;
+    public double getVarKostenKunstleder() {
+        return VarKostenKunstleder;
     }
 
-    public double getHolzEKP() {
-        return holzEKP;
+    public double getVarKostenHolz() {
+        return VarKostenHolz;
     }
 
-    public double getTextilEKP() {
-        return textilEKP;
+    public double getVarKostenTextil() {
+        return VarKostenTextil;
     }
 
-    public double getMetallEKP() {
-        return metallEKP;
+    public double getVarKostenMetall() {
+        return VarKostenMetall;
     }
 
     public double getLederPWS() {

@@ -93,7 +93,7 @@ public class Auftrag {
         switch(eingabe) {
             case "Leder": {
                 armband.setLeder(true);
-                varKosten += armband.getLederEKP();
+                varKosten += armband.getVarKostenLeder();
                 pws += armband.getLederPWS();
                 risikoArmband = armband.getLederRisiko();
                 zufall += armband.getLederZufall();
@@ -101,7 +101,7 @@ public class Auftrag {
             }
             case "Kunstleder": {
                 armband.setKunstleder(true);
-                varKosten += armband.getKunstlederEKP();
+                varKosten += armband.getVarKostenKunstleder();
                 pws += armband.getKunstlederPWS();
                 risikoArmband = armband.getKunstlederRisiko();
                 zufall += armband.getKunstlederZufall();
@@ -109,7 +109,7 @@ public class Auftrag {
             }
             case "Holz": {
                 armband.setHolz(true);
-                varKosten += armband.getHolzEKP();
+                varKosten += armband.getVarKostenHolz();
                 pws += armband.getHolzPWS();
                 risikoArmband = armband.getHolzRisiko();
                 zufall += armband.getHolzZufall();
@@ -117,7 +117,7 @@ public class Auftrag {
             }
             case "Textil": {
                 armband.setTextil(true);
-                varKosten += armband.getTextilEKP();
+                varKosten += armband.getVarKostenTextil();
                 pws += armband.getTextilPWS();
                 risikoArmband = armband.getTextilRisiko();
                 zufall += armband.getTextilZufall();
@@ -125,7 +125,7 @@ public class Auftrag {
             }
             case "Metall": {
                 armband.setMetall(true);
-                varKosten += armband.getMetallEKP();
+                varKosten += armband.getVarKostenMetall();
                 pws += armband.getMetallPWS();
                 risikoArmband = armband.getMetallRisiko();
                 zufall += armband.getMetallZufall();
@@ -147,21 +147,21 @@ public class Auftrag {
             case Controller.FORSCHUNG_WAHL_HOCH: {
                 forschung.setMarken(true);
                 //Aenderungen patsch 12.01 10.23
-               // fixKosten += forschung.getMarkenEKP();
-                fixKosten = forschung.getMarkenEKP(); //neu
-                pws += forschung.getMarkenPWS();
+               // fixKosten += forschung.getFixkostenInvestition2500();
+                fixKosten = forschung.getFixkostenInvestition2500(); //neu
+                pws += forschung.getInvestition2500PWS();
                 break;
             }
             case Controller.FORSCHUNG_WAHL_MITTELMAESIG: {
-                forschung.setMittelmaessig(true);
-                fixKosten += forschung.getMittelmaessigEKP();
-                pws += forschung.getMittelmaessigPWS();
+                forschung.setInvestition1500(true);
+                fixKosten += forschung.getFixkostenInvestition1500();
+                pws += forschung.getInvestition1500PWS();
                 break;
             }
             case Controller.FORSCHUNG_WAHL_LOWBUDGET: {
-                forschung.setLowBudget(true);
-                fixKosten += forschung.getLowBudgetEKP();
-                pws += forschung.getLowBudgetPWS();
+                forschung.setInvestition500(true);
+                fixKosten += forschung.getFixkostenInvestition500();
+                pws += forschung.getInvestition500PWS();
                 break;
             }
             default: {
@@ -179,7 +179,7 @@ public class Auftrag {
         switch(eingabe) {
             case "Glas": {
                 gehaeuse.setGlas(true);
-                varKosten += gehaeuse.getGlasEKP();
+                varKosten += gehaeuse.getVarKostenGlas();
                 pws += gehaeuse.getGlasPWS();
                 risikoGehaeuse = gehaeuse.getGlasRisiko();
                 zufall += gehaeuse.getGlasZufall();
@@ -187,7 +187,7 @@ public class Auftrag {
             }
             case "Holz": {
                 gehaeuse.setHolz(true);
-                varKosten += gehaeuse.getHolzEKP();
+                varKosten += gehaeuse.getVarKostenHolz();
                 pws += gehaeuse.getHolzPWS();
                 risikoGehaeuse = gehaeuse.getHolzRisiko();
                 zufall += gehaeuse.getHolzZufall();
@@ -195,7 +195,7 @@ public class Auftrag {
             }
             case "Kunststoff": {
                 gehaeuse.setKunststoff(true);
-                varKosten += gehaeuse.getKunststoffEKP();
+                varKosten += gehaeuse.getVarKostenKunststoff();
                 pws += gehaeuse.getKunststoffPWS();
                 risikoGehaeuse = gehaeuse.getKunststoffRisiko();
                 zufall += gehaeuse.getKunststoffZufall();
@@ -203,7 +203,7 @@ public class Auftrag {
             }
             case "Metall": {
                 gehaeuse.setMetall(true);
-                varKosten += gehaeuse.getMetallEKP();
+                varKosten += gehaeuse.getVarKostenMetall();
                 pws += gehaeuse.getMetallPWS();
                 risikoGehaeuse = gehaeuse.getMetallRisiko();
                 zufall += gehaeuse.getMetallZufall();
@@ -231,21 +231,21 @@ public class Auftrag {
             }
             case "Praktikant": {
                 zeitarbeiter.setPraktikant(true);
-                varKosten += zeitarbeiter.getPraktikantEKP();
+                varKosten += zeitarbeiter.getVarKostenPraktikant();
                 pws += zeitarbeiter.getPraktikantPWS();
                 risikoZusammenbau = zeitarbeiter.getPraktikantRisiko();
                 break;
             }
             case "Lehrling": {
                 zeitarbeiter.setLehrling(true);
-                varKosten += zeitarbeiter.getLehrlingEKP();
+                varKosten += zeitarbeiter.getVarKostenLehrling();
                 pws += zeitarbeiter.getLehrlingPWS();
                 risikoZusammenbau = zeitarbeiter.getLehrlingRisiko();
                 break;
             }
             case "Meister": {
                 zeitarbeiter.setMeister(true);
-                varKosten += zeitarbeiter.getMeisterEKP();
+                varKosten += zeitarbeiter.getVarKostenMeister();
                 pws += zeitarbeiter.getMeisterPWS();
                 risikoZusammenbau = zeitarbeiter.getMeisterRisiko();
                 break;
@@ -266,19 +266,19 @@ public class Auftrag {
         switch (eingabe) {
             case "Mechanisch": {
                 uhrwerk.setMechanisch(true);
-                varKosten += uhrwerk.getMechanischEKP();
+                varKosten += uhrwerk.getVarKostenMechanisch();
                 pws += uhrwerk.getMechanischPWS();
                 break;
             }
             case "Elektromechanisch": {
                 uhrwerk.setElektromechanisch(true);
-                varKosten += uhrwerk.getElektromechanischEKP();
+                varKosten += uhrwerk.getVarKostenElektromechanisch();
                 pws += uhrwerk.getElektromechanischPWS();
                 break;
             }
             case "Elektronisch": {
                 uhrwerk.setElektronisch(true);
-                varKosten += uhrwerk.getElektronischEKP();
+                varKosten += uhrwerk.getVarKostenElektronisch();
                 pws += uhrwerk.getEletronischPWS();
                 break;
             }
@@ -297,21 +297,21 @@ public class Auftrag {
         switch (eingabe) {
             case "Kreditkarte": {
                 bezahlart.setKreditkarte(true);
-                varKosten += bezahlart.getKreditkarteEKP();
+                varKosten += bezahlart.getFixkostenKreditkarte();
                 pws += bezahlart.getKreditkartePWS();
                 zufall += bezahlart.getKreditkarteZufall();
                 break;
             }
             case "Rechnung": {
                 bezahlart.setRechnung(true);
-                varKosten += bezahlart.getRechnungEKP();
+                varKosten += bezahlart.getFixkostenRechnung();
                 pws += bezahlart.getRechnungPWS();
                 zufall += bezahlart.getRechnungZufall();
                 break;
             }
             case "PayPal": {
                 bezahlart.setPayPal(true);
-                varKosten += bezahlart.getPayPalEKP();
+                varKosten += bezahlart.getFixkostenPayPal();
                 pws += bezahlart.getPayPalPWS();
                 zufall += bezahlart.getPayPalZufall();
                 break;
@@ -362,19 +362,19 @@ public class Auftrag {
         switch (eingabe) {
             case Controller.MARKETING_WAHL_FERNSEHWERBUNG: {
                 marketing.setFernsehwerbung(true);
-                fixKosten += marketing.getFernsehwerbungEKP();
+                fixKosten += marketing.getFixkostenFernsehwerbung();
                 pws += marketing.getFernsehwerbungPWS();
                 break;
             }
             case Controller.MARKETING_WAHL_RADIOWERBUNG: {
                 marketing.setRadiowerbung(true);
-                fixKosten += marketing.getRadiowerbungEKP();
+                fixKosten += marketing.getFixkostenRadiowerbung();
                 pws += marketing.getRadiowerbungPWS();
                 break;
             }
             case Controller.MARKETING_WAHL_PRINTWERBUNG: {
                 marketing.setPrintwerbung(true);
-                fixKosten += marketing.getPrintwerbungEKP();
+                fixKosten += marketing.getFixkostenPrintwerbung();
                 pws += marketing.getPrintwerbungPWS();
                 break;
             }
@@ -408,31 +408,31 @@ public class Auftrag {
     public void korrigiereArmband( String eingabe) throws Exception{
         if(armband.isLeder()){
                 armband.setLeder(false);
-                varKosten -= armband.getLederEKP();
+                varKosten -= armband.getVarKostenLeder();
                 pws -= armband.getLederPWS();
                 risikoArmband = 0;
                 zufall -= armband.getLederZufall();
             }else if(armband.isKunstleder()) {
                 armband.setKunstleder(false);
-                varKosten -= armband.getKunstlederEKP();
+                varKosten -= armband.getVarKostenKunstleder();
                 pws -= armband.getKunstlederPWS();
                 risikoArmband = 0;
                 zufall -= armband.getKunstlederZufall();
             }else if(armband.isHolz()) {
                 armband.setHolz(false);
-                varKosten -= armband.getHolzEKP();
+                varKosten -= armband.getVarKostenHolz();
                 pws -= armband.getHolzPWS();
                 risikoArmband = 0;
                 zufall -= armband.getHolzZufall();
             }else if(armband.isTextil()) {
                 armband.setTextil(false);
-                varKosten -= armband.getTextilEKP();
+                varKosten -= armband.getVarKostenTextil();
                 pws -= armband.getTextilPWS();
                 risikoArmband = 0;
                 zufall -= armband.getTextilZufall();
             }else if (armband.isMetall()) {
                 armband.setMetall(false);
-                varKosten -= armband.getMetallEKP();
+                varKosten -= armband.getVarKostenMetall();
                 pws -= armband.getMetallPWS();
                 risikoArmband = 0;
                 zufall -= armband.getMetallZufall();
@@ -451,25 +451,25 @@ public class Auftrag {
     public void korrigiereGehaeuse(String eingabe) throws Exception{
         if(gehaeuse.isGlas()){
             gehaeuse.setGlas(false);
-            varKosten -= gehaeuse.getGlasEKP();
+            varKosten -= gehaeuse.getVarKostenGlas();
             pws -= gehaeuse.getGlasPWS();
             risikoGehaeuse = 0;
             zufall -= gehaeuse.getGlasZufall();
         }else if (gehaeuse.isHolz()){
             gehaeuse.setHolz(false);
-            varKosten -= gehaeuse.getHolzEKP();
+            varKosten -= gehaeuse.getVarKostenHolz();
             pws -= gehaeuse.getHolzPWS();
             risikoGehaeuse = 0;
             zufall -= gehaeuse.getHolzZufall();
         }else if (gehaeuse.isKunststoff()){
             gehaeuse.setKunststoff(false);
-            varKosten -= gehaeuse.getKunststoffEKP();
+            varKosten -= gehaeuse.getVarKostenKunststoff();
             pws -= gehaeuse.getKunststoffPWS();
             risikoGehaeuse = 0;
             zufall -= gehaeuse.getKunststoffZufall();
         }else if (gehaeuse.isMetall()){
             gehaeuse.setMetall(false);
-            varKosten -= gehaeuse.getMetallEKP();
+            varKosten -= gehaeuse.getVarKostenMetall();
             pws -= gehaeuse.getMetallPWS();
             risikoGehaeuse = 0;
             zufall -= gehaeuse.getMetallZufall();
@@ -488,22 +488,22 @@ public class Auftrag {
     public void korriegiereZeitarbeiter(String eingabe) throws Exception{
         if(zeitarbeiter.isGeselle()){
             zeitarbeiter.setGeselle(false);
-            varKosten -= zeitarbeiter.getGeselleEKP();
+            varKosten -= zeitarbeiter.getVarKostenGeselle();
             pws -= zeitarbeiter.getGesellePWS();
             risikoZusammenbau = 0;
         }else if(zeitarbeiter.isPraktikant()){
             zeitarbeiter.setPraktikant(false);
-            varKosten -= zeitarbeiter.getPraktikantEKP();
+            varKosten -= zeitarbeiter.getVarKostenPraktikant();
             pws -= zeitarbeiter.getPraktikantPWS();
             risikoZusammenbau = 0;
         }else if (zeitarbeiter.isLehrling()) {
             zeitarbeiter.setLehrling(false);
-            varKosten -= zeitarbeiter.getLehrlingEKP();
+            varKosten -= zeitarbeiter.getVarKostenLehrling();
             pws -= zeitarbeiter.getLehrlingPWS();
             risikoZusammenbau = 0;
         }else if(zeitarbeiter.isMeister()){
             zeitarbeiter.setMeister(false);
-            varKosten -= zeitarbeiter.getMeisterEKP();
+            varKosten -= zeitarbeiter.getVarKostenMeister();
             pws -= zeitarbeiter.getMeisterPWS();
             risikoZusammenbau = 0;
         }else{

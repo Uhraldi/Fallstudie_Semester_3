@@ -12,11 +12,11 @@ public class Gehaeuse {
     private boolean kunststoff = false;
     private boolean metall = false;
 
-    //EKPs
-    private double glasEKP = 2;
-    private double holzEKP = 1.5;
-    private double kunststoffEKP = 0.2;
-    private double metallEKP = 1;
+    //Variable Kosten
+    private double VarKostenGlas = 2;
+    private double VarKostenHolz = 1.5;
+    private double VarKostenKunststoff = 0.2;
+    private double VarKostenMetall = 1;
 
     //PWSs
     private double glasPWS = 0.2;
@@ -62,20 +62,20 @@ public class Gehaeuse {
         return metall;
     }
 
-    public double getGlasEKP() {
-        return glasEKP;
+    public double getVarKostenGlas() {
+        return VarKostenGlas;
     }
 
-    public double getHolzEKP() {
-        return holzEKP;
+    public double getVarKostenHolz() {
+        return VarKostenHolz;
     }
 
-    public double getKunststoffEKP() {
-        return kunststoffEKP;
+    public double getVarKostenKunststoff() {
+        return VarKostenKunststoff;
     }
 
-    public double getMetallEKP() {
-        return metallEKP;
+    public double getVarKostenMetall() {
+        return VarKostenMetall;
     }
 
     public double getGlasPWS() {
