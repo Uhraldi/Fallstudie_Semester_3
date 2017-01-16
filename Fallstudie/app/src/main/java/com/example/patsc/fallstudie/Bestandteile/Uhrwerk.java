@@ -12,10 +12,10 @@ public class Uhrwerk {
     private boolean elektromechanisch = false;
     private boolean elektronisch = false;
 
-    //EKPs
-    private double mechanischEKP = 4;
-    private double elektromechanischEKP = 3;
-    private double elektronischEKP = 2;
+    //Variable Kosten
+    private double VarKostenMechanisch = 4;
+    private double VarKostenElektromechanisch = 3;
+    private double VarKostenElektronisch = 2;
 
     //PWSs
     private double mechanischPWS = 0.1;
@@ -42,16 +42,16 @@ public class Uhrwerk {
         return elektronisch;
     }
 
-    public double getMechanischEKP() {
-        return mechanischEKP;
+    public double getVarKostenMechanisch() {
+        return VarKostenMechanisch;
     }
 
-    public double getElektromechanischEKP() {
-        return elektromechanischEKP;
+    public double getVarKostenElektromechanisch() {
+        return VarKostenElektromechanisch;
     }
 
-    public double getElektronischEKP() {
-        return elektronischEKP;
+    public double getVarKostenElektronisch() {
+        return VarKostenElektronisch;
     }
 
     public double getMechanischPWS() {

@@ -12,10 +12,10 @@ public class Marketing {
     private boolean Radiowerbung = false;
     private boolean Printwerbung = false;
 
-    //EKPs
-    private double FernsehwerbungEKP = 5000;
-    private double RadiowerbungEKP = 3000;
-    private double PrintwerbungEKP = 1000;
+    //Fixkosten
+    private double FixkostenFernsehwerbung = 5000;
+    private double FixkostenRadiowerbung = 3000;
+    private double FixkostenPrintwerbung = 1000;
 
     //PWSs
     private double FernsehwerbungPWS = 0.4;
@@ -45,16 +45,16 @@ public class Marketing {
         return Printwerbung;
     }
 
-    public double getFernsehwerbungEKP() {
-        return FernsehwerbungEKP;
+    public double getFixkostenFernsehwerbung() {
+        return FixkostenFernsehwerbung;
     }
 
-    public double getRadiowerbungEKP() {
-        return RadiowerbungEKP;
+    public double getFixkostenRadiowerbung() {
+        return FixkostenRadiowerbung;
     }
 
-    public double getPrintwerbungEKP() {
-        return PrintwerbungEKP;
+    public double getFixkostenPrintwerbung() {
+        return FixkostenPrintwerbung;
     }
 
     public double getFernsehwerbungPWS() {

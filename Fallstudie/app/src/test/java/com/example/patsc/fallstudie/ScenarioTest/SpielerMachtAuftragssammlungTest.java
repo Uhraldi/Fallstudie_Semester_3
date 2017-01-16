@@ -37,7 +37,7 @@ import static junit.framework.TestCase.fail;
     /*
     if (
                MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getArmband().isLeder() &&
-               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getForschung().isLowBudget() &&
+               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getForschung().isInvestition500() &&
                MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getGehaeuse().isGlas() &&
                MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getZeitarbeiter().isPraktikant() &&
                MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getUhrwerk().isMechanisch() &&

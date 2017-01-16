@@ -10,19 +10,19 @@ public class Forschung {
 
 
     //Auswahlen
-    private boolean marken = false;
-    private boolean mittelmaessig = false;
-    private boolean lowBudget = false;
+    private boolean Investition2500 = false;
+    private boolean Investition1500 = false;
+    private boolean Investition500 = false;
 
-    //EKPs
-    private double markenEKP = 5000;
-    private double mittelmaessigEKP = 3000;
-    private double lowBudgetEKP = 1000;
+    //Fixkosten
+    private double FixkostenInvestition2500 = 2500;
+    private double FixkostenInvestition1500 = 1500;
+    private double FixkostenInvestition500 = 500;
 
     //PWSs
-    private double markenPWS = 0.4;
-    private double mittelmaessigPWS = 0.2;
-    private double lowBudgetPWS = 0.05;
+    private double Investition2500PWS = 0.4;
+    private double Investition1500PWS = 0.2;
+    private double Investition500PWS = 0.05;
 
     /**
      * Constructor
@@ -32,58 +32,60 @@ public class Forschung {
     }
 
     /**
-     * Variblen-Getter
+     * Variablen-Getter
      */
-    public boolean isMarken() {
-        return marken;
+    public boolean isInvestition2500() {
+        return Investition2500;
     }
 
-    public boolean isMittelmaessig() {
-        return mittelmaessig;
+    public boolean isInvestition1500() {
+        return Investition1500;
     }
 
-    public boolean isLowBudget() {
-        return lowBudget;
+    public boolean isInvestition500() {
+        return Investition500;
     }
 
-    public double getMarkenEKP() {
-        return markenEKP;
+    public double getFixkostenInvestition2500() {
+        return FixkostenInvestition2500;
     }
 
-    public double getMittelmaessigEKP() {
-        return mittelmaessigEKP;
+    public double getFixkostenInvestition1500() {
+        return FixkostenInvestition1500;
     }
 
-    public double getLowBudgetEKP() {
-        return lowBudgetEKP;
+    public double getFixkostenInvestition500() {
+        return FixkostenInvestition500;
     }
 
-    public double getMarkenPWS() {
-        return markenPWS;
+    public double getInvestition2500PWS() {
+        return Investition2500PWS;
     }
 
-    public double getMittelmaessigPWS() {
-        return mittelmaessigPWS;
+    public double getInvestition1500PWS() {
+        return Investition1500PWS;
     }
 
-    public double getLowBudgetPWS() {
-        return lowBudgetPWS;
+    public double getInvestition500PWS() {
+        return Investition500PWS;
     }
 
     /**
      * Variablen-Setter
      */
 
-    //Forschung Hoch
-    public void setMarken(boolean marken) {
-        this.marken = marken;
+    //Forschung 2500€ Investition
+    public void setInvestition2500(boolean investition2500) {
+        this.Investition2500 = Investition2500;
     }
-    //Forschung Mittelmäßig
-    public void setMittelmaessig(boolean mittelmaessig) {
-        this.mittelmaessig = mittelmaessig;
+
+    //Forschung 1500€ Investition
+    public void setInvestition1500(boolean investition1500) {
+        this.Investition1500 = investition1500;
     }
-    //Forschung Low
-    public void setLowBudget(boolean lowBudget) {
-        this.lowBudget = lowBudget;
+
+    //Forschung 500€ Investition
+    public void setInvestition500(boolean investition500) {
+        this.Investition500 = investition500;
     }
 }

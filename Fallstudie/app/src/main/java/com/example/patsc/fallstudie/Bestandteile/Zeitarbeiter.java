@@ -13,11 +13,11 @@ public class Zeitarbeiter {
     private boolean Lehrling = false;
     private boolean Meister = false;
 
-    //EKPs
-    private double GeselleEKP = 0.45;
-    private double PraktikantEKP = 0.5;
-    private double LehrlingEKP = 0.5;
-    private double MeisterEKP = 5;
+    //Variable Kosten
+    private double VarKostenGeselle = 4.5;
+    private double VarKostenPraktikant = 0.5;
+    private double VarKostenLehrling = 0.5;
+    private double VarKostenMeister = 5;
 
     //PWSs
     private double GesellePWS = 0.2;
@@ -32,7 +32,7 @@ public class Zeitarbeiter {
     private double MeisterRisiko = 0.05;
 
 
-    public Zeitarbeiter(){
+    public Zeitarbeiter() {
 
     }
 
@@ -52,20 +52,20 @@ public class Zeitarbeiter {
         return Meister;
     }
 
-    public double getGeselleEKP() {
-        return GeselleEKP;
+    public double getVarKostenGeselle() {
+        return VarKostenGeselle;
     }
 
-    public double getPraktikantEKP() {
-        return PraktikantEKP;
+    public double getVarKostenPraktikant() {
+        return VarKostenPraktikant;
     }
 
-    public double getLehrlingEKP() {
-        return LehrlingEKP;
+    public double getVarKostenLehrling() {
+        return VarKostenLehrling;
     }
 
-    public double getMeisterEKP() {
-        return MeisterEKP;
+    public double getVarKostenMeister() {
+        return VarKostenMeister;
     }
 
     public double getGesellePWS() {
