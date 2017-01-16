@@ -96,7 +96,7 @@ public class Network extends Activity {
      * Hintergrundprozess, der ein JSON an den Server sendet. Der Server speichert die Daten entsprechend
      * @return
      */
-    protected JSONObject exeGetReady(, int runde) {
+    protected JSONObject exeGetReady(int runde) {
         InputStream inputStream = null;
         JSONObject result = null;
         try {
