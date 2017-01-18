@@ -23,8 +23,6 @@ Im Anschluss daran kann man eine Runde aussetzen, mit den gleichen Werten noch e
 
     //Strings fuer Login
 
-    <string name="login_info_textview">Hier können Sie sich mit ihrem Spielernamen und Ihrem Passwort einloggen.
-    Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebigen Spielernamen und ein sicheres Passwort aus und klicken Sie auf 'Neuer Account'. Anschließend geben Sie Ihre gewählten Anmeldedaten erneut ein und klicken Sie auf 'Einloggen'.</string>
     <string name="login_username_textview">Nutzername</string>
     <string name="login_password_textview">Passwort</string>
 
