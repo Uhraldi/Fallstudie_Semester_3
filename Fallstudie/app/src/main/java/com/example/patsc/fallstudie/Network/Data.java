@@ -12,6 +12,8 @@ public class Data {
     private double respr = -1;
     private double vkp = -1;
     private double bonus = -1;
+    private double gewinn = -1;
+    private double ma = -1;
 
     /**
      * ----------------------Construktor----------------------
@@ -22,12 +24,15 @@ public class Data {
      * @param vkp Vom Spieler festgelegter Verkaufspreis
      * @param bonus Bonus durch z.B. Kreditkarten in Summe über alle Koeffizienten
      */
-    public  Data(String id, int runde, int menge, double respr, double vkp, double bonus){
+    public  Data(String id, int runde, int menge, double respr, double vkp, double bonus, double gewinn, double ma){
         this.id = id;
+        this.runde = runde;
         this.menge = menge;
         this.respr = respr;
         this.vkp = vkp;
         this.bonus = bonus;
+        this.gewinn = gewinn;
+        this.ma = ma;
     }
 
     /**
@@ -79,6 +84,22 @@ public class Data {
 
     public void setBonus(double bonus) {
         this.bonus = bonus;
+    }
+
+    public double getGewinn() {
+        return gewinn;
+    }
+
+    public void setGewinn(double gewinn) {
+        this.gewinn = gewinn;
+    }
+
+    public double getMa() {
+        return ma;
+    }
+
+    public void setMa(double ma) {
+        this.ma = ma;
     }
 
     /**

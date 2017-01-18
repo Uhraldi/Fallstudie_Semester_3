@@ -23,6 +23,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
+ * @deprecated
  * Created by vince on 13/01/2017.
  */
 
