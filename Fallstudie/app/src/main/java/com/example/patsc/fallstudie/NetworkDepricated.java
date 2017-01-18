@@ -23,10 +23,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
+ * @deprecated
  * Created by vince on 13/01/2017.
  */
 
-public class Network extends Activity {
+public class NetworkDepricated extends Activity {
 
     /**
      * -----------------------------SetUp the shit-------------------------

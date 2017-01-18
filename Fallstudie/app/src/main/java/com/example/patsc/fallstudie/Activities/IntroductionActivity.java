@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.patsc.fallstudie.Controller;
+import com.example.patsc.fallstudie.NetworkTest;
 import com.example.patsc.fallstudie.R;
 
 public class IntroductionActivity extends AppCompatActivity {
@@ -20,7 +21,8 @@ public class IntroductionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduction);
-
+        NetworkTest test = new NetworkTest();
+        test.test();
         //erzeugt Instanz der Klasse Controller, die durchgehend bestehen bleibt
         Controller = new Controller();
     }
