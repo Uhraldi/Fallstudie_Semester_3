@@ -542,7 +542,7 @@ public class Controller {
             e.printStackTrace();
             //ToDO vorherige Auswahl war Kunstleder
             }
-        }
+
     }// Ende setArmbandNeu
     public void setUhrwerk (String uhrwerkAuswahl){
          try {
@@ -622,10 +622,11 @@ public class Controller {
              }
          }
          //Wahl wird standardmäßig auf NUR Rechnung gesetzt
-         catch (Exception e){
+         catch (Exception e) {
              aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getBezahlart().setRechnung(true);
              setzeAlleSchritteFalse();
              e.printStackTrace();
+         }
     } //Ende set Bezahlart //
 
     public void setZeitarbeiter (String zeitarbeiterAuswahl){
@@ -753,9 +754,10 @@ public class Controller {
         try {
             if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().isInvestition500()) {
                 forschung = FORSCHUNG_WAHL_LOWBUDGET;
-            } else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().isMarken()) {
-                forschung = FORSCHUNG_WAHL_HOCH;
-            } else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().isInvestition1500()) {
+            }// else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().isMarken()) {
+              // forschung = FORSCHUNG_WAHL_HOCH;
+           // }
+        else if (aktiverSpieler.getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getForschung().isInvestition1500()) {
                 forschung = FORSCHUNG_WAHL_MITTELMAESIG;
             } else {
 
@@ -937,11 +939,11 @@ public class Controller {
 
     //TODO: getGesamtkosten und getStueckkosten fuer Anzeige bei VerkaufspreisActivity
     public float getGesamtkosten () {
-        return gesamtkosten;
+        return 6;//gesamtkosten;
     }
 
     public float getStueckkosten () {
-        return stueckkosten;
+        return 6;//stueckkosten;
     }
 
 
@@ -1194,9 +1196,12 @@ public class Controller {
                 throw new Exception("Spieler Liste leer");
             }
             for (int i = 0; i < daten.getSpielerAnzahl(); i++) {
-                if (daten.getSpielerListe().get(i).getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()) != null)
-                    Preise[i] = daten.getSpielerListe().get(i).getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getPreissimulation().getVerkaufspreis();
-                else {
+                if (daten.getSpielerListe().get(i).getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()) != null){
+
+
+                 //   Preise[i] = daten.getSpielerListe().get(i).getAuftragssammlung().getAuftrag(daten.getRundenAnzahl()).getPreissimulation().getVerkaufspreis();
+                }
+                    else {
                     throw new Exception("Kein Objekt gefunden");
                 }
             }

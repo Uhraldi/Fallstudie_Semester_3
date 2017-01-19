@@ -35,6 +35,7 @@ public class Auftrag {
     private Marketing marketing = new Marketing();
     private Marktsim marktsim = null;
     private Preissimulation preissim = null;
+    private Personalwesen personalwesen = new Personalwesen();
 
     /* Vorlage zum kopieren und ersetzen der Variablen und Klassen
     public void ABCDF(String eingabe){
@@ -514,10 +515,14 @@ public class Auftrag {
         bestelleZeitarbeiter(eingabe);
     }
 
+    public void bestellePersonalwesen (int zahl){
+
+    }
 
     /**
      *  Variablen-Getter
      */
+
     public double getFixKosten() {
         return fixKosten;
     }
@@ -562,6 +567,12 @@ public class Auftrag {
     /**
      * Bestandteil-Getter
      */
+    public Personalwesen getPersonalwesen(){
+        return personalwesen;
+    }
+    public Zeitarbeiter getZeitarbeiter(){
+        return zeitarbeiter;
+    }
     public Forschung getForschung() {
         return forschung;
     }

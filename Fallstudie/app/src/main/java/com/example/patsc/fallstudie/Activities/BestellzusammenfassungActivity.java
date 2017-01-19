@@ -94,7 +94,7 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
 
         Intent z1 = new Intent(this, Z1_ArmbandActivity.class);
         Intent z2 = new Intent(this, Z2_GehaeuseActivity.class);
-        Intent z3 = new Intent(this, Z3_ZusammenbauActivity.class);
+        Intent z3 = new Intent(this, Z3_ZeitarbeiterActivity.class);
         Intent keinZufall = new Intent(this, BerechnungActivity.class);
 
         //Abfrage ob Zufall Z1-Z3 eingetreten ist und entsprechende Weiterleitung

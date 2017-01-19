@@ -124,7 +124,7 @@ public class Z1_ArmbandActivity extends AppCompatActivity {
         }
 
         Intent z2 = new Intent(this, Z2_GehaeuseActivity.class);
-        Intent z3 = new Intent(this, Z3_ZusammenbauActivity.class);
+        Intent z3 = new Intent(this, Z3_ZeitarbeiterActivity.class);
         Intent keinZufall = new Intent(this, BerechnungActivity.class);
 
         //Abfrage ob Zufall Z2-Z3 eingetreten ist und entsprechende Weiterleitung

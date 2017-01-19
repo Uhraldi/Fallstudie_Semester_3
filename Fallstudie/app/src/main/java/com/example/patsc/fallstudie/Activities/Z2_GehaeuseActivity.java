@@ -117,7 +117,7 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
             IntroductionActivity.Controller.setGehaeuseNeu(auswahlGehaeuse);
         }
 
-        Intent z3 = new Intent(this, Z3_ZusammenbauActivity.class);
+        Intent z3 = new Intent(this, Z3_ZeitarbeiterActivity.class);
         Intent keinZufall = new Intent(this, BerechnungActivity.class);
 
         //Abfrage ob Zufall Z3 eingetreten ist und entsprechende Weiterleitung
