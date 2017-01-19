@@ -14,6 +14,8 @@ public class PersonalwesenActivity extends AppCompatActivity {
 
     RadioButton einstellen_radiobutton;
     RadioButton kuendigen_radiobutton;
+    boolean einstellen; //#patsch
+    boolean kuendigen; //#patsch
     int auswahlEinstellen;
     int auswahlKuendigen;
 
@@ -30,24 +32,28 @@ public class PersonalwesenActivity extends AppCompatActivity {
         //Verknuepfen der UI Elemente
         einstellen_radiobutton = (RadioButton) findViewById(R.id.einstellen_radiobutton);
         kuendigen_radiobutton = (RadioButton) findViewById(R.id.kuendigen_radiobutton);
-        EditText einstellen = (EditText) findViewById(R.id.einstellen_input);
-        EditText kuendigen = (EditText) findViewById(R.id.kuendigen_input);
-
-        //speichere Eingabewerte in Variablen
-        String einstellenString = einstellen.getText().toString();
-        auswahlEinstellen = Integer.parseInt(einstellenString);
-        String kuendigenString = kuendigen.getText().toString();
-        auswahlKuendigen = Integer.parseInt(kuendigenString);
-
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
-        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
+       TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
+      //ToDo wieder rein #patsch  gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
         TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
+        //ToDo wieder rein #patsch  stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
     }
+    //#patsch
+public void onClickRadioGroup(View view){
 
-
+}
+    //#patsch
+public void onClickRadioButton(View view){
+    if (einstellen_radiobutton.isChecked()){
+        einstellen = true;
+        kuendigen = false;
+    }
+    else if (kuendigen_radiobutton.isChecked()){
+        kuendigen = true;
+        einstellen = true;
+    }
+}
     /**
      * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
      * @param view
@@ -55,11 +61,21 @@ public class PersonalwesenActivity extends AppCompatActivity {
      */
     public void goToNextActivity (View view) throws Exception {
 
-        //Methodenaufruf von Controller um Personalwesen zu setzen TODO: funzt einstellen/kuendigen? darf nur eins aktiviert sein?
+        //Methodenaufruf von Controller um Personalwesen zu setzen TODO: funzt einstellen/kuendigen? darf nur eins aktiviert sein? Antwort: funktioniert nicht; ja es darf nur eines aktiviert sein; fehler gefixed #patsch
+
+        // Block parseInt usw. von OnCreate hierher verschoben, da sonst Fehler entstehen #patsch
+        //speichere Eingabewerte in Variablen
+        EditText einstellen = (EditText) findViewById(R.id.einstellen_input);
+        EditText kuendigen = (EditText) findViewById(R.id.kuendigen_input);
+        // ToDo Prüfung ob auch wirklich ein Wert eingegeben wurde; sonst stürz die App ab #patsch
         if (einstellen_radiobutton.isChecked()) {
             IntroductionActivity.Controller.einstellen(auswahlEinstellen);
+            String einstellenString = einstellen.getText().toString();
+            auswahlEinstellen = Integer.parseInt(einstellenString);
         }
         if (kuendigen_radiobutton.isChecked()) {
+            String kuendigenString = kuendigen.getText().toString();
+            auswahlKuendigen = Integer.parseInt(kuendigenString);
             IntroductionActivity.Controller.kuendigen(auswahlKuendigen);
         }
 

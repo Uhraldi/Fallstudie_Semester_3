@@ -24,12 +24,7 @@ public class VerkaufspreisActivity extends AppCompatActivity {
         setContentView(R.layout.activity_verkaufspreis);
         IntroductionActivity.Controller.setActivity_Verkaufspreis();
 
-        //Verknuepfen von EditText mit UI-Element per ID
-        EditText verkaufspreis_input = (EditText) findViewById(R.id.verkaufspreis_input);
 
-        //speichere Eingabewert im String
-        String verkaufspreisString = verkaufspreis_input.getText().toString();
-        auswahlVerkaufspreis = Float.parseFloat(verkaufspreisString);
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
         TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
@@ -46,6 +41,14 @@ public class VerkaufspreisActivity extends AppCompatActivity {
      * @throws Exception
      */
    public void goToNextActivity (View view) throws Exception {
+       //Verschoben #patsch
+       //Verknuepfen von EditText mit UI-Element per ID
+       EditText verkaufspreis_input = (EditText) findViewById(R.id.verkaufspreis_input);
+
+       //Verschoben #patsch
+       //speichere Eingabewert im String
+       String verkaufspreisString = verkaufspreis_input.getText().toString();
+       auswahlVerkaufspreis = Float.parseFloat(verkaufspreisString);
 
        //Methodenaufruf von Controller um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
        if (auswahlVerkaufspreis < 5 || auswahlVerkaufspreis > 1500){

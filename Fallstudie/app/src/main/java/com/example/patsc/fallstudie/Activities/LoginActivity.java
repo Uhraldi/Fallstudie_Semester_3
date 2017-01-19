@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.patsc.fallstudie.Controller;
 import com.example.patsc.fallstudie.R;
 
 import static com.example.patsc.fallstudie.Activities.IntroductionActivity.Controller;
@@ -15,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
 
     String inputUsername;
     String inputPassword;
+    Controller c;
 
     /**
      *
@@ -25,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         IntroductionActivity.Controller.setActivity_Login();
-
+        c = IntroductionActivity.Controller;
         //Verknuepfen von EditText mit UI-Element per ID
         EditText login_username_input = (EditText) findViewById(R.id.login_username_input);
         EditText login_password_input = (EditText) findViewById(R.id.login_password_input);
@@ -41,16 +43,13 @@ public class LoginActivity extends AppCompatActivity {
      * @param view
      * @throws Exception
      */
-    public void register (View view)throws Exception{
-        Controller.registrierung(inputUsername, inputPassword);
-        //  Intent intent = new Intent(this, LoginActivity.class);//alt   TODO: alte aktivieren
-        Intent intent = new Intent(this,PersonalwesenActivity.class); //neu
-        startActivity(intent);
+    public void register (View view){/*throws Exception*/
+    c.registrierung(inputUsername, inputPassword);
+         // Intent intent = new Intent(this, LoginActivity.class);//alt   TODO: alte aktivieren
+       Intent intent = new Intent(this,PersonalwesenActivity.class); //neu
+       startActivity(intent);
         finish();
-
-
     }
-
 
     /**
      * Aufruf der Methode zum Login, prüft ob Nutzername/Passwort-Kombination richtig ist und leitet dann erst weiter

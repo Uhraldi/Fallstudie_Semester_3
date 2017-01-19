@@ -10,7 +10,7 @@ public class Daten {
         return SpielerListe;
     }
 
-    private ArrayList<Spieler> SpielerListe; // Liste aller Spieler
+    private ArrayList<Spieler> SpielerListe; // Liste aller Spieler; die auf dem Device gespeichert sind
     private int SpielerAnzahl;
     private ArrayList<Runde> RundenListe; //Liste der bisherigen Runden //ToDo MEthoden
     private int RundenAnzahl; //ToDo Methoden
@@ -26,6 +26,9 @@ public class Daten {
         SpielerListe = new ArrayList<Spieler>();
     } // Ende Konstruktor
 
+    public void setDieserSpieler(Spieler spieler){
+        dieserSpieler = spieler;
+    }
     public int getSpielerAnzahl() {
         return SpielerAnzahl;
     }
@@ -48,6 +51,7 @@ public class Daten {
     public void addSpielerListe(Spieler spieler){
         try{
             erhöheSpielerAnzahl();
+            setDieserSpieler(spieler);
             if (spieler != null){
                 SpielerListe.add(spieler); //ToDo hier tritt ein NullPointer auf!
             }

@@ -37,7 +37,8 @@ public class Spieler {
         auftragssammlung = new Auftragssammlung();
         setMarktanteil(AnfangsMarktanteil);
         setPunkte(AnfagsPunkte);
-        daten.addSpielerListe(this); // Hinzufügen des Spielers in die Liste
+        auftragssammlung = new Auftragssammlung();
+       //12.08 ToDo daten.addSpielerListe(this); // Hinzufügen des Spielers in die Liste
     } // Ende Konstruktor
 
     public double getGuthaben() {

@@ -12,14 +12,14 @@ public class AuftragssammlungTest {
     public void BestellungArrayTest(){
         Auftrag testAuftrag = new Auftrag();
         Auftragssammlung testAuftragssammlung = new Auftragssammlung();
-        testAuftragssammlung.neueBestellpositon();
+        testAuftragssammlung.neuerAuftrag();
     }
 
     @Test
     public void getBestellpositionTest(){
         Auftrag testAuftrag = new Auftrag();
         Auftragssammlung testAuftragssammlung = new Auftragssammlung();
-        testAuftragssammlung.neueBestellpositon();
+        testAuftragssammlung.neuerAuftrag();
         testAuftragssammlung.getAuftrag(0);
 
     }
@@ -28,7 +28,7 @@ public class AuftragssammlungTest {
     public void getBestellpositionenTest(){
         Auftrag testAuftrag = new Auftrag();
         Auftragssammlung testAuftragssammlung = new Auftragssammlung();
-        testAuftragssammlung.neueBestellpositon();
+        testAuftragssammlung.neuerAuftrag();
         testAuftragssammlung.getBestellpositionen();
 
     }

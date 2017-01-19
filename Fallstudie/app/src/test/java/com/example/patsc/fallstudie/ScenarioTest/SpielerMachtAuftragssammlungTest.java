@@ -91,7 +91,7 @@ public class SpielerMachtAuftragssammlungTest {
     public void Runde1Test(){
         System.out.println("Spieler " + Mark.getName() + " hat das Spiel betreten. Sein Guthaben beträgt: " + Mark.getGuthaben()+ "€, sein Marktanteil beträgt " + Mark.getMarktanteil() + "% und er hat "+ Mark.getPunkte() + " Punkte!");
         Auftragssammlung marksTestAuftragssammlung = Mark.getAuftragssammlung();
-        marksTestAuftragssammlung.neueBestellpositon();
+        marksTestAuftragssammlung.neuerAuftrag();
         Preissimulation MarksPreissim = new Preissimulation(SpielDaten.getRundenAnzahl(), marksTestAuftragssammlung);
         try {
             bestellen(marksTestAuftragssammlung, "Leder", "LowBudget", "Glas", "Praktikant", "Mechanisch","Fernsehwerbung","Nicht Wassergeschützt", "Rechnung", 1000.0 , 10000, SpielDaten, TestPreisSim);

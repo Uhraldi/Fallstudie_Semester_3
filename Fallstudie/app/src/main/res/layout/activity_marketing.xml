@@ -86,7 +86,7 @@
         android:layout_below="@+id/marketing_textview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="onCheckboxClicked"
+        android:onClick="onCheckboxClickedFersnsehwerbung"
         android:text="Fernsehwerbung (13000€)" />
 
     <TextView
@@ -108,7 +108,7 @@
         android:layout_below="@+id/fernsehwerbung_checkbox"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="onCheckboxClicked"/>
+        android:onClick="onCheckboxClickedRadiowerbung"/>
 
     <CheckBox
         android:text="Printwerbung (2000€)"
@@ -118,7 +118,7 @@
         android:layout_below="@+id/radiowerbung_checkbox"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="onCheckboxClicked"/>
+        android:onClick="onCheckboxClickedPrintwerbung"/>
 
     <!--
         <Button

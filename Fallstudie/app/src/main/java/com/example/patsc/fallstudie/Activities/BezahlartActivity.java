@@ -16,6 +16,9 @@ public class BezahlartActivity extends AppCompatActivity {
     CheckBox bankueberweisung_checkbox;
     CheckBox paypal_checkbox;
 
+    boolean kreditkarte = false; //#patsch
+    boolean bankueberweisung = false;//#patsch
+    boolean paypal = false; //#patsch
     /**
      *
      * @param savedInstanceState
@@ -53,22 +56,53 @@ public class BezahlartActivity extends AppCompatActivity {
         if (kreditkarte_checkbox.isChecked()){
             IntroductionActivity.Controller.setBezahlart("Kreditkarte");
         }
-        if (bankueberweisung_checkbox.isChecked()){
+        else if (bankueberweisung_checkbox.isChecked()){
             IntroductionActivity.Controller.setBezahlart("Rechnung");
         }
-        if (paypal_checkbox.isChecked()){
+        else if (paypal_checkbox.isChecked()){
             IntroductionActivity.Controller.setBezahlart("PayPal");
         }
-;
 
-        Intent intent = new Intent(this, ProduktionsvolumenActivity.class);
-        if (kreditkarte_checkbox.isChecked() || bankueberweisung_checkbox.isChecked() || paypal_checkbox.isChecked()){
-            startActivity(intent);
-        } else {
+        //block reihenfolge geändert #patsch
+        if (kreditkarte==false && paypal==false&&bankueberweisung==false){
             Toast toast = Toast.makeText(this, "Bitte mindestens eine Option wählen", Toast.LENGTH_SHORT);
             toast.show();
+        } else {
+            Intent intent = new Intent(this, ProduktionsvolumenActivity.class);
+            startActivity(intent);
         }
         finish();
     }
 
-}
+    //#patsch ToDo evtl Nutzung der boolean Werte in allen 3 onClick MEthoden
+    public void onClickKreditkarte (View view){
+        if (kreditkarte == true){
+            kreditkarte = false;
+        }
+        else {
+            kreditkarte = true;
+        }
+    } // Ende onClickKreditkarte
+
+    //patsch
+    public void onClickPayPal(View view){
+        if(paypal==true){
+            paypal = false;
+        }
+        else{
+            paypal = true;
+        }
+    }// Ende onClickPayPal
+
+    //patsch
+    //TODo heist es banküberweisung oder Rechnung??? #patsch
+    public void onClickRechnung (View view){
+        if (bankueberweisung == true){
+            bankueberweisung = false;
+        }
+        else{
+            bankueberweisung = true;
+        }
+    }// Ende onClickRechnung
+
+} // Ende Activty

@@ -10,21 +10,31 @@ import java.util.ArrayList;
 
 public class Auftragssammlung {
 
-    ArrayList<Auftrag> positionen = new ArrayList <Auftrag>();
+
+    /*
+    neues Konzept keine Auftragssammlung mehr sondern 10 Auftraege; gespeichert in einem Feld; da es nur max 10 geben kann
+     */
+    Auftrag[] auftraege = new Auftrag[10];
+    public Auftrag aktuellerAuftrag;
+    public int aktuellerAuftragInt;
 
     public Auftragssammlung(){
-
+        aktuellerAuftragInt = 0;
+        auftraege[aktuellerAuftragInt] = new Auftrag();
+        aktuellerAuftrag = auftraege[aktuellerAuftragInt];
     }
 //umbenannt
-    public void neueBestellpositon( ){
-        positionen.add(new Auftrag());
+    public void neuerAuftrag( ){
+        aktuellerAuftragInt++;
+        auftraege[aktuellerAuftragInt] = new Auftrag();
+        aktuellerAuftrag = auftraege[aktuellerAuftragInt];
     }
 
     public Auftrag getAuftrag(int i){
-        return positionen.get(i);
+        return auftraege[i];
     }
 
-    public ArrayList<Auftrag> getBestellpositionen(){
-        return positionen;
+    public Auftrag getAktuellerAuftrag() {
+        return aktuellerAuftrag;
     }
-}
+} // Ende AUftragsammlung

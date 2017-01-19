@@ -16,6 +16,10 @@ public class MarketingActivity extends AppCompatActivity {
     CheckBox radiowerbung_checkbox;
     CheckBox printwerbung_checkbox;
 
+    boolean fernsehwerbung = false;
+    boolean radiowerbung = false;
+    boolean printwerbung = false;
+
     /**
      *
      * @param savedInstanceState
@@ -40,7 +44,35 @@ public class MarketingActivity extends AppCompatActivity {
 
     }
 
+//#patsch //Todo evtl nutzung der Variablen???
+   public void onCheckboxClickedRadiowerbung (View view){
+       if (radiowerbung == true){
+           radiowerbung = false;
+       }
+       else {
+           radiowerbung = true;
+       }
+   } // Ende onCheckboxClickedRadiowerbung
+//#patsch //Todo evtl nutzung der Variablen???
+    public void onCheckboxClickedFersnsehwerbung(View view){
+        if (fernsehwerbung == true){
+            fernsehwerbung = false;
+        }
+        else{
+            fernsehwerbung = true;
+        }
+    }// Ende onCheckboxClickedFersnsehwerbung
 
+    //#patsch
+    //Todo evtl nutzung der Variablen???
+    public void onCheckboxClickedPrintwerbung(View view){
+        if (printwerbung== true){
+            printwerbung = false;
+        }
+        else{
+            printwerbung = true;
+        }
+    } // Ende onCheckboxClickedPrintwerbung
     /**
      * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
      * @param view

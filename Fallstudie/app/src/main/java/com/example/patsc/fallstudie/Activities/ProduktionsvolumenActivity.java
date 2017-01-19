@@ -25,12 +25,12 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_produktionsvolumen);
         IntroductionActivity.Controller.setActivity_Produktionsvolumen();
 
-        //Verknuepfen von EditText mit UI-Element per ID
-        EditText Produktionsvolumen_input = (EditText) findViewById(R.id.produktionsvolumen_input);
+        //Verknuepfen von EditText mit UI-Element per ID-> verschoben #patsch
+        // EditText Produktionsvolumen_input = (EditText) findViewById(R.id.produktionsvolumen_input);
 
-        //speichere Eingabewert in Variable
-        String ProduktionsvolumenString = Produktionsvolumen_input.getText().toString();
-        auswahlProduktionsvolumen = Integer.parseInt(ProduktionsvolumenString);
+        //speichere Eingabewert in Variable -> verschoben in gotToNExtActivity #patsch
+       //#patsch String ProduktionsvolumenString = Produktionsvolumen_input.getText().toString();
+        //#patsch auswahlProduktionsvolumen = Integer.parseInt(ProduktionsvolumenString);
 
 
         //Ausgabe der aktuellen Kosten anhand der Auswahl
@@ -47,7 +47,13 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
      * @throws Exception
      */
     public void goToNextActivity (View view) throws Exception {
+        //Verknuepfen von EditText mit UI-Element per ID verschoben von on Create #patsch
+        EditText Produktionsvolumen_input = (EditText) findViewById(R.id.produktionsvolumen_input);
+        //speichere Eingabewert in Variable -> verschoben von onCreate
 
+        String ProduktionsvolumenString = Produktionsvolumen_input.getText().toString();
+        auswahlProduktionsvolumen = Integer.parseInt(ProduktionsvolumenString);
+        //ToDO wo ist die Abfrage bzgl ausreichend Geld? #patsch
         //Methodenaufruf von Controller um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
         if (auswahlProduktionsvolumen < 100 || auswahlProduktionsvolumen > 10000){
             Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
