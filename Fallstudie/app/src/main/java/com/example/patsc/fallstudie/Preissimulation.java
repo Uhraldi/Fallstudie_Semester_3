@@ -379,7 +379,7 @@ public class Preissimulation {
             }
             default: System.err.println();
         }
-        Reservationspreis = (ReservapPersonalwesen + ReservapForschung + ReservapMarketing + FixkostenBezahlart)
+        Reservationspreis = (FixkostenPersonalwesen + ReservapForschung + ReservapMarketing + FixkostenBezahlart)
                 + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse) * Produktionsvolumen);
     } // Ende berechneReservationspreis()
 
