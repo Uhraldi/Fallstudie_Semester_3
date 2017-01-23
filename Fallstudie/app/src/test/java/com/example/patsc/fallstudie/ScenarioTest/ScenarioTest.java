@@ -30,9 +30,7 @@ public class ScenarioTest {
     Controller controller = new Controller();
     Daten Testdaten = controller.getDaten();
 
-    public void setAktiverSpieler(){
-        controller.setAktiverSpieler();
-    }
+
 
 
 }

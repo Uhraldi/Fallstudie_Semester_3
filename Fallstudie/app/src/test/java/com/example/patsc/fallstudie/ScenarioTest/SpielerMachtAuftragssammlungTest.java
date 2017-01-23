@@ -22,36 +22,7 @@ import static junit.framework.TestCase.fail;
         Auftrag MarksUhr = new Auftrag();
         Auftrag MarksUhrArmband = new Auftrag();
         Auftrag MarksUhrArmband = new Auftrag();
- */
 
-    /*
-    MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).setPreissim(
-                  MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getFixKosten()+
-                  (MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getVarKosten()) *
-                          (double)MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getMenge(),
-                  MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getVkp(), MarksTestBestellung);
-     */
-
-
-    //Überprüfung of Auftragssammlung Stimmt
-    /*
-    if (
-               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getArmband().isLeder() &&
-               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getForschung().isInvestition500() &&
-               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getGehaeuse().isGlas() &&
-               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getZeitarbeiter().isPraktikant() &&
-               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getUhrwerk().isMechanisch() &&
-               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getMarketing().isFernsehwerbung() &&
-               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getWasserdichtheit().isNichtWassergeschützt() &&
-               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getBezahlart().isRechnung() &&
-               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getVkp() == 1000.0 &&
-               MarksTestBestellung.getAuftrag(SpielDaten.getRundenAnzahl()).getMenge() == 10000
-               ){
-          passed = true;
-
-       }
-        Assert.assertTrue(passed);
-     */
 
 public class SpielerMachtAuftragssammlungTest {
 
@@ -108,5 +79,4 @@ public class SpielerMachtAuftragssammlungTest {
 
     }
 
-
-}
+*/

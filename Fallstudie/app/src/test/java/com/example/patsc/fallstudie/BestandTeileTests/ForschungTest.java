@@ -48,11 +48,11 @@ public class ForschungTest {
     public void getDesignerTest(){
         Auftrag testAuftrag = new Auftrag();
         try{
-            testAuftrag.bestelleForschung("Marken");
+            testAuftrag.bestelleForschung("5000€ Investition");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(testAuftrag.getForschung().isMarken());
+        Assert.assertTrue(testAuftrag.getForschung().isInvestition500());
 
     }
 

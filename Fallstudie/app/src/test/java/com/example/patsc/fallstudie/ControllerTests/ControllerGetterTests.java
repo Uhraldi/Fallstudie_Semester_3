@@ -46,10 +46,7 @@ public class ControllerGetterTests {
         Assert.assertEquals(SCHRITT_GEHAUESE, TestController.getSCHRITT_GEHAUESE());
     }
 
-    @Test
-    public void getSchrittDichtheitTest(){
-        Assert.assertEquals(SCHRITT_DICHTHEIT, TestController.getSCHRITT_DICHTHEIT());
-    }
+
 
     /*
 
@@ -69,10 +66,6 @@ public class ControllerGetterTests {
         Assert.assertEquals(SCHRITT_KAUFVOLUMEN, TestController.getSCHRITT_PRODUKTIONSVOLUMEN());
     }
 
-    @Test
-    public void getSchrittVersandartTest(){
-        Assert.assertEquals(SCHRITT_VERSANDART, TestController.getSCHRITT_VERSANDART());
-    }
 
     @Test
     public void getSchrittVerkaufspreisTest(){

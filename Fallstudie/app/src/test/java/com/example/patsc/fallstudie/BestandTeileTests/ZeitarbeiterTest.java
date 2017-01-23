@@ -2,52 +2,38 @@ package com.example.patsc.fallstudie.BestandTeileTests;
 
 import com.example.patsc.fallstudie.Auftrag;
 
-import org.junit.Assert;
+import junit.framework.Assert;
+
 import org.junit.Test;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
-import static junit.framework.TestCase.fail;
+import static junit.framework.Assert.fail;
 
 /**
- * Created by julia on 03.01.2017.
+ * Created by julian on 03.01.2017.
  */
+
 @RunWith(Theories.class)
 public class ZeitarbeiterTest {
 
-
-
-    public static @DataPoints
-    String[] ProduktionsOrtWerte =
-            {"Geselle", "Praktikant", "Lehrling", "Meister"};
+    public static @DataPoints String[] ZeitarbeiterWerte =
+            {"Geselle", "Praktikant", "Lehrling","Meister"};
 
     @Theory
-    public void bestelleZusammenbauTest(String ProduktionsOrtWerte){
+    public void bestelleVersandTest(String ZeitarbeiterWerte){
         Auftrag testAuftrag = new Auftrag();
         try {
-            testAuftrag.bestelleZeitarbeiter(ProduktionsOrtWerte);
+            testAuftrag.bestelleZeitarbeiter(ZeitarbeiterWerte);
         }catch (Exception e){
             fail("Sollte kein Fehler werfen");
         }
     }
 
-    @Theory
-    public void korrigiereZusammenbauTest(String ProduktionsOrtWerte){
-        Auftrag testAuftrag = new Auftrag();
-        try{
-            testAuftrag.bestelleZeitarbeiter(ProduktionsOrtWerte);
-            testAuftrag.korriegiereZeitarbeiter("Praktikant");
-        }catch (Exception e){
-            fail(e.getMessage());
-        }
-    }
-
-
-
     @Test
-    public void bestelleZusammenbauFailTest(){
+    public void bestelleVersandsrtFailTest(){
         Auftrag testAuftrag = new Auftrag();
         try {
             testAuftrag.bestelleZeitarbeiter("FAIL");
@@ -58,19 +44,15 @@ public class ZeitarbeiterTest {
     }
 
     @Test
-    public void getZusammenbauTest(){
+    public void getVersandArtTest(){
         Auftrag testAuftrag = new Auftrag();
         try{
             testAuftrag.bestelleZeitarbeiter("Geselle");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(testAuftrag.getZusammenbau().isGeselle());
+        Assert.assertTrue(testAuftrag.getZeitarbeiter().isGeselle());
+
     }
-
-
-
-
-
 
 }
