@@ -82,15 +82,15 @@ public class Preissimulation {
         }
         switch (auswahlForschung) {
             case "2500€ Investition": {
-                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition2500();
+                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition15000();
                 break;
             }
             case "1500€ Investition": {
-                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition1500();
+                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition8000();
                 break;
             }
             case "500€ Investition": {
-                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition500();
+                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition2500();
                 break;
             }
             default: System.err.println();
@@ -277,17 +277,17 @@ public class Preissimulation {
         switch (ReservationspreisForschung) {
             case "2500€ Investition": {
                 ReservapForschung = FixkostenForschung *
-                        (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition2500PWS());
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition15000PWS());
                 break;
             }
             case "1500€ Investition": {
                 ReservapForschung = FixkostenForschung *
-                        (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition1500PWS());
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition8000PWS());
                 break;
             }
             case "500€ Investition": {
                 ReservapForschung = FixkostenForschung *
-                        (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition500PWS());
+                        (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition2500PWS());
                 break;
             }
             default: System.err.println();

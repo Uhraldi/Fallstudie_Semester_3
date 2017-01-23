@@ -20,7 +20,7 @@ public class ForschungTest {
 
     public static @DataPoints
     String[] DesignerWerte =
-            {"Marken", "Mittelmäßig", "LowBudget"};
+            {"2500€ Investition", "8000€ Investition", "15000€ Investition"};
 
 
     @Theory
@@ -48,11 +48,11 @@ public class ForschungTest {
     public void getDesignerTest(){
         Auftrag testAuftrag = new Auftrag();
         try{
-            testAuftrag.bestelleForschung("5000€ Investition");
+            testAuftrag.bestelleForschung("2500€ Investition");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(testAuftrag.getForschung().isInvestition500());
+        Assert.assertTrue(testAuftrag.getForschung().isInvestition2500());
 
     }
 

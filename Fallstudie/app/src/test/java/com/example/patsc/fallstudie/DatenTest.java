@@ -49,7 +49,14 @@ public class DatenTest {
     public void addSpielerListeFailTest(){
         Daten TestDaten = new Daten();
         TestSpieler = null;
+        TestDaten.addSpielerListe(TestSpieler);
 
+    }
+
+    @Test
+    public void getRundenanzahlTest(){
+        Daten TestDaten = new Daten();
+        TestDaten.getRundenAnzahl();
     }
 
 
