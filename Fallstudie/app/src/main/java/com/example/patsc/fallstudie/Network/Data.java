@@ -95,6 +95,14 @@ public class Data {
         this.konto = konto;
     }
 
+    public double getGesamtKosten() {
+        return gesamtKosten;
+    }
+
+    public void setGesamtKosten(double gesamtKosten) {
+        this.gesamtKosten = gesamtKosten;
+    }
+
     /**
      * ----------------------Ende Getter und Setter----------------------
      */
