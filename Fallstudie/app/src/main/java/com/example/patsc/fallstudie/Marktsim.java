@@ -1,6 +1,12 @@
 package com.example.patsc.fallstudie;
 
-import java.util.*;
+import com.example.patsc.fallstudie.Network.Data;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
+
+import static android.R.attr.data;
 
 
 /**
@@ -8,16 +14,25 @@ import java.util.*;
  */
 
 public class Marktsim {
-
-    public Marktsim(double[] pkz) throws Exception {
-
+    /**
+     * Konstruktor
+     * @param pkz
+     * @param controller
+     * @param daten
+     * @throws Exception
+     */
+    public Marktsim(double[] pkz, Controller controller, Daten daten, Data[] data, throws Exception {
+    this.Controller = controller;
+        this.daten = daten;
+        this.data = data;
         for (int i = 0; i < pkz.length; i++) {
             pkzarray.set(i, pkz[i]);
         }
         berechneAbsatz(); //ToDo Exception Handling
     }
 
-    private Daten daten = new Daten();
+    private Data[] data;
+    private Daten daten;
     private int anzSpieler = daten.getSpielerAnzahl();
     private int AnzKäufer = anzSpieler * 8000;   // Abfrage der Spieleranzahl, mult. mit 8000
     private int lKäufer;                         //low-budget-Käufer
@@ -38,7 +53,7 @@ public class Marktsim {
     ArrayList mengearray = new ArrayList();
     ArrayList pkzarray = new ArrayList();
     ArrayList diff = new ArrayList();
-    Controller Controller = new Controller();
+    Controller Controller;
 
     /**
      * @throws Exception
