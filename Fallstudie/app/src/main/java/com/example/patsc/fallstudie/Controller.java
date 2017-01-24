@@ -1,5 +1,8 @@
 package com.example.patsc.fallstudie;
 
+import com.example.patsc.fallstudie.Network.Data;
+import com.example.patsc.fallstudie.Network.Funkturm;
+
 import java.util.ArrayList;
 
 /**
@@ -95,6 +98,12 @@ public class Controller {
     private boolean AENDERE_ARMBAND_boolean=false;
     private boolean AENDERE_GEHAEUSE_boolean =false;
     private boolean AENDERE_ZEITARBEITER_boolean = false;
+
+
+    /**
+     * Funkturm zum Senden von Daten
+     */
+    Funkturm funkturm = new Funkturm();
 
     /**
      * Konstruktor, wird in der on Create Methode aufgerufen
@@ -463,6 +472,9 @@ public class Controller {
             double kosten = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() + aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten();
             Preissimulation preissim = new Preissimulation(daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung()); //ToDo
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setPreissim(preissim);
+            Data data = new Data();
+            funkturm.sendData(data);
+            Data[] gegnerliste = funkturm.getData(daten.getRundenAnzahl());
             Marktsim marktsim = new Marktsim(getPreissimulationenPreis());
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
         }catch (Exception e){
