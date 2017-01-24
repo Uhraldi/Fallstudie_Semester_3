@@ -1,0 +1,10 @@
+diff a/Fallstudie/app/src/main/java/com/example/patsc/fallstudie/Network/Data.java b/Fallstudie/app/src/main/java/com/example/patsc/fallstudie/Network/Data.java	(rejected hunks)
+@@ -12,6 +12,8 @@
+     private double respr = -1;
+     private double vkp = -1;
+     private double bonus = -1;
++    private double konto = -1;
++    private double ma = -1;
+ 
+     /**
+      * ----------------------Construktor----------------------
