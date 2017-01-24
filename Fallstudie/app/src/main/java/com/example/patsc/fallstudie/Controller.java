@@ -178,7 +178,7 @@ public class Controller {
         setzeAlleZustaendeFalse();
         Zustand_Bestellung = true;
         Auftragssammlung auftragssammlung = aktiverSpieler.getAuftragssammlung(); //Aenderung 2.01 daten.getDieserSpieler() gefixt//ToDo auch hier tritt ein Nullpointer auf, verbindung mit dem in Daten?
-        auftragssammlung.neuerAuftrag();
+       // auftragssammlung.neuerAuftrag();
         auftragssammlung.getAktuellerAuftrag(); // Wie man die Auftrag bekomt
         //Einfügen der Werte in die Bestllposition mittels der Buttons aktives pushen
     }
@@ -390,7 +390,7 @@ public class Controller {
 
 
     public void setActivity_Forschung () {
-      aktiverSpieler.getAuftragssammlung().neuerAuftrag(); // Absturz 1.54; aktiver SPier in registrierung zugeordnet Fix 1.58
+      //aktiverSpieler.getAuftragssammlung().neuerAuftrag(); // Absturz 1.54; aktiver SPier in registrierung zugeordnet Fix 1.58
         //ToDo RUndenanzahl erhöhen
         setZustand_Bestellung(true); // Absturz 2.01 fix 2.04
         setSCHRITT_FORSCHUNG_boolean(true);
@@ -410,7 +410,7 @@ public class Controller {
     public void setActivity_Bezahlart () {      //TODO: Anpassung des Namens
         setZustand_Bestellung(true);
         setSCHRITT_BEZAHLART_boolean(true);
-        aktiverSpieler.getAuftragssammlung().neuerAuftrag(); // neu
+        //aktiverSpieler.getAuftragssammlung().neuerAuftrag(); // neu
     }
   //  public void setActivity_E6 () {
   //      setZustand_Bestellung(true);
