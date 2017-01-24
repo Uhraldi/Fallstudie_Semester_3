@@ -25,5 +25,10 @@ public class RundeTest {
         Assert.assertEquals(NeueRundenNr ,TestRunde.getRundenNr());
     }
 
+    @Test
+    public void erhoeheRundenNrUeber10Test(){
+        int NeueRundenNr = StartRunde + 10;
+        TestRunde.erhöheRundenNr();
+    }
 
 }

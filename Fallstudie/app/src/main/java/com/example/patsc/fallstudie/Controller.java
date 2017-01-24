@@ -21,9 +21,10 @@ public class Controller {
     /**
      * Strings für die Übergabe der Auswahl
      */
-    public static final String FORSCHUNG_WAHL_LOWBUDGET = "1000€ Investition";
-    public static final String FORSCHUNG_WAHL_MITTELMAESIG = "3000€ Investition";
-    public static final String FORSCHUNG_WAHL_HOCH = "5000€ Investition";
+    public static final String FORSCHUNG_WAHL_LOWBUDGET = "2500€ Investition";
+    public static final String FORSCHUNG_WAHL_MITTELMAESIG = "8000€ Investition";
+    public static final String FORSCHUNG_WAHL_HOCH = "15000€ Investition";
+    //ToDo Forschungswerte anpassen
 
     public static final String ARMBAND_WAHL_LEDER = "Leder";
     public static  final String ARMBAND_WAHL_KUNSTLEDER = "Kunstleder";
@@ -496,7 +497,7 @@ public class Controller {
         }
         //Wahl wird standardmässig auf Mittelmaessig gesetzt
         catch (Exception e){
-            aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getForschung().setInvestition1500(true);
+            aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getForschung().setInvestition8000(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -754,12 +755,12 @@ public class Controller {
     public String getForschung( ){
         String forschung = "";
         try {
-            if (aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getForschung().isInvestition500()) {
+            if (aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getForschung().isInvestition2500()) {
                 forschung = FORSCHUNG_WAHL_LOWBUDGET;
             }// else if (aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getForschung().isMarken()) {
               // forschung = FORSCHUNG_WAHL_HOCH;
            // }
-        else if (aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getForschung().isInvestition1500()) {
+        else if (aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getForschung().isInvestition8000()) {
                 forschung = FORSCHUNG_WAHL_MITTELMAESIG;
             } else {
 

@@ -42,7 +42,6 @@ public class ControllerSetZustaendeTest {
     private void setzteAlleSchritteTrue(){
         TestController.setSCHRITT_ARMBAND_boolean(true);
         TestController.setSCHRITT_FORSCHUNG_boolean(true);
-        TestController.setSCHRITT_DICHTHEIT_boolean(true);
         TestController.setSCHRITT_GEHAUESE_boolean(true);
         TestController.setSCHRITT_PRODUKTIONSVOLUMEN_boolean(true);
         TestController.setSCHRITT_UHRWERK_boolean(true);
@@ -59,6 +58,7 @@ public class ControllerSetZustaendeTest {
             TestController.isZustand_Ereignis() == false &&
             TestController.isZustand_Lieferung() == false)
 */
+    /*
     @Test
     public void setActivity_Login(){
         setzteAlleZustaendeTrue();
@@ -77,18 +77,15 @@ public class ControllerSetZustaendeTest {
     Assert.assertTrue(isPassed());
 
     }
+    */
 
-    @Test
-    public void setActivity_E1Test(){
-
-    }
 
     //ToDo Auftragssammlung richtig implementieren.
     @Test
-    public void setActivity_E2Test(){
+    public void setActivity_ArmbandTest(){
         setzteAlleSchritteTrue();
         setzteAlleZustaendeTrue();
-        TestController.setActivity_E2();
+        TestController.setActivity_Armband();
         if (
                 TestController.isZustand_Bestellung() &&
                         TestController.isSCHRITT_ARMBAND_boolean()){
@@ -99,10 +96,10 @@ public class ControllerSetZustaendeTest {
     }
 
     @Test
-    public void setActivity_E3Test(){
+    public void setActivity_UhrwerkTest(){
         setzteAlleSchritteTrue();
         setzteAlleZustaendeTrue();
-        TestController.setActivity_E3();
+        TestController.setActivity_Uhrwerk();
         if (
                 TestController.isZustand_Bestellung() &&
                         TestController.isSCHRITT_UHRWERK_boolean()){
@@ -113,10 +110,10 @@ public class ControllerSetZustaendeTest {
     }
 
     @Test
-    public void setActivity_E4Test(){
+    public void setActivity_GehauseTest(){
         setzteAlleSchritteTrue();
         setzteAlleZustaendeTrue();
-        TestController.setActivity_E4();
+        TestController.setActivity_Gehaeuse();
         if (
                 TestController.isZustand_Bestellung() &&
                         TestController.isSCHRITT_GEHAUESE_boolean()){
@@ -127,10 +124,10 @@ public class ControllerSetZustaendeTest {
     }
 
     @Test
-    public void setActivity_E5Test(){
+    public void setActivity_BezahlartTest(){
         setzteAlleSchritteTrue();
         setzteAlleZustaendeTrue();
-        TestController.setActivity_E5();
+        TestController.setActivity_Bezahlart();
         if (
                 TestController.isZustand_Bestellung() &&
                         TestController.isSCHRITT_BEZAHLART_boolean()){
@@ -140,25 +137,12 @@ public class ControllerSetZustaendeTest {
         }
     }
 
-    @Test
-    public void setActivity_E6Test(){
-        setzteAlleSchritteTrue();
-        setzteAlleZustaendeTrue();
-        TestController.setActivity_E6();
-        if (
-                TestController.isZustand_Bestellung() &&
-                        TestController.isSCHRITT_DICHTHEIT_boolean()){
-            Testpassed = true;
-        }else{
-            fail("Mehr als ein Zustand true");
-        }
-    }
 
     @Test
     public void setActivity_E7Test(){
         setzteAlleSchritteTrue();
         setzteAlleZustaendeTrue();
-        TestController.setActivity_E7();
+        TestController.setActivity_Zeitarbeiter();
         if (
                 TestController.isZustand_Bestellung() &&
                         TestController.isSCHRITT_ZEITARBEITER_boolean()){

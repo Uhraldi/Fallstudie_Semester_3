@@ -6,23 +6,23 @@ package com.example.patsc.fallstudie.Bestandteile;
  */
 
 
-public class Forschung {
+public class Forschung { //ToDo Forschungswerte anpassen
 
 
     //Auswahlen
+    private boolean Investition15000 = false;
+    private boolean Investition8000 = false;
     private boolean Investition2500 = false;
-    private boolean Investition1500 = false;
-    private boolean Investition500 = false;
 
     //Fixkosten
+    private double FixkostenInvestition15000 = 15000;
+    private double FixkostenInvestition8000 = 8000;
     private double FixkostenInvestition2500 = 2500;
-    private double FixkostenInvestition1500 = 1500;
-    private double FixkostenInvestition500 = 500;
 
     //PWSs
-    private double Investition2500PWS = 0.4;
-    private double Investition1500PWS = 0.2;
-    private double Investition500PWS = 0.05;
+    private double Investition15000PWS = 0.4;
+    private double Investition8000PWS = 0.2;
+    private double Investition2500PWS = 0.05;
 
     /**
      * Constructor
@@ -34,40 +34,40 @@ public class Forschung {
     /**
      * Variablen-Getter
      */
+    public boolean isInvestition15000() {
+        return Investition15000;
+    }
+
+    public boolean isInvestition8000() {
+        return Investition8000;
+    }
+
     public boolean isInvestition2500() {
         return Investition2500;
     }
 
-    public boolean isInvestition1500() {
-        return Investition1500;
+    public double getFixkostenInvestition15000() {
+        return FixkostenInvestition15000;
     }
 
-    public boolean isInvestition500() {
-        return Investition500;
+    public double getFixkostenInvestition8000() {
+        return FixkostenInvestition8000;
     }
 
     public double getFixkostenInvestition2500() {
         return FixkostenInvestition2500;
     }
 
-    public double getFixkostenInvestition1500() {
-        return FixkostenInvestition1500;
+    public double getInvestition15000PWS() {
+        return Investition15000PWS;
     }
 
-    public double getFixkostenInvestition500() {
-        return FixkostenInvestition500;
+    public double getInvestition8000PWS() {
+        return Investition8000PWS;
     }
 
     public double getInvestition2500PWS() {
         return Investition2500PWS;
-    }
-
-    public double getInvestition1500PWS() {
-        return Investition1500PWS;
-    }
-
-    public double getInvestition500PWS() {
-        return Investition500PWS;
     }
 
     /**
@@ -75,17 +75,17 @@ public class Forschung {
      */
 
     //Forschung 2500€ Investition
-    public void setInvestition2500(boolean investition2500) {
-        this.Investition2500 = Investition2500;
+    public void setInvestition15000(boolean investition15000) {
+        this.Investition15000 = Investition15000;
     }
 
     //Forschung 1500€ Investition
-    public void setInvestition1500(boolean investition1500) {
-        this.Investition1500 = investition1500;
+    public void setInvestition8000(boolean investition8000) {
+        this.Investition8000 = investition8000;
     }
 
     //Forschung 500€ Investition
-    public void setInvestition500(boolean investition500) {
-        this.Investition500 = investition500;
+    public void setInvestition2500(boolean investition2500) {
+        this.Investition2500 = investition2500;
     }
 }

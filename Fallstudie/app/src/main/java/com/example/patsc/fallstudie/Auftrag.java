@@ -146,24 +146,24 @@ public class Auftrag {
     public void bestelleForschung(String eingabe) throws Exception{
         switch(eingabe){
             case Controller.FORSCHUNG_WAHL_HOCH: {
-                forschung.setInvestition2500(true); //Fehler korrigiert
+                forschung.setInvestition15000(true); //Fehler korrigiert
                 //forschung.setMarken(true);
                 //Aenderungen patsch 12.01 10.23
-               // fixKosten += forschung.getFixkostenInvestition2500();
-                fixKosten = forschung.getFixkostenInvestition2500(); //neu
-                pws += forschung.getInvestition2500PWS();
+               // fixKosten += forschung.getFixkostenInvestition15000();
+                fixKosten = forschung.getFixkostenInvestition15000(); //neu
+                pws += forschung.getInvestition15000PWS();
                 break;
             }
             case Controller.FORSCHUNG_WAHL_MITTELMAESIG: {
-                forschung.setInvestition1500(true);
-                fixKosten += forschung.getFixkostenInvestition1500();
-                pws += forschung.getInvestition1500PWS();
+                forschung.setInvestition8000(true);
+                fixKosten += forschung.getFixkostenInvestition8000();
+                pws += forschung.getInvestition8000PWS();
                 break;
             }
             case Controller.FORSCHUNG_WAHL_LOWBUDGET: {
-                forschung.setInvestition500(true);
-                fixKosten += forschung.getFixkostenInvestition500();
-                pws += forschung.getInvestition500PWS();
+                forschung.setInvestition2500(true);
+                fixKosten += forschung.getFixkostenInvestition2500();
+                pws += forschung.getInvestition2500PWS();
                 break;
             }
             default: {
