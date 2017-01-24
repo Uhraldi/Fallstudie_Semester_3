@@ -8,8 +8,6 @@ import java.util.ArrayList;
 /**
  * Created by patsc on 13.12.2016.
  */
-//// TODO: 24.01.2017 #Patschi #Vincent gesamtkosten berechnen; mit Gettermethode immer aktuell;
-//// TODO: 24.01.2017  #Patschi #Vincent stckkosten berechnen lassen;
     //// TODO: 24.01.2017 #Vincent sortArray implementieren
     //// TODO: 24.01.2017 #Patschi Nils über Bestenliste informieren
 
@@ -102,6 +100,8 @@ public class Controller {
     private boolean AENDERE_GEHAEUSE_boolean =false;
     private boolean AENDERE_ZEITARBEITER_boolean = false;
 
+
+    private double gesamtkosten = 0;
 
     /**
      * Funkturm zum Senden von Daten
@@ -964,13 +964,16 @@ public class Controller {
     }
 
 
+
     //TODO: getGesamtkosten und getStueckkosten fuer Anzeige bei VerkaufspreisActivity
-    public float getGesamtkosten () {
-        return 6;//gesamtkosten;
+    public double getGesamtkosten () {
+        return aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten()+
+                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten()*
+                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
     }
 
-    public float getStueckkosten () {
-        return 6;//stueckkosten;
+    public double getStueckkosten () {
+        return getGesamtkosten()/aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
     }
 
 
