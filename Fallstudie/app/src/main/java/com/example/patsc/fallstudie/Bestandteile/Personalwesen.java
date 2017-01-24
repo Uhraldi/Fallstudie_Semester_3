@@ -8,8 +8,9 @@ public class Personalwesen {
 
 
     //Auswahlen
-        private int eingestellte = 5; // Personal am Anfang initial auf 5 gesetzt
+        private int eingestellte = 2; // Personal am Anfang initial auf 5 gesetzt
         private int veraenderung = 0; // Veranderung für das Personal in der nächsten runde
+        private double fixkosten; //// TODO: 24.01.2017 #Vincent werte anpassen
 
     //EKPs
         private double personalKostenProMitarbeiter = 3000; //ToDo richtiger Wert

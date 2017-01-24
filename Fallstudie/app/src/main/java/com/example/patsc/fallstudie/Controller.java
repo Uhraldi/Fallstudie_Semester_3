@@ -8,7 +8,10 @@ import java.util.ArrayList;
 /**
  * Created by patsc on 13.12.2016.
  */
-
+//// TODO: 24.01.2017 #Patschi #Vincent gesamtkosten berechnen; mit Gettermethode immer aktuell;
+//// TODO: 24.01.2017  #Patschi #Vincent stckkosten berechnen lassen;
+    //// TODO: 24.01.2017 #Vincent sortArray implementieren
+    //// TODO: 24.01.2017 #Patschi Nils über Bestenliste informieren
 
 //Hier ein Kommentar von Nils
 

@@ -11,6 +11,7 @@ public class Data {
     private int menge = -1;
     private double respr = -1;
     private double vkp = -1;
+    private double gesamtKosten =  -1;
     private double bonus = -1;
     private double konto = -1;
 
@@ -24,12 +25,13 @@ public class Data {
      * @param bonus Bonus durch z.B. Kreditkarten in Summe über alle Koeffizienten
      *
      */
-    public  Data(String id, int runde, int menge, double respr, double vkp, double bonus, double konto){
+    public  Data(String id, int runde, int menge, double respr, double vkp, double gesamtKosten, double bonus, double konto){
         this.id = id;
         this.runde = runde;
         this.menge = menge;
         this.respr = respr;
         this.vkp = vkp;
+        this.gesamtKosten = gesamtKosten;
         this.bonus = bonus;
         this.konto = konto;
     }

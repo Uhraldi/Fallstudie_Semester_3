@@ -14,6 +14,7 @@ import java.net.URL;
  * Created by vince on 18.01.2017.
  */
 
+//// TODO: 24.01.2017 #Vincent Dokument  erstellen, in das man imaginäre Daten für  den Server eintragen kann. 
 public class Funkturm {
 
     private Gson gson = new Gson();

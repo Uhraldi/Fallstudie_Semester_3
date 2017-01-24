@@ -40,7 +40,7 @@ public class Marktsim {
     private float highestp = 5;
     private float lowestp = 1500;
     private int lvertKäufer = 0, hvertKäufer = 0;
-    private static double startguthaben = 10000;
+    private static double startguthaben = 10000; // Todo #dodo ändern
     ArrayList<Auftrag> bestellpos = new ArrayList();
     private float l1, l2, l3, h1, h2, h3, l1v, l2v, l3v, h1v, h2v, h3v, l1summe, l2summe, l3summe, h1summe, h2summe, h3summe; //l1,l2 .. usw Preissegmentsgrenzen //l1v.. usw Verteilung der Kunden auf die Preissegmente
     private ArrayList<Integer> l1array, l2array, l3array, h1array, h2array, h3array = new ArrayList<Integer>();
@@ -82,7 +82,8 @@ public class Marktsim {
 
         berechnePreissegmente();        // Verteilung der Käufer auf l1-3 und l1-3 zufällig
 
-        for (Auftrag s : this.bestellpos) {
+
+        for (Auftrag s : this.bestellpos) { //// TODO: 24.01.2017 #Dodo in Preissimulation auslagern //Controller.aktiverSpieler.getAktuellerAuftrag();<- ist der aktuelle Spieler
             double zw = 0;
             if (s.getBezahlart().isKreditkarte()) {
                 zw += s.getBezahlart().getKreditkarteZufall();
@@ -358,7 +359,7 @@ public class Marktsim {
      */
     public void berechneRundengewinn() {
         for (int i = 0; i < absatzreturn.size(); i++) {
-            rundenGewinn.set(i, ((double) absatzreturn.get(i) * (double) vkparray.get(i)) - startguthaben);
+            rundenGewinn.set(i, ((double) absatzreturn.get(i) * (double) vkparray.get(i)) - startguthaben); // Todo #dodo controller.aktuelleRunde.aktuellerSpiele.getkonto ???
         }
         summiereGewinn();
     }
@@ -369,7 +370,7 @@ public class Marktsim {
     public void summiereGewinn() {
         for (int i = 0; i < rundenGewinn.size(); i++) {
             double o = summierterGewinn.get(i);
-            summierterGewinn.set(i, o + rundenGewinn.get(i));
+            summierterGewinn.set(i, o + rundenGewinn.get(i)); // Todo #dodo c.aktiverSpieler.setGuthaben();
         }
     }
 

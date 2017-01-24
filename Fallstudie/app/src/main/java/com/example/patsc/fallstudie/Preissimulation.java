@@ -40,12 +40,16 @@ public class Preissimulation {
     private double ReservapUhrwerk;
     private double ReservapGehäuse;
 
+
+    private Controller c;
     /*
     Konstruktor für die Preissimulation
      */
-    public Preissimulation (int RundenNr, Auftragssammlung auftragssammlung) {
+    public Preissimulation (Controller controller, int RundenNr, Auftragssammlung auftragssammlung) {
         this.RundenNr = RundenNr;
         this.auftragssammlung = auftragssammlung;
+        c = controller;
+        berechneReservationspreis(c.getMarketing(),c.getZeitarbeiter(),c.get)
     }
 
     /*

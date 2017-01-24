@@ -10,8 +10,9 @@ public class Auftrag {
 
     /**
      * Variablen deklarieren und instanziieren
+     * qparaam todo Parameter beschriften
      */
-    private double fixKosten = 0;
+    private double fixKosten = 0;   //todo #Vincent überprüfen, ob die methoden die richtigen Werte hochzählen
     private double varKosten = 0;
     private double pws = 0;
     private int menge = 0;
@@ -20,7 +21,8 @@ public class Auftrag {
     private double risikoGehaeuse = 0;
     private double risikoZusammenbau = 0;
     private double zufall = 0;
-    private double strafe = 0;
+    private double strafe = 0; //todo generell beim reversen 10% weniger abziehen
+
 
     /**
      * Objekte deklarieren und instanziieren
@@ -226,7 +228,7 @@ public class Auftrag {
         switch(eingabe) {
             case "Geselle": {
                 zeitarbeiter.setGeselle(true);
-                setVarKosten(979797979); //neu
+                varKosten += zeitarbeiter.getVarKostenGeselle(); //neu
                 pws += zeitarbeiter.getGesellePWS();
                 risikoZusammenbau = zeitarbeiter.getGeselleRisiko();
                 break;
@@ -441,7 +443,7 @@ public class Auftrag {
             }else {
                 throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
             }
-        varKosten += getStrafe(); //Erhöhung der varKosten um eine Strafe max um varKosten*0.05^3 bei 3 Ereignissen
+        varKosten = varKosten * getStrafe(); //Erhöhung der varKosten um eine Strafe max um varKosten*1.05^3 bei 3 Ereignissen
         bestelleArmband(eingabe);
     }
 
@@ -515,8 +517,7 @@ public class Auftrag {
         bestelleZeitarbeiter(eingabe);
     }
 
-    public void bestellePersonalwesen (int zahl){
-
+    public void bestellePersonalwesen (int zahl){ //// TODO: 24.01.2017 #Vincent #Patschi
     }
 
     /**
@@ -560,8 +561,7 @@ public class Auftrag {
     }
 
     public double getStrafe(){
-        strafe = vkp*0.05;
-        return strafe;
+        return 0.05;
     }
 
     /**
