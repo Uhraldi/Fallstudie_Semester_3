@@ -13,7 +13,6 @@ public class Data {
     private double vkp = -1;
     private double bonus = -1;
     private double konto = -1;
-    private double ma = -1;
 
     /**
      * ----------------------Construktor----------------------

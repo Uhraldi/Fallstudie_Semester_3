@@ -472,7 +472,7 @@ public class Controller {
             double kosten = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() + aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten();
             Preissimulation preissim = new Preissimulation(daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung()); //ToDo
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setPreissim(preissim);
-            Data data = new Data();
+            Data data = new Data(aktiverSpieler.getName(),daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(),aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben());
             funkturm.sendData(data);
             Data[] gegnerliste = funkturm.getData(daten.getRundenAnzahl());
             Marktsim marktsim = new Marktsim(getPreissimulationenPreis());

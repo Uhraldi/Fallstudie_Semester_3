@@ -383,4 +383,11 @@ public class Preissimulation {
                 + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse) * Produktionsvolumen);
     } // Ende berechneReservationspreis()
 
+    /**
+     * ToDo Dominik
+     * @return
+     */
+    public int getBonus(){
+        return 123;
+    }
 } // Ende Klasse
