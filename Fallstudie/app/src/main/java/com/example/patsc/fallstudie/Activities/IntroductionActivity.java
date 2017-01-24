@@ -11,7 +11,7 @@ import com.example.patsc.fallstudie.R;
 
 public class IntroductionActivity extends AppCompatActivity {
 
- static Controller Controller = null;                         //ToDo: static ok um von überall drauf zugreifen zu können?
+ static Controller Controller = null;
 
     /**
      *

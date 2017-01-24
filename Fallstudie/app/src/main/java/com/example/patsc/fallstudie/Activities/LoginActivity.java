@@ -43,12 +43,14 @@ public class LoginActivity extends AppCompatActivity {
      * @param view
      * @throws Exception
      */
-    public void register (View view){/*throws Exception*/
-    c.registrierung(inputUsername, inputPassword);
-         // Intent intent = new Intent(this, LoginActivity.class);//alt   TODO: alte aktivieren
-       Intent intent = new Intent(this,PersonalwesenActivity.class); //neu
-       startActivity(intent);
-        finish();
+    public void register (View view){ /*throws Exception*/
+        if (c.registrierung(inputUsername, inputPassword)) {
+            Intent intent = new Intent(this, PersonalwesenActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Toast toast = Toast.makeText(this, "Nutzername bereits vergeben", Toast.LENGTH_SHORT);
+        }
     }
 
     /**
