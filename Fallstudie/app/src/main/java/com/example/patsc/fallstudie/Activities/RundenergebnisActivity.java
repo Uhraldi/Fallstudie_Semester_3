@@ -27,7 +27,7 @@ public class RundenergebnisActivity extends AppCompatActivity {
         marktanteil_output.setText(IntroductionActivity.Controller.getMarktanteil());
 
         TextView gewinn_output = (TextView) findViewById(R.id.gewinn_output);
-        gewinn_output.setText(IntroductionActivity.Controller.getGewinn());
+        gewinn_output.setText(IntroductionActivity.Controller.getKonto());
 
         TextView guthaben_output = (TextView) findViewById(R.id.guthaben_output);
         guthaben_output.setText(IntroductionActivity.Controller.getGuthaben());

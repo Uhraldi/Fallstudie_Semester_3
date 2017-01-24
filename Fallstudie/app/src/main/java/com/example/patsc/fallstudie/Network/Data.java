@@ -12,7 +12,7 @@ public class Data {
     private double respr = -1;
     private double vkp = -1;
     private double bonus = -1;
-    private double gewinn = -1;
+    private double konto = -1;
     private double ma = -1;
 
     /**
@@ -23,16 +23,16 @@ public class Data {
      * @param respr Reservationspreis
      * @param vkp Vom Spieler festgelegter Verkaufspreis
      * @param bonus Bonus durch z.B. Kreditkarten in Summe über alle Koeffizienten
+     *
      */
-    public  Data(String id, int runde, int menge, double respr, double vkp, double bonus, double gewinn, double ma){
+    public  Data(String id, int runde, int menge, double respr, double vkp, double bonus, double konto){
         this.id = id;
         this.runde = runde;
         this.menge = menge;
         this.respr = respr;
         this.vkp = vkp;
         this.bonus = bonus;
-        this.gewinn = gewinn;
-        this.ma = ma;
+        this.konto = konto;
     }
 
     /**
@@ -86,20 +86,12 @@ public class Data {
         this.bonus = bonus;
     }
 
-    public double getGewinn() {
-        return gewinn;
+    public double getKonto() {
+        return konto;
     }
 
-    public void setGewinn(double gewinn) {
-        this.gewinn = gewinn;
-    }
-
-    public double getMa() {
-        return ma;
-    }
-
-    public void setMa(double ma) {
-        this.ma = ma;
+    public void setKonto(double konto) {
+        this.konto = konto;
     }
 
     /**
