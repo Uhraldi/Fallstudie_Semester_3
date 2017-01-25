@@ -31,7 +31,7 @@ public class AuftragTest {
     @Test
     public void getPwsTest(){
         Auftrag testBestellPosition = new Auftrag();
-        Assert.assertEquals(0.0, testBestellPosition.getPws());
+        Assert.assertEquals(0.0, testBestellPosition.getResPr());
     }
 
     @Test

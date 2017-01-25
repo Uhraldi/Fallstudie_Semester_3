@@ -391,7 +391,32 @@ public class Preissimulation {
      * ToDo Dominik
      * @return
      */
+
     public int getBonus(){
+ /*
+        for (Auftrag s : bestellpos) { //// TODO: 24.01.2017 #Dodo in Preissimulation auslagern //Controller.aktiverSpieler.getAktuellerAuftrag();<- ist der aktuelle Spieler
+            double zwischenspeicher = 0;
+            if (s.getBezahlart().isKreditkarte()) {
+                zwischenspeicher += s.getBezahlart().getKreditkarteZufall();
+            }
+            if (s.getBezahlart().isPayPal()) {
+                zwischenspeicher += s.getBezahlart().getPayPalZufall();
+            }
+            if (s.getBezahlart().isRechnung()) {
+                zwischenspeicher += s.getBezahlart().getRechnungZufall();
+            }
+            if (s.getMarketing().isFernsehwerbung()) {
+                zwischenspeicher += s.getMarketing().getFernsehwerbungPWS();
+            }
+            if (s.getMarketing().isRadiowerbung()) {
+                zwischenspeicher += s.getMarketing().getRadiowerbungPWS();
+            }
+            if (s.getMarketing().isPrintwerbung()) {
+                zwischenspeicher += s.getMarketing().getPrintwerbungPWS();
+            }
+           // prozentualeVorteile.add(zwischenspeicher);
+        }
+        */
         return 123;
     }
 } // Ende Klasse

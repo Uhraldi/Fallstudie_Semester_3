@@ -8,8 +8,6 @@ import java.util.ArrayList;
 /**
  * Created by patsc on 13.12.2016.
  */
-//// TODO: 24.01.2017 #Patschi #Vincent gesamtkosten berechnen; mit Gettermethode immer aktuell;
-//// TODO: 24.01.2017  #Patschi #Vincent stckkosten berechnen lassen;
     //// TODO: 24.01.2017 #Vincent sortArray implementieren
     //// TODO: 24.01.2017 #Patschi Nils über Bestenliste informieren
 
@@ -102,6 +100,8 @@ public class Controller {
     private boolean AENDERE_GEHAEUSE_boolean =false;
     private boolean AENDERE_ZEITARBEITER_boolean = false;
 
+
+    private double gesamtkosten = 0;
 
     /**
      * Funkturm zum Senden von Daten
@@ -475,10 +475,10 @@ public class Controller {
             double kosten = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() + aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten();
             Preissimulation preissim = new Preissimulation(daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung()); //ToDo
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setPreissim(preissim);
-            Data data = new Data(aktiverSpieler.getName(),daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(),aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben());
+            Data data = new Data(aktiverSpieler.getName(),daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(),aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(),getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben());
             funkturm.sendData(data);
             Data[] gegnerliste = funkturm.getData(daten.getRundenAnzahl());
-            Marktsim marktsim = new Marktsim(getPreissimulationenPreis());
+            Marktsim marktsim = new Marktsim(gegnerliste);
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
         }catch (Exception e){
             e.printStackTrace();
@@ -964,13 +964,16 @@ public class Controller {
     }
 
 
+
     //TODO: getGesamtkosten und getStueckkosten fuer Anzeige bei VerkaufspreisActivity
-    public float getGesamtkosten () {
-        return 6;//gesamtkosten;
+    public double getGesamtkosten () {
+        return aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten()+
+                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten()*
+                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
     }
 
-    public float getStueckkosten () {
-        return 6;//stueckkosten;
+    public double getStueckkosten () {
+        return getGesamtkosten()/aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
     }
 
 
