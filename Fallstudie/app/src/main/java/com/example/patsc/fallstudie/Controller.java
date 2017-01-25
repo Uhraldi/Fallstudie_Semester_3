@@ -1254,5 +1254,19 @@ public class Controller {
         }
         return Preise;
     } // Ende Preissimulation
-} // ENDE KLASSE
 
+    public Data[] sortSpieler(Data[] spielers){
+        Data temp;
+        for(int i=1; i<spielers.length; i++) {
+            for(int j=0; j<spielers.length-i; j++) {
+                if((spielers[j].getMarktanteil()*spielers[j].getRundengewinn())>(spielers[j+1].getMarktanteil()*spielers[j].getRundengewinn())) {
+                    temp=spielers[j];
+                    spielers[j]=spielers[j+1];
+                    spielers[j+1]=temp;
+                }
+
+            }
+        }
+        return spielers;
+    }
+} // ENDE KLASSE

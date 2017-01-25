@@ -28,9 +28,12 @@ public class Data {
      * @param respr Reservationspreis
      * @param vkp Vom Spieler festgelegter Verkaufspreis
      * @param bonus Bonus durch z.B. Kreditkarten in Summe über alle Koeffizienten
-     *
+     * @param gesamtKosten Summe der Fixkosten und variablen Kosten*Menge
+     * @param konto Kontostand des Spielers
+     * @param marktanteil marktanteil wird von der Marktsim hinzugefügt, um die Sortierfähigkeit zu gewährleisten
+     * @param rundengewinn Gewinn des Spielers in dieser Runde
      */
-    public  Data(String id, int runde, int menge, double respr, double vkp, double gesamtKosten, double bonus, double konto, double marktanteil, double rundengewinn){
+    public  Data(String id, int runde, int menge, double respr, double vkp, double gesamtKosten, double bonus, double konto){
         this.id = id;
         this.runde = runde;
         this.menge = menge;
@@ -39,8 +42,11 @@ public class Data {
         this.gesamtKosten = gesamtKosten;
         this.bonus = bonus;
         this.konto = konto;
-        this.marktanteil = marktanteil;
-        this.rundengewinn = rundengewinn;
+        /**
+         * Übergabe nicht im Konstruktor?
+         * this.marktanteil = marktanteil;
+         * this.rundengewinn = rundengewinn;
+         */
     }
 
     /**
