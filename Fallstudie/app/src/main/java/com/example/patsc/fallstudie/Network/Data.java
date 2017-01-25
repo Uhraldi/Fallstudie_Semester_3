@@ -1,3 +1,6 @@
+
+
+
 package com.example.patsc.fallstudie.Network;
 
 /**
@@ -14,6 +17,8 @@ public class Data {
     private double gesamtKosten =  -1;
     private double bonus = -1;
     private double konto = -1;
+    private double marktanteil = -1;
+    private double rundengewinn = -1;
 
     /**
      * ----------------------Construktor----------------------
@@ -25,7 +30,7 @@ public class Data {
      * @param bonus Bonus durch z.B. Kreditkarten in Summe über alle Koeffizienten
      *
      */
-    public  Data(String id, int runde, int menge, double respr, double vkp, double gesamtKosten, double bonus, double konto){
+    public  Data(String id, int runde, int menge, double respr, double vkp, double gesamtKosten, double bonus, double konto, double marktanteil, double rundengewinn){
         this.id = id;
         this.runde = runde;
         this.menge = menge;
@@ -34,6 +39,8 @@ public class Data {
         this.gesamtKosten = gesamtKosten;
         this.bonus = bonus;
         this.konto = konto;
+        this.marktanteil = marktanteil;
+        this.rundengewinn = rundengewinn;
     }
 
     /**
@@ -103,7 +110,22 @@ public class Data {
         this.gesamtKosten = gesamtKosten;
     }
 
-    /**
-     * ----------------------Ende Getter und Setter----------------------
-     */
+    public double getMarktanteil() {
+        return marktanteil;
+    }
+
+    public double getRundengewinn() {
+        return rundengewinn;
+    }
+
+    public void setRundengewinn(double rundengewinn) {
+        this.rundengewinn = rundengewinn;
+    }
+
+    public void setMarktanteil(double marktanteil) {
+        this.marktanteil = marktanteil;
+    }
+/**
+ * ----------------------Ende Getter und Setter----------------------
+ */
 }

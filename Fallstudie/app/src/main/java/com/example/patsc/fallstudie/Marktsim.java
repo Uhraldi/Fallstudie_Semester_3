@@ -43,6 +43,7 @@ public class Marktsim {
     private ArrayList<Double> reservationspreisarray = new ArrayList<Double>();
     private ArrayList<Double> differenz = new ArrayList<Double>();
     private ArrayList gesamtkostenarray = new ArrayList();
+    private ArrayList kontoarray = new ArrayList();
 
     /**
      * Konstruktor
@@ -68,16 +69,20 @@ public class Marktsim {
             mengearray.add(p.getMenge());
         }
 
-        for (Data e : this.data) {   // VKP-Abfrage
-            vkparray.add(e.getVkp());
+        for (Data p : this.data) {   // VKP-Abfrage
+            vkparray.add(p.getVkp());
         }
 
-        for (Data e : this.data) {   // VKP-Abfrage
-            gesamtkostenarray.add(e.getGesamtKosten());
-       }
+        for (Data p : this.data) {   // VKP-Abfrage
+            gesamtkostenarray.add(p.getGesamtKosten());
+        }
 
-        for (Data j : this.data) {   // Menge-Abfrage
-            bonusarray.add(j.getBonus());
+        for (Data p : this.data) {   // Menge-Abfrage
+            bonusarray.add(p.getBonus());
+        }
+
+        for (Data p : this.data) {   // Kontostand-Abfrage
+            kontoarray.add(p.getKonto());
         }
 
         for (int i = 0; i < anzSpieler; i++) {      // Differenzberechnung zwischen Reservationspreis und Verkaufspreis
@@ -130,7 +135,7 @@ public class Marktsim {
 
         for (int i = 0; i < anzSpieler; i++) {
 
-            if (vkparray.get(i) < lowGrenze) {
+            if (vkparray.get(i) <= lowGrenze) {        //Abfrage, ob der Verkaufspreis ins Low-Segment fällt  //Todo Personalwesen einbauen
                 double y = ((double) randInt(30, 80) / 100 + bonusarray.get(i));
                 if (y > 1) {
                     y = 1;
@@ -147,7 +152,7 @@ public class Marktsim {
                 lowsumme += (double) absatzreturn.get(i);
                 lowarray.add(i);
             } else {
-                if (vkparray.get(i) < middleGrenze) {
+                if (vkparray.get(i) <= middleGrenze) { //Abfrage, ob der Verkaufspreis ins Middle-Segment fällt
                     double y = ((double) randInt(30, 50) / 100 + bonusarray.get(i));
                     if (y > 1) {
                         y = 1;
@@ -164,7 +169,7 @@ public class Marktsim {
                     middlesumme += (double) absatzreturn.get(i);
                     middlearray.add(i);
                 } else {
-                    if ((double) vkparray.get(i) > middleGrenze) {
+                    if (vkparray.get(i) > middleGrenze) { //Abfrage, ob der Verkaufspreis ins Middle-Segment fällt
                         double y = ((double) randInt(35, 70) / 100 + bonusarray.get(i));
                         if (y > 1) {
                             y = 1;
@@ -210,7 +215,14 @@ public class Marktsim {
         berechneRundengewinn();
         summiereGewinn();
         berechneMarktanteil();
+        berechneNeuenKontostand();
         setGuthabenAktiverSpieler();
+
+        for (int i = 0; i < data.length; i++) {
+            data[i].setKonto((double) kontoarray.get(i));
+            data[i].setMarktanteil((double) marktanteil.get(i));
+            data[i].setRundengewinn((double) rundenGewinn.get(i));
+        }
 
         return absatzreturn;
     } // Ende berechneAbsatz
@@ -251,6 +263,12 @@ public class Marktsim {
     public void berechneRundengewinn() {
         for (int i = 0; i < absatzreturn.size(); i++) {
             rundenGewinn.set(i, ((double) absatzreturn.get(i) * vkparray.get(i)) - (double) gesamtkostenarray.get(i));
+        }
+    }
+
+    public void berechneNeuenKontostand() {
+        for (int i = 0; i < absatzreturn.size(); i++) {
+            kontoarray.set(i, ((double) kontoarray.get(i) + rundenGewinn.get(i)));
         }
     }
 
