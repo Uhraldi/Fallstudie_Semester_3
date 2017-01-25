@@ -1109,14 +1109,14 @@ public class Controller {
      * Parameter werden von UI übergeben
      * @param name
      * @param passwort
-     */ public void registrierung(String name, String passwort){
+     */ public boolean registrierung(String name, String passwort){
         try {
             // Prüfen ob der Spielername bereits auf dem Device verwendet wird, wenn ja soll ein Fehler geworfen werden
             ArrayList<Spieler> SpielerListe = daten.getSpielerListe();
             for (int i = 0; i < SpielerListe.size(); i++) {
                 if (SpielerListe.get(i).getName().equals(name)) { // Name war richtig
-                    throw new Exception("Dieser Spielername wird bereits verwendet");
-                } // Ende if Schleife namens Prüfung
+                    return false;
+                }  // Ende if Schleife namens Prüfung
             } // Ende for Schleife
             // Wenn die Schleife durchlaufen ist, aber kein Spieler den Namen bereits verwendet, wird der Spieler angelegt und als aktiver Spieler gesetzt
             aktiverSpieler = new Spieler(name, passwort, daten);
@@ -1125,7 +1125,7 @@ public class Controller {
         catch (Exception e){
         e.printStackTrace();
         } // Ende catch
-         } // Ende registrierung()
+        return true; } // Ende registrierung()
     /**
      * Aufrug wenn Login bestätigt wird (Button in UI)
      * UI Login
@@ -1177,7 +1177,7 @@ public class Controller {
 
     //  Mehrfach genutzte Datenabfrage.
     public int getRunde(){
-        return daten.getRundenAnzahl();
+        return daten.getRundenAnzahl()+1;
     }//Ende getRunde
     // Hilfsmethoden
     /**

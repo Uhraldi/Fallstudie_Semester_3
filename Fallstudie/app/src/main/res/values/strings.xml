@@ -175,5 +175,13 @@ Da alle Meister ausgebucht sind, können Sie leider keine Meister als Zeitarbeit
 
 
     <string name="personalwesen_info_textview">Hier können Sie unternehmensinterne Personalentscheidungen vornehmen.  Zu Beginn haben Sie 5 Mitarbeiter im Unternehmen. Sie können hier enscheiden, ob und wieviele Mitarbeiter Sie einstellen oder kündigen möchten. Diese Entscheidungen werden auf Grund von Kündigungsfristen erst in der nächsten Periode wirksam. Personalkosten wirken sich auf Ihre Fixkosten aus.</string>
+    <string name="personalwesen_title">Personalwesen</string>
+    <string name="investition_title">Investition</string>
+    <string name="materialeinkauf_title">Materialeinkauf</string>
+    <string name="absatz_title">Absatz</string>
+    <string name="bestellzsmfassung_title">Bestellzusammenfassung</string>
+    <string name="berechnung_title">Berechnung</string>
+    <string name="rundenergebnis_title">Rundenergebnis</string>
+    <string name="bestenliste_title">Bestenliste</string>
 
 </resources>

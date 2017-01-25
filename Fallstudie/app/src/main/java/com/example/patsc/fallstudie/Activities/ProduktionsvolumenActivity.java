@@ -31,11 +31,12 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
         //Initialisieren der Toolbar mit aktuellen Werten
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
-        toolbar_titel.setText("Absatz");
+        toolbar_titel.setText(R.string.absatz_title);
         TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
-        toolbar_runde.setText(IntroductionActivity.Controller.getRunde());
+        toolbar_runde.setText("Runde: " + (String.valueOf((IntroductionActivity.Controller.getRunde()))));
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
@@ -57,27 +58,28 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
 
         //Verknuepfen von EditText mit UI-Element per ID
         EditText Produktionsvolumen_input = (EditText) findViewById(R.id.produktionsvolumen_input);
-        //speichere Eingabewert in Variable
-        if(Produktionsvolumen_input != null && !TextUtils.isEmpty(Produktionsvolumen_input.getText())){
-            ProduktionsvolumenString = Produktionsvolumen_input.getText().toString();
-        }
-        auswahlProduktionsvolumen = Integer.parseInt(ProduktionsvolumenString);
-
 
         //Methodenaufruf von Controller um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte und ob das Guthaben reicht
-        if (auswahlProduktionsvolumen > 100 && auswahlProduktionsvolumen < 10000){
-            if ((IntroductionActivity.Controller.getFixKosten() + (IntroductionActivity.Controller.getVarKosten() * auswahlProduktionsvolumen)) <
-                    IntroductionActivity.Controller.getGuthaben()){
-                IntroductionActivity.Controller.setProduktionsvolumen(auswahlProduktionsvolumen);
-                Intent intent = new Intent(this, VerkaufspreisActivity.class);
-                finish();
-                startActivity(intent);
-            } else {
-                Toast toast = Toast.makeText(this, "Ihr aktuelles Guthaben reicht fuer dieses Produktionsvolumen nicht aus", Toast.LENGTH_SHORT);
-                toast.show();
-            }
+        if (Produktionsvolumen_input != null && !TextUtils.isEmpty(Produktionsvolumen_input.getText())) {
+            ProduktionsvolumenString = Produktionsvolumen_input.getText().toString();
+            auswahlProduktionsvolumen = Integer.parseInt(ProduktionsvolumenString);
+                if (auswahlProduktionsvolumen >= 100 && auswahlProduktionsvolumen <= 10000) {
+                    if ((IntroductionActivity.Controller.getFixKosten() + (IntroductionActivity.Controller.getVarKosten() * auswahlProduktionsvolumen)) <
+                            IntroductionActivity.Controller.getGuthaben()) {
+                        IntroductionActivity.Controller.setProduktionsvolumen(auswahlProduktionsvolumen);
+                        Intent intent = new Intent(this, VerkaufspreisActivity.class);
+                        finish();
+                        startActivity(intent);
+                    } else {
+                        Toast toast = Toast.makeText(this, "Ihr aktuelles Guthaben reicht fuer dieses Produktionsvolumen nicht aus", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                } else {
+                    Toast toast = Toast.makeText(this, "ungueltige Eingabe", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
         } else {
-            Toast toast = Toast.makeText(this, "ungueltige Eingabe", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Bitte ein Produktionsvolumen bestimmen", Toast.LENGTH_SHORT);
             toast.show();
         }
     }

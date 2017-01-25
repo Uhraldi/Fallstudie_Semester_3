@@ -33,11 +33,12 @@ public class BezahlartActivity extends AppCompatActivity {
         //Initialisieren der Toolbar mit aktuellen Werten
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
-        toolbar_titel.setText("Absatz");
+        toolbar_titel.setText(R.string.absatz_title);
         TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
-        toolbar_runde.setText(IntroductionActivity.Controller.getRunde());
+        toolbar_runde.setText("Runde: " + (String.valueOf((IntroductionActivity.Controller.getRunde()))));
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
@@ -82,8 +83,9 @@ public class BezahlartActivity extends AppCompatActivity {
         } else {
             Intent intent = new Intent(this, ProduktionsvolumenActivity.class);
             startActivity(intent);
+            finish();
         }
-        finish();
+
     }
 
     //Todo evtl nutzung der Variablen???
