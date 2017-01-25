@@ -45,11 +45,11 @@ public class Preissimulation {
     /*
     Konstruktor für die Preissimulation
      */
-    public Preissimulation (Controller controller, int RundenNr, Auftragssammlung auftragssammlung) {
-        this.RundenNr = RundenNr;
-        this.auftragssammlung = auftragssammlung;
+    public Preissimulation (Controller controller) {
+        this.RundenNr = controller.getRunde();
+        this.auftragssammlung = controller.getAktiverSpieler().getAuftragssammlung();
         c = controller;
-        berechneReservationspreis(c.getMarketing(),c.getZeitarbeiter(),c.get)
+       //ToDo berechneReservationspreis(c.getMarketing(),c.getZeitarbeiter(),c.get)
     }
 
     /*

@@ -74,7 +74,7 @@ public class Marktsim {
         }
 
         for (Data p : this.data) {   // VKP-Abfrage
-            gesamtkostenarray.add(p.getGesamtKosten());
+            // gesamtkostenarray.add(p.getGesamtKosten()); ToDo Fehler kommentiert da falsch, fix notwendig
         }
 
         for (Data p : this.data) {   // Menge-Abfrage
@@ -220,8 +220,8 @@ public class Marktsim {
 
         for (int i = 0; i < data.length; i++) {
             data[i].setKonto((double) kontoarray.get(i));
-            data[i].setMarktanteil((double) marktanteil.get(i));
-            data[i].setRundengewinn((double) rundenGewinn.get(i));
+          //  data[i].setMarktanteil((double) marktanteil.get(i));ToDo Fehler kommentiert da falsch, fix notwendig
+          // data[i].setRundengewinn((double) rundenGewinn.get(i)); ToDo Fehler kommentiert da falsch, fix notwendig
         }
 
         return absatzreturn;
