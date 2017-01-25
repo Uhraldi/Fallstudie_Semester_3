@@ -141,7 +141,7 @@ Im Anschluss daran kann man eine Runde aussetzen, mit den gleichen Werten noch e
     //Strings fuer Z1_Armband bis Z3_zeitarbeiter
 
     <string name="z1leder_info_textview">"Upps!
-Aufgrund einer Kuhgrippe können Sie leider kein Armband aus Leder auswählen. Bitte entscheiden Sie sich für ein anderes Armband."</string>
+Aufgrund einer Kuhgrippe konnten leider keine Armbänder aus Leder geliefert werden. Sie zahlen trotzdem 10% (Anzahlung) der entfallenen Option. Bitte entscheiden Sie sich für ein anderes Armband."</string>
     <string name="z1kunstleder_info_textview">"Upps!
 Aufgrund von Produktionsengpässen können Sie leider kein Armband aus Kunstleder auswählen. Bitte entscheiden Sie sich für ein anderes Armband." </string>
     <string name="z1holz_info_textview">"Upps!

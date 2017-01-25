@@ -3,6 +3,7 @@ package com.example.patsc.fallstudie.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,6 +28,17 @@ public class ArmbandActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_armband);
         IntroductionActivity.Controller.setActivity_Armband();
+
+        //Initialisieren der Toolbar mit aktuellen Werten
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        toolbar_titel.setText("Materialeinkauf");
+        TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
+        toolbar_runde.setText(IntroductionActivity.Controller.getRunde());
+        TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
+        toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
         //fuegt dem Spinner die Werte aus dem String-Array hinzu
         addItemsToArmbandSpinner();

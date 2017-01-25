@@ -1,7 +1,10 @@
 package com.example.patsc.fallstudie.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
@@ -12,6 +15,18 @@ public class RundenergebnisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rundenergebnis);
         IntroductionActivity.Controller.setActivity_Rundenergebnis();
+
+        //Initialisieren der Toolbar mit aktuellen Werten
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        toolbar_titel.setText("Rundenergebnis");
+        TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
+        toolbar_runde.setText(IntroductionActivity.Controller.getRunde());
+        TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
+        toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
+
 
 /*        //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Controller-Methoden zum Anzeigen der Rundenergebnisse
        TextView spieler_output = (TextView) findViewById(R.id.spieler_output);
@@ -40,15 +55,21 @@ public class RundenergebnisActivity extends AppCompatActivity {
     //TODO: Methoden für Entscheidung zur nächsten Runde
 
     public void eineRundeAussetzen (){
-
+        Intent intent = new Intent(this, PersonalwesenActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public void gleichenWerteNochmal (){
-
+        Intent intent = new Intent(this, PersonalwesenActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public void starteNaechsteRunde (){
-
+        Intent intent = new Intent(this, PersonalwesenActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 

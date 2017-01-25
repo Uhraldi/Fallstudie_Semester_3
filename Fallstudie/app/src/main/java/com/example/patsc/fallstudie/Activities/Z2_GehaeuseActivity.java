@@ -3,6 +3,7 @@ package com.example.patsc.fallstudie.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,6 +27,18 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_z2_gehaeuse);
         IntroductionActivity.Controller.setActivity_Z2();
+
+        //Initialisieren der Toolbar mit aktuellen Werten
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        toolbar_titel.setText("Materialeinkauf");
+        TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
+        toolbar_runde.setText(IntroductionActivity.Controller.getRunde());
+        TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
+        toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
+
 
         //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
         TextView z2gehaeuse_info_textiew = (TextView) findViewById(R.id.z2gehaeuse_info_textview);

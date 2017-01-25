@@ -931,10 +931,10 @@ public class Controller {
         }
         return marketing;
     } // Ende get Marketing
-    public float getKaufvolumen ( ){
+    public float getProduktionsvolumen( ){ //#Nils Refactored von getKaufvolumen zu getProduktionsvolumen
         float kv = (float)aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
         return kv;
-    } // Ende getKaufvolumen
+    } // Ende getProduktionsvolumen
     public float getVerkaufspreis ( ){
         float vkp = (float)aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp();
         return vkp;

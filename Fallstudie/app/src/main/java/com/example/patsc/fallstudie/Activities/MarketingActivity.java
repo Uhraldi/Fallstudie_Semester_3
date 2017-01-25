@@ -3,6 +3,7 @@ package com.example.patsc.fallstudie.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -30,6 +31,17 @@ public class MarketingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_marketing);
         IntroductionActivity.Controller.setActivity_Marketing();
 
+        //Initialisieren der Toolbar mit aktuellen Werten
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        toolbar_titel.setText("Investition");
+        TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
+        toolbar_runde.setText(IntroductionActivity.Controller.getRunde());
+        TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
+        toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
+
         //Verknüpft Checkboxes
         fernsehwerbung_checkbox = (CheckBox)findViewById(R.id.fernsehwerbung_checkbox);
         radiowerbung_checkbox = (CheckBox)findViewById(R.id.radiowerbung_checkbox);
@@ -44,7 +56,8 @@ public class MarketingActivity extends AppCompatActivity {
 
     }
 
-//#patsch //Todo evtl nutzung der Variablen???
+    //Todo evtl nutzung der Variablen???
+   //onClick Methoden fuer die drei CheckBoxes, mit Moeglichkeit zum Deaktivieren
    public void onCheckboxClickedRadiowerbung (View view){
        if (radiowerbung == true){
            radiowerbung = false;
@@ -53,7 +66,7 @@ public class MarketingActivity extends AppCompatActivity {
            radiowerbung = true;
        }
    } // Ende onCheckboxClickedRadiowerbung
-//#patsch //Todo evtl nutzung der Variablen???
+
     public void onCheckboxClickedFersnsehwerbung(View view){
         if (fernsehwerbung == true){
             fernsehwerbung = false;
@@ -63,8 +76,6 @@ public class MarketingActivity extends AppCompatActivity {
         }
     }// Ende onCheckboxClickedFersnsehwerbung
 
-    //#patsch
-    //Todo evtl nutzung der Variablen???
     public void onCheckboxClickedPrintwerbung(View view){
         if (printwerbung== true){
             printwerbung = false;
@@ -73,6 +84,7 @@ public class MarketingActivity extends AppCompatActivity {
             printwerbung = true;
         }
     } // Ende onCheckboxClickedPrintwerbung
+
     /**
      * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
      * @param view

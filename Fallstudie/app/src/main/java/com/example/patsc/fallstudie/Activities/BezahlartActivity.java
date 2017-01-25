@@ -3,6 +3,7 @@ package com.example.patsc.fallstudie.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -13,11 +14,11 @@ import com.example.patsc.fallstudie.R;
 public class BezahlartActivity extends AppCompatActivity {
 
     CheckBox kreditkarte_checkbox;
-    CheckBox bankueberweisung_checkbox;
+    CheckBox rechnung_checkbox;
     CheckBox paypal_checkbox;
 
     boolean kreditkarte = false; //#patsch
-    boolean bankueberweisung = false;//#patsch
+    boolean rechnung = false;//#patsch
     boolean paypal = false; //#patsch
     /**
      *
@@ -29,9 +30,20 @@ public class BezahlartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bezahlart);
         IntroductionActivity.Controller.setActivity_Bezahlart();
 
+        //Initialisieren der Toolbar mit aktuellen Werten
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        toolbar_titel.setText("Absatz");
+        TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
+        toolbar_runde.setText(IntroductionActivity.Controller.getRunde());
+        TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
+        toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
+
         //Verknüpft Checkboxes
         kreditkarte_checkbox = (CheckBox)findViewById(R.id.kreditkarte_checkbox);
-        bankueberweisung_checkbox = (CheckBox)findViewById(R.id.bankueberweisung_checkbox);
+        rechnung_checkbox = (CheckBox)findViewById(R.id.rechnung_checkbox);
         paypal_checkbox= (CheckBox)findViewById(R.id.paypal_checkbox);
 
 
@@ -56,15 +68,15 @@ public class BezahlartActivity extends AppCompatActivity {
         if (kreditkarte_checkbox.isChecked()){
             IntroductionActivity.Controller.setBezahlart("Kreditkarte");
         }
-        else if (bankueberweisung_checkbox.isChecked()){
+        else if (rechnung_checkbox.isChecked()){
             IntroductionActivity.Controller.setBezahlart("Rechnung");
         }
         else if (paypal_checkbox.isChecked()){
             IntroductionActivity.Controller.setBezahlart("PayPal");
         }
 
-        //block reihenfolge geändert #patsch
-        if (kreditkarte==false && paypal==false&&bankueberweisung==false){
+        //Abfrage, ob mind. 1 Option gewaehlt wurde, sonst Toast
+        if (kreditkarte==false && paypal==false&&rechnung==false){
             Toast toast = Toast.makeText(this, "Bitte mindestens eine Option wählen", Toast.LENGTH_SHORT);
             toast.show();
         } else {
@@ -74,7 +86,8 @@ public class BezahlartActivity extends AppCompatActivity {
         finish();
     }
 
-    //#patsch ToDo evtl Nutzung der boolean Werte in allen 3 onClick MEthoden
+    //Todo evtl nutzung der Variablen???
+    //onClick Methoden fuer die drei Checkboxes, mit Moeglichkeit zum Deaktivieren
     public void onClickKreditkarte (View view){
         if (kreditkarte == true){
             kreditkarte = false;
@@ -84,7 +97,6 @@ public class BezahlartActivity extends AppCompatActivity {
         }
     } // Ende onClickKreditkarte
 
-    //patsch
     public void onClickPayPal(View view){
         if(paypal==true){
             paypal = false;
@@ -94,14 +106,12 @@ public class BezahlartActivity extends AppCompatActivity {
         }
     }// Ende onClickPayPal
 
-    //patsch
-    //TODo heist es banküberweisung oder Rechnung??? #patsch
     public void onClickRechnung (View view){
-        if (bankueberweisung == true){
-            bankueberweisung = false;
+        if (rechnung == true){
+            rechnung = false;
         }
         else{
-            bankueberweisung = true;
+            rechnung = true;
         }
     }// Ende onClickRechnung
 

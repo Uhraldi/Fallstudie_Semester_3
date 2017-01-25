@@ -3,6 +3,7 @@ package com.example.patsc.fallstudie.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,10 +21,21 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bestellzusammenfassung);
         IntroductionActivity.Controller.setActivity_Bestellzusammenfassung();
 
+        //Initialisieren der Toolbar mit aktuellen Werten
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        toolbar_titel.setText("Auftragszusammenfassung");
+        TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
+        toolbar_runde.setText(IntroductionActivity.Controller.getRunde());
+        TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
+        toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
+
         //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Controller-Methoden zum Anzeigen der Auftragspositionens
 
         TextView personalwesen_output = (TextView) findViewById(R.id.personalwesen_output);
-        //personalwesen_output.setText(IntroductionActivity.Controller.getPersonalwesen()); TODO
+        //personalwesen_output.setText(IntroductionActivity.Controller.getPersonalwesen()); TODO: sobald in Controller, wie Anzeigen?
 
         TextView zeitarbeiter_output = (TextView) findViewById(R.id.zeitarbeiter_output);
         try {
@@ -76,7 +88,7 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
 
 
         TextView produktionsvolumen_output = (TextView) findViewById(R.id.produktionsvolumen_output);
-        produktionsvolumen_output.setText(String.valueOf(IntroductionActivity.Controller.getKaufvolumen())); //TODO: Umbenennung zu getProduktionsvolumen
+        produktionsvolumen_output.setText(String.valueOf(IntroductionActivity.Controller.getProduktionsvolumen()));
 
         TextView verkaufspreis_output = (TextView) findViewById(R.id.verkaufspreis_output);
         verkaufspreis_output.setText(String.valueOf(IntroductionActivity.Controller.getVerkaufspreis()));
