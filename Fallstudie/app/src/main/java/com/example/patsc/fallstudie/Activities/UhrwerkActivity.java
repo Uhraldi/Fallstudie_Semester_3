@@ -98,7 +98,7 @@ public class UhrwerkActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        IntroductionActivity.Controller.setUhrwerk(auswahlUhrwerk);
+        IntroductionActivity.Controller.setUhrwerkAktuell(auswahlUhrwerk);
 
         Intent intent = new Intent(this, GehaeuseActivity.class);
         finish();

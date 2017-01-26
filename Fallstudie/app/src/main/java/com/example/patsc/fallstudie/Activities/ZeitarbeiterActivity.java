@@ -96,7 +96,7 @@ public class ZeitarbeiterActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        IntroductionActivity.Controller.setZeitarbeiter(auswahlZeitarbeiter);
+        IntroductionActivity.Controller.setZeitarbeiterAktuell(auswahlZeitarbeiter);
         Intent intent = new Intent(this, ForschungActivity.class);
         finish();
         startActivity(intent);

@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie;
+package com.example.patsc.fallstudie.Covered;
 
 /**
  * Created by Patricia Schneider on 30.12.2016.
@@ -20,6 +20,13 @@ public class Spieler {
     private final Daten daten;
     private Auftragssammlung auftragssammlung; // ToDo Methoden, Konstruktor
     public Auftragssammlung getAuftragssammlung(){return auftragssammlung;}
+
+    public String toString(){
+        String spielerString;
+        spielerString =getName() + ":" + getPasswort() + ":" + getGuthaben() + ":" + getMarktanteil() + ":" + getPunkte();
+        return spielerString;
+    }
+
     /**
      * Konstruktor für den Spieler.
      *

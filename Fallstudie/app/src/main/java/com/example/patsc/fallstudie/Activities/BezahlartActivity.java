@@ -67,13 +67,13 @@ public class BezahlartActivity extends AppCompatActivity {
 
         //Übergabe der Checkbox-Werte an Controller
         if (kreditkarte_checkbox.isChecked()){
-            IntroductionActivity.Controller.setBezahlart("Kreditkarte");
+            IntroductionActivity.Controller.setBezahlartAktuell("Kreditkarte");
         }
         else if (rechnung_checkbox.isChecked()){
-            IntroductionActivity.Controller.setBezahlart("Rechnung");
+            IntroductionActivity.Controller.setBezahlartAktuell("Rechnung");
         }
         else if (paypal_checkbox.isChecked()){
-            IntroductionActivity.Controller.setBezahlart("PayPal");
+            IntroductionActivity.Controller.setBezahlartAktuell("PayPal");
         }
 
         //Abfrage, ob mind. 1 Option gewaehlt wurde, sonst Toast

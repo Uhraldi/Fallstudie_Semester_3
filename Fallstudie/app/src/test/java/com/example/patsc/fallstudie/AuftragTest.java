@@ -1,5 +1,7 @@
 package com.example.patsc.fallstudie;
 
+import com.example.patsc.fallstudie.Covered.Auftrag;
+
 import junit.framework.Assert;
 
 import org.junit.Test;

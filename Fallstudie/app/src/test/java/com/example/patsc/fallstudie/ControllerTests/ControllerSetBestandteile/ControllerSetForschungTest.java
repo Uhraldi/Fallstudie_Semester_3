@@ -1,6 +1,8 @@
 package com.example.patsc.fallstudie.ControllerTests.ControllerSetBestandteile;
 
-import com.example.patsc.fallstudie.Controller;
+import com.example.patsc.fallstudie.Covered.Controller;
+import com.example.patsc.fallstudie.Covered.Daten;
+import com.example.patsc.fallstudie.Covered.Spieler;
 
 import junit.framework.Assert;
 
@@ -19,17 +21,25 @@ import static junit.framework.TestCase.fail;
 @RunWith(Theories.class)
 public class ControllerSetForschungTest {
 
+    public ControllerSetForschungTest() throws Exception {
+    }
+
     public static @DataPoints
-    String[] DesignerWerte =
-            {"Marken", "Mittelmäßig", "LowBudget"};
+    String[] ForschungsWerte =
+            {"2500€ Investition", "8000€ Investition", "15000€ Investition"};
     Controller TestController = new Controller();
     boolean thrown = false;
+    Daten TestDaten = new Daten();
+    Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
+
+
 
     @Theory
-    public void setDesignerTest(String DesignerWerte){
+    public void setDesignerTest(String ForschungsWerte){
+        TestController.aktiverSpieler = TestSpieler;
         try {
             TestController.setSCHRITT_FORSCHUNG_boolean(true);
-            TestController.setForschung("1000€ Investition");
+            TestController.setForschungAktuell(ForschungsWerte);
         }catch (Exception e){
             e.printStackTrace();
             fail();
@@ -39,7 +49,7 @@ public class ControllerSetForschungTest {
     @Test
     public void setDesignerFailTest(){
         try {
-            TestController.setForschung("Falsche Eingabe");
+            TestController.setForschungAktuell("Falsche Eingabe");
         }catch(Exception e){
             thrown = true;
         }

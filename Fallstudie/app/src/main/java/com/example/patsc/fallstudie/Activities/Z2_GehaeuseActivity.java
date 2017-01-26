@@ -43,7 +43,7 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
         //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
         TextView z2gehaeuse_info_textiew = (TextView) findViewById(R.id.z2gehaeuse_info_textview);
         try {
-            switch (IntroductionActivity.Controller.getGehaeuse()){
+            switch (IntroductionActivity.Controller.getGehaeuseAktuellerAuftrag()){
                 case "Glas": {
                     z2gehaeuse_info_textiew.setText(R.string.z2glas_info_textview);
                     break;
@@ -124,7 +124,7 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
     public void goToNextActivity(View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        if(IntroductionActivity.Controller.getGehaeuse().equals(auswahlGehaeuse)) {
+        if(IntroductionActivity.Controller.getGehaeuseAktuellerAuftrag().equals(auswahlGehaeuse)) {
             Toast toast = Toast.makeText(this, "Diese Option ist leider nicht mehr verfügbar", Toast.LENGTH_SHORT);
         } else {
             IntroductionActivity.Controller.setGehaeuseNeu(auswahlGehaeuse);

@@ -66,7 +66,7 @@ public class VerkaufspreisActivity extends AppCompatActivity {
            Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
            toast.show();
        } else {
-           IntroductionActivity.Controller.setVerkaufspreis(auswahlVerkaufspreis);
+           IntroductionActivity.Controller.setVerkaufspreisAktuell(auswahlVerkaufspreis);
            Intent intent = new Intent(this, BestellzusammenfassungActivity.class);
            finish();
            startActivity(intent);

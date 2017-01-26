@@ -44,7 +44,7 @@ public class Z3_ZeitarbeiterActivity extends AppCompatActivity {
         //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
         TextView z3Zeitarbeiter_info_textview = (TextView) findViewById(R.id.z3Zeitarbeiter_info_textview);
         try {
-            switch (IntroductionActivity.Controller.getGehaeuse()){
+            switch (IntroductionActivity.Controller.getGehaeuseAktuellerAuftrag()){
                 case "Geselle": {
                     z3Zeitarbeiter_info_textview.setText(R.string.z3Geselle_info_textview);
                     break;
@@ -124,7 +124,7 @@ public class Z3_ZeitarbeiterActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        if(IntroductionActivity.Controller.getZeitarbeiter().equals(auswahlZeitarbeiter)) {
+        if(IntroductionActivity.Controller.getZeitarbeiterAktuellerAuftrag().equals(auswahlZeitarbeiter)) {
             Toast toast = Toast.makeText(this, "Diese Option ist leider nicht mehr verfügbar", Toast.LENGTH_SHORT);
         } else {
             IntroductionActivity.Controller.setZeitarbeiterNeu(auswahlZeitarbeiter);

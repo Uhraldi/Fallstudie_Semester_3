@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.Bestandteile;
+package com.example.patsc.fallstudie.Covered.Bestandteile;
 
 /**
  * Created by patsc on 14.01.2017.
@@ -22,6 +22,10 @@ public class Personalwesen {
      */
     public Personalwesen(){
 
+    }
+
+    public String toString(){
+        return eingestellte + ":" + veraenderung + ":" + fixkosten;
     }
     public int getAnzahlDerMöglichenUhrenProMitarbeiter() {
         return anzahlDerMöglichenUhrenProMitarbeiter;
@@ -49,5 +53,13 @@ public class Personalwesen {
 
     public void setPersonalKostenProMitarbeiter(double personalKostenProMitarbeiter) {
         this.personalKostenProMitarbeiter = personalKostenProMitarbeiter;
+    }
+
+    public void setVeraenderung(int veraenderung) {
+        this.veraenderung = veraenderung;
+    }
+
+    public void setFixkosten(double fixkosten) {
+        this.fixkosten = fixkosten;
     }
 }

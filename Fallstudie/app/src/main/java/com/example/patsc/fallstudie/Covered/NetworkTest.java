@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie;
+package com.example.patsc.fallstudie.Covered;
 
 import java.io.InputStream;
 import java.io.OutputStream;

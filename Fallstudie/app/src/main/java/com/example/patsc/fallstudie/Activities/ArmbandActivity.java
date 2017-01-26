@@ -100,7 +100,7 @@ public class ArmbandActivity extends AppCompatActivity {
     public void goToNextActivity (View view)throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        IntroductionActivity.Controller.setArmband(auswahlArmband);
+        IntroductionActivity.Controller.setArmbandAktuell(auswahlArmband);
 
         Intent intent = new Intent(this, UhrwerkActivity.class);
         startActivity(intent);

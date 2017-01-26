@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.Bestandteile;
+package com.example.patsc.fallstudie.Covered.Bestandteile;
 /**
  * Created by vince on 30.12.2016.
  * testable
@@ -41,6 +41,28 @@ public class Gehaeuse {
      */
     public Gehaeuse(){
 
+    }
+
+    public void setHolzZufall(double holzZufall) {
+        this.holzZufall = holzZufall;
+    }
+
+    public void setGlasZufall(double glasZufall) {
+        this.glasZufall = glasZufall;
+    }
+
+    public void setKunststoffZufall(double kunststoffZufall) {
+        this.kunststoffZufall = kunststoffZufall;
+    }
+
+    public void setMetallZufall(double metallZufall) {
+        this.metallZufall = metallZufall;
+    }
+
+    public String toString(){
+        String gehauseString;
+        gehauseString = glasZufall + ":" +holzZufall+ ":" +kunststoffZufall+ ":" +metallZufall;
+        return gehauseString;
     }
 
     /**

@@ -1,12 +1,10 @@
-package com.example.patsc.fallstudie;
+package com.example.patsc.fallstudie.Covered;
 
 import com.example.patsc.fallstudie.Network.Data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-
-import static android.R.attr.data;
 
 
 /**

@@ -44,7 +44,7 @@ public class Z1_ArmbandActivity extends AppCompatActivity {
         //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
         TextView z1armband_info_textiew = (TextView) findViewById(R.id.z1armband_info_textview);
         try {
-            switch (IntroductionActivity.Controller.getArmband()){
+            switch (IntroductionActivity.Controller.getArmbandAktuellerAuftrag()){
                 case "Leder": {
                     z1armband_info_textiew.setText(R.string.z1leder_info_textview);
                     break;
@@ -131,7 +131,7 @@ public class Z1_ArmbandActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen, mit Prüfung ob anderer Wert als vorher
-        if(IntroductionActivity.Controller.getArmband().equals(auswahlArmband)) {
+        if(IntroductionActivity.Controller.getArmbandAktuellerAuftrag().equals(auswahlArmband)) {
             Toast toast = Toast.makeText(this, "Diese Option ist leider nicht mehr verfügbar", Toast.LENGTH_SHORT);
         } else {
             IntroductionActivity.Controller.setArmbandNeu(auswahlArmband);

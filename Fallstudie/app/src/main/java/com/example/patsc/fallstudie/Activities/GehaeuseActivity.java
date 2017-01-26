@@ -97,7 +97,7 @@ public class GehaeuseActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        IntroductionActivity.Controller.setGehaeuse(auswahlGehaeuse);
+        IntroductionActivity.Controller.setGehaeuseAktuell(auswahlGehaeuse);
 
         Intent intent = new Intent(this, BezahlartActivity.class);
         finish();

@@ -1,5 +1,8 @@
 package com.example.patsc.fallstudie;
 
+import com.example.patsc.fallstudie.Covered.Auftrag;
+import com.example.patsc.fallstudie.Covered.Auftragssammlung;
+
 import org.junit.Test;
 
 /**

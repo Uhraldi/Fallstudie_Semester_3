@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie;
+package com.example.patsc.fallstudie.Covered;
 import java.util.ArrayList;
 /**
  * Created by Patricia Schneider on 30.12.2016.
@@ -11,9 +11,12 @@ public class Daten {
     }
 
     private ArrayList<Spieler> SpielerListe; // Liste aller Spieler; die auf dem Device gespeichert sind
-    private int SpielerAnzahl;
+   private int SpielerAnzahl = 10;
     private ArrayList<Runde> RundenListe; //Liste der bisherigen Runden //ToDo MEthoden
     private int RundenAnzahl; //ToDo Methoden
+    public void setRundenAnzahl(int i){
+        RundenAnzahl = i;
+    }
     private Spieler dieserSpieler; // Der Spieler dieses Geräts ToDo
     public Spieler getDieserSpieler(){return dieserSpieler;} //ToDO
     public int getRundenAnzahl(){
@@ -25,6 +28,12 @@ public class Daten {
         ladeDaten();
         SpielerListe = new ArrayList<Spieler>();
     } // Ende Konstruktor
+
+    public String toString(){
+        String dataString;
+        dataString = RundenAnzahl+":";
+        return dataString;
+    }
 
     public void setDieserSpieler(Spieler spieler){
         dieserSpieler = spieler;
