@@ -4,6 +4,7 @@ import com.example.patsc.fallstudie.Network.Data;
 import com.example.patsc.fallstudie.Network.Funkturm;
 
 import java.util.ArrayList;
+import java.util.Timer;
 
 /**
  * Created by patsc on 13.12.2016.
@@ -481,6 +482,7 @@ public class Controller {
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setPreissim(preissim);
             Data data = new Data(aktiverSpieler.getName(),daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(),aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(),getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben());
             funkturm.sendData(data);
+            Thread.sleep(3000);
             Data[] gegnerliste = funkturm.getData(daten.getRundenAnzahl());
             Marktsim marktsim = new Marktsim(getPreissimulationenPreis(), this, this.getDaten(), gegnerliste);
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
