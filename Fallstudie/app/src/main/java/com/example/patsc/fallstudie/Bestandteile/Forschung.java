@@ -36,7 +36,7 @@ public class Forschung { //ToDo Forschungswerte anpassen
      */
     public boolean isInvestition15000() {
         return Investition15000;
-    }
+    } //// TODO: 25.01.2017 #Patschi wird nicht überprüft. Soll das so? MfG Vincent
 
     public boolean isInvestition8000() {
         return Investition8000;

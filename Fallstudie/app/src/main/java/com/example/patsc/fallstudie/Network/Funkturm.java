@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -14,7 +15,6 @@ import java.net.URL;
  * Created by vince on 18.01.2017.
  */
 
-//// TODO: 24.01.2017 #Vincent Dokument  erstellen, in das man imaginäre Daten für  den Server eintragen kann. 
 public class Funkturm {
 
     private Gson gson = new Gson();
@@ -36,10 +36,16 @@ public class Funkturm {
         //Object in JSON transformieren
         String json = gson.toJson(data);
 
+        System.out.println(json);
+
         //Verbindung mit Server aufbauen
         try{
-            HttpURLConnection httpcon = (HttpURLConnection) ((new URL("http://10.0.0.2:8080/api/sendStats").openConnection()));
+            HttpURLConnection httpcon = (HttpURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/api/sendStats").openConnection()));
             httpcon.setDoOutput(true);
+            httpcon.setDoInput(false);
+            httpcon.setUseCaches(false);
+            httpcon.setConnectTimeout(10000);
+            httpcon.setReadTimeout(10000);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
             httpcon.setRequestMethod("POST");
@@ -47,11 +53,14 @@ public class Funkturm {
 
             //Sendung festlegen
             byte[] outputBytes = json.getBytes("UTF-8");
-            OutputStream os = httpcon.getOutputStream();
+            OutputStreamWriter os = new OutputStreamWriter(httpcon.getOutputStream());
+
+            //JSONObject jsonObject = new JSONObject();
+            //jsonObject.put("id",123);
 
             //Senden
-            os.write(outputBytes);
-
+            os.write(json);
+            os.flush();
             //Outputstream schließen, Verbindung trennen
             os.close();
 
@@ -70,7 +79,7 @@ public class Funkturm {
 
         //Verbindung mit Server aufbauen
         try {
-            HttpURLConnection httpcon = (HttpURLConnection) ((new URL("http://10.0.0.2:8080/api/getStats/"+runde).openConnection()));
+            HttpURLConnection httpcon = (HttpURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/api/getStats/"+runde).openConnection()));
             httpcon.setDoOutput(false);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
@@ -84,6 +93,7 @@ public class Funkturm {
             //Gelesenen Input in Objekte verpacken
             Data[] dataArray = gson.fromJson(res, Data[].class);
 
+            System.out.println(dataArray[0].toString());
 
             //Inputstream schließen, Verbindung trennen
             reader.close();
@@ -91,11 +101,12 @@ public class Funkturm {
 
             //Dataobjekte returnen
             return dataArray;
-    } catch (Exception e) {
-        e.printStackTrace();
-        return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
-}
+
 
 /** Nur leicht veränderter Code zur Vorlage für weitere Connection-methoden
  public void senden () {
