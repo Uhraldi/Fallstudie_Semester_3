@@ -19,7 +19,6 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
     String ProduktionsvolumenString;
 
     /**
-     *
      * @param savedInstanceState
      */
     @Override
@@ -51,19 +50,20 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
 
     /**
      * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
+     *
      * @param view
      * @throws Exception
      */
-    public void goToNextActivity (View view) throws Exception {
+    public void goToNextActivity(View view) throws Exception {
 
         //Verknuepfen von EditText mit UI-Element per ID
         EditText Produktionsvolumen_input = (EditText) findViewById(R.id.produktionsvolumen_input);
 
         //Methodenaufruf von Controller um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte und ob das Guthaben reicht
-<<<<<<< HEAD
-        if (auswahlProduktionsvolumen > 100 && auswahlProduktionsvolumen < 10000){
+
+        if (auswahlProduktionsvolumen > 100 && auswahlProduktionsvolumen < 10000) {
             if ((IntroductionActivity.Controller.getFixKosten() + (IntroductionActivity.Controller.getVarKosten() * auswahlProduktionsvolumen)) <
-                    IntroductionActivity.Controller.getGuthaben()){
+                    IntroductionActivity.Controller.getGuthaben()) {
                 IntroductionActivity.Controller.setProduktionsvolumenAktuell(auswahlProduktionsvolumen);
                 Intent intent = new Intent(this, VerkaufspreisActivity.class);
                 finish();
@@ -72,14 +72,14 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(this, "Ihr aktuelles Guthaben reicht fuer dieses Produktionsvolumen nicht aus", Toast.LENGTH_SHORT);
                 toast.show();
             }
-=======
-        if (Produktionsvolumen_input != null && !TextUtils.isEmpty(Produktionsvolumen_input.getText())) {
-            ProduktionsvolumenString = Produktionsvolumen_input.getText().toString();
-            auswahlProduktionsvolumen = Integer.parseInt(ProduktionsvolumenString);
+
+            if (Produktionsvolumen_input != null && !TextUtils.isEmpty(Produktionsvolumen_input.getText())) {
+                ProduktionsvolumenString = Produktionsvolumen_input.getText().toString();
+                auswahlProduktionsvolumen = Integer.parseInt(ProduktionsvolumenString);
                 if (auswahlProduktionsvolumen >= 100 && auswahlProduktionsvolumen <= 10000) {
                     if ((IntroductionActivity.Controller.getFixKosten() + (IntroductionActivity.Controller.getVarKosten() * auswahlProduktionsvolumen)) <
                             IntroductionActivity.Controller.getGuthaben()) {
-                        IntroductionActivity.Controller.setProduktionsvolumen(auswahlProduktionsvolumen);
+                        IntroductionActivity.Controller.setProduktionsvolumenAktuell(auswahlProduktionsvolumen);
                         Intent intent = new Intent(this, VerkaufspreisActivity.class);
                         finish();
                         startActivity(intent);
@@ -91,11 +91,13 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(this, "ungueltige Eingabe", Toast.LENGTH_SHORT);
                     toast.show();
                 }
->>>>>>> 4022e7321e78ba02955670f0fcf96f8fcd0b6fb9
-        } else {
-            Toast toast = Toast.makeText(this, "Bitte ein Produktionsvolumen bestimmen", Toast.LENGTH_SHORT);
-            toast.show();
+
+            } else {
+                Toast toast = Toast.makeText(this, "Bitte ein Produktionsvolumen bestimmen", Toast.LENGTH_SHORT);
+                toast.show();
+            }
         }
+
     }
 
 }

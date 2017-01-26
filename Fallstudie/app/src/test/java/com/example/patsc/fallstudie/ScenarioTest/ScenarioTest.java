@@ -1,7 +1,7 @@
 package com.example.patsc.fallstudie.ScenarioTest;
 
-import com.example.patsc.fallstudie.Daten;
-import com.example.patsc.fallstudie.Controller;
+import com.example.patsc.fallstudie.Covered.Daten;
+import com.example.patsc.fallstudie.Covered.Controller;
 
 /**
  * Created by julian on 11.01.2017.

@@ -1,7 +1,5 @@
-package com.example.patsc.fallstudie;
+package com.example.patsc.fallstudie.Covered;
 
-
-import android.app.ExpandableListActivity;
 
 /**
  * Created by Jonas on 02.01.17.
@@ -56,17 +54,17 @@ public class Preissimulation {
     public Preissimulation (Controller controller) {
         this.RundenNr = controller.getRunde();
         this.auftragssammlung = controller.getAktiverSpieler().getAuftragssammlung();
-        berechneReservationspreis(c.getZeitarbeiter(), c.getForschung(), c.getMarketing(), c.getArmband(),
-                c.getGehaeuse(), c.getUhrwerk());
+        berechneReservationspreis(c.getZeitarbeiterAktuellerAuftrag(), c.getForschungAktuellerAuftrag(), c.getMarketingAktuellerAuftrag(), c.getArmbandAktuellerAuftrag(),
+                c.getGehaeuseAktuellerAuftrag(), c.getUhrwerkAktuellerAuftrag());
         c = controller;
-<<<<<<< HEAD
+
        //ToDo berechneReservationspreis(c.getMarketingAktuellerAuftrag(),c.getZeitarbeiterAktuellerAuftrag(),c.get)
-=======
+
         /*
         berechneGesamtkosten();
         berechneStückkosten();
         */
->>>>>>> 4022e7321e78ba02955670f0fcf96f8fcd0b6fb9
+
     }
 
     /*

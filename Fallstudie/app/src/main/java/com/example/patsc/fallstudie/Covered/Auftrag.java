@@ -1,5 +1,5 @@
-package com.example.patsc.fallstudie;
-import com.example.patsc.fallstudie.Bestandteile.*;
+package com.example.patsc.fallstudie.Covered;
+import com.example.patsc.fallstudie.Covered.Bestandteile.*;
 
 /**
  * Created by vince on 01.01.2017.

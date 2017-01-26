@@ -1,6 +1,4 @@
-package com.example.patsc.fallstudie;
-
-import java.util.ArrayList;
+package com.example.patsc.fallstudie.Covered;
 
 
 /**

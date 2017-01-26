@@ -1,5 +1,8 @@
 package com.example.patsc.fallstudie;
 
+import com.example.patsc.fallstudie.Covered.Daten;
+import com.example.patsc.fallstudie.Covered.Spieler;
+
 import junit.framework.Assert;
 
 import org.junit.Test;

@@ -1,8 +1,8 @@
-package com.example.patsc.fallstudie.LokaleDaten;
+package com.example.patsc.fallstudie.Covered.LokaleDaten;
 
-import com.example.patsc.fallstudie.Controller;
-import com.example.patsc.fallstudie.Daten;
-import com.example.patsc.fallstudie.Spieler;
+import com.example.patsc.fallstudie.Covered.Controller;
+import com.example.patsc.fallstudie.Covered.Daten;
+import com.example.patsc.fallstudie.Covered.Spieler;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

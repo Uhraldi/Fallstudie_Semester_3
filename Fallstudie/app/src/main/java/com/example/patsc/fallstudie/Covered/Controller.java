@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie;
+package com.example.patsc.fallstudie.Covered;
 
 import com.example.patsc.fallstudie.Network.Data;
 import com.example.patsc.fallstudie.Network.Funkturm;
@@ -451,9 +451,9 @@ public class Controller {
 
     }
     public void setActivity_Bestellzusammenfassung () {
-        setZustand_Bestellung(true);
         setzeAlleZustaendeFalse();
-    }
+        setZustand_Bestellung(true);
+            }
     public void setActivity_Z1 () {
         setZustand_Ereignis(true);
         setAENDERE_ARMBAND_boolean(true);

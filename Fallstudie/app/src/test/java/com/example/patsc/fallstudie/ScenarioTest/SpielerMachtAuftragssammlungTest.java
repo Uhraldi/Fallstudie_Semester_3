@@ -1,12 +1,5 @@
 package com.example.patsc.fallstudie.ScenarioTest;
 
-import com.example.patsc.fallstudie.Auftragssammlung;
-import com.example.patsc.fallstudie.Daten;
-import com.example.patsc.fallstudie.Preissimulation;
-import com.example.patsc.fallstudie.Spieler;
-
-import org.junit.Test;
-
 import static junit.framework.Assert.assertTrue;
 import static junit.framework.TestCase.fail;
 

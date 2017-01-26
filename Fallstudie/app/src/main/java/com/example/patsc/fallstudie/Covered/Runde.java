@@ -1,6 +1,4 @@
-package com.example.patsc.fallstudie;
-
-import com.example.patsc.fallstudie.Controller;
+package com.example.patsc.fallstudie.Covered;
 
 /**
  * Created by Jonas on 01.01.17.

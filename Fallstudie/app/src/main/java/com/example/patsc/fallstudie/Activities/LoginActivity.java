@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.patsc.fallstudie.Controller;
+import com.example.patsc.fallstudie.Covered.Controller;
 import com.example.patsc.fallstudie.R;
 
 import static com.example.patsc.fallstudie.Activities.IntroductionActivity.Controller;

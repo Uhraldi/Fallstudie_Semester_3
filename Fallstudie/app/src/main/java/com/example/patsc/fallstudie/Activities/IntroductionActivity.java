@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.example.patsc.fallstudie.Controller;
-import com.example.patsc.fallstudie.NetworkTest;
+import com.example.patsc.fallstudie.Covered.Controller;
+import com.example.patsc.fallstudie.Covered.NetworkTest;
 import com.example.patsc.fallstudie.R;
 
 public class IntroductionActivity extends AppCompatActivity {

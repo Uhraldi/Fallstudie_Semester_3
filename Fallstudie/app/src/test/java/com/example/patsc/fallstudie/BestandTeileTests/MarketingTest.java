@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.BestandTeileTests;
 
-import com.example.patsc.fallstudie.Auftrag;
+import com.example.patsc.fallstudie.Covered.Auftrag;
 
 import junit.framework.Assert;
 
@@ -20,7 +20,7 @@ public class MarketingTest {
 
     public static @DataPoints
     String[] WerbungWerte =
-            {"Fernsehwerbung", "mittel", "wenig"};
+            {"Fernsehwerbung", "Radiowerbung", "Printwerbung"};
 
 
     @Theory

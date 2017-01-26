@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.Bestandteile;
+package com.example.patsc.fallstudie.Covered.Bestandteile;
 /**
  * Created by vince on 30.12.2016.
  * testable

@@ -1,8 +1,8 @@
 package com.example.patsc.fallstudie.ControllerTests;
 
-import com.example.patsc.fallstudie.Daten;
-import com.example.patsc.fallstudie.Controller;
-import com.example.patsc.fallstudie.Spieler;
+import com.example.patsc.fallstudie.Covered.Daten;
+import com.example.patsc.fallstudie.Covered.Controller;
+import com.example.patsc.fallstudie.Covered.Spieler;
 
 import junit.framework.Assert;
 
@@ -19,6 +19,7 @@ public class ControllerSetZustaendeTest {
     private Controller TestController = new Controller();
     private Daten TestDaten = TestController.getDaten();
     Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
+
 
 
     private boolean Testpassed;
@@ -58,31 +59,25 @@ public class ControllerSetZustaendeTest {
             TestController.isZustand_Ereignis() == false &&
             TestController.isZustand_Lieferung() == false)
 */
-    /*
+
     @Test
     public void setActivity_Login(){
+        TestController.aktiverSpieler = TestSpieler;
         setzteAlleZustaendeTrue();
         setzteAlleSchritteTrue();
         TestController.setActivity_Login();
-        if (
-                TestController.isZustand_Spielbeginn() &&
-              //  TestController.isZustand_Bestellung() == false &&
-                        !TestController.isZustand_Ende() &&
-                        !TestController.isZustand_Ereignis() &&
-                        !TestController.isZustand_Lieferung()){
+        if (    TestController.isZustand_Spielbeginn() &&
+                !TestController.isSCHRITT_MARKETING_boolean()){
             Testpassed = true;
         }else{
             fail("Mehr als ein Zustand true");
         }
     Assert.assertTrue(isPassed());
-
     }
-    */
 
-
-    //ToDo Auftragssammlung richtig implementieren.
     @Test
     public void setActivity_ArmbandTest(){
+        TestController.aktiverSpieler = TestSpieler;
         setzteAlleSchritteTrue();
         setzteAlleZustaendeTrue();
         TestController.setActivity_Armband();
@@ -90,6 +85,7 @@ public class ControllerSetZustaendeTest {
                 TestController.isZustand_Bestellung() &&
                         TestController.isSCHRITT_ARMBAND_boolean()){
             Testpassed = true;
+
         }else{
             fail("Mehr als ein Zustand true");
         }
@@ -97,6 +93,7 @@ public class ControllerSetZustaendeTest {
 
     @Test
     public void setActivity_UhrwerkTest(){
+        TestController.aktiverSpieler = TestSpieler;
         setzteAlleSchritteTrue();
         setzteAlleZustaendeTrue();
         TestController.setActivity_Uhrwerk();
@@ -111,6 +108,7 @@ public class ControllerSetZustaendeTest {
 
     @Test
     public void setActivity_GehauseTest(){
+        TestController.aktiverSpieler = TestSpieler;
         setzteAlleSchritteTrue();
         setzteAlleZustaendeTrue();
         TestController.setActivity_Gehaeuse();
@@ -125,6 +123,7 @@ public class ControllerSetZustaendeTest {
 
     @Test
     public void setActivity_BezahlartTest(){
+        TestController.aktiverSpieler = TestSpieler;
         setzteAlleSchritteTrue();
         setzteAlleZustaendeTrue();
         TestController.setActivity_Bezahlart();
@@ -137,15 +136,121 @@ public class ControllerSetZustaendeTest {
         }
     }
 
-
     @Test
-    public void setActivity_E7Test(){
+    public void setActivity_ZeitarbeiterTest(){
+        TestController.aktiverSpieler = TestSpieler;
         setzteAlleSchritteTrue();
         setzteAlleZustaendeTrue();
         TestController.setActivity_Zeitarbeiter();
         if (
                 TestController.isZustand_Bestellung() &&
                         TestController.isSCHRITT_ZEITARBEITER_boolean()){
+            Testpassed = true;
+        }else{
+            fail("Mehr als ein Zustand true");
+        }
+    }
+
+    @Test
+    public void setActivity_ProduktionsvolumenTest(){
+        TestController.aktiverSpieler = TestSpieler;
+        setzteAlleSchritteTrue();
+        setzteAlleZustaendeTrue();
+        TestController.setActivity_Produktionsvolumen();
+        if (
+                TestController.isZustand_Bestellung() &&
+                        TestController.isSCHRITT_PRODUKTIONSVOLUMEN_boolean()){
+            Testpassed = true;
+        }else{
+            fail("Mehr als ein Zustand true");
+        }
+    }
+
+    @Test
+    public void setActivity_MarketingTest(){
+        TestController.aktiverSpieler = TestSpieler;
+        setzteAlleSchritteTrue();
+        setzteAlleZustaendeTrue();
+        TestController.setActivity_Marketing();
+        if (
+                TestController.isZustand_Bestellung() &&
+                        TestController.isSCHRITT_MARKETING_boolean()){
+            Testpassed = true;
+        }else{
+            fail("Mehr als ein Zustand true");
+        }
+    }
+
+    @Test
+    public void setActivity_VerkaufsPreisTest(){
+        TestController.aktiverSpieler = TestSpieler;
+        setzteAlleSchritteTrue();
+        setzteAlleZustaendeTrue();
+        TestController.setActivity_Verkaufspreis();
+        if (
+                TestController.isZustand_Bestellung() &&
+                        TestController.isSCHRITT_VERKAUFSPREIS_boolean()){
+            Testpassed = true;
+        }else{
+            fail("Mehr als ein Zustand true");
+        }
+    }
+
+    @Test
+    public void setActivity_BestellzusammenfassungTest(){
+        TestController.aktiverSpieler = TestSpieler;
+        setzteAlleSchritteTrue();
+        setzteAlleZustaendeTrue();
+        TestController.setActivity_Bestellzusammenfassung();
+        if (
+                TestController.isZustand_Bestellung()){
+            Testpassed = true;
+        }else{
+            System.err.println(TestController.isZustand_Bestellung());
+            fail("Mehr als ein Zustand true");
+        }
+    }
+
+    @Test
+    public void setActivity_Z1Test(){
+        TestController.aktiverSpieler = TestSpieler;
+        setzteAlleSchritteTrue();
+        setzteAlleZustaendeTrue();
+        TestController.setActivity_Z1();
+        if (
+                TestController.isZustand_Ereignis() &&
+                        TestController.isAENDERE_ARMBAND_boolean()){
+            Testpassed = true;
+        }else{
+            fail("Mehr als ein Zustand true");
+        }
+    }
+
+    @Test
+    public void setActivity_Z2Test(){
+        TestController.aktiverSpieler = TestSpieler;
+        setzteAlleSchritteTrue();
+        setzteAlleZustaendeTrue();
+        TestController.setActivity_Z2();
+        if (
+                TestController.isZustand_Ereignis() &&
+                        TestController.isAENDERE_GEHAEUSE_boolean()){
+            Testpassed = true;
+        }else{
+            fail("FEHLER");
+
+        }
+    }
+
+    @Test
+    public void setActivity_Z3Test(){
+        TestController.aktiverSpieler = TestSpieler;
+        setzteAlleSchritteTrue();
+        setzteAlleZustaendeTrue();
+        TestController.setActivity_Z3();
+        if (
+                TestController.isZustand_Ereignis() &&
+                        TestController.isAENDERE_ZEITARBEITER_boolean()){
             Testpassed = true;
         }else{
             fail("Mehr als ein Zustand true");
