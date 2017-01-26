@@ -35,32 +35,6 @@
             android:layout_alignParentEnd="true"
             android:onClick="goToNextActivity"/>
 
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/gesamtkosten_textview"
-            android:layout_toRightOf="@+id/gesamtkosten_textview"
-            android:layout_toEndOf="@+id/gesamtkosten_textview"
-            android:layout_marginLeft="14dp"
-            android:layout_marginStart="14dp"
-            android:id="@+id/gesamtkosten_output"
-            android:layout_alignTop="@+id/gesamtkosten_textview"
-            android:textSize="16sp" />
-
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/stueckkosten_output"
-            android:layout_alignBaseline="@+id/stueckpreis_textview"
-            android:layout_alignBottom="@+id/stueckpreis_textview"
-            android:layout_toRightOf="@+id/stueckpreis_textview"
-            android:layout_toEndOf="@+id/stueckpreis_textview"
-            android:layout_marginLeft="14dp"
-            android:layout_marginStart="14dp"
-            android:textSize="16sp" />
-
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,39 +76,6 @@
                 android:layout_marginTop="15dp" />
         </RadioGroup>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/kuendigen_input"
-            android:hint="z.B. 2"
-            android:layout_below="@+id/einstellen_input"
-            android:layout_alignLeft="@+id/einstellen_input"
-            android:layout_alignStart="@+id/einstellen_input" />
-
-        <TextView
-            android:text="@string/stueckkosten_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/stueckpreis_textview"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            android:layout_below="@+id/gesamtkosten_output"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-            android:text="@string/gesamtkosten_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/gesamtkosten_textview"
-            android:textSize="16sp"
-            android:layout_marginTop="84dp"
-            android:layout_below="@+id/kuendigen_input"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
         <TextView
             android:text="Treffen einer Personalentscheidung"
             android:layout_width="wrap_content"
@@ -146,6 +87,15 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
+        <TextView
+            android:text="@string/personalwesen_info_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -153,19 +103,20 @@
             android:ems="10"
             android:id="@+id/einstellen_input"
             android:hint="z.B. 2"
-            android:layout_marginTop="18dp"
-            android:layout_below="@+id/textView38"
-            android:layout_alignLeft="@+id/stueckkosten_output"
-            android:layout_alignStart="@+id/stueckkosten_output"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp" />
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/kuendigen_input"
+            android:layout_alignStart="@+id/kuendigen_input" />
 
-        <TextView
-            android:text="@string/personalwesen_info_textview"
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView3"
-            android:layout_alignParentTop="true"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/kuendigen_input"
+            android:hint="z.B. 2"
+            android:layout_marginLeft="174dp"
+            android:layout_marginStart="174dp"
+            android:layout_below="@+id/einstellen_input"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 

@@ -3,13 +3,13 @@ package com.example.patsc.fallstudie.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v7.widget.Toolbar;
 
 import com.example.patsc.fallstudie.R;
 
@@ -24,7 +24,6 @@ public class PersonalwesenActivity extends AppCompatActivity {
     int auswahlKuendigen;
     String einstellenString;
     String kuendigenString;
-
     /**
      *
      * @param savedInstanceState
@@ -38,11 +37,12 @@ public class PersonalwesenActivity extends AppCompatActivity {
         //Initialisieren der Toolbar mit aktuellen Werten
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
-        toolbar_titel.setText("Personalwesen");
+        toolbar_titel.setText(R.string.personalwesen_title);
         TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
-        toolbar_runde.setText(IntroductionActivity.Controller.getRunde());
+        toolbar_runde.setText("Runde: " + (String.valueOf((IntroductionActivity.Controller.getRunde()))));
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
@@ -51,11 +51,6 @@ public class PersonalwesenActivity extends AppCompatActivity {
         kuendigen_radiobutton = (RadioButton) findViewById(R.id.kuendigen_radiobutton);
         nichts_radiobutton = (RadioButton) findViewById(R.id.nichts_radiobutton);
 
-        //Ausgabe der aktuellen Kosten anhand der Auswahl
-       TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-      //ToDo wieder rein #patsch  gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getFixKosten()));
-        TextView stueckkosten_output = (TextView) findViewById(R.id.stueckkosten_output);
-        //ToDo wieder rein #patsch  stueckkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getVarKosten()));
     }
 
 
@@ -95,8 +90,10 @@ public class PersonalwesenActivity extends AppCompatActivity {
                     auswahlEinstellen = Integer.parseInt(einstellenString);
                     IntroductionActivity.Controller.einstellen(auswahlEinstellen);
                     startActivity(intent);
+                    finish();
                 } else {
                     Toast toast = Toast.makeText(this, "Bitte angeben, wieviele Mitarbeiter Sie einstellen moechten", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }
 
@@ -106,16 +103,23 @@ public class PersonalwesenActivity extends AppCompatActivity {
                     auswahlKuendigen = Integer.parseInt(kuendigenString);
                     IntroductionActivity.Controller.kuendigen(auswahlKuendigen);
                     startActivity(intent);
+                    finish();
                 } else {
                     Toast toast2 = Toast.makeText(this, "Bitte angeben, wieviele Mitarbeiter Sie kuendigen moechten.", Toast.LENGTH_SHORT);
+                    toast2.show();
                 }
             }
 
             if (nichts_radiobutton.isChecked()){
                 startActivity(intent);
+                finish();
             }
 
-            finish();
+            if (!einstellen_radiobutton.isChecked() && !kuendigen_radiobutton.isChecked() && !nichts_radiobutton.isChecked()){
+                Toast toast3 = Toast.makeText(this, "Bitte mindestens eine Option waehlen", Toast.LENGTH_SHORT);
+                toast3.show();
+            }
+
         } //Ende goToNextActivity
 
     } //Ende Klasse
