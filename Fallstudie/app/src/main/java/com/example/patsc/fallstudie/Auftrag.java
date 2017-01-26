@@ -19,14 +19,50 @@ public class Auftrag {
      * @param zufall ist die Summe aller zufälligen Produktwertsteigerungen durch zum Beispiel Beliebtheit des Materials
      */
     private double fixKosten = 0;   //todo #Vincent überprüfen, ob die methoden die richtigen Werte hochzählen
+    public void setFixKosten(double i){
+        fixKosten = i;
+    }
     private double varKosten = 0;
     private double resPr = 0;
+
+    public void setResPr(double resPr) {
+        this.resPr = resPr;
+    }
+
     private int menge = 0;
+
+    public void setMenge(int menge) {
+        this.menge = menge;
+    }
+
     private double vkp = 0;
+
+    public void setVkp(double vkp) {
+        this.vkp = vkp;
+    }
+
     private double risikoArmband = 0;
+
+    public void setRisikoArmband(double risikoArmband) {
+        this.risikoArmband = risikoArmband;
+    }
+
+    public void setRisikoGehaeuse(double risikoGehaeuse) {
+        this.risikoGehaeuse = risikoGehaeuse;
+    }
+
+    public void setRisikoZusammenbau(double risikoZusammenbau) {
+        this.risikoZusammenbau = risikoZusammenbau;
+    }
+
     private double risikoGehaeuse = 0;
     private double risikoZusammenbau = 0;
     private double zufall = 0;
+
+    public void setZufall(double zufall) {
+        this.zufall = zufall;
+    }
+
     private double strafe = 0.9; //todo generell beim reversen 10% weniger abziehen
 
 
@@ -45,41 +81,6 @@ public class Auftrag {
     private Preissimulation preissim = null;
     private Personalwesen personalwesen = new Personalwesen();
 
-    /* Vorlage zum kopieren und ersetzen der Variablen und Klassen
-    public void ABCDF(String eingabe){
-        switch(eingabe) {
-            case "ABCDE": {
-                ABCDF.setABCDE(true);
-                fixKosten = fixKosten + ABCDF.getABCDEEKP();
-                resPr = resPr + ABCDF.getABCDEPWS();
-                break;
-            }
-            case "ABCDE": {
-                ABCDF.setABCDE(true);
-                fixKosten = fixKosten + ABCDF.getABCDEEKP();
-                resPr = resPr + ABCDF.getABCDEPWS();
-                break;
-            }
-            case "ABCDE": {
-                ABCDF.setABCDE(true);
-                fixKosten = fixKosten + ABCDF.getABCDEEKP();
-                resPr = resPr + ABCDF.getABCDEPWS();
-                break;
-            }
-            case "ABCDE": {
-                ABCDF.setABCDE(true);
-                fixKosten = fixKosten + ABCDF.getABCDEEKP();
-                resPr = resPr + ABCDF.getABCDEPWS();
-                break;
-            }
-            case "ABCDE": {
-                ABCDF.setABCDE(true);
-                fixKosten = fixKosten + ABCDF.getABCDEEKP();
-                resPr = resPr + ABCDF.getABCDEPWS();
-                break;
-            }
-        }
-    }*/
 
     /**
      * Setter für die Variablen Kosten
@@ -92,6 +93,14 @@ public class Auftrag {
         varKosten = varKosten1;
 
     }
+
+
+    public String toString(){
+        String stringAuftrag;
+        stringAuftrag = fixKosten + ":" + varKosten+ ":"+resPr+ ":"+menge+ ":"+vkp+ ":"+risikoArmband+":"+risikoGehaeuse + ":" + risikoZusammenbau+ ":"+zufall;
+        return stringAuftrag;
+    }
+
 
     /**
      * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
@@ -530,6 +539,7 @@ public class Auftrag {
      *  Variablen-Getter
      */
 
+
     public double getFixKosten() {
         return fixKosten;
     }
@@ -603,9 +613,9 @@ public class Auftrag {
         return bezahlart;
     }
 
-    //public Wasserdichtheit getWasserdichtheit() {
-    //    return wasserdichtheit;
-    //}
+    public Wasserdichtheit getWasserdichtheit() {
+       return wasserdichtheit;
+    }
 
     public Marketing getMarketing() {
         return marketing;

@@ -94,13 +94,13 @@ public class MarketingActivity extends AppCompatActivity {
 
         //Übergabe der Checkbox-Werte an Controller
         if (fernsehwerbung_checkbox.isChecked()){
-            IntroductionActivity.Controller.setMarketing("Fernsehwerbung");
+            IntroductionActivity.Controller.setMarketingAktuell("Fernsehwerbung");
         }
         if (radiowerbung_checkbox.isChecked()){
-            IntroductionActivity.Controller.setMarketing("Radiowerbung");
+            IntroductionActivity.Controller.setMarketingAktuell("Radiowerbung");
         }
         if (printwerbung_checkbox.isChecked()){
-            IntroductionActivity.Controller.setMarketing("Printwerbung");
+            IntroductionActivity.Controller.setMarketingAktuell("Printwerbung");
         }
 
         Intent intent = new Intent(this, ArmbandActivity.class);

@@ -97,7 +97,7 @@ public class ForschungActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Forschungsauswahl zu setzen
-        IntroductionActivity.Controller.setForschung(auswahlForschung);
+        IntroductionActivity.Controller.setForschungAktuell(auswahlForschung);
 
         Intent intent = new Intent(this, MarketingActivity.class);
         startActivity(intent);

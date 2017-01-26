@@ -18,11 +18,20 @@ public class Auftragssammlung {
     public Auftrag aktuellerAuftrag;
     public int aktuellerAuftragInt;
 
+    public void setAktuellerAuftragInt(int i){
+        aktuellerAuftragInt = i;
+    }
+
     public Auftragssammlung(){
         aktuellerAuftragInt = 0;
         auftraege[aktuellerAuftragInt] = new Auftrag();
         aktuellerAuftrag = auftraege[aktuellerAuftragInt];
     }
+    public String toString(){
+        String stringA = String.valueOf(aktuellerAuftragInt);
+        return stringA;
+    }
+
 //umbenannt
     public void neuerAuftrag( ){
         aktuellerAuftragInt++;

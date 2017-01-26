@@ -29,7 +29,7 @@ public class ControllerSetForschungTest {
     public void setDesignerTest(String DesignerWerte){
         try {
             TestController.setSCHRITT_FORSCHUNG_boolean(true);
-            TestController.setForschung("1000€ Investition");
+            TestController.setForschungAktuell("1000€ Investition");
         }catch (Exception e){
             e.printStackTrace();
             fail();
@@ -39,7 +39,7 @@ public class ControllerSetForschungTest {
     @Test
     public void setDesignerFailTest(){
         try {
-            TestController.setForschung("Falsche Eingabe");
+            TestController.setForschungAktuell("Falsche Eingabe");
         }catch(Exception e){
             thrown = true;
         }

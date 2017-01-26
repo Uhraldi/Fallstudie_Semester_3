@@ -53,6 +53,34 @@ public class Armband {
 
     }
 
+    public void setLederZufall(double i){
+        lederZufall = i;
+    }
+
+    public void setHolzZufall(double holzZufall) {
+        this.holzZufall = holzZufall;
+    }
+
+    public void setKunstlederZufall(double kunstlederZufall) {
+        this.kunstlederZufall = kunstlederZufall;
+    }
+
+    public void setTextilZufall(double textilZufall) {
+        this.textilZufall = textilZufall;
+    }
+
+    public void setMetallZufall(double metallZufall) {
+        this.metallZufall = metallZufall;
+    }
+
+    //Material nicht da Methode im Controller mit String
+    public String toString(){
+
+        String stringArmband;
+        stringArmband = lederZufall + ":" + kunstlederZufall + ":" + holzZufall + ":" + textilZufall + ":" +metallZufall;
+        return stringArmband;
+    }
+
     /**
      * Variablen-Getter
      */

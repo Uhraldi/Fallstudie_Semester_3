@@ -31,6 +31,9 @@ public class Forschung { //ToDo Forschungswerte anpassen
 
     }
 
+    public String toString(){
+        return"";
+    }
     /**
      * Variablen-Getter
      */

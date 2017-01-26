@@ -31,6 +31,13 @@ public class Preissimulation {
     private double Gesamtkosten;
     private double Stückkosten;
 
+   // public String toString(){
+     //   String persoString;
+       // persoString = Fixkosten + ":" + FixkostenPersonalwesen + ":" + FixkostenForschung + ":" + FixkostenForschung + ":" +  FixkostenMarketing + ":" +FixkostenBezahlart + ":";
+      //  persoString = persoString + ":" + VariableKosten + ":" +VariableStückKosten + ":"+ VariableStückkostenZeitarbeiter + ":"+ VariableStückkostenArmband + ":"+ VariableStückkostenUhrwerk + ":"+ VariableStückkostenGehäuse+ ":";
+      //  return persoString;
+   // }
+
     private double Reservationspreis;
     private double ReservapPersonalwesen;
     private double ReservapZeitarbeiter;
@@ -49,7 +56,7 @@ public class Preissimulation {
         this.RundenNr = controller.getRunde();
         this.auftragssammlung = controller.getAktiverSpieler().getAuftragssammlung();
         c = controller;
-       //ToDo berechneReservationspreis(c.getMarketing(),c.getZeitarbeiter(),c.get)
+       //ToDo berechneReservationspreis(c.getMarketingAktuellerAuftrag(),c.getZeitarbeiterAktuellerAuftrag(),c.get)
     }
 
     /*
@@ -396,23 +403,23 @@ public class Preissimulation {
  /*
         for (Auftrag s : bestellpos) { //// TODO: 24.01.2017 #Dodo in Preissimulation auslagern //Controller.aktiverSpieler.getAktuellerAuftrag();<- ist der aktuelle Spieler
             double zwischenspeicher = 0;
-            if (s.getBezahlart().isKreditkarte()) {
-                zwischenspeicher += s.getBezahlart().getKreditkarteZufall();
+            if (s.getBezahlartAktuellerAuftrag().isKreditkarte()) {
+                zwischenspeicher += s.getBezahlartAktuellerAuftrag().getKreditkarteZufall();
             }
-            if (s.getBezahlart().isPayPal()) {
-                zwischenspeicher += s.getBezahlart().getPayPalZufall();
+            if (s.getBezahlartAktuellerAuftrag().isPayPal()) {
+                zwischenspeicher += s.getBezahlartAktuellerAuftrag().getPayPalZufall();
             }
-            if (s.getBezahlart().isRechnung()) {
-                zwischenspeicher += s.getBezahlart().getRechnungZufall();
+            if (s.getBezahlartAktuellerAuftrag().isRechnung()) {
+                zwischenspeicher += s.getBezahlartAktuellerAuftrag().getRechnungZufall();
             }
-            if (s.getMarketing().isFernsehwerbung()) {
-                zwischenspeicher += s.getMarketing().getFernsehwerbungPWS();
+            if (s.getMarketingAktuellerAuftrag().isFernsehwerbung()) {
+                zwischenspeicher += s.getMarketingAktuellerAuftrag().getFernsehwerbungPWS();
             }
-            if (s.getMarketing().isRadiowerbung()) {
-                zwischenspeicher += s.getMarketing().getRadiowerbungPWS();
+            if (s.getMarketingAktuellerAuftrag().isRadiowerbung()) {
+                zwischenspeicher += s.getMarketingAktuellerAuftrag().getRadiowerbungPWS();
             }
-            if (s.getMarketing().isPrintwerbung()) {
-                zwischenspeicher += s.getMarketing().getPrintwerbungPWS();
+            if (s.getMarketingAktuellerAuftrag().isPrintwerbung()) {
+                zwischenspeicher += s.getMarketingAktuellerAuftrag().getPrintwerbungPWS();
             }
            // prozentualeVorteile.add(zwischenspeicher);
         }

@@ -68,7 +68,7 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
         if (auswahlProduktionsvolumen > 100 && auswahlProduktionsvolumen < 10000){
             if ((IntroductionActivity.Controller.getFixKosten() + (IntroductionActivity.Controller.getVarKosten() * auswahlProduktionsvolumen)) <
                     IntroductionActivity.Controller.getGuthaben()){
-                IntroductionActivity.Controller.setProduktionsvolumen(auswahlProduktionsvolumen);
+                IntroductionActivity.Controller.setProduktionsvolumenAktuell(auswahlProduktionsvolumen);
                 Intent intent = new Intent(this, VerkaufspreisActivity.class);
                 finish();
                 startActivity(intent);

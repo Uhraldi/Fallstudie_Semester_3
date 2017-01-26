@@ -43,6 +43,28 @@ public class Gehaeuse {
 
     }
 
+    public void setHolzZufall(double holzZufall) {
+        this.holzZufall = holzZufall;
+    }
+
+    public void setGlasZufall(double glasZufall) {
+        this.glasZufall = glasZufall;
+    }
+
+    public void setKunststoffZufall(double kunststoffZufall) {
+        this.kunststoffZufall = kunststoffZufall;
+    }
+
+    public void setMetallZufall(double metallZufall) {
+        this.metallZufall = metallZufall;
+    }
+
+    public String toString(){
+        String gehauseString;
+        gehauseString = glasZufall + ":" +holzZufall+ ":" +kunststoffZufall+ ":" +metallZufall;
+        return gehauseString;
+    }
+
     /**
      * Variablen-Getter
      */

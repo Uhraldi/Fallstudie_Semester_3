@@ -39,49 +39,49 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
 
         TextView zeitarbeiter_output = (TextView) findViewById(R.id.zeitarbeiter_output);
         try {
-            zeitarbeiter_output.setText(IntroductionActivity.Controller.getZeitarbeiter());
+            zeitarbeiter_output.setText(IntroductionActivity.Controller.getZeitarbeiterAktuellerAuftrag());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView forschung_output = (TextView) findViewById(R.id.forschung_output);
         try {
-            forschung_output.setText(IntroductionActivity.Controller.getForschung());
+            forschung_output.setText(IntroductionActivity.Controller.getForschungAktuellerAuftrag());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView marketing_output = (TextView) findViewById(R.id.marketing_output);
         try {
-            marketing_output.setText(IntroductionActivity.Controller.getMarketing());
+            marketing_output.setText(IntroductionActivity.Controller.getMarketingAktuellerAuftrag());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView armband_output = (TextView) findViewById(R.id.armband_output);
         try {
-            armband_output.setText(IntroductionActivity.Controller.getArmband());
+            armband_output.setText(IntroductionActivity.Controller.getArmbandAktuellerAuftrag());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView uhrwerk_output = (TextView) findViewById(R.id.uhrwerk_output);
         try {
-            uhrwerk_output.setText(IntroductionActivity.Controller.getUhrwerk());
+            uhrwerk_output.setText(IntroductionActivity.Controller.getUhrwerkAktuellerAuftrag());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         TextView gehaeuse_output = (TextView) findViewById(R.id.gehaeuse_output);
         try {
-            gehaeuse_output.setText(IntroductionActivity.Controller.getGehaeuse());
+            gehaeuse_output.setText(IntroductionActivity.Controller.getGehaeuseAktuellerAuftrag());
         } catch (Exception e) {
             e.printStackTrace();
 
         }
         TextView bezahlart_output = (TextView) findViewById(R.id.bezahlart_output);
         try {
-            bezahlart_output.setText(IntroductionActivity.Controller.getBezahlart());
+            bezahlart_output.setText(IntroductionActivity.Controller.getBezahlartAktuellerAuftrag());
         } catch (Exception e) {
             e.printStackTrace();
         }
