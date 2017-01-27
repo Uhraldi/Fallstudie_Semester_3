@@ -834,9 +834,9 @@ public class Controller {
         try {
             if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition2500()) {
                 forschung = FORSCHUNG_WAHL_LOWBUDGET;
-            }// else if (aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getForschungAktuellerAuftrag().isMarken()) {
-            // forschung = FORSCHUNG_WAHL_HOCH;
-            // }
+            } else if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition15000()) {
+             forschung = FORSCHUNG_WAHL_HOCH;
+            }
             else if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition8000()) {
                 forschung = FORSCHUNG_WAHL_MITTELMAESIG;
             } else {
