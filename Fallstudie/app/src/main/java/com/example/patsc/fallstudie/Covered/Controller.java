@@ -4,7 +4,6 @@ import com.example.patsc.fallstudie.Network.Data;
 import com.example.patsc.fallstudie.Network.Funkturm;
 
 import java.util.ArrayList;
-import java.util.Timer;
 
 /**
  * Created by patsc on 13.12.2016.
@@ -37,14 +36,14 @@ public class Controller {
     public static final String ARMBAND_WAHL_TEXTIL = "Textil";
     public static final String ARMBAND_WAHL_METALL = "Metall";
 
-    public static final String UHRWERK_WAHL_MECHANISCH = "mechanisch";
-    public static final String UHRWERK_WAHL_ELEKTROMECHANISCH ="elektromechanisch";
-    public static final String UHRWERK_WAHL_ELEKTRONISCH = "elektronisch";
+    public static final String UHRWERK_WAHL_MECHANISCH = "Mechanisch";
+    public static final String UHRWERK_WAHL_ELEKTROMECHANISCH ="Elektromechanisch";
+    public static final String UHRWERK_WAHL_ELEKTRONISCH = "Elektronisch";
 
-    public static final String GEHAEUSE_WAHL_GLAS = "glas";
-    public static final String GEHAEUSE_WAHL_HOLZ = "holz";
-    public static final String GEHAEUSE_WAHL_KUNSTSTOFF = "kunststoff";
-    public static final String GEHAEUSE_WAHL_METALL ="metall";
+    public static final String GEHAEUSE_WAHL_GLAS = "Glas";
+    public static final String GEHAEUSE_WAHL_HOLZ = "Holz";
+    public static final String GEHAEUSE_WAHL_KUNSTSTOFF = "Kunststoff";
+    public static final String GEHAEUSE_WAHL_METALL ="Metall";
 
     public static final String BEZAHLART_WAHL_KREDITKARTE = "Kreditkarte";
     public static final String BEZAHLART_WAHL_RECHNUNG ="Rechnung";
@@ -511,7 +510,7 @@ public class Controller {
         //Prüfung ob die Wahl des Designers erlaubt ist
         try {
             if (SCHRITT_FORSCHUNG_boolean) {
-                if (designerAuswahl == FORSCHUNG_WAHL_LOWBUDGET || designerAuswahl == FORSCHUNG_WAHL_HOCH || designerAuswahl == FORSCHUNG_WAHL_MITTELMAESIG) {
+                if (designerAuswahl.equals(FORSCHUNG_WAHL_LOWBUDGET) || designerAuswahl.equals(FORSCHUNG_WAHL_HOCH) || designerAuswahl.equals(FORSCHUNG_WAHL_MITTELMAESIG)) {
                     spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleForschung(designerAuswahl); //ToDo Nullpointer Exception
                     setzeAlleSchritteFalse();
                 } else {
@@ -537,7 +536,7 @@ public class Controller {
     public void setArmbandEingabeWerte(String armbandAuswahl, Spieler spieler, int auftragsnummer){
         try {
             if (SCHRITT_ARMBAND_boolean) {
-                if (armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER || armbandAuswahl == ARMBAND_WAHL_LEDER || armbandAuswahl == ARMBAND_WAHL_METALL || armbandAuswahl == ARMBAND_WAHL_TEXTIL) {
+                if (armbandAuswahl.equals(ARMBAND_WAHL_HOLZ) || armbandAuswahl.equals(ARMBAND_WAHL_KUNSTLEDER) || armbandAuswahl.equals(ARMBAND_WAHL_LEDER) || armbandAuswahl.equals(ARMBAND_WAHL_METALL) || armbandAuswahl.equals(ARMBAND_WAHL_TEXTIL)) {
                     spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleArmband(armbandAuswahl);
                     setzeAlleSchritteFalse();
                 } else {
@@ -558,7 +557,7 @@ public class Controller {
     public void setArmbandNeu (String armbandAuswahl){              //nach Zufall Z3
         try {
             if (AENDERE_ARMBAND_boolean) {
-                if (armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER || armbandAuswahl == ARMBAND_WAHL_LEDER || armbandAuswahl == ARMBAND_WAHL_METALL || armbandAuswahl == ARMBAND_WAHL_TEXTIL)
+                if (armbandAuswahl.equals(ARMBAND_WAHL_HOLZ) || armbandAuswahl.equals(ARMBAND_WAHL_KUNSTLEDER) || armbandAuswahl.equals(ARMBAND_WAHL_LEDER) || armbandAuswahl.equals(ARMBAND_WAHL_METALL) || armbandAuswahl.equals(ARMBAND_WAHL_TEXTIL))
                 // Prüfung ob das Material schon einmal gewaehlt wurde in Activity
                 {
                     aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().bestelleArmband(armbandAuswahl);
@@ -1256,7 +1255,14 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
             return false; //falls Name und Passwort nicht zusammengehören
     }
     public int getPosition(){
-        return 1; //ToDO
+        int pos=9898;
+        Data[] spielerArray = sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getData());
+        for (int i = 0; i<spielerArray.length;i++) {
+            if (aktiverSpieler.getName().equals(spielerArray[i].getId())) {
+                pos = i;
+            } //Ende if
+        }// Ende for
+        return pos;
     }
     public float getMarktanteil(){
         float marktAnteil = (float) aktiverSpieler.getMarktanteil();
@@ -1354,7 +1360,7 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
         Data temp;
         for(int i=1; i<spielers.length; i++) {
             for(int j=0; j<spielers.length-i; j++) {
-                if((spielers[j].getMarktanteil()*spielers[j].getRundengewinn())>(spielers[j+1].getMarktanteil()*spielers[j].getRundengewinn())) {
+                if((spielers[j].getMarktanteil()*spielers[j].getRundengewinn())<(spielers[j+1].getMarktanteil()*spielers[j].getRundengewinn())) {
                     temp=spielers[j];
                     spielers[j]=spielers[j+1];
                     spielers[j+1]=temp;

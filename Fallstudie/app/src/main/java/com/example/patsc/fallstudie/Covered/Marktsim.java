@@ -32,9 +32,11 @@ public class Marktsim {
 
     private ArrayList<Integer> lowarray, middlearray, higharray = new ArrayList<Integer>();
     private ArrayList absatzreturn = new ArrayList();
+    private int absatz = 0;
     private ArrayList<Double> marktanteil = new ArrayList<Double>();
     private ArrayList<Double> rundenGewinn = new ArrayList<Double>();
     private ArrayList<Double> summierterGewinn = new ArrayList<Double>();
+    private double gewinn = 0;
     private ArrayList<Double> bonusarray = new ArrayList<Double>();
     private ArrayList<Double> vkparray = new ArrayList<Double>();
     private ArrayList<Integer> mengearray = new ArrayList<Integer>();
@@ -332,4 +334,21 @@ public class Marktsim {
         return rundenGewinn;
     }
 
+    //TODO: an Dodo: BITTE setter fuer Absatz implementieren
+
+    public int getAbsatz() {
+        return absatz;
+    }
+
+    //TODO: an Dodo: BITTE setter fuer Gewinn implementieren
+
+
+    public double getGewinn() {
+        return gewinn;
+    }
+
+    public Data[] getData() {
+        return data;
+    }
 }
+

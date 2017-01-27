@@ -14,7 +14,7 @@ public class Spieler {
     private double Guthaben; //Aktuelle Anzahl der Geldeinheiten die ein Spieler hat
     private double Marktanteil; //Marktanteil den der Spieler aktuell hat
     private int Punkte; // Anzahl der Punkt die der SPieler aktuell hat
-    private int Anfangsguthaben = 10000; // Guthaben das jeder SPieler am Anfang hat.
+    private int Anfangsguthaben = 150000; // Guthaben das jeder SPieler am Anfang hat.
     private int AnfangsMarktanteil = 0; // Marktanteil in Prozent vor der ersten RUnde
     private int AnfagsPunkte = 1000; // Punkt des Spielers vor der ersten Runde
     private final Daten daten;

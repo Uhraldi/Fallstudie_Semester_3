@@ -280,19 +280,19 @@ public class Auftrag {
      */
     public void bestelleUhrwerk(String eingabe) throws Exception{
         switch (eingabe) {
-            case "Mechanisch": {
+            case Controller.UHRWERK_WAHL_MECHANISCH: {
                 uhrwerk.setMechanisch(true);
                 varKosten += uhrwerk.getVarKostenMechanisch();
                 resPr += uhrwerk.getMechanischPWS();
                 break;
             }
-            case "Elektromechanisch": {
+            case Controller.UHRWERK_WAHL_ELEKTROMECHANISCH: {
                 uhrwerk.setElektromechanisch(true);
                 varKosten += uhrwerk.getVarKostenElektromechanisch();
                 resPr += uhrwerk.getElektromechanischPWS();
                 break;
             }
-            case "Elektronisch": {
+            case Controller.UHRWERK_WAHL_ELEKTRONISCH: {
                 uhrwerk.setElektronisch(true);
                 varKosten += uhrwerk.getVarKostenElektronisch();
                 resPr += uhrwerk.getEletronischPWS();
@@ -313,21 +313,21 @@ public class Auftrag {
         switch (eingabe) {
             case "Kreditkarte": {
                 bezahlart.setKreditkarte(true);
-                varKosten += bezahlart.getFixkostenKreditkarte();
+                fixKosten += bezahlart.getFixkostenKreditkarte();
                 resPr += bezahlart.getKreditkartePWS();
                 zufall += bezahlart.getKreditkarteZufall();
                 break;
             }
             case "Rechnung": {
                 bezahlart.setRechnung(true);
-                varKosten += bezahlart.getFixkostenRechnung();
+                fixKosten += bezahlart.getFixkostenRechnung();
                 resPr += bezahlart.getRechnungPWS();
                 zufall += bezahlart.getRechnungZufall();
                 break;
             }
             case "PayPal": {
                 bezahlart.setPayPal(true);
-                varKosten += bezahlart.getFixkostenPayPal();
+                fixKosten += bezahlart.getFixkostenPayPal();
                 resPr += bezahlart.getPayPalPWS();
                 zufall += bezahlart.getPayPalZufall();
                 break;
