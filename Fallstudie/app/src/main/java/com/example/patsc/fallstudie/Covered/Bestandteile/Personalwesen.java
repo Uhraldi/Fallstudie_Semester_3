@@ -59,6 +59,10 @@ public class Personalwesen {
         this.veraenderung = veraenderung;
     }
 
+    public double getFixkosten() {
+        return fixkosten;
+    }
+
     public void setFixkosten(double fixkosten) {
         this.fixkosten = fixkosten;
     }
