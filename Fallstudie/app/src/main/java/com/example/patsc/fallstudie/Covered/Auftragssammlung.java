@@ -36,6 +36,11 @@ public class Auftragssammlung {
         auftraege[aktuellerAuftragInt] = new Auftrag();
         aktuellerAuftrag = auftraege[aktuellerAuftragInt];
     }
+    public void neuerAuftragGleicheWerte( ){
+        aktuellerAuftragInt++;
+        auftraege[aktuellerAuftragInt] = auftraege[aktuellerAuftragInt-1];
+        aktuellerAuftrag = auftraege[aktuellerAuftragInt];
+    }
 
     public Auftrag getAuftrag(int i){
         return auftraege[i];

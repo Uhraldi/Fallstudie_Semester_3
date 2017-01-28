@@ -10,8 +10,6 @@ import android.widget.Toast;
 import com.example.patsc.fallstudie.Covered.Controller;
 import com.example.patsc.fallstudie.R;
 
-import static com.example.patsc.fallstudie.Activities.IntroductionActivity.Controller;
-
 public class LoginActivity extends AppCompatActivity {
 
     String inputUsername;
@@ -59,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
      * @throws Exception
      */
    public void login (View view) throws Exception {
-        if(Controller.login(inputUsername, inputPassword)) {
+        if(c.login(inputUsername, inputPassword)) {
             Intent intent = new Intent(this, PersonalwesenActivity.class);
             startActivity(intent);
             finish();

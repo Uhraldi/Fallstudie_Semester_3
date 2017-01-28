@@ -69,10 +69,10 @@ public class BezahlartActivity extends AppCompatActivity {
         if (kreditkarte_checkbox.isChecked()){
             IntroductionActivity.Controller.setBezahlartAktuell("Kreditkarte");
         }
-        else if (rechnung_checkbox.isChecked()){
+        if (rechnung_checkbox.isChecked()){
             IntroductionActivity.Controller.setBezahlartAktuell("Rechnung");
         }
-        else if (paypal_checkbox.isChecked()){
+        if (paypal_checkbox.isChecked()){
             IntroductionActivity.Controller.setBezahlartAktuell("PayPal");
         }
 
@@ -88,7 +88,6 @@ public class BezahlartActivity extends AppCompatActivity {
 
     }
 
-    //Todo evtl nutzung der Variablen???
     //onClick Methoden fuer die drei Checkboxes, mit Moeglichkeit zum Deaktivieren
     public void onClickKreditkarte (View view){
         if (kreditkarte == true){

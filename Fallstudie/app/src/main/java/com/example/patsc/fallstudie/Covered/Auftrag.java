@@ -164,10 +164,14 @@ public class Auftrag {
         switch(eingabe){
             case Controller.FORSCHUNG_WAHL_HOCH: {
                 forschung.setInvestition15000(true); //Fehler korrigiert
+
                 //forschung.setMarken(true);
                 //Aenderungen patsch 12.01 10.23
-                // fixKosten += forschung.getFixkostenInvestition15000();
-                fixKosten = forschung.getFixkostenInvestition15000(); //neu
+                //fixKosten += forschung.getFixkostenInvestition15000();
+                //fixKosten = forschung.getFixkostenInvestition15000(); //neu
+
+                fixKosten += forschung.getFixkostenInvestition15000();
+
                 resPr += forschung.getInvestition15000PWS();
                 break;
             }
@@ -283,19 +287,19 @@ public class Auftrag {
      */
     public void bestelleUhrwerk(String eingabe) throws Exception{
         switch (eingabe) {
-            case "Mechanisch": {
+            case Controller.UHRWERK_WAHL_MECHANISCH: {
                 uhrwerk.setMechanisch(true);
                 varKosten += uhrwerk.getVarKostenMechanisch();
                 resPr += uhrwerk.getMechanischPWS();
                 break;
             }
-            case "Elektromechanisch": {
+            case Controller.UHRWERK_WAHL_ELEKTROMECHANISCH: {
                 uhrwerk.setElektromechanisch(true);
                 varKosten += uhrwerk.getVarKostenElektromechanisch();
                 resPr += uhrwerk.getElektromechanischPWS();
                 break;
             }
-            case "Elektronisch": {
+            case Controller.UHRWERK_WAHL_ELEKTRONISCH: {
                 uhrwerk.setElektronisch(true);
                 varKosten += uhrwerk.getVarKostenElektronisch();
                 resPr += uhrwerk.getEletronischPWS();
@@ -316,21 +320,21 @@ public class Auftrag {
         switch (eingabe) {
             case "Kreditkarte": {
                 bezahlart.setKreditkarte(true);
-                varKosten += bezahlart.getFixkostenKreditkarte();
+                fixKosten += bezahlart.getFixkostenKreditkarte();
                 resPr += bezahlart.getKreditkartePWS();
                 zufall += bezahlart.getKreditkarteZufall();
                 break;
             }
             case "Rechnung": {
                 bezahlart.setRechnung(true);
-                varKosten += bezahlart.getFixkostenRechnung();
+                fixKosten += bezahlart.getFixkostenRechnung();
                 resPr += bezahlart.getRechnungPWS();
                 zufall += bezahlart.getRechnungZufall();
                 break;
             }
             case "PayPal": {
                 bezahlart.setPayPal(true);
-                varKosten += bezahlart.getFixkostenPayPal();
+                fixKosten += bezahlart.getFixkostenPayPal();
                 resPr += bezahlart.getPayPalPWS();
                 zufall += bezahlart.getPayPalZufall();
                 break;
@@ -533,6 +537,8 @@ public class Auftrag {
     }
 
     public void bestellePersonalwesen (int zahl){ //// TODO: 24.01.2017 #Vincent #Patschi
+        personalwesen.setEingestellte(zahl);
+        fixKosten = fixKosten + personalwesen.getEingestellte()*personalwesen.getPersonalKostenProMitarbeiter();
     }
 
     /**

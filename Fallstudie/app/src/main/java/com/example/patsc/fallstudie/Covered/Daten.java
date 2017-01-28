@@ -34,7 +34,9 @@ public class Daten {
         dataString = RundenAnzahl+":";
         return dataString;
     }
-
+    public void erhoeheRundenanzahl(){
+        RundenAnzahl++;
+    }
     public void setDieserSpieler(Spieler spieler){
         dieserSpieler = spieler;
     }

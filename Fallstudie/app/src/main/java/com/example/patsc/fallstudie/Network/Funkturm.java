@@ -4,9 +4,7 @@ import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
 import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -42,7 +40,7 @@ public class Funkturm {
 
         //Verbindung mit Server aufbauen
         try{
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/api/sendStats").openConnection()));
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/rundendaten/post").openConnection()));
             httpcon.setDoOutput(true);
             httpcon.setDoInput(false);
             httpcon.setUseCaches(false);
@@ -81,7 +79,7 @@ public class Funkturm {
 
         //Verbindung mit Server aufbauen
         try {
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/api/getStats/"+runde).openConnection()));
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/rundendaten/get/"+runde).openConnection()));
             httpcon.setDoOutput(false);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");

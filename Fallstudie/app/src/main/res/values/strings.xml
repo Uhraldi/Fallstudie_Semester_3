@@ -179,9 +179,10 @@ Da alle Meister ausgebucht sind, können Sie leider keine Meister als Zeitarbeit
     <string name="investition_title">Investition</string>
     <string name="materialeinkauf_title">Materialeinkauf</string>
     <string name="absatz_title">Absatz</string>
-    <string name="bestellzsmfassung_title">Bestellzusammenfassung</string>
+    <string name="bestellzsmfassung_title">Auftragszusammenfassung</string>
     <string name="berechnung_title">Berechnung</string>
     <string name="rundenergebnis_title">Rundenergebnis</string>
     <string name="bestenliste_title">Bestenliste</string>
+    <string name="Rundebla">"Runde: "</string>
 
 </resources>

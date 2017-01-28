@@ -4,7 +4,6 @@ import com.example.patsc.fallstudie.Network.Data;
 import com.example.patsc.fallstudie.Network.Funkturm;
 
 import java.util.ArrayList;
-import java.util.Timer;
 
 /**
  * Created by patsc on 13.12.2016.
@@ -37,14 +36,14 @@ public class Controller {
     public static final String ARMBAND_WAHL_TEXTIL = "Textil";
     public static final String ARMBAND_WAHL_METALL = "Metall";
 
-    public static final String UHRWERK_WAHL_MECHANISCH = "mechanisch";
-    public static final String UHRWERK_WAHL_ELEKTROMECHANISCH ="elektromechanisch";
-    public static final String UHRWERK_WAHL_ELEKTRONISCH = "elektronisch";
+    public static final String UHRWERK_WAHL_MECHANISCH = "Mechanisch";
+    public static final String UHRWERK_WAHL_ELEKTROMECHANISCH ="Elektromechanisch";
+    public static final String UHRWERK_WAHL_ELEKTRONISCH = "Elektronisch";
 
-    public static final String GEHAEUSE_WAHL_GLAS = "glas";
-    public static final String GEHAEUSE_WAHL_HOLZ = "holz";
-    public static final String GEHAEUSE_WAHL_KUNSTSTOFF = "kunststoff";
-    public static final String GEHAEUSE_WAHL_METALL ="metall";
+    public static final String GEHAEUSE_WAHL_GLAS = "Glas";
+    public static final String GEHAEUSE_WAHL_HOLZ = "Holz";
+    public static final String GEHAEUSE_WAHL_KUNSTSTOFF = "Kunststoff";
+    public static final String GEHAEUSE_WAHL_METALL ="Metall";
 
     public static final String BEZAHLART_WAHL_KREDITKARTE = "Kreditkarte";
     public static final String BEZAHLART_WAHL_RECHNUNG ="Rechnung";
@@ -511,7 +510,7 @@ public class Controller {
         //Prüfung ob die Wahl des Designers erlaubt ist
         try {
             if (SCHRITT_FORSCHUNG_boolean) {
-                if (designerAuswahl == FORSCHUNG_WAHL_LOWBUDGET || designerAuswahl == FORSCHUNG_WAHL_HOCH || designerAuswahl == FORSCHUNG_WAHL_MITTELMAESIG) {
+                if (designerAuswahl.equals(FORSCHUNG_WAHL_LOWBUDGET) || designerAuswahl.equals(FORSCHUNG_WAHL_HOCH) || designerAuswahl.equals(FORSCHUNG_WAHL_MITTELMAESIG)) {
                     spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleForschung(designerAuswahl); //ToDo Nullpointer Exception
                     setzeAlleSchritteFalse();
                 } else {
@@ -537,7 +536,7 @@ public class Controller {
     public void setArmbandEingabeWerte(String armbandAuswahl, Spieler spieler, int auftragsnummer){
         try {
             if (SCHRITT_ARMBAND_boolean) {
-                if (armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER || armbandAuswahl == ARMBAND_WAHL_LEDER || armbandAuswahl == ARMBAND_WAHL_METALL || armbandAuswahl == ARMBAND_WAHL_TEXTIL) {
+                if (armbandAuswahl.equals(ARMBAND_WAHL_HOLZ) || armbandAuswahl.equals(ARMBAND_WAHL_KUNSTLEDER) || armbandAuswahl.equals(ARMBAND_WAHL_LEDER) || armbandAuswahl.equals(ARMBAND_WAHL_METALL) || armbandAuswahl.equals(ARMBAND_WAHL_TEXTIL)) {
                     spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleArmband(armbandAuswahl);
                     setzeAlleSchritteFalse();
                 } else {
@@ -558,7 +557,7 @@ public class Controller {
     public void setArmbandNeu (String armbandAuswahl){              //nach Zufall Z3
         try {
             if (AENDERE_ARMBAND_boolean) {
-                if (armbandAuswahl == ARMBAND_WAHL_HOLZ || armbandAuswahl == ARMBAND_WAHL_KUNSTLEDER || armbandAuswahl == ARMBAND_WAHL_LEDER || armbandAuswahl == ARMBAND_WAHL_METALL || armbandAuswahl == ARMBAND_WAHL_TEXTIL)
+                if (armbandAuswahl.equals(ARMBAND_WAHL_HOLZ) || armbandAuswahl.equals(ARMBAND_WAHL_KUNSTLEDER) || armbandAuswahl.equals(ARMBAND_WAHL_LEDER) || armbandAuswahl.equals(ARMBAND_WAHL_METALL) || armbandAuswahl.equals(ARMBAND_WAHL_TEXTIL))
                 // Prüfung ob das Material schon einmal gewaehlt wurde in Activity
                 {
                     aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().bestelleArmband(armbandAuswahl);
@@ -659,19 +658,19 @@ public class Controller {
 
     public void setBezahlartWerte (String bezahlartAuswahl, Spieler spieler, int auftragsnummer){
         try {
-            if (SCHRITT_BEZAHLART_boolean) {
+           // if (SCHRITT_BEZAHLART_boolean) {
                 if (bezahlartAuswahl.equals(BEZAHLART_WAHL_KREDITKARTE) || bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL) || bezahlartAuswahl.equals(BEZAHLART_WAHL_RECHNUNG)) {
                     spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleBezahlart(bezahlartAuswahl);
                 }
                 //letzte Auswahl die gesetzt werden kan
                 else if (bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL)) {
-                    setzeAlleSchritteFalse();
+                  //  setzeAlleSchritteFalse();
                 } else {
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
                 }
-            } else {
-                throw new Exception("Falscher Bestellschritt");
-            }
+           // } else {
+             //   throw new Exception("Falscher Bestellschritt");
+            //}
         }
         //Wahl wird standardmäßig auf NUR Rechnung gesetzt
         catch (Exception e) {
@@ -814,14 +813,34 @@ public class Controller {
     }
 
 
-    // TODO: Methoden zum Einstellen und Kuendigen von Mitarbeitern
-    public void einstellen (int anzahlMitarbeiter) {
-
+    // TODO: Methoden zum Einstellen und Kuendigen von Mitarbeitern BOOLEAN ??
+    public boolean einstellen (int neueMitarbeiter) {
+        return veraenderePersonal(neueMitarbeiter,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
     }
 
-    public  void kuendigen (int anzahlMitarbeiter){
+    public  boolean kuendigen (int neueMitarbeiter){
+        return veraenderePersonal(neueMitarbeiter*(-1),aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
     }
 
+    public boolean veraenderePersonal (int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
+        //spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().setEingestellte(spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal());
+        if (persoAenderungErlaubt(anzahlMitarbeiter,spieler,auftragsnummer)==false) {
+        return false;
+        }
+    else {
+            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestellePersonalwesen(personalNeu(anzahlMitarbeiter, spieler, auftragsnummer));
+            spieler.setVeraenderungPersonal(anzahlMitarbeiter);
+            return true;
+        }
+    }
+
+    public boolean persoAenderungErlaubt(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
+        return (spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+anzahlMitarbeiter)>0;
+    }
+    public int personalNeu(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
+        int personalGesamt = spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal();
+        return personalGesamt;
+    }
         //Methoden zum abholen der Bestellpositionen, zur Anzeige der Bestellzusammenfassung
     public String getForschungAktuellerAuftrag( ){
         return getForschungAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
@@ -834,9 +853,9 @@ public class Controller {
         try {
             if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition2500()) {
                 forschung = FORSCHUNG_WAHL_LOWBUDGET;
-            }// else if (aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getForschungAktuellerAuftrag().isMarken()) {
-            // forschung = FORSCHUNG_WAHL_HOCH;
-            // }
+            } else if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition15000()) {
+             forschung = FORSCHUNG_WAHL_HOCH;
+            }
             else if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition8000()) {
                 forschung = FORSCHUNG_WAHL_MITTELMAESIG;
             } else {
@@ -973,19 +992,19 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
         try{
             if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isKreditkarte()){
 
-                bezahlart = BEZAHLART_WAHL_KREDITKARTE;
+                bezahlart = "Visa";
             }
-            else if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isPayPal()){
+            if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isPayPal()){
                 if (!bezahlart.equals("")){
-                    bezahlart = bezahlart + ", ";
+                    bezahlart = bezahlart + ", " + BEZAHLART_WAHL_PAYPAL;
                 }
-                bezahlart = BEZAHLART_WAHL_PAYPAL;
+               else bezahlart = BEZAHLART_WAHL_PAYPAL;
             }
-            else if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isRechnung()){
+            if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isRechnung()){
                 if (!bezahlart.equals("")){
-                    bezahlart = bezahlart + ", ";
+                    bezahlart = bezahlart + ", " + BEZAHLART_WAHL_RECHNUNG;
                 }
-                bezahlart = BEZAHLART_WAHL_RECHNUNG;
+              else  bezahlart = BEZAHLART_WAHL_RECHNUNG;
             }
             else{
                 throw new Exception("Keine Auswahl der Bezahlart getroffen.");
@@ -1006,17 +1025,19 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
         String marketing ="";
         try {
             if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isRadiowerbung()) {
-                marketing = MARKETING_WAHL_PRINTWERBUNG;
-            } else if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isFernsehwerbung()) {
+                marketing = "Radio";
+            }
+            if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isFernsehwerbung()) {
                 if (!marketing.equals("")) {
-                    marketing = marketing + ":";
+                    marketing = marketing + ", " + "TV";
                 }
-                marketing = MARKETING_WAHL_FERNSEHWERBUNG;
-            } else if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isPrintwerbung()) {
+                else marketing = MARKETING_WAHL_FERNSEHWERBUNG;
+            }
+            if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isPrintwerbung()) {
                 if (!marketing.equals("")) {
-                    marketing = marketing + ":";
+                    marketing = marketing + ", " + "Print";
                 }
-                marketing = MARKETING_WAHL_RADIOWERBUNG;
+                else marketing = MARKETING_WAHL_RADIOWERBUNG;
             } else {
                 throw new Exception("Keine Auswahl bei dem Zusamenbau getroffen.");
             }
@@ -1062,9 +1083,17 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
 
     //TODO: getGesamtkosten und getStueckkosten fuer Anzeige bei VerkaufspreisActivity
     public double getGesamtkosten () {
-        return aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten()+
-                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten()*
-                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
+        Spieler s = aktiverSpieler;
+        Auftragssammlung as = s.getAuftragssammlung();
+        Auftrag a = as.getAktuellerAuftrag();
+        double fix = a.getFixKosten();
+        double var = a.getVarKosten();
+        int menge = a.getMenge();
+        double gesamt = fix+var*(double)menge;
+
+        return gesamt;
+
+
     }
 
     public double getStueckkosten () {
@@ -1256,7 +1285,14 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
             return false; //falls Name und Passwort nicht zusammengehören
     }
     public int getPosition(){
-        return 1; //ToDO
+        int pos=9898;
+        Data[] spielerArray = sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getData());
+        for (int i = 0; i<spielerArray.length;i++) {
+            if (aktiverSpieler.getName().equals(spielerArray[i].getId())) {
+                pos = i;
+            } //Ende if
+        }// Ende for
+        return pos;
     }
     public float getMarktanteil(){
         float marktAnteil = (float) aktiverSpieler.getMarktanteil();
@@ -1354,7 +1390,7 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
         Data temp;
         for(int i=1; i<spielers.length; i++) {
             for(int j=0; j<spielers.length-i; j++) {
-                if((spielers[j].getMarktanteil()*spielers[j].getRundengewinn())>(spielers[j+1].getMarktanteil()*spielers[j].getRundengewinn())) {
+                if((spielers[j].getMarktanteil()*spielers[j].getRundengewinn())<(spielers[j+1].getMarktanteil()*spielers[j].getRundengewinn())) {
                     temp=spielers[j];
                     spielers[j]=spielers[j+1];
                     spielers[j+1]=temp;
@@ -1364,4 +1400,37 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
         }
         return spielers;
     }
+
+
+    public boolean eineRundeAussetzen (){
+        if (daten.getRundenAnzahl()>=9){
+            //throw new Exception("10.Runde erreicht");
+            return false;
+        }
+
+        aktiverSpieler.getAuftragssammlung().neuerAuftrag();
+        veraenderePersonal(0,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
+        daten.erhoeheRundenanzahl();
+        setActivity_Berechnung();
+
+        return true;
+    }
+
+    public boolean gleichenWerteNochmal (){
+
+        aktiverSpieler.getAuftragssammlung().neuerAuftragGleicheWerte();
+        if (veraenderePersonal(aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt)){
+        veraenderePersonal(aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
+        daten.erhoeheRundenanzahl();
+            return true;}
+        else
+            return false;
+    }
+
+    public boolean starteNaechsteRunde (){
+        aktiverSpieler.getAuftragssammlung().neuerAuftrag();
+        daten.erhoeheRundenanzahl();
+        return true;
+    }
+
 } // ENDE KLASSE

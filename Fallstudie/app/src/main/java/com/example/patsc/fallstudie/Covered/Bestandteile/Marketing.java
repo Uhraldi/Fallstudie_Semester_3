@@ -13,9 +13,9 @@ public class Marketing {
     private boolean Printwerbung = false;
 
     //Fixkosten
-    private double FixkostenFernsehwerbung = 5000;
-    private double FixkostenRadiowerbung = 3000;
-    private double FixkostenPrintwerbung = 1000;
+    private double FixkostenFernsehwerbung = 13000;
+    private double FixkostenRadiowerbung = 5000;
+    private double FixkostenPrintwerbung = 2000;
 
     //PWSs
     private double FernsehwerbungPWS = 0.4;

@@ -79,7 +79,7 @@ public class Forschung { //ToDo Forschungswerte anpassen
 
     //Forschung 2500€ Investition
     public void setInvestition15000(boolean investition15000) {
-        this.Investition15000 = Investition15000;
+        this.Investition15000 = investition15000;
     }
 
     //Forschung 1500€ Investition
