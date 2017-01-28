@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -58,19 +59,23 @@ public class VerkaufspreisActivity extends AppCompatActivity {
 
        //Verschoben #patsch
        //speichere Eingabewert im String
-       String verkaufspreisString = verkaufspreis_input.getText().toString();
-       auswahlVerkaufspreis = Float.parseFloat(verkaufspreisString);
+
 
        //Methodenaufruf von Controller um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte
-       if (auswahlVerkaufspreis < 5 || auswahlVerkaufspreis > 1500){
-           Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
-           toast.show();
+       if (verkaufspreis_input != null && !TextUtils.isEmpty(verkaufspreis_input.getText())) {
+           String verkaufspreisString = verkaufspreis_input.getText().toString();
+           auswahlVerkaufspreis = Float.parseFloat(verkaufspreisString);
+           if (auswahlVerkaufspreis < 5 || auswahlVerkaufspreis > 1500) {
+               Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
+               toast.show();
+           } else {
+               IntroductionActivity.Controller.setVerkaufspreisAktuell(auswahlVerkaufspreis);
+               Intent intent = new Intent(this, BestellzusammenfassungActivity.class);
+               finish();
+               startActivity(intent);
+           }
        } else {
-           IntroductionActivity.Controller.setVerkaufspreisAktuell(auswahlVerkaufspreis);
-           Intent intent = new Intent(this, BestellzusammenfassungActivity.class);
-           finish();
-           startActivity(intent);
+           Toast toast = Toast.makeText(this, "Bitte einen Verkaufspreis angeben!", Toast.LENGTH_SHORT);
        }
-    }
-
+   }
 }

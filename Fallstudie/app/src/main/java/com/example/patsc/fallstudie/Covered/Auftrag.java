@@ -537,6 +537,8 @@ public class Auftrag {
     }
 
     public void bestellePersonalwesen (int zahl){ //// TODO: 24.01.2017 #Vincent #Patschi
+        personalwesen.setEingestellte(zahl);
+        fixKosten = fixKosten + personalwesen.getEingestellte()*personalwesen.getPersonalKostenProMitarbeiter();
     }
 
     /**

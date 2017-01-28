@@ -36,7 +36,7 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
 
         //Verknuepfen von UI-Elementen mit Java-Klasse und Aufrufen von Controller-Methoden zum Anzeigen der Auftragspositionens
         TextView personalwesen_output = (TextView) findViewById(R.id.personalwesen_output);
-        //personalwesen_output.setText(IntroductionActivity.Controller.getPersonalwesen()); TODO: sobald in Controller, wie Anzeigen?
+        personalwesen_output.setText((String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getVeraenderungPersonal()) + " Mitarbeiter"));
 
         TextView zeitarbeiter_output = (TextView) findViewById(R.id.zeitarbeiter_output);
         try {
@@ -94,8 +94,9 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
         TextView verkaufspreis_output = (TextView) findViewById(R.id.verkaufspreis_output);
         verkaufspreis_output.setText(String.valueOf(IntroductionActivity.Controller.getVerkaufspreis()));
 
-        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
-        gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getGesamtkosten()));
+        TextView gesamtpreis_output = (TextView) findViewById(R.id.gesamtpreis_output);
+        double x = IntroductionActivity.Controller.getGesamtkosten();
+        gesamtpreis_output.setText(String.valueOf(x));
 
 
     }

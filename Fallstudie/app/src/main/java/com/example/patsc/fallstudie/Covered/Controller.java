@@ -658,7 +658,7 @@ public class Controller {
 
     public void setBezahlartWerte (String bezahlartAuswahl, Spieler spieler, int auftragsnummer){
         try {
-            if (SCHRITT_BEZAHLART_boolean) {
+           // if (SCHRITT_BEZAHLART_boolean) {
                 if (bezahlartAuswahl.equals(BEZAHLART_WAHL_KREDITKARTE) || bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL) || bezahlartAuswahl.equals(BEZAHLART_WAHL_RECHNUNG)) {
                     spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleBezahlart(bezahlartAuswahl);
                 }
@@ -668,9 +668,9 @@ public class Controller {
                 } else {
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
                 }
-            } else {
-                throw new Exception("Falscher Bestellschritt");
-            }
+           // } else {
+             //   throw new Exception("Falscher Bestellschritt");
+            //}
         }
         //Wahl wird standardmäßig auf NUR Rechnung gesetzt
         catch (Exception e) {
@@ -814,25 +814,32 @@ public class Controller {
 
 
     // TODO: Methoden zum Einstellen und Kuendigen von Mitarbeitern BOOLEAN ??
-    public boolean einstellen (int anzahlMitarbeiter) {
-        return veraenderePersonal(anzahlMitarbeiter,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
+    public boolean einstellen (int neueMitarbeiter) {
+        return veraenderePersonal(neueMitarbeiter,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
     }
 
-    public  boolean kuendigen (int anzahlMitarbeiter){
-        return veraenderePersonal(anzahlMitarbeiter*(-1),aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
+    public  boolean kuendigen (int neueMitarbeiter){
+        return veraenderePersonal(neueMitarbeiter*(-1),aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
     }
 
     public boolean veraenderePersonal (int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
-        spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().setEingestellte(spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal());
-        if (persoAenderungErlaubt(anzahlMitarbeiter,spieler,auftragsnummer)){
+        //spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().setEingestellte(spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal());
+        if (persoAenderungErlaubt(anzahlMitarbeiter,spieler,auftragsnummer)==false) {
+        return false;
+        }
+    else {
+            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestellePersonalwesen(personalNeu(anzahlMitarbeiter, spieler, auftragsnummer));
             spieler.setVeraenderungPersonal(anzahlMitarbeiter);
             return true;
         }
-        return false;
     }
 
     public boolean persoAenderungErlaubt(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
-        return spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal()>0;
+        return (spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+anzahlMitarbeiter)>0;
+    }
+    public int personalNeu(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
+        int personalGesamt = spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal();
+        return personalGesamt;
     }
         //Methoden zum abholen der Bestellpositionen, zur Anzeige der Bestellzusammenfassung
     public String getForschungAktuellerAuftrag( ){
@@ -985,19 +992,19 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
         try{
             if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isKreditkarte()){
 
-                bezahlart = BEZAHLART_WAHL_KREDITKARTE;
+                bezahlart = "Visa";
             }
-            else if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isPayPal()){
+            if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isPayPal()){
                 if (!bezahlart.equals("")){
-                    bezahlart = bezahlart + ", ";
+                    bezahlart = bezahlart + ", " + BEZAHLART_WAHL_PAYPAL;
                 }
-                bezahlart = BEZAHLART_WAHL_PAYPAL;
+               else bezahlart = BEZAHLART_WAHL_PAYPAL;
             }
-            else if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isRechnung()){
+            if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isRechnung()){
                 if (!bezahlart.equals("")){
-                    bezahlart = bezahlart + ", ";
+                    bezahlart = bezahlart + ", " + BEZAHLART_WAHL_RECHNUNG;
                 }
-                bezahlart = BEZAHLART_WAHL_RECHNUNG;
+              else  bezahlart = BEZAHLART_WAHL_RECHNUNG;
             }
             else{
                 throw new Exception("Keine Auswahl der Bezahlart getroffen.");
@@ -1018,17 +1025,19 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
         String marketing ="";
         try {
             if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isRadiowerbung()) {
-                marketing = MARKETING_WAHL_PRINTWERBUNG;
-            } else if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isFernsehwerbung()) {
+                marketing = "Radio";
+            }
+            if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isFernsehwerbung()) {
                 if (!marketing.equals("")) {
-                    marketing = marketing + ":";
+                    marketing = marketing + ", " + "TV";
                 }
-                marketing = MARKETING_WAHL_FERNSEHWERBUNG;
-            } else if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isPrintwerbung()) {
+                else marketing = MARKETING_WAHL_FERNSEHWERBUNG;
+            }
+            if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isPrintwerbung()) {
                 if (!marketing.equals("")) {
-                    marketing = marketing + ":";
+                    marketing = marketing + ", " + "Print";
                 }
-                marketing = MARKETING_WAHL_RADIOWERBUNG;
+                else marketing = MARKETING_WAHL_RADIOWERBUNG;
             } else {
                 throw new Exception("Keine Auswahl bei dem Zusamenbau getroffen.");
             }
@@ -1074,9 +1083,17 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
 
     //TODO: getGesamtkosten und getStueckkosten fuer Anzeige bei VerkaufspreisActivity
     public double getGesamtkosten () {
-        return aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten()+
-                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten()*
-                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
+        Spieler s = aktiverSpieler;
+        Auftragssammlung as = s.getAuftragssammlung();
+        Auftrag a = as.getAktuellerAuftrag();
+        double fix = a.getFixKosten();
+        double var = a.getVarKosten();
+        int menge = a.getMenge();
+        double gesamt = fix+var*(double)menge;
+
+        return gesamt;
+
+
     }
 
     public double getStueckkosten () {
