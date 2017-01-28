@@ -28,7 +28,8 @@ public class Funkturm {
     public Funkturm(){
 
     }
-
+    
+    private final String domain = "https://manufaktuhr.herokuapp.com/";
     private final String spielerPost = "spielerDaten/postNew";
     private final String spielerUpdate = "spielerDaten/updateExisting";
     private final String spielerGet = "spielerDaten/getExisting";
@@ -36,40 +37,18 @@ public class Funkturm {
     private final String rundeGet = "rundenDaten/get/";
 
 
+    //-------------------Rundenmethoden-------------------
     /**
      * Rufe diese Methode auf, um die Rundenergebnisse zu pushen
-     * @param rundenErgebnisWrapper
+     * @param rundenErgebnisWrapper Wrapper mit allen Spielerdaten
      */
     public void sendeRunde(RundenErgebnisWrapper rundenErgebnisWrapper){
-        sendeDaten(rundenErgebnisWrapper, rundePost);
-    }
-
-    public  void registriereSpieler(SpielerDatenWrapper spielerDatenWrapper){
-        sendeDaten(spielerDatenWrapper, spielerPost);
-    }
-
-    public void updateSpieler(SpielerDatenWrapper spielerDatenWrapper){
-        sendeDaten(spielerDatenWrapper, spielerUpdate);
-    }
-
-
-    /**
-     * @param rundenErgebnisWrapper Objekt der Klasse RundenErgebnisWrapper mit allen Koeffizienten, die im Konstruktor festgelegt sind
-     * @param path Pfad des Servers, der angesprochen werden soll
-     *             Valide Pfade sind
-     *              rundenDaten/post
-     *              spielerDaten/postNew
-     *              spielerDaten/updateExisting
-     */
-    private void sendeDaten(Object rundenErgebnisWrapper, String path){
         //Object in JSON transformieren
         String json = gson.toJson(rundenErgebnisWrapper);
 
-        System.out.println(json);
-
         //Verbindung mit Server aufbauen
         try{
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/"+path).openConnection()));
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + rundePost).openConnection()));
             httpcon.setDoOutput(true);
             httpcon.setDoInput(false);
             httpcon.setUseCaches(false);
@@ -93,7 +72,6 @@ public class Funkturm {
         }
     }
 
-
     /**
      * Rufe diese Methode auf, um die Daten der aktuellen Runde zu erhalten
      * @param runde aktuelle Rundentzahl
@@ -103,7 +81,7 @@ public class Funkturm {
 
         //Verbindung mit Server aufbauen
         try {
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/rundenDaten/get/"+runde).openConnection()));
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + rundeGet +runde).openConnection()));
             httpcon.setDoOutput(false);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
@@ -129,11 +107,93 @@ public class Funkturm {
         }
     }
 
+    //-------------------Spielermethoden-------------------
+    /**
+     * Methode zum Updaten eines Spieler-Spielstandes
+     * @param spielerDatenWrapper Wrapper mit allen nötigen Spielerinformationen, die gespeichert werden sollen
+     */
+    public void updateSpieler(SpielerDatenWrapper spielerDatenWrapper){
+        //Object in JSON transformieren
+        String json = gson.toJson(spielerDatenWrapper);
+
+        //Verbindung mit Server aufbauen
+        try{
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + spielerUpdate).openConnection()));
+            httpcon.setDoOutput(true);
+            httpcon.setDoInput(false);
+            httpcon.setUseCaches(false);
+            httpcon.setConnectTimeout(10000);
+            httpcon.setReadTimeout(10000);
+            httpcon.setRequestProperty("Content-Type", "application/json");
+            httpcon.setRequestProperty("Accept", "application/json");
+            httpcon.setRequestMethod("POST");
+            httpcon.connect();
+
+            //Senden
+            byte[] outputBytes = json.getBytes("UTF-8");
+            OutputStreamWriter os = new OutputStreamWriter(httpcon.getOutputStream());
+            os.write(json);
+            os.flush();
+
+            //Outputstream schließen, Verbindung trennen
+            os.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Methode zum registrieren eines spielers
+     * @param id Name des Spielers
+     * @param passwort Passwort des Spielers
+     * @return Gibt an, ob das speichern erfolgreich war, oder nicht
+     */
+    public  boolean registriereSpieler(String id, String passwort){
+
+        //Verbindung mit Server aufbauen
+        try {
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain  + spielerPost + "/" + id + "/" + passwort).openConnection()));
+            httpcon.setDoOutput(false);
+            httpcon.setRequestProperty("Content-Type", "application/json");
+            httpcon.setRequestProperty("Accept", "application/json");
+            httpcon.setRequestMethod("GET");
+            httpcon.connect();
+
+            //Input einlesen
+            BufferedReader reader = new BufferedReader(new InputStreamReader(httpcon.getInputStream()));
+            String res = reader.readLine();
+            boolean antwort = false;
+            if (res.equals("accepted")){
+                antwort =true;
+            }
+
+            //Inputstream schließen, Verbindung trennen
+            reader.close();
+            httpcon.disconnect();
+
+            //Dataobjekte returnen
+            return antwort;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+    /**
+     * Methode zum Laden einer Spielerdatei
+     * @param id Name des gewünschten Spielers
+     * @param passwort Passwort des gewünschten Spielers
+     * @return Spielerdaten
+     *          ACHTUNG! Wird der Spieler nicht gefunden, wird ein SpielerWrapper mit der ID "Fehler" erzeugt.
+     *          nach dieser Methode sollte also auf die Identität der ID mit "Fehler" geprüft werden.
+     */
     public SpielerDatenWrapper empfangeSpieler(String id, String passwort) {
 
         //Verbindung mit Server aufbauen
         try {
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/" + id + "/" + passwort).openConnection()));
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain  + id + "/" + passwort).openConnection()));
             httpcon.setDoOutput(false);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
@@ -159,31 +219,4 @@ public class Funkturm {
         }
     }
 
-
-/** Nur leicht veränderter Code zur Vorlage für weitere Connection-methoden
- public void senden () {
- try {
- HttpURLConnection httpcon = (HttpURLConnection) ((new URL("http://10.0.0.2:8080/api/sendStats").openConnection()));
- httpcon.setDoOutput(true);
- httpcon.setRequestProperty("Content-Type", "application/json");
- httpcon.setRequestProperty("Accept", "application/json");
- httpcon.setRequestMethod("POST");
-
- httpcon.connect();
-
- byte[] outputBytes = "{'id' : 123, 'runde': 1}".getBytes("UTF-8");
- OutputStream os = httpcon.getOutputStream();
- os.write(outputBytes);
-
- InputStream is = httpcon.getInputStream();
- int res = is.read();
-
- System.out.println(res);
-
- os.close();
- } catch (Exception e) {
- e.printStackTrace();
- }
- }
- */
 }
