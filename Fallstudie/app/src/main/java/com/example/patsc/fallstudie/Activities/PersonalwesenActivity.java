@@ -51,6 +51,9 @@ public class PersonalwesenActivity extends AppCompatActivity {
         kuendigen_radiobutton = (RadioButton) findViewById(R.id.kuendigen_radiobutton);
         nichts_radiobutton = (RadioButton) findViewById(R.id.nichts_radiobutton);
 
+        TextView aktuelleMitarbeiter_output = (TextView) findViewById(R.id.aktuelleMitarbeiter_output);
+        //aktuelleMitarbeiter_output.setText(String.valueOf(IntroductionActivity.Controller.getWHAT)); TODO: Ausgabe aktuelleMitarbeiter
+
     }
 
 

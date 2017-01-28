@@ -20,8 +20,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="14sp"
-        android:fontFamily="sans-serif" />
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="16sp" />
 
     <Button
         android:text="@string/verstanden_button"
