@@ -20,6 +20,7 @@ public class Spieler {
     private final Daten daten;
     private Auftragssammlung auftragssammlung; // ToDo Methoden, Konstruktor
     public Auftragssammlung getAuftragssammlung(){return auftragssammlung;}
+    private int veraenderungPersonal = 2;
 
     public String toString(){
         String spielerString;
@@ -155,4 +156,12 @@ public class Spieler {
         return false;
     } // Ende prüfeNameDoppelt
 
+
+    public int getVeraenderungPersonal() {
+        return veraenderungPersonal;
+    }
+
+    public void setVeraenderungPersonal(int veraenderungPersonal) {
+        this.veraenderungPersonal = veraenderungPersonal;
+    }
 }// Ende Klasse

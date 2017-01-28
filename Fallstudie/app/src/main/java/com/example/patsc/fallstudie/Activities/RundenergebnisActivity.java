@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
 
+import static android.support.design.R.styleable.Toolbar;
+
 public class RundenergebnisActivity extends AppCompatActivity {
 
     @Override
@@ -55,18 +57,21 @@ public class RundenergebnisActivity extends AppCompatActivity {
     //TODO: Methoden für Entscheidung zur nächsten Runde
 
     public void eineRundeAussetzen (){
+        IntroductionActivity.Controller.eineRundeAussetzen(); //ToDo boolean
         Intent intent = new Intent(this, PersonalwesenActivity.class);
         startActivity(intent);
         finish();
     }
 
     public void gleichenWerteNochmal (){
+        IntroductionActivity.Controller.gleichenWerteNochmal(); //ToDo boolean
         Intent intent = new Intent(this, PersonalwesenActivity.class);
         startActivity(intent);
         finish();
     }
 
     public void starteNaechsteRunde (){
+        IntroductionActivity.Controller.starteNaechsteRunde(); //ToDo boolean
         Intent intent = new Intent(this, PersonalwesenActivity.class);
         startActivity(intent);
         finish();

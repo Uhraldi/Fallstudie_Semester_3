@@ -665,7 +665,7 @@ public class Controller {
                 }
                 //letzte Auswahl die gesetzt werden kan
                 else if (bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL)) {
-                    setzeAlleSchritteFalse();
+                  //  setzeAlleSchritteFalse();
                 } else {
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
                 }
@@ -814,14 +814,27 @@ public class Controller {
     }
 
 
-    // TODO: Methoden zum Einstellen und Kuendigen von Mitarbeitern
-    public void einstellen (int anzahlMitarbeiter) {
-
+    // TODO: Methoden zum Einstellen und Kuendigen von Mitarbeitern BOOLEAN ??
+    public boolean einstellen (int anzahlMitarbeiter) {
+        return veraenderePersonal(anzahlMitarbeiter,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
     }
 
-    public  void kuendigen (int anzahlMitarbeiter){
+    public  boolean kuendigen (int anzahlMitarbeiter){
+        return veraenderePersonal(anzahlMitarbeiter*(-1),aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
     }
 
+    public boolean veraenderePersonal (int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
+        spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().setEingestellte(spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal());
+        if (persoAenderungErlaubt(anzahlMitarbeiter,spieler,auftragsnummer)){
+            spieler.setVeraenderungPersonal(anzahlMitarbeiter);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean persoAenderungErlaubt(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
+        return spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal()>0;
+    }
         //Methoden zum abholen der Bestellpositionen, zur Anzeige der Bestellzusammenfassung
     public String getForschungAktuellerAuftrag( ){
         return getForschungAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
@@ -1364,4 +1377,37 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
         }
         return spielers;
     }
+
+
+    public boolean eineRundeAussetzen (){
+        if (daten.getRundenAnzahl()>=9){
+            //throw new Exception("10.Runde erreicht");
+            return false;
+        }
+
+        aktiverSpieler.getAuftragssammlung().neuerAuftrag();
+        veraenderePersonal(0,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
+        daten.erhoeheRundenanzahl();
+        setActivity_Berechnung();
+
+        return true;
+    }
+
+    public boolean gleichenWerteNochmal (){
+
+        aktiverSpieler.getAuftragssammlung().neuerAuftragGleicheWerte();
+        if (veraenderePersonal(aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt)){
+        veraenderePersonal(aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
+        daten.erhoeheRundenanzahl();
+            return true;}
+        else
+            return false;
+    }
+
+    public boolean starteNaechsteRunde (){
+        aktiverSpieler.getAuftragssammlung().neuerAuftrag();
+        daten.erhoeheRundenanzahl();
+        return true;
+    }
+
 } // ENDE KLASSE
