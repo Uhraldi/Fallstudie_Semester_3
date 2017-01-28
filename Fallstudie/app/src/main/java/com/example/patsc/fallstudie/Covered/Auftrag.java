@@ -164,14 +164,14 @@ public class Auftrag {
         switch(eingabe){
             case Controller.FORSCHUNG_WAHL_HOCH: {
                 forschung.setInvestition15000(true); //Fehler korrigiert
-<<<<<<< HEAD
+
                 //forschung.setMarken(true);
                 //Aenderungen patsch 12.01 10.23
                 fixKosten += forschung.getFixkostenInvestition15000();
                 //fixKosten = forschung.getFixkostenInvestition15000(); //neu
-=======
+
                 fixKosten += forschung.getFixkostenInvestition15000();
->>>>>>> f591065f60636f35ddac8d0e03904e9e4ad3e6f4
+
                 resPr += forschung.getInvestition15000PWS();
                 break;
             }

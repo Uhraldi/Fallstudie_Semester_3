@@ -88,7 +88,6 @@ public class BezahlartActivity extends AppCompatActivity {
 
     }
 
-    //Todo evtl nutzung der Variablen???
     //onClick Methoden fuer die drei Checkboxes, mit Moeglichkeit zum Deaktivieren
     public void onClickKreditkarte (View view){
         if (kreditkarte == true){

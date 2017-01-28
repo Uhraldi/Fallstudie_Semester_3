@@ -57,7 +57,7 @@ public class MarketingActivity extends AppCompatActivity {
 
     }
 
-    //Todo evtl nutzung der Variablen???
+
    //onClick Methoden fuer die drei CheckBoxes, mit Moeglichkeit zum Deaktivieren
    public void onCheckboxClickedRadiowerbung (View view){
        if (radiowerbung == true){
