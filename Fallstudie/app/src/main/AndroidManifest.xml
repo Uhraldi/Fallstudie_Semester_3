@@ -40,7 +40,7 @@
         <activity android:name=".Activities.BestellzusammenfassungActivity" />
         <activity android:name=".Activities.Z1_ArmbandActivity" />
         <activity android:name=".Activities.Z2_GehaeuseActivity" />
-        <activity android:name=".Activities.Z3_ZusammenbauActivity" />
+        <activity android:name=".Activities.Z3_ZeitarbeiterActivity" />
         <activity android:name=".Activities.BerechnungActivity" />
         <activity android:name=".Activities.RundenergebnisActivity" />
         <activity android:name=".Activities.BestenlisteActivity" />

@@ -183,5 +183,6 @@ Da alle Meister ausgebucht sind, können Sie leider keine Meister als Zeitarbeit
     <string name="berechnung_title">Berechnung</string>
     <string name="rundenergebnis_title">Rundenergebnis</string>
     <string name="bestenliste_title">Bestenliste</string>
+    <string name="Rundebla">"Runde: "</string>
 
 </resources>

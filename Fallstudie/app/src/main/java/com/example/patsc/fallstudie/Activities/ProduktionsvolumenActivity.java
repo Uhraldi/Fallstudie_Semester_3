@@ -61,17 +61,18 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
 
         //Methodenaufruf von Controller um Input weiterzugeben, mit Bedingung/Überprüfung der Eingabewerte und ob das Guthaben reicht
 
-        if (auswahlProduktionsvolumen > 100 && auswahlProduktionsvolumen < 10000) {
-            if ((IntroductionActivity.Controller.getFixKosten() + (IntroductionActivity.Controller.getVarKosten() * auswahlProduktionsvolumen)) <
-                    IntroductionActivity.Controller.getGuthaben()) {
-                IntroductionActivity.Controller.setProduktionsvolumenAktuell(auswahlProduktionsvolumen);
-                Intent intent = new Intent(this, VerkaufspreisActivity.class);
-                finish();
-                startActivity(intent);
-            } else {
-                Toast toast = Toast.makeText(this, "Ihr aktuelles Guthaben reicht fuer dieses Produktionsvolumen nicht aus", Toast.LENGTH_SHORT);
-                toast.show();
-            }
+//        if (auswahlProduktionsvolumen > 100 && auswahlProduktionsvolumen < 10000) {
+//            if ((IntroductionActivity.Controller.getFixKosten() + (IntroductionActivity.Controller.getVarKosten() * auswahlProduktionsvolumen)) <
+//                    IntroductionActivity.Controller.getGuthaben()) {
+//                IntroductionActivity.Controller.setProduktionsvolumenAktuell(auswahlProduktionsvolumen);
+//                Intent intent = new Intent(this, VerkaufspreisActivity.class);
+//                finish();
+//                startActivity(intent);
+//            } else {
+//                Toast toast = Toast.makeText(this, "Ihr aktuelles Guthaben reicht fuer dieses Produktionsvolumen nicht aus", Toast.LENGTH_SHORT);
+//                toast.show();
+//            } // ende if - else kann gezahlt werden
+//        }
 
             if (Produktionsvolumen_input != null && !TextUtils.isEmpty(Produktionsvolumen_input.getText())) {
                 ProduktionsvolumenString = Produktionsvolumen_input.getText().toString();
@@ -100,4 +101,4 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
 
     }
 
-}
+

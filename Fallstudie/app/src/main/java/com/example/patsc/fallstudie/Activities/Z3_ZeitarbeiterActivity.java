@@ -44,7 +44,7 @@ public class Z3_ZeitarbeiterActivity extends AppCompatActivity {
         //Je nach Sub-Zufall die Ausgabe des richtigen Strings/Info-Texts
         TextView z3Zeitarbeiter_info_textview = (TextView) findViewById(R.id.z3Zeitarbeiter_info_textview);
         try {
-            switch (IntroductionActivity.Controller.getGehaeuseAktuellerAuftrag()){
+            switch (IntroductionActivity.Controller.getZeitarbeiterAktuellerAuftrag()){
                 case "Geselle": {
                     z3Zeitarbeiter_info_textview.setText(R.string.z3Geselle_info_textview);
                     break;

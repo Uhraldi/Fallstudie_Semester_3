@@ -94,6 +94,9 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
         TextView verkaufspreis_output = (TextView) findViewById(R.id.verkaufspreis_output);
         verkaufspreis_output.setText(String.valueOf(IntroductionActivity.Controller.getVerkaufspreis()));
 
+        TextView gesamtkosten_output = (TextView) findViewById(R.id.gesamtkosten_output);
+        //gesamtkosten_output.setText(String.valueOf(IntroductionActivity.Controller.getGesamtkosten())); //TODO: null object reference hier
+
 
     }
 

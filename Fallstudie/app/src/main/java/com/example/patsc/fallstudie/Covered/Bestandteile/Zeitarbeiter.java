@@ -31,6 +31,11 @@ public class Zeitarbeiter {
     private double LehrlingRisiko = 0.13;
     private double MeisterRisiko = 0.05;
 
+    private double GeselleZufall = Math.random()*0.1;
+    private double PraktikantZufall = Math.random()*0.1;
+    private double LehrlingZufall = Math.random()*0.1;
+    private double MeisterZufall = Math.random()*0.1;
+
 
     public Zeitarbeiter() {
 
@@ -100,6 +105,21 @@ public class Zeitarbeiter {
         return MeisterRisiko;
     }
 
+    public double getGeselleZufall() {
+        return GeselleZufall;
+    }
+
+    public double getLehrlingZufall() {
+        return LehrlingZufall;
+    }
+
+    public double getPraktikantZufall() {
+        return PraktikantZufall;
+    }
+
+    public double getMeisterZufall() {
+        return MeisterZufall;
+    }
 
     public void setGeselle(boolean geselle) {
         this.Geselle = geselle;
