@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.Covered;
 
-import com.example.patsc.fallstudie.Network.Data;
+import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class Marktsim {
 
-    private Data[] data;
+    private RundenErgebnisWrapper[] data;
     private Daten daten;
     private Controller Controller;
     private int anzSpieler = daten.getSpielerAnzahl();
@@ -51,37 +51,37 @@ public class Marktsim {
      * @param reservationspreis
      * @param controller
      * @param daten
-     * @param data
+     * @param rundenErgebnisWrapper
      * @throws Exception
      */
-    public Marktsim(double[] reservationspreis, Controller controller, Daten daten, Data[] data) throws Exception {
+    public Marktsim(double[] reservationspreis, Controller controller, Daten daten, RundenErgebnisWrapper[] rundenErgebnisWrapper) throws Exception {
 
         this.Controller = controller;
         this.daten = daten;
-        this.data = data;
+        this.data = rundenErgebnisWrapper;
 
         for (int i = 0; i < reservationspreis.length; i++) {
             reservationspreisarray.set(i, reservationspreis[i]);
         }
 
 
-        for (Data p : this.data) {   // Menge-Abfrage
+        for (RundenErgebnisWrapper p : this.data) {   // Menge-Abfrage
             mengearray.add(p.getMenge());
         }
 
-        for (Data p : this.data) {   // VKP-Abfrage
+        for (RundenErgebnisWrapper p : this.data) {   // VKP-Abfrage
             vkparray.add(p.getVkp());
         }
 
-        for (Data p : this.data) {   // VKP-Abfrage
+        for (RundenErgebnisWrapper p : this.data) {   // VKP-Abfrage
             // gesamtkostenarray.add(p.getGesamtKosten()); ToDo Fehler kommentiert da falsch, fix notwendig
         }
 
-        for (Data p : this.data) {   // Menge-Abfrage
+        for (RundenErgebnisWrapper p : this.data) {   // Menge-Abfrage
             bonusarray.add(p.getBonus());
         }
 
-        for (Data p : this.data) {   // Kontostand-Abfrage
+        for (RundenErgebnisWrapper p : this.data) {   // Kontostand-Abfrage
             kontoarray.add(p.getKonto());
         }
 
@@ -347,7 +347,7 @@ public class Marktsim {
         return gewinn;
     }
 
-    public Data[] getData() {
+    public RundenErgebnisWrapper[] getData() {
         return data;
     }
 }

@@ -1,5 +1,7 @@
 package com.example.patsc.fallstudie.Network;
 
+import com.example.patsc.fallstudie.Covered.Runde;
+import com.example.patsc.fallstudie.Covered.Spieler;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -27,20 +29,47 @@ public class Funkturm {
 
     }
 
+    private final String spielerPost = "spielerDaten/postNew";
+    private final String spielerUpdate = "spielerDaten/updateExisting";
+    private final String spielerGet = "spielerDaten/getExisting";
+    private final String rundePost = "rundenDaten/post";
+    private final String rundeGet = "rundenDaten/get/";
+
+
     /**
-     * 1. Erzeuge eine Klasse vom Typ Data und gebe die richtigen Werte des Spielers mit
-     * 2. führe diese MEthode aus
-     * @param data Objekt der Klasse Data mit allen Koeffizienten, die im Konstruktor festgelegt sind
+     * Rufe diese Methode auf, um die Rundenergebnisse zu pushen
+     * @param rundenErgebnisWrapper
      */
-    public void sendData(Data data){
+    public void sendeRunde(RundenErgebnisWrapper rundenErgebnisWrapper){
+        sendeDaten(rundenErgebnisWrapper, rundePost);
+    }
+
+    public  void registriereSpieler(SpielerDatenWrapper spielerDatenWrapper){
+        sendeDaten(spielerDatenWrapper, spielerPost);
+    }
+
+    public void updateSpieler(SpielerDatenWrapper spielerDatenWrapper){
+        sendeDaten(spielerDatenWrapper, spielerUpdate);
+    }
+
+
+    /**
+     * @param rundenErgebnisWrapper Objekt der Klasse RundenErgebnisWrapper mit allen Koeffizienten, die im Konstruktor festgelegt sind
+     * @param path Pfad des Servers, der angesprochen werden soll
+     *             Valide Pfade sind
+     *              rundenDaten/post
+     *              spielerDaten/postNew
+     *              spielerDaten/updateExisting
+     */
+    private void sendeDaten(Object rundenErgebnisWrapper, String path){
         //Object in JSON transformieren
-        String json = gson.toJson(data);
+        String json = gson.toJson(rundenErgebnisWrapper);
 
         System.out.println(json);
 
         //Verbindung mit Server aufbauen
         try{
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/rundendaten/post").openConnection()));
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/"+path).openConnection()));
             httpcon.setDoOutput(true);
             httpcon.setDoInput(false);
             httpcon.setUseCaches(false);
@@ -51,14 +80,9 @@ public class Funkturm {
             httpcon.setRequestMethod("POST");
             httpcon.connect();
 
-            //Sendung festlegen
+            //Senden
             byte[] outputBytes = json.getBytes("UTF-8");
             OutputStreamWriter os = new OutputStreamWriter(httpcon.getOutputStream());
-
-            //JSONObject jsonObject = new JSONObject();
-            //jsonObject.put("id",123);
-
-            //Senden
             os.write(json);
             os.flush();
             //Outputstream schließen, Verbindung trennen
@@ -75,11 +99,11 @@ public class Funkturm {
      * @param runde aktuelle Rundentzahl
      * @return Alle gespeicherten Spielstände der Runde
      */
-    public Data[] getData( int runde){
+    public RundenErgebnisWrapper[] empfangeRunde(int runde){
 
         //Verbindung mit Server aufbauen
         try {
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/rundendaten/get/"+runde).openConnection()));
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/rundenDaten/get/"+runde).openConnection()));
             httpcon.setDoOutput(false);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
@@ -91,9 +115,37 @@ public class Funkturm {
             String res = reader.readLine();
 
             //Gelesenen Input in Objekte verpacken
-            Data[] dataArray = gson.fromJson(res, Data[].class);
+            RundenErgebnisWrapper[] dataArray = gson.fromJson(res, RundenErgebnisWrapper[].class);
 
-            System.out.println(dataArray[0].toString());
+            //Inputstream schließen, Verbindung trennen
+            reader.close();
+            httpcon.disconnect();
+
+            //Dataobjekte returnen
+            return dataArray;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public SpielerDatenWrapper empfangeSpieler(String id, String passwort) {
+
+        //Verbindung mit Server aufbauen
+        try {
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/" + id + "/" + passwort).openConnection()));
+            httpcon.setDoOutput(false);
+            httpcon.setRequestProperty("Content-Type", "application/json");
+            httpcon.setRequestProperty("Accept", "application/json");
+            httpcon.setRequestMethod("GET");
+            httpcon.connect();
+
+            //Input einlesen
+            BufferedReader reader = new BufferedReader(new InputStreamReader(httpcon.getInputStream()));
+            String res = reader.readLine();
+
+            //Gelesenen Input in Objekte verpacken
+            SpielerDatenWrapper dataArray = gson.fromJson(res, SpielerDatenWrapper.class);
 
             //Inputstream schließen, Verbindung trennen
             reader.close();

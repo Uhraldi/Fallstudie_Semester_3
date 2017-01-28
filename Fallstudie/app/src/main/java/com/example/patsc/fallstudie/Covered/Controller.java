@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.Covered;
 
-import com.example.patsc.fallstudie.Network.Data;
+import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
 import com.example.patsc.fallstudie.Network.Funkturm;
 
 import java.util.ArrayList;
@@ -479,10 +479,10 @@ public class Controller {
             double kosten = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() + aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten();
             Preissimulation preissim = new Preissimulation(this); //ToDo
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setPreissim(preissim);
-            Data data = new Data(aktiverSpieler.getName(),daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(),aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(),getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben());
-            funkturm.sendData(data);
+            RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(),daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(),aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(),getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben());
+            funkturm.sendeRunde(rundenErgebnisWrapper);
             Thread.sleep(3000);
-            Data[] gegnerliste = funkturm.getData(daten.getRundenAnzahl());
+            RundenErgebnisWrapper[] gegnerliste = funkturm.empfangeRunde(daten.getRundenAnzahl());
             Marktsim marktsim = new Marktsim(getPreissimulationenPreis(), this, this.getDaten(), gegnerliste);
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
         }catch (Exception e){
@@ -1286,7 +1286,7 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
     }
     public int getPosition(){
         int pos=9898;
-        Data[] spielerArray = sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getData());
+        RundenErgebnisWrapper[] spielerArray = sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getData());
         for (int i = 0; i<spielerArray.length;i++) {
             if (aktiverSpieler.getName().equals(spielerArray[i].getId())) {
                 pos = i;
@@ -1386,8 +1386,8 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
         return Preise;
     } // Ende Preissimulation
 
-    public Data[] sortSpieler(Data[] spielers){
-        Data temp;
+    public RundenErgebnisWrapper[] sortSpieler(RundenErgebnisWrapper[] spielers){
+        RundenErgebnisWrapper temp;
         for(int i=1; i<spielers.length; i++) {
             for(int j=0; j<spielers.length-i; j++) {
                 if((spielers[j].getMarktanteil()*spielers[j].getRundengewinn())<(spielers[j+1].getMarktanteil()*spielers[j].getRundengewinn())) {
