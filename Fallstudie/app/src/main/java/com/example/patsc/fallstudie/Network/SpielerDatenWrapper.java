@@ -8,24 +8,24 @@ import com.example.patsc.fallstudie.Covered.Spieler;
 
 public class SpielerDatenWrapper {
 
-    String name;
+    String id;
     String passwort;
-    int runde;
+    int runde = -1;
     double konto;
     double kontoSchnitt;
     double maSchnitt;
 
     /**
      * Äquivalent zu RundenErgebnisWrapper mit den Daten, die für den Spieler nötig sind.
-     * @param name des Spielers
-     * @param passwort des Spielers
+     * @param id Name des Spielers
+     * @param passwort Passwort des Spielers
      * @param runde Nummer der aktuellen Runde
-     * @param konto -Stand des Spielers
+     * @param konto Kontostand des Spielers
      * @param kontoSchnitt Durchschnitt der bisherigen Kontostände, um am Ende einen Schnitt ausgeben zu können.
      * @param maSchnitt Durchschnitt der bisherigen Marktanteile, um am Ende einen Schnitt ausgeben zu können.
      */
-    public SpielerDatenWrapper(String name, String passwort, int runde, double konto, double maSchnitt, double kontoSchnitt){
-        this.name = name;
+    public SpielerDatenWrapper(String id, String passwort, int runde, double konto, double maSchnitt, double kontoSchnitt){
+        this.id = id;
         this.passwort = passwort;
         this.runde = runde;
         this.konto = konto;
@@ -33,4 +33,13 @@ public class SpielerDatenWrapper {
         this.maSchnitt = maSchnitt;
     }
 
+    /**
+     * Konstruktor, um ein Objekt zu erzeugen, das dur Identifikation dient. Zum Beispiel beim Anfragen der Spielerdaten
+     * @param id Name des Spielers
+     * @param passwort Passwort des Spielers
+     */
+    public SpielerDatenWrapper(String id, String passwort){
+        this.id = id;
+        this.passwort = passwort;
+    }
 }
