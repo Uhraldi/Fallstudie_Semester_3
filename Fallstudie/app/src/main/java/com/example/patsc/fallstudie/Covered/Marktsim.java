@@ -14,19 +14,13 @@ import java.util.Random;
 public class Marktsim {
 
     private RundenErgebnisWrapper[] data;
-    private Daten daten;
     private Controller Controller;
-    private int anzSpieler = daten.getSpielerAnzahl();
+    private int anzSpieler = 10;
 
-
-    private int anzKäufer = anzSpieler * 8000;           // Abfrage der Spieleranzahl, mult. mit 8000
+    private int anzKäufer = anzSpieler * 8000;         // Abfrage der Spieleranzahl, mult. mit 8000
     private int lowKäufer, middleKäufer, highKäufer;  // Variable für die Anzahl der möglichen Kunden in dem jeweiligen Preissegment
-    private int lowsumme, middlesumme, highsumme;  // Zwischenspeicher für die Summe der Abverkäufe in dem jeweiligen Preissegment
+    private int lowsumme, middlesumme, highsumme;     // Zwischenspeicher für die Summe der Abverkäufe in dem jeweiligen Preissegment
 
-
-    private float highestp = 300;
-    private float lowestp = 5;
-    private final double startguthaben = 150000;
     private float lowGrenze = 150, middleGrenze = 250; // Preissegmentsgrenzen low = 150, middle = 250, high > middle
 
 
@@ -51,14 +45,12 @@ public class Marktsim {
      * Konstruktor
      *
      * @param controller
-     * @param daten
      * @param rundenErgebnisWrapper
      * @throws Exception
      */
-    public Marktsim(Controller controller, Daten daten, RundenErgebnisWrapper[] rundenErgebnisWrapper) throws Exception {
+    public Marktsim(Controller controller, RundenErgebnisWrapper[] rundenErgebnisWrapper) throws Exception {
 
         this.Controller = controller;
-        this.daten = daten;
         this.data = rundenErgebnisWrapper;
 
         for (RundenErgebnisWrapper p : this.data) {
@@ -100,13 +92,6 @@ public class Marktsim {
      */
 
     public ArrayList berechneAbsatz() throws Exception {
-
-        /**  prozentualeVorteile.clear(); // Leeren der Arraylists vor neuer Berechnung  NOTWENDIG?
-         vkparray.clear();
-         mengearray.clear();
-         reservationspreisarray.clear();
-         differenz.clear();
-         absatzreturn.clear();   **/
 
 
         for (int i = 0; i < anzSpieler; i++) {                            // Abweichungen wirken sich auf die prozentualenVorteile aus. 80, 100 und 150 % Schritte
@@ -221,8 +206,8 @@ public class Marktsim {
 
         for (int i = 0; i < data.length; i++) {
             data[i].setKonto((double) kontoarray.get(i));
-            //data[i].setMarktanteil((double) marktanteil.get(i)); ToDo Fehler kommentiert da falsch, fix notwendig
-            //data[i].setRundengewinn((double) rundenGewinn.get(i)); ToDo Fehler kommentiert da falsch, fix notwendig
+            data[i].setMarktanteil((double) marktanteil.get(i));
+            data[i].setRundengewinn((double) rundenGewinn.get(i));
         }
 
         return absatzreturn;
