@@ -21,7 +21,7 @@ public class Spieler {
     private Auftragssammlung auftragssammlung; // ToDo Methoden, Konstruktor
     public Auftragssammlung getAuftragssammlung(){return auftragssammlung;}
     private int veraenderungPersonal = 2;
-    private int kontoSchnitt;
+    private double kontoSchnitt;
 
     public String toString(){
         String spielerString;
@@ -104,11 +104,11 @@ public class Spieler {
         Name = name;
     } // Ende setName()
 
-    public int getKontoSchnitt() {
+    public double getKontoSchnitt() {
         return kontoSchnitt;
     }
 
-    public void setKontoSchnitt(int kontoSchnitt) {
+    public void setKontoSchnitt(double kontoSchnitt) {
         this.kontoSchnitt = kontoSchnitt;
     }
 

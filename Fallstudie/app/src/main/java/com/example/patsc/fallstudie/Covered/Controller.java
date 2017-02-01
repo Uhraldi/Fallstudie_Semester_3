@@ -481,15 +481,21 @@ public class Controller {
             double kosten = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() + aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten();
             Preissimulation preissim = new Preissimulation(this); //ToDo
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setPreissim(preissim);
+
+            //Runde hochladen
             RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(),daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(),aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(),getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben());
             funkturm.sendeRunde(rundenErgebnisWrapper);
             Thread.sleep(3000);
+
+            //Gener herunterladen
             RundenErgebnisWrapper[] gegnerliste = funkturm.empfangeRunde(daten.getRundenAnzahl());
             Marktsim marktsim = new Marktsim(getPreissimulationenPreis(), this, this.getDaten(), gegnerliste);
+
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
 
+            //Spielerdaten speichern
             SpielerDatenWrapper spieler = new SpielerDatenWrapper(aktiverSpieler.getName(),aktiverSpieler.getPasswort(),daten.getRundenAnzahl(),aktiverSpieler.getGuthaben(), aktiverSpieler.getMarktanteil(), aktiverSpieler.getKontoSchnitt());
-            funkturm.updateSpieler(spieler);
+            funkturm.updateSpieler(spieler); //// TODO: 01/02/2017 #Patschi Das ist ein boolean. Wie soll damit umgegangen werden, wenn es Fehler gibt?
 
         }catch (Exception e){
             e.printStackTrace();
@@ -1243,7 +1249,7 @@ public class Controller {
         try {
            Funkturm f = new Funkturm();
 
-            if ( f.registriereSpieler(name, passwort) == true) {
+            if ( f.registriereSpieler(name, passwort)) {
                 aktiverSpieler = new Spieler(name, passwort, daten);
                 daten.addSpielerListe(aktiverSpieler);
                 return true;
@@ -1277,10 +1283,8 @@ public class Controller {
                 aktiverSpieler = new Spieler(name, passwort, daten);
                 daten.setRundenAnzahl(spieler.getRunde());
                 aktiverSpieler.setGuthaben(spieler.getKonto());
-
-                // double kontoSchnitt; ToDo
                 aktiverSpieler.setMarktanteil(spieler.getMaSchnitt());
-
+                aktiverSpieler.setKontoSchnitt(spieler.getKontoSchnitt());
                 return true;
             } // Ende else
         } catch (Exception e) {
