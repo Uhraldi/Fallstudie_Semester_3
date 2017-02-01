@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         IntroductionActivity.Controller.setActivity_Login();
         c = IntroductionActivity.Controller;
+        c.setActivity_Login();
         //Verknuepfen von EditText mit UI-Element per ID
         EditText login_username_input = (EditText) findViewById(R.id.login_username_input);
         EditText login_password_input = (EditText) findViewById(R.id.login_password_input);

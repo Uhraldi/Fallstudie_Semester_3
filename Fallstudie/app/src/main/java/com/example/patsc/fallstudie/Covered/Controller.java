@@ -2,14 +2,15 @@ package com.example.patsc.fallstudie.Covered;
 
 import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
 import com.example.patsc.fallstudie.Network.Funkturm;
+import com.example.patsc.fallstudie.Network.SpielerDatenWrapper;
 
 import java.util.ArrayList;
 
 /**
  * Created by patsc on 13.12.2016.
  */
-    //// TODO: 24.01.2017 #Vincent sortArray implementieren
-    //// TODO: 24.01.2017 #Patschi Nils über Bestenliste informieren
+//// TODO: 24.01.2017 #Vincent sortArray implementieren
+//// TODO: 24.01.2017 #Patschi Nils über Bestenliste informieren
 
 //Hier ein Kommentar von Nils
 
@@ -67,7 +68,7 @@ public class Controller {
     public static final String SCHRITT_ARMBAND = "SCHRITT_ARMBAND"; // zweite Schritt Wahl des Armbands
     public static final String SCHRITT_UHRWERK = "SCHRITT_UHRWERK"; // dritter Schritt Wahl des Uhrwerks und der Uhrenart
     public static final String SCHRITT_GEHAUESE = "SCHRITT_GEHAUSE"; // vierter Schritt Wahl des Gehäuses für die Uhr
-   // private final String SCHRITT_DICHTHEIT = "SCHRITT_DICHTHEIT"; // fuenfter Schritt Wahl der Dichtheit
+    // private final String SCHRITT_DICHTHEIT = "SCHRITT_DICHTHEIT"; // fuenfter Schritt Wahl der Dichtheit
     public static  final String SCHRITT_ZEITARBEITER = "SCHRITT_ZEITARBEITER"; // sechster Schritt Wahl Zeitarbeiter
     public static  final String SCHRITT_MARKETING = "SCHRITT_MARKETING"; // siebter Schritt Wahl des Werbeetars
     public static final String SCHRITT_PRODUKTIONSVOLUMEN = "SCHRITT_PRODUKTIONSVOLUMEN"; // achter Schritt Wahl des Kaufvolumens
@@ -158,9 +159,9 @@ public class Controller {
     public void setSCHRITT_FORSCHUNG_boolean(boolean SCHRITT_FORSCHUNG_boolean) {
         this.SCHRITT_FORSCHUNG_boolean = SCHRITT_FORSCHUNG_boolean;
     }
-   // public void setSCHRITT_DICHTHEIT_boolean(boolean SCHRITT_DICHTHEIT_boolean) {
-   //     this.SCHRITT_DICHTHEIT_boolean = SCHRITT_DICHTHEIT_boolean;
-   // }
+    // public void setSCHRITT_DICHTHEIT_boolean(boolean SCHRITT_DICHTHEIT_boolean) {
+    //     this.SCHRITT_DICHTHEIT_boolean = SCHRITT_DICHTHEIT_boolean;
+    // }
     public void setSCHRITT_GEHAUESE_boolean(boolean SCHRITT_GEHAUESE_boolean) {
         this.SCHRITT_GEHAUESE_boolean = SCHRITT_GEHAUESE_boolean;
     }
@@ -195,7 +196,7 @@ public class Controller {
         setzeAlleZustaendeFalse();
         Zustand_Bestellung = true;
         Auftragssammlung auftragssammlung = aktiverSpieler.getAuftragssammlung(); //Aenderung 2.01 daten.getDieserSpieler() gefixt//ToDo auch hier tritt ein Nullpointer auf, verbindung mit dem in Daten?
-       // auftragssammlung.neuerAuftrag();
+        // auftragssammlung.neuerAuftrag();
         auftragssammlung.getAktuellerAuftrag(); // Wie man die Auftrag bekomt
         //Einfügen der Werte in die Bestllposition mittels der Buttons aktives pushen
     }
@@ -223,8 +224,8 @@ public class Controller {
     public boolean isSCHRITT_FORSCHUNG_boolean() {
         return SCHRITT_FORSCHUNG_boolean;
     }
-  //  public boolean isSCHRITT_DICHTHEIT_boolean() {
-     //   return SCHRITT_DICHTHEIT_boolean;
+    //  public boolean isSCHRITT_DICHTHEIT_boolean() {
+    //   return SCHRITT_DICHTHEIT_boolean;
     //}
     public boolean isSCHRITT_GEHAUESE_boolean() {
         return SCHRITT_GEHAUESE_boolean;
@@ -303,8 +304,8 @@ public class Controller {
         return SCHRITT_FORSCHUNG;
     }
     public boolean isSCHRITT_PERSONALWESEN_boolean(){return SCHRITT_PERSONALWESEN_boolean;}
-   // public String getSCHRITT_DICHTHEIT() {
-     //   return SCHRITT_DICHTHEIT;
+    // public String getSCHRITT_DICHTHEIT() {
+    //   return SCHRITT_DICHTHEIT;
     //}
     public String getSCHRITT_GEHAUESE() {
         return SCHRITT_GEHAUESE;
@@ -339,15 +340,15 @@ public class Controller {
     public String getBEZAHLART_WAHL_Rechnung() {
         return BEZAHLART_WAHL_RECHNUNG;
     }
-   // public String getWASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT() {
-       // return WASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT;
+    // public String getWASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT() {
+    // return WASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT;
     ///}
     //public String getWASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT() {
     //    return WASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT;
-   // }
-   // public String getWASSERDICHTHEIT_WAHL_WASSERDICHT() {
+    // }
+    // public String getWASSERDICHTHEIT_WAHL_WASSERDICHT() {
     //    return WASSERDICHTHEIT_WAHL_WASSERDICHT;
-   // }
+    // }
     public String getMARKETING_WAHL_PRINTWERBUNG() {
         return MARKETING_WAHL_PRINTWERBUNG;
     }
@@ -372,7 +373,7 @@ public class Controller {
     public String getSchrittDesigner(){return SCHRITT_FORSCHUNG;}
     public String getSchrittArmband(){return SCHRITT_ARMBAND;}
     public String getSchrittUhrwerk(){return SCHRITT_UHRWERK;}
-  //  public String getSchrittDichtheit(){return SCHRITT_DICHTHEIT;}
+    //  public String getSchrittDichtheit(){return SCHRITT_DICHTHEIT;}
     public String getSchrittGehauese(){return SCHRITT_GEHAUESE;}
     public String getSchrittZusammenbau(){return SCHRITT_ZEITARBEITER;}
     public String getSchrittWerbung(){return SCHRITT_MARKETING;}
@@ -397,17 +398,18 @@ public class Controller {
         setzeAlleZustaendeFalse();
         setzeAlleSchritteFalse();
         setZustand_Spielbeginn(true);
+
+
     }
 
-    //TODO: Methode füllen
-    public void setActivity_Personalwesen () {
 
+    public void setActivity_Personalwesen () {
 
     }
 
 
     public void setActivity_Forschung () {
-      //aktiverSpieler.getAuftragssammlung().neuerAuftrag(); // Absturz 1.54; aktiver SPier in registrierung zugeordnet Fix 1.58
+        //aktiverSpieler.getAuftragssammlung().neuerAuftrag(); // Absturz 1.54; aktiver SPier in registrierung zugeordnet Fix 1.58
         //ToDo RUndenanzahl erhöhen
         setZustand_Bestellung(true); // Absturz 2.01 fix 2.04
         setSCHRITT_FORSCHUNG_boolean(true);
@@ -429,10 +431,10 @@ public class Controller {
         setSCHRITT_BEZAHLART_boolean(true);
         //aktiverSpieler.getAuftragssammlung().neuerAuftrag(); // neu
     }
-  //  public void setActivity_E6 () {
-  //      setZustand_Bestellung(true);
-  //      setSCHRITT_DICHTHEIT_boolean(true);
-  //  }
+    //  public void setActivity_E6 () {
+    //      setZustand_Bestellung(true);
+    //      setSCHRITT_DICHTHEIT_boolean(true);
+    //  }
     public void setActivity_Zeitarbeiter () {
         setZustand_Bestellung(true);
         setSCHRITT_ZEITARBEITER_boolean(true);
@@ -453,7 +455,7 @@ public class Controller {
     public void setActivity_Bestellzusammenfassung () {
         setzeAlleZustaendeFalse();
         setZustand_Bestellung(true);
-            }
+    }
     public void setActivity_Z1 () {
         setZustand_Ereignis(true);
         setAENDERE_ARMBAND_boolean(true);
@@ -485,6 +487,10 @@ public class Controller {
             RundenErgebnisWrapper[] gegnerliste = funkturm.empfangeRunde(daten.getRundenAnzahl());
             Marktsim marktsim = new Marktsim(getPreissimulationenPreis(), this, this.getDaten(), gegnerliste);
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
+
+            SpielerDatenWrapper spieler = new SpielerDatenWrapper(aktiverSpieler.getName(),aktiverSpieler.getPasswort(),daten.getRundenAnzahl(),aktiverSpieler.getGuthaben(), aktiverSpieler.getMarktanteil(), aktiverSpieler.getKontoSchnitt());
+            funkturm.updateSpieler(spieler);
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -503,7 +509,7 @@ public class Controller {
      */
     public void setForschungAktuell(String designerAuswahl){
         setForschungEingabeWerte(designerAuswahl,aktiverSpieler,daten.getRundenAnzahl());
-        } // Ende SetForschung
+    } // Ende SetForschung
 
 
     public void setForschungEingabeWerte (String designerAuswahl, Spieler spieler, int auftragsnummer){
@@ -575,37 +581,37 @@ public class Controller {
             AENDERE_ARMBAND_boolean = false;
             e.printStackTrace();
             //ToDO vorherige Auswahl war Kunstleder
-            }
+        }
 
     }// Ende setArmbandNeu
     public void setUhrwerkAktuell(String uhrwerkAuswahl){
-         setUhrwerkEingabeWerte(uhrwerkAuswahl,aktiverSpieler,daten.getRundenAnzahl());
+        setUhrwerkEingabeWerte(uhrwerkAuswahl,aktiverSpieler,daten.getRundenAnzahl());
     }//Ende setUhrwek //
 
- public void setUhrwerkEingabeWerte(String uhrwerkAuswahl, Spieler spieler, int auftragsnummer){
-     try {
-         if (SCHRITT_UHRWERK_boolean) {
-             if (uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTROMECHANISCH) || uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTRONISCH) || uhrwerkAuswahl.equals(UHRWERK_WAHL_MECHANISCH)) {
-                 spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleUhrwerk(uhrwerkAuswahl);
-                 setzeAlleSchritteFalse();
-             } else {
-                 throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
-             }
-         } else {
-             throw new Exception("Falscher Bestellschritt");
-         }
-     }
-     //Wahl wird standardmäßig auf Elektronisch gesetzt
-     catch (Exception e) {
-         spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getUhrwerk().setElektronisch(true);
-         setzeAlleSchritteFalse();
-         e.printStackTrace();
-     }
- }
+    public void setUhrwerkEingabeWerte(String uhrwerkAuswahl, Spieler spieler, int auftragsnummer){
+        try {
+            if (SCHRITT_UHRWERK_boolean) {
+                if (uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTROMECHANISCH) || uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTRONISCH) || uhrwerkAuswahl.equals(UHRWERK_WAHL_MECHANISCH)) {
+                    spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleUhrwerk(uhrwerkAuswahl);
+                    setzeAlleSchritteFalse();
+                } else {
+                    throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
+                }
+            } else {
+                throw new Exception("Falscher Bestellschritt");
+            }
+        }
+        //Wahl wird standardmäßig auf Elektronisch gesetzt
+        catch (Exception e) {
+            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getUhrwerk().setElektronisch(true);
+            setzeAlleSchritteFalse();
+            e.printStackTrace();
+        }
+    }
 
 
     public void setGehaeuseAktuell(String gehaeuseAuswahl){
-         setGehaueseWerte(gehaeuseAuswahl,aktiverSpieler,daten.getRundenAnzahl());
+        setGehaueseWerte(gehaeuseAuswahl,aktiverSpieler,daten.getRundenAnzahl());
     }// Ende setGehaeuseAktuell
 
 
@@ -632,44 +638,44 @@ public class Controller {
 
 
     public void setGehaeuseNeu (String gehaeuseAuswahl){                //nach Zufall Z
-         try {
-             if (AENDERE_GEHAEUSE_boolean) {
-                 if (gehaeuseAuswahl.equals(GEHAEUSE_WAHL_GLAS) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_HOLZ) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_KUNSTSTOFF) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_METALL)) {
-                     aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().korrigiereGehaeuse(gehaeuseAuswahl);
-                     AENDERE_GEHAEUSE_boolean = false;
-                 } else {
-                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
-                 }
-             } else {
-                 throw new Exception("Falscher Bestellschritt");
-             }
-         }
-         //Wahl wird standardmäßig auf Holz gesetzt
-         catch (Exception e) {
-             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().setHolz(true);
-             AENDERE_GEHAEUSE_boolean = false;
-             e.printStackTrace();
-             //ToDO vorherige Auswahl war Holz
-         }
+        try {
+            if (AENDERE_GEHAEUSE_boolean) {
+                if (gehaeuseAuswahl.equals(GEHAEUSE_WAHL_GLAS) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_HOLZ) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_KUNSTSTOFF) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_METALL)) {
+                    aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().korrigiereGehaeuse(gehaeuseAuswahl);
+                    AENDERE_GEHAEUSE_boolean = false;
+                } else {
+                    throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
+                }
+            } else {
+                throw new Exception("Falscher Bestellschritt");
+            }
+        }
+        //Wahl wird standardmäßig auf Holz gesetzt
+        catch (Exception e) {
+            aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().setHolz(true);
+            AENDERE_GEHAEUSE_boolean = false;
+            e.printStackTrace();
+            //ToDO vorherige Auswahl war Holz
+        }
     } // Ende setGehaeuseNeu
     public void setBezahlartAktuell(String bezahlartAuswahl){    //TODO: Anpassung Namen
-         setBezahlartWerte(bezahlartAuswahl,aktiverSpieler,daten.getRundenAnzahl());
+        setBezahlartWerte(bezahlartAuswahl,aktiverSpieler,daten.getRundenAnzahl());
     } //Ende set Bezahlart //
 
     public void setBezahlartWerte (String bezahlartAuswahl, Spieler spieler, int auftragsnummer){
         try {
-           // if (SCHRITT_BEZAHLART_boolean) {
-                if (bezahlartAuswahl.equals(BEZAHLART_WAHL_KREDITKARTE) || bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL) || bezahlartAuswahl.equals(BEZAHLART_WAHL_RECHNUNG)) {
-                    spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleBezahlart(bezahlartAuswahl);
-                }
-                //letzte Auswahl die gesetzt werden kan
-                else if (bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL)) {
-                  //  setzeAlleSchritteFalse();
-                } else {
-                    throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
-                }
-           // } else {
-             //   throw new Exception("Falscher Bestellschritt");
+            // if (SCHRITT_BEZAHLART_boolean) {
+            if (bezahlartAuswahl.equals(BEZAHLART_WAHL_KREDITKARTE) || bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL) || bezahlartAuswahl.equals(BEZAHLART_WAHL_RECHNUNG)) {
+                spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleBezahlart(bezahlartAuswahl);
+            }
+            //letzte Auswahl die gesetzt werden kan
+            else if (bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL)) {
+                //  setzeAlleSchritteFalse();
+            } else {
+                throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
+            }
+            // } else {
+            //   throw new Exception("Falscher Bestellschritt");
             //}
         }
         //Wahl wird standardmäßig auf NUR Rechnung gesetzt
@@ -683,7 +689,7 @@ public class Controller {
     public void setZeitarbeiterAktuell(String zeitarbeiterAuswahl){
 
         setZeitarbeiterWerte(zeitarbeiterAuswahl, aktiverSpieler, daten.getRundenAnzahl());
-  } // Ende setZusammebau
+    } // Ende setZusammebau
 
     public void setZeitarbeiterWerte (String zeitarbeiterAuswahl, Spieler spieler, int auftragsnummer) {
         try{
@@ -734,7 +740,7 @@ public class Controller {
 
 
     public void setMarketingAktuell(String marketingAuswahl){
-         setMarketingWerte(marketingAuswahl, aktiverSpieler, daten.getRundenAnzahl());
+        setMarketingWerte(marketingAuswahl, aktiverSpieler, daten.getRundenAnzahl());
     }//Ende set Marketing
 
     public void setMarketingWerte (String marketingAuswahl, Spieler spieler, int auftragsnummer){
@@ -765,7 +771,7 @@ public class Controller {
 
 
     public void setProduktionsvolumenAktuell(float produktionsvolumenAuswahl){
-         setProduktionsvolumenWerte (produktionsvolumenAuswahl, aktiverSpieler, daten.getRundenAnzahl());
+        setProduktionsvolumenWerte (produktionsvolumenAuswahl, aktiverSpieler, daten.getRundenAnzahl());
     }//Ende setProduktionsvolumenAktuell
 
     public void setProduktionsvolumenWerte(float produktionsvolumenAuswahl, Spieler spieler, int auftragsnummer){
@@ -789,7 +795,7 @@ public class Controller {
     }
 
     public void setVerkaufspreisAktuell (float verkaufspreisAuswahl){
-         setVerkaufpreisWerte(verkaufspreisAuswahl,aktiverSpieler,daten.getRundenAnzahl());
+        setVerkaufpreisWerte(verkaufspreisAuswahl,aktiverSpieler,daten.getRundenAnzahl());
     }// Ende Verkaufspreis //
 
     public void setVerkaufpreisWerte(float verkaufspreisAuswahl, Spieler spieler, int auftragsnummer){
@@ -825,9 +831,9 @@ public class Controller {
     public boolean veraenderePersonal (int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
         //spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().setEingestellte(spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal());
         if (persoAenderungErlaubt(anzahlMitarbeiter,spieler,auftragsnummer)==false) {
-        return false;
+            return false;
         }
-    else {
+        else {
             spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestellePersonalwesen(personalNeu(anzahlMitarbeiter, spieler, auftragsnummer));
             spieler.setVeraenderungPersonal(anzahlMitarbeiter);
             return true;
@@ -841,7 +847,7 @@ public class Controller {
         int personalGesamt = spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal();
         return personalGesamt;
     }
-        //Methoden zum abholen der Bestellpositionen, zur Anzeige der Bestellzusammenfassung
+    //Methoden zum abholen der Bestellpositionen, zur Anzeige der Bestellzusammenfassung
     public String getForschungAktuellerAuftrag( ){
         return getForschungAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
     }// Ende getForschungAktuellerAuftrag
@@ -854,7 +860,7 @@ public class Controller {
             if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition2500()) {
                 forschung = FORSCHUNG_WAHL_LOWBUDGET;
             } else if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition15000()) {
-             forschung = FORSCHUNG_WAHL_HOCH;
+                forschung = FORSCHUNG_WAHL_HOCH;
             }
             else if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition8000()) {
                 forschung = FORSCHUNG_WAHL_MITTELMAESIG;
@@ -983,7 +989,7 @@ public class Controller {
     }
 
     public String getBezahlartAktuellerAuftrag( ){
-return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
+        return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
     }//Ende getBezahlartAktuellerAuftrag
 
 
@@ -998,13 +1004,13 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
                 if (!bezahlart.equals("")){
                     bezahlart = bezahlart + ", " + BEZAHLART_WAHL_PAYPAL;
                 }
-               else bezahlart = BEZAHLART_WAHL_PAYPAL;
+                else bezahlart = BEZAHLART_WAHL_PAYPAL;
             }
             if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isRechnung()){
                 if (!bezahlart.equals("")){
                     bezahlart = bezahlart + ", " + BEZAHLART_WAHL_RECHNUNG;
                 }
-              else  bezahlart = BEZAHLART_WAHL_RECHNUNG;
+                else  bezahlart = BEZAHLART_WAHL_RECHNUNG;
             }
             else{
                 throw new Exception("Keine Auswahl der Bezahlart getroffen.");
@@ -1147,29 +1153,29 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
         AENDERE_GEHAEUSE_boolean =false;
         AENDERE_ZEITARBEITER_boolean = false;
         double wahrscheinlichkeit = 0;
-            try{
-                if (getGehaeuseAktuellerAuftrag().equals(GEHAEUSE_WAHL_KUNSTSTOFF)){
-                    wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().getKunststoffRisiko();
-                }
-                else if(getGehaeuseAktuellerAuftrag().equals(GEHAEUSE_WAHL_METALL)){
-                    wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().getMetallRisiko();
-                }
-                else if(getGehaeuseAktuellerAuftrag().equals(GEHAEUSE_WAHL_GLAS)){
-                    wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().getGlasRisiko();
-                }
-                else if (getGehaeuseAktuellerAuftrag().equals(GEHAEUSE_WAHL_HOLZ)){
-                    wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().getHolzRisiko();
-                }
-                else{
-                    throw new Exception("Keine Auswahl des Gehaeuses getroffen.");
-                }
+        try{
+            if (getGehaeuseAktuellerAuftrag().equals(GEHAEUSE_WAHL_KUNSTSTOFF)){
+                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().getKunststoffRisiko();
             }
-            catch(Exception e){
-                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().setMetall(true);
-                setzeAlleSchritteFalse();
+            else if(getGehaeuseAktuellerAuftrag().equals(GEHAEUSE_WAHL_METALL)){
                 wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().getMetallRisiko();
-                e.printStackTrace();
             }
+            else if(getGehaeuseAktuellerAuftrag().equals(GEHAEUSE_WAHL_GLAS)){
+                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().getGlasRisiko();
+            }
+            else if (getGehaeuseAktuellerAuftrag().equals(GEHAEUSE_WAHL_HOLZ)){
+                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().getHolzRisiko();
+            }
+            else{
+                throw new Exception("Keine Auswahl des Gehaeuses getroffen.");
+            }
+        }
+        catch(Exception e){
+            aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().setMetall(true);
+            setzeAlleSchritteFalse();
+            wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().getMetallRisiko();
+            e.printStackTrace();
+        }
         if (zufallszahl<=wahrscheinlichkeit){
             AENDERE_GEHAEUSE_boolean =true;
             return true;
@@ -1184,30 +1190,30 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
         AENDERE_GEHAEUSE_boolean =false;
         AENDERE_ZEITARBEITER_boolean = false;
         double wahrscheinlichkeit = 0;
-            try{
-                if (getZeitarbeiterAktuellerAuftrag().equals(ZEITARBEITER_WAHL_PRAKTIKANT)){
-                    wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().getPraktikantRisiko();
-                }
-                else if (getZeitarbeiterAktuellerAuftrag().equals(ZEITARBEITER_WAHL_MEISTER)){
-                    wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().getMeisterRisiko();
-                }
-                else if (getZeitarbeiterAktuellerAuftrag().equals(ZEITARBEITER_WAHL_Lehrling)){
-                    wahrscheinlichkeit =  aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().getPraktikantRisiko();
-
-                }
-                else if (getZeitarbeiterAktuellerAuftrag().equals(ZEITARBEITER_WAHL_GESELLE)){
-                    wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().getGeselleRisiko();
-                }
-                else{
-                    throw new Exception("Keine Auswahl des Gehaeuses getroffen.");
-                }
+        try{
+            if (getZeitarbeiterAktuellerAuftrag().equals(ZEITARBEITER_WAHL_PRAKTIKANT)){
+                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().getPraktikantRisiko();
             }
-            catch (Exception e){
-                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().setLehrling(true);
-                setzeAlleSchritteFalse();
+            else if (getZeitarbeiterAktuellerAuftrag().equals(ZEITARBEITER_WAHL_MEISTER)){
+                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().getMeisterRisiko();
+            }
+            else if (getZeitarbeiterAktuellerAuftrag().equals(ZEITARBEITER_WAHL_Lehrling)){
                 wahrscheinlichkeit =  aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().getPraktikantRisiko();
-                e.printStackTrace();
+
             }
+            else if (getZeitarbeiterAktuellerAuftrag().equals(ZEITARBEITER_WAHL_GESELLE)){
+                wahrscheinlichkeit = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().getGeselleRisiko();
+            }
+            else{
+                throw new Exception("Keine Auswahl des Gehaeuses getroffen.");
+            }
+        }
+        catch (Exception e){
+            aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().setLehrling(true);
+            setzeAlleSchritteFalse();
+            wahrscheinlichkeit =  aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().getPraktikantRisiko();
+            e.printStackTrace();
+        }
         if (zufallszahl<=wahrscheinlichkeit){
             AENDERE_GEHAEUSE_boolean =true;
             return true;
@@ -1235,21 +1241,23 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
      * @param passwort
      */ public boolean registrierung(String name, String passwort){
         try {
-            // Prüfen ob der Spielername bereits auf dem Device verwendet wird, wenn ja soll ein Fehler geworfen werden
-            ArrayList<Spieler> SpielerListe = daten.getSpielerListe();
-            for (int i = 0; i < SpielerListe.size(); i++) {
-                if (SpielerListe.get(i).getName().equals(name)) { // Name war richtig
-                    return false;
-                }  // Ende if Schleife namens Prüfung
-            } // Ende for Schleife
-            // Wenn die Schleife durchlaufen ist, aber kein Spieler den Namen bereits verwendet, wird der Spieler angelegt und als aktiver Spieler gesetzt
-            aktiverSpieler = new Spieler(name, passwort, daten);
-            daten.addSpielerListe(aktiverSpieler);
+           Funkturm f = new Funkturm();
+
+            if ( f.registriereSpieler(name, passwort) == true) {
+                aktiverSpieler = new Spieler(name, passwort, daten);
+                daten.addSpielerListe(aktiverSpieler);
+                return true;
+            }
+            else{
+                return false;
+            }
+
         } // Ende try
         catch (Exception e){
-        e.printStackTrace();
+            e.printStackTrace();
+            return false;
         } // Ende catch
-        return true; } // Ende registrierung()
+        } // Ende registrierung()
     /**
      * Aufrug wenn Login bestätigt wird (Button in UI)
      * UI Login
@@ -1257,33 +1265,31 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
      * @param name
      * @param passwort
      */
-    public boolean login (String name, String passwort){
+    public boolean login (String name, String passwort) {
+
+        Funkturm f = new Funkturm();
+        SpielerDatenWrapper spieler = f.empfangeSpieler(name,passwort);
         try {
-          // Prüfen ob der Spieler auf dem Device gespeichert ist
-            ArrayList<Spieler> SpielerListe =  daten.getSpielerListe();
-            for (int i = 0; i<SpielerListe.size(); i++) {
-                if (SpielerListe.get(i).getName().equals(name)) { // Name war richtig
-                    if (SpielerListe.get(i).getPasswort().equals(passwort)){ // Name und Passwort richtig Spieler wird alsaktiver SPieler gesetzt.
-                        aktiverSpieler = SpielerListe.get(i);
-                        i=SpielerListe.size()+2; // Sicher gehen, dass nicht mehr in for Schleife gegangen wird
-                        daten.setDieserSpieler(aktiverSpieler);
-                        return true;
-                    } // Ende if Passwort prüfen
-                    else{ // richtiger Name falsches Passwort
-                        i=SpielerListe.size()+2; // Sicher gehen, dass nicht mehr in for Schleife gegangen wird
-                        return false;
-                    } // Ende else
-                } // Ende if Schleife namens Prüfung
-            } // Ende for Schleife
-            // Wenn die Schleife durchlaufen ist, aber kein Spieler den richtigen Namen hatte, wird false zurückgegeben
+            if (spieler.getId().equals("failed")) {
+                return false;
+            } else {
+
+                aktiverSpieler = new Spieler(name, passwort, daten);
+                daten.setRundenAnzahl(spieler.getRunde());
+                aktiverSpieler.setGuthaben(spieler.getKonto());
+
+                // double kontoSchnitt; ToDo
+                aktiverSpieler.setMarktanteil(spieler.getMaSchnitt());
+
+                return true;
+            } // Ende else
+        } catch (Exception e) {
+
             return false;
-        } // Ende try
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }//Ende catch
-            return false; //falls Name und Passwort nicht zusammengehören
+        } // Ende Methode
+
     }
+
     public int getPosition(){
         int pos=9898;
         RundenErgebnisWrapper[] spielerArray = sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getData());
@@ -1344,22 +1350,22 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
      */
     public Auftrag[] getAuftrage()throws Exception{
         Auftrag[] auftraege = new Auftrag[daten.getSpielerAnzahl()];
-            try {
-                if (daten.getSpielerListe() == null) {
-                    throw new Exception("Spieler Liste leer");
-                }
+        try {
+            if (daten.getSpielerListe() == null) {
+                throw new Exception("Spieler Liste leer");
+            }
 
-                for (int i = 0; i < daten.getSpielerAnzahl(); i++) {
-                    if (daten.getSpielerListe().get(i).getAuftragssammlung().getAktuellerAuftrag() != null)
-                        auftraege[i] = daten.getSpielerListe().get(i).getAuftragssammlung().getAktuellerAuftrag();
-                    else {
-                        throw new Exception("Kein Objekt gefunden");
-                    }
-                }// Ende for
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
+            for (int i = 0; i < daten.getSpielerAnzahl(); i++) {
+                if (daten.getSpielerListe().get(i).getAuftragssammlung().getAktuellerAuftrag() != null)
+                    auftraege[i] = daten.getSpielerListe().get(i).getAuftragssammlung().getAktuellerAuftrag();
+                else {
+                    throw new Exception("Kein Objekt gefunden");
+                }
+            }// Ende for
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
         return auftraege;
     }  // Ende getAuftrage
@@ -1374,9 +1380,9 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
                 if (daten.getSpielerListe().get(i).getAuftragssammlung().getAktuellerAuftrag() != null){
 
 
-                 //   Preise[i] = daten.getSpielerListe().get(i).getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getVerkaufspreis();
+                    //   Preise[i] = daten.getSpielerListe().get(i).getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getVerkaufspreis();
                 }
-                    else {
+                else {
                     throw new Exception("Kein Objekt gefunden");
                 }
             }
@@ -1420,8 +1426,8 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
 
         aktiverSpieler.getAuftragssammlung().neuerAuftragGleicheWerte();
         if (veraenderePersonal(aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt)){
-        veraenderePersonal(aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
-        daten.erhoeheRundenanzahl();
+            veraenderePersonal(aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
+            daten.erhoeheRundenanzahl();
             return true;}
         else
             return false;

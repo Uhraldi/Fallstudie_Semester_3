@@ -42,4 +42,52 @@ public class SpielerDatenWrapper {
         this.id = id;
         this.passwort = passwort;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPasswort() {
+        return passwort;
+    }
+
+    public void setPasswort(String passwort) {
+        this.passwort = passwort;
+    }
+
+    public int getRunde() {
+        return runde;
+    }
+
+    public void setRunde(int runde) {
+        this.runde = runde;
+    }
+
+    public double getKonto() {
+        return konto;
+    }
+
+    public void setKonto(double konto) {
+        this.konto = konto;
+    }
+
+    public double getKontoSchnitt() {
+        return kontoSchnitt;
+    }
+
+    public void setKontoSchnitt(double kontoSchnitt) {
+        this.kontoSchnitt = kontoSchnitt;
+    }
+
+    public double getMaSchnitt() {
+        return maSchnitt;
+    }
+
+    public void setMaSchnitt(double maSchnitt) {
+        this.maSchnitt = maSchnitt;
+    }
 }
