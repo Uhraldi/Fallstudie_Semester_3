@@ -1350,6 +1350,10 @@ public class Controller {
                 aktiverSpieler.setGuthaben(spieler.getKonto());
                 aktiverSpieler.setMarktanteil(spieler.getMaSchnitt());
                 aktiverSpieler.setKontoSchnitt(spieler.getKontoSchnitt());
+                if (aktiverSpieler.getGuthaben()==0){
+                    aktiverSpieler = new Spieler(name,passwort,daten);
+                }
+
                 return true;
             } // Ende else
         } catch (Exception e) {

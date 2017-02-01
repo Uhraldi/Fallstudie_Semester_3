@@ -61,12 +61,20 @@ public class LoginActivity extends AppCompatActivity {
      * @throws Exception
      */
    public void login (View view) throws Exception {
+
+       //speichere Eingabewerte im String
+       EditText login_username_input = (EditText) findViewById(R.id.login_username_input);
+       EditText login_password_input = (EditText) findViewById(R.id.login_password_input);
+       inputUsername = login_username_input.getText().toString();
+       inputPassword = login_password_input.getText().toString();
+
         if(c.login(inputUsername, inputPassword)) {
             Intent intent = new Intent(this, PersonalwesenActivity.class);
             startActivity(intent);
             finish();
         } else {
             Toast toast = Toast.makeText(this, "Falscher Nutzername und/oder Passwort", Toast.LENGTH_SHORT);
+            toast.show();
         }
 
     }
