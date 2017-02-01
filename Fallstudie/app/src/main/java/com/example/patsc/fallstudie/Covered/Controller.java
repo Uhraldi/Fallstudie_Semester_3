@@ -1,10 +1,8 @@
 package com.example.patsc.fallstudie.Covered;
 
-import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
 import com.example.patsc.fallstudie.Network.Funkturm;
+import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
 import com.example.patsc.fallstudie.Network.SpielerDatenWrapper;
-
-import java.util.ArrayList;
 
 /**
  * Created by patsc on 13.12.2016.
@@ -489,7 +487,7 @@ public class Controller {
 
             //Gener herunterladen
             RundenErgebnisWrapper[] gegnerliste = funkturm.empfangeRunde(daten.getRundenAnzahl());
-            Marktsim marktsim = new Marktsim(getPreissimulationenPreis(), this, this.getDaten(), gegnerliste);
+            Marktsim marktsim = new Marktsim( this, this.getDaten(), gegnerliste);
 
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
 
@@ -1257,11 +1255,18 @@ public class Controller {
      * Parameter werden von UI übergeben
      * @param name
      * @param passwort
-     */ public boolean registrierung(String name, String passwort){
+     */ public boolean registrierung(final String name, final String passwort){
+        String test1 = name;
+        String test2 = passwort;
         try {
-           Funkturm f = new Funkturm();
-
-            if ( f.registriereSpieler(name, passwort)) {
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    funkturm.registriereSpieler(name, passwort);
+                }
+            });
+            t.start();
+            if (true) {
                 aktiverSpieler = new Spieler(name, passwort, daten);
                 daten.addSpielerListe(aktiverSpieler);
                 return true;
