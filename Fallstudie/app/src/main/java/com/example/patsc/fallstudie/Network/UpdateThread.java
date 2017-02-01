@@ -8,26 +8,19 @@ import com.example.patsc.fallstudie.Covered.Controller;
 
 public class UpdateThread implements Runnable {
 
-    String id;
-    String passwort;
+    SpielerDatenWrapper s;
     boolean ergebnis = false;
     Controller c;
 
-    public UpdateThread(String id, String passwort, Controller c){
-        this.id = id;
-        this.passwort = passwort;
+    public UpdateThread(SpielerDatenWrapper s, Controller c){
+        this.s = s;
         this.c = c;
     }
 
     @Override
     public void run() {
         Funkturm f = new Funkturm();
-        ergebnis = f.registriereSpieler(id, passwort);
-        c.setRegistrierungBool(ergebnis);
+        ergebnis = f.updateSpieler(s);
+        c.setUpdateBool(ergebnis);
     }
-
-    public boolean getErgebnis(){
-        return ergebnis;
-    }
-
 }
