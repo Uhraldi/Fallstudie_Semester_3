@@ -495,11 +495,9 @@ public class Controller {
 
             //Gener herunterladen
             RundenErgebnisWrapper[] gegnerliste = funkturm.empfangeRunde(daten.getRundenAnzahl());
-<<<<<<< HEAD
-            Marktsim marktsim = new Marktsim(this, this.getDaten(), gegnerliste);
-=======
-            Marktsim marktsim = new Marktsim( this, gegnerliste);
->>>>>>> ce5483da0d656aeb83d38cd6a271e37c2fc60b94
+
+            Marktsim marktsim = new Marktsim(this,  gegnerliste);
+
 
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
 

@@ -53,7 +53,7 @@ public class Funkturm {
         try {
             HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + rundePost).openConnection()));
             httpcon.setDoOutput(true);
-            httpcon.setDoInput(false);
+            httpcon.setDoInput(true);
             httpcon.setUseCaches(false);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
@@ -101,7 +101,8 @@ public class Funkturm {
 
         //Verbindung mit Server aufbauen
         try {
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + rundeGet + runde).openConnection()));
+            int zahl = runde +1;
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + rundeGet + zahl).openConnection()));
             httpcon.setDoOutput(false);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
