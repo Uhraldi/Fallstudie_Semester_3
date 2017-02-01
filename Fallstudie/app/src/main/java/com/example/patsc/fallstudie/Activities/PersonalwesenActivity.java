@@ -118,6 +118,7 @@ public class PersonalwesenActivity extends AppCompatActivity {
             }
 
             if (nichts_radiobutton.isChecked()){
+                IntroductionActivity.Controller.keineVeraenderung();
                 startActivity(intent);
                 finish();
             }

@@ -1,9 +1,13 @@
 package com.example.patsc.fallstudie.Covered;
 
+import com.example.patsc.fallstudie.Network.EmpfangeRundeThread;
+import com.example.patsc.fallstudie.Network.EmpfangeSpielerThread;
 import com.example.patsc.fallstudie.Network.Funkturm;
-import com.example.patsc.fallstudie.Network.MyThread;
+import com.example.patsc.fallstudie.Network.RegisterThread;
 import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
+import com.example.patsc.fallstudie.Network.SendeRundeThread;
 import com.example.patsc.fallstudie.Network.SpielerDatenWrapper;
+import com.example.patsc.fallstudie.Network.UpdateThread;
 
 /**
  * Created by patsc on 13.12.2016.
@@ -27,7 +31,10 @@ public class Controller {
      */
 
     boolean registrierungBool = false;
-
+    boolean updateBool = false;
+    SpielerDatenWrapper empfangeSpielerSDW;
+    boolean sendeRundeBool = false;
+    RundenErgebnisWrapper[] rundenErgebnisREW;
 
     /**
      * Strings für die Übergabe der Auswahl
@@ -484,27 +491,55 @@ public class Controller {
 
             //ToDo Prüfung ob alle Spieler Werte eingegeben haben
             // ToDO DB abruf
-            //double kosten = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() + aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten();
+            double kosten = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() + aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten();
             Preissimulation preissim = new Preissimulation(this); //ToDo
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setPreissim(preissim);
 
             //Runde hochladen
+            int maxCount = 0;
+            do {
+                maxCount++;
+                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben());
+                Runnable r = new SendeRundeThread(rundenErgebnisWrapper, this);
+                Thread t = new Thread(r);
+                t.start();
+                while (t.isAlive()) {
+
+                }
+            }while(sendeRundeBool && maxCount<3);
+            /* Code ohne Thread
             RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(),daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(),aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(),getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben());
             funkturm.sendeRunde(rundenErgebnisWrapper);
             Thread.sleep(3000);
+            */
 
             //Gener herunterladen
-            RundenErgebnisWrapper[] gegnerliste = funkturm.empfangeRunde(daten.getRundenAnzahl());
+            Runnable r = new EmpfangeRundeThread(daten.getRundenAnzahl(),this);
+            Thread t = new Thread(r);
+            t.start();
+            while (t.isAlive()) {
 
-            Marktsim marktsim = new Marktsim(this,  gegnerliste);
-
+            }
+            RundenErgebnisWrapper[] gegnerliste = rundenErgebnisREW;
+            Marktsim marktsim = new Marktsim( this, gegnerliste);
 
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
 
             //Spielerdaten speichern
-            SpielerDatenWrapper spieler = new SpielerDatenWrapper(aktiverSpieler.getName(),aktiverSpieler.getPasswort(),daten.getRundenAnzahl(),aktiverSpieler.getGuthaben(), aktiverSpieler.getMarktanteil(), aktiverSpieler.getKontoSchnitt());
-            funkturm.updateSpieler(spieler); //// TODO: 01/02/2017 #Patschi Das ist ein boolean. Wie soll damit umgegangen werden, wenn es Fehler gibt?
+            int maxCount2 = 0;
+            do {
+                maxCount2++;
+                SpielerDatenWrapper spieler = new SpielerDatenWrapper(aktiverSpieler.getName(), aktiverSpieler.getPasswort(), daten.getRundenAnzahl(), aktiverSpieler.getGuthaben(), aktiverSpieler.getMarktanteil(), aktiverSpieler.getKontoSchnitt());
+                Runnable r2 = new UpdateThread(spieler, this);
+                Thread t2 = new Thread(r);
+                t2.start();
+                while (t2.isAlive()) {
 
+                }
+            }while (updateBool && maxCount2 <3);
+            /* Code ohne Thread
+            funkturm.updateSpieler(spieler); //// TODO: 01/02/2017 #Patschi Das ist ein boolean. Wie soll damit umgegangen werden, wenn es Fehler gibt?
+            */
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -853,6 +888,11 @@ public class Controller {
     public  boolean kuendigen (int neueMitarbeiter){
         return veraenderePersonal(neueMitarbeiter*(-1),aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
     }
+    public void keineVeraenderung(){
+        int i = aktiverSpieler.getVeraenderungPersonal();
+        aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().bestellePersonalwesen(i);
+        aktiverSpieler.setVeraenderungPersonal(0);
+    }
 
     public boolean veraenderePersonal (int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
         //spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().setEingestellte(spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal());
@@ -1069,7 +1109,7 @@ public class Controller {
                 if (!marketing.equals("")) {
                     marketing = marketing + ", " + "Print";
                 }
-                else marketing = MARKETING_WAHL_PRINTWERBUNG;
+                else marketing = MARKETING_WAHL_RADIOWERBUNG;
             } else {
                 throw new Exception("Keine Auswahl bei dem Zusamenbau getroffen.");
             }
@@ -1267,7 +1307,7 @@ public class Controller {
      * @param passwort
      */ public boolean registrierung(String name,String passwort){
         try {
-            Runnable r = new MyThread(name,passwort,this);
+            Runnable r = new RegisterThread(name,passwort,this);
             Thread t = new Thread(r);
             t.start();
             while(t.isAlive()){
@@ -1298,17 +1338,14 @@ public class Controller {
     public boolean login (final String name,final String passwort) {
         final SpielerDatenWrapper ergebnis;
         Funkturm f = new Funkturm();
-        SpielerDatenWrapper spieler = f.empfangeSpieler(name, passwort);
+        Runnable r = new EmpfangeSpielerThread(name,passwort,this);
+        Thread t = new Thread(r);
+        t.start();
+        while(t.isAlive()){
+
+        }
+        SpielerDatenWrapper spieler = empfangeSpielerSDW;
         try {
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-
-                    funkturm.empfangeSpieler(name, passwort);
-
-                }
-            });
-            t.start();
             if (spieler.getId().equals("failed")) {
                 return false;
             } else {
@@ -1318,6 +1355,10 @@ public class Controller {
                 aktiverSpieler.setGuthaben(spieler.getKonto());
                 aktiverSpieler.setMarktanteil(spieler.getMaSchnitt());
                 aktiverSpieler.setKontoSchnitt(spieler.getKontoSchnitt());
+                if (aktiverSpieler.getGuthaben()==0){
+                    aktiverSpieler = new Spieler(name,passwort,daten);
+                }
+
                 return true;
             } // Ende else
         } catch (Exception e) {
@@ -1351,7 +1392,7 @@ public class Controller {
 
     //  Mehrfach genutzte Datenabfrage.
     public int getRunde(){
-        return daten.getRundenAnzahl();
+        return daten.getRundenAnzahl()+1;
     }//Ende getRunde
     // Hilfsmethoden
     /**
@@ -1479,5 +1520,22 @@ public class Controller {
     public void setRegistrierungBool(boolean registrierungBool){
         this.registrierungBool = registrierungBool;
     }
+
+    public void setUpdateBool(boolean updateBool) {
+        this.updateBool = updateBool;
+    }
+
+    public void setEmpfangeSpielerSDW(SpielerDatenWrapper empfangeSpielerSDW) {
+        this.empfangeSpielerSDW = empfangeSpielerSDW;
+    }
+
+    public void setSendeRundeBool(boolean SendeRundeBool) {
+        this.sendeRundeBool = sendeRundeBool;
+    }
+
+    public void setRundenErgebnisREW(RundenErgebnisWrapper[] rundenErgebnisREW) {
+        this.rundenErgebnisREW = rundenErgebnisREW;
+    }
+
 
 } // ENDE KLASSE
