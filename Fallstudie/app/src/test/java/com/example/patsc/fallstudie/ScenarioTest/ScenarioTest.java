@@ -153,6 +153,7 @@ public class ScenarioTest {
         Spieler Julian = new Spieler("Julian", "passwort", Daten);
         Spieler Sebastian = new Spieler("Sebastian", "passwort", Daten);
         Spieler Jonas = new Spieler("Hurensohn1", "ichbineinhurensohn", Daten);
+        System.out.println("Spieler erstellt!");
         //4.Spieler führen Bestellungen durch
         //Julian ist dran
         Controller.aktiverSpieler = Julian;
@@ -169,7 +170,7 @@ public class ScenarioTest {
                 AUSWAHL_JULIAN_VERKAUFSPREIS);
         Controller.setActivity_Berechnung();
 
-
+/*
         //Sebastian ist dran
         Controller.aktiverSpieler = Sebastian;
         Controller.setZustand_Bestellung(true);
@@ -199,8 +200,8 @@ public class ScenarioTest {
                 AUSWAHL_JONAS_PRODUKTIONSVOLUMEN,
                 AUSWAHL_JONAS_VERKAUFSPREIS);
         Controller.setActivity_Berechnung();
-
-
+*/
+        System.out.println("Alle bestellt ");
         //5. Rundenergebnisse anzeigen
             //Rundenergebnis von Julian
             Controller.aktiverSpieler = Julian;
@@ -213,7 +214,7 @@ public class ScenarioTest {
             GUTHABEN_JULIAN = Controller.getGuthaben();
             POSITION_JULIAN = Controller.getPosition();
             Rundenergebnisse(Controller,GEWINN_JULIAN, ABSATZ_JULIAN,MARKTANTEIL_JULIAN,POSITION_JULIAN,GUTHABEN_JULIAN);
-            Controller.aktiverSpieler = Sebastian;
+          /*  Controller.aktiverSpieler = Sebastian;
             ABSATZ_SEBASTIAN=Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz();
             MARKTANTEIL_SEBASTIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(Controller.getAktiverSpieler().getName());
             GEWINN_SEBASTIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getGewinn();
@@ -226,6 +227,6 @@ public class ScenarioTest {
             GEWINN_JONAS = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getGewinn();
             GUTHABEN_JONAS = Controller.getGuthaben();
             POSITION_JONAS = Controller.getPosition();
-            Rundenergebnisse(Controller,GEWINN_JONAS, ABSATZ_JONAS, MARKTANTEIL_JONAS, POSITION_JONAS,GUTHABEN_JONAS);
+            Rundenergebnisse(Controller,GEWINN_JONAS, ABSATZ_JONAS, MARKTANTEIL_JONAS, POSITION_JONAS,GUTHABEN_JONAS);*/
     }
 }
