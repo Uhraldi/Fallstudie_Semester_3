@@ -6,14 +6,14 @@ import com.example.patsc.fallstudie.Covered.Controller;
  * Created by vince on 01/02/2017.
  */
 
-public class MyThread implements Runnable {
+public class EmpfangeRundeThread implements Runnable {
 
     String id;
     String passwort;
     boolean ergebnis = false;
     Controller c;
 
-    public MyThread(String id, String passwort, Controller c){
+    public EmpfangeRundeThread(String id, String passwort, Controller c){
         this.id = id;
         this.passwort = passwort;
         this.c = c;
