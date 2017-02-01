@@ -27,13 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         IntroductionActivity.Controller.setActivity_Login();
         c = IntroductionActivity.Controller;
         c.setActivity_Login();
-        //Verknuepfen von EditText mit UI-Element per ID
-        EditText login_username_input = (EditText) findViewById(R.id.login_username_input);
-        EditText login_password_input = (EditText) findViewById(R.id.login_password_input);
 
-        //speichere Eingabewerte im String
-        inputUsername = login_username_input.getText().toString();
-        inputPassword = login_password_input.getText().toString();
+
     }
 
 
@@ -42,13 +37,21 @@ public class LoginActivity extends AppCompatActivity {
      * @param view
      * @throws Exception
      */
-    public void register (View view){ /*throws Exception*/
+    public void register (View view){
+
+        //speichere Eingabewerte im String
+        EditText login_username_input = (EditText) findViewById(R.id.login_username_input);
+        EditText login_password_input = (EditText) findViewById(R.id.login_password_input);
+        inputUsername = login_username_input.getText().toString();
+        inputPassword = login_password_input.getText().toString();
+
         if (c.registrierung(inputUsername, inputPassword)) {
             Intent intent = new Intent(this, PersonalwesenActivity.class);
             startActivity(intent);
             finish();
         } else {
             Toast toast = Toast.makeText(this, "Nutzername bereits vergeben", Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 

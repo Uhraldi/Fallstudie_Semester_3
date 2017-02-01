@@ -1,7 +1,5 @@
 package com.example.patsc.fallstudie.Network;
 
-import com.example.patsc.fallstudie.Covered.Runde;
-import com.example.patsc.fallstudie.Covered.Spieler;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -13,9 +11,11 @@ import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Klasse zum Senden von Daten
+ *
  * @author Vincent Schmalor
- * Created by vince on 18.01.2017.
+ *         Created by vince on 18.01.2017.
  */
+
 
 public class Funkturm {
 
@@ -23,10 +23,10 @@ public class Funkturm {
 
 
     //----------------------Constructor----------------------
-    public Funkturm(){
+    public Funkturm() {
 
     }
-    
+
     private final String domain = "https://manufaktuhr.herokuapp.com/";
     private final String spielerPost = "spielerDaten/postNew";
     private final String spielerUpdate = "spielerDaten/updateExisting";
@@ -36,17 +36,21 @@ public class Funkturm {
 
 
     //-------------------Rundenmethoden-------------------
+
     /**
      * Rufe diese Methode auf, um die Rundenergebnisse zu pushen
+     *
      * @param rundenErgebnisWrapper Wrapper mit allen Spielerdaten (siehe Doc. RundenergebnisWrapper)
      */
-    public boolean sendeRunde(RundenErgebnisWrapper rundenErgebnisWrapper){
+    public boolean sendeRunde(final RundenErgebnisWrapper rundenErgebnisWrapper) {
         boolean objective = false;
+
         //Object in JSON transformieren
+
         String json = gson.toJson(rundenErgebnisWrapper);
 
         //Verbindung mit Server aufbauen
-        try{
+        try {
             HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + rundePost).openConnection()));
             httpcon.setDoOutput(true);
             httpcon.setDoInput(false);
@@ -66,7 +70,7 @@ public class Funkturm {
             String res = is.readLine();
 
             //Gelesenen Input verarbeiten
-            if(res.equals("accepted")){
+            if (res.equals("accepted")) {
                 objective = true;
             }
 
@@ -74,20 +78,26 @@ public class Funkturm {
             is.close();
             os.close();
             httpcon.disconnect();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         return objective;
+
     }
+
+
+
 
     /**
      * [beachte return doc] Rufe diese Methode auf, um die Daten der aktuellen Runde zu erhalten
+     *
      * @param runde aktuelle Rundenzahl
      * @return Alle gespeicherten Spielstände der Runde
-     *          ACHTUNG! Bei fehlerhafter Verarbeitung wird ein RundenErgebnisWrapper an der Stelle [0] mit der ID "failed" erstellt
-     *          Es sollte also nach Aufruf dieser Methode auf die Identität der ID mit "failed geprüft werden.
+     * ACHTUNG! Bei fehlerhafter Verarbeitung wird ein RundenErgebnisWrapper an der Stelle [0] mit der ID "failed" erstellt
+     * Es sollte also nach Aufruf dieser Methode auf die Identität der ID mit "failed geprüft werden.
      */
-    public RundenErgebnisWrapper[] empfangeRunde(int runde){
+    public RundenErgebnisWrapper[] empfangeRunde(int runde) {
 
         //Verbindung mit Server aufbauen
         try {
@@ -118,20 +128,22 @@ public class Funkturm {
     }
 
     //-------------------Spielermethoden-------------------
+
     /**
      * Methode zum registrieren eines spielers
-     * @param id Name des Spielers
+     *
+     * @param id       Name des Spielers
      * @param passwort Passwort des Spielers
      * @return Gibt an, ob das speichern erfolgreich war, oder nicht
      */
-    public  boolean registriereSpieler(String id, String passwort){
+    public boolean registriereSpieler(String id, String passwort) {
 
-        SpielerDatenWrapper wrapper = new SpielerDatenWrapper(id,passwort);
+        SpielerDatenWrapper wrapper = new SpielerDatenWrapper(id, passwort);
         String json = gson.toJson(wrapper);
 
         //Verbindung mit Server aufbauen
         try {
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain  + spielerPost).openConnection()));
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + spielerPost).openConnection()));
             httpcon.setDoOutput(true);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
@@ -147,7 +159,7 @@ public class Funkturm {
             BufferedReader reader = new BufferedReader(new InputStreamReader(httpcon.getInputStream()));
             String res = reader.readLine();
             boolean objective = false;
-            if (res.equals("accepted")){
+            if (res.equals("accepted")) {
                 objective = true;
             }
 
@@ -163,16 +175,18 @@ public class Funkturm {
         }
 
     }
+
     /**
      * Methode zum Updaten eines Spieler-Spielstandes
+     *
      * @param spielerDatenWrapper Wrapper mit allen nötigen Spielerinformationen, die gespeichert werden sollen
      */
-    public boolean updateSpieler(SpielerDatenWrapper spielerDatenWrapper){
+    public boolean updateSpieler(SpielerDatenWrapper spielerDatenWrapper) {
         //Object in JSON transformieren
         String json = gson.toJson(spielerDatenWrapper);
 
         //Verbindung mit Server aufbauen
-        try{
+        try {
             HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + spielerUpdate).openConnection()));
             httpcon.setDoOutput(true);
             httpcon.setDoInput(false);
@@ -196,7 +210,7 @@ public class Funkturm {
             BufferedReader reader = new BufferedReader(new InputStreamReader(httpcon.getInputStream()));
             String res = reader.readLine();
             boolean objective = false;
-            if (res.equals("accepted")){
+            if (res.equals("accepted")) {
                 objective = true;
             }
 
@@ -213,24 +227,24 @@ public class Funkturm {
     }
 
 
-
     /**
      * [beachte return doc] Methode zum Laden einer Spielerdatei
-     * @param id Name des gewünschten Spielers
+     *
+     * @param id       Name des gewünschten Spielers
      * @param passwort Passwort des gewünschten Spielers
      * @return Spielerdaten
-     *          ACHTUNG! Wird der Spieler nicht gefunden, wird ein SpielerWrapper mit der ID und Passwort "failed" erzeugt.
-     *          nach dieser Methode sollte also auf die Identität der ID oder des Passworts mit "failed" geprüft werden.
-     *          Wird die Sendung nicht richtig ausgeführt, bleiben alle Werte unberührt. Eine Prüfung der Rundenzahl
-     *          auf -1 sollte durchgeführt werden.
+     * ACHTUNG! Wird der Spieler nicht gefunden, wird ein SpielerWrapper mit der ID und Passwort "failed" erzeugt.
+     * nach dieser Methode sollte also auf die Identität der ID oder des Passworts mit "failed" geprüft werden.
+     * Wird die Sendung nicht richtig ausgeführt, bleiben alle Werte unberührt. Eine Prüfung der Rundenzahl
+     * auf -1 sollte durchgeführt werden.
      */
     public SpielerDatenWrapper empfangeSpieler(String id, String passwort) {
-        SpielerDatenWrapper wrapper = new SpielerDatenWrapper(id,passwort);
+        SpielerDatenWrapper wrapper = new SpielerDatenWrapper(id, passwort);
         String json = gson.toJson(wrapper);
 
         //Verbindung mit Server aufbauen
         try {
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain+spielerGet).openConnection()));
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + spielerGet).openConnection()));
             httpcon.setDoOutput(false);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
