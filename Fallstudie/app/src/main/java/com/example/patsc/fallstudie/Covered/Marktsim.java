@@ -57,7 +57,6 @@ public class Marktsim {
             reservationspreisarray.add(p.getRespr());
         }
 
-
         for (RundenErgebnisWrapper p : this.data) {   // Menge-Abfrage
             mengearray.add(p.getMenge());
         }
@@ -79,7 +78,7 @@ public class Marktsim {
         }
 
         for (int i = 0; i < anzSpieler; i++) {      // Differenzberechnung zwischen Reservationspreis und Verkaufspreis
-            differenz.set(i, (double) reservationspreisarray.get(i) - (double) vkparray.get(i));
+            differenz.add((double) reservationspreisarray.get(i) - (double) vkparray.get(i));
         }
         berechnePreissegmente();        // Verteilung der möglichen Käufer zufällig auf die Preissegmente low, middle und high
         berechneAbsatz();               // Ausführen der Methode "berechneAbsatz"
@@ -114,10 +113,6 @@ public class Marktsim {
 
         }
 
-        /**
-         lowarray.clear(); // Leeren der Arrays          NOTWENDIG, da jedes mal neues Objekt?
-         middlearray.clear();
-         higharray.clear();   **/
 
         for (int i = 0; i < anzSpieler; i++) {
 
@@ -199,7 +194,7 @@ public class Marktsim {
         }
 
         berechneRundengewinn();
-        summiereGewinn();
+        //summiereGewinn();
         berechneMarktanteil();
         berechneNeuenKontostand();
         setGuthabenAktiverSpieler();
@@ -221,7 +216,7 @@ public class Marktsim {
 
         int lowverteilung = randInt(40, 49);                      // Verteilung low (zufällig)
         int highverteilung = randInt(30, 49);                     // Verteilung high (zufällig)
-        int middleverteilung = lowverteilung - highverteilung;    // Verteilung middle abhängig von low und high
+        int middleverteilung =100 - lowverteilung - highverteilung;    // Verteilung middle abhängig von low und high
         lowKäufer = (lowverteilung / 100) * anzKäufer;
         middleKäufer = (middleverteilung / 100) * anzKäufer;
         highKäufer = (highverteilung / 100) * anzKäufer;
@@ -322,7 +317,7 @@ public class Marktsim {
 
     public int getAbsatz() {
         return absatz;
-    }
+    } // TODO nach Namen
 
     public double getGewinn() {
         return gewinn;
