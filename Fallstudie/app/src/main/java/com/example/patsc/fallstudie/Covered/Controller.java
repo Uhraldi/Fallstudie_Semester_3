@@ -478,7 +478,7 @@ public class Controller {
 
             //ToDo Prüfung ob alle Spieler Werte eingegeben haben
             // ToDO DB abruf
-            double kosten = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() + aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten();
+            //double kosten = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() + aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten();
             Preissimulation preissim = new Preissimulation(this); //ToDo
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setPreissim(preissim);
 
@@ -489,7 +489,7 @@ public class Controller {
 
             //Gener herunterladen
             RundenErgebnisWrapper[] gegnerliste = funkturm.empfangeRunde(daten.getRundenAnzahl());
-            Marktsim marktsim = new Marktsim(getPreissimulationenPreis(), this, this.getDaten(), gegnerliste);
+            Marktsim marktsim = new Marktsim(this, this.getDaten(), gegnerliste);
 
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
 
@@ -1061,7 +1061,7 @@ public class Controller {
                 if (!marketing.equals("")) {
                     marketing = marketing + ", " + "Print";
                 }
-                else marketing = MARKETING_WAHL_RADIOWERBUNG;
+                else marketing = MARKETING_WAHL_PRINTWERBUNG;
             } else {
                 throw new Exception("Keine Auswahl bei dem Zusamenbau getroffen.");
             }
@@ -1330,7 +1330,7 @@ public class Controller {
 
     //  Mehrfach genutzte Datenabfrage.
     public int getRunde(){
-        return daten.getRundenAnzahl()+1;
+        return daten.getRundenAnzahl();
     }//Ende getRunde
     // Hilfsmethoden
     /**
