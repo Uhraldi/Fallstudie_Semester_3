@@ -126,9 +126,9 @@ public class Marktsim {
                 }
                 if (y * lowKäufer > mengearray.get(i)) {
                     double x = (double) mengearray.get(i);
-                    absatzreturn.set(i, x);
+                    absatzreturn.add(x);
                 } else {
-                    absatzreturn.set(i, Math.round(y * lowKäufer));
+                    absatzreturn.add(Math.round(y * lowKäufer));
                 }
                 lowsumme += (double) absatzreturn.get(i);
                 lowarray.add(i);
@@ -143,9 +143,9 @@ public class Marktsim {
                     }
                     if (y * middleKäufer > mengearray.get(i)) {
                         double x = (double) mengearray.get(i);
-                        absatzreturn.set(i, x);
+                        absatzreturn.add(x);
                     } else {
-                        absatzreturn.set(i, Math.round(y * middleKäufer));
+                        absatzreturn.add(Math.round(y * middleKäufer));
                     }
                     middlesumme += (double) absatzreturn.get(i);
                     middlearray.add(i);
@@ -158,12 +158,12 @@ public class Marktsim {
                         if (y < 0) {
                             y = 0;
                         }
-                        if (y * highKäufer > (int) mengearray.get(i)) {
+                        if (y * highKäufer > mengearray.get(i)) {
                             double x = (double) mengearray.get(i);
-                            absatzreturn.set(i, x);
+                            absatzreturn.add(x);
                         } else {
 
-                            absatzreturn.set(i, Math.round(y * highKäufer));
+                            absatzreturn.add(Math.round(y * highKäufer));
                         }
                         highsumme += (double) absatzreturn.get(i);
                         higharray.add(i);
@@ -194,7 +194,6 @@ public class Marktsim {
         }
 
         berechneRundengewinn();
-        //summiereGewinn();
         berechneMarktanteil();
         berechneNeuenKontostand();
         setGuthabenAktiverSpieler();
