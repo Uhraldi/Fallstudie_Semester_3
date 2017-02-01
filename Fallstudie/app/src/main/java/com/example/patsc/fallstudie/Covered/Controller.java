@@ -880,7 +880,6 @@ public class Controller {
     }
 
 
-    // TODO: Methoden zum Einstellen und Kuendigen von Mitarbeitern BOOLEAN ??
     public boolean einstellen (int neueMitarbeiter) {
         return veraenderePersonal(neueMitarbeiter,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
     }
@@ -1392,7 +1391,7 @@ public class Controller {
 
     //  Mehrfach genutzte Datenabfrage.
     public int getRunde(){
-        return daten.getRundenAnzahl()+1;
+        return daten.getRundenAnzahl();
     }//Ende getRunde
     // Hilfsmethoden
     /**

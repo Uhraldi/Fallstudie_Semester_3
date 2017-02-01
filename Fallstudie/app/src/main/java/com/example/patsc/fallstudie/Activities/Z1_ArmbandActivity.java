@@ -133,24 +133,25 @@ public class Z1_ArmbandActivity extends AppCompatActivity {
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen, mit Prüfung ob anderer Wert als vorher
         if(IntroductionActivity.Controller.getArmbandAktuellerAuftrag().equals(auswahlArmband)) {
             Toast toast = Toast.makeText(this, "Diese Option ist leider nicht mehr verfügbar", Toast.LENGTH_SHORT);
+            toast.show();
         } else {
             IntroductionActivity.Controller.setArmbandNeu(auswahlArmband);
+
+            Intent z2 = new Intent(this, Z2_GehaeuseActivity.class);
+            Intent z3 = new Intent(this, Z3_ZeitarbeiterActivity.class);
+            Intent keinZufall = new Intent(this, BerechnungActivity.class);
+
+            //Abfrage ob Zufall Z2-Z3 eingetreten ist und entsprechende Weiterleitung
+            if (IntroductionActivity.Controller.isZufall2()) {
+                startActivity(z2);
+            } else if (IntroductionActivity.Controller.isZufall3()) {
+                startActivity(z3);
+            } else {
+                startActivity(keinZufall);
+            }
+            finish();
         }
 
-        Intent z2 = new Intent(this, Z2_GehaeuseActivity.class);
-        Intent z3 = new Intent(this, Z3_ZeitarbeiterActivity.class);
-        Intent keinZufall = new Intent(this, BerechnungActivity.class);
-
-        //Abfrage ob Zufall Z2-Z3 eingetreten ist und entsprechende Weiterleitung
-        if (IntroductionActivity.Controller.isZufall2()){
-            startActivity(z2);
-        } else if (IntroductionActivity.Controller.isZufall3()){
-            startActivity(z3);
-        } else {
-            startActivity(keinZufall);
-        }
-
-        finish();
     }
 
 }

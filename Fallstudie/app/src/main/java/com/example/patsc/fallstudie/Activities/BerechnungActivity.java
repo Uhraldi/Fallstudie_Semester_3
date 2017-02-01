@@ -12,7 +12,7 @@ import com.example.patsc.fallstudie.R;
 public class BerechnungActivity extends AppCompatActivity {
 
     /** Dauer der Wartezeit **/
-    private final int CALCULATION_DISPLAY_LENGTH = 10000;  //TODO: Anstoßen der Preis- und Marktsimulation
+    private final int CALCULATION_DISPLAY_LENGTH = 10000;
 
     /**
      *

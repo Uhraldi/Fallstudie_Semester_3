@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
 
@@ -53,27 +54,37 @@ public class RundenergebnisActivity extends AppCompatActivity {
     }
 
 
-    //TODO: Methoden für Entscheidung zur nächsten Runde
-
     public void eineRundeAussetzen (){
-        IntroductionActivity.Controller.eineRundeAussetzen(); //ToDo boolean
-        Intent intent = new Intent(this, PersonalwesenActivity.class);
-        startActivity(intent);
-        finish();
+        if (IntroductionActivity.Controller.eineRundeAussetzen()) {
+            Intent intent = new Intent(this, PersonalwesenActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Toast toast = Toast.makeText(this, "Bitte erneut versuchen oder andere Auswahl treffen", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     public void gleichenWerteNochmal (){
-        IntroductionActivity.Controller.gleichenWerteNochmal(); //ToDo boolean
-        Intent intent = new Intent(this, PersonalwesenActivity.class);
-        startActivity(intent);
-        finish();
+        if (IntroductionActivity.Controller.gleichenWerteNochmal()) {
+            Intent intent = new Intent(this, PersonalwesenActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Toast toast = Toast.makeText(this, "Bitte erneut versuchen oder andere Auswahl treffen", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     public void starteNaechsteRunde (){
-        IntroductionActivity.Controller.starteNaechsteRunde(); //ToDo boolean
-        Intent intent = new Intent(this, PersonalwesenActivity.class);
-        startActivity(intent);
-        finish();
+        if (IntroductionActivity.Controller.starteNaechsteRunde()) {
+            Intent intent = new Intent(this, PersonalwesenActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Toast toast = Toast.makeText(this, "Bitte erneut versuchen oder andere Auswahl treffen", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
 
