@@ -1074,9 +1074,15 @@ return        getBezahlartAuftragI(daten.getRundenAnzahl(),aktiverSpieler);
 
     //TODO: getGesamtkosten und getStueckkosten fuer Anzeige bei VerkaufspreisActivity
     public double getGesamtkosten () {
-        return aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten()+
-                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten()*
-                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
+        Spieler s = aktiverSpieler;
+        Auftragssammlung as = s.getAuftragssammlung();
+        Auftrag a = as.getAktuellerAuftrag();
+        double fix= a.getFixKosten();
+        double var = a.getVarKosten();
+        int menge = a.getMenge();
+        double gesamt = fix+var*menge;
+
+        return gesamt;
     }
 
     public double getStueckkosten () {
