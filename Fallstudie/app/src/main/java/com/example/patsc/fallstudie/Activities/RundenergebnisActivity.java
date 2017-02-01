@@ -41,10 +41,10 @@ public class RundenergebnisActivity extends AppCompatActivity {
         //absatz_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz()));
 
         TextView marktanteil_output = (TextView) findViewById(R.id.marktanteil_output);
-        //marktanteil_output.setText(String.valueOf((IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(IntroductionActivity.Controller.getAktiverSpieler().getName()))));
+        marktanteil_output.setText(String.valueOf((IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(IntroductionActivity.Controller.getAktiverSpieler().getName()))));
 
         TextView gewinn_output = (TextView) findViewById(R.id.gewinn_output);
-        //gewinn_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenGewinn(IntroductionActivity.Controller.aktiverSpieler.getName())));
+        gewinn_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenGewinn(IntroductionActivity.Controller.aktiverSpieler.getName())));
 
         TextView guthaben_output = (TextView) findViewById(R.id.guthaben_output);
         guthaben_output.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
