@@ -5,10 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.patsc.fallstudie.R;
-
-import static android.support.design.R.styleable.Toolbar;
 
 public class RundenergebnisActivity extends AppCompatActivity {
 
@@ -39,13 +38,13 @@ public class RundenergebnisActivity extends AppCompatActivity {
         runde_output.setText(String.valueOf(i));
 
         TextView absatz_output = (TextView) findViewById(R.id.absatz_output);
-        absatz_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz()));
+        //absatz_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz()));
 
         TextView marktanteil_output = (TextView) findViewById(R.id.marktanteil_output);
         marktanteil_output.setText(String.valueOf((IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(IntroductionActivity.Controller.getAktiverSpieler().getName()))));
 
         TextView gewinn_output = (TextView) findViewById(R.id.gewinn_output);
-        gewinn_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getGewinn()));
+        gewinn_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenGewinn(IntroductionActivity.Controller.aktiverSpieler.getName())));
 
         TextView guthaben_output = (TextView) findViewById(R.id.guthaben_output);
         guthaben_output.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
@@ -55,27 +54,37 @@ public class RundenergebnisActivity extends AppCompatActivity {
     }
 
 
-    //TODO: Methoden für Entscheidung zur nächsten Runde
-
     public void eineRundeAussetzen (){
-        IntroductionActivity.Controller.eineRundeAussetzen(); //ToDo boolean
-        Intent intent = new Intent(this, PersonalwesenActivity.class);
-        startActivity(intent);
-        finish();
+        if (IntroductionActivity.Controller.eineRundeAussetzen()) {
+            Intent intent = new Intent(this, PersonalwesenActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Toast toast = Toast.makeText(this, "Bitte erneut versuchen oder andere Auswahl treffen", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     public void gleichenWerteNochmal (){
-        IntroductionActivity.Controller.gleichenWerteNochmal(); //ToDo boolean
-        Intent intent = new Intent(this, PersonalwesenActivity.class);
-        startActivity(intent);
-        finish();
+        if (IntroductionActivity.Controller.gleichenWerteNochmal()) {
+            Intent intent = new Intent(this, PersonalwesenActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Toast toast = Toast.makeText(this, "Bitte erneut versuchen oder andere Auswahl treffen", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     public void starteNaechsteRunde (){
-        IntroductionActivity.Controller.starteNaechsteRunde(); //ToDo boolean
-        Intent intent = new Intent(this, PersonalwesenActivity.class);
-        startActivity(intent);
-        finish();
+        if (IntroductionActivity.Controller.starteNaechsteRunde()) {
+            Intent intent = new Intent(this, PersonalwesenActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Toast toast = Toast.makeText(this, "Bitte erneut versuchen oder andere Auswahl treffen", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
 

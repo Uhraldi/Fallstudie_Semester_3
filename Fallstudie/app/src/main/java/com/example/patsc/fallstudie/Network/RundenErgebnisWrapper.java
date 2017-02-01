@@ -7,7 +7,7 @@ package com.example.patsc.fallstudie.Network;
  * Created by vince on 18.01.2017.
  */
 
-public class Data {
+public class RundenErgebnisWrapper {
 
     private String id = null;
     private int runde = -1;
@@ -20,8 +20,9 @@ public class Data {
     private double marktanteil = -1;
     private double rundengewinn = -1;
 
+    //----------------------Construktor----------------------
     /**
-     * ----------------------Construktor----------------------
+     * Konstruktor zum Erstellen eines Wrappers, der versendet werden soll
      * @param id Name des Spielers
      * @param runde aktuelle Rundennummer
      * @param menge Menge der in dieser Runde hergestellten Uhren
@@ -30,10 +31,10 @@ public class Data {
      * @param bonus Bonus durch z.B. Kreditkarten in Summe über alle Koeffizienten
      * @param gesamtKosten Summe der Fixkosten und variablen Kosten*Menge
      * @param konto Kontostand des Spielers
-     * @param marktanteil marktanteil wird von der Marktsim hinzugefügt, um die Sortierfähigkeit zu gewährleisten
-     * @param rundengewinn Gewinn des Spielers in dieser Runde
+     //* @param marktanteil marktanteil wird von der Marktsim hinzugefügt, um die Sortierfähigkeit zu gewährleisten
+     //* @param rundengewinn Gewinn des Spielers in dieser Runde
      */
-    public  Data(String id, int runde, int menge, double respr, double vkp, double gesamtKosten, double bonus, double konto){
+    public RundenErgebnisWrapper(String id, int runde, int menge, double respr, double vkp, double gesamtKosten, double bonus, double konto){
         this.id = id;
         this.runde = runde;
         this.menge = menge;
@@ -47,6 +48,14 @@ public class Data {
          * this.marktanteil = marktanteil;
          * this.rundengewinn = rundengewinn;
          */
+    }
+
+    /**
+     * Konstruktor eines Wrappers, der offensichtlich fehlerhaft ist
+     */
+    public RundenErgebnisWrapper(){
+        id = "failed";
+        runde = -1;
     }
 
     /**

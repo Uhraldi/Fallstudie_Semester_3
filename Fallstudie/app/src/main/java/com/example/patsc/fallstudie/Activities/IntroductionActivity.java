@@ -21,8 +21,7 @@ public class IntroductionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduction);
-        NetworkTest test = new NetworkTest();
-        test.test();
+
         //erzeugt Instanz der Klasse Controller, die durchgehend bestehen bleibt
         Controller = new Controller();
     }

@@ -1,0 +1,26 @@
+package com.example.patsc.fallstudie.Network;
+
+import com.example.patsc.fallstudie.Covered.Controller;
+
+/**
+ * Created by vince on 01/02/2017.
+ */
+
+public class UpdateThread implements Runnable {
+
+    SpielerDatenWrapper s;
+    boolean ergebnis = false;
+    Controller c;
+
+    public UpdateThread(SpielerDatenWrapper s, Controller c){
+        this.s = s;
+        this.c = c;
+    }
+
+    @Override
+    public void run() {
+        Funkturm f = new Funkturm();
+        ergebnis = f.updateSpieler(s);
+        c.setUpdateBool(ergebnis);
+    }
+}

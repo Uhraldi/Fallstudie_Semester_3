@@ -51,6 +51,9 @@ public class PersonalwesenActivity extends AppCompatActivity {
         kuendigen_radiobutton = (RadioButton) findViewById(R.id.kuendigen_radiobutton);
         nichts_radiobutton = (RadioButton) findViewById(R.id.nichts_radiobutton);
 
+        TextView aktuelleMitarbeiter_output = (TextView) findViewById(R.id.aktuelleMitarbeiter_output);
+        aktuelleMitarbeiter_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte()));
+
     }
 
 
@@ -101,9 +104,13 @@ public class PersonalwesenActivity extends AppCompatActivity {
                 if (kuendigen != null && !TextUtils.isEmpty(kuendigen.getText())){
                     kuendigenString = kuendigen.getText().toString().trim();
                     auswahlKuendigen = Integer.parseInt(kuendigenString);
-                    IntroductionActivity.Controller.kuendigen(auswahlKuendigen);
-                    startActivity(intent);
-                    finish();
+                    if (IntroductionActivity.Controller.kuendigen(auswahlKuendigen)) {
+                        startActivity(intent);
+                        finish();
+                    }  else{
+                        Toast toast1 = Toast.makeText(this, "Es muss mindestens ein Mitarbeiter eingestellt sein.", Toast.LENGTH_SHORT);
+                        toast1.show();
+                    }
                 } else {
                     Toast toast2 = Toast.makeText(this, "Bitte angeben, wieviele Mitarbeiter Sie kuendigen moechten.", Toast.LENGTH_SHORT);
                     toast2.show();
@@ -111,6 +118,7 @@ public class PersonalwesenActivity extends AppCompatActivity {
             }
 
             if (nichts_radiobutton.isChecked()){
+                IntroductionActivity.Controller.keineVeraenderung();
                 startActivity(intent);
                 finish();
             }

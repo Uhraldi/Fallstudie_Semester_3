@@ -11,75 +11,98 @@ import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Klasse zum Senden von Daten
+ *
  * @author Vincent Schmalor
- * Created by vince on 18.01.2017.
+ *         Created by vince on 18.01.2017.
  */
+
 
 public class Funkturm {
 
     private Gson gson = new Gson();
 
 
-    /**
-     * ----------------------Constructor----------------------
-     */
-    public Funkturm(){
+    //----------------------Constructor----------------------
+    public Funkturm() {
 
     }
 
-    /**
-     * 1. Erzeuge eine Klasse vom Typ Data und gebe die richtigen Werte des Spielers mit
-     * 2. führe diese MEthode aus
-     * @param data Objekt der Klasse Data mit allen Koeffizienten, die im Konstruktor festgelegt sind
-     */
-    public void sendData(Data data){
-        //Object in JSON transformieren
-        String json = gson.toJson(data);
+    private final String domain = "https://manufaktuhr.herokuapp.com/";
+    private final String spielerPost = "spielerDaten/postNew";
+    private final String spielerUpdate = "spielerDaten/updateExisting";
+    private final String spielerGet = "spielerDaten/load";
+    private final String rundePost = "rundenDaten/post";
+    private final String rundeGet = "rundenDaten/get/";
 
-        System.out.println(json);
+
+    //-------------------Rundenmethoden-------------------
+
+    /**
+     * Rufe diese Methode auf, um die Rundenergebnisse zu pushen
+     *
+     * @param rundenErgebnisWrapper Wrapper mit allen Spielerdaten (siehe Doc. RundenergebnisWrapper)
+     */
+    public boolean sendeRunde(final RundenErgebnisWrapper rundenErgebnisWrapper) {
+        boolean objective = false;
+
+        //Object in JSON transformieren
+
+        String json = gson.toJson(rundenErgebnisWrapper);
 
         //Verbindung mit Server aufbauen
-        try{
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/rundendaten/post").openConnection()));
+        try {
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + rundePost).openConnection()));
             httpcon.setDoOutput(true);
-            httpcon.setDoInput(false);
+            httpcon.setDoInput(true);
             httpcon.setUseCaches(false);
-            httpcon.setConnectTimeout(10000);
-            httpcon.setReadTimeout(10000);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
             httpcon.setRequestMethod("POST");
             httpcon.connect();
 
-            //Sendung festlegen
-            byte[] outputBytes = json.getBytes("UTF-8");
-            OutputStreamWriter os = new OutputStreamWriter(httpcon.getOutputStream());
-
-            //JSONObject jsonObject = new JSONObject();
-            //jsonObject.put("id",123);
-
             //Senden
+            OutputStreamWriter os = new OutputStreamWriter(httpcon.getOutputStream());
             os.write(json);
             os.flush();
-            //Outputstream schließen, Verbindung trennen
+
+            //Input einlesen
+            BufferedReader is = new BufferedReader(new InputStreamReader(httpcon.getInputStream()));
+            String res = is.readLine();
+
+            //Gelesenen Input verarbeiten
+            if (res.equals("accepted")) {
+                objective = true;
+            }
+
+            //Abschlussarbeiten
+            is.close();
             os.close();
+            httpcon.disconnect();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return objective;
+
     }
 
 
+
+
     /**
-     * Rufe diese Methode auf, um die Daten der aktuellen Runde zu erhalten
-     * @param runde aktuelle Rundentzahl
+     * [beachte return doc] Rufe diese Methode auf, um die Daten der aktuellen Runde zu erhalten
+     *
+     * @param runde aktuelle Rundenzahl
      * @return Alle gespeicherten Spielstände der Runde
+     * ACHTUNG! Bei fehlerhafter Verarbeitung wird ein RundenErgebnisWrapper an der Stelle [0] mit der ID "failed" erstellt
+     * Es sollte also nach Aufruf dieser Methode auf die Identität der ID mit "failed geprüft werden.
      */
-    public Data[] getData( int runde){
+    public RundenErgebnisWrapper[] empfangeRunde(int runde) {
 
         //Verbindung mit Server aufbauen
         try {
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com/rundendaten/get/"+runde).openConnection()));
+            int zahl = runde +1;
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + rundeGet + zahl).openConnection()));
             httpcon.setDoOutput(false);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
@@ -91,47 +114,167 @@ public class Funkturm {
             String res = reader.readLine();
 
             //Gelesenen Input in Objekte verpacken
-            Data[] dataArray = gson.fromJson(res, Data[].class);
-
-            System.out.println(dataArray[0].toString());
+            RundenErgebnisWrapper[] data = gson.fromJson(res, RundenErgebnisWrapper[].class);
 
             //Inputstream schließen, Verbindung trennen
             reader.close();
             httpcon.disconnect();
 
             //Dataobjekte returnen
-            return dataArray;
+            return data;
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return new RundenErgebnisWrapper[]{new RundenErgebnisWrapper()};
+        }
+    }
+
+    //-------------------Spielermethoden-------------------
+
+    /**
+     * Methode zum registrieren eines spielers
+     *
+     * @param id       Name des Spielers
+     * @param passwort Passwort des Spielers
+     * @return Gibt an, ob das speichern erfolgreich war, oder nicht
+     */
+    public boolean registriereSpieler(String id, String passwort) {
+
+        SpielerDatenWrapper wrapper = new SpielerDatenWrapper(id, passwort);
+        String json = gson.toJson(wrapper);
+
+        //Verbindung mit Server aufbauen
+        try {
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + spielerPost).openConnection()));
+            httpcon.setDoOutput(true);
+            httpcon.setRequestProperty("Content-Type", "application/json");
+            httpcon.setRequestProperty("Accept", "application/json");
+            httpcon.setRequestMethod("POST");
+            httpcon.connect();
+
+            //Senden
+            OutputStreamWriter os = new OutputStreamWriter(httpcon.getOutputStream());
+            os.write(json);
+            os.flush();
+
+            //Input einlesen
+            BufferedReader reader = new BufferedReader(new InputStreamReader(httpcon.getInputStream()));
+            String res = reader.readLine();
+            boolean objective = false;
+            if (res.equals("accepted")) {
+                objective = true;
+            }
+
+            //Inputstream schließen, Verbindung trennen
+            reader.close();
+            httpcon.disconnect();
+
+            //Dataobjekte returnen
+            return objective;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+    /**
+     * Methode zum Updaten eines Spieler-Spielstandes
+     *
+     * @param spielerDatenWrapper Wrapper mit allen nötigen Spielerinformationen, die gespeichert werden sollen
+     */
+    public boolean updateSpieler(SpielerDatenWrapper spielerDatenWrapper) {
+        //Object in JSON transformieren
+        String json = gson.toJson(spielerDatenWrapper);
+
+        //Verbindung mit Server aufbauen
+        try {
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + spielerUpdate).openConnection()));
+            httpcon.setDoOutput(true);
+            httpcon.setDoInput(false);
+            httpcon.setUseCaches(false);
+            httpcon.setConnectTimeout(10000);
+            httpcon.setReadTimeout(10000);
+            httpcon.setRequestProperty("Content-Type", "application/json");
+            httpcon.setRequestProperty("Accept", "application/json");
+            httpcon.setRequestMethod("POST");
+            httpcon.connect();
+
+            //Senden
+            OutputStreamWriter os = new OutputStreamWriter(httpcon.getOutputStream());
+            os.write(json);
+            os.flush();
+
+            //Outputstream schließen, Verbindung trennen
+            os.close();
+
+            //Input einlesen
+            BufferedReader reader = new BufferedReader(new InputStreamReader(httpcon.getInputStream()));
+            String res = reader.readLine();
+            boolean objective = false;
+            if (res.equals("accepted")) {
+                objective = true;
+            }
+
+            //Inputstream schließen, Verbindung trennen
+            reader.close();
+            httpcon.disconnect();
+
+            //Dataobjekte returnen
+            return objective;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 
 
-/** Nur leicht veränderter Code zur Vorlage für weitere Connection-methoden
- public void senden () {
- try {
- HttpURLConnection httpcon = (HttpURLConnection) ((new URL("http://10.0.0.2:8080/api/sendStats").openConnection()));
- httpcon.setDoOutput(true);
- httpcon.setRequestProperty("Content-Type", "application/json");
- httpcon.setRequestProperty("Accept", "application/json");
- httpcon.setRequestMethod("POST");
+    /**
+     * [beachte return doc] Methode zum Laden einer Spielerdatei
+     *
+     * @param id       Name des gewünschten Spielers
+     * @param passwort Passwort des gewünschten Spielers
+     * @return Spielerdaten
+     * ACHTUNG! Wird der Spieler nicht gefunden, wird ein SpielerWrapper mit der ID und Passwort "failed" erzeugt.
+     * nach dieser Methode sollte also auf die Identität der ID oder des Passworts mit "failed" geprüft werden.
+     * Wird die Sendung nicht richtig ausgeführt, bleiben alle Werte unberührt. Eine Prüfung der Rundenzahl
+     * auf -1 sollte durchgeführt werden.
+     */
+    public SpielerDatenWrapper empfangeSpieler(String id, String passwort) {
+        SpielerDatenWrapper wrapper = new SpielerDatenWrapper(id, passwort);
+        String json = gson.toJson(wrapper);
 
- httpcon.connect();
+        //Verbindung mit Server aufbauen
+        try {
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + spielerGet).openConnection()));
+            httpcon.setDoOutput(false);
+            httpcon.setRequestProperty("Content-Type", "application/json");
+            httpcon.setRequestProperty("Accept", "application/json");
+            httpcon.setRequestMethod("POST");
+            httpcon.connect();
 
- byte[] outputBytes = "{'id' : 123, 'runde': 1}".getBytes("UTF-8");
- OutputStream os = httpcon.getOutputStream();
- os.write(outputBytes);
+            //Senden
+            OutputStreamWriter os = new OutputStreamWriter(httpcon.getOutputStream());
+            os.write(json);
+            os.flush();
 
- InputStream is = httpcon.getInputStream();
- int res = is.read();
+            //Input einlesen
+            BufferedReader is = new BufferedReader(new InputStreamReader(httpcon.getInputStream()));
+            String res = is.readLine();
 
- System.out.println(res);
+            //Gelesenen Input in Objekt verpacken
+            wrapper = gson.fromJson(res, SpielerDatenWrapper.class);
 
- os.close();
- } catch (Exception e) {
- e.printStackTrace();
- }
- }
- */
+            //Inputstream schließen, Verbindung trennen
+            is.close();
+            os.close();
+            httpcon.disconnect();
+
+            //Dataobjekte returnen
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return wrapper;
+    }
+
 }

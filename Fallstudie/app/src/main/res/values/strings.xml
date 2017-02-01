@@ -11,24 +11,33 @@
 
 
     //Strings fuer IntroductionActivity
-    <string name="introduction_info_textview">"Das Ziel des Spiels „ManufaktUhr“ ist die eigene zusammengestellte Uhr mit den verschiedenen Komponenten möglichst profitabel zu verkaufen. Dabei muss das Kontoguthaben berücksichtigt werden, da man keine Uhren kaufen kann, wenn man nicht ausreichend Geld zur Verfügung hat.
+    <string name="introduction_info_textview">Herzlich Willkommen beim Unternehmensplanspiel ManufaktUhr!
 
-Seinen Kontostand kann man durch den erzielten Gewinn erhöhen, indem man auf den Einkaufspreis einen individuell festgelegten Aufpreis aufschlägt. Der Verkaufspreis erhöht sich dementsprechend und bringt dem Spieler bei einem erfolgreichen Absatz einen hohen Gewinn ein. Allerdings ist es auch möglich, dass sich der Kontostand verringert, wenn die Uhr nicht den gewünschten Absatz erzielt.
+Ihr Unternehmen produziert Armbanduhren und versucht sich auf dem Absatzmarkt gegen die Konkurenz zu behaupten.
+Während des Spiels müssen Sie als Geschäftsführer alle relevanten Entscheidungen treffen, die sich auf verschiedene
+Unternehmensbereiche wie zum Beispiel Marketing und das Personalwesen auswirken. In jeder der zehn Geschäftsperioden stoßen
+sie die Produktion einer neuen Uhrenreihe an, die noch in derselben Periode abgesetzt wird. Die getroffenen Entscheidungen wirken
+sich auf Ihre Herstellungskosten, aber auch den Bekanntheitsgrad und die Beliebtheit der Uhr aus. Letztendlich beeinflussen sie
+Ihre Absatzmöglichkeiten im Vergleich zur Konkurenz.
+Die Auswirkungen der einzelnen Entscheidungen
+sind jeweils detailliert ausgeführt.
 
-Ob eine Uhr erfolgreich oder schlecht verkauft wird, ist abhängig von verschiedenen Zufallsereignissen, die berechnet werden. Am Ende einer Verkaufsrunde ist das Ziel jedes Spielers auf der Rangliste den ersten Platz zu besetzen mit einem geringen oder vorzugsweise keinen Restbestand von Uhren.
+Los gehts und viel Spaß!
 
-Im Anschluss daran kann man eine Runde aussetzen, mit den gleichen Werten noch einmal spielen oder sich eine komplett neue Uhr zusammenstellen."</string>
+</string>
     <string name="verstanden_button">Verstanden</string>
 
 
     //Strings fuer Login
 
+    <string name="login_info_textview">Hier können Sie sich mit ihrem Spielernamen und Ihrem Passwort einloggen.
+Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebigen Spielernamen und ein sicheres Passwort aus und klicken Sie auf Neuer Account.</string>
     <string name="login_username_textview">Nutzername</string>
     <string name="login_password_textview">Passwort</string>
 
     //Strings fuer Forschung
 
-    <string name="forschung_info_textview">Hier können Sie entscheiden, wieviel Sie in der aktuellen Periode in Ihre Forschungs- und Entwicklungsabteilung investieren möchten. Diese ist zuständig für Design und Konzeption der Uhr. Höhere Investitionsausgaben spiegeln sich später in einer erhöhten Beliebtheit und Kaufbereitschaft der Kunden wieder. Diese Investitionsausgaben wirken sich auf Ihre Fixkosten aus. </string>
+    <string name="forschung_info_textview">Hier können Sie entscheiden, wieviel Geld Sie in der aktuellen Periode in Ihre Forschungs- und Entwicklungsabteilung investieren möchten. Diese ist zuständig für Design und Konzeption der Uhr. Höhere Investitionsausgaben spiegeln sich später in einer erhöhten Beliebtheit und Kaufbereitschaft der Kunden wieder. Diese Investitionsausgaben wirken sich auf Ihre Fixkosten aus.  </string>
     <string name="forschung_textview">Investitionshöhe für Forschung und Entwicklung</string>
     <string-array name="forschung_spinner_array">
         <item>15000€ Investition</item>
@@ -39,7 +48,7 @@ Im Anschluss daran kann man eine Runde aussetzen, mit den gleichen Werten noch e
 
     //Strings fuer Armband
 
-    <string name="armband_info_textview">Hier können Sie das Armband für Ihre Uhren auswählen. Die Wahl des Armbands und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
+    <string name="armband_info_textview">Hier können Sie das Material für das Armband auswählen. Bedingt durch Trendentwicklungen, kann es sein, dass manche Materialien in einer Periode beliebter sind als in einer anderen. Entsprechend sind die Kunden bereit mehr Geld für eine solche Uhr zu zahlen. Beachten Sie, dass es durch unvorhersehbare Ereignisse dazu kommen kann, dass manche Materialien nicht geliefert werden können und Sie eventuelle eine Neuauswahl treffen müssen.</string>
     <string name="armband_textview">Materialeinkauf: Armband</string>
     <string-array name="armband_spinner_array">
         <item>Leder (1€)</item>
@@ -52,7 +61,7 @@ Im Anschluss daran kann man eine Runde aussetzen, mit den gleichen Werten noch e
 
     //Strings fuer Uhrwerk
 
-    <string name="uhrwerk_info_textview">Hier können Sie das Uhrwerk für Ihre Uhren auswählen. Die Wahl des Uhrwerks und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
+    <string name="uhrwerk_info_textview">Hier können Sie das Material für das Uhrgehäuse auswählen. Bedingt durch Trendentwicklungen, kann es sein, dass manche Materialien in einer Periode beliebter sind als in einer anderen. Entsprechend sind die Kunden bereit mehr Geld für eine solche Uhr zu zahlen. Beachten Sie, dass es durch unvorhersehbare Ereignisse dazu kommen kann, dass manche Materialien nicht geliefert werden können und Sie eventuelle eine Neuauswahl treffen müssen.</string>
     <string name="uhrwerk_textview">Materialeinkauf: Uhrwerk</string>
     <string-array name="uhrwerk_spinner_array">
         <item>Mechanisch (4€)</item>
@@ -75,7 +84,7 @@ Im Anschluss daran kann man eine Runde aussetzen, mit den gleichen Werten noch e
 
     //Strings fuer Bezahlart
 
-    <string name="bezahlart_info_textview">Hier können Sie entscheiden, welche Bezahlarten Sie ihren Kunden anbieten möchten. Für die verschiedenen Bezahlarten ist bei den Anbietern (MasterCard, PayPal etc.) eine jährliche Pauschalgebühr zu entrichten um diese Optionen anbieten zu können. Flexiblere Bezahlmöglichkeiten erhöhen die Kundenzufriedenheit und wirken sich positiv auf mögliche Absatzzahlen aus. Diese Gebühren wirken sich auf Ihre Fixkosten aus. </string>
+    <string name="bezahlart_info_textview">Hier können Sie entscheiden, welche Bezahlarten Sie ihren Kunden anbieten möchten. Für die verschiedenen Bezahlarten ist bei den Anbietern (VISA, PayPal etc.) eine jährliche Pauschalgebühr zu entrichten um diese Optionen anbieten zu können. Flexiblere Bezahlmöglichkeiten erhöhen die Kundenzufriedenheit und wirken sich positiv auf mögliche Absatzzahlen aus. Diese Gebühren wirken sich auf Ihre Fixkosten aus. </string>
     <string name="bezahlart_textview">Anbieten von folgenden Bezahlarten: </string>
 
 
@@ -93,7 +102,7 @@ Im Anschluss daran kann man eine Runde aussetzen, mit den gleichen Werten noch e
 
     //Strings fuer Zeitarbeiter
 
-    <string name="zeitarbeiter_info_textview">In Ihrem Unternehmen werden die Uhren von Zeitarbeitern hergestellt. Hier können Sie den Qualifikationsgrad dieser Arbeiter auswählen. Die Wahl des Qualifikationsgrads wirkt sich auf die Qualität und damit auf die Beliebtheit der Uhren aus. Entsprechend sind die Kunden bereit mehr oder weniger für Ihre Uhren zu zahlen. Eventuell kommt es vor, dass gewisse Entscheidungsalternativen auf Grund von unvorhersehbaren Ereignissen nicht mehr verfügbar sind.</string>
+    <string name="zeitarbeiter_info_textview">In Ihrem Unternehmen werden die Uhren von Zeitarbeitern hergestellt. Hier können Sie den Qualifikationsgrad dieser Arbeiter auswählen. Die Wahl des Qualifikationsgrads wirkt sich auf die Qualität und damit auf die Beliebtheit der Uhren aus. Entsprechend sind die Kunden bereit mehr oder weniger für Ihre Uhren zu zahlen. Eventuell kommt es vor, dass gewisse Entscheidungsalternativen auf Grund von unvorhersehbaren Ereignissen nicht mehr verfügbar sind. </string>
     <string name="zeitarbeiter_textview">Qualifikationsgrad der Zeitarbeiter</string>
     <string-array name="zeitarbeiter_spinner_array">
         <item>Geselle (4,5€)</item>
@@ -112,13 +121,13 @@ Im Anschluss daran kann man eine Runde aussetzen, mit den gleichen Werten noch e
 
     //Strings fuer Produktionsvolumen
 
-    <string name="produktionsvolumen_info_textview">Hier können Sie das gewünschte Produktionsvolumen für die aktuelle Periode festlegen. Die aktuellen Fixkosten und variablen Kosten sehen Sie unten. Bedenken Sie, dass Sie ihr Budget nicht überschreiten dürfen und maximal 100 bis 10.000 Uhren produzieren können. </string>
+    <string name="produktionsvolumen_info_textview">Hier können Sie das gewünschte Produktionsvolumen für die aktuelle Periode festlegen. Die aktuellen Fixkosten und variablen Stückkosten sehen Sie unten. Bedenken Sie, dass Sie ihr Budget nicht überschreiten dürfen und maximal 100 bis 10.000 Uhren produzieren können. </string>
     <string name="produktionsvolumen_textview">Gewünschtes Produktionsvolumen</string>
 
 
     //Strings fuer Verkaufspreis
 
-    <string name="verkaufspreis_info_textview">Bitte wählen Sie im letzten Schritt den Verkaufspreis (pro Uhr) zu dem Sie ihre Uhren am Absatzmarkt veräußern wollen. Als Grundlage werde Ihnen unten die aktuellen Stückkosten für die Herstellung einer Uhr angezeigt (Die Fixkosten wurden auf das Produktionsvolumen verteilt). Die Gewinnmarge können Sie somit selbst festlegen. </string>
+    <string name="verkaufspreis_info_textview">Bitte wählen Sie im letzten Schritt den Verkaufspreis (pro Uhr) zu dem Sie ihre Uhren am Absatzmarkt veräußern wollen. Als Grundlage werde Ihnen unten die aktuellen Stückkosten für die Herstellung einer Uhr angezeigt (Die Fixkosten wurden auf das Produktionsvolumen verteilt). Die Gewinnmarge können Sie somit selbst festlegen.  </string>
     <string name="verkaufspreis_textview">Festlegung des Verkaufspreis (pro Uhr)</string>
 
 
@@ -141,45 +150,46 @@ Im Anschluss daran kann man eine Runde aussetzen, mit den gleichen Werten noch e
     //Strings fuer Z1_Armband bis Z3_zeitarbeiter
 
     <string name="z1leder_info_textview">"Upps!
-Aufgrund einer Kuhgrippe konnten leider keine Armbänder aus Leder geliefert werden. Sie zahlen trotzdem 10% (Anzahlung) der entfallenen Option. Bitte entscheiden Sie sich für ein anderes Armband."</string>
+Aufgrund einer Kuhgrippe konnte leider kein Armband aus Leder geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Armbandmaterial."</string>
     <string name="z1kunstleder_info_textview">"Upps!
-Aufgrund von Produktionsengpässen können Sie leider kein Armband aus Kunstleder auswählen. Bitte entscheiden Sie sich für ein anderes Armband." </string>
+Aufgrund von Produktionsengpässen konnte leider kein Armband aus Kunstleder geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Armbandmaterial." </string>
     <string name="z1holz_info_textview">"Upps!
-Aufgrund eines Waldbrandes in Brasilien können Sie leider kein Armband aus Holz auswählen. Bitte entscheiden Sie sich für ein anderes Armband."</string>
+Aufgrund eines Waldbrandes in Brasilien konnte leider kein Armband aus Holz geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Armbandmaterial."</string>
     <string name="z1textil_info_textview">"Upps!
-Aufgrund eines Brandes können Sie leider kein Armband aus Textil auswählen. Bitte entscheiden Sie sich für ein anderes Armband." </string>
+Aufgrund eines Brandes konnte leider kein Armband aus Textil geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Armbandmaterial." </string>
     <string name="z1metall_info_textview">"Upps!
-Aufgrund eines Streiks in der Metallbranche können Sie leider kein Armband aus Metall auswählen. Bitte entscheiden Sie sich für ein anderes Armband." </string>
+Aufgrund mehrerer umgestürzter Regale im Lager konnte leider kein Gehäuse aus Glas geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
 
     <string name="z2glas_info_textview">"Upps!
-Aufgrund mehrerer umgestürzter Regale im Lager können Sie leider kein Gehäuse aus Glas auswählen. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
+Aufgrund eines Waldbrandes in Russland konnte leider kein Gehäuse aus Holz geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
     <string name="z2holz_info_textview">"Upps!
-Aufgrund eines Waldbrandes in Russland können Sie leider kein Gehäuse aus Holz auswählen. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
+Aufgrund eines Waldbrandes in Russland konnte leider kein Gehäuse aus Holz geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
     <string name="z2kunststoff_info_textview">"Upps!
-Aufgrund der gesellschaftlichen Kritik an Kunststoff können Sie leider kein Gehäuse aus Kunststoff auswählen. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
+Aufgrund der gesellschaftlichen Kritik an Kunststoff konnte leider kein Gehäuse aus Kunststoff geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
     <string name="z2metall_info_textview">"Upps!
-Aufgrund eines Streiks in der Metallbranche können Sie leider kein Gehäuse aus Metall auswählen. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
+Aufgrund eines Streiks in der Metallbranche konnte leider kein Gehäuse aus Metall geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
 
     <string name="z3Geselle_info_textview">"Upps!
-Aufgrund der vielen Überstunden der Gesellen können Sie leider keine Gesellen als Zeitarbeiter auswählen. Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
+Aufgrund der vielen Überstunden der Gesellen konnten leider keine Gesellen als Zeitarbeiter eingestellt werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
     <string name="z3Praktikant_info_textview">"Upps!
-Aufgrund von anstehenden Pflichtschulungen der Praktikanten können Sie leider keine Praktikanten als Zeitarbeiter auswählen.Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
+Aufgrund von anstehenden Pflichtschulungen der Praktikanten konnten leider keine Praktikanten als Zeitarbeiter eingestellt werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
     <string name="z3Lehrling_info_textview">"Upps!
-Aufgrund einer grassierenden Grippewelle in den Berufsschulen können Sie leider keine Lehrlinge als Zeitarbeiter auswählen. Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
+Aufgrund einer grassierenden Grippewelle in den Berufsschulen konnten leider keine Lehrlinge als Zeitarbeiter eingestellt werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
     <string name="z3Meister_info_textview">"Upps!
-Da alle Meister ausgebucht sind, können Sie leider keine Meister als Zeitarbeiter auswählen. Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
+Da alle Meister ausgebucht sind, konnten leider keine Meister als Zeitarbeiter eingestellt werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für Zeitarbeiter eines anderen Qualifikationsgrads." </string>
 
     //String fuer Berechnung
-    <string name="berechnung_info_textview">Die Bestellungen wurden getätigt und die Produktion ist angelaufen. Bitte haben Sie etwas Geduld.</string>
+    <string name="berechnung_info_textview">Die bestellten Materialien wurden geliefert und die Produktion ist nun angelaufen. Anschließen werden die Uhren auf dem Absatzmarkt veräußert. Bitte haben Sie etwas Geduld.</string>
 
 
-
-    <string name="personalwesen_info_textview">Hier können Sie unternehmensinterne Personalentscheidungen vornehmen.  Zu Beginn haben Sie 5 Mitarbeiter im Unternehmen. Sie können hier enscheiden, ob und wieviele Mitarbeiter Sie einstellen oder kündigen möchten. Diese Entscheidungen werden auf Grund von Kündigungsfristen erst in der nächsten Periode wirksam. Personalkosten wirken sich auf Ihre Fixkosten aus.</string>
+<string name="personalwesen_info_textview">"Hier können Sie unternehmensinterne Personalentscheidungen vornehmen.
+Zu Beginn haben Sie 2 Mitarbeiter im Unternehmen, die für die Vorbereitung des Versands und die Rechnungstellung zuständig sind. Ein höheres Produktionsvolumen erfordert indirekt mehr Mitarbeiter, da die produzierten Uhren sonst nicht vollständig abgesetzt werden können. Die Personalntscheidungen werden auf Grund von Kündigungsfristen erst in der nächsten Periode wirksam. Personalkosten wirken sich auf Ihre Fixkosten aus.
+"</string>
     <string name="personalwesen_title">Personalwesen</string>
     <string name="investition_title">Investition</string>
     <string name="materialeinkauf_title">Materialeinkauf</string>
     <string name="absatz_title">Absatz</string>
-    <string name="bestellzsmfassung_title">Bestellzusammenfassung</string>
+    <string name="bestellzsmfassung_title">Auftrag</string>
     <string name="berechnung_title">Berechnung</string>
     <string name="rundenergebnis_title">Rundenergebnis</string>
     <string name="bestenliste_title">Bestenliste</string>

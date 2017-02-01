@@ -21,6 +21,7 @@ public class Spieler {
     private Auftragssammlung auftragssammlung; // ToDo Methoden, Konstruktor
     public Auftragssammlung getAuftragssammlung(){return auftragssammlung;}
     private int veraenderungPersonal = 2;
+    private double kontoSchnitt;
 
     public String toString(){
         String spielerString;
@@ -45,7 +46,6 @@ public class Spieler {
         auftragssammlung = new Auftragssammlung();
         setMarktanteil(AnfangsMarktanteil);
         setPunkte(AnfagsPunkte);
-        auftragssammlung = new Auftragssammlung();
        //12.08 ToDo daten.addSpielerListe(this); // Hinzufügen des Spielers in die Liste
     } // Ende Konstruktor
 
@@ -103,6 +103,13 @@ public class Spieler {
         Name = name;
     } // Ende setName()
 
+    public double getKontoSchnitt() {
+        return kontoSchnitt;
+    }
+
+    public void setKontoSchnitt(double kontoSchnitt) {
+        this.kontoSchnitt = kontoSchnitt;
+    }
 
     /**
      * ToDO

@@ -72,7 +72,7 @@ public class Auftrag {
     private Armband armband = new Armband();
     private Forschung forschung = new Forschung();
     private Gehaeuse gehaeuse = new Gehaeuse();
-    private Zeitarbeiter zeitarbeiter = new Zeitarbeiter();
+    public Zeitarbeiter zeitarbeiter = new Zeitarbeiter();
     private Uhrwerk uhrwerk = new Uhrwerk();
     private Bezahlart bezahlart = new Bezahlart();
     private Wasserdichtheit wasserdichtheit = new Wasserdichtheit();
@@ -164,9 +164,13 @@ public class Auftrag {
         switch(eingabe){
             case Controller.FORSCHUNG_WAHL_HOCH: {
                 forschung.setInvestition15000(true); //Fehler korrigiert
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7276d45f53b6783c68a9e09256d0dcfbee3d6880
                 //forschung.setMarken(true);
                 //Aenderungen patsch 12.01 10.23
-                fixKosten += forschung.getFixkostenInvestition15000();
+                //fixKosten += forschung.getFixkostenInvestition15000();
                 //fixKosten = forschung.getFixkostenInvestition15000(); //neu
 
                 fixKosten += forschung.getFixkostenInvestition15000();
@@ -536,6 +540,8 @@ public class Auftrag {
     }
 
     public void bestellePersonalwesen (int zahl){ //// TODO: 24.01.2017 #Vincent #Patschi
+        personalwesen.setEingestellte(zahl);
+        fixKosten = fixKosten + personalwesen.getEingestellte()*personalwesen.getPersonalKostenProMitarbeiter();
     }
 
     /**
