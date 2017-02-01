@@ -1,6 +1,7 @@
 package com.example.patsc.fallstudie.Covered;
 
 import com.example.patsc.fallstudie.Network.Funkturm;
+import com.example.patsc.fallstudie.Network.MyThread;
 import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
 import com.example.patsc.fallstudie.Network.SpielerDatenWrapper;
 
@@ -20,6 +21,13 @@ public class Controller {
     // Zugriff auf wichtige Elemente
     private Daten daten; // Klasse in der alle Daten gehalten werden wird bei OnCreate erzeugt
     public Spieler aktiverSpieler;
+
+    /**
+     *  Netzwerkvariablen
+     */
+
+    boolean registrierungBool = false;
+
 
     /**
      * Strings für die Übergabe der Auswahl
@@ -1255,18 +1263,15 @@ public class Controller {
      * Parameter werden von UI übergeben
      * @param name
      * @param passwort
-     */ public boolean registrierung(final String name, final String passwort){
-        String test1 = name;
-        String test2 = passwort;
+     */ public boolean registrierung(String name,String passwort){
         try {
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    funkturm.registriereSpieler(name, passwort);
-                }
-            });
+            Runnable r = new MyThread(name,passwort,this);
+            Thread t = new Thread(r);
             t.start();
-            if (true) {
+            while(t.isAlive()){
+
+            }
+            if (registrierungBool) {
                 aktiverSpieler = new Spieler(name, passwort, daten);
                 daten.addSpielerListe(aktiverSpieler);
                 return true;
@@ -1288,11 +1293,20 @@ public class Controller {
      * @param name
      * @param passwort
      */
-    public boolean login (String name, String passwort) {
-
+    public boolean login (final String name,final String passwort) {
+        final SpielerDatenWrapper ergebnis;
         Funkturm f = new Funkturm();
-        SpielerDatenWrapper spieler = f.empfangeSpieler(name,passwort);
+        SpielerDatenWrapper spieler = f.empfangeSpieler(name, passwort);
         try {
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    funkturm.empfangeSpieler(name, passwort);
+
+                }
+            });
+            t.start();
             if (spieler.getId().equals("failed")) {
                 return false;
             } else {
@@ -1458,6 +1472,10 @@ public class Controller {
         aktiverSpieler.getAuftragssammlung().neuerAuftrag();
         daten.erhoeheRundenanzahl();
         return true;
+    }
+
+    public void setRegistrierungBool(boolean registrierungBool){
+        this.registrierungBool = registrierungBool;
     }
 
 } // ENDE KLASSE
