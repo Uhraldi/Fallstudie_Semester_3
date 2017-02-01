@@ -1392,7 +1392,7 @@ public class Controller {
 
     //  Mehrfach genutzte Datenabfrage.
     public int getRunde(){
-        return daten.getRundenAnzahl()+1;
+        return daten.getRundenAnzahl();
     }//Ende getRunde
     // Hilfsmethoden
     /**

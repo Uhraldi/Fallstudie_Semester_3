@@ -1,5 +1,7 @@
 package com.example.patsc.fallstudie.ScenarioTest;
 
+import android.content.SyncStatusObserver;
+
 import com.example.patsc.fallstudie.Covered.Auftragssammlung;
 import com.example.patsc.fallstudie.Covered.Daten;
 import com.example.patsc.fallstudie.Covered.Controller;
@@ -90,6 +92,7 @@ public class ScenarioTest {
         System.out.println("Marktanteil: " + Marktanteil);
         System.out.println("Position: " + Position);
         System.out.println("Guthaben: " + Guthaben);
+        System.out.println("Gewinnn: "+ Gewinn);
         System.out.println("-------------------------------------------------------------");
     }
 
@@ -210,7 +213,7 @@ public class ScenarioTest {
             //TEST
             ABSATZ_JULIAN=Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz();
             MARKTANTEIL_JULIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(Controller.getAktiverSpieler().getName());
-            GEWINN_JULIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getGewinn();
+            GEWINN_JULIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenGewinn(Controller.aktiverSpieler.getName());
             GUTHABEN_JULIAN = Controller.getGuthaben();
             POSITION_JULIAN = Controller.getPosition();
             Rundenergebnisse(Controller,GEWINN_JULIAN, ABSATZ_JULIAN,MARKTANTEIL_JULIAN,POSITION_JULIAN,GUTHABEN_JULIAN);
