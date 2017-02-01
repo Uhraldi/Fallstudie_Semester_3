@@ -581,12 +581,16 @@ public class Controller {
                 throw new Exception("Falscher Bestellschritt");
             }
         }
-        //Wahl wird standarmäßig auf Kunstleder gesetzt
+        //Wahl wird standarmäßig auf Leder gesetzt, außer vorherige Auswahl war Leder, dann Kunstleder
         catch (Exception e){
-            aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getArmband().setKunstleder(true);
-            AENDERE_ARMBAND_boolean = false;
+            if (getArmbandAktuellerAuftrag().equals(ARMBAND_WAHL_LEDER)) {
+                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getArmband().setKunstleder(true);
+                AENDERE_ARMBAND_boolean = false;
+            } else {
+                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getArmband().setLeder(true);
+                AENDERE_ARMBAND_boolean = false;
+            }
             e.printStackTrace();
-            //ToDO vorherige Auswahl war Kunstleder
         }
 
     }// Ende setArmbandNeu
@@ -656,12 +660,16 @@ public class Controller {
                 throw new Exception("Falscher Bestellschritt");
             }
         }
-        //Wahl wird standardmäßig auf Holz gesetzt
+        //Wahl wird standardmäßig auf Holz gesetzt, außer vorherige Auswahl war Holz, dann
         catch (Exception e) {
-            aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().setHolz(true);
-            AENDERE_GEHAEUSE_boolean = false;
+            if (getGehaeuseAktuellerAuftrag().equals(GEHAEUSE_WAHL_HOLZ)) {
+                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().setGlas(true);
+                AENDERE_GEHAEUSE_boolean = false;
+            } else {
+                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().setHolz(true);
+                AENDERE_GEHAEUSE_boolean = false;
+            }
             e.printStackTrace();
-            //ToDO vorherige Auswahl war Holz
         }
     } // Ende setGehaeuseNeu
     public void setBezahlartAktuell(String bezahlartAuswahl){    //TODO: Anpassung Namen
@@ -734,12 +742,16 @@ public class Controller {
                 throw new Exception("Falscher Bestellschritt");
             }
         }
-        //Wahl wird standardmäßig auf Geselle gesetzt
+        //Wahl wird standardmäßig auf Geselle gesetzt, außer vorherige Wahl war Geselle, dann Lehrling
         catch (Exception e){
-            aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().setGeselle(true);
-            setzeAlleSchritteFalse();
+            if (getZeitarbeiterAktuellerAuftrag().equals(ZEITARBEITER_WAHL_GESELLE)) {
+                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().setLehrling(true);
+                AENDERE_ZEITARBEITER_boolean = false;
+            } else {
+                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().setGeselle(true);
+                AENDERE_ZEITARBEITER_boolean = false;
+            }
             e.printStackTrace();
-            //ToDO vorherige Auswahl Geselle
         }
     }// Ende setZeitarbeiterNeu
 

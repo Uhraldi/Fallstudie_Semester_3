@@ -30,7 +30,9 @@ public class Marktsim {
     private float lowGrenze = 150, middleGrenze = 250; // Preissegmentsgrenzen low = 150, middle = 250, high > middle
 
 
-    private ArrayList<Integer> lowarray, middlearray, higharray = new ArrayList<Integer>();
+    private ArrayList<Integer> middlearray = new ArrayList<Integer>();
+    private ArrayList<Integer> lowarray = new ArrayList<Integer>();
+    private ArrayList<Integer> higharray = new ArrayList<Integer>();
     private ArrayList absatzreturn = new ArrayList();
     private int absatz = 0;
     private ArrayList<Double> marktanteil = new ArrayList<Double>();
@@ -48,20 +50,19 @@ public class Marktsim {
     /**
      * Konstruktor
      *
-     * @param reservationspreis
      * @param controller
      * @param daten
      * @param rundenErgebnisWrapper
      * @throws Exception
      */
-    public Marktsim(double[] reservationspreis, Controller controller, Daten daten, RundenErgebnisWrapper[] rundenErgebnisWrapper) throws Exception {
+    public Marktsim(Controller controller, Daten daten, RundenErgebnisWrapper[] rundenErgebnisWrapper) throws Exception {
 
         this.Controller = controller;
         this.daten = daten;
         this.data = rundenErgebnisWrapper;
 
-        for (int i = 0; i < reservationspreis.length; i++) {
-            reservationspreisarray.set(i, reservationspreis[i]);
+        for (RundenErgebnisWrapper p : this.data) {
+            reservationspreisarray.add(p.getRespr());
         }
 
 
@@ -74,7 +75,7 @@ public class Marktsim {
         }
 
         for (RundenErgebnisWrapper p : this.data) {   // VKP-Abfrage
-            // gesamtkostenarray.add(p.getGesamtKosten()); ToDo Fehler kommentiert da falsch, fix notwendig
+            gesamtkostenarray.add(p.getGesamtKosten());
         }
 
         for (RundenErgebnisWrapper p : this.data) {   // Menge-Abfrage
@@ -220,8 +221,8 @@ public class Marktsim {
 
         for (int i = 0; i < data.length; i++) {
             data[i].setKonto((double) kontoarray.get(i));
-          //  data[i].setMarktanteil((double) marktanteil.get(i));ToDo Fehler kommentiert da falsch, fix notwendig
-          // data[i].setRundengewinn((double) rundenGewinn.get(i)); ToDo Fehler kommentiert da falsch, fix notwendig
+            //data[i].setMarktanteil((double) marktanteil.get(i)); ToDo Fehler kommentiert da falsch, fix notwendig
+            //data[i].setRundengewinn((double) rundenGewinn.get(i)); ToDo Fehler kommentiert da falsch, fix notwendig
         }
 
         return absatzreturn;
@@ -234,7 +235,7 @@ public class Marktsim {
     public void berechnePreissegmente() {
 
         int lowverteilung = randInt(40, 49);                      // Verteilung low (zufällig)
-        int highverteilung = randInt(40, 49);                     // Verteilung high (zufällig)
+        int highverteilung = randInt(30, 49);                     // Verteilung high (zufällig)
         int middleverteilung = lowverteilung - highverteilung;    // Verteilung middle abhängig von low und high
         lowKäufer = (lowverteilung / 100) * anzKäufer;
         middleKäufer = (middleverteilung / 100) * anzKäufer;
@@ -334,14 +335,9 @@ public class Marktsim {
         return rundenGewinn;
     }
 
-    //TODO: an Dodo: BITTE setter fuer Absatz implementieren
-
     public int getAbsatz() {
         return absatz;
     }
-
-    //TODO: an Dodo: BITTE setter fuer Gewinn implementieren
-
 
     public double getGewinn() {
         return gewinn;
