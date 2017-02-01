@@ -28,7 +28,7 @@ public class Preissimulation {
     private double VariableStückkostenUhrwerk;
     private double VariableStückkostenGehäuse;
 
-    private double Produktionsvolumen = auftragssammlung.getAuftrag(RundenNr).getMenge();
+    private double Produktionsvolumen;
     private double Gesamtkosten;
     private double Stückkosten;
 
@@ -54,9 +54,10 @@ public class Preissimulation {
     public Preissimulation (Controller controller) {
         this.RundenNr = controller.getRunde();
         this.auftragssammlung = controller.getAktiverSpieler().getAuftragssammlung();
+        c = controller;
+        auftrag = c.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag();
         berechneReservationspreis(c.getZeitarbeiterAktuellerAuftrag(), c.getForschungAktuellerAuftrag(), c.getMarketingAktuellerAuftrag(), c.getArmbandAktuellerAuftrag(),
                 c.getGehaeuseAktuellerAuftrag(), c.getUhrwerkAktuellerAuftrag(), c.getBezahlartAktuellerAuftrag());
-        c = controller;
 
        //ToDo berechneReservationspreis(c.getMarketingAktuellerAuftrag(),c.getZeitarbeiterAktuellerAuftrag(),c.get)
 
@@ -465,7 +466,7 @@ public class Preissimulation {
         catch (Exception e) {
             e.printStackTrace();
         }
-
+        Produktionsvolumen  = auftragssammlung.getAuftrag(RundenNr).getMenge();
         Reservationspreis = (auftrag.getPersonalwesen().getFixkosten() + ReservapForschung +
                     ReservapMarketing + ReservapBezahlart)
                 + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse) * Produktionsvolumen);

@@ -72,7 +72,7 @@ public class Auftrag {
     private Armband armband = new Armband();
     private Forschung forschung = new Forschung();
     private Gehaeuse gehaeuse = new Gehaeuse();
-    private Zeitarbeiter zeitarbeiter = new Zeitarbeiter();
+    public Zeitarbeiter zeitarbeiter = new Zeitarbeiter();
     private Uhrwerk uhrwerk = new Uhrwerk();
     private Bezahlart bezahlart = new Bezahlart();
     private Wasserdichtheit wasserdichtheit = new Wasserdichtheit();

@@ -3,9 +3,12 @@ package com.example.patsc.fallstudie.ScenarioTest;
 import com.example.patsc.fallstudie.Covered.Auftragssammlung;
 import com.example.patsc.fallstudie.Covered.Daten;
 import com.example.patsc.fallstudie.Covered.Controller;
+import com.example.patsc.fallstudie.Covered.Preissimulation;
 import com.example.patsc.fallstudie.Covered.Spieler;
 
 import org.junit.Test;
+
+import java.util.ResourceBundle;
 
 /**
  * Created by julian on 11.01.2017.
@@ -166,6 +169,7 @@ public class ScenarioTest {
                 AUSWAHL_JULIAN_VERKAUFSPREIS);
         Controller.setActivity_Berechnung();
 
+
         //Sebastian ist dran
         Controller.aktiverSpieler = Sebastian;
         Controller.setZustand_Bestellung(true);
@@ -200,6 +204,9 @@ public class ScenarioTest {
         //5. Rundenergebnisse anzeigen
             //Rundenergebnis von Julian
             Controller.aktiverSpieler = Julian;
+            //TEST
+
+            //TEST
             ABSATZ_JULIAN=Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz();
             MARKTANTEIL_JULIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(Controller.getAktiverSpieler().getName());
             GEWINN_JULIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getGewinn();
