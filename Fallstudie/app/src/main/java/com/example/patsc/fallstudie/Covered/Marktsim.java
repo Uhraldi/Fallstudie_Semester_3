@@ -141,7 +141,7 @@ public class Marktsim {
 
         for (int i = 0; i < anzSpieler; i++) {
 
-            if (vkparray.get(i) <= lowGrenze) {        // (2)                                                      //Todo Personalwesen einbauen
+            if (vkparray.get(i) <= lowGrenze) {        // (2)
                 double y = ((double) randInt(30, 80) / 100 + bonusarray.get(i));
                 if (y > 1) {
                     y = 1;
@@ -150,18 +150,18 @@ public class Marktsim {
                     y = 0;
                 }
                 if (y * lowKäufer > mengearray.get(i)) {
-                    if ((double) personalanzahlarray.get(i) * 2000 >= mengearray.get(i)) {
+                    if ((int) personalanzahlarray.get(i) * 2000 >= mengearray.get(i)) {
                         int x = mengearray.get(i);
                         absatzarrayint.add(x);
                     } else {
-                        absatzarrayint.add((double) personalanzahlarray.get(i) * 2000);
+                        absatzarrayint.add((int) personalanzahlarray.get(i) * 2000);
                     }
                 } else {
-                    if ((double) personalanzahlarray.get(i) * 2000 >= y * lowKäufer) {
+                    if ((int) personalanzahlarray.get(i) * 2000 >= y * lowKäufer) {
                         int eingabe = (int) (Math.round(y * lowKäufer));
                         absatzarrayint.add(eingabe);
                     } else {
-                        absatzarrayint.add((double) personalanzahlarray.get(i) * 2000);
+                        absatzarrayint.add((int) personalanzahlarray.get(i) * 2000);
                     }
 
                 }
@@ -177,18 +177,18 @@ public class Marktsim {
                         y = 0;
                     }
                     if (y * middleKäufer > mengearray.get(i)) {
-                        if ((double) personalanzahlarray.get(i) * 2000 >= mengearray.get(i)) {
+                        if ((int) personalanzahlarray.get(i) * 2000 >= mengearray.get(i)) {
                             int x = mengearray.get(i);
                             absatzarrayint.add(x);
                         } else {
-                            absatzarrayint.add((double) personalanzahlarray.get(i) * 2000);
+                            absatzarrayint.add((int) personalanzahlarray.get(i) * 2000);
                         }
                     } else {
-                        if ((double) personalanzahlarray.get(i) * 2000 >= y * middleKäufer) {
+                        if ((int) personalanzahlarray.get(i) * 2000 >= y * middleKäufer) {
                             int eingabe = (int) (Math.round(y * middleKäufer));
                             absatzarrayint.add(eingabe);
                         } else {
-                            absatzarrayint.add((double) personalanzahlarray.get(i) * 2000);
+                            absatzarrayint.add((int) personalanzahlarray.get(i) * 2000);
                         }
 
                     }
@@ -204,18 +204,18 @@ public class Marktsim {
                             y = 0;
                         }
                         if (y * highKäufer > mengearray.get(i)) {
-                            if ((double) personalanzahlarray.get(i) * 2000 >= mengearray.get(i)) {
+                            if ((int) personalanzahlarray.get(i) * 2000 >= mengearray.get(i)) {
                                 int x = mengearray.get(i);
                                 absatzarrayint.add(x);
                             } else {
-                                absatzarrayint.add((double) personalanzahlarray.get(i) * 2000);
+                                absatzarrayint.add((int) personalanzahlarray.get(i) * 2000);
                             }
                         } else {
-                            if ((double) personalanzahlarray.get(i) * 2000 >= y * highKäufer) {
+                            if ((int) personalanzahlarray.get(i) * 2000 >= y * highKäufer) {
                                 int eingabe = (int) (Math.round(y * highKäufer));
                                 absatzarrayint.add(eingabe);
                             } else {
-                                absatzarrayint.add((double) personalanzahlarray.get(i) * 2000);
+                                absatzarrayint.add((int) personalanzahlarray.get(i) * 2000);
                             }
 
                         }
@@ -312,7 +312,7 @@ public class Marktsim {
      */
     public void berechneRundengewinn() {
         for (int i = 0; i < absatzarrayint.size(); i++) {
-            rundenGewinn.add((double) Math.round(((int) absatzarrayint.get(i) * vkparray.get(i)) - (double) gesamtkostenarray.get(i) * 100) / 100);
+            rundenGewinn.add((double) Math.round((((int) absatzarrayint.get(i) * vkparray.get(i)) - (double) gesamtkostenarray.get(i)) * 100) / 100);
         }
     }
 

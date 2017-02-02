@@ -1145,7 +1145,9 @@ public class Controller {
     }
     public double getGuthaben(){
         double guthaben = (double) aktiverSpieler.getGuthaben();
-        return guthaben;
+        double guthabenkurz =  Math.round(guthaben * 100.0) / 100.0;
+        
+        return guthabenkurz;
     }
 
 
@@ -1164,7 +1166,10 @@ public class Controller {
     }
 
     public double getStueckkosten () {
-        return getGesamtkosten()/aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
+        double stueckkosten = getGesamtkosten()/aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
+        double stueckkostenkurz = Math.round(stueckkosten * 100.0) / 100.0;
+
+        return stueckkostenkurz;
     }
 
 

@@ -546,7 +546,8 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         Produktionsvolumen = auftragssammlung.getAuftrag(RundenNr).getMenge();
         Reservationspreis = (auftrag.getPersonalwesen().getFixkosten() + ReservapForschung +
                 ReservapMarketing + ReservapBezahlart)
-                + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse) * Produktionsvolumen);
+                + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse));
+
     } // Ende berechneReservationspreis()
 
     /**
