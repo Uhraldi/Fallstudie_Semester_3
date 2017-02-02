@@ -504,7 +504,7 @@ public class Controller {
             int maxCount = 0;
             do {
                 maxCount++;
-                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
+                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl()+1, aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
                 Runnable r = new SendeRundeThread(rundenErgebnisWrapper, this);
                 Thread t = new Thread(r);
                 t.start();
