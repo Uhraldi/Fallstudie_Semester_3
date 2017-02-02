@@ -411,8 +411,13 @@ public class Controller {
         setzeAlleZustaendeFalse();
         setzeAlleSchritteFalse();
         setZustand_Spielbeginn(true);
-
-
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                funkturm.unidleServer();
+            }
+        });
+        t.start();
     }
 
 

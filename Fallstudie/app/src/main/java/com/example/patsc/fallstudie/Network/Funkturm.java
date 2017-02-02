@@ -53,8 +53,6 @@ public class Funkturm {
         try {
             HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + rundePost).openConnection()));
             httpcon.setDoOutput(true);
-            httpcon.setDoInput(true);
-            httpcon.setUseCaches(false);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
             httpcon.setRequestMethod("POST");
@@ -104,8 +102,8 @@ public class Funkturm {
             int zahl = runde +1;
             HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + rundeGet + zahl).openConnection()));
             httpcon.setDoOutput(false);
-            httpcon.setRequestProperty("Content-Type", "application/json");
-            httpcon.setRequestProperty("Accept", "application/json");
+            //httpcon.setRequestProperty("Content-Type", "application/json"); Löschen, wenn es immernoch funktioniert
+            //httpcon.setRequestProperty("Accept", "application/json");
             httpcon.setRequestMethod("GET");
             httpcon.connect();
 
@@ -190,8 +188,6 @@ public class Funkturm {
         try {
             HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + spielerUpdate).openConnection()));
             httpcon.setDoOutput(true);
-            httpcon.setDoInput(false);
-            httpcon.setUseCaches(false);
             httpcon.setConnectTimeout(10000);
             httpcon.setReadTimeout(10000);
             httpcon.setRequestProperty("Content-Type", "application/json");
@@ -246,7 +242,7 @@ public class Funkturm {
         //Verbindung mit Server aufbauen
         try {
             HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain + spielerGet).openConnection()));
-            httpcon.setDoOutput(false);
+            httpcon.setDoOutput(true);
             httpcon.setRequestProperty("Content-Type", "application/json");
             httpcon.setRequestProperty("Accept", "application/json");
             httpcon.setRequestMethod("POST");
@@ -275,6 +271,17 @@ public class Funkturm {
             e.printStackTrace();
         }
         return wrapper;
+    }
+
+    public void unidleServer(){
+        try {
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain).openConnection()));
+            httpcon.setDoOutput(false);
+            httpcon.setRequestMethod("GET");
+            httpcon.connect();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }
