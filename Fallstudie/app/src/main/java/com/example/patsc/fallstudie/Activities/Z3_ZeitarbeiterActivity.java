@@ -37,7 +37,7 @@ public class Z3_ZeitarbeiterActivity extends AppCompatActivity {
         TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
         toolbar_titel.setText(R.string.materialeinkauf_title);
         TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
-        toolbar_runde.setText("Runde: " + (String.valueOf((IntroductionActivity.Controller.getRunde()))));
+        toolbar_runde.setText(getString(R.string.Rundebla) + String.valueOf(IntroductionActivity.Controller.getRunde() + 1));
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
@@ -124,16 +124,16 @@ public class Z3_ZeitarbeiterActivity extends AppCompatActivity {
     public void goToNextActivity (View view) throws Exception {
 
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
-        if(IntroductionActivity.Controller.getZeitarbeiterAktuellerAuftrag().equals(auswahlZeitarbeiter)) {
+        if (IntroductionActivity.Controller.getZeitarbeiterAktuellerAuftrag().equals(auswahlZeitarbeiter)) {
             Toast toast = Toast.makeText(this, "Diese Option ist leider nicht mehr verfügbar", Toast.LENGTH_SHORT);
+            toast.show();
         } else {
             IntroductionActivity.Controller.setZeitarbeiterNeu(auswahlZeitarbeiter);
+
+            Intent intent = new Intent(this, BerechnungActivity.class);
+            startActivity(intent);
+            finish();
         }
-
-        Intent intent = new Intent(this, BerechnungActivity.class);
-        finish();
-        startActivity(intent);
     }
-
 
 }

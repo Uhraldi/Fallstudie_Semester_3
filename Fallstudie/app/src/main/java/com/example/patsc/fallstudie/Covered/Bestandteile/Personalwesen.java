@@ -8,7 +8,7 @@ public class Personalwesen {
 
 
     //Auswahlen
-        private int eingestellte = 0; // Personal am Anfang initial auf 2 gesetzt initial wird es mit der veraenderung gesetzt
+        private int eingestellte = 2; // Personal am Anfang initial auf 2 gesetzt initial wird es mit der veraenderung gesetzt
         private int veraenderung = 0; // Veranderung für das Personal in der nächsten runde
         private double fixkosten ; //// TODO: 24.01.2017 #Vincent werte anpassen
 

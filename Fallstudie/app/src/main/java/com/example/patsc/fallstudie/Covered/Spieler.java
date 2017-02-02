@@ -20,7 +20,7 @@ public class Spieler {
     private final Daten daten;
     private Auftragssammlung auftragssammlung; // ToDo Methoden, Konstruktor
     public Auftragssammlung getAuftragssammlung(){return auftragssammlung;}
-    private int veraenderungPersonal = 2;
+    private int veraenderungPersonal = 0;
     private double kontoSchnitt;
     private double maSchnitt;
 
