@@ -506,7 +506,7 @@ public class Controller {
             do {
                 maxCount++;
                 // aktiverSpieler.getVeraenderung für die nächste Runde soltle auch gespeichert werden
-                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl()+1,aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
+                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl()+1, aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
                 Runnable r = new SendeRundeThread(rundenErgebnisWrapper, this);
                 Thread t = new Thread(r);
                 t.start();
@@ -837,7 +837,7 @@ public class Controller {
         try{
             if (SCHRITT_PRODUKTIONSVOLUMEN_boolean){
                 int produktionsVolumen = ((int) produktionsvolumenAuswahl);
-                spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleMenge(produktionsVolumen);
+                spieler.getAuftragssammlung().getAktuellerAuftrag().bestelleMenge(produktionsVolumen);
                 setzeAlleSchritteFalse();}
             else{
                 throw new Exception("Falscher Bestellschritt");
