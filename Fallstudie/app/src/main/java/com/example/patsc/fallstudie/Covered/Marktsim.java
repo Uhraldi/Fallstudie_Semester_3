@@ -44,6 +44,7 @@ public class Marktsim {
     private ArrayList kontoarray = new ArrayList();
     private ArrayList namenarray = new ArrayList();
     private ArrayList personalanzahlarray = new ArrayList();
+    private ArrayList maSchnitt = new ArrayList();
 
     /**
      * Konstruktor
@@ -76,6 +77,10 @@ public class Marktsim {
 
         for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // VKP-Abfrage
             personalanzahlarray.add(p.getPersonalanzahl());
+        }
+
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // Marktanteildurchschnitt-Abfrage
+            maSchnitt.add(p.getMaSchnitt());
         }
 
         for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // Menge-Abfrage
@@ -222,17 +227,28 @@ public class Marktsim {
         berechneMarktanteil();
         berechneNeuenKontostand();
         setGuthabenAktiverSpieler();
+        berechneMaSchnitt();
+
 
         for (int i = 0; i < rundenergebniswrapperarray.length; i++) {            // (5)
             rundenergebniswrapperarray[i].setKonto((double) kontoarray.get(i));
             rundenergebniswrapperarray[i].setMarktanteil(marktanteil.get(i));
-            rundenergebniswrapperarray[i].setRundengewinn(rundenGewinn.get(i)); //TODO Funktioniert wohl nicht
+            rundenergebniswrapperarray[i].setRundengewinn(rundenGewinn.get(i));
+            rundenergebniswrapperarray[i].setMaSchnitt((double)maSchnitt.get(i));
         }
 
         return absatzarrayint;
     } // Ende berechneAbsatz
 
-
+    /**
+     * Berechnet den durschnittlichen Marktanteil des Spielers über alle bisher gespielten Runden
+     */
+    private void berechneMaSchnitt(){
+        for(int i = 0; i < maSchnitt.size(); i++){
+            double zwischen = (double)maSchnitt.get(i);
+            maSchnitt.set(i, ((zwischen + marktanteil.get(i))/(rundenergebniswrapperarray[i].getRunde()+1)));
+        }
+    }
     /**
      * Verteilt die Kunden zufällig auf die Preissegmente low, middle und high
      */

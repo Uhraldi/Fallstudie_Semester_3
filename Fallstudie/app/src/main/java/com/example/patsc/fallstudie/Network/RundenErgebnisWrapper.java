@@ -21,7 +21,7 @@ public class RundenErgebnisWrapper {
     private double konto = -1;
     private double marktanteil = -1;
     private double rundengewinn = -1;
-    private double maSchnitt = -1;
+    private double maSchnitt = 0;
 
 
     //----------------------Construktor----------------------
