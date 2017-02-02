@@ -274,7 +274,7 @@ public class Marktsim {
     private void berechneMaSchnitt() {
         for (int i = 0; i < maSchnitt.size(); i++) {
             double zwischen = (double) maSchnitt.get(i);
-            maSchnitt.set(i, ((zwischen + marktanteil.get(i)) / (rundenergebniswrapperarray[i].getRunde() + 1)));
+            maSchnitt.set(i, ((zwischen + marktanteil.get(i)) / (rundenergebniswrapperarray[i].getRunde())));
         }
     }
 
