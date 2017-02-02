@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class Marktsim {
 
-    private RundenErgebnisWrapper[] data;
+    private RundenErgebnisWrapper[] rundenergebniswrapperarray;
     private Controller Controller;
     private int anzSpieler = 10;
 
@@ -43,9 +43,11 @@ public class Marktsim {
     private ArrayList gesamtkostenarray = new ArrayList();
     private ArrayList kontoarray = new ArrayList();
     private ArrayList namenarray = new ArrayList();
+    private ArrayList personalanzahlarray = new ArrayList();
 
     /**
      * Konstruktor
+     * Füllen der ArrayListen zur Berechnung; Berechnung der Differenz von Reservationspreis und VKP
      *
      * @param controller
      * @param rundenErgebnisWrapper
@@ -54,33 +56,37 @@ public class Marktsim {
     public Marktsim(Controller controller, RundenErgebnisWrapper[] rundenErgebnisWrapper) throws Exception {
 
         this.Controller = controller;
-        this.data = rundenErgebnisWrapper;
+        this.rundenergebniswrapperarray = rundenErgebnisWrapper;
 
-        for (RundenErgebnisWrapper p : this.data) {
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {
             reservationspreisarray.add(p.getRespr());
         }
 
-        for (RundenErgebnisWrapper p : this.data) {   // Menge-Abfrage
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // Menge-Abfrage
             mengearray.add(p.getMenge());
         }
 
-        for (RundenErgebnisWrapper p : this.data) {   // VKP-Abfrage
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // VKP-Abfrage
             vkparray.add(p.getVkp());
         }
 
-        for (RundenErgebnisWrapper p : this.data) {   // VKP-Abfrage
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // VKP-Abfrage
             gesamtkostenarray.add(p.getGesamtKosten());
         }
 
-        for (RundenErgebnisWrapper p : this.data) {   // Menge-Abfrage
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // VKP-Abfrage
+            personalanzahlarray.add(p.getPersonalanzahl());
+        }
+
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // Menge-Abfrage
             bonusarray.add(p.getBonus());
         }
 
-        for (RundenErgebnisWrapper p : this.data) {   // Kontostand-Abfrage
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // Kontostand-Abfrage
             kontoarray.add(p.getKonto());
         }
 
-        for (RundenErgebnisWrapper p : this.data) {
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {
             namenarray.add(p.getId());
         }
 
@@ -93,6 +99,13 @@ public class Marktsim {
 
 
     /**
+     * Hauptmethode der Berechnungen.
+     * (1) Abweichung VKP vom Reservationspreis beeinflusst Absatzzahlen
+     * (2) Einordnung des VKP auf die Preissegmente Low, Middle und High; Zufällige Absatzzahlen + Bonusarray ergeben die Absatzzahl des Spielers
+     * (3) Gleichmäßige Verminderung der Absatzzahlen eines Preissegments bis die Käuferanzahl des jeweiligen Preissegments erreicht ist
+     * (4) Aufrufen der Methoden zur Berechnung der Kennzahlen
+     * (5) Speichern der geänderten Kennzahlen im ErgebnisRundenWrapper[]
+     *
      * @return
      * @throws Exception
      */
@@ -100,7 +113,7 @@ public class Marktsim {
     public ArrayList berechneAbsatz() throws Exception {
 
 
-        for (int i = 0; i < anzSpieler; i++) {                            // Abweichungen wirken sich auf die prozentualenVorteile aus. 80, 100 und 150 % Schritte
+        for (int i = 0; i < anzSpieler; i++) {                            //(1) Abweichungen wirken sich auf die prozentualenVorteile aus. 80, 100 und 150 % Schritte
             if (differenz.get(i) < (0 - reservationspreisarray.get(i) * 0.60)) {
                 double y = bonusarray.get(i) - 0.15;
                 bonusarray.set(i, y);
@@ -123,7 +136,7 @@ public class Marktsim {
 
         for (int i = 0; i < anzSpieler; i++) {
 
-            if (vkparray.get(i) <= lowGrenze) {        //Abfrage, ob der Verkaufspreis ins Low-Segment fällt  //Todo Personalwesen einbauen
+            if (vkparray.get(i) <= lowGrenze) {        // (2) Abfrage, ob der Verkaufspreis ins Low-Segment fällt  //Todo Personalwesen einbauen
                 double y = ((double) randInt(30, 80) / 100 + bonusarray.get(i));
                 if (y > 1) {
                     y = 1;
@@ -180,7 +193,7 @@ public class Marktsim {
             }
         }
 
-        while (lowsumme > lowKäufer) {
+        while (lowsumme > lowKäufer) {      // (3)
             for (int s : lowarray) {
                 int f = (int) absatzarrayint.get(s);
                 absatzarrayint.set(s, f - 2);
@@ -205,15 +218,15 @@ public class Marktsim {
             double zwischendouble = zwischenint;
             absatzarraydouble.add(zwischendouble);
         }
-        berechneRundengewinn();
+        berechneRundengewinn();                              // (4)
         berechneMarktanteil();
         berechneNeuenKontostand();
         setGuthabenAktiverSpieler();
 
-        for (int i = 0; i < data.length; i++) {
-            data[i].setKonto((double) kontoarray.get(i));
-            data[i].setMarktanteil((double) marktanteil.get(i));
-            data[i].setRundengewinn((double) rundenGewinn.get(i));
+        for (int i = 0; i < rundenergebniswrapperarray.length; i++) {            // (5)
+            rundenergebniswrapperarray[i].setKonto((double) kontoarray.get(i));
+            rundenergebniswrapperarray[i].setMarktanteil(marktanteil.get(i));
+            rundenergebniswrapperarray[i].setRundengewinn(rundenGewinn.get(i)); //TODO Funktioniert wohl nicht
         }
 
         return absatzarrayint;
@@ -225,8 +238,8 @@ public class Marktsim {
      */
     public void berechnePreissegmente() {
 
-        lowverteilung = randInt(40, 49);                      // Verteilung low (zufällig)
-        highverteilung = randInt(30, 49);                     // Verteilung high (zufällig)
+        lowverteilung = randInt(40, 49);                            // Verteilung low (zufällig)
+        highverteilung = randInt(30, 49);                           // Verteilung high (zufällig)
         middleverteilung = 100 - lowverteilung - highverteilung;    // Verteilung middle abhängig von low und high
         lowKäufer = (((double) lowverteilung / 100) * anzKäufer);
         middleKäufer = (((double) middleverteilung / 100) * anzKäufer);
@@ -297,7 +310,7 @@ public class Marktsim {
 
 
         for (int i = 0; i < namenarray.size(); i++) {
-            hashmap.put((String) namenarray.get(i), marktanteil.get(i));
+            hashmap.put((String) namenarray.get(i), marktanteil.get(i));  // TODO als Double mit 2 Nachkommazahlen
         }
         return hashmap.get(namen);
     }
@@ -321,7 +334,7 @@ public class Marktsim {
     }
 
     public RundenErgebnisWrapper[] getData() {
-        return data;
+        return rundenergebniswrapperarray;
     }
 
     /**
