@@ -19,6 +19,7 @@ public class RundenErgebnisWrapper {
     private double konto = -1;
     private double marktanteil = -1;
     private double rundengewinn = -1;
+    private double maSchnitt = -1;
 
     //----------------------Construktor----------------------
     /**
@@ -34,7 +35,7 @@ public class RundenErgebnisWrapper {
      //* @param marktanteil marktanteil wird von der Marktsim hinzugefügt, um die Sortierfähigkeit zu gewährleisten
      //* @param rundengewinn Gewinn des Spielers in dieser Runde
      */
-    public RundenErgebnisWrapper(String id, int runde, int menge, double respr, double vkp, double gesamtKosten, double bonus, double konto){
+    public RundenErgebnisWrapper(String id, int runde, int menge, double respr, double vkp, double gesamtKosten, double bonus, double konto, double maSchnitt){
         this.id = id;
         this.runde = runde;
         this.menge = menge;
@@ -43,8 +44,9 @@ public class RundenErgebnisWrapper {
         this.gesamtKosten = gesamtKosten;
         this.bonus = bonus;
         this.konto = konto;
+        this.maSchnitt = maSchnitt;
         /**
-         * Übergabe nicht im Konstruktor?
+         * Übergabe nicht im Konstruktor? - Nein, weil sie erst von der Marktsim gesetzt werden. Dieses Objekt muss aber sortiert werden und dafür diese beiden Variablen besitzen
          * this.marktanteil = marktanteil;
          * this.rundengewinn = rundengewinn;
          */
@@ -140,7 +142,16 @@ public class RundenErgebnisWrapper {
     public void setMarktanteil(double marktanteil) {
         this.marktanteil = marktanteil;
     }
-/**
+
+    public double getMaSchnitt() {
+        return maSchnitt;
+    }
+
+    public void setMaSchnitt(double maSchnitt) {
+        this.maSchnitt = maSchnitt;
+    }
+
+    /**
  * ----------------------Ende Getter und Setter----------------------
  */
 }

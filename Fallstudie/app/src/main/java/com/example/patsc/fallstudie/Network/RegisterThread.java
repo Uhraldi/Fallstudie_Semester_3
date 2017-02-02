@@ -4,6 +4,7 @@ import com.example.patsc.fallstudie.Covered.Controller;
 
 /**
  * Created by vince on 01/02/2017.
+ * Threadumgebung zum mitgeben von Daten und Speicherung von Ergebnissen im Controller
  */
 
 public class RegisterThread implements Runnable {
@@ -25,9 +26,4 @@ public class RegisterThread implements Runnable {
         ergebnis = f.registriereSpieler(id, passwort);
         c.setRegistrierungBool(ergebnis);
     }
-
-    public boolean getErgebnis(){
-        return ergebnis;
-    }
-
 }

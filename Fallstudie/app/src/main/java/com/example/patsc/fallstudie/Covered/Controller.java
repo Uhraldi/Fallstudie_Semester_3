@@ -495,11 +495,11 @@ public class Controller {
             Preissimulation preissim = new Preissimulation(this); //ToDo
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setPreissim(preissim);
 
-            //Runde hochladen
+            //#Netzwerk Runde hochladen
             int maxCount = 0;
             do {
                 maxCount++;
-                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben());
+                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
                 Runnable r = new SendeRundeThread(rundenErgebnisWrapper, this);
                 Thread t = new Thread(r);
                 t.start();
@@ -507,13 +507,8 @@ public class Controller {
 
                 }
             }while(sendeRundeBool && maxCount<3);
-            /* Code ohne Thread
-            RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(),daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(),aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(),getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben());
-            funkturm.sendeRunde(rundenErgebnisWrapper);
-            Thread.sleep(3000);
-            */
 
-            //Gener herunterladen
+            //#Netzwerk Gegner herunterladen
             Runnable r = new EmpfangeRundeThread(daten.getRundenAnzahl(),this);
             Thread t = new Thread(r);
             t.start();
@@ -525,7 +520,7 @@ public class Controller {
 
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
 
-            //Spielerdaten speichern
+            //#Netzwerk Spielerdaten speichern
             int maxCount2 = 0;
             do {
                 maxCount2++;
@@ -537,9 +532,6 @@ public class Controller {
 
                 }
             }while (updateBool && maxCount2 <3);
-            /* Code ohne Thread
-            funkturm.updateSpieler(spieler); //// TODO: 01/02/2017 #Patschi Das ist ein boolean. Wie soll damit umgegangen werden, wenn es Fehler gibt?
-            */
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -1157,23 +1149,12 @@ public class Controller {
         Spieler s = aktiverSpieler;
         Auftragssammlung as = s.getAuftragssammlung();
         Auftrag a = as.getAktuellerAuftrag();
-<<<<<<< HEAD
         double fix= a.getFixKosten();
         double var = a.getVarKosten();
         int menge = a.getMenge();
         double gesamt = fix+var*menge;
 
         return gesamt;
-=======
-        double fix = a.getFixKosten();
-        double var = a.getVarKosten();
-        int menge = a.getMenge();
-        double gesamt = fix+var*(double)menge;
-
-        return gesamt;
-
-
->>>>>>> 7276d45f53b6783c68a9e09256d0dcfbee3d6880
     }
 
     public double getStueckkosten () {
@@ -1315,6 +1296,7 @@ public class Controller {
      * @param passwort
      */ public boolean registrierung(String name,String passwort){
         try {
+            //#Netzwerk
             Runnable r = new RegisterThread(name,passwort,this);
             Thread t = new Thread(r);
             t.start();
@@ -1344,6 +1326,7 @@ public class Controller {
      * @param passwort
      */
     public boolean login (final String name,final String passwort) {
+        //#Netzwerk
         final SpielerDatenWrapper ergebnis;
         Funkturm f = new Funkturm();
         Runnable r = new EmpfangeSpielerThread(name,passwort,this);

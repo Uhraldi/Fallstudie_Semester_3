@@ -249,6 +249,10 @@ public class Marktsim {
         }
     } //Ende berechneMarktanteil
 
+    // TODO: 02.02.2017 #Dodo der durchschnittliche Marktanteil sollte hier übergeben werden. Dazu brauchen wir die Methode zum setzen, aber auch das berechnen müsste wohl angepasst werden
+    // Der Spieler besitzt jetzt den durchschnittlichen Marktanteil und er wird auch mit den Rundenergebnissen versandt und empfangen
+
+
     /**
      * Berechnet den Rundengewinn jedes Spielers
      */

@@ -22,6 +22,7 @@ public class Spieler {
     public Auftragssammlung getAuftragssammlung(){return auftragssammlung;}
     private int veraenderungPersonal = 2;
     private double kontoSchnitt;
+    private double maSchnitt;
 
     public String toString(){
         String spielerString;
@@ -170,5 +171,13 @@ public class Spieler {
 
     public void setVeraenderungPersonal(int veraenderungPersonal) {
         this.veraenderungPersonal = veraenderungPersonal;
+    }
+
+    public double getMaSchnitt() {
+        return maSchnitt;
+    }
+
+    public void setMaSchnitt(double maSchnitt) {
+        this.maSchnitt = maSchnitt;
     }
 }// Ende Klasse
