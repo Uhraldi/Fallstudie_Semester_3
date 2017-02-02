@@ -4,6 +4,7 @@
 package com.example.patsc.fallstudie.Network;
 
 /**
+ * @author Vincent Schmalor
  * Created by vince on 18.01.2017.
  */
 
