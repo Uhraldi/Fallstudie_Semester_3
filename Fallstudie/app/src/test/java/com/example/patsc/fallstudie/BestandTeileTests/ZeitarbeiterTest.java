@@ -23,7 +23,7 @@ public class ZeitarbeiterTest {
             {"Geselle", "Praktikant", "Lehrling","Meister"};
 
     @Theory
-    public void bestelleVersandTest(String ZeitarbeiterWerte){
+    public void bestelleZeitarbeiterTest(String ZeitarbeiterWerte){
         Auftrag testAuftrag = new Auftrag();
         try {
             testAuftrag.bestelleZeitarbeiter(ZeitarbeiterWerte);
@@ -33,11 +33,34 @@ public class ZeitarbeiterTest {
     }
 
     @Test
-    public void bestelleVersandsrtFailTest(){
+    public void bestelleZeitarbeiterFailTest(){
         Auftrag testAuftrag = new Auftrag();
         try {
             testAuftrag.bestelleZeitarbeiter("FAIL");
         }catch (Exception e){
+            String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
+            Assert.assertEquals(msg, e.getMessage());
+        }
+    }
+
+    @Theory
+    public void ZeitarbeiterkorrekturTest(String ZeitarbeiterWerte){
+        Auftrag testAuftrag = new Auftrag();
+        try{
+            testAuftrag.bestelleZeitarbeiter(ZeitarbeiterWerte);
+            testAuftrag.korriegiereZeitarbeiter("Lehrling");
+        }catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void ZeitarbeiterkorrekturFailTest(){
+        Auftrag testAuftrag = new Auftrag();
+        try{
+            testAuftrag.bestelleZeitarbeiter("Lehrling");
+            testAuftrag.korriegiereZeitarbeiter("FAIL");
+        }catch (Exception e) {
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
         }
