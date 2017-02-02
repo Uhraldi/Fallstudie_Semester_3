@@ -305,12 +305,13 @@ public class Marktsim {
      * ----------------------Getter und Setter----------------------
      */
 
-    public double getMarktanteil(String namen) {
+    public double getMarktanteil(String namen) {#
+
         HashMap<String, Double> hashmap = new HashMap<>();
 
 
         for (int i = 0; i < namenarray.size(); i++) {
-            hashmap.put((String) namenarray.get(i), marktanteil.get(i));  // TODO als Double mit 2 Nachkommazahlen
+            hashmap.put((String) namenarray.get(i), (double)(Math.round(marktanteil.get(i)*10000)/100));
         }
         return hashmap.get(namen);
     }
