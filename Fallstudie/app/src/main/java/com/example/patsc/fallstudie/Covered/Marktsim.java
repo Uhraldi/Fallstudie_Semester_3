@@ -312,7 +312,7 @@ public class Marktsim {
      */
     public void berechneRundengewinn() {
         for (int i = 0; i < absatzarrayint.size(); i++) {
-            rundenGewinn.add((double) Math.round(((int) absatzarrayint.get(i) * vkparray.get(i)) - (double) gesamtkostenarray.get(i) * 100) / 100);
+            rundenGewinn.add((double) Math.round((((int) absatzarrayint.get(i) * vkparray.get(i)) - (double) gesamtkostenarray.get(i)) * 100) / 100);
         }
     }
 
