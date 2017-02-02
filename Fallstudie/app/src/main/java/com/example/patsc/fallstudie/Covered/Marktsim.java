@@ -305,7 +305,7 @@ public class Marktsim {
      * ----------------------Getter und Setter----------------------
      */
 
-    public double getMarktanteil(String namen) {#
+    public double getMarktanteil(String namen) {
 
         HashMap<String, Double> hashmap = new HashMap<>();
 
