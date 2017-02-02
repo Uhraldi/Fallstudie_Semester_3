@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,7 +55,7 @@ public class RundenergebnisActivity extends AppCompatActivity {
     }
 
 
-    public void eineRundeAussetzen (){
+    public void eineRundeAussetzen (View view){
         if (IntroductionActivity.Controller.eineRundeAussetzen()) {
             Intent intent = new Intent(this, PersonalwesenActivity.class);
             startActivity(intent);
@@ -65,7 +66,7 @@ public class RundenergebnisActivity extends AppCompatActivity {
         }
     }
 
-    public void gleichenWerteNochmal (){
+    public void gleichenWerteNochmal (View view){
         if (IntroductionActivity.Controller.gleichenWerteNochmal()) {
             Intent intent = new Intent(this, PersonalwesenActivity.class);
             startActivity(intent);
@@ -76,7 +77,7 @@ public class RundenergebnisActivity extends AppCompatActivity {
         }
     }
 
-    public void starteNaechsteRunde (){
+    public void starteNaechsteRunde (View view){
         if (IntroductionActivity.Controller.starteNaechsteRunde()) {
             Intent intent = new Intent(this, PersonalwesenActivity.class);
             startActivity(intent);

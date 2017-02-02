@@ -275,10 +275,13 @@ public class Funkturm {
 
     public void unidleServer(){
         try {
-            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL(domain).openConnection()));
+            HttpsURLConnection httpcon = (HttpsURLConnection) ((new URL("https://manufaktuhr.herokuapp.com").openConnection()));
             httpcon.setDoOutput(false);
             httpcon.setRequestMethod("GET");
             httpcon.connect();
+            httpcon.getOutputStream().write("Test".getBytes());
+            httpcon.getOutputStream().flush();
+            httpcon.disconnect();
         }catch (Exception e){
             e.printStackTrace();
         }

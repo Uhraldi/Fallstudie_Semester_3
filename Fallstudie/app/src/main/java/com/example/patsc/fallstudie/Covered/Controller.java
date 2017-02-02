@@ -411,12 +411,13 @@ public class Controller {
         setzeAlleZustaendeFalse();
         setzeAlleSchritteFalse();
         setZustand_Spielbeginn(true);
+        //#Netzwerk
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
-                funkturm.unidleServer();
-            }
-        });
+              funkturm.registriereSpieler("", "");
+              //  funkturm.unidleServer();
+            }});
         t.start();
     }
 
@@ -509,7 +510,6 @@ public class Controller {
                 Thread t = new Thread(r);
                 t.start();
                 while (t.isAlive()) {
-
                 }
             }while(sendeRundeBool && maxCount<3);
 
@@ -529,9 +529,9 @@ public class Controller {
             int maxCount2 = 0;
             do {
                 maxCount2++;
-                SpielerDatenWrapper spieler = new SpielerDatenWrapper(aktiverSpieler.getName(), aktiverSpieler.getPasswort(), daten.getRundenAnzahl(), aktiverSpieler.getGuthaben(), aktiverSpieler.getMarktanteil(), aktiverSpieler.getKontoSchnitt());
+                SpielerDatenWrapper spieler = new SpielerDatenWrapper(aktiverSpieler.getName(), aktiverSpieler.getPasswort(), daten.getRundenAnzahl()/*evtl. hier +1 #cool*/, aktiverSpieler.getGuthaben(), aktiverSpieler.getMarktanteil(), aktiverSpieler.getKontoSchnitt());
                 Runnable r2 = new UpdateThread(spieler, this);
-                Thread t2 = new Thread(r);
+                Thread t2 = new Thread(r2);
                 t2.start();
                 while (t2.isAlive()) {
 
