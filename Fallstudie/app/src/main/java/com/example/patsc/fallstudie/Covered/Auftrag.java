@@ -164,11 +164,6 @@ public class Auftrag {
         switch(eingabe){
             case Controller.FORSCHUNG_WAHL_HOCH: {
                 forschung.setInvestition15000(true); //Fehler korrigiert
-<<<<<<< HEAD
-
-
-=======
->>>>>>> fe20a44e9041e60d5c181e1023a7b0329d579b0d
                 //forschung.setMarken(true);
                 //Aenderungen patsch 12.01 10.23
                 //fixKosten += forschung.getFixkostenInvestition15000();

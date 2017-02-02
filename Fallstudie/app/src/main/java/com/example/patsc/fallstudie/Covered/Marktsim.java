@@ -290,7 +290,8 @@ public class Marktsim {
 
     public void berechneNeuenKontostand() {
         for (int i = 0; i < absatzarrayint.size(); i++) {
-            kontoarray.set(i, (double) Math.round(((double) kontoarray.get(i) + rundenGewinn.get(i)) * 100) / 100);
+            double zwischen = (double) kontoarray.get(i);
+            kontoarray.set(i, (double) Math.round((zwischen + rundenGewinn.get(i)) * 100) / 100);
         }
     }
 
