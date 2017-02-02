@@ -17,9 +17,9 @@ public class Bezahlart {
     private double FixkostenPayPal = 1600;
 
     //PWSs
-    private double KreditkartePWS = 0.4;
-    private double RechnungPWS = 0.2;
-    private double PayPalPWS = 0.05;
+    private double KreditkartePWS = 0;
+    private double RechnungPWS = 0;
+    private double PayPalPWS = 0;
 
     //Time-to-Market (wird behandelt wie Zufall aber mit fixen werten
     private double KreditkarteZufall = 0.15;
