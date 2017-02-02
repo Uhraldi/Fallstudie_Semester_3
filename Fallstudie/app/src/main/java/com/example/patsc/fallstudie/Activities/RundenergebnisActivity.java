@@ -26,7 +26,7 @@ public class RundenergebnisActivity extends AppCompatActivity {
         TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
         toolbar_titel.setText(R.string.rundenergebnis_title);
         TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
-        toolbar_runde.setText(getString(R.string.Rundebla) + (String.valueOf((IntroductionActivity.Controller.getRunde()))));
+        toolbar_runde.setText(getString(R.string.Rundebla) + String.valueOf(IntroductionActivity.Controller.getRunde() + 1));
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
@@ -39,10 +39,10 @@ public class RundenergebnisActivity extends AppCompatActivity {
         runde_output.setText(String.valueOf(i));
 
         TextView absatz_output = (TextView) findViewById(R.id.absatz_output);
-        //absatz_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz()));
+        absatz_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz(IntroductionActivity.Controller.getAktiverSpieler().getName())));
 
         TextView marktanteil_output = (TextView) findViewById(R.id.marktanteil_output);
-        marktanteil_output.setText(String.valueOf((IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(IntroductionActivity.Controller.getAktiverSpieler().getName()))));
+        marktanteil_output.setText((String.valueOf((IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(IntroductionActivity.Controller.getAktiverSpieler().getName())))) + " %");
 
         TextView gewinn_output = (TextView) findViewById(R.id.gewinn_output);
         gewinn_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenGewinn(IntroductionActivity.Controller.aktiverSpieler.getName())));
@@ -54,10 +54,11 @@ public class RundenergebnisActivity extends AppCompatActivity {
         position_output.setText(String.valueOf(IntroductionActivity.Controller.getPosition()));
     }
 
+/*
 
     public void eineRundeAussetzen (View view){
         if (IntroductionActivity.Controller.eineRundeAussetzen()) {
-            Intent intent = new Intent(this, PersonalwesenActivity.class);
+            Intent intent = new Intent(this, Personalwesen.class);
             startActivity(intent);
             finish();
         } else {
@@ -65,10 +66,11 @@ public class RundenergebnisActivity extends AppCompatActivity {
             toast.show();
         }
     }
+*/
 
     public void gleichenWerteNochmal (View view){
         if (IntroductionActivity.Controller.gleichenWerteNochmal()) {
-            Intent intent = new Intent(this, PersonalwesenActivity.class);
+            Intent intent = new Intent(this, BestellzusammenfassungActivity.class);
             startActivity(intent);
             finish();
         } else {

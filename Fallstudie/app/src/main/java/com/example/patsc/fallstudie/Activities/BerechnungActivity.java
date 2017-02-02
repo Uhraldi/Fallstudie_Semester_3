@@ -12,7 +12,7 @@ import com.example.patsc.fallstudie.R;
 public class BerechnungActivity extends AppCompatActivity {
 
     /** Dauer der Wartezeit **/
-    private final int CALCULATION_DISPLAY_LENGTH = 10000;
+    private final int CALCULATION_DISPLAY_LENGTH = 8000;
 
     /**
      *
@@ -32,7 +32,7 @@ public class BerechnungActivity extends AppCompatActivity {
         TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
         toolbar_titel.setText(R.string.berechnung_title);
         TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
-        toolbar_runde.setText("Runde: " + (String.valueOf((IntroductionActivity.Controller.getRunde()))));
+        toolbar_runde.setText(getString(R.string.Rundebla) + String.valueOf(IntroductionActivity.Controller.getRunde() + 1));
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
@@ -40,9 +40,16 @@ public class BerechnungActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                Intent intent = new Intent(BerechnungActivity.this, RundenergebnisActivity.class);
-                BerechnungActivity.this.startActivity(intent);
-                BerechnungActivity.this.finish();
+                if (IntroductionActivity.Controller.getRunde() < 9) {
+                    Intent intent = new Intent(BerechnungActivity.this, RundenergebnisActivity.class);
+                    BerechnungActivity.this.startActivity(intent);
+                    BerechnungActivity.this.finish();
+                } else {
+                    Intent intent = new Intent(BerechnungActivity.this, BestenlisteActivity.class);
+                    BerechnungActivity.this.startActivity(intent);
+                    BerechnungActivity.this.finish();
+                }
+
             }
         }, CALCULATION_DISPLAY_LENGTH);
     }

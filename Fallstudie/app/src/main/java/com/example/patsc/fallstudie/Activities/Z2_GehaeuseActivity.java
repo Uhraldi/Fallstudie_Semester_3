@@ -36,7 +36,7 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
         TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
         toolbar_titel.setText(R.string.materialeinkauf_title);
         TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
-        toolbar_runde.setText("Runde: " + (String.valueOf((IntroductionActivity.Controller.getRunde()))));
+        toolbar_runde.setText(getString(R.string.Rundebla) + String.valueOf(IntroductionActivity.Controller.getRunde() + 1));
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
@@ -126,21 +126,23 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
         //Methodenaufruf von Controller um Spinner Auswahl zu setzen
         if(IntroductionActivity.Controller.getGehaeuseAktuellerAuftrag().equals(auswahlGehaeuse)) {
             Toast toast = Toast.makeText(this, "Diese Option ist leider nicht mehr verfügbar", Toast.LENGTH_SHORT);
+            toast.show();
         } else {
             IntroductionActivity.Controller.setGehaeuseNeu(auswahlGehaeuse);
-        }
 
-        Intent z3 = new Intent(this, Z3_ZeitarbeiterActivity.class);
-        Intent keinZufall = new Intent(this, BerechnungActivity.class);
 
-        //Abfrage ob Zufall Z3 eingetreten ist und entsprechende Weiterleitung
-        if (IntroductionActivity.Controller.isZufall3()){
-            startActivity(z3);
-        }  else {
-            startActivity(keinZufall);
-        }
+            Intent z3 = new Intent(this, Z3_ZeitarbeiterActivity.class);
+            Intent keinZufall = new Intent(this, BerechnungActivity.class);
 
-        finish();
+            //Abfrage ob Zufall Z3 eingetreten ist und entsprechende Weiterleitung
+            if (IntroductionActivity.Controller.isZufall3()) {
+                startActivity(z3);
+            } else {
+                startActivity(keinZufall);
+            }
+
+        }  finish();
+
     }
 
 }

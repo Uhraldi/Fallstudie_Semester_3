@@ -35,7 +35,7 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
         TextView toolbar_titel = (TextView) toolbar.findViewById(R.id.toolbar_title);
         toolbar_titel.setText(R.string.absatz_title);
         TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
-        toolbar_runde.setText("Runde: " + (String.valueOf((IntroductionActivity.Controller.getRunde()))));
+        toolbar_runde.setText(getString(R.string.Rundebla) + String.valueOf(IntroductionActivity.Controller.getRunde() + 1));
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
