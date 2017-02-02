@@ -505,7 +505,8 @@ public class Controller {
             int maxCount = 0;
             do {
                 maxCount++;
-                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl()+1, aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
+                // aktiverSpieler.getVeraenderung für die nächste Runde soltle auch gespeichert werden
+                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl()+1,aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
                 Runnable r = new SendeRundeThread(rundenErgebnisWrapper, this);
                 Thread t = new Thread(r);
                 t.start();
@@ -1143,11 +1144,7 @@ public class Controller {
         return (float) varKosten;
     }
     public double getGuthaben(){
-
         double guthaben = (double) aktiverSpieler.getGuthaben();
-        guthaben = guthaben*100;
-        int i =(int) guthaben;
-        guthaben = i / 100;
         return guthaben;
     }
 
