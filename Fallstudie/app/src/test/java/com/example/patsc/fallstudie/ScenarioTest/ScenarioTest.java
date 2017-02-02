@@ -27,7 +27,7 @@ public class ScenarioTest {
     private static String AUSWAHL_JULIAN_GEHAEUSE = Controller.GEHAEUSE_WAHL_KUNSTSTOFF;
     private static String AUSWAHL_JULIAN_BEZAHLARTEN = Controller.BEZAHLART_WAHL_RECHNUNG;
     private static float AUSWAHL_JULIAN_PRODUKTIONSVOLUMEN = 10000;
-    private static float AUSWAHL_JULIAN_VERKAUFSPREIS = 10;
+    private static float AUSWAHL_JULIAN_VERKAUFSPREIS = 100;
     private double GEWINN_JULIAN;
     private float ABSATZ_JULIAN;
     private double MARKTANTEIL_JULIAN;
@@ -181,6 +181,19 @@ public class ScenarioTest {
                 AUSWAHL_JULIAN_BEZAHLARTEN,
                 AUSWAHL_JULIAN_PRODUKTIONSVOLUMEN,
                 AUSWAHL_JULIAN_VERKAUFSPREIS);
+        if(Controller.isZufall1()){
+            Controller.aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().korrigiereArmband(Controller.getARMBAND_WAHL_LEDER());
+            System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Controller.getARMBAND_WAHL_LEDER() + " korrigiert.");
+        }
+        if(Controller.isZufall2()){
+            Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().korrigiereGehaeuse(Controller.getGEHAEUSE_WAHL_METALL());
+            System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Controller.getGEHAEUSE_WAHL_METALL() + " korrigiert.");
+        }
+        if(Controller.isZufall3()){
+            Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().korriegiereZeitarbeiter(Controller.getZEITARBEITER_WAHL_Lehrling());
+            System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Controller.getZEITARBEITER_WAHL_Lehrling() + " korrigiert.");
+        }
+        Thread.sleep(10000);
         Controller.setActivity_Berechnung();
 
 
