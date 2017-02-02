@@ -95,168 +95,6 @@ public class Preissimulation {
         return Reservationspreis;
     }
 
-    /* Berechnung vorerst in der Klasse Auftrag
-
-
-    public void berechneFixkosten(String auswahlPersonalwesen, String auswahlForschung, String auswahlMarketing, String auswahlBezahlart) {
-        switch (auswahlPersonalwesen) {
-            case "Eingestellte": {
-                FixkostenPersonalwesen = auftragssammlung.getAuftrag(RundenNr).getPersonalwesen().getEingestellte();
-                break;
-            }
-            case "Veränderung": {
-                FixkostenPersonalwesen = auftragssammlung.getAuftrag(RundenNr).getPersonalwesen().getVeraenderung();
-                break;
-            }
-            default: System.err.println();
-        }
-        switch (auswahlForschung) {
-            case "2500€ Investition": {
-                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition15000();
-                break;
-            }
-            case "1500€ Investition": {
-                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition8000();
-                break;
-            }
-            case "500€ Investition": {
-                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition2500();
-                break;
-            }
-            default: System.err.println();
-        }
-        switch (auswahlMarketing) {
-            case "Fernsehwerbung": {
-                FixkostenMarketing = auftragssammlung.getAuftrag(RundenNr).getMarketing().getFixkostenFernsehwerbung();
-                break;
-            }
-            case "Radiowerbung": {
-                FixkostenMarketing = auftragssammlung.getAuftrag(RundenNr).getMarketing().getFixkostenRadiowerbung();
-                break;
-            }
-            case "Printwerbung": {
-                FixkostenMarketing = auftragssammlung.getAuftrag(RundenNr).getMarketing().getFixkostenPrintwerbung();
-                break;
-            }
-            default: System.err.println();
-        }
-        switch (auswahlBezahlart) {
-            case "Kreditkarte": {
-                FixkostenBezahlart = auftragssammlung.getAuftrag(RundenNr).getBezahlart().getFixkostenKreditkarte();
-                break;
-            }
-            case "Rechnung": {
-                FixkostenBezahlart = auftragssammlung.getAuftrag(RundenNr).getBezahlart().getFixkostenRechnung();
-                break;
-            }
-            case "PayPal": {
-                FixkostenBezahlart = auftragssammlung.getAuftrag(RundenNr).getBezahlart().getFixkostenPayPal();
-                break;
-            }
-            default: System.err.println();
-        }
-        Fixkosten = FixkostenPersonalwesen + FixkostenForschung + FixkostenMarketing + FixkostenBezahlart;
-    } // Ende berechneFixkosten()
-
-
-    public void berechneVariableStückkosten(String auswahlZeitarbeiter, String auswahlArmband, String auswahlUhrwerk, String auswahlGehäuse) {
-        switch (auswahlZeitarbeiter) {
-            case "Geselle": {
-                VariableStückkostenZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getVarKostenGeselle();
-                break;
-            }
-            case "Praktikant": {
-                VariableStückkostenZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getVarKostenPraktikant();
-                break;
-            }
-            case "Lehrling":  {
-                VariableStückkostenZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getVarKostenLehrling();
-                break;
-            }
-            case "Meister": {
-                VariableStückkostenZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getVarKostenMeister();
-                break;
-            }
-            default: System.err.println();
-        }
-        switch (auswahlArmband) {
-            case "Leder": {
-                VariableStückkostenArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getVarKostenLeder();
-                break;
-            }
-            case "Kunstleder": {
-                VariableStückkostenArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getVarKostenKunstleder();
-                break;
-            }
-            case "Holz": {
-                VariableStückkostenArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getVarKostenHolz();
-                break;
-            }
-            case "Textil": {
-                VariableStückkostenArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getVarKostenTextil();
-                break;
-            }
-            case "Metall": {
-                VariableStückkostenArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getVarKostenMetall();
-                break;
-            }
-            default: System.err.println();
-        }
-        switch (auswahlUhrwerk) {
-            case "Mechanisch": {
-                VariableStückkostenUhrwerk = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getVarKostenMechanisch();
-                break;
-            }
-            case "Elektromechanisch": {
-                VariableStückkostenUhrwerk = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getVarKostenElektromechanisch();
-                break;
-            }
-            case "Elektronisch": {
-                VariableStückkostenUhrwerk = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getVarKostenElektronisch();
-                break;
-            }
-            default: System.err.println();
-        }
-        switch (auswahlGehäuse) {
-            case "Glas": {
-                VariableStückkostenGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getVarKostenGlas();
-                break;
-            }
-            case "Holz": {
-                VariableStückkostenGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getVarKostenHolz();
-                break;
-            }
-            case "Kunststoff": {
-                VariableStückkostenGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getVarKostenKunststoff();
-                break;
-            }
-            case "Metall": {
-                VariableStückkostenGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getVarKostenMetall();
-                break;
-            }
-            default: System.err.println();
-        }
-        VariableStückKosten = VariableStückkostenZeitarbeiter + VariableStückkostenArmband +
-                VariableStückkostenUhrwerk + VariableStückkostenGehäuse;
-    } // Ende berechneVariableStückkosten()
-
-
-    public void berechneVariableKosten() {
-        VariableKosten = VariableStückKosten * Produktionsvolumen;
-    }
-
-
-    public void berechneGesamtkosten() {
-        Gesamtkosten = Fixkosten + VariableKosten;
-    }
-
-
-    public void berechneStückkosten() {
-        Stückkosten = Gesamtkosten / Produktionsvolumen;
-    }
-
-    */
-
     public double getPWS(String ReservationspreisZeitarbeiter,
                          String ReservationspreisForschung, String ReservationspreisMarketing,
                          String ReservationspreisArmband, String ReservationspreisUhrwerk,
@@ -346,7 +184,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         return ReservapForschung;
     }
 
-    public double getMarketingPWS (String Marketing{
+    public double getMarketingPWS (String Marketing){
         double ReservapMarketing = 0;
         try {
             switch (Marketing) {
@@ -543,10 +381,16 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
                                           String ReservationspreisArmband, String ReservationspreisUhrwerk,
                                           String ReservationspreisGehäuse, String ReservationspreisBezahlart) {
 
-        Produktionsvolumen = auftragssammlung.getAuftrag(RundenNr).getMenge();
-        Reservationspreis = (auftrag.getPersonalwesen().getFixkosten() + ReservapForschung +
-                ReservapMarketing + ReservapBezahlart)
-                + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse));
+        double PWS = getPWS(ReservationspreisZeitarbeiter, ReservationspreisForschung, ReservationspreisMarketing,
+                ReservationspreisArmband, ReservationspreisUhrwerk, ReservationspreisGehäuse, ReservationspreisBezahlart);
+        double stueckKosten = auftrag.getVarKosten()+auftrag.getFixKosten()/auftrag.getMenge();
+
+        double reservationspreis = stueckKosten * (1+PWS);
+        this.Reservationspreis = reservationspreis;
+        //Reservationspreis = (auftrag.getPersonalwesen().getFixkosten() + ReservapForschung +
+            //    ReservapMarketing + ReservapBezahlart)
+          //      + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse));
+        //Produktionsvolumen = auftragssammlung.getAuftrag(RundenNr).getMenge();
 
     } // Ende berechneReservationspreis()
 
