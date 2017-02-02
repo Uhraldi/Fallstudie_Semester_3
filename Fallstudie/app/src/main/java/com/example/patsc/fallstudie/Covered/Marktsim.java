@@ -118,7 +118,7 @@ public class Marktsim {
     public ArrayList berechneAbsatz() throws Exception {
 
 
-        for (int i = 0; i < anzSpieler; i++) {                            //(1) Abweichungen wirken sich auf die prozentualenVorteile aus. 80, 100 und 150 % Schritte
+        for (int i = 0; i < anzSpieler; i++) {                            //(1) Abweichungen wirken sich auf das bonusarray aus. 80, 100 und 150 % Schritte
             if (differenz.get(i) < (0 - reservationspreisarray.get(i) * 0.60)) {
                 double y = bonusarray.get(i) - 0.15;
                 bonusarray.set(i, y);
@@ -303,7 +303,7 @@ public class Marktsim {
         }
         double sum1 = sum;
         for (int i = 0; i < absatzarrayint.size(); i++) {           // Befüllen der ArrayList "martkanteil" mit dem prozentualen Anteil jedes Spielers
-            marktanteil.add((double) Math.round((double) absatzarraydouble.get(i) / sum1 * 100) / 100);
+            marktanteil.add((double) Math.round(((double) absatzarraydouble.get(i) / sum1) * 100) / 100);
         }
     } //Ende berechneMarktanteil
 
@@ -326,6 +326,7 @@ public class Marktsim {
     /**
      * Addiert zum Guthaben des Spielers den Rundengewinn hinzu.
      */
+
     public void setGuthabenAktiverSpieler() {
         Controller.aktiverSpieler.setGuthaben(Controller.aktiverSpieler.getGuthaben() + getRundenGewinn(Controller.aktiverSpieler.getName()));
     }
