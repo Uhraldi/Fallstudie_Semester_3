@@ -141,7 +141,7 @@ public class Marktsim {
 
         for (int i = 0; i < anzSpieler; i++) {
 
-            if (vkparray.get(i) <= lowGrenze) {        // (2)                                                      //Todo Personalwesen einbauen
+            if (vkparray.get(i) <= lowGrenze) {        // (2)
                 double y = ((double) randInt(30, 80) / 100 + bonusarray.get(i));
                 if (y > 1) {
                     y = 1;
@@ -312,7 +312,7 @@ public class Marktsim {
      */
     public void berechneRundengewinn() {
         for (int i = 0; i < absatzarrayint.size(); i++) {
-            rundenGewinn.add((double) Math.round(((int) absatzarrayint.get(i) * vkparray.get(i)) - (double) gesamtkostenarray.get(i) * 100) / 100);
+            rundenGewinn.add((double) Math.round((((int) absatzarrayint.get(i) * vkparray.get(i)) - (double) gesamtkostenarray.get(i)) * 100) / 100);
         }
     }
 
