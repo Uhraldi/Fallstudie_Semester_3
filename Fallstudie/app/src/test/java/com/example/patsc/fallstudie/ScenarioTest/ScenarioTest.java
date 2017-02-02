@@ -26,7 +26,7 @@ public class ScenarioTest {
     private static String AUSWAHL_JULIAN_UHRWERK = Controller.UHRWERK_WAHL_ELEKTROMECHANISCH;
     private static String AUSWAHL_JULIAN_GEHAEUSE = Controller.GEHAEUSE_WAHL_KUNSTSTOFF;
     private static String AUSWAHL_JULIAN_BEZAHLARTEN = Controller.BEZAHLART_WAHL_RECHNUNG;
-    private static float AUSWAHL_JULIAN_PRODUKTIONSVOLUMEN = 10000;
+    private static float AUSWAHL_JULIAN_PRODUKTIONSVOLUMEN = 2000;
     private static float AUSWAHL_JULIAN_VERKAUFSPREIS = 100;
     private double GEWINN_JULIAN;
     private float ABSATZ_JULIAN;
