@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        IntroductionActivity.Controller.setActivity_Login();
+        // IntroductionActivity.Controller.setActivity_Login(); // doppelt
         c = IntroductionActivity.Controller;
         c.setActivity_Login();
 

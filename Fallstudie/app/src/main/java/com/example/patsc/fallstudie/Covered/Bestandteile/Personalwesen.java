@@ -13,9 +13,9 @@ public class Personalwesen {
         private double fixkosten ; //// TODO: 24.01.2017 #Vincent werte anpassen
 
     //EKPs
-        private double personalKostenProMitarbeiter = 3000; //ToDo richtiger Wert
+        private double personalKostenProMitarbeiter = 27600;
 
-    private int anzahlDerMöglichenUhrenProMitarbeiter = 5000;//ToDo richtiger Wert
+    private int anzahlDerMöglichenUhrenProMitarbeiter = 3000;
 
     /**
      * Constructor

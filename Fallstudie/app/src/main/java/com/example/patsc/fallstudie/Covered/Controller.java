@@ -411,8 +411,14 @@ public class Controller {
         setzeAlleZustaendeFalse();
         setzeAlleSchritteFalse();
         setZustand_Spielbeginn(true);
-
-
+        //#Netzwerk
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+              funkturm.registriereSpieler("", "");
+              //  funkturm.unidleServer();
+            }});
+        t.start();
     }
 
 
@@ -499,12 +505,11 @@ public class Controller {
             int maxCount = 0;
             do {
                 maxCount++;
-                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
+                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl()+1, aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
                 Runnable r = new SendeRundeThread(rundenErgebnisWrapper, this);
                 Thread t = new Thread(r);
                 t.start();
                 while (t.isAlive()) {
-
                 }
             }while(sendeRundeBool && maxCount<3);
 
@@ -524,9 +529,9 @@ public class Controller {
             int maxCount2 = 0;
             do {
                 maxCount2++;
-                SpielerDatenWrapper spieler = new SpielerDatenWrapper(aktiverSpieler.getName(), aktiverSpieler.getPasswort(), daten.getRundenAnzahl(), aktiverSpieler.getGuthaben(), aktiverSpieler.getMarktanteil(), aktiverSpieler.getKontoSchnitt());
+                SpielerDatenWrapper spieler = new SpielerDatenWrapper(aktiverSpieler.getName(), aktiverSpieler.getPasswort(), daten.getRundenAnzahl()/*evtl. hier +1 #cool*/, aktiverSpieler.getGuthaben(), aktiverSpieler.getMarktanteil(), aktiverSpieler.getKontoSchnitt());
                 Runnable r2 = new UpdateThread(spieler, this);
-                Thread t2 = new Thread(r);
+                Thread t2 = new Thread(r2);
                 t2.start();
                 while (t2.isAlive()) {
 

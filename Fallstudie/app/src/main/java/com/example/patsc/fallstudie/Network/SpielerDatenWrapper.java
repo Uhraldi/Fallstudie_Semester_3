@@ -3,6 +3,7 @@ package com.example.patsc.fallstudie.Network;
 import com.example.patsc.fallstudie.Covered.Spieler;
 
 /**
+ * @author Vincent Schmalor
  * Created by vince on 28.01.2017.
  */
 
