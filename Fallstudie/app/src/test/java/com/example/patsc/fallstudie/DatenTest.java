@@ -21,6 +21,8 @@ public class DatenTest {
 
     Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
 
+    boolean ispassed = false;
+
     public DatenTest() throws Exception {
     }
 
@@ -52,8 +54,13 @@ public class DatenTest {
     public void addSpielerListeFailTest(){
         Daten TestDaten = new Daten();
         TestSpieler = null;
-        TestDaten.addSpielerListe(TestSpieler);
+        try {
+            TestDaten.addSpielerListe(TestSpieler);
+        }catch (Exception e){
+            ispassed = true;
+        }
 
+        Assert.assertTrue(ispassed);
     }
 
     @Test

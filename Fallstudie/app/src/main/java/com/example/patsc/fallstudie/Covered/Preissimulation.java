@@ -32,12 +32,12 @@ public class Preissimulation {
     private double Gesamtkosten;
     private double Stückkosten;
 
-   // public String toString(){
-     //   String persoString;
-       // persoString = Fixkosten + ":" + FixkostenPersonalwesen + ":" + FixkostenForschung + ":" + FixkostenForschung + ":" +  FixkostenMarketing + ":" +FixkostenBezahlart + ":";
-      //  persoString = persoString + ":" + VariableKosten + ":" +VariableStückKosten + ":"+ VariableStückkostenZeitarbeiter + ":"+ VariableStückkostenArmband + ":"+ VariableStückkostenUhrwerk + ":"+ VariableStückkostenGehäuse+ ":";
-      //  return persoString;
-   // }
+    // public String toString(){
+    //   String persoString;
+    // persoString = Fixkosten + ":" + FixkostenPersonalwesen + ":" + FixkostenForschung + ":" + FixkostenForschung + ":" +  FixkostenMarketing + ":" +FixkostenBezahlart + ":";
+    //  persoString = persoString + ":" + VariableKosten + ":" +VariableStückKosten + ":"+ VariableStückkostenZeitarbeiter + ":"+ VariableStückkostenArmband + ":"+ VariableStückkostenUhrwerk + ":"+ VariableStückkostenGehäuse+ ":";
+    //  return persoString;
+    // }
 
     private double Reservationspreis;
     private double ReservapZeitarbeiter;
@@ -51,7 +51,7 @@ public class Preissimulation {
     /*
     Konstruktor für die Preissimulation
      */
-    public Preissimulation (Controller controller) {
+    public Preissimulation(Controller controller) {
         this.RundenNr = controller.getRunde();
         this.auftragssammlung = controller.getAktiverSpieler().getAuftragssammlung();
         c = controller;
@@ -59,7 +59,7 @@ public class Preissimulation {
         berechneReservationspreis(c.getZeitarbeiterAktuellerAuftrag(), c.getForschungAktuellerAuftrag(), c.getMarketingAktuellerAuftrag(), c.getArmbandAktuellerAuftrag(),
                 c.getGehaeuseAktuellerAuftrag(), c.getUhrwerkAktuellerAuftrag(), c.getBezahlartAktuellerAuftrag());
 
-       //ToDo berechneReservationspreis(c.getMarketingAktuellerAuftrag(),c.getZeitarbeiterAktuellerAuftrag(),c.get)
+        //ToDo berechneReservationspreis(c.getMarketingAktuellerAuftrag(),c.getZeitarbeiterAktuellerAuftrag(),c.get)
 
         /*
         berechneGesamtkosten();
@@ -71,15 +71,26 @@ public class Preissimulation {
     /*
     Getter-Methoden
      */
-    public double getFixkosten() { return Fixkosten; }
-    public double getVariableStückKosten() { return VariableStückKosten; }
+    public double getFixkosten() {
+        return Fixkosten;
+    }
+
+    public double getVariableStückKosten() {
+        return VariableStückKosten;
+    }
+
     public double getVariableKosten() {
         return VariableKosten;
     }
+
     public double getGesamtkosten() {
         return Gesamtkosten;
     }
-    public double getStückkosten() { return Stückkosten; }
+
+    public double getStückkosten() {
+        return Stückkosten;
+    }
+
     public double getReservationspreis() {
         return Reservationspreis;
     }
@@ -247,7 +258,6 @@ public class Preissimulation {
     */
 
 
-
     /*
     Berechne den Reservationspreis
      */
@@ -285,10 +295,9 @@ public class Preissimulation {
                     System.err.println("Keine Auswahl getroffen worden.");
                 }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch (Exception e) {
-                e.printStackTrace();
-            }
         try {
             switch (ReservationspreisForschung) {
                 case "15000€ Investition": {
@@ -310,8 +319,7 @@ public class Preissimulation {
                     System.err.println("Keine Auswahl getroffen worden.");
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
@@ -335,8 +343,7 @@ public class Preissimulation {
                     System.err.println("Keine Auswahl getroffen worden.");
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
@@ -372,11 +379,10 @@ public class Preissimulation {
                     break;
                 }
                 default: {
-                     System.err.println("Keine Auswahl getroffen worden.");
+                    System.err.println("Keine Auswahl getroffen worden.");
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
@@ -397,11 +403,10 @@ public class Preissimulation {
                     break;
                 }
                 default: {
-                     System.err.println("Keine Auswahl getroffen worden.");
+                    System.err.println("Keine Auswahl getroffen worden.");
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
@@ -434,8 +439,7 @@ public class Preissimulation {
                     System.err.println("Keine Auswahl getroffen worden");
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
@@ -462,46 +466,45 @@ public class Preissimulation {
                     System.err.println("Keine Auswahl getroffen worden");
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        Produktionsvolumen  = auftragssammlung.getAuftrag(RundenNr).getMenge();
+        Produktionsvolumen = auftragssammlung.getAuftrag(RundenNr).getMenge();
         Reservationspreis = (auftrag.getPersonalwesen().getFixkosten() + ReservapForschung +
-                    ReservapMarketing + ReservapBezahlart)
+                ReservapMarketing + ReservapBezahlart)
                 + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse) * Produktionsvolumen);
     } // Ende berechneReservationspreis()
 
     /**
-     * ToDo Dominik
+     * Aufaddieren der Bonuswerte
+     *
      * @return
      */
 
-    public int getBonus(){
- /*
-        for (Auftrag s : bestellpos) { //// TODO: 24.01.2017 #Dodo in Preissimulation auslagern //Controller.aktiverSpieler.getAktuellerAuftrag();<- ist der aktuelle Spieler
-            double zwischenspeicher = 0;
-            if (s.getBezahlartAktuellerAuftrag().isKreditkarte()) {
-                zwischenspeicher += s.getBezahlartAktuellerAuftrag().getKreditkarteZufall();
-            }
-            if (s.getBezahlartAktuellerAuftrag().isPayPal()) {
-                zwischenspeicher += s.getBezahlartAktuellerAuftrag().getPayPalZufall();
-            }
-            if (s.getBezahlartAktuellerAuftrag().isRechnung()) {
-                zwischenspeicher += s.getBezahlartAktuellerAuftrag().getRechnungZufall();
-            }
-            if (s.getMarketingAktuellerAuftrag().isFernsehwerbung()) {
-                zwischenspeicher += s.getMarketingAktuellerAuftrag().getFernsehwerbungPWS();
-            }
-            if (s.getMarketingAktuellerAuftrag().isRadiowerbung()) {
-                zwischenspeicher += s.getMarketingAktuellerAuftrag().getRadiowerbungPWS();
-            }
-            if (s.getMarketingAktuellerAuftrag().isPrintwerbung()) {
-                zwischenspeicher += s.getMarketingAktuellerAuftrag().getPrintwerbungPWS();
-            }
-           // prozentualeVorteile.add(zwischenspeicher);
+    public double getBonus() {
+
+        Auftrag s = c.aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag();
+        double zwischenspeicher = 0;
+
+        if (s.getBezahlart().isKreditkarte()) {
+            zwischenspeicher += s.getBezahlart().getKreditkarteZufall();
         }
-        */
-        return 123;
+        if (s.getBezahlart().isPayPal()) {
+            zwischenspeicher += s.getBezahlart().getPayPalZufall();
+        }
+        if (s.getBezahlart().isRechnung()) {
+            zwischenspeicher += s.getBezahlart().getRechnungZufall();
+        }
+        if (s.getMarketing().isFernsehwerbung()) {
+            zwischenspeicher += s.getMarketing().getFernsehwerbungPWS();
+        }
+        if (s.getMarketing().isRadiowerbung()) {
+            zwischenspeicher += s.getMarketing().getRadiowerbungPWS();
+        }
+        if (s.getMarketing().isPrintwerbung()) {
+            zwischenspeicher += s.getMarketing().getPrintwerbungPWS();
+        }
+
+        return zwischenspeicher;
     }
-} // Ende Klasse
+} // Ende Klasse getBonus

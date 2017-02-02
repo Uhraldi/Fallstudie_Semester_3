@@ -35,7 +35,7 @@ public class SpielerTest {
 
     @Test
     public void getStartguthabenTest(){
-        Assert.assertTrue(TestSpieler.getGuthaben() == 10000);
+        Assert.assertTrue(TestSpieler.getGuthaben() == 150000);
     }
 
     @Test

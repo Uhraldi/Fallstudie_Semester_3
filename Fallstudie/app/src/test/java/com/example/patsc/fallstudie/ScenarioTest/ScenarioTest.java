@@ -11,6 +11,7 @@ import com.example.patsc.fallstudie.Covered.Spieler;
 import org.junit.Test;
 
 import java.util.ResourceBundle;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by julian on 11.01.2017.
@@ -66,27 +67,36 @@ public class ScenarioTest {
     public void bestellen(Controller Controller, String Auswahlzeitarbeiter,String Auswahlforschung, String Auswahlmarketing, String Auswahlarmband, String Auswahluhrwerk,String Auswahlgehaeuse, String Bezahlarten, Float Produktionsvolumen, Float Verkaufspreis ){
         Controller.setSCHRITT_ZEITARBEITER_boolean(true);
         Controller.setZeitarbeiterAktuell(Auswahlzeitarbeiter);
+        System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Auswahlzeitarbeiter + " bestellt");
         Controller.setSCHRITT_FORSCHUNG_boolean(true);
         Controller.setForschungAktuell(Auswahlforschung);
+        System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Auswahlforschung + " bestellt");
         Controller.setSCHRITT_MARKETING_boolean(true);
         Controller.setMarketingAktuell(Auswahlmarketing);
+        System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Auswahlmarketing + " bestellt");
         Controller.setSCHRITT_ARMBAND_boolean(true);
         Controller.setArmbandAktuell(Auswahlarmband);
+        System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Auswahlarmband + " bestellt");
         Controller.setSCHRITT_UHRWERK_boolean(true);
         Controller.setUhrwerkAktuell(Auswahluhrwerk);
+        System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Auswahluhrwerk + " bestellt");
         Controller.setSCHRITT_GEHAUESE_boolean(true);
         Controller.setGehaeuseAktuell(Auswahlgehaeuse);
+        System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Auswahlgehaeuse + " bestellt");
         Controller.setSCHRITT_BEZAHLART_boolean(true);
         Controller.setBezahlartAktuell(Bezahlarten);
+        System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Bezahlarten + " bestellt");
         Controller.setSCHRITT_PRODUKTIONSVOLUMEN_boolean(true);
         Controller.setProduktionsvolumenAktuell(Produktionsvolumen);
+        System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Produktionsvolumen + " Uhren bestellt");
         Controller.setSCHRITT_VERKAUFSPREIS_boolean(true);
         Controller.setVerkaufspreisAktuell(Verkaufspreis);
+        System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Verkaufspreis + " als VKP festgelegt");
     }
 
     public void Rundenergebnisse(Controller Controller, Double Gewinn, float Absatz, double Marktanteil, float Position, double Guthaben){
         System.out.println("-------------------------------------------------------------");
-        System.out.println("Ergebnisse für" + Controller.getAktiverSpieler().getName());
+        System.out.println("Ergebnisse für " + Controller.getAktiverSpieler().getName());
         System.out.println("Runde: " + Controller.getRunde());
         System.out.println("Absatz: " + Absatz);;
         System.out.println("Marktanteil: " + Marktanteil);
@@ -173,7 +183,9 @@ public class ScenarioTest {
                 AUSWAHL_JULIAN_VERKAUFSPREIS);
         Controller.setActivity_Berechnung();
 
-/*
+
+        /*
+
         //Sebastian ist dran
         Controller.aktiverSpieler = Sebastian;
         Controller.setZustand_Bestellung(true);
@@ -189,6 +201,8 @@ public class ScenarioTest {
                 AUSWAHL_SEBASTIAN_VERKAUFSPREIS);
         Controller.setActivity_Berechnung();
 
+
+
         //Jonas ist dran
         Controller.aktiverSpieler = Jonas;
         Controller.setZustand_Bestellung(true);
@@ -203,33 +217,36 @@ public class ScenarioTest {
                 AUSWAHL_JONAS_PRODUKTIONSVOLUMEN,
                 AUSWAHL_JONAS_VERKAUFSPREIS);
         Controller.setActivity_Berechnung();
-*/
+
         System.out.println("Alle bestellt ");
+
+        */
         //5. Rundenergebnisse anzeigen
             //Rundenergebnis von Julian
             Controller.aktiverSpieler = Julian;
             //TEST
 
             //TEST
-            ABSATZ_JULIAN=Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz();
+            ABSATZ_JULIAN=Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz(Controller.getAktiverSpieler().getName());
             MARKTANTEIL_JULIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(Controller.getAktiverSpieler().getName());
-            GEWINN_JULIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenGewinn(Controller.aktiverSpieler.getName());
+            GEWINN_JULIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenGewinn(Controller.getAktiverSpieler().getName());
             GUTHABEN_JULIAN = Controller.getGuthaben();
             POSITION_JULIAN = Controller.getPosition();
             Rundenergebnisse(Controller,GEWINN_JULIAN, ABSATZ_JULIAN,MARKTANTEIL_JULIAN,POSITION_JULIAN,GUTHABEN_JULIAN);
-          /*  Controller.aktiverSpieler = Sebastian;
-            ABSATZ_SEBASTIAN=Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz();
+         /*   Controller.aktiverSpieler = Sebastian;
+            ABSATZ_SEBASTIAN=Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz(Controller.getAktiverSpieler().getName());
             MARKTANTEIL_SEBASTIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(Controller.getAktiverSpieler().getName());
-            GEWINN_SEBASTIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getGewinn();
+            GEWINN_SEBASTIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenGewinn(Controller.getAktiverSpieler().getName());
             GUTHABEN_SEBASTIAN = Controller.getGuthaben();
             POSITION_SEBASTIAN = Controller.getPosition();
             Rundenergebnisse(Controller,GEWINN_SEBASTIAN, ABSATZ_SEBASTIAN, MARKTANTEIL_SEBASTIAN, POSITION_SEBASTIAN, GUTHABEN_SEBASTIAN);
             Controller.aktiverSpieler = Jonas;
-            ABSATZ_JONAS = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz();
+            ABSATZ_JONAS = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz(Controller.getAktiverSpieler().getName());
             MARKTANTEIL_JONAS = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(Controller.getAktiverSpieler().getName());
-            GEWINN_JONAS = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getGewinn();
+            GEWINN_JONAS = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenGewinn(Controller.getAktiverSpieler().getName());
             GUTHABEN_JONAS = Controller.getGuthaben();
             POSITION_JONAS = Controller.getPosition();
-            Rundenergebnisse(Controller,GEWINN_JONAS, ABSATZ_JONAS, MARKTANTEIL_JONAS, POSITION_JONAS,GUTHABEN_JONAS);*/
+            Rundenergebnisse(Controller,GEWINN_JONAS, ABSATZ_JONAS, MARKTANTEIL_JONAS, POSITION_JONAS,GUTHABEN_JONAS);
+        */
     }
 }
