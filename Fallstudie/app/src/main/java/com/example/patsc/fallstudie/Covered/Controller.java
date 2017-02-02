@@ -1500,12 +1500,14 @@ public class Controller {
     public boolean gleichenWerteNochmal (){
 
         aktiverSpieler.getAuftragssammlung().neuerAuftragGleicheWerte();
-        if (veraenderePersonal(aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt)){
-            veraenderePersonal(aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
-            daten.erhoeheRundenanzahl();
+        daten.erhoeheRundenanzahl();
+        veraenderePersonal(aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
+        if (persoAenderungErlaubt(aktiverSpieler.getVeraenderungPersonal(), aktiverSpieler, daten.getRundenAnzahl())) {
+            return true;
+        }
+        else{
+            aktiverSpieler.setVeraenderungPersonal(0);
             return true;}
-        else
-            return false;
     }
 
     public boolean starteNaechsteRunde (){

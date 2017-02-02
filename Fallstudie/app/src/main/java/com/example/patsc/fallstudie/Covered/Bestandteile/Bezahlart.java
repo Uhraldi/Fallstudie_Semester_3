@@ -22,9 +22,10 @@ public class Bezahlart {
     private double PayPalPWS = 0.05;
 
     //Time-to-Market (wird behandelt wie Zufall aber mit fixen werten
-    private double KreditkarteZufall = 0.1;
-    private double RechnungZufall = 0;
-    private double PayPalZufall = -0.1;
+    private double KreditkarteZufall = 0.15;
+    private double RechnungZufall = 0.05;
+
+    private double PayPalZufall = 0.1;
 
 
     /**
