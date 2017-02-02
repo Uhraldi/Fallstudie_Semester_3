@@ -13,7 +13,7 @@ public class RundenErgebnisWrapper {
     private String id = null;
     private int runde = -1;
     private int menge = -1;
-    private int personalanzahl = -1;
+    private int personalanzahl = 2;
     private double respr = -1;
     private double vkp = -1;
     private double gesamtKosten = -1;

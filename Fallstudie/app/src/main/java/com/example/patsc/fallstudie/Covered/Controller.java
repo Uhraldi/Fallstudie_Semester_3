@@ -886,9 +886,7 @@ public class Controller {
         return veraenderePersonal(neueMitarbeiter*(-1),aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
     }
     public void keineVeraenderung(){
-        int i = aktiverSpieler.getVeraenderungPersonal();
-        aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().bestellePersonalwesen(i);
-        aktiverSpieler.setVeraenderungPersonal(0);
+        kuendigen(0);
     }
 
     public boolean veraenderePersonal (int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
