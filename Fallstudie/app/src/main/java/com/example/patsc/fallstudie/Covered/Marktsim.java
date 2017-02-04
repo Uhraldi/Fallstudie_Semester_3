@@ -34,8 +34,7 @@ public class Marktsim {
     private ArrayList absatzarraydouble = new ArrayList();
     private ArrayList<Double> marktanteil = new ArrayList<Double>();
     private ArrayList<Double> rundenGewinn = new ArrayList<Double>();
-    private ArrayList<Double> summierterGewinn = new ArrayList<Double>();
-    private ArrayList<Double> bonusarray = new ArrayList<Double>();
+    private ArrayList<Double> absatzbonusarray = new ArrayList<Double>();
     private ArrayList<Double> vkparray = new ArrayList<Double>();
     private ArrayList<Integer> mengearray = new ArrayList<Integer>();
     private ArrayList<Double> reservationspreisarray = new ArrayList<Double>();
@@ -55,10 +54,8 @@ public class Marktsim {
      * @throws Exception
      */
     public Marktsim(Controller controller, RundenErgebnisWrapper[] rundenErgebnisWrapper) throws Exception {
-
         this.Controller = controller;
         this.rundenergebniswrapperarray = rundenErgebnisWrapper;
-
         for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {
             reservationspreisarray.add(p.getRespr());
         }
@@ -84,7 +81,7 @@ public class Marktsim {
         }
 
         for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // Menge-Abfrage
-            bonusarray.add(p.getBonus());
+            absatzbonusarray.add(p.getBonus());
         }
 
         for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // Kontostand-Abfrage
@@ -120,20 +117,20 @@ public class Marktsim {
 
         for (int i = 0; i < anzSpieler; i++) {                            //(1) Abweichungen wirken sich auf das bonusarray aus. 80, 100 und 150 % Schritte
             if (differenz.get(i) < (0 - reservationspreisarray.get(i) * 0.60)) {
-                double y = bonusarray.get(i) - 0.15;
-                bonusarray.set(i, y);
+                double y = absatzbonusarray.get(i) - 0.15;
+                absatzbonusarray.set(i, y);
             }
             if (differenz.get(i) < (0 - reservationspreisarray.get(i) * 0.80)) {
-                double y = bonusarray.get(i) - 0.25;
-                bonusarray.set(i, y);
+                double y = absatzbonusarray.get(i) - 0.25;
+                absatzbonusarray.set(i, y);
             }
             if (differenz.get(i) < (0 - reservationspreisarray.get(i) * 1.5)) {
-                double y = bonusarray.get(i) - 0.375;
-                bonusarray.set(i, y);
+                double y = absatzbonusarray.get(i) - 0.375;
+                absatzbonusarray.set(i, y);
             }
             if (differenz.get(i) < (0 - reservationspreisarray.get(i) * 2.0)) {
-                double y = bonusarray.get(i) - 0.8;
-                bonusarray.set(i, y);
+                double y = absatzbonusarray.get(i) - 0.8;
+                absatzbonusarray.set(i, y);
             }
 
         }
@@ -142,7 +139,7 @@ public class Marktsim {
         for (int i = 0; i < anzSpieler; i++) {
 
             if (vkparray.get(i) <= lowGrenze) {        // (2)
-                double y = ((double) randInt(30, 80) / 100 + bonusarray.get(i));
+                double y = ((double) randInt(30, 80) / 100 + absatzbonusarray.get(i));
                 if (y > 1) {
                     y = 1;
                 }
@@ -169,7 +166,7 @@ public class Marktsim {
                 lowarray.add(i);
             } else {
                 if (vkparray.get(i) <= middleGrenze) { //Abfrage, ob der Verkaufspreis ins Middle-Segment fällt
-                    double y = ((double) randInt(30, 50) / 100 + bonusarray.get(i));
+                    double y = ((double) randInt(30, 50) / 100 + absatzbonusarray.get(i));
                     if (y > 1) {
                         y = 1;
                     }
@@ -196,7 +193,7 @@ public class Marktsim {
                     middlearray.add(i);
                 } else {
                     if (vkparray.get(i) > middleGrenze) { //Abfrage, ob der Verkaufspreis ins Middle-Segment fällt
-                        double y = ((double) randInt(35, 70) / 100 + bonusarray.get(i));
+                        double y = ((double) randInt(35, 70) / 100 + absatzbonusarray.get(i));
                         if (y > 1) {
                             y = 1;
                         }
@@ -251,6 +248,7 @@ public class Marktsim {
             double zwischendouble = zwischenint;
             absatzarraydouble.add(zwischendouble);
         }
+
         berechneRundengewinn();                              // (4)
         berechneMarktanteil();
         berechneNeuenKontostand();
@@ -273,7 +271,7 @@ public class Marktsim {
      */
     private void berechneMaSchnitt() {
         for (int i = 0; i < maSchnitt.size(); i++) {
-            double zwischen = (double) maSchnitt.get(i);
+            double zwischen = (double) maSchnitt.get(i) * (rundenergebniswrapperarray[i].getRunde() -1);
             maSchnitt.set(i, ((zwischen + marktanteil.get(i)) / (rundenergebniswrapperarray[i].getRunde())));
         }
     }
@@ -298,11 +296,11 @@ public class Marktsim {
      */
     public void berechneMarktanteil() {
         int sum = 0;
-        for (int i = 0; i < absatzarraydouble.size(); i++) {          // Aufaddieren aller verkauften Uhren von allen Spielern
+        for (int i = 0; i < absatzarrayint.size(); i++) {          // Aufaddieren aller verkauften Uhren von allen Spielern
             sum += (int) absatzarrayint.get(i);
         }
         double sum1 = sum;
-        for (int i = 0; i < absatzarrayint.size(); i++) {           // Befüllen der ArrayList "martkanteil" mit dem prozentualen Anteil jedes Spielers
+        for (int i = 0; i < absatzarraydouble.size(); i++) {           // Befüllen der ArrayList "martkanteil" mit dem prozentualen Anteil jedes Spielers
             marktanteil.add((double) Math.round(((double) absatzarraydouble.get(i) / sum1) * 100) / 100);
         }
     } //Ende berechneMarktanteil
@@ -326,7 +324,6 @@ public class Marktsim {
     /**
      * Addiert zum Guthaben des Spielers den Rundengewinn hinzu.
      */
-
     public void setGuthabenAktiverSpieler() {
         Controller.aktiverSpieler.setGuthaben(Controller.aktiverSpieler.getGuthaben() + getRundenGewinn(Controller.aktiverSpieler.getName()));
     }
