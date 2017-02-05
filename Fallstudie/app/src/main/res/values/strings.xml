@@ -48,7 +48,7 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
 
     //Strings fuer Armband
 
-    <string name="armband_info_textview">Hier können Sie das Material für das Armband auswählen. Bedingt durch Trendentwicklungen, kann es sein, dass manche Materialien in einer Periode beliebter sind als in einer anderen. Entsprechend sind die Kunden bereit mehr Geld für eine solche Uhr zu zahlen. Beachten Sie, dass es durch unvorhersehbare Ereignisse dazu kommen kann, dass manche Materialien nicht geliefert werden können und Sie eventuelle eine Neuauswahl treffen müssen.</string>
+    <string name="armband_info_textview">Hier können Sie das Material für das Armband auswählen. Bedingt durch Trendentwicklungen kann es sein, dass manche Materialien in einer Periode beliebter sind als in einer anderen. Entsprechend sind die Kunden bereit mehr Geld für eine solche Uhr zu zahlen. Beachten Sie, dass es durch unvorhersehbare Ereignisse dazu kommen kann, dass manche Materialien nicht geliefert werden können und Sie eventuell eine Neuauswahl treffen müssen.</string>
     <string name="armband_textview">Materialeinkauf: Armband</string>
     <string-array name="armband_spinner_array">
         <item>Leder (1€)</item>
@@ -61,7 +61,7 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
 
     //Strings fuer Uhrwerk
 
-    <string name="uhrwerk_info_textview">Hier können Sie das Material für das Uhrgehäuse auswählen. Bedingt durch Trendentwicklungen, kann es sein, dass manche Materialien in einer Periode beliebter sind als in einer anderen. Entsprechend sind die Kunden bereit mehr Geld für eine solche Uhr zu zahlen. Beachten Sie, dass es durch unvorhersehbare Ereignisse dazu kommen kann, dass manche Materialien nicht geliefert werden können und Sie eventuelle eine Neuauswahl treffen müssen.</string>
+    <string name="uhrwerk_info_textview">Hier können Sie das Material für das Uhrgehäuse auswählen. Bedingt durch Trendentwicklungen kann es sein, dass manche Materialien in einer Periode beliebter sind als in einer anderen. Entsprechend sind die Kunden bereit mehr Geld für eine solche Uhr zu zahlen. Beachten Sie, dass es durch unvorhersehbare Ereignisse dazu kommen kann, dass manche Materialien nicht geliefert werden können und Sie eventuell eine Neuauswahl treffen müssen.</string>
     <string name="uhrwerk_textview">Materialeinkauf: Uhrwerk</string>
     <string-array name="uhrwerk_spinner_array">
         <item>Mechanisch (4€)</item>
@@ -72,7 +72,7 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
 
     //Strings fuer Gehaeuse
 
-    <string name="gehaeuse_info_textview">Hier können Sie das Gehäuse des Uhrwerks für Ihre Uhren auswählen. Die Wahl des Gehäuses und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen. Außerdem können Zufälle auftreten, die dazu führen, dass bestimmte Auswahlmöglichkeiten aufgrund eines Ereignisses nicht mehr verfügbar sind.</string>
+    <string name="gehaeuse_info_textview">Hier können Sie die Uhrwerkart auswählen. Bedingt durch Trendentwicklungen kann es sein, dass manche Uhrwerke in einer Periode beliebter sind als in einer anderen. Entsprechend sind die Kunden bereit mehr Geld für eine solche Uhr zu zahlen. Beachten Sie, dass es durch unvorhersehbare Ereignisse dazu kommen kann, dass manche Materialien nicht geliefert werden können und Sie eventuell eine Neuauswahl treffen müssen.</string>
     <string name="gehaeuse_textview">Materialeinkauf: Uhrgehäuse</string>
     <string-array name="gehaeuse_spinner_array">
         <item>Glas (2€)</item>
@@ -121,7 +121,7 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
 
     //Strings fuer Produktionsvolumen
 
-    <string name="produktionsvolumen_info_textview">Hier können Sie das gewünschte Produktionsvolumen für die aktuelle Periode festlegen. Die aktuellen Fixkosten und variablen Stückkosten sehen Sie unten. Bedenken Sie, dass Sie ihr Budget nicht überschreiten dürfen und maximal 100 bis 10.000 Uhren produzieren können. </string>
+    <string name="produktionsvolumen_info_textview">Hier können Sie das gewünschte Produktionsvolumen für die aktuelle Periode festlegen. Die aktuellen Fixkosten und variablen Stückkosten sehen Sie unten. Bedenken Sie, dass Sie ihr Budget nicht überschreiten dürfen. In einer Periode können zwischen 100 und 10.000 Uhren produziert werden.</string>
     <string name="produktionsvolumen_textview">Gewünschtes Produktionsvolumen</string>
 
 
@@ -189,7 +189,7 @@ Zu Beginn haben Sie 2 Mitarbeiter im Unternehmen, die für die Vorbereitung des 
     <string name="investition_title">Investition</string>
     <string name="materialeinkauf_title">Materialeinkauf</string>
     <string name="absatz_title">Absatz</string>
-    <string name="bestellzsmfassung_title">Auftrag</string>
+    <string name="bestellzsmfassung_title">Auftragsübersicht</string>
     <string name="berechnung_title">Berechnung</string>
     <string name="rundenergebnis_title">Rundenergebnis</string>
     <string name="bestenliste_title">Bestenliste</string>

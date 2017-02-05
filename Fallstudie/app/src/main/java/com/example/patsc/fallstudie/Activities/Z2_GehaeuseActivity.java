@@ -140,8 +140,8 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
             } else {
                 startActivity(keinZufall);
             }
-
-        }  finish();
+            finish();
+        }
 
     }
 
