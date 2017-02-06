@@ -530,7 +530,15 @@ public class Controller {
             int maxCount2 = 0;
             do {
                 maxCount2++;
-                SpielerDatenWrapper spieler = new SpielerDatenWrapper(aktiverSpieler.getName(), aktiverSpieler.getPasswort(), daten.getRundenAnzahl()/*evtl. hier +1 #cool*/, aktiverSpieler.getGuthaben(), aktiverSpieler.getMarktanteil(), aktiverSpieler.getKontoSchnitt());
+                SpielerDatenWrapper spieler = new SpielerDatenWrapper(
+                        aktiverSpieler.getName(),
+                        aktiverSpieler.getPasswort(),
+                        daten.getRundenAnzahl(),
+                        aktiverSpieler.getGuthaben(),
+                        aktiverSpieler.getMarktanteil(),
+                        aktiverSpieler.getKontoSchnitt(),
+                        aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(),
+                        aktiverSpieler.getVeraenderungPersonal());
                 Runnable r2 = new UpdateThread(spieler, this);
                 Thread t2 = new Thread(r2);
                 t2.start();
