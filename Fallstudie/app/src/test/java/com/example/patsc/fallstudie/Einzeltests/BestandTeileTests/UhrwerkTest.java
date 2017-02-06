@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.BestandTeileTests;
+package com.example.patsc.fallstudie.Einzeltests.BestandTeileTests;
 
 import com.example.patsc.fallstudie.Covered.Auftrag;
 
@@ -15,29 +15,28 @@ import static junit.framework.Assert.fail;
 /**
  * Created by julia on 03.01.2017.
  */
-@RunWith(Theories.class)
-public class ForschungTest {
 
+@RunWith(Theories.class)
+public class UhrwerkTest {
     public static @DataPoints
-    String[] DesignerWerte =
-            {"2500€ Investition", "8000€ Investition", "15000€ Investition"};
+    String[] UhrwerkWerte =
+            {"Mechanisch", "Elektromechanisch", "Elektronisch"};
 
 
     @Theory
-    public void bestelleDesignerTest(String DesignerWerte){
+    public void bestelleUhrwerkTest(String UhrwerkWerte){
         Auftrag testAuftrag = new Auftrag();
         try {
-            testAuftrag.bestelleForschung(DesignerWerte);
+            testAuftrag.bestelleUhrwerk(UhrwerkWerte);
         }catch (Exception e){
-            fail("Fehler bei Variable: "+ DesignerWerte );
+            fail("Sollte kein Fehler werfen");
         }
     }
 
-    @Test
-    public void bestelleDesignerFailTest(){
+    @Test public void bestelleUhrwerkFailTest(){
         Auftrag testAuftrag = new Auftrag();
         try {
-            testAuftrag.bestelleForschung("FAIL");
+            testAuftrag.bestelleUhrwerk("FAIL");
         }catch (Exception e){
             String msg = "Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein";
             Assert.assertEquals(msg, e.getMessage());
@@ -45,15 +44,15 @@ public class ForschungTest {
     }
 
     @Test
-    public void getDesignerTest(){
+    public void getUhrwerktTest(){
         Auftrag testAuftrag = new Auftrag();
         try{
-            testAuftrag.bestelleForschung("2500€ Investition");
+            testAuftrag.bestelleUhrwerk("Mechanisch");
         }catch (Exception e){
             fail(e.getMessage());
         }
-        Assert.assertTrue(testAuftrag.getForschung().isInvestition2500());
-
+        Assert.assertTrue(testAuftrag.getUhrwerk().isMechanisch());
     }
+
 
 }

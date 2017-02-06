@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.BestandTeileTests;
+package com.example.patsc.fallstudie.Einzeltests.BestandTeileTests;
 
 import com.example.patsc.fallstudie.Covered.Auftrag;
 
