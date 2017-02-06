@@ -150,51 +150,133 @@ public class Controller {
     setze den neuen wert true
 
     Das wars!
-     */
+    */
     public void setAENDERE_ARMBAND_boolean(boolean AENDERE_ARMBAND_boolean) {
-        this.AENDERE_ARMBAND_boolean = AENDERE_ARMBAND_boolean;
+        try {
+            if (AENDERE_ARMBAND_boolean = true) {
+                this.AENDERE_ARMBAND_boolean = AENDERE_ARMBAND_boolean;
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setAENDERE_GEHAEUSE_boolean(boolean AENDERE_GEHAEUSE_boolean) {
-        this.AENDERE_GEHAEUSE_boolean = AENDERE_GEHAEUSE_boolean;
+        try {
+            if (AENDERE_GEHAEUSE_boolean = true) {
+                this.AENDERE_GEHAEUSE_boolean = AENDERE_GEHAEUSE_boolean;
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setAENDERE_ZEITARBEITER_boolean(boolean AENDERE_ZEITARBEITER_boolean) {
-        this.AENDERE_ZEITARBEITER_boolean = AENDERE_ZEITARBEITER_boolean;
+        try {
+            if (AENDERE_ZEITARBEITER_boolean = true) {
+                this.AENDERE_ZEITARBEITER_boolean = AENDERE_ZEITARBEITER_boolean;
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setAktiverSpieler(Spieler aktiverSpieler) {
-        this.aktiverSpieler = aktiverSpieler;
+        try {
+            if (isZustand_Spielbeginn()) {
+                this.aktiverSpieler = aktiverSpieler;
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setDaten(Daten daten) {
         this.daten = daten;
     }
     public void setSCHRITT_ARMBAND_boolean(boolean SCHRITT_ARMBAND_boolean) {
-        this.SCHRITT_ARMBAND_boolean = SCHRITT_ARMBAND_boolean;
+        try {
+            setzeAlleSchritteFalse();
+            setSCHRITT_ARMBAND_boolean(true);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setSCHRITT_FORSCHUNG_boolean(boolean SCHRITT_FORSCHUNG_boolean) {
-        this.SCHRITT_FORSCHUNG_boolean = SCHRITT_FORSCHUNG_boolean;
+        try {
+            setzeAlleSchritteFalse();
+            setSCHRITT_FORSCHUNG_boolean(true);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
     // public void setSCHRITT_DICHTHEIT_boolean(boolean SCHRITT_DICHTHEIT_boolean) {
     //     this.SCHRITT_DICHTHEIT_boolean = SCHRITT_DICHTHEIT_boolean;
     // }
     public void setSCHRITT_GEHAUESE_boolean(boolean SCHRITT_GEHAUESE_boolean) {
-        this.SCHRITT_GEHAUESE_boolean = SCHRITT_GEHAUESE_boolean;
+        try {
+            setzeAlleSchritteFalse();
+            setSCHRITT_GEHAUESE_boolean(true);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setSCHRITT_PRODUKTIONSVOLUMEN_boolean(boolean SCHRITT_PRODUKTIONSVOLUMEN_boolean) {
-        this.SCHRITT_PRODUKTIONSVOLUMEN_boolean = SCHRITT_PRODUKTIONSVOLUMEN_boolean;
+        try {
+            setzeAlleSchritteFalse();
+            setSCHRITT_PRODUKTIONSVOLUMEN_boolean(true);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setSCHRITT_UHRWERK_boolean(boolean SCHRITT_UHRWERK_boolean) {
-        this.SCHRITT_UHRWERK_boolean = SCHRITT_UHRWERK_boolean;
+        try {
+            setzeAlleSchritteFalse();
+            setSCHRITT_UHRWERK_boolean(true);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setSCHRITT_VERKAUFSPREIS_boolean(boolean SCHRITT_VERKAUFSPREIS_boolean) {
-        this.SCHRITT_VERKAUFSPREIS_boolean = SCHRITT_VERKAUFSPREIS_boolean;
+        try {
+            setzeAlleSchritteFalse();
+            setSCHRITT_VERKAUFSPREIS_boolean(true);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setSCHRITT_BEZAHLART_boolean(boolean SCHRITT_BEZAHLART_boolean) {
-        this.SCHRITT_BEZAHLART_boolean = SCHRITT_BEZAHLART_boolean;
+        try {
+            setzeAlleSchritteFalse();
+            setSCHRITT_BEZAHLART_boolean(true);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setSCHRITT_MARKETING_boolean(boolean SCHRITT_MARKETING_boolean) {
-        this.SCHRITT_MARKETING_boolean = SCHRITT_MARKETING_boolean;
+        try {
+            setzeAlleSchritteFalse();
+            setSCHRITT_MARKETING_boolean(true);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setSCHRITT_ZEITARBEITER_boolean(boolean SCHRITT_ZEITARBEITER_boolean) {
-        this.SCHRITT_ZEITARBEITER_boolean = SCHRITT_ZEITARBEITER_boolean;
+        try {
+            setzeAlleSchritteFalse();
+            setSCHRITT_ZEITARBEITER_boolean(true);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void setZustand_Spielbeginn(boolean Zustand){
         setzeAlleZustaendeFalse();
@@ -424,6 +506,7 @@ public class Controller {
 
     public void setActivity_Personalwesen () {
 
+
     }
 
 
@@ -432,22 +515,27 @@ public class Controller {
         //ToDo RUndenanzahl erhöhen
         setZustand_Bestellung(true); // Absturz 2.01 fix 2.04
         setSCHRITT_FORSCHUNG_boolean(true);
+
     }
     public void setActivity_Armband () {
         setZustand_Bestellung(true);
         setSCHRITT_ARMBAND_boolean(true);
+
     }
     public void setActivity_Uhrwerk () {
         setZustand_Bestellung(true);
         setSCHRITT_UHRWERK_boolean(true);
+
     }
     public void setActivity_Gehaeuse () {
         setZustand_Bestellung(true);
         setSCHRITT_GEHAUESE_boolean(true);
+
     }
     public void setActivity_Bezahlart () {      //TODO: Anpassung des Namens
         setZustand_Bestellung(true);
         setSCHRITT_BEZAHLART_boolean(true);
+
         //aktiverSpieler.getAuftragssammlung().neuerAuftrag(); // neu
     }
     //  public void setActivity_E6 () {
@@ -457,35 +545,43 @@ public class Controller {
     public void setActivity_Zeitarbeiter () {
         setZustand_Bestellung(true);
         setSCHRITT_ZEITARBEITER_boolean(true);
+
     }
     public void setActivity_Marketing () {
         setZustand_Bestellung(true);
         setSCHRITT_MARKETING_boolean(true);
+
     }
     public void setActivity_Produktionsvolumen () {
         setZustand_Bestellung(true);
         setSCHRITT_PRODUKTIONSVOLUMEN_boolean(true);
+
     }
     public void setActivity_Verkaufspreis () {
         setZustand_Bestellung(true);
         setSCHRITT_VERKAUFSPREIS_boolean(true);
 
+
     }
     public void setActivity_Bestellzusammenfassung () {
         setzeAlleZustaendeFalse();
         setZustand_Bestellung(true);
+
     }
     public void setActivity_Z1 () {
         setZustand_Ereignis(true);
         setAENDERE_ARMBAND_boolean(true);
+
     }
     public void setActivity_Z2 () {
         setZustand_Ereignis(true);
         setAENDERE_GEHAEUSE_boolean(true);
+
     }
     public void setActivity_Z3 () {
         setZustand_Ereignis(true);
         setAENDERE_ZEITARBEITER_boolean(true);
+
     }
 
     public void setActivity_Berechnung (){
@@ -544,6 +640,7 @@ public class Controller {
     }
     public void setActivity_Rundenergebnis () {
         setZustand_Lieferung(true);
+
     }
     public void setActivity_Bestenliste() {
         //TODO: setActivity_Bestenliste
