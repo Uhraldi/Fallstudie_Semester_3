@@ -1,13 +1,13 @@
 package com.example.patsc.fallstudie.Covered;
 
-import com.example.patsc.fallstudie.Network.EmpfangeRundeThread;
-import com.example.patsc.fallstudie.Network.EmpfangeSpielerThread;
+import com.example.patsc.fallstudie.Network.EmpfangeRundeRunnable;
+import com.example.patsc.fallstudie.Network.EmpfangeSpielerRunnable;
 import com.example.patsc.fallstudie.Network.Funkturm;
-import com.example.patsc.fallstudie.Network.RegisterThread;
+import com.example.patsc.fallstudie.Network.RegisterRunnable;
 import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
-import com.example.patsc.fallstudie.Network.SendeRundeThread;
+import com.example.patsc.fallstudie.Network.SendeRundeRunnable;
 import com.example.patsc.fallstudie.Network.SpielerDatenWrapper;
-import com.example.patsc.fallstudie.Network.UpdateThread;
+import com.example.patsc.fallstudie.Network.UpdateRunnable;
 
 /**
  * Created by patsc on 13.12.2016.
@@ -504,14 +504,14 @@ public class Controller {
             //#Netzwerk Runde hochladen
                 // aktiverSpieler.getVeraenderung für die nächste Runde soltle auch gespeichert werden
                 RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
-                Runnable r1 = new SendeRundeThread(rundenErgebnisWrapper, this);
+                Runnable r1 = new SendeRundeRunnable(rundenErgebnisWrapper,funkturm, this);
                 Thread t1 = new Thread(r1);
                 t1.start();
                 while (t1.isAlive()) {
                 }
 
             //#Netzwerk Gegner herunterladen
-            Runnable r2 = new EmpfangeRundeThread(daten.getRundenAnzahl(),this);
+            Runnable r2 = new EmpfangeRundeRunnable(daten.getRundenAnzahl(), funkturm,this);
             Thread t2 = new Thread(r2);
             t2.start();
             while (t2.isAlive()) {
@@ -532,7 +532,7 @@ public class Controller {
                         aktiverSpieler.getKontoSchnitt(),
                         aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(),
                         aktiverSpieler.getVeraenderungPersonal());
-                Runnable r3 = new UpdateThread(spieler, this);
+                Runnable r3 = new UpdateRunnable(spieler, funkturm, this);
                 Thread t3 = new Thread(r3);
                 t3.start();
                 while (t3.isAlive()) {
@@ -1306,7 +1306,7 @@ public class Controller {
      */ public boolean registrierung(String name,String passwort){
         try {
             //#Netzwerk
-            Runnable r = new RegisterThread(name,passwort,this);
+            Runnable r = new RegisterRunnable(name, passwort, funkturm, this);
             Thread t = new Thread(r);
             t.start();
             while(t.isAlive()){
@@ -1338,7 +1338,7 @@ public class Controller {
         //#Netzwerk
         final SpielerDatenWrapper ergebnis;
         Funkturm f = new Funkturm();
-        Runnable r = new EmpfangeSpielerThread(name,passwort,this);
+        Runnable r = new EmpfangeSpielerRunnable(name, passwort, funkturm, this);
         Thread t = new Thread(r);
         t.start();
         while(t.isAlive()){
