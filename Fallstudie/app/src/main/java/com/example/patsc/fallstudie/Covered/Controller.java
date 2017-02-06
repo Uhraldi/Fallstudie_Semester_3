@@ -513,7 +513,7 @@ public class Controller {
 
             //ToDo Prüfung ob alle Spieler Werte eingegeben haben
             // ToDO DB abruf
-            double kosten = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() + aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten();
+            //double kosten = aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() + aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten();
             Preissimulation preissim = new Preissimulation(this); //ToDo
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setPreissim(preissim);
 
