@@ -5,6 +5,8 @@ import com.example.patsc.fallstudie.Covered.Spieler;
 
 import junit.framework.Assert;
 
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -17,14 +19,15 @@ import static org.junit.Assert.fail;
 
 public class DatenTest {
 
-    Daten TestDaten = new Daten();
-
-    Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
-
-    boolean ispassed = false;
-
     public DatenTest() throws Exception {
     }
+
+        Daten TestDaten = new Daten();
+        Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
+        boolean ispassed = false;
+
+
+
 
     @Test
     public void SpielerAnzahlTest(){

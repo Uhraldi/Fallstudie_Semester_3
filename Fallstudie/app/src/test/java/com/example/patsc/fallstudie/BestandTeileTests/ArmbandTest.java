@@ -80,6 +80,7 @@ public class ArmbandTest {
         }catch (Exception e){
             fail(e.getMessage());
         }
+
         Assert.assertTrue(testAuftrag.getArmband().isLeder());
 
     }
