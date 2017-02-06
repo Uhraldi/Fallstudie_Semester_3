@@ -170,32 +170,43 @@ public class Controller {
         this.daten = daten;
     }
     public void setSCHRITT_ARMBAND_boolean(boolean SCHRITT_ARMBAND_boolean) {
+        this.SCHRITT_ARMBAND_boolean = SCHRITT_ARMBAND_boolean;
+
     }
     public void setSCHRITT_FORSCHUNG_boolean(boolean SCHRITT_FORSCHUNG_boolean) {
+        this.SCHRITT_FORSCHUNG_boolean = SCHRITT_FORSCHUNG_boolean;
 
     }
     // public void setSCHRITT_DICHTHEIT_boolean(boolean SCHRITT_DICHTHEIT_boolean) {
     //     this.SCHRITT_DICHTHEIT_boolean = SCHRITT_DICHTHEIT_boolean;
     // }
     public void setSCHRITT_GEHAUESE_boolean(boolean SCHRITT_GEHAUESE_boolean) {
+        this.SCHRITT_GEHAUESE_boolean = SCHRITT_GEHAUESE_boolean;
 
     }
     public void setSCHRITT_PRODUKTIONSVOLUMEN_boolean(boolean SCHRITT_PRODUKTIONSVOLUMEN_boolean) {
+        this.SCHRITT_PRODUKTIONSVOLUMEN_boolean = SCHRITT_PRODUKTIONSVOLUMEN_boolean;
+
 
     }
     public void setSCHRITT_UHRWERK_boolean(boolean SCHRITT_UHRWERK_boolean) {
+        this.SCHRITT_UHRWERK_boolean = SCHRITT_UHRWERK_boolean;
 
     }
     public void setSCHRITT_VERKAUFSPREIS_boolean(boolean SCHRITT_VERKAUFSPREIS_boolean) {
+        this.SCHRITT_VERKAUFSPREIS_boolean = SCHRITT_VERKAUFSPREIS_boolean;
 
     }
     public void setSCHRITT_BEZAHLART_boolean(boolean SCHRITT_BEZAHLART_boolean) {
+        this.SCHRITT_BEZAHLART_boolean = SCHRITT_BEZAHLART_boolean;
 
     }
     public void setSCHRITT_MARKETING_boolean(boolean SCHRITT_MARKETING_boolean) {
+        this.SCHRITT_MARKETING_boolean = SCHRITT_MARKETING_boolean;
 
     }
     public void setSCHRITT_ZEITARBEITER_boolean(boolean SCHRITT_ZEITARBEITER_boolean) {
+        this.SCHRITT_ZEITARBEITER_boolean = SCHRITT_ZEITARBEITER_boolean;
 
     }
     public void setZustand_Spielbeginn(boolean Zustand){
