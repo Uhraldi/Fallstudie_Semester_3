@@ -2,7 +2,7 @@ package com.example.patsc.fallstudie.Einzeltests;
 
 import com.example.patsc.fallstudie.Covered.Auftrag;
 import com.example.patsc.fallstudie.Covered.Auftragssammlung;
-import com.example.patsc.fallstudie.Covered.Controller;
+import com.example.patsc.fallstudie.Covered.Bestandteile.Controller.Controller;
 
 import org.junit.Test;
 

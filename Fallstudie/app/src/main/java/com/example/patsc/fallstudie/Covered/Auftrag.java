@@ -1,5 +1,6 @@
 package com.example.patsc.fallstudie.Covered;
 import com.example.patsc.fallstudie.Covered.Bestandteile.*;
+import com.example.patsc.fallstudie.Covered.Bestandteile.Controller.Controller;
 
 /**
  * Created by vince on 01.01.2017.
