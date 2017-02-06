@@ -347,21 +347,21 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
                     //auftrag.getBezahlart().getFixkostenKreditkarte() *
                     // (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkartePWS()) *
                     //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkarteZufall());
-                    // break;
+                    break;
                 }
                 case "Rechnung": {
                     ReservapBezahlart = ReservapBezahlart + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungPWS() + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungZufall();
                     //auftrag.getBezahlart().getFixkostenRechnung() *
                     //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungPWS()) *
                     //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungZufall());
-                    // break;
+                    break;
                 }
                 case "PayPal": {
                     ReservapBezahlart = auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalPWS() + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalZufall();
                     //auftrag.getBezahlart().getFixkostenPayPal() *
                     //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalPWS()) *
                     // (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalZufall());
-                    // break;
+                    break;
                 }
                 default: {
                     System.err.println("Keine Auswahl getroffen worden");

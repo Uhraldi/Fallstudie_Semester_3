@@ -1,7 +1,5 @@
 package com.example.patsc.fallstudie.Network;
 
-import com.example.patsc.fallstudie.Covered.Spieler;
-
 /**
  * @author Vincent Schmalor
  * Created by vince on 28.01.2017.
@@ -15,6 +13,8 @@ public class SpielerDatenWrapper {
     double konto;
     double kontoSchnitt;
     double maSchnitt;
+    int personalAnzahl;
+    int personalVeraenderung;
 
     /**
      * Äquivalent zu RundenErgebnisWrapper mit den Daten, die für den Spieler nötig sind.
@@ -25,13 +25,15 @@ public class SpielerDatenWrapper {
      * @param kontoSchnitt Durchschnitt der bisherigen Kontostände, um am Ende einen Schnitt ausgeben zu können.
      * @param maSchnitt Durchschnitt der bisherigen Marktanteile, um am Ende einen Schnitt ausgeben zu können.
      */
-    public SpielerDatenWrapper(String id, String passwort, int runde, double konto, double maSchnitt, double kontoSchnitt){
+    public SpielerDatenWrapper(String id, String passwort, int runde, double konto, double maSchnitt, double kontoSchnitt, int personalAnzahl, int personalVeraenderung){
         this.id = id;
         this.passwort = passwort;
         this.runde = runde;
         this.konto = konto;
         this.kontoSchnitt = kontoSchnitt;
         this.maSchnitt = maSchnitt;
+        this.personalAnzahl = personalAnzahl;
+        this.personalVeraenderung = personalVeraenderung;
     }
 
     /**

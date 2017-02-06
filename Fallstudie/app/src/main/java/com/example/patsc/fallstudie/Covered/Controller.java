@@ -506,7 +506,7 @@ public class Controller {
             do {
                 maxCount++;
                 // aktiverSpieler.getVeraenderung für die nächste Runde soltle auch gespeichert werden
-                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl()+1, aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
+                RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
                 Runnable r = new SendeRundeThread(rundenErgebnisWrapper, this);
                 Thread t = new Thread(r);
                 t.start();
@@ -530,7 +530,15 @@ public class Controller {
             int maxCount2 = 0;
             do {
                 maxCount2++;
-                SpielerDatenWrapper spieler = new SpielerDatenWrapper(aktiverSpieler.getName(), aktiverSpieler.getPasswort(), daten.getRundenAnzahl()/*evtl. hier +1 #cool*/, aktiverSpieler.getGuthaben(), aktiverSpieler.getMarktanteil(), aktiverSpieler.getKontoSchnitt());
+                SpielerDatenWrapper spieler = new SpielerDatenWrapper(
+                        aktiverSpieler.getName(),
+                        aktiverSpieler.getPasswort(),
+                        daten.getRundenAnzahl(),
+                        aktiverSpieler.getGuthaben(),
+                        aktiverSpieler.getMarktanteil(),
+                        aktiverSpieler.getKontoSchnitt(),
+                        aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(),
+                        aktiverSpieler.getVeraenderungPersonal());
                 Runnable r2 = new UpdateThread(spieler, this);
                 Thread t2 = new Thread(r2);
                 t2.start();
@@ -1373,7 +1381,7 @@ public class Controller {
         RundenErgebnisWrapper[] spielerArray = sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getData());
         for (int i = 0; i<spielerArray.length;i++) {
             if (aktiverSpieler.getName().equals(spielerArray[i].getId())) {
-                pos = i;
+                pos = i + 1;
             } //Ende if
         }// Ende for
         return pos;
