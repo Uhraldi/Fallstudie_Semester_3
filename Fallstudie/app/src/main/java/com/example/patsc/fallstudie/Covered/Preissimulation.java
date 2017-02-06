@@ -127,12 +127,7 @@ public class Preissimulation {
         double ReservapMarketing = 0;
         try {
             switch (Marketing) {
-<<<<<<< HEAD
-
                 case "Fernseh": {
-=======
-                case "Fernsehwerbung": {
->>>>>>> b5e6333d4544b9aad30f7adeadd49bde7ca7a8be
                     ReservapMarketing = auftrag.getMarketing().getFernsehwerbungPWS();
                     break;
                 }
@@ -140,15 +135,12 @@ public class Preissimulation {
                     ReservapMarketing =ReservapMarketing + auftrag.getMarketing().getRadiowerbungPWS();
                     break;
                 }
-<<<<<<< HEAD
+
                 case "Print": {
-                    ReservapMarketing = ReservapMarketing+auftrag.getMarketing().getPrintwerbungPWS();//auftrag.getMarketing().getFixkostenPrintwerbung() *
-                           // (1 + auftrag.getMarketing().getPrintwerbungPWS());
-                   break;
-=======
-                case "Printwerbung": {
-                    ReservapMarketing = ReservapMarketing+auftrag.getMarketing().getPrintwerbungPWS();
->>>>>>> b5e6333d4544b9aad30f7adeadd49bde7ca7a8be
+                    ReservapMarketing = ReservapMarketing + auftrag.getMarketing().getPrintwerbungPWS();//auftrag.getMarketing().getFixkostenPrintwerbung() *
+                    // (1 + auftrag.getMarketing().getPrintwerbungPWS());
+                    break;
+
                 }
                 default: {
                     System.err.println("Keine Auswahl getroffen worden.");
