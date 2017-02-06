@@ -193,18 +193,18 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
                     ReservapMarketing = auftragssammlung.getAuftrag(RundenNr).getMarketing().getFernsehwerbungPWS();
                     //auftrag.getMarketing().getFixkostenFernsehwerbung() *
                             //(1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getFernsehwerbungPWS());
-                    //break;
+                    break;
                 }
                 case "Radiowerbung": {
                     ReservapMarketing =ReservapMarketing + auftragssammlung.getAuftrag(RundenNr).getMarketing().getRadiowerbungPWS();
                     //auftrag.getMarketing().getFixkostenRadiowerbung() *
                             //(1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getRadiowerbungPWS());
-                    //break;
+                    break;
                 }
                 case "Printwerbung": {
                     ReservapMarketing = ReservapMarketing+auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungPWS();//auftrag.getMarketing().getFixkostenPrintwerbung() *
                            // (1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungPWS());
-                   // break;
+                   break;
                 }
                 default: {
                     System.err.println("Keine Auswahl getroffen worden.");
