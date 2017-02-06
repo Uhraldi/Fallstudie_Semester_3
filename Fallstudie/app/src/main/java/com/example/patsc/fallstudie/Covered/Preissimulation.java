@@ -95,169 +95,284 @@ public class Preissimulation {
         return Reservationspreis;
     }
 
-    /* Berechnung vorerst in der Klasse Auftrag
+    public double getPWS(String ReservationspreisZeitarbeiter,
+                         String ReservationspreisForschung, String ReservationspreisMarketing,
+                         String ReservationspreisArmband, String ReservationspreisUhrwerk,
+                         String ReservationspreisGehäuse, String ReservationspreisBezahlart){
+        double PWS = 0;
+        PWS = PWS + getPWSZeitarbeiter(ReservationspreisZeitarbeiter);
+        PWS = PWS + getForschungPWS(ReservationspreisForschung);
+        PWS = PWS + getMarketingPWS(ReservationspreisMarketing);
+        PWS = PWS + getArmbandPWS(ReservationspreisArmband);
+        PWS = PWS + getUhrwerkPWS(ReservationspreisUhrwerk);
+        PWS = PWS + getGehaeusePWS(ReservationspreisGehäuse);
+        PWS = PWS + getBezahlartPWS(ReservationspreisBezahlart);
+        return PWS;
+    }
 
 
-    public void berechneFixkosten(String auswahlPersonalwesen, String auswahlForschung, String auswahlMarketing, String auswahlBezahlart) {
-        switch (auswahlPersonalwesen) {
-            case "Eingestellte": {
-                FixkostenPersonalwesen = auftragssammlung.getAuftrag(RundenNr).getPersonalwesen().getEingestellte();
-                break;
-            }
-            case "Veränderung": {
-                FixkostenPersonalwesen = auftragssammlung.getAuftrag(RundenNr).getPersonalwesen().getVeraenderung();
-                break;
-            }
-            default: System.err.println();
-        }
-        switch (auswahlForschung) {
-            case "2500€ Investition": {
-                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition15000();
-                break;
-            }
-            case "1500€ Investition": {
-                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition8000();
-                break;
-            }
-            case "500€ Investition": {
-                FixkostenForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getFixkostenInvestition2500();
-                break;
-            }
-            default: System.err.println();
-        }
-        switch (auswahlMarketing) {
-            case "Fernsehwerbung": {
-                FixkostenMarketing = auftragssammlung.getAuftrag(RundenNr).getMarketing().getFixkostenFernsehwerbung();
-                break;
-            }
-            case "Radiowerbung": {
-                FixkostenMarketing = auftragssammlung.getAuftrag(RundenNr).getMarketing().getFixkostenRadiowerbung();
-                break;
-            }
-            case "Printwerbung": {
-                FixkostenMarketing = auftragssammlung.getAuftrag(RundenNr).getMarketing().getFixkostenPrintwerbung();
-                break;
-            }
-            default: System.err.println();
-        }
-        switch (auswahlBezahlart) {
-            case "Kreditkarte": {
-                FixkostenBezahlart = auftragssammlung.getAuftrag(RundenNr).getBezahlart().getFixkostenKreditkarte();
-                break;
-            }
-            case "Rechnung": {
-                FixkostenBezahlart = auftragssammlung.getAuftrag(RundenNr).getBezahlart().getFixkostenRechnung();
-                break;
-            }
-            case "PayPal": {
-                FixkostenBezahlart = auftragssammlung.getAuftrag(RundenNr).getBezahlart().getFixkostenPayPal();
-                break;
-            }
-            default: System.err.println();
-        }
-        Fixkosten = FixkostenPersonalwesen + FixkostenForschung + FixkostenMarketing + FixkostenBezahlart;
-    } // Ende berechneFixkosten()
-
-
-    public void berechneVariableStückkosten(String auswahlZeitarbeiter, String auswahlArmband, String auswahlUhrwerk, String auswahlGehäuse) {
-        switch (auswahlZeitarbeiter) {
+public double getPWSZeitarbeiter (String Zeitarbeiter) {
+    double ReservapZeitarbeiter = 0;
+    try {
+        switch (Zeitarbeiter) {
             case "Geselle": {
-                VariableStückkostenZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getVarKostenGeselle();
+                ReservapZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getGesellePWS();
+                //ReservapZeitarbeiter = auftrag.getZeitarbeiter().getVarKostenGeselle() *
+                  //      (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getGesellePWS()) *
+                  //      (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getGeselleZufall());
                 break;
             }
             case "Praktikant": {
-                VariableStückkostenZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getVarKostenPraktikant();
+                ReservapZeitarbeiter =auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getPraktikantPWS();
+                //auftrag.getZeitarbeiter().getVarKostenPraktikant(); //*
+                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getPraktikantPWS()) *
+                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getPraktikantZufall());
                 break;
             }
-            case "Lehrling":  {
-                VariableStückkostenZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getVarKostenLehrling();
+            case "Lehrling": {
+                ReservapZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getLehrlingPWS();//auftrag.getZeitarbeiter().getVarKostenLehrling();// *
+                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getLehrlingPWS()) *
+                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getLehrlingZufall());
                 break;
             }
             case "Meister": {
-                VariableStückkostenZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getVarKostenMeister();
+                ReservapZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getMeisterPWS();
+                //auftrag.getZeitarbeiter().getVarKostenMeister();
+                        //*
+                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getMeisterPWS()) *
+                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getMeisterZufall());
                 break;
             }
-            default: System.err.println();
+            default: {
+                System.err.println("Keine Auswahl getroffen worden.");
+            }
         }
-        switch (auswahlArmband) {
-            case "Leder": {
-                VariableStückkostenArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getVarKostenLeder();
-                break;
-            }
-            case "Kunstleder": {
-                VariableStückkostenArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getVarKostenKunstleder();
-                break;
-            }
-            case "Holz": {
-                VariableStückkostenArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getVarKostenHolz();
-                break;
-            }
-            case "Textil": {
-                VariableStückkostenArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getVarKostenTextil();
-                break;
-            }
-            case "Metall": {
-                VariableStückkostenArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getVarKostenMetall();
-                break;
-            }
-            default: System.err.println();
-        }
-        switch (auswahlUhrwerk) {
-            case "Mechanisch": {
-                VariableStückkostenUhrwerk = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getVarKostenMechanisch();
-                break;
-            }
-            case "Elektromechanisch": {
-                VariableStückkostenUhrwerk = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getVarKostenElektromechanisch();
-                break;
-            }
-            case "Elektronisch": {
-                VariableStückkostenUhrwerk = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getVarKostenElektronisch();
-                break;
-            }
-            default: System.err.println();
-        }
-        switch (auswahlGehäuse) {
-            case "Glas": {
-                VariableStückkostenGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getVarKostenGlas();
-                break;
-            }
-            case "Holz": {
-                VariableStückkostenGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getVarKostenHolz();
-                break;
-            }
-            case "Kunststoff": {
-                VariableStückkostenGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getVarKostenKunststoff();
-                break;
-            }
-            case "Metall": {
-                VariableStückkostenGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getVarKostenMetall();
-                break;
-            }
-            default: System.err.println();
-        }
-        VariableStückKosten = VariableStückkostenZeitarbeiter + VariableStückkostenArmband +
-                VariableStückkostenUhrwerk + VariableStückkostenGehäuse;
-    } // Ende berechneVariableStückkosten()
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return ReservapZeitarbeiter;
+}
 
-
-    public void berechneVariableKosten() {
-        VariableKosten = VariableStückKosten * Produktionsvolumen;
+    public double getForschungPWS (String Forschung){
+        double ReservapForschung = 0;
+        try {
+            switch (Forschung) {
+                case "15000€ Investition": {
+                    ReservapForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition15000PWS();//auftrag.getForschung().getFixkostenInvestition15000() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition15000PWS());
+                    break;
+                }
+                case "8000€ Investition": {
+                    ReservapForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition8000PWS();
+                    //auftrag.getForschung().getFixkostenInvestition8000() *
+                      //      (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition8000PWS());
+                    break;
+                }
+                case "2500€ Investition": {
+                    ReservapForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition2500PWS();
+                            //auftrag.getForschung().getFixkostenInvestition2500() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition2500PWS());
+                    break;
+                }
+                default: {
+                    System.err.println("Keine Auswahl getroffen worden.");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ReservapForschung;
     }
 
+    public double getMarketingPWS (String Marketing){
+        double ReservapMarketing = 0;
+        try {
+            switch (Marketing) {
 
-    public void berechneGesamtkosten() {
-        Gesamtkosten = Fixkosten + VariableKosten;
+                case "Fernsehwerbung": {
+                    ReservapMarketing = auftragssammlung.getAuftrag(RundenNr).getMarketing().getFernsehwerbungPWS();
+                    //auftrag.getMarketing().getFixkostenFernsehwerbung() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getFernsehwerbungPWS());
+                    //break;
+                }
+                case "Radiowerbung": {
+                    ReservapMarketing =ReservapMarketing + auftragssammlung.getAuftrag(RundenNr).getMarketing().getRadiowerbungPWS();
+                    //auftrag.getMarketing().getFixkostenRadiowerbung() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getRadiowerbungPWS());
+                    //break;
+                }
+                case "Printwerbung": {
+                    ReservapMarketing = ReservapMarketing+auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungPWS();//auftrag.getMarketing().getFixkostenPrintwerbung() *
+                           // (1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungPWS());
+                   // break;
+                }
+                default: {
+                    System.err.println("Keine Auswahl getroffen worden.");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    return ReservapMarketing;
     }
 
-
-    public void berechneStückkosten() {
-        Stückkosten = Gesamtkosten / Produktionsvolumen;
+    public double getArmbandPWS (String Armband){
+        double ReservapArmband = 0;
+        try {
+            switch (Armband) {
+                case "Leder": {
+                    ReservapArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getLederPWS()+auftragssammlung.getAuftrag(RundenNr).getArmband().getLederZufall();
+                            //auftrag.getArmband().getVarKostenLeder() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getLederPWS()) *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getLederZufall());
+                    break;
+                }
+                case "Kunstleder": {
+                    ReservapArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederPWS()+auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederZufall();
+                            //auftrag.getArmband().getVarKostenKunstleder() *
+                           // (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederPWS()) *
+                         //   (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederZufall());
+                    break;
+                }
+                case "Holz": {
+                    ReservapArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzZufall() + auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzPWS();
+                            //auftrag.getArmband().getVarKostenHolz() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzPWS()) *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzZufall());
+                    break;
+                }
+                case "Textil": {
+                    ReservapArmband =auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilPWS()+ auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilZufall();
+                            //auftrag.getArmband().getVarKostenTextil() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilPWS()) *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilZufall());
+                    break;
+                }
+                case "Metall": {
+                    ReservapArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallPWS()+auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallZufall();
+                    //auftrag.getArmband().getVarKostenMetall() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallPWS()) *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallZufall());
+                    break;
+                }
+                default: {
+                    System.err.println("Keine Auswahl getroffen worden.");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    return ReservapArmband;
     }
 
-    */
+    public double getUhrwerkPWS (String Uhrwerk){
+       double ReservapUhrwerk = 0;
+        try {
+            switch (Uhrwerk) {
+                case "Mechanisch": {
+                    ReservapUhrwerk = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getMechanischPWS();//auftrag.getUhrwerk().getVarKostenMechanisch() *
+                           // (1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getMechanischPWS());
+                    break;
+                }
+                case "Elektromechanisch": {
+                    ReservapUhrwerk = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getElektromechanischPWS();
+                            //auftrag.getUhrwerk().getVarKostenElektromechanisch() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getElektromechanischPWS());
+                    break;
+                }
+                case "Elektronisch": {
+                    ReservapUhrwerk =auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getEletronischPWS();
+                    //auftrag.getUhrwerk().getVarKostenElektronisch() *
+                      //      (1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getEletronischPWS());
+                    break;
+                }
+                default: {
+                    System.err.println("Keine Auswahl getroffen worden.");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ReservapUhrwerk;
+    }
 
+    public double getGehaeusePWS(String Gehaeuse){
+        double ReservapGehäuse = 0;
+        try {
+            switch (Gehaeuse) {
+                case "Glas": {
+                    ReservapGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasPWS() + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasZufall();
+                            //auftrag.getGehaeuse().getVarKostenGlas() *
+ //                           (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasPWS()) *
+   //                         (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasZufall());
+                    break;
+                }
+                case "Holz": {
+                    ReservapGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzPWS()+auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzZufall();
+                            //auftrag.getGehaeuse().getVarKostenHolz() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzPWS()) *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzZufall());
+                    break;
+                }
+                case "Kunststoff": {
+                    ReservapGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffPWS() + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffZufall();
+                            //auftrag.getGehaeuse().getVarKostenKunststoff() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffPWS()) *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffZufall());
+                    break;
+                }
+                case "Metall": {
+                    ReservapGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallPWS() + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallZufall();
+                            //auftrag.getGehaeuse().getVarKostenMetall() *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallPWS()) *
+                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallZufall());
+                    break;
+                }
+                default: {
+                    System.err.println("Keine Auswahl getroffen worden");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ReservapGehäuse;
+    }
 
+    public double getBezahlartPWS (String Bezahlart) {
+        double ReservapBezahlart = 0;
+        try {
+            switch (Bezahlart) {
+                case "Kreditkarte": {
+                    ReservapBezahlart = auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkartePWS() + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkarteZufall();
+                    //auftrag.getBezahlart().getFixkostenKreditkarte() *
+                    // (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkartePWS()) *
+                    //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkarteZufall());
+                    // break;
+                }
+                case "Rechnung": {
+                    ReservapBezahlart = ReservapBezahlart + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungPWS() + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungZufall();
+                    //auftrag.getBezahlart().getFixkostenRechnung() *
+                    //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungPWS()) *
+                    //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungZufall());
+                    // break;
+                }
+                case "PayPal": {
+                    ReservapBezahlart = auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalPWS() + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalZufall();
+                    //auftrag.getBezahlart().getFixkostenPayPal() *
+                    //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalPWS()) *
+                    // (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalZufall());
+                    // break;
+                }
+                default: {
+                    System.err.println("Keine Auswahl getroffen worden");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    return ReservapBezahlart;
+    }
     /*
     Berechne den Reservationspreis
      */
@@ -265,214 +380,17 @@ public class Preissimulation {
                                           String ReservationspreisForschung, String ReservationspreisMarketing,
                                           String ReservationspreisArmband, String ReservationspreisUhrwerk,
                                           String ReservationspreisGehäuse, String ReservationspreisBezahlart) {
-        try {
-            switch (ReservationspreisZeitarbeiter) {
-                case "Geselle": {
-                    ReservapZeitarbeiter = auftrag.getZeitarbeiter().getVarKostenGeselle() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getGesellePWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getGeselleZufall());
-                    break;
-                }
-                case "Praktikant": {
-                    ReservapZeitarbeiter = auftrag.getZeitarbeiter().getVarKostenPraktikant() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getPraktikantPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getPraktikantZufall());
-                    break;
-                }
-                case "Lehrling": {
-                    ReservapZeitarbeiter = auftrag.getZeitarbeiter().getVarKostenLehrling() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getLehrlingPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getLehrlingZufall());
-                    break;
-                }
-                case "Meister": {
-                    ReservapZeitarbeiter = auftrag.getZeitarbeiter().getVarKostenMeister() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getMeisterPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getMeisterZufall());
-                    break;
-                }
-                default: {
-                    System.err.println("Keine Auswahl getroffen worden.");
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            switch (ReservationspreisForschung) {
-                case "15000€ Investition": {
-                    ReservapForschung = auftrag.getForschung().getFixkostenInvestition15000() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition15000PWS());
-                    break;
-                }
-                case "8000€ Investition": {
-                    ReservapForschung = auftrag.getForschung().getFixkostenInvestition8000() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition8000PWS());
-                    break;
-                }
-                case "2500€ Investition": {
-                    ReservapForschung = auftrag.getForschung().getFixkostenInvestition2500() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition2500PWS());
-                    break;
-                }
-                default: {
-                    System.err.println("Keine Auswahl getroffen worden.");
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            switch (ReservationspreisMarketing) {
-                case "Fernsehwerbung": {
-                    ReservapMarketing = auftrag.getMarketing().getFixkostenFernsehwerbung() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getFernsehwerbungPWS());
-                    break;
-                }
-                case "Radiowerbung": {
-                    ReservapMarketing = auftrag.getMarketing().getFixkostenRadiowerbung() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getRadiowerbungPWS());
-                    break;
-                }
-                case "Printwerbung": {
-                    ReservapMarketing = auftrag.getMarketing().getFixkostenPrintwerbung() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungPWS());
-                    break;
-                }
-                default: {
-                    System.err.println("Keine Auswahl getroffen worden.");
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            switch (ReservationspreisArmband) {
-                case "Leder": {
-                    ReservapArmband = auftrag.getArmband().getVarKostenLeder() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getLederPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getLederZufall());
-                    break;
-                }
-                case "Kunstleder": {
-                    ReservapArmband = auftrag.getArmband().getVarKostenKunstleder() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederZufall());
-                    break;
-                }
-                case "Holz": {
-                    ReservapArmband = auftrag.getArmband().getVarKostenHolz() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzZufall());
-                    break;
-                }
-                case "Textil": {
-                    ReservapArmband = auftrag.getArmband().getVarKostenTextil() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilZufall());
-                    break;
-                }
-                case "Metall": {
-                    ReservapArmband = auftrag.getArmband().getVarKostenMetall() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallZufall());
-                    break;
-                }
-                default: {
-                    System.err.println("Keine Auswahl getroffen worden.");
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            switch (ReservationspreisUhrwerk) {
-                case "Mechanisch": {
-                    ReservapUhrwerk = auftrag.getUhrwerk().getVarKostenMechanisch() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getMechanischPWS());
-                    break;
-                }
-                case "Elektromechanisch": {
-                    ReservapUhrwerk = auftrag.getUhrwerk().getVarKostenElektromechanisch() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getElektromechanischPWS());
-                    break;
-                }
-                case "Elektronisch": {
-                    ReservapUhrwerk = auftrag.getUhrwerk().getVarKostenElektronisch() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getEletronischPWS());
-                    break;
-                }
-                default: {
-                    System.err.println("Keine Auswahl getroffen worden.");
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            switch (ReservationspreisGehäuse) {
-                case "Glas": {
-                    ReservapGehäuse = auftrag.getGehaeuse().getVarKostenGlas() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasZufall());
-                    break;
-                }
-                case "Holz": {
-                    ReservapGehäuse = auftrag.getGehaeuse().getVarKostenHolz() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzZufall());
-                    break;
-                }
-                case "Kunststoff": {
-                    ReservapGehäuse = auftrag.getGehaeuse().getVarKostenKunststoff() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffZufall());
-                    break;
-                }
-                case "Metall": {
-                    ReservapGehäuse = auftrag.getGehaeuse().getVarKostenMetall() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallZufall());
-                    break;
-                }
-                default: {
-                    System.err.println("Keine Auswahl getroffen worden");
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            switch (ReservationspreisBezahlart) {
-                case "Kreditkarte": {
-                    ReservapBezahlart = auftrag.getBezahlart().getFixkostenKreditkarte() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkartePWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkarteZufall());
-                    break;
-                }
-                case "Rechnung": {
-                    ReservapBezahlart = auftrag.getBezahlart().getFixkostenRechnung() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungZufall());
-                    break;
-                }
-                case "PayPal": {
-                    ReservapBezahlart = auftrag.getBezahlart().getFixkostenPayPal() *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalPWS()) *
-                            (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalZufall());
-                    break;
-                }
-                default: {
-                    System.err.println("Keine Auswahl getroffen worden");
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Produktionsvolumen = auftragssammlung.getAuftrag(RundenNr).getMenge();
-        Reservationspreis = (auftrag.getPersonalwesen().getFixkosten() + ReservapForschung +
-                ReservapMarketing + ReservapBezahlart)
-                + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse));
+
+        double PWS = getPWS(ReservationspreisZeitarbeiter, ReservationspreisForschung, ReservationspreisMarketing,
+                ReservationspreisArmband, ReservationspreisUhrwerk, ReservationspreisGehäuse, ReservationspreisBezahlart);
+        double stueckKosten = auftrag.getVarKosten()+auftrag.getFixKosten()/auftrag.getMenge();
+
+        double reservationspreis = stueckKosten * (1+PWS);
+        this.Reservationspreis = reservationspreis;
+        //Reservationspreis = (auftrag.getPersonalwesen().getFixkosten() + ReservapForschung +
+            //    ReservapMarketing + ReservapBezahlart)
+          //      + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse));
+        //Produktionsvolumen = auftragssammlung.getAuftrag(RundenNr).getMenge();
 
     } // Ende berechneReservationspreis()
 
