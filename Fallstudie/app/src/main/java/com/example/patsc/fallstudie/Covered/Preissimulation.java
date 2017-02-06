@@ -116,31 +116,31 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
     try {
         switch (Zeitarbeiter) {
             case "Geselle": {
-                ReservapZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getGesellePWS();
+                ReservapZeitarbeiter = auftrag.getZeitarbeiter().getGesellePWS();
                 //ReservapZeitarbeiter = auftrag.getZeitarbeiter().getVarKostenGeselle() *
-                  //      (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getGesellePWS()) *
-                  //      (1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getGeselleZufall());
+                  //      (1 + auftrag.getZeitarbeiter().getGesellePWS()) *
+                  //      (1 + auftrag.getZeitarbeiter().getGeselleZufall());
                 break;
             }
             case "Praktikant": {
-                ReservapZeitarbeiter =auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getPraktikantPWS();
+                ReservapZeitarbeiter =auftrag.getZeitarbeiter().getPraktikantPWS();
                 //auftrag.getZeitarbeiter().getVarKostenPraktikant(); //*
-                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getPraktikantPWS()) *
-                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getPraktikantZufall());
+                        //(1 + auftrag.getZeitarbeiter().getPraktikantPWS()) *
+                        //(1 + auftrag.getZeitarbeiter().getPraktikantZufall());
                 break;
             }
             case "Lehrling": {
-                ReservapZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getLehrlingPWS();//auftrag.getZeitarbeiter().getVarKostenLehrling();// *
-                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getLehrlingPWS()) *
-                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getLehrlingZufall());
+                ReservapZeitarbeiter = auftrag.getZeitarbeiter().getLehrlingPWS();//auftrag.getZeitarbeiter().getVarKostenLehrling();// *
+                        //(1 + auftrag.getZeitarbeiter().getLehrlingPWS()) *
+                        //(1 + auftrag.getZeitarbeiter().getLehrlingZufall());
                 break;
             }
             case "Meister": {
-                ReservapZeitarbeiter = auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getMeisterPWS();
+                ReservapZeitarbeiter = auftrag.getZeitarbeiter().getMeisterPWS();
                 //auftrag.getZeitarbeiter().getVarKostenMeister();
                         //*
-                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getMeisterPWS()) *
-                        //(1 + auftragssammlung.getAuftrag(RundenNr).getZeitarbeiter().getMeisterZufall());
+                        //(1 + auftrag.getZeitarbeiter().getMeisterPWS()) *
+                        //(1 + auftrag.getZeitarbeiter().getMeisterZufall());
                 break;
             }
             default: {
@@ -158,20 +158,20 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         try {
             switch (Forschung) {
                 case "15000€ Investition": {
-                    ReservapForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition15000PWS();//auftrag.getForschung().getFixkostenInvestition15000() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition15000PWS());
+                    ReservapForschung = auftrag.getForschung().getInvestition15000PWS();//auftrag.getForschung().getFixkostenInvestition15000() *
+                            //(1 + auftrag.getForschung().getInvestition15000PWS());
                     break;
                 }
                 case "8000€ Investition": {
-                    ReservapForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition8000PWS();
+                    ReservapForschung = auftrag.getForschung().getInvestition8000PWS();
                     //auftrag.getForschung().getFixkostenInvestition8000() *
-                      //      (1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition8000PWS());
+                      //      (1 + auftrag.getForschung().getInvestition8000PWS());
                     break;
                 }
                 case "2500€ Investition": {
-                    ReservapForschung = auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition2500PWS();
+                    ReservapForschung = auftrag.getForschung().getInvestition2500PWS();
                             //auftrag.getForschung().getFixkostenInvestition2500() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getForschung().getInvestition2500PWS());
+                            //(1 + auftrag.getForschung().getInvestition2500PWS());
                     break;
                 }
                 default: {
@@ -190,20 +190,20 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
             switch (Marketing) {
 
                 case "Fernsehwerbung": {
-                    ReservapMarketing = auftragssammlung.getAuftrag(RundenNr).getMarketing().getFernsehwerbungPWS();
+                    ReservapMarketing = auftrag.getMarketing().getFernsehwerbungPWS();
                     //auftrag.getMarketing().getFixkostenFernsehwerbung() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getFernsehwerbungPWS());
+                            //(1 + auftrag.getMarketing().getFernsehwerbungPWS());
                     break;
                 }
                 case "Radiowerbung": {
-                    ReservapMarketing =ReservapMarketing + auftragssammlung.getAuftrag(RundenNr).getMarketing().getRadiowerbungPWS();
+                    ReservapMarketing =ReservapMarketing + auftrag.getMarketing().getRadiowerbungPWS();
                     //auftrag.getMarketing().getFixkostenRadiowerbung() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getRadiowerbungPWS());
+                            //(1 + auftrag.getMarketing().getRadiowerbungPWS());
                     break;
                 }
                 case "Printwerbung": {
-                    ReservapMarketing = ReservapMarketing+auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungPWS();//auftrag.getMarketing().getFixkostenPrintwerbung() *
-                           // (1 + auftragssammlung.getAuftrag(RundenNr).getMarketing().getPrintwerbungPWS());
+                    ReservapMarketing = ReservapMarketing+auftrag.getMarketing().getPrintwerbungPWS();//auftrag.getMarketing().getFixkostenPrintwerbung() *
+                           // (1 + auftrag.getMarketing().getPrintwerbungPWS());
                    break;
                 }
                 default: {
@@ -221,38 +221,38 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         try {
             switch (Armband) {
                 case "Leder": {
-                    ReservapArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getLederPWS()+auftragssammlung.getAuftrag(RundenNr).getArmband().getLederZufall();
+                    ReservapArmband = auftrag.getArmband().getLederPWS()+auftrag.getArmband().getLederZufall();
                             //auftrag.getArmband().getVarKostenLeder() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getLederPWS()) *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getLederZufall());
+                            //(1 + auftrag.getArmband().getLederPWS()) *
+                            //(1 + auftrag.getArmband().getLederZufall());
                     break;
                 }
                 case "Kunstleder": {
-                    ReservapArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederPWS()+auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederZufall();
+                    ReservapArmband = auftrag.getArmband().getKunstlederPWS()+auftrag.getArmband().getKunstlederZufall();
                             //auftrag.getArmband().getVarKostenKunstleder() *
-                           // (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederPWS()) *
-                         //   (1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getKunstlederZufall());
+                           // (1 + auftrag.getArmband().getKunstlederPWS()) *
+                         //   (1 + auftrag.getArmband().getKunstlederZufall());
                     break;
                 }
                 case "Holz": {
-                    ReservapArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzZufall() + auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzPWS();
+                    ReservapArmband = auftrag.getArmband().getHolzZufall() + auftrag.getArmband().getHolzPWS();
                             //auftrag.getArmband().getVarKostenHolz() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzPWS()) *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getHolzZufall());
+                            //(1 + auftrag.getArmband().getHolzPWS()) *
+                            //(1 + auftrag.getArmband().getHolzZufall());
                     break;
                 }
                 case "Textil": {
-                    ReservapArmband =auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilPWS()+ auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilZufall();
+                    ReservapArmband =auftrag.getArmband().getTextilPWS()+ auftrag.getArmband().getTextilZufall();
                             //auftrag.getArmband().getVarKostenTextil() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilPWS()) *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getTextilZufall());
+                            //(1 + auftrag.getArmband().getTextilPWS()) *
+                            //(1 + auftrag.getArmband().getTextilZufall());
                     break;
                 }
                 case "Metall": {
-                    ReservapArmband = auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallPWS()+auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallZufall();
+                    ReservapArmband = auftrag.getArmband().getMetallPWS()+auftrag.getArmband().getMetallZufall();
                     //auftrag.getArmband().getVarKostenMetall() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallPWS()) *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getArmband().getMetallZufall());
+                            //(1 + auftrag.getArmband().getMetallPWS()) *
+                            //(1 + auftrag.getArmband().getMetallZufall());
                     break;
                 }
                 default: {
@@ -270,20 +270,20 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         try {
             switch (Uhrwerk) {
                 case "Mechanisch": {
-                    ReservapUhrwerk = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getMechanischPWS();//auftrag.getUhrwerk().getVarKostenMechanisch() *
-                           // (1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getMechanischPWS());
+                    ReservapUhrwerk = auftrag.getUhrwerk().getMechanischPWS();//auftrag.getUhrwerk().getVarKostenMechanisch() *
+                           // (1 + auftrag.getUhrwerk().getMechanischPWS());
                     break;
                 }
                 case "Elektromechanisch": {
-                    ReservapUhrwerk = auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getElektromechanischPWS();
+                    ReservapUhrwerk = auftrag.getUhrwerk().getElektromechanischPWS();
                             //auftrag.getUhrwerk().getVarKostenElektromechanisch() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getElektromechanischPWS());
+                            //(1 + auftrag.getUhrwerk().getElektromechanischPWS());
                     break;
                 }
                 case "Elektronisch": {
-                    ReservapUhrwerk =auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getEletronischPWS();
+                    ReservapUhrwerk =auftrag.getUhrwerk().getEletronischPWS();
                     //auftrag.getUhrwerk().getVarKostenElektronisch() *
-                      //      (1 + auftragssammlung.getAuftrag(RundenNr).getUhrwerk().getEletronischPWS());
+                      //      (1 + auftrag.getUhrwerk().getEletronischPWS());
                     break;
                 }
                 default: {
@@ -301,31 +301,31 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         try {
             switch (Gehaeuse) {
                 case "Glas": {
-                    ReservapGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasPWS() + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasZufall();
+                    ReservapGehäuse = auftrag.getGehaeuse().getGlasPWS() + auftrag.getGehaeuse().getGlasZufall();
                             //auftrag.getGehaeuse().getVarKostenGlas() *
- //                           (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasPWS()) *
-   //                         (1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getGlasZufall());
+ //                           (1 + auftrag.getGehaeuse().getGlasPWS()) *
+   //                         (1 + auftrag.getGehaeuse().getGlasZufall());
                     break;
                 }
                 case "Holz": {
-                    ReservapGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzPWS()+auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzZufall();
+                    ReservapGehäuse = auftrag.getGehaeuse().getHolzPWS()+auftrag.getGehaeuse().getHolzZufall();
                             //auftrag.getGehaeuse().getVarKostenHolz() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzPWS()) *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getHolzZufall());
+                            //(1 + auftrag.getGehaeuse().getHolzPWS()) *
+                            //(1 + auftrag.getGehaeuse().getHolzZufall());
                     break;
                 }
                 case "Kunststoff": {
-                    ReservapGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffPWS() + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffZufall();
+                    ReservapGehäuse = auftrag.getGehaeuse().getKunststoffPWS() + auftrag.getGehaeuse().getKunststoffZufall();
                             //auftrag.getGehaeuse().getVarKostenKunststoff() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffPWS()) *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getKunststoffZufall());
+                            //(1 + auftrag.getGehaeuse().getKunststoffPWS()) *
+                            //(1 + auftrag.getGehaeuse().getKunststoffZufall());
                     break;
                 }
                 case "Metall": {
-                    ReservapGehäuse = auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallPWS() + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallZufall();
+                    ReservapGehäuse = auftrag.getGehaeuse().getMetallPWS() + auftrag.getGehaeuse().getMetallZufall();
                             //auftrag.getGehaeuse().getVarKostenMetall() *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallPWS()) *
-                            //(1 + auftragssammlung.getAuftrag(RundenNr).getGehaeuse().getMetallZufall());
+                            //(1 + auftrag.getGehaeuse().getMetallPWS()) *
+                            //(1 + auftrag.getGehaeuse().getMetallZufall());
                     break;
                 }
                 default: {
@@ -343,24 +343,24 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         try {
             switch (Bezahlart) {
                 case "Kreditkarte": {
-                    ReservapBezahlart = auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkartePWS() + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkarteZufall();
+                    ReservapBezahlart = auftrag.getBezahlart().getKreditkartePWS() + auftrag.getBezahlart().getKreditkarteZufall();
                     //auftrag.getBezahlart().getFixkostenKreditkarte() *
-                    // (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkartePWS()) *
-                    //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getKreditkarteZufall());
+                    // (1 + auftrag.getBezahlart().getKreditkartePWS()) *
+                    //(1 + auftrag.getBezahlart().getKreditkarteZufall());
                     break;
                 }
                 case "Rechnung": {
-                    ReservapBezahlart = ReservapBezahlart + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungPWS() + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungZufall();
+                    ReservapBezahlart = ReservapBezahlart + auftrag.getBezahlart().getRechnungPWS() + auftrag.getBezahlart().getRechnungZufall();
                     //auftrag.getBezahlart().getFixkostenRechnung() *
-                    //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungPWS()) *
-                    //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getRechnungZufall());
+                    //(1 + auftrag.getBezahlart().getRechnungPWS()) *
+                    //(1 + auftrag.getBezahlart().getRechnungZufall());
                     break;
                 }
                 case "PayPal": {
-                    ReservapBezahlart = auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalPWS() + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalZufall();
+                    ReservapBezahlart = auftrag.getBezahlart().getPayPalPWS() + auftrag.getBezahlart().getPayPalZufall();
                     //auftrag.getBezahlart().getFixkostenPayPal() *
-                    //(1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalPWS()) *
-                    // (1 + auftragssammlung.getAuftrag(RundenNr).getBezahlart().getPayPalZufall());
+                    //(1 + auftrag.getBezahlart().getPayPalPWS()) *
+                    // (1 + auftrag.getBezahlart().getPayPalZufall());
                     break;
                 }
                 default: {
@@ -390,7 +390,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         //Reservationspreis = (auftrag.getPersonalwesen().getFixkosten() + ReservapForschung +
             //    ReservapMarketing + ReservapBezahlart)
           //      + ((ReservapZeitarbeiter + ReservapArmband + ReservapUhrwerk + ReservapGehäuse));
-        //Produktionsvolumen = auftragssammlung.getAuftrag(RundenNr).getMenge();
+        //Produktionsvolumen = auftrag.getMenge();
 
     } // Ende berechneReservationspreis()
 

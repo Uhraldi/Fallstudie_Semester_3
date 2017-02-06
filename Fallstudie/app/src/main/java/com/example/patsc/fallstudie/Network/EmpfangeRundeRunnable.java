@@ -8,21 +8,22 @@ import com.example.patsc.fallstudie.Covered.Controller;
  * Threadumgebung zum mitgeben von Daten und Speicherung von Ergebnissen im Controller
  */
 
-public class UpdateThread implements Runnable {
+public class EmpfangeRundeRunnable implements Runnable {
 
-    SpielerDatenWrapper s;
-    boolean ergebnis = false;
+    int runde;
+    RundenErgebnisWrapper[] ergebnis;
     Controller c;
+    Funkturm f;
 
-    public UpdateThread(SpielerDatenWrapper s, Controller c){
-        this.s = s;
+    public EmpfangeRundeRunnable(int runde, Funkturm f, Controller c){
+        this.runde = runde;
         this.c = c;
+        this.f = f;
     }
 
     @Override
     public void run() {
-        Funkturm f = new Funkturm();
-        ergebnis = f.updateSpieler(s);
-        c.setUpdateBool(ergebnis);
+        ergebnis = f.empfangeRunde(runde);
+        c.setRundenErgebnisREW(ergebnis);
     }
 }

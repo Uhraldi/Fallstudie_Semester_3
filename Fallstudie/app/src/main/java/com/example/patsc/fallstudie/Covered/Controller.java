@@ -1,13 +1,13 @@
 package com.example.patsc.fallstudie.Covered;
 
-import com.example.patsc.fallstudie.Network.EmpfangeRundeThread;
-import com.example.patsc.fallstudie.Network.EmpfangeSpielerThread;
+import com.example.patsc.fallstudie.Network.EmpfangeRundeRunnable;
+import com.example.patsc.fallstudie.Network.EmpfangeSpielerRunnable;
 import com.example.patsc.fallstudie.Network.Funkturm;
-import com.example.patsc.fallstudie.Network.RegisterThread;
+import com.example.patsc.fallstudie.Network.RegisterRunnable;
 import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
-import com.example.patsc.fallstudie.Network.SendeRundeThread;
+import com.example.patsc.fallstudie.Network.SendeRundeRunnable;
 import com.example.patsc.fallstudie.Network.SpielerDatenWrapper;
-import com.example.patsc.fallstudie.Network.UpdateThread;
+import com.example.patsc.fallstudie.Network.UpdateRunnable;
 
 /**
  * Created by patsc on 13.12.2016.
@@ -502,23 +502,19 @@ public class Controller {
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setPreissim(preissim);
 
             //#Netzwerk Runde hochladen
-            int maxCount = 0;
-            do {
-                maxCount++;
                 // aktiverSpieler.getVeraenderung für die nächste Runde soltle auch gespeichert werden
                 RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), daten.getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
-                Runnable r = new SendeRundeThread(rundenErgebnisWrapper, this);
-                Thread t = new Thread(r);
-                t.start();
-                while (t.isAlive()) {
+                Runnable r1 = new SendeRundeRunnable(rundenErgebnisWrapper,funkturm, this);
+                Thread t1 = new Thread(r1);
+                t1.start();
+                while (t1.isAlive()) {
                 }
-            }while(sendeRundeBool && maxCount<3);
 
             //#Netzwerk Gegner herunterladen
-            Runnable r = new EmpfangeRundeThread(daten.getRundenAnzahl(),this);
-            Thread t = new Thread(r);
-            t.start();
-            while (t.isAlive()) {
+            Runnable r2 = new EmpfangeRundeRunnable(daten.getRundenAnzahl(), funkturm,this);
+            Thread t2 = new Thread(r2);
+            t2.start();
+            while (t2.isAlive()) {
 
             }
             RundenErgebnisWrapper[] gegnerliste = rundenErgebnisREW;
@@ -527,25 +523,21 @@ public class Controller {
             aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().setMarktsim(marktsim);// ToDo evtl in MarktSim ausgübt
 
             //#Netzwerk Spielerdaten speichern
-            int maxCount2 = 0;
-            do {
-                maxCount2++;
                 SpielerDatenWrapper spieler = new SpielerDatenWrapper(
                         aktiverSpieler.getName(),
                         aktiverSpieler.getPasswort(),
-                        daten.getRundenAnzahl(),
+                        daten.getRundenAnzahl()+1,
                         aktiverSpieler.getGuthaben(),
                         aktiverSpieler.getMarktanteil(),
                         aktiverSpieler.getKontoSchnitt(),
                         aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(),
                         aktiverSpieler.getVeraenderungPersonal());
-                Runnable r2 = new UpdateThread(spieler, this);
-                Thread t2 = new Thread(r2);
-                t2.start();
-                while (t2.isAlive()) {
+                Runnable r3 = new UpdateRunnable(spieler, funkturm, this);
+                Thread t3 = new Thread(r3);
+                t3.start();
+                while (t3.isAlive()) {
 
                 }
-            }while (updateBool && maxCount2 <3);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -572,7 +564,7 @@ public class Controller {
         try {
             if (SCHRITT_FORSCHUNG_boolean) {
                 if (designerAuswahl.equals(FORSCHUNG_WAHL_LOWBUDGET) || designerAuswahl.equals(FORSCHUNG_WAHL_HOCH) || designerAuswahl.equals(FORSCHUNG_WAHL_MITTELMAESIG)) {
-                    spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleForschung(designerAuswahl); //ToDo Nullpointer Exception
+                    spieler.getAuftragssammlung().getAktuellerAuftrag().bestelleForschung(designerAuswahl); //ToDo Nullpointer Exception
                     setzeAlleSchritteFalse();
                 } else {
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
@@ -583,7 +575,7 @@ public class Controller {
         }
         //Wahl wird standardmässig auf Mittelmaessig gesetzt
         catch (Exception e){
-            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getForschung().setInvestition8000(true);
+            spieler.getAuftragssammlung().getAktuellerAuftrag().getForschung().setInvestition8000(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -598,7 +590,7 @@ public class Controller {
         try {
             if (SCHRITT_ARMBAND_boolean) {
                 if (armbandAuswahl.equals(ARMBAND_WAHL_HOLZ) || armbandAuswahl.equals(ARMBAND_WAHL_KUNSTLEDER) || armbandAuswahl.equals(ARMBAND_WAHL_LEDER) || armbandAuswahl.equals(ARMBAND_WAHL_METALL) || armbandAuswahl.equals(ARMBAND_WAHL_TEXTIL)) {
-                    spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleArmband(armbandAuswahl);
+                    spieler.getAuftragssammlung().getAktuellerAuftrag().bestelleArmband(armbandAuswahl);
                     setzeAlleSchritteFalse();
                 } else {
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
@@ -609,7 +601,7 @@ public class Controller {
         }
         //Wahl wird standardmässig auf Leder gesetzt
         catch (Exception e){
-            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getArmband().setLeder(true);
+            spieler.getAuftragssammlung().getAktuellerAuftrag().getArmband().setLeder(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -651,7 +643,7 @@ public class Controller {
         try {
             if (SCHRITT_UHRWERK_boolean) {
                 if (uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTROMECHANISCH) || uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTRONISCH) || uhrwerkAuswahl.equals(UHRWERK_WAHL_MECHANISCH)) {
-                    spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleUhrwerk(uhrwerkAuswahl);
+                    spieler.getAuftragssammlung().getAktuellerAuftrag().bestelleUhrwerk(uhrwerkAuswahl);
                     setzeAlleSchritteFalse();
                 } else {
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
@@ -662,7 +654,7 @@ public class Controller {
         }
         //Wahl wird standardmäßig auf Elektronisch gesetzt
         catch (Exception e) {
-            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getUhrwerk().setElektronisch(true);
+            spieler.getAuftragssammlung().getAktuellerAuftrag().getUhrwerk().setElektronisch(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -678,7 +670,7 @@ public class Controller {
         try {
             if (SCHRITT_GEHAUESE_boolean) {
                 if (gehaeuseAuswahl.equals(GEHAEUSE_WAHL_GLAS) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_HOLZ) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_KUNSTSTOFF) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_METALL)) {
-                    spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleGehaeuse(gehaeuseAuswahl);
+                    spieler.getAuftragssammlung().getAktuellerAuftrag().bestelleGehaeuse(gehaeuseAuswahl);
                     setzeAlleSchritteFalse();
                 } else {
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
@@ -689,7 +681,7 @@ public class Controller {
         }
         //Wahl wird standardmäßig auf Metall gesetzt
         catch (Exception e) {
-            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getGehaeuse().setMetall(true);
+            spieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().setMetall(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -729,7 +721,7 @@ public class Controller {
         try {
             // if (SCHRITT_BEZAHLART_boolean) {
             if (bezahlartAuswahl.equals(BEZAHLART_WAHL_KREDITKARTE) || bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL) || bezahlartAuswahl.equals(BEZAHLART_WAHL_RECHNUNG)) {
-                spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleBezahlart(bezahlartAuswahl);
+                spieler.getAuftragssammlung().getAktuellerAuftrag().bestelleBezahlart(bezahlartAuswahl);
             }
             //letzte Auswahl die gesetzt werden kan
             else if (bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL)) {
@@ -743,7 +735,7 @@ public class Controller {
         }
         //Wahl wird standardmäßig auf NUR Rechnung gesetzt
         catch (Exception e) {
-            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getBezahlart().setRechnung(true);
+            spieler.getAuftragssammlung().getAktuellerAuftrag().getBezahlart().setRechnung(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -758,7 +750,7 @@ public class Controller {
         try{
             if (SCHRITT_ZEITARBEITER_boolean){
                 if(zeitarbeiterAuswahl.equals(ZEITARBEITER_WAHL_PRAKTIKANT)|| zeitarbeiterAuswahl.equals(ZEITARBEITER_WAHL_GESELLE)|| zeitarbeiterAuswahl.equals(ZEITARBEITER_WAHL_Lehrling)|| zeitarbeiterAuswahl.equals(ZEITARBEITER_WAHL_MEISTER))
-                { spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleZeitarbeiter(zeitarbeiterAuswahl);
+                { spieler.getAuftragssammlung().getAktuellerAuftrag().bestelleZeitarbeiter(zeitarbeiterAuswahl);
                     setzeAlleSchritteFalse();}
                 else{
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
@@ -770,7 +762,7 @@ public class Controller {
         }
         //Wahl wird standardmäßig auf Lehrling gesetzt
         catch (Exception e){
-            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getZusammenbau().setLehrling(true);
+            spieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().setLehrling(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -814,7 +806,7 @@ public class Controller {
         try{
             if (SCHRITT_MARKETING_boolean){
                 if(marketingAuswahl.equals(MARKETING_WAHL_PRINTWERBUNG)||marketingAuswahl.equals(MARKETING_WAHL_FERNSEHWERBUNG)||marketingAuswahl.equals(MARKETING_WAHL_RADIOWERBUNG))
-                { spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleWerbung(marketingAuswahl);
+                { spieler.getAuftragssammlung().getAktuellerAuftrag().bestelleWerbung(marketingAuswahl);
                 }
                 // letzter Schritt der gesetzt werden kann; danach kann kein anderer mehr hinzukommen
                 else if (  marketingAuswahl.equals(MARKETING_WAHL_PRINTWERBUNG)){
@@ -830,7 +822,7 @@ public class Controller {
         }
         //Wahl wird standardmäßig auf Radiowerbung gesetzt
         catch (Exception e){
-            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getMarketing().setRadiowerbung(true);
+            spieler.getAuftragssammlung().getAktuellerAuftrag().getMarketing().setRadiowerbung(true);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -855,7 +847,7 @@ public class Controller {
             setzeAlleSchritteFalse();
             SCHRITT_PRODUKTIONSVOLUMEN_boolean = true;
             int produktionsVolumen = ((int) produktionsvolumenAuswahl);
-            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleMenge(produktionsVolumen);
+            spieler.getAuftragssammlung().getAktuellerAuftrag().bestelleMenge(produktionsVolumen);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -869,7 +861,7 @@ public class Controller {
         try{
             if (SCHRITT_VERKAUFSPREIS_boolean){
                 double verkaufspreis = ((double)verkaufspreisAuswahl);
-                spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleVKP(verkaufspreis);
+                spieler.getAuftragssammlung().getAktuellerAuftrag().bestelleVKP(verkaufspreis);
                 setzeAlleSchritteFalse();}
             else{
                 throw new Exception("Falscher Bestellschritt");
@@ -879,7 +871,7 @@ public class Controller {
             setzeAlleSchritteFalse();
             SCHRITT_VERKAUFSPREIS_boolean = true;
             double verkaufspreis = ((double)verkaufspreisAuswahl);
-            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestelleVKP(verkaufspreis);
+            spieler.getAuftragssammlung().getAktuellerAuftrag().bestelleVKP(verkaufspreis);
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
@@ -903,17 +895,17 @@ public class Controller {
             return false;
         }
         else {
-            spieler.getAuftragssammlung().getAuftrag(auftragsnummer).bestellePersonalwesen(personalNeu(anzahlMitarbeiter, spieler, auftragsnummer));
+            spieler.getAuftragssammlung().getAktuellerAuftrag().bestellePersonalwesen(personalNeu(anzahlMitarbeiter, spieler, auftragsnummer));
             spieler.setVeraenderungPersonal(anzahlMitarbeiter);
             return true;
         }
     }
 
     public boolean persoAenderungErlaubt(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
-        return (spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+anzahlMitarbeiter)>0;
+        return (spieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte()+anzahlMitarbeiter)>0;
     }
     public int personalNeu(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
-        int personalGesamt = spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal();
+        int personalGesamt = spieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal();
         return personalGesamt;
     }
     //Methoden zum abholen der Bestellpositionen, zur Anzeige der Bestellzusammenfassung
@@ -926,12 +918,12 @@ public class Controller {
     public String getForschungAuftragI(int i, Spieler spieler ){
         String forschung = "";
         try {
-            if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition2500()) {
+            if (spieler.getAuftragssammlung().getAktuellerAuftrag().getForschung().isInvestition2500()) {
                 forschung = FORSCHUNG_WAHL_LOWBUDGET;
-            } else if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition15000()) {
+            } else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getForschung().isInvestition15000()) {
                 forschung = FORSCHUNG_WAHL_HOCH;
             }
-            else if (spieler.getAuftragssammlung().getAuftrag(i).getForschung().isInvestition8000()) {
+            else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getForschung().isInvestition8000()) {
                 forschung = FORSCHUNG_WAHL_MITTELMAESIG;
             } else {
 
@@ -952,15 +944,15 @@ public class Controller {
     public String getArmbandAuftragI(int i ,Spieler spieler){
         String armband ="";
         try {
-            if (spieler.getAuftragssammlung().getAuftrag(i).getArmband().isHolz()) {
+            if (spieler.getAuftragssammlung().getAktuellerAuftrag().getArmband().isHolz()) {
                 armband = ARMBAND_WAHL_HOLZ;
-            } else if (spieler.getAuftragssammlung().getAuftrag(i).getArmband().isKunstleder()) {
+            } else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getArmband().isKunstleder()) {
                 armband = ARMBAND_WAHL_KUNSTLEDER;
-            } else if (spieler.getAuftragssammlung().getAuftrag(i).getArmband().isLeder()) {
+            } else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getArmband().isLeder()) {
                 armband = ARMBAND_WAHL_LEDER;
-            } else if (spieler.getAuftragssammlung().getAuftrag(i).getArmband().isMetall()) {
+            } else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getArmband().isMetall()) {
                 armband = ARMBAND_WAHL_METALL;
-            } else if (spieler.getAuftragssammlung().getAuftrag(i).getArmband().isTextil()) {
+            } else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getArmband().isTextil()) {
                 armband = ARMBAND_WAHL_TEXTIL;
             } else {
                 throw new Exception("Keine Wahl getroffen");
@@ -979,11 +971,11 @@ public class Controller {
     public String getUhrwerkAuftragI(int i, Spieler spieler){
         String uhrwerk = "";
         try {
-            if (spieler.getAuftragssammlung().getAuftrag(i).getUhrwerk().isElektromechanisch()) {
+            if (spieler.getAuftragssammlung().getAktuellerAuftrag().getUhrwerk().isElektromechanisch()) {
                 uhrwerk = UHRWERK_WAHL_ELEKTROMECHANISCH;
-            } else if (spieler.getAuftragssammlung().getAuftrag(i).getUhrwerk().isElektronisch()) {
+            } else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getUhrwerk().isElektronisch()) {
                 uhrwerk = UHRWERK_WAHL_ELEKTRONISCH;
-            } else if (spieler.getAuftragssammlung().getAuftrag(i).getUhrwerk().isMechanisch()) {
+            } else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getUhrwerk().isMechanisch()) {
                 uhrwerk = UHRWERK_WAHL_MECHANISCH;
             } else {
                 throw new Exception("Keine Wahl im Uhrwerk getroffen.");
@@ -1004,16 +996,16 @@ public class Controller {
     public String getZeitarbeiterAuftragI(int i, Spieler spieler){
         String zeitarbeiter = "";
         try{
-            if (spieler.getAuftragssammlung().getAuftrag(i).getZusammenbau().isPraktikant()){
+            if (spieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().isPraktikant()){
                 zeitarbeiter = ZEITARBEITER_WAHL_PRAKTIKANT;
             }
-            else if (spieler.getAuftragssammlung().getAuftrag(i).getZusammenbau().isGeselle()){
+            else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().isGeselle()){
                 zeitarbeiter = ZEITARBEITER_WAHL_GESELLE;
             }
-            else if (spieler.getAuftragssammlung().getAuftrag(i).getZusammenbau().isLehrling()){
+            else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().isLehrling()){
                 zeitarbeiter = ZEITARBEITER_WAHL_Lehrling;
             }
-            else if (spieler.getAuftragssammlung().getAuftrag(i).getZusammenbau().isMeister()){
+            else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getZusammenbau().isMeister()){
                 zeitarbeiter =ZEITARBEITER_WAHL_MEISTER;
             }
             else{
@@ -1035,16 +1027,16 @@ public class Controller {
     public String getGehaeuseAuftragI ( int i, Spieler spieler){
         String gehaeuse ="";
         try{
-            if (spieler.getAuftragssammlung().getAuftrag(i).getGehaeuse().isMetall()){
+            if (spieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().isMetall()){
                 gehaeuse = GEHAEUSE_WAHL_METALL;
             }
-            else if (spieler.getAuftragssammlung().getAuftrag(i).getGehaeuse().isHolz()){
+            else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().isHolz()){
                 gehaeuse = GEHAEUSE_WAHL_HOLZ;
             }
-            else if (spieler.getAuftragssammlung().getAuftrag(i).getGehaeuse().isGlas()){
+            else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().isGlas()){
                 gehaeuse =GEHAEUSE_WAHL_GLAS;
             }
-            else if (spieler.getAuftragssammlung().getAuftrag(i).getGehaeuse().isKunststoff()) {
+            else if (spieler.getAuftragssammlung().getAktuellerAuftrag().getGehaeuse().isKunststoff()) {
                 gehaeuse = GEHAEUSE_WAHL_KUNSTSTOFF;
             }
             else{
@@ -1065,17 +1057,17 @@ public class Controller {
     public String getBezahlartAuftragI (int i, Spieler spieler){
         String bezahlart ="";
         try{
-            if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isKreditkarte()){
+            if (spieler.getAuftragssammlung().getAktuellerAuftrag().getBezahlart().isKreditkarte()){
 
                 bezahlart = "Visa";
             }
-            if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isPayPal()){
+            if (spieler.getAuftragssammlung().getAktuellerAuftrag().getBezahlart().isPayPal()){
                 if (!bezahlart.equals("")){
                     bezahlart = bezahlart + ", " + BEZAHLART_WAHL_PAYPAL;
                 }
                 else bezahlart = BEZAHLART_WAHL_PAYPAL;
             }
-            if (spieler.getAuftragssammlung().getAuftrag(i).getBezahlart().isRechnung()){
+            if (spieler.getAuftragssammlung().getAktuellerAuftrag().getBezahlart().isRechnung()){
                 if (!bezahlart.equals("")){
                     bezahlart = bezahlart + ", " + BEZAHLART_WAHL_RECHNUNG;
                 }
@@ -1099,16 +1091,16 @@ public class Controller {
     public String getMarketingAuftragI (int i, Spieler spieler){
         String marketing ="";
         try {
-            if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isRadiowerbung()) {
+            if (spieler.getAuftragssammlung().getAktuellerAuftrag().getMarketing().isRadiowerbung()) {
                 marketing = "Radio";
             }
-            if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isFernsehwerbung()) {
+            if (spieler.getAuftragssammlung().getAktuellerAuftrag().getMarketing().isFernsehwerbung()) {
                 if (!marketing.equals("")) {
                     marketing = marketing + ", " + "TV";
                 }
                 else marketing = MARKETING_WAHL_FERNSEHWERBUNG;
             }
-            if (spieler.getAuftragssammlung().getAuftrag(i).getMarketing().isPrintwerbung()) {
+            if (spieler.getAuftragssammlung().getAktuellerAuftrag().getMarketing().isPrintwerbung()) {
                 if (!marketing.equals("")) {
                     marketing = marketing + ", " + "Print";
                 }
@@ -1314,7 +1306,7 @@ public class Controller {
      */ public boolean registrierung(String name,String passwort){
         try {
             //#Netzwerk
-            Runnable r = new RegisterThread(name,passwort,this);
+            Runnable r = new RegisterRunnable(name, passwort, funkturm, this);
             Thread t = new Thread(r);
             t.start();
             while(t.isAlive()){
@@ -1346,7 +1338,7 @@ public class Controller {
         //#Netzwerk
         final SpielerDatenWrapper ergebnis;
         Funkturm f = new Funkturm();
-        Runnable r = new EmpfangeSpielerThread(name,passwort,this);
+        Runnable r = new EmpfangeSpielerRunnable(name, passwort, funkturm, this);
         Thread t = new Thread(r);
         t.start();
         while(t.isAlive()){
