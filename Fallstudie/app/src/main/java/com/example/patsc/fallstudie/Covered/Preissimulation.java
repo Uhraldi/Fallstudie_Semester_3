@@ -40,7 +40,7 @@ public class Preissimulation {
         c = controller;
         auftrag = c.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag();
         berechneReservationspreis(c.getZeitarbeiterAktuellerAuftrag(), c.getForschungAktuellerAuftrag(), c.getMarketingAktuellerAuftrag(), c.getArmbandAktuellerAuftrag(),
-                 c.getUhrwerkAktuellerAuftrag(), c.getGehaeuseAktuellerAuftrag(), c.getBezahlartAktuellerAuftrag());
+                c.getUhrwerkAktuellerAuftrag(), c.getGehaeuseAktuellerAuftrag(), c.getBezahlartAktuellerAuftrag());
     }
 
     /*
@@ -129,28 +129,16 @@ public class Preissimulation {
         double ReservapMarketing = 0;
         try {
             switch (Marketing) {
-<<<<<<< HEAD
-
-                case "Fernseh": {
-=======
                 case "Fernsehwerbung": {
->>>>>>> b5e6333d4544b9aad30f7adeadd49bde7ca7a8be
                     ReservapMarketing = auftrag.getMarketing().getFernsehwerbungPWS();
                     break;
                 }
-                case "Radio": {
+                case "Radiowerbung": {
                     ReservapMarketing =ReservapMarketing + auftrag.getMarketing().getRadiowerbungPWS();
                     break;
                 }
-<<<<<<< HEAD
-                case "Print": {
-                    ReservapMarketing = ReservapMarketing+auftrag.getMarketing().getPrintwerbungPWS();//auftrag.getMarketing().getFixkostenPrintwerbung() *
-                           // (1 + auftrag.getMarketing().getPrintwerbungPWS());
-                   break;
-=======
                 case "Printwerbung": {
                     ReservapMarketing = ReservapMarketing+auftrag.getMarketing().getPrintwerbungPWS();
->>>>>>> b5e6333d4544b9aad30f7adeadd49bde7ca7a8be
                 }
                 default: {
                     System.err.println("Keine Auswahl getroffen worden.");
@@ -159,7 +147,7 @@ public class Preissimulation {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    return ReservapMarketing;
+        return ReservapMarketing;
     }
 
     // PWS des Armbands bestimmen
@@ -194,12 +182,12 @@ public class Preissimulation {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    return ReservapArmband;
+        return ReservapArmband;
     }
 
     // PWS des Uhrwerks bestimmen
     public double getUhrwerkPWS (String Uhrwerk){
-       double ReservapUhrwerk = 0;
+        double ReservapUhrwerk = 0;
         try {
             switch (Uhrwerk) {
                 case "Mechanisch": {
@@ -279,7 +267,7 @@ public class Preissimulation {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    return ReservapBezahlart;
+        return ReservapBezahlart;
     }
 
     /*
