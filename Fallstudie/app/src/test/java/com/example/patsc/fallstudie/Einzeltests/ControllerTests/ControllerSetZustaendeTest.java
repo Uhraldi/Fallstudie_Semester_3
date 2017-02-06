@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.ControllerTests;
+package com.example.patsc.fallstudie.Einzeltests.ControllerTests;
 
 import com.example.patsc.fallstudie.Covered.Daten;
 import com.example.patsc.fallstudie.Covered.Controller;

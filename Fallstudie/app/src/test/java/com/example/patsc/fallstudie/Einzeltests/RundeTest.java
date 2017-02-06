@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie;
+package com.example.patsc.fallstudie.Einzeltests;
 
 import com.example.patsc.fallstudie.Covered.Daten;
 import com.example.patsc.fallstudie.Covered.Runde;
