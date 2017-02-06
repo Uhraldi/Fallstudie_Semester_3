@@ -189,19 +189,19 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         try {
             switch (Marketing) {
 
-                case "Fernsehwerbung": {
+                case "Fernseh": {
                     ReservapMarketing = auftrag.getMarketing().getFernsehwerbungPWS();
                     //auftrag.getMarketing().getFixkostenFernsehwerbung() *
                             //(1 + auftrag.getMarketing().getFernsehwerbungPWS());
                     break;
                 }
-                case "Radiowerbung": {
+                case "Radio": {
                     ReservapMarketing =ReservapMarketing + auftrag.getMarketing().getRadiowerbungPWS();
                     //auftrag.getMarketing().getFixkostenRadiowerbung() *
                             //(1 + auftrag.getMarketing().getRadiowerbungPWS());
                     break;
                 }
-                case "Printwerbung": {
+                case "Print": {
                     ReservapMarketing = ReservapMarketing+auftrag.getMarketing().getPrintwerbungPWS();//auftrag.getMarketing().getFixkostenPrintwerbung() *
                            // (1 + auftrag.getMarketing().getPrintwerbungPWS());
                    break;
