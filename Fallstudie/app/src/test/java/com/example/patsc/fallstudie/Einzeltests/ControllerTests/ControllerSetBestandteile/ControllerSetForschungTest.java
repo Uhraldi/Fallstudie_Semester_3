@@ -1,7 +1,7 @@
 package com.example.patsc.fallstudie.Einzeltests.ControllerTests.ControllerSetBestandteile;
 
-import com.example.patsc.fallstudie.Covered.Controller;
-import com.example.patsc.fallstudie.Covered.Daten;
+import com.example.patsc.fallstudie.Covered.Bestandteile.Controller.Controller;
+import com.example.patsc.fallstudie.Covered.Daten.Daten;
 import com.example.patsc.fallstudie.Covered.Spieler;
 
 import junit.framework.Assert;

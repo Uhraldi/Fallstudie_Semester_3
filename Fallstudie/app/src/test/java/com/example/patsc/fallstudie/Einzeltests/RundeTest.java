@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.Einzeltests;
 
-import com.example.patsc.fallstudie.Covered.Daten;
+import com.example.patsc.fallstudie.Covered.Daten.Daten;
 import com.example.patsc.fallstudie.Covered.Runde;
 import com.example.patsc.fallstudie.Covered.Spieler;
 

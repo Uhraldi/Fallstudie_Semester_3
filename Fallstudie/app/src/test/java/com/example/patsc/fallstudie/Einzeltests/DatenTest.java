@@ -1,12 +1,10 @@
 package com.example.patsc.fallstudie.Einzeltests;
 
-import com.example.patsc.fallstudie.Covered.Daten;
+import com.example.patsc.fallstudie.Covered.Daten.Daten;
 import com.example.patsc.fallstudie.Covered.Spieler;
 
 import junit.framework.Assert;
 
-import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

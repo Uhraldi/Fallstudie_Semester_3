@@ -8,7 +8,7 @@ public class Runde {
 
     private int RundenNr; // Welche Runde gerade gespielt wird
     private Spieler spieler; // Spieler, der die Runde spielt
-    private Controller Controller;
+    private com.example.patsc.fallstudie.Covered.Bestandteile.Controller.Controller Controller;
 
     /*
     Konstruktor für die Runde

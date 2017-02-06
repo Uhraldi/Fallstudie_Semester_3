@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.patsc.fallstudie.Covered.Controller;
+import com.example.patsc.fallstudie.Covered.Bestandteile.Controller.Controller;
 import com.example.patsc.fallstudie.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     /**
-     * Aufruf der Methode zum Registrieren, schickt Daten ins Backend und startet Login Activity neu
+     * Aufruf der Methode zum Registrieren, schickt getDaten() ins Backend und startet Login Activity neu
      * @param view
      * @throws Exception
      */

@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.Einzeltests.ControllerTests;
 
-import com.example.patsc.fallstudie.Covered.Controller;
+import com.example.patsc.fallstudie.Covered.Bestandteile.Controller.Controller;
 
 import junit.framework.Assert;
 
