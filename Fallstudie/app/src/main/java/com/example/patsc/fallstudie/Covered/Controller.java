@@ -152,131 +152,51 @@ public class Controller {
     Das wars!
     */
     public void setAENDERE_ARMBAND_boolean(boolean AENDERE_ARMBAND_boolean) {
-        try {
-            if (AENDERE_ARMBAND_boolean = true) {
-                this.AENDERE_ARMBAND_boolean = AENDERE_ARMBAND_boolean;
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.AENDERE_ARMBAND_boolean = AENDERE_ARMBAND_boolean;
     }
     public void setAENDERE_GEHAEUSE_boolean(boolean AENDERE_GEHAEUSE_boolean) {
-        try {
-            if (AENDERE_GEHAEUSE_boolean = true) {
-                this.AENDERE_GEHAEUSE_boolean = AENDERE_GEHAEUSE_boolean;
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        this.AENDERE_GEHAEUSE_boolean = AENDERE_GEHAEUSE_boolean;
     }
     public void setAENDERE_ZEITARBEITER_boolean(boolean AENDERE_ZEITARBEITER_boolean) {
-        try {
-            if (AENDERE_ZEITARBEITER_boolean = true) {
-                this.AENDERE_ZEITARBEITER_boolean = AENDERE_ZEITARBEITER_boolean;
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        this.AENDERE_ZEITARBEITER_boolean = AENDERE_ZEITARBEITER_boolean;
     }
     public void setAktiverSpieler(Spieler aktiverSpieler) {
-        try {
-            if (isZustand_Spielbeginn()) {
-                this.aktiverSpieler = aktiverSpieler;
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        this.aktiverSpieler = aktiverSpieler;
     }
     public void setDaten(Daten daten) {
         this.daten = daten;
     }
     public void setSCHRITT_ARMBAND_boolean(boolean SCHRITT_ARMBAND_boolean) {
-        try {
-            setzeAlleSchritteFalse();
-            setSCHRITT_ARMBAND_boolean(true);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
     }
     public void setSCHRITT_FORSCHUNG_boolean(boolean SCHRITT_FORSCHUNG_boolean) {
-        try {
-            setzeAlleSchritteFalse();
-            setSCHRITT_FORSCHUNG_boolean(true);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+
     }
     // public void setSCHRITT_DICHTHEIT_boolean(boolean SCHRITT_DICHTHEIT_boolean) {
     //     this.SCHRITT_DICHTHEIT_boolean = SCHRITT_DICHTHEIT_boolean;
     // }
     public void setSCHRITT_GEHAUESE_boolean(boolean SCHRITT_GEHAUESE_boolean) {
-        try {
-            setzeAlleSchritteFalse();
-            setSCHRITT_GEHAUESE_boolean(true);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
     public void setSCHRITT_PRODUKTIONSVOLUMEN_boolean(boolean SCHRITT_PRODUKTIONSVOLUMEN_boolean) {
-        try {
-            setzeAlleSchritteFalse();
-            setSCHRITT_PRODUKTIONSVOLUMEN_boolean(true);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
     public void setSCHRITT_UHRWERK_boolean(boolean SCHRITT_UHRWERK_boolean) {
-        try {
-            setzeAlleSchritteFalse();
-            setSCHRITT_UHRWERK_boolean(true);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
     public void setSCHRITT_VERKAUFSPREIS_boolean(boolean SCHRITT_VERKAUFSPREIS_boolean) {
-        try {
-            setzeAlleSchritteFalse();
-            setSCHRITT_VERKAUFSPREIS_boolean(true);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
     public void setSCHRITT_BEZAHLART_boolean(boolean SCHRITT_BEZAHLART_boolean) {
-        try {
-            setzeAlleSchritteFalse();
-            setSCHRITT_BEZAHLART_boolean(true);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
     public void setSCHRITT_MARKETING_boolean(boolean SCHRITT_MARKETING_boolean) {
-        try {
-            setzeAlleSchritteFalse();
-            setSCHRITT_MARKETING_boolean(true);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
     public void setSCHRITT_ZEITARBEITER_boolean(boolean SCHRITT_ZEITARBEITER_boolean) {
-        try {
-            setzeAlleSchritteFalse();
-            setSCHRITT_ZEITARBEITER_boolean(true);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
     public void setZustand_Spielbeginn(boolean Zustand){
         setzeAlleZustaendeFalse();
