@@ -57,7 +57,7 @@ public class Preissimulation {
         c = controller;
         auftrag = c.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag();
         berechneReservationspreis(c.getZeitarbeiterAktuellerAuftrag(), c.getForschungAktuellerAuftrag(), c.getMarketingAktuellerAuftrag(), c.getArmbandAktuellerAuftrag(),
-                c.getGehaeuseAktuellerAuftrag(), c.getUhrwerkAktuellerAuftrag(), c.getBezahlartAktuellerAuftrag());
+                 c.getUhrwerkAktuellerAuftrag(), c.getGehaeuseAktuellerAuftrag(), c.getBezahlartAktuellerAuftrag());
 
         //ToDo berechneReservationspreis(c.getMarketingAktuellerAuftrag(),c.getZeitarbeiterAktuellerAuftrag(),c.get)
 
