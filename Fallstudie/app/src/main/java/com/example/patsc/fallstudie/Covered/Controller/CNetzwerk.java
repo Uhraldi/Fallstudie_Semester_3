@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.Covered.Bestandteile.Controller;
+package com.example.patsc.fallstudie.Covered.Controller;
 
 import com.example.patsc.fallstudie.Network.EmpfangeRundeRunnable;
 import com.example.patsc.fallstudie.Network.Funkturm;

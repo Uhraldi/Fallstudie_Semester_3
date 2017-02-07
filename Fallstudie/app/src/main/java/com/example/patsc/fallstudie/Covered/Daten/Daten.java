@@ -1,5 +1,5 @@
 package com.example.patsc.fallstudie.Covered.Daten;
-import com.example.patsc.fallstudie.Covered.Bestandteile.Controller.Controller;
+import com.example.patsc.fallstudie.Covered.Controller.Controller;
 import com.example.patsc.fallstudie.Covered.Runde;
 import com.example.patsc.fallstudie.Covered.Spieler;
 
@@ -15,7 +15,7 @@ public class Daten extends SpielerAbfragen{
     }
 
     private ArrayList<Spieler> SpielerListe; // Liste aller Spieler; die auf dem Device gespeichert sind
-   private int SpielerAnzahl = 10;
+    private int SpielerAnzahl = 10;
     private ArrayList<Runde> RundenListe; //Liste der bisherigen Runden //ToDo MEthoden
     private int RundenAnzahl; //ToDo Methoden
     public void setRundenAnzahl(int i){

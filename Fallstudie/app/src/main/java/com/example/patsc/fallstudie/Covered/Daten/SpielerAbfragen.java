@@ -5,6 +5,7 @@ import com.example.patsc.fallstudie.Covered.Auftragssammlung;
 import com.example.patsc.fallstudie.Covered.Marktsim;
 import com.example.patsc.fallstudie.Covered.Preissimulation;
 import com.example.patsc.fallstudie.Covered.Spieler;
+import com.example.patsc.fallstudie.Covered.Controller.*;
 
 /**
  * Created by patsc on 06.02.2017.

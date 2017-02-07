@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.Network;
 
-import com.example.patsc.fallstudie.Covered.Bestandteile.Controller.Controller;
+import com.example.patsc.fallstudie.Covered.Controller.Controller;
 
 /**
  * @author Vincent Schmalor

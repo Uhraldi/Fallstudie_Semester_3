@@ -1,4 +1,4 @@
-package com.example.patsc.fallstudie.Covered.Bestandteile.Controller;
+package com.example.patsc.fallstudie.Covered.Controller;
 
 import com.example.patsc.fallstudie.Covered.Auftrag;
 import com.example.patsc.fallstudie.Covered.Auftragssammlung;
@@ -14,9 +14,9 @@ import com.example.patsc.fallstudie.Network.SpielerDatenWrapper;
 
 /**
  * Created by patsc on 13.12.2016.
-*/
+ */
 
-public class Controller extends UserInterface{
+public class Controller extends UserInterface {
     /*
     Deklaration der einzelnen Namen der Schritte.
     Final damit sich der Name nicht verändert.
@@ -708,7 +708,7 @@ public class Controller extends UserInterface{
         try{
             if (isSCHRITT_PRODUKTIONSVOLUMEN_boolean()){
                 int produktionsVolumen = ((int) produktionsvolumenAuswahl);
-               getDaten().ASDgetAktuellerAuftrag().bestelleMenge(produktionsVolumen);
+                getDaten().ASDgetAktuellerAuftrag().bestelleMenge(produktionsVolumen);
                 setzeAlleSchritteFalse();}
             else{
                 throw new Exception("Falscher Bestellschritt");
@@ -1010,7 +1010,7 @@ public class Controller extends UserInterface{
     public double getGuthaben(){
         double guthaben = (double) aktiverSpieler.getGuthaben();
         double guthabenkurz =  Math.round(guthaben * 100.0) / 100.0;
-        
+
         return guthabenkurz;
     }
 
@@ -1186,7 +1186,7 @@ public class Controller extends UserInterface{
             e.printStackTrace();
             return false;
         } // Ende catch
-        } // Ende registrierung()
+    } // Ende registrierung()
     /**
      * Aufrug wenn Login bestätigt wird (Button in UI)
      * UI Login
