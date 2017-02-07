@@ -93,4 +93,20 @@ public class SpielerDatenWrapper {
     public void setMaSchnitt(double maSchnitt) {
         this.maSchnitt = maSchnitt;
     }
+
+    public int getPersonalAnzahl() {
+        return personalAnzahl;
+    }
+
+    public void setPersonalAnzahl(int personalAnzahl) {
+        this.personalAnzahl = personalAnzahl;
+    }
+
+    public int getPersonalVeraenderung() {
+        return personalVeraenderung;
+    }
+
+    public void setPersonalVeraenderung(int personalVeraenderung) {
+        this.personalVeraenderung = personalVeraenderung;
+    }
 }
