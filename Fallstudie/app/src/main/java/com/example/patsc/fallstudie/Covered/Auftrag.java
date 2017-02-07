@@ -19,52 +19,16 @@ public class Auftrag {
      * @param risikoArmband ist das Risiko, das bei der Auswahl eines Armbandes endsteht
      * @param zufall ist die Summe aller zufälligen Produktwertsteigerungen durch zum Beispiel Beliebtheit des Materials
      */
-    private double fixKosten = 0;   //todo #Vincent überprüfen, ob die methoden die richtigen Werte hochzählen
-    public void setFixKosten(double i){
-        fixKosten = i;
-    }
+    private double fixKosten = 0;
     private double varKosten = 0;
     private double resPr = 0;
-
-    public void setResPr(double resPr) {
-        this.resPr = resPr;
-    }
-
     private int menge = 0;
-
-    public void setMenge(int menge) {
-        this.menge = menge;
-    }
-
     private double vkp = 0;
-
-    public void setVkp(double vkp) {
-        this.vkp = vkp;
-    }
-
     private double risikoArmband = 0;
-
-    public void setRisikoArmband(double risikoArmband) {
-        this.risikoArmband = risikoArmband;
-    }
-
-    public void setRisikoGehaeuse(double risikoGehaeuse) {
-        this.risikoGehaeuse = risikoGehaeuse;
-    }
-
-    public void setRisikoZusammenbau(double risikoZusammenbau) {
-        this.risikoZusammenbau = risikoZusammenbau;
-    }
-
     private double risikoGehaeuse = 0;
     private double risikoZusammenbau = 0;
     private double zufall = 0;
-
-    public void setZufall(double zufall) {
-        this.zufall = zufall;
-    }
-
-    private double strafe = 0.9; //todo generell beim reversen 10% weniger abziehen
+    private double strafe = 0.9;
 
 
     /**
@@ -81,19 +45,6 @@ public class Auftrag {
     private Marktsim marktsim = null;
     private Preissimulation preissim = null;
     private Personalwesen personalwesen = new Personalwesen();
-
-
-    /**
-     * Setter für die Variablen Kosten
-     * @param varKosten1 neuer Wert fuer die varKosten
-     * ToDO Prüfung erlaubter Wert
-     * ToDo alter + neuer Wert
-     */
-    public void setVarKosten(double varKosten1){
-
-        varKosten = varKosten1;
-
-    }
 
 
     public String toString(){
@@ -643,11 +594,104 @@ public class Auftrag {
     /**
      * Objekt-Setter
      */
+
+
     public void setMarktsim(Marktsim marktsim) {
         this.marktsim = marktsim;
     }
 
     public void setPreissim(Preissimulation preissim) {
         this.preissim = preissim;
+    }
+
+
+    /**
+     * Variablen Setter
+     */
+
+    /**
+     * ToDO Prüfung erlaubter Wert
+     * ToDo alter + neuer Wert
+     */
+    public void setVarKosten(double varKosten1){
+
+        varKosten = varKosten1;
+
+    }
+
+    public void setStrafe(double strafe) {
+        this.strafe = strafe;
+    }
+
+    public void setArmband(Armband armband) {
+        this.armband = armband;
+    }
+
+    public void setForschung(Forschung forschung) {
+        this.forschung = forschung;
+    }
+
+    public void setGehaeuse(Gehaeuse gehaeuse) {
+        this.gehaeuse = gehaeuse;
+    }
+
+    public void setZeitarbeiter(Zeitarbeiter zeitarbeiter) {
+        this.zeitarbeiter = zeitarbeiter;
+    }
+
+    public void setUhrwerk(Uhrwerk uhrwerk) {
+        this.uhrwerk = uhrwerk;
+    }
+
+    public void setBezahlart(Bezahlart bezahlart) {
+        this.bezahlart = bezahlart;
+    }
+
+    public void setWasserdichtheit(Wasserdichtheit wasserdichtheit) {
+        this.wasserdichtheit = wasserdichtheit;
+    }
+
+    public void setMarketing(Marketing marketing) {
+        this.marketing = marketing;
+    }
+
+    public Preissimulation getPreissim() {
+        return preissim;
+    }
+
+    public void setPersonalwesen(Personalwesen personalwesen) {
+        this.personalwesen = personalwesen;
+    }
+
+    public void setFixKosten(double i){
+        fixKosten = i;
+    }
+
+    public void setResPr(double resPr) {
+        this.resPr = resPr;
+    }
+
+    public void setMenge(int menge) {
+        this.menge = menge;
+    }
+
+    public void setVkp(double vkp) {
+        this.vkp = vkp;
+    }
+
+    public void setRisikoArmband(double risikoArmband) {
+        this.risikoArmband = risikoArmband;
+    }
+
+    public void setRisikoGehaeuse(double risikoGehaeuse) {
+        this.risikoGehaeuse = risikoGehaeuse;
+    }
+
+    public void setRisikoZusammenbau(double risikoZusammenbau) {
+        this.risikoZusammenbau = risikoZusammenbau;
+    }
+
+    public void setZufall(double zufall) {
+        this.zufall = zufall;
     }
 }

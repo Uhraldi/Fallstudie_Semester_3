@@ -822,6 +822,8 @@ public class Controller extends UserInterface{
                 aktiverSpieler.setGuthaben(spieler.getKonto());
                 aktiverSpieler.setMarktanteil(spieler.getMaSchnitt());
                 aktiverSpieler.setKontoSchnitt(spieler.getKontoSchnitt());
+                aktiverSpieler.setVeraenderungPersonal(spieler.getPersonalVeraenderung());
+                aktiverSpieler.getAuftragssammlung().aktuellerAuftrag.getPersonalwesen().setEingestellte(spieler.getPersonalAnzahl());
                 if (aktiverSpieler.getGuthaben()==0){
                     aktiverSpieler = new Spieler(name,passwort,getDaten());
                 }
