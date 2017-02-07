@@ -1,6 +1,6 @@
 package com.example.patsc.fallstudie.Einzeltests;
 
-import com.example.patsc.fallstudie.Covered.Controller;
+import com.example.patsc.fallstudie.Covered.Controller.Controller;
 import com.example.patsc.fallstudie.Covered.Marktsim;
 
 import static junit.framework.TestCase.fail;

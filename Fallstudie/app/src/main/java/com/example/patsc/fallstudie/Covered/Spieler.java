@@ -1,5 +1,7 @@
 package com.example.patsc.fallstudie.Covered;
 
+import com.example.patsc.fallstudie.Covered.Daten.Daten;
+
 /**
  * Created by Patricia Schneider on 30.12.2016.
  *
