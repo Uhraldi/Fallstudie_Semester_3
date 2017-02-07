@@ -38,12 +38,11 @@ public class Controller extends UserInterface{
         controllerString = "";
         return controllerString;
     }
-<<<<<<< HEAD:Fallstudie/app/src/main/java/com/example/patsc/fallstudie/Covered/Bestandteile/Controller/Controller.java
-        public void setActivity_Berechnung (){
+    public void setActivity_Berechnung (){
         try {
             setZustand_Lieferung(true);
 
-=======
+
 
     /**
      * getter Methoden
