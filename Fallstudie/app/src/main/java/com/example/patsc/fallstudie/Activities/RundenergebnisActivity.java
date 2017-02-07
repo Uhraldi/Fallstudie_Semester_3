@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,21 +53,22 @@ public class RundenergebnisActivity extends AppCompatActivity {
 
         TextView position_output = (TextView) findViewById(R.id.position_output);
         position_output.setText(String.valueOf(IntroductionActivity.Controller.getPosition()));
-    }
 
-/*
+        Button gameover_button = (Button) findViewById(R.id.gameover_button);
+        Button neueEingabewerte_button = (Button) findViewById(R.id.neueEingabewerte_button);
+        Button gleichenWerte_button = (Button) findViewById(R.id.gleichenWerte_button);
+        TextView ergebnis_message = (TextView) findViewById(R.id.ergebnis_message);
 
-    public void eineRundeAussetzen (View view){
-        if (IntroductionActivity.Controller.eineRundeAussetzen()) {
-            Intent intent = new Intent(this, Personalwesen.class);
-            startActivity(intent);
-            finish();
+        if (IntroductionActivity.Controller.getGuthaben() < 50000){
+            gameover_button.setVisibility(View.VISIBLE);
+            ergebnis_message.setText(R.string.gameover_message);
         } else {
-            Toast toast = Toast.makeText(this, "Bitte erneut versuchen oder andere Auswahl treffen", Toast.LENGTH_SHORT);
-            toast.show();
+            neueEingabewerte_button.setVisibility(View.VISIBLE);
+            gleichenWerte_button.setVisibility(View.VISIBLE);
+            ergebnis_message.setText(R.string.naechste_runde_string);
         }
     }
-*/
+
 
     public void gleichenWerteNochmal (View view){
         if (IntroductionActivity.Controller.gleichenWerteNochmal()) {
@@ -88,6 +90,11 @@ public class RundenergebnisActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(this, "Bitte erneut versuchen oder andere Auswahl treffen", Toast.LENGTH_SHORT);
             toast.show();
         }
+    }
+
+    public void neuesSpiel (View view){
+        IntroductionActivity.Controller.neuesSpiel();
+        finish();
     }
 
 

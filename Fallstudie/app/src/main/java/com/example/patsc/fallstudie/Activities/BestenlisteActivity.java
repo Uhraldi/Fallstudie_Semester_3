@@ -27,5 +27,62 @@ public class BestenlisteActivity extends AppCompatActivity {
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
+        //Platz 1
+        TextView einspos = (TextView) findViewById(R.id.einspos);
+        einspos.setText("");
+        TextView einsname = (TextView) findViewById(R.id.einsname);
+        einsname.setText("");
+        TextView einsguthaben = (TextView) findViewById(R.id.einsguthaben);
+        einsguthaben.setText("");
+        TextView einsmarktanteil = (TextView) findViewById(R.id.einsmarktanteil);
+        einsmarktanteil.setText("");
+
+
+        //Platz2
+        TextView zweipos = (TextView) findViewById(R.id.zweipos);
+        zweipos.setText("");
+        TextView zweiname = (TextView) findViewById(R.id.zweiname);
+        zweiname.setText("");
+        TextView zweiguthaben = (TextView) findViewById(R.id.zweiguthaben);
+        zweiguthaben.setText("");
+        TextView zweimarktanteil = (TextView) findViewById(R.id.zweimarktanteil);
+        zweimarktanteil.setText("");
+
+        //Platz3
+        TextView dreipos = (TextView) findViewById(R.id.dreipos);
+        dreipos.setText("");
+        TextView dreiname = (TextView) findViewById(R.id.dreiname);
+        dreiname.setText("");
+        TextView dreiguthaben = (TextView) findViewById(R.id.dreiguthaben);
+        dreiguthaben.setText("");
+        TextView dreimarktanteil = (TextView) findViewById(R.id.dreimarktanteil);
+        dreimarktanteil.setText("");
+
+        //Platz 4
+        TextView vierpos = (TextView) findViewById(R.id.vierpos);
+        vierpos.setText("");
+        TextView viername = (TextView) findViewById(R.id.viername);
+        viername.setText("");
+        TextView vierguthaben = (TextView) findViewById(R.id.vierguthaben);
+        vierguthaben.setText("");
+        TextView viermarktanteil = (TextView) findViewById(R.id.viermarktanteil);
+        viermarktanteil.setText("");
+
+        //Platz 5
+        TextView fuenfpos = (TextView) findViewById(R.id.fuenfpos);
+        fuenfpos.setText("");
+        TextView fuenfname = (TextView) findViewById(R.id.fuenfname);
+        fuenfname.setText("");
+        TextView fuenfguthaben = (TextView) findViewById(R.id.fuenfguthaben);
+        fuenfguthaben.setText("");
+        TextView fuenfmarktanteil = (TextView) findViewById(R.id.fuenfmarktanteil);
+        fuenfmarktanteil.setText("");
+
+
     }
+
+    public void neuesSpiel(){
+        IntroductionActivity.Controller.neuesSpiel();
+    }
+
 }

@@ -956,6 +956,11 @@ public class Controller extends UserInterface{
             return true;}
     }
 
+    //TODO: Neues Spiel bei Game Over / alle Werte des Spielers auf inital
+    public boolean neuesSpiel(){
+        return true;
+    }
+
     public boolean starteNaechsteRunde (){
         aktiverSpieler.getAuftragssammlung().neuerAuftrag();
         getDaten().erhoeheRundenanzahl();

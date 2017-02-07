@@ -194,5 +194,7 @@ Zu Beginn haben Sie 2 Mitarbeiter im Unternehmen, die für die Vorbereitung des 
     <string name="rundenergebnis_title">Rundenergebnis</string>
     <string name="bestenliste_title">Bestenliste</string>
     <string name="Rundebla">"Runde: "</string>
+    <string name="naechste_runde_string">Wie wollen Sie die nächste Runde spielen?</string>
+    <string name="gameover_message">Sie sind pleite. GAME OVER.</string>
 
 </resources>

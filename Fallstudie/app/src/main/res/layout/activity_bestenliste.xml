@@ -95,7 +95,7 @@
                 android:text="1."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView16"
+                android:id="@+id/einspos"
                 android:layout_marginBottom="10dp"
                 android:textAlignment="center"
                 android:textStyle="normal|bold"
@@ -104,7 +104,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView14"
+                android:id="@+id/einsname"
                 android:text="Adam"
                 android:layout_marginRight="5dp" />
 
@@ -112,14 +112,14 @@
                 android:text="100000€"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView12"
+                android:id="@+id/einsguthaben"
                 android:layout_marginRight="5dp" />
 
             <TextView
                 android:text="70%"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView10"
+                android:id="@+id/einsmarktanteil"
                 android:textAlignment="center" />
         </TableRow>
 
@@ -131,7 +131,7 @@
                 android:text="2."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView22"
+                android:id="@+id/zweipos"
                 android:layout_marginBottom="10dp"
                 android:textAlignment="center"
                 android:textStyle="normal|bold"
@@ -141,21 +141,21 @@
                 android:text="SupperSudden"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView21"
+                android:id="@+id/zweiname"
                 android:layout_marginRight="5dp" />
 
             <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView19"
+                android:id="@+id/zweiguthaben"
                 android:layout_marginRight="5dp" />
 
             <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView18"
+                android:id="@+id/zweimarktanteil"
                 android:textAlignment="center" />
         </TableRow>
 
@@ -167,7 +167,7 @@
                 android:text="3."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView26"
+                android:id="@+id/dreipos"
                 android:layout_marginBottom="10dp"
                 android:textAlignment="center"
                 android:textStyle="normal|bold"
@@ -177,21 +177,21 @@
                 android:text="TotenHosen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView25"
+                android:id="@+id/dreiname"
                 android:layout_marginRight="5dp" />
 
             <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView24"
+                android:id="@+id/dreiguthaben"
                 android:layout_marginRight="5dp" />
 
             <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView23"
+                android:id="@+id/dreimarktanteil"
                 android:textAlignment="center" />
         </TableRow>
 
@@ -203,7 +203,7 @@
                 android:text="4."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView30"
+                android:id="@+id/vierpos"
                 android:layout_marginBottom="10dp"
                 android:textStyle="normal|bold"
                 android:textAlignment="center"
@@ -213,21 +213,21 @@
                 android:text="Marsimoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView29"
+                android:id="@+id/viername"
                 android:layout_marginRight="5dp" />
 
             <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView28"
+                android:id="@+id/vierguthaben"
                 android:layout_marginRight="5dp" />
 
             <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView27"
+                android:id="@+id/viermarktanteil"
                 android:textAlignment="center" />
         </TableRow>
 
@@ -239,7 +239,7 @@
                 android:text="5."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView34"
+                android:id="@+id/fuenfpos"
                 android:textStyle="normal|bold"
                 android:textAlignment="center"
                 android:layout_marginRight="10dp" />
@@ -248,36 +248,24 @@
                 android:text="Henry Ford"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView33"
+                android:id="@+id/fuenfname"
                 android:layout_marginRight="5dp" />
 
             <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView32"
+                android:id="@+id/fuenfguthaben"
                 android:layout_marginRight="5dp" />
 
             <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView31"
+                android:id="@+id/fuenfmarktanteil"
                 android:textAlignment="center" />
         </TableRow>
     </TableLayout>
-
-    <TextView
-        android:text='Vielen Dank, dass Sie bei "ManufaktUhr" mitgespielt haben. Wir hoffen, es hat Ihnen gefallen.'
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="114dp"
-        android:id="@+id/textView36"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="Top 5"
@@ -286,6 +274,28 @@
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:id="@+id/textView37" />
+
+    <TextView
+        android:text='Vielen Dank, dass Sie bei "ManufaktUhr" mitgespielt haben. Wir hoffen, es hat Ihnen gefallen.'
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="145dp"
+        android:id="@+id/textView36"
+        android:textAlignment="center"
+        android:textStyle="normal|bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="neues spiel starten?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="49dp"
+        android:id="@+id/neuesSpiel_button"
+        android:onClick="neuesSpiel"/>
 
 </RelativeLayout>
 </LinearLayout>

@@ -184,18 +184,19 @@
             android:layout_above="@+id/neueEingabewerte_button"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:visibility="invisible" />
 
         <TextView
-            android:text="Wie wollen Sie die nächste Runde spielen?"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView20"
+            android:id="@+id/ergebnis_message"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_marginBottom="11dp"
             android:layout_above="@+id/gleichenWerte_button"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:text="TextVieeeeeeewww" />
 
         <Button
             android:text="     neue Eingabewerte"
@@ -207,7 +208,19 @@
             android:layout_marginBottom="50dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:visibility="invisible" />
+
+        <Button
+            android:text="Neues Spiel starten?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/neueEingabewerte_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="31dp"
+            android:id="@+id/gameover_button"
+            android:onClick="neuesSpiel"
+            android:visibility="invisible" />
 
 
     </RelativeLayout>
