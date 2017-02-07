@@ -1,15 +1,11 @@
-package com.example.patsc.fallstudie.Covered.Daten;
-import com.example.patsc.fallstudie.Covered.Controller.Controller;
-import com.example.patsc.fallstudie.Covered.Runde;
-import com.example.patsc.fallstudie.Covered.Spieler;
-
+package com.example.patsc.fallstudie.Covered;
 import java.util.ArrayList;
 /**
  * Created by Patricia Schneider on 30.12.2016.
  * Klasse in der alle Daten zu dem Spiel gesammelt werden, diese Klasse wird auch gespeichert,
  * so dass aus Ihr der neue Spielstand geladen werden kann.
  */
-public class Daten extends SpielerAbfragen{
+public class Daten {
     public ArrayList<Spieler> getSpielerListe() {
         return SpielerListe;
     }
@@ -28,9 +24,8 @@ public class Daten extends SpielerAbfragen{
     }
 
 
-    public Daten(Controller c){
+    public Daten(){
         ladeDaten();
-        setController(c);
         SpielerListe = new ArrayList<Spieler>();
     } // Ende Konstruktor
 

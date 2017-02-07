@@ -1,6 +1,5 @@
 package com.example.patsc.fallstudie.Covered;
 
-import com.example.patsc.fallstudie.Covered.Controller.Controller;
 import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
 
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ import java.util.Random;
 public class Marktsim {
 
     private RundenErgebnisWrapper[] rundenergebniswrapperarray;
-    private com.example.patsc.fallstudie.Covered.Controller.Controller Controller;
+    private Controller Controller;
     private int anzSpieler = 10;
 
     private double anzKäufer = anzSpieler * 8000;         //Anzahl der Spieler mult. mit 8000

@@ -1,7 +1,7 @@
 package com.example.patsc.fallstudie.Einzeltests.ControllerTests;
 
-import com.example.patsc.fallstudie.Covered.Daten.Daten;
-import com.example.patsc.fallstudie.Covered.Controller.Controller;
+import com.example.patsc.fallstudie.Covered.Daten;
+import com.example.patsc.fallstudie.Covered.Controller;
 import com.example.patsc.fallstudie.Covered.Spieler;
 
 import junit.framework.Assert;
@@ -15,7 +15,7 @@ import static junit.framework.TestCase.fail;
  * Created by julian on 07.01.2017.
  */
 
-public class ControllerSetIZustaendeTest {
+public class ControllerSetZustaendeTest {
     private Controller TestController = new Controller();
     private Daten TestDaten = TestController.getDaten();
     Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
@@ -24,7 +24,7 @@ public class ControllerSetIZustaendeTest {
 
     private boolean Testpassed;
 
-    public ControllerSetIZustaendeTest() throws Exception {
+    public ControllerSetZustaendeTest() throws Exception {
     }
 
     private boolean isPassed(){
@@ -37,7 +37,7 @@ public class ControllerSetIZustaendeTest {
         TestController.setZustand_Ende(true);
         TestController.setZustand_Bestellung(true);
         TestController.setZustand_Spielbeginn(true);
-       // System.err.println("Alle IZustaende auf True gesetzt");
+       // System.err.println("Alle Zustaende auf True gesetzt");
     }
 
     private void setzteAlleSchritteTrue(){
