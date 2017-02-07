@@ -1,7 +1,4 @@
-package com.example.patsc.fallstudie.Covered.Bestandteile.Controller;
-
-import com.example.patsc.fallstudie.Covered.Auftragssammlung;
-import com.example.patsc.fallstudie.Covered.Spieler;
+package com.example.patsc.fallstudie.Covered.Controller;
 
 /**
  * Created by patsc on 06.02.2017.

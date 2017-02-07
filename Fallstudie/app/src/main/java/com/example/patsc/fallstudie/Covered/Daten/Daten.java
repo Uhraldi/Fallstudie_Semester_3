@@ -1,5 +1,5 @@
 package com.example.patsc.fallstudie.Covered.Daten;
-import com.example.patsc.fallstudie.Covered.Bestandteile.Controller.Controller;
+import com.example.patsc.fallstudie.Covered.Controller.Controller;
 import com.example.patsc.fallstudie.Covered.Runde;
 import com.example.patsc.fallstudie.Covered.Spieler;
 
