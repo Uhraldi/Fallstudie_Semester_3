@@ -1,11 +1,14 @@
 package com.example.patsc.fallstudie.Einzeltests;
 
+import com.example.patsc.fallstudie.Covered.Controller.Controller;
 import com.example.patsc.fallstudie.Covered.Daten.Daten;
 import com.example.patsc.fallstudie.Covered.Spieler;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
+
+import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -19,8 +22,8 @@ public class DatenTest {
 
     public DatenTest() throws Exception {
     }
-
-        Daten TestDaten = new Daten();
+        Controller TestController = new Controller();
+        Daten TestDaten = TestController.getDaten();
         Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
         boolean ispassed = false;
 
@@ -53,7 +56,6 @@ public class DatenTest {
 
     @Test
     public void addSpielerListeFailTest(){
-        Daten TestDaten = new Daten();
         TestSpieler = null;
         try {
             TestDaten.addSpielerListe(TestSpieler);
@@ -66,7 +68,6 @@ public class DatenTest {
 
     @Test
     public void getRundenanzahlTest(){
-        Daten TestDaten = new Daten();
         TestDaten.getRundenAnzahl();
     }
 

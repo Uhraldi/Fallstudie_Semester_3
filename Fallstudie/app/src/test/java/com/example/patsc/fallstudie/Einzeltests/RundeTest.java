@@ -1,5 +1,6 @@
 package com.example.patsc.fallstudie.Einzeltests;
 
+import com.example.patsc.fallstudie.Covered.Controller.Controller;
 import com.example.patsc.fallstudie.Covered.Daten.Daten;
 import com.example.patsc.fallstudie.Covered.Runde;
 import com.example.patsc.fallstudie.Covered.Spieler;
@@ -14,7 +15,8 @@ import org.junit.Test;
 
 public class RundeTest {
 
-    Daten TestDaten = new Daten();
+    Controller TestController = new Controller();
+    Daten TestDaten = TestController.getDaten();
     Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
     int StartRunde = 1;
     Runde TestRunde = new Runde(StartRunde, TestSpieler);

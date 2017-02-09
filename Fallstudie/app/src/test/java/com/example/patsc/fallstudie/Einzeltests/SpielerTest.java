@@ -1,6 +1,7 @@
 package com.example.patsc.fallstudie.Einzeltests;
 
 
+import com.example.patsc.fallstudie.Covered.Controller.Controller;
 import com.example.patsc.fallstudie.Covered.Daten.Daten;
 import com.example.patsc.fallstudie.Covered.Spieler;
 
@@ -16,7 +17,8 @@ import static org.junit.Assert.*;
 
 public class SpielerTest {
 
-    Daten TestDaten = new Daten();
+    Controller TC = new Controller();
+    Daten TestDaten = TC.getDaten();
     Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
     boolean thrown = false;
 
@@ -52,7 +54,6 @@ public class SpielerTest {
 
     @Test
     public void setMarktanteilTest(){
-        Daten TestDaten = new Daten();
         Spieler TestSpieler = null;
         try {
             TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
@@ -66,7 +67,6 @@ public class SpielerTest {
     @Test
     public void setMarktanteilZuKleinTest(){
         try{
-            Daten TestDaten = new Daten();
             Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
         TestSpieler.setMarktanteil(-10);
         }catch(Exception e){
@@ -78,7 +78,6 @@ public class SpielerTest {
     @Test
     public void setMarktanteilZuGroßTest(){
         try{
-            Daten TestDaten = new Daten();
             Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
             TestSpieler.setMarktanteil(110);
         }catch(Exception e){
