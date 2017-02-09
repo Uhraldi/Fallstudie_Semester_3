@@ -103,4 +103,8 @@ public class UserInterface extends CNetzwerk implements IUserInterface {
             }});
         t.start();
     }
+
+    public int getEingestellteGesamt(){
+        return aktiverSpieler.getVeraenderungPersonal()+aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte();
+    }
 }
