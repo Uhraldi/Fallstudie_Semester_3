@@ -59,14 +59,20 @@ public class RundenergebnisActivity extends AppCompatActivity {
         Button gleichenWerte_button = (Button) findViewById(R.id.gleichenWerte_button);
         TextView ergebnis_message = (TextView) findViewById(R.id.ergebnis_message);
 
-        if (IntroductionActivity.Controller.getGuthaben() < 5330 + (27600 * IntroductionActivity.Controller.getEingestellteGesamt()) ){
+        if (IntroductionActivity.Controller.getGuthaben() < (5400 + (27600 * IntroductionActivity.Controller.getEingestellteGesamt())) ){
             gameover_button.setVisibility(View.VISIBLE);
             ergebnis_message.setText(R.string.gameover_message);
-        } else {
-            neueEingabewerte_button.setVisibility(View.VISIBLE);
-            gleichenWerte_button.setVisibility(View.VISIBLE);
-            ergebnis_message.setText(R.string.naechste_runde_string);
-        }
+            } else if (IntroductionActivity.Controller.getGuthaben() < 50000) {
+                Toast toast = Toast.makeText(this, "Sie sind kurz vor der Insolvenz. Produzieren Sie günstig in der nächsten Runde!", Toast.LENGTH_LONG);
+                toast.show();
+                neueEingabewerte_button.setVisibility(View.VISIBLE);
+                gleichenWerte_button.setVisibility(View.VISIBLE);
+                ergebnis_message.setText(R.string.naechste_runde_string);
+            } else {
+                    neueEingabewerte_button.setVisibility(View.VISIBLE);
+                    gleichenWerte_button.setVisibility(View.VISIBLE);
+                    ergebnis_message.setText(R.string.naechste_runde_string);
+            }
     }
 
 

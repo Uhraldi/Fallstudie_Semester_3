@@ -11,7 +11,7 @@ import org.junit.Test;
  */
 
 public class ScenarioTestHigh {
-    public int WaitingTime = 500;
+    public int WaitingTime = 50;
     private static String AUSWAHL_SEBASTIAN_ZEITARBEITER = Controller.ZEITARBEITER_WAHL_MEISTER;
     private static String AUSWAHL_SEBASTIAN_FORSCHUNG = Controller.FORSCHUNG_WAHL_HOCH;
     private static String AUSWAHL_SEBASTIAN_MARKETING = Controller.MARKETING_WAHL_FERNSEHWERBUNG;
@@ -108,7 +108,7 @@ public class ScenarioTestHigh {
         Controller.setAktiverSpieler(Sebastian);
         System.out.println("Spieler erstellt!");
 
-        for (int i = 0; i<9; i++){
+        for (int i = 0; i<10; i++){
 
             //4.Spieler führen Bestellungen durch
             Controller.setZustand_Bestellung(true);
