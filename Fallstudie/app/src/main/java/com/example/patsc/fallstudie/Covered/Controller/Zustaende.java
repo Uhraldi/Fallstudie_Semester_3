@@ -27,14 +27,14 @@ public class Zustaende extends SuperController implements IZustaende {
     private boolean Zustand_Ereignis = false;
     private boolean Zustand_Lieferung = false;
 
-
+    /**
+     * Schritte, die während des Auswahlprozesses für die Produktion durchlaufen werden müssen.
+     *
+     */
     private boolean SCHRITT_FORSCHUNG_boolean = false;// erster Schritt Wahl des Designers
     private boolean SCHRITT_ARMBAND_boolean  = false;// zweite Schritt Wahl des Armbands
     private boolean SCHRITT_UHRWERK_boolean  = false;// dritter Schritt Wahl des Uhrwerks und der Uhrenart
-
-    // Zustandsvariablen fuer die Schritte bei dem Zeitarbeiter
     private boolean SCHRITT_GEHAUESE_boolean  = false;// vierter Schritt Wahl des Gehäuses für die Uhr
-    //private boolean SCHRITT_DICHTHEIT_boolean  = false;// fuenfter Schritt Wahl der Dichtheit
     private boolean SCHRITT_ZEITARBEITER_boolean = false;// sechster Schritt Wahl Zeitarbeiter
     private boolean SCHRITT_MARKETING_boolean = false; // siebter Schritt Wahl des Werbeetars
     private boolean SCHRITT_PRODUKTIONSVOLUMEN_boolean = false; // achter Schritt Wahl des Kaufvolumens

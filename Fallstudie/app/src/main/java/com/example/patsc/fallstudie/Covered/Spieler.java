@@ -67,6 +67,14 @@ public class Spieler {
         return Name;
     }
 
+    public int getAnfangsguthaben() {
+        return Anfangsguthaben;
+    }
+
+    public int getAnfangsMarktanteil() {
+        return AnfangsMarktanteil;
+    }
+
     public String getPasswort() {
         return Passwort;
     }
@@ -94,8 +102,6 @@ public class Spieler {
             } else if (marktanteil < 0) {
                 throw new Exception("Marktanteil unter 0%");
             }
-
-
 
     } // Ende setMarktanteil
 

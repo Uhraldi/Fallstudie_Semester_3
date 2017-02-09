@@ -682,6 +682,7 @@ public class Controller extends UserInterface{
             return false;
         }
     }// Ende isZufall1
+
     public boolean isZufall2 (){ // Zufall 2 = Gehäuse Ändern
         double zufallszahl = Math.random();
         setzeZustaendeAendere(false);
@@ -717,6 +718,7 @@ public class Controller extends UserInterface{
             return false;
         }
     }// Ende isZufall2
+
     public boolean isZufall3 (){ // Zufall 3 = Zeitarbeiter Ändern
         double zufallszahl = Math.random();
         setzeZustaendeAendere(false);
@@ -753,14 +755,6 @@ public class Controller extends UserInterface{
             return false;
         }
     }// Ende isZufall3
-
-    //Andere Abfragen
-    public Spieler[] getBestenliste(){
-        //ToDo
-        Spieler [] nF = new Spieler[1];
-        nF[0] = aktiverSpieler;
-        return nF;
-    } //Ende getBestenliste
 
     public void naechster_Schritt_Auswahl(){} // Setzen des nächsten AuswahlSchritts
     public void naechster_Zustand(){} // Setzen des nächsten Zustands
@@ -821,8 +815,6 @@ public class Controller extends UserInterface{
                 getDaten().setRundenAnzahl(spieler.getRunde());
                 aktiverSpieler.setGuthaben(spieler.getKonto());
                 aktiverSpieler.setMarktanteil(spieler.getMaSchnitt());
-                aktiverSpieler.setKontoSchnitt(spieler.getKontoSchnitt());
-                aktiverSpieler.setVeraenderungPersonal(spieler.getPersonalVeraenderung());
                 aktiverSpieler.getAuftragssammlung().aktuellerAuftrag.getPersonalwesen().setEingestellte(spieler.getPersonalAnzahl());
                 if (aktiverSpieler.getGuthaben()==0){
                     aktiverSpieler = new Spieler(name,passwort,getDaten());
@@ -831,9 +823,7 @@ public class Controller extends UserInterface{
                 return true;
             } // Ende else
         } catch (Exception e) {
-
-            return false;
-        } // Ende Methode
+            return false;         } // Ende Methode
 
     }
 
@@ -959,9 +949,23 @@ public class Controller extends UserInterface{
             return true;}
     }
 
-    //TODO: Neues Spiel bei Game Over / alle Werte des Spielers auf inital
+    /**
+     * Erstellt ein neues Spiel für den Spieler, der bisher gespielt hat.
+     * Alle Werte werden auf die Initial Werte zurückgesetzt.
+     * Der neue "Spielstand" wird dem Server mitgeteilt.
+     * @return  true wenn das erzeugen eines neuen Spiels erfolgreich war
+     *          false wenn das erzeugen eines neuen Spiels fehlgeschlagen ist
+     */
     public boolean neuesSpiel(){
-        return true;
+        Spieler s = aktiverSpieler; // Zwischenspeichern, damit Namens und Passwort Abfrage weiterhin möglich ist
+        setDaten(new Daten(this)); // neue Daten, damit keine Probleme mit alten Werten auftreten können
+        try {
+            aktiverSpieler = new Spieler (s.getName(),s.getPasswort(),getDaten()); // Anfangswerte für den aktivenSpieler bei selben Namen und PW wie bisher
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace(); // Keine weitere Fehlerbehandlung, da ein Toast an den Nutzer ausgegeben wird
+            return false;
+        }
     }
 
     public boolean starteNaechsteRunde (){
