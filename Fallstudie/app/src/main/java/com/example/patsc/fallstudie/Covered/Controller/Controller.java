@@ -915,7 +915,7 @@ public class Controller extends UserInterface{
         RundenErgebnisWrapper temp;
         for(int i=1; i<spielers.length; i++) {
             for(int j=0; j<spielers.length-i; j++) {
-                if((spielers[j].getKonto() * spielers[j].getMaSchnitt()) < (spielers[j].getKonto() * spielers[j].getMaSchnitt())) {
+                if((spielers[j].getKonto() * spielers[j].getMaSchnitt()) < (spielers[j+1].getKonto() * spielers[j+1].getMaSchnitt())) {
                     temp=spielers[j];
                     spielers[j]=spielers[j+1];
                     spielers[j+1]=temp;

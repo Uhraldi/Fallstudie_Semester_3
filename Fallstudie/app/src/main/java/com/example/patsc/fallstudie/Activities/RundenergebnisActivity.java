@@ -43,7 +43,10 @@ public class RundenergebnisActivity extends AppCompatActivity {
         absatz_output.setText(String.valueOf(IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz(IntroductionActivity.Controller.getAktiverSpieler().getName())));
 
         TextView marktanteil_output = (TextView) findViewById(R.id.marktanteil_output);
-        double marktanteil = Math.round(100 * IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(IntroductionActivity.Controller.getAktiverSpieler().getName()) / 100);
+        double marktanteil = IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(IntroductionActivity.Controller.getAktiverSpieler().getName());
+        marktanteil = marktanteil * 10000;
+        marktanteil = Math.round(marktanteil);
+        marktanteil = marktanteil/100;
         marktanteil_output.setText((String.valueOf(marktanteil) + " %"));
 
         TextView gewinn_output = (TextView) findViewById(R.id.gewinn_output);
