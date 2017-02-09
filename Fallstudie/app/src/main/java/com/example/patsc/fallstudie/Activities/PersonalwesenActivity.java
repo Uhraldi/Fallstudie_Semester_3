@@ -52,7 +52,7 @@ public class PersonalwesenActivity extends AppCompatActivity {
         nichts_radiobutton = (RadioButton) findViewById(R.id.nichts_radiobutton);
 
         TextView aktuelleMitarbeiter_output = (TextView) findViewById(R.id.aktuelleMitarbeiter_output);
-        int personalAnzahl = IntroductionActivity.Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte()
+        int personalAnzahl = IntroductionActivity.Controller.getAktiverSpieler().getAktuellEingestellte()
         + IntroductionActivity.Controller.getAktiverSpieler().getVeraenderungPersonal();
         aktuelleMitarbeiter_output.setText(String.valueOf((personalAnzahl)));
 
