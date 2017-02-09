@@ -12,6 +12,16 @@ public class SuperController implements ISuperController {
     private Daten daten; // Klasse in der alle Daten gehalten werden wird bei OnCreate erzeugt
     public Spieler aktiverSpieler;
 
+
+    public double getGesamtkosten() {
+        return gesamtkosten;
+    }
+
+    public void setGesamtkosten(double gesamtkosten) {
+        this.gesamtkosten = gesamtkosten;
+    }
+
+
     private double gesamtkosten = 0;
 
     public void setAktiverSpieler(Spieler aktiverSpieler) {

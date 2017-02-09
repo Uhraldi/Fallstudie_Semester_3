@@ -1,5 +1,7 @@
 package com.example.patsc.fallstudie.Covered.Controller;
 
+import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
+
 /**
  * Created by patsc on 06.02.2017.
  */
@@ -103,4 +105,32 @@ public class UserInterface extends CNetzwerk implements IUserInterface {
             }});
         t.start();
     }
+
+    /**
+     * Bestenliste sortiert nach Spieler
+     *              Spieler 1   Spieler 2   Spieler 3   Spieler 4   Spieler 5
+     * Position
+     * Name
+     * Guthaben
+     * Marktanteil
+     *
+     * @return String[Spieler][Eigenschaft]
+     */
+    public String[][] getBestenliste(RundenErgebnisWrapper[] spielers){
+
+        String [][] bestenliste = new String[4][4];
+        RundenErgebnisWrapper[] ergebnisWrappers = getDaten().getController().sortSpieler(spielers);
+        for (int i = 0; i<5;i++){
+            bestenliste[i][0] = Integer.toString(i+1); //ergebnisWrappers ist bereits sortiert, daher ist der erste Spieler der gespeichert wird an Position 1
+            bestenliste[i][1] = ergebnisWrappers[i].getId();
+            int konto = (int) ergebnisWrappers[i].getKonto()*100;
+            double dkonto = konto/100; // abschneiden des Guthabens auf zwei Nachkommastellen
+            bestenliste[i][2] = Double.toString(dkonto);
+            int marktanteil  = (int) ergebnisWrappers[i].getMarktanteil()*100;
+            double dmarktanteil = marktanteil/100; // abschneiden des Marktanteils auf zwei Nachkommastellen
+            bestenliste[i][3] = Double.toString(dmarktanteil);
+        }
+        return bestenliste;
+    }
+
 }
