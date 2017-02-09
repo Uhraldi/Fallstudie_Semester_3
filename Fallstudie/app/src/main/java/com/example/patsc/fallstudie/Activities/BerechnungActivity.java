@@ -12,7 +12,7 @@ import com.example.patsc.fallstudie.R;
 public class BerechnungActivity extends AppCompatActivity {
 
     /** Dauer der Wartezeit **/
-    private final int CALCULATION_DISPLAY_LENGTH = 8000;
+    private final int CALCULATION_DISPLAY_LENGTH = 5000;
 
     /**
      *

@@ -52,6 +52,7 @@ public class Controller extends UserInterface{
             //#Netzwerk Gegner herunterladen
             RundenErgebnisWrapper[] gegnerliste = gegnerHerunterladen(this);
             Marktsim marktsim = new Marktsim( this, gegnerliste);
+            aktiverSpieler.setMaSchnitt(marktsim.getAktiverErgebnisWrapper(aktiverSpieler.getName()).getMaSchnitt());
             getDaten().ASDserMarktSim(marktsim);
 
             //# Netzwerk Spieler Daten speichern
@@ -836,7 +837,7 @@ public class Controller extends UserInterface{
 
     public int getPosition(){
         int pos=9898;
-        RundenErgebnisWrapper[] spielerArray = sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getData());
+        RundenErgebnisWrapper[] spielerArray = sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenErgebnisWrapper());
         for (int i = 0; i<spielerArray.length;i++) {
             if (aktiverSpieler.getName().equals(spielerArray[i].getId())) {
                 pos = i + 1;

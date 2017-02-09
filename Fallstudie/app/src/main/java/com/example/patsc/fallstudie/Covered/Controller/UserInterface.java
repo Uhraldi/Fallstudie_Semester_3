@@ -120,7 +120,7 @@ public class UserInterface extends CNetzwerk implements IUserInterface {
     public String[][] getBestenliste(){
 
         String [][] bestenliste = new String[5][4];
-        RundenErgebnisWrapper[] ergebnisWrappers = getDaten().getController().sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getData());
+        RundenErgebnisWrapper[] ergebnisWrappers = getDaten().getController().sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenErgebnisWrapper());
         for (int i = 0; i<5;i++){
             bestenliste[i][0] = Integer.toString(i+1); //ergebnisWrappers ist bereits sortiert, daher ist der erste Spieler der gespeichert wird an Position 1
             bestenliste[i][1] = ergebnisWrappers[i].getId();

@@ -380,8 +380,16 @@ public class Marktsim {
         return hashmap.get(name);
     }
 
-    public RundenErgebnisWrapper[] getData() {
+    public RundenErgebnisWrapper[] getRundenErgebnisWrapper() {
         return rundenergebniswrapperarray;
+    }
+
+    public RundenErgebnisWrapper getAktiverErgebnisWrapper (String name){
+        HashMap<String, RundenErgebnisWrapper> hashmap = new HashMap<>();
+        for (int i = 0; i < namenarray.size(); i++) {
+            hashmap.put((String) namenarray.get(i), rundenergebniswrapperarray[i]);
+        }
+        return hashmap.get(name);
     }
 
     /**
