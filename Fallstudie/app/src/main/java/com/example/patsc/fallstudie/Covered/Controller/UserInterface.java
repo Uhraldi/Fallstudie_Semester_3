@@ -107,8 +107,6 @@ public class UserInterface extends CNetzwerk implements IUserInterface {
     }
 
 
-    //TODO: Methoden fuer RundenErgebnisActivity zur Ueberpruefung ob pleite, oder knapp pleite, Berechnung dort ziehen.
-
     /**
      * Bestenliste sortiert nach Spieler
      *              Spieler 1   Spieler 2   Spieler 3   Spieler 4   Spieler 5
@@ -119,10 +117,10 @@ public class UserInterface extends CNetzwerk implements IUserInterface {
      *
      * @return String[Spieler][Eigenschaft]
      */
-    public String[][] getBestenliste(RundenErgebnisWrapper[] spielers){
+    public String[][] getBestenliste(){
 
         String [][] bestenliste = new String[4][4];
-        RundenErgebnisWrapper[] ergebnisWrappers = getDaten().getController().sortSpieler(spielers);
+        RundenErgebnisWrapper[] ergebnisWrappers = getDaten().getController().sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getData());
         for (int i = 0; i<5;i++){
             bestenliste[i][0] = Integer.toString(i+1); //ergebnisWrappers ist bereits sortiert, daher ist der erste Spieler der gespeichert wird an Position 1
             bestenliste[i][1] = ergebnisWrappers[i].getId();
