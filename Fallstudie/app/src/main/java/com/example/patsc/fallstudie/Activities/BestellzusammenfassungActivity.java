@@ -95,7 +95,9 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
         verkaufspreis_output.setText(String.valueOf(IntroductionActivity.Controller.getVerkaufspreis()));
 
         TextView gesamtpreis_output = (TextView) findViewById(R.id.gesamtpreis_output);
-        double x = IntroductionActivity.Controller.getGesamtkosten();
+        double x = IntroductionActivity.Controller.aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten() +
+                   IntroductionActivity.Controller.aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVarKosten() *
+                   IntroductionActivity.Controller.aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
         gesamtpreis_output.setText(String.valueOf(x));
 
 
