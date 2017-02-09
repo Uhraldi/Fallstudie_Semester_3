@@ -755,12 +755,6 @@ public class Controller extends UserInterface{
     }// Ende isZufall3
 
     //Andere Abfragen
-    public Spieler[] getBestenliste(){
-        //ToDo
-        Spieler [] nF = new Spieler[1];
-        nF[0] = aktiverSpieler;
-        return nF;
-    } //Ende getBestenliste
 
     public void naechster_Schritt_Auswahl(){} // Setzen des nächsten AuswahlSchritts
     public void naechster_Zustand(){} // Setzen des nächsten Zustands

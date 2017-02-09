@@ -27,57 +27,58 @@ public class BestenlisteActivity extends AppCompatActivity {
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
+        String [][] bestenListe = IntroductionActivity.Controller.getBestenliste();
 
         //Platz 1
         TextView einspos = (TextView) findViewById(R.id.einspos);
-        einspos.setText("");
+        einspos.setText(bestenListe[0][0]);
         TextView einsname = (TextView) findViewById(R.id.einsname);
-        einsname.setText(" ");
+        einsname.setText(bestenListe[0][1]);
         TextView einsguthaben = (TextView) findViewById(R.id.einsguthaben);
-        einsguthaben.setText("");
+        einsguthaben.setText(bestenListe[0][2]);
         TextView einsmarktanteil = (TextView) findViewById(R.id.einsmarktanteil);
-        einsmarktanteil.setText("");
+        einsmarktanteil.setText(bestenListe[0][3]);
 
 
         //Platz2
         TextView zweipos = (TextView) findViewById(R.id.zweipos);
-        zweipos.setText("");
+        zweipos.setText(bestenListe[1][0]);
         TextView zweiname = (TextView) findViewById(R.id.zweiname);
-        zweiname.setText("");
+        zweiname.setText(bestenListe[1][1]);
         TextView zweiguthaben = (TextView) findViewById(R.id.zweiguthaben);
-        zweiguthaben.setText("");
+        zweiguthaben.setText(bestenListe[1][2]);
         TextView zweimarktanteil = (TextView) findViewById(R.id.zweimarktanteil);
-        zweimarktanteil.setText("");
+        zweimarktanteil.setText(bestenListe[1][3]);
 
         //Platz3
         TextView dreipos = (TextView) findViewById(R.id.dreipos);
-        dreipos.setText("");
+        dreipos.setText(bestenListe[2][0]);
         TextView dreiname = (TextView) findViewById(R.id.dreiname);
-        dreiname.setText("");
+        dreiname.setText(bestenListe[2][1]);
         TextView dreiguthaben = (TextView) findViewById(R.id.dreiguthaben);
-        dreiguthaben.setText("");
+        dreiguthaben.setText(bestenListe[2][2]);
         TextView dreimarktanteil = (TextView) findViewById(R.id.dreimarktanteil);
-        dreimarktanteil.setText("");
+        dreimarktanteil.setText(bestenListe[2][3]);
 
         //Platz 4
         TextView vierpos = (TextView) findViewById(R.id.vierpos);
-        vierpos.setText("");
+        vierpos.setText(bestenListe[3][0]);
         TextView viername = (TextView) findViewById(R.id.viername);
-        viername.setText("");
+        viername.setText(bestenListe[3][1]);
         TextView vierguthaben = (TextView) findViewById(R.id.vierguthaben);
-        vierguthaben.setText("");
+        vierguthaben.setText(bestenListe[3][2]);
         TextView viermarktanteil = (TextView) findViewById(R.id.viermarktanteil);
-        viermarktanteil.setText("");
+        viermarktanteil.setText(bestenListe[3][3]);
 
         //Platz 5
         TextView fuenfpos = (TextView) findViewById(R.id.fuenfpos);
-        fuenfpos.setText("");
+        fuenfpos.setText(bestenListe[4][0]);
         TextView fuenfname = (TextView) findViewById(R.id.fuenfname);
-        fuenfname.setText("");
+        fuenfname.setText(bestenListe[4][1]);
         TextView fuenfguthaben = (TextView) findViewById(R.id.fuenfguthaben);
-        fuenfguthaben.setText("");
+        fuenfguthaben.setText(bestenListe[4][2]);
         TextView fuenfmarktanteil = (TextView) findViewById(R.id.fuenfmarktanteil);
-        fuenfmarktanteil.setText("");
+        fuenfmarktanteil.setText(bestenListe[4][3]);
 
 
     }
