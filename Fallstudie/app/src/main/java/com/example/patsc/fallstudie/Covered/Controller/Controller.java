@@ -38,10 +38,10 @@ public class Controller extends UserInterface{
         controllerString = "";
         return controllerString;
     }
-        public void setActivity_Berechnung (){
-        try {
-            setZustand_Lieferung(true);
 
+
+    protected void fuehreBerechnungAus(){
+        try {
             Preissimulation preissim = new Preissimulation(this); //ToDo
             getDaten().ASDsetPreisSim(preissim);
 
@@ -61,7 +61,6 @@ public class Controller extends UserInterface{
             e.printStackTrace();
         }
     }
-
 
 
     // Methoden zum weitergeben der UI-Inputs
@@ -929,7 +928,6 @@ public class Controller extends UserInterface{
     }
 
     public boolean gleichenWerteNochmal (){
-
         aktiverSpieler.getAuftragssammlung().neuerAuftragGleicheWerte();
         getDaten().erhoeheRundenanzahl();
         veraenderePersonal(aktiverSpieler.getVeraenderungPersonal() ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);

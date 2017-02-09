@@ -37,9 +37,21 @@ public class Auftragssammlung {
         aktuellerAuftrag = auftraege[aktuellerAuftragInt];
     }
     public void neuerAuftragGleicheWerte( ){
-        aktuellerAuftragInt++;
-        auftraege[aktuellerAuftragInt] = auftraege[aktuellerAuftragInt-1];
+
+        Auftrag neuerAuftrag = aktuellerAuftrag;
         aktuellerAuftrag = auftraege[aktuellerAuftragInt];
+        double fixKosten = getAktuellerAuftrag().getFixKosten();
+        neuerAuftrag.setFixKosten(fixKosten);
+        double varKosten = getAktuellerAuftrag().getVarKosten();
+        neuerAuftrag.setVarKosten(varKosten);
+        double resPr = getAktuellerAuftrag().getResPr();
+        neuerAuftrag.setResPr(resPr);
+        int menge = getAktuellerAuftrag().getMenge();
+        neuerAuftrag.setMenge(menge);
+        double vkp = getAktuellerAuftrag().getVkp();
+        neuerAuftrag.setVkp(vkp);
+        aktuellerAuftragInt++;
+        aktuellerAuftrag = neuerAuftrag;
     }
 
     public Auftrag getAuftrag(int i){
