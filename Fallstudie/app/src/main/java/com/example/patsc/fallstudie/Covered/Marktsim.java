@@ -229,6 +229,7 @@ public class Marktsim {
                 int f = (int) absatzarrayint.get(s);
                 absatzarrayint.set(s, f - 2);
             }
+            lowsumme = lowsumme -20;
         }
 
         while (middlesumme > middleKäufer) {
@@ -236,6 +237,7 @@ public class Marktsim {
                 int f = (int) absatzarrayint.get(s);
                 absatzarrayint.set(s, f - 2);
             }
+            middlesumme = middlesumme - 20;
         }
 
         while (highsumme > highKäufer) {
@@ -243,6 +245,7 @@ public class Marktsim {
                 int f = (int) absatzarrayint.get(s);
                 absatzarrayint.set(s, f - 2);
             }
+            highsumme = highsumme -20;
         }
         for (int i = 0; i < absatzarrayint.size(); i++) {    //Übertragen der Daten des absatzarray von Typ Integer in Double für die weitere Berechnung
             int zwischenint = (int) absatzarrayint.get(i);

@@ -29,7 +29,7 @@ public class ControllerSetForschungTest {
             {"2500€ Investition", "8000€ Investition", "15000€ Investition"};
     Controller TestController = new Controller();
     boolean thrown = false;
-    Daten TestDaten = new Daten();
+    Daten TestDaten = TestController.getDaten();
     Spieler TestSpieler = new Spieler("testname", "testpasswort", TestDaten);
 
 
