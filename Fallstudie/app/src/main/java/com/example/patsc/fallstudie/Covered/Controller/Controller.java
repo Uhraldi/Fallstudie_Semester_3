@@ -376,7 +376,7 @@ public class Controller extends UserInterface{
     }
 
     public boolean persoAenderungErlaubt(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
-        return (spieler.getAktuellEingestellte()+anzahlMitarbeiter)>0;
+        return ((spieler.getAktuellEingestellte() + spieler.getVeraenderungPersonal()) + anzahlMitarbeiter) > 0;
     }
     public int personalNeu(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
         int personalGesamt = spieler.getAktuellEingestellte()+spieler.getVeraenderungPersonal();

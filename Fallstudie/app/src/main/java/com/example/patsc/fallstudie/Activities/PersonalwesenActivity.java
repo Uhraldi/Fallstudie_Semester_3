@@ -98,7 +98,7 @@ public class PersonalwesenActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast toast = Toast.makeText(this, "Bitte angeben, wieviele Mitarbeiter Sie einstellen moechten", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(this, "Bitte angeben, wieviele Mitarbeiter Sie einstellen möchten", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }
@@ -111,11 +111,11 @@ public class PersonalwesenActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }  else{
-                        Toast toast1 = Toast.makeText(this, "Es muss mindestens ein Mitarbeiter eingestellt sein.", Toast.LENGTH_SHORT);
+                        Toast toast1 = Toast.makeText(this, "Es muss mindestens ein Mitarbeiter eingestellt sein", Toast.LENGTH_SHORT);
                         toast1.show();
                     }
                 } else {
-                    Toast toast2 = Toast.makeText(this, "Bitte angeben, wieviele Mitarbeiter Sie kuendigen moechten.", Toast.LENGTH_SHORT);
+                    Toast toast2 = Toast.makeText(this, "Bitte angeben, wieviele Mitarbeiter Sie kündigen möchten", Toast.LENGTH_SHORT);
                     toast2.show();
                 }
             }
@@ -127,7 +127,7 @@ public class PersonalwesenActivity extends AppCompatActivity {
             }
 
             if (!einstellen_radiobutton.isChecked() && !kuendigen_radiobutton.isChecked() && !nichts_radiobutton.isChecked()){
-                Toast toast3 = Toast.makeText(this, "Bitte mindestens eine Option waehlen", Toast.LENGTH_SHORT);
+                Toast toast3 = Toast.makeText(this, "Bitte mindestens eine Option wählen", Toast.LENGTH_SHORT);
                 toast3.show();
             }
 

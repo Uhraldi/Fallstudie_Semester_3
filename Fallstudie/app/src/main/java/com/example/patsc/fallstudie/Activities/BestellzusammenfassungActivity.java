@@ -89,7 +89,8 @@ public class BestellzusammenfassungActivity extends AppCompatActivity {
 
 
         TextView produktionsvolumen_output = (TextView) findViewById(R.id.produktionsvolumen_output);
-        produktionsvolumen_output.setText(String.valueOf(IntroductionActivity.Controller.getProduktionsvolumen()));
+        int produktionsvolumen = (int) IntroductionActivity.Controller.getProduktionsvolumen();
+        produktionsvolumen_output.setText(String.valueOf(produktionsvolumen));
 
         TextView verkaufspreis_output = (TextView) findViewById(R.id.verkaufspreis_output);
         verkaufspreis_output.setText(String.valueOf(IntroductionActivity.Controller.getVerkaufspreis()));
