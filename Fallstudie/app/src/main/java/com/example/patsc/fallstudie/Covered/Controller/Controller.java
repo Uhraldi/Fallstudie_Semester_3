@@ -31,7 +31,7 @@ public class Controller extends UserInterface{
      */
     public Controller(){
         setDaten(new Daten(this)); // erzeugung der Klasse Daten
-        setController(this);
+
     }
     public String toString(){
         String controllerString;

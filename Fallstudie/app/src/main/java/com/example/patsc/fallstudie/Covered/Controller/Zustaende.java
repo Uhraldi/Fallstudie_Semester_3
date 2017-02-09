@@ -4,19 +4,31 @@ import com.example.patsc.fallstudie.Covered.Auftragssammlung;
 import com.example.patsc.fallstudie.Covered.Spieler;
 
 /**
- * Created by patsc on 06.02.2017.
+ * Created by Patricia Schneider.
+ *
+ * In dieser Klasse wird das Interface Zustaende implentiert.
+ * Hier finden alle Prüfungen statt, in welchem Zustand bzw. Schritt sich das Spiel aktuell befindet.
+ * Dadurch soll sicher gestellt werden, dass unter anterdem bei der Produktion stehts alle Werte gesetzt wurden
+ * und es nicht zu Null-Pointer Fehlern kommen kann.
  */
 
 public class Zustaende extends SuperController implements IZustaende {
 
-    // Zustände während der Auftragssammlung
-    private boolean SCHRITT_FORSCHUNG_boolean = false;// erster Schritt Wahl des Designers
+    /**
+     * Mögliche Zustaende in den sich das Spiel befinden kann.
+     * Initial Wert nur für Spielbeginn true, da nur so einloggen bzw registrieren möglich ist.
+     * Es darf imme nur ein Zustand true sein.
+     * Die Reihenfolge muss beachtet werden.
+     * Diese ist Spiel
+     */
+    private boolean Zustand_Ende = false;
     private boolean Zustand_Spielbeginn = true;
     private boolean Zustand_Bestellung = false;
     private boolean Zustand_Ereignis = false;
     private boolean Zustand_Lieferung = false;
 
-    private boolean Zustand_Ende = false;
+
+    private boolean SCHRITT_FORSCHUNG_boolean = false;// erster Schritt Wahl des Designers
     private boolean SCHRITT_ARMBAND_boolean  = false;// zweite Schritt Wahl des Armbands
     private boolean SCHRITT_UHRWERK_boolean  = false;// dritter Schritt Wahl des Uhrwerks und der Uhrenart
 
