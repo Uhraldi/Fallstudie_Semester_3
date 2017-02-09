@@ -18,7 +18,7 @@ public class Marktsim {
     private com.example.patsc.fallstudie.Covered.Controller.Controller Controller;
     private int anzSpieler = 10;
 
-    private double anzKäufer = anzSpieler * 8000;         //Anzahl der Spieler mult. mit 8000
+    private double anzKäufer = anzSpieler * 7000;         //Anzahl der Spieler multipliziert mit 7000
     private double lowKäufer, middleKäufer, highKäufer;  // Variable für die Anzahl der möglichen Kunden in dem jeweiligen Preissegment
     private double lowsumme, middlesumme, highsumme;     // Zwischenspeicher für die Summe der Abverkäufe in dem jeweiligen Preissegment
 
@@ -26,7 +26,6 @@ public class Marktsim {
     int lowverteilung;                      // Verteilung low (zufällig)
     int highverteilung;                     // Verteilung high (zufällig)
     int middleverteilung;                   // Verteilung middle abhängig von low und high
-
 
     private ArrayList<Integer> middlearray = new ArrayList<Integer>();
     private ArrayList<Integer> lowarray = new ArrayList<Integer>();
@@ -69,11 +68,11 @@ public class Marktsim {
             vkparray.add(p.getVkp());
         }
 
-        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // VKP-Abfrage
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // Gesamtkosten-Abfrage
             gesamtkostenarray.add(p.getGesamtKosten());
         }
 
-        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // VKP-Abfrage
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   // Personalanzahl-Abfrage
             personalanzahlarray.add(p.getPersonalanzahl());
         }
 
@@ -89,7 +88,7 @@ public class Marktsim {
             kontoarray.add(p.getKonto());
         }
 
-        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {
+        for (RundenErgebnisWrapper p : this.rundenergebniswrapperarray) {   //Namen-Abfrage (ID)
             namenarray.add(p.getId());
         }
 
@@ -137,9 +136,9 @@ public class Marktsim {
         }
 
 
-        for (int i = 0; i < anzSpieler; i++) {
+        for (int i = 0; i < anzSpieler; i++) {      // (2)
 
-            if (vkparray.get(i) <= lowGrenze) {        // (2)
+            if (vkparray.get(i) <= lowGrenze) {
                 double y = ((double) randInt(30, 80) / 100 + absatzbonusarray.get(i));
                 if (y > 1) {
                     y = 1;
@@ -166,7 +165,7 @@ public class Marktsim {
                 lowsumme += (int) absatzarrayint.get(i);
                 lowarray.add(i);
             } else {
-                if (vkparray.get(i) <= middleGrenze) { //Abfrage, ob der Verkaufspreis ins Middle-Segment fällt
+                if (vkparray.get(i) <= middleGrenze) {
                     double y = ((double) randInt(30, 50) / 100 + absatzbonusarray.get(i));
                     if (y > 1) {
                         y = 1;
@@ -193,7 +192,7 @@ public class Marktsim {
                     middlesumme += (int) absatzarrayint.get(i);
                     middlearray.add(i);
                 } else {
-                    if (vkparray.get(i) > middleGrenze) { //Abfrage, ob der Verkaufspreis ins Middle-Segment fällt
+                    if (vkparray.get(i) > middleGrenze) {
                         double y = ((double) randInt(35, 70) / 100 + absatzbonusarray.get(i));
                         if (y > 1) {
                             y = 1;
@@ -229,7 +228,7 @@ public class Marktsim {
                 int f = (int) absatzarrayint.get(s);
                 absatzarrayint.set(s, f - 2);
             }
-            lowsumme = lowsumme -20;
+            lowsumme = lowsumme - 20;
         }
 
         while (middlesumme > middleKäufer) {
@@ -245,7 +244,7 @@ public class Marktsim {
                 int f = (int) absatzarrayint.get(s);
                 absatzarrayint.set(s, f - 2);
             }
-            highsumme = highsumme -20;
+            highsumme = highsumme - 20;
         }
         for (int i = 0; i < absatzarrayint.size(); i++) {    //Übertragen der Daten des absatzarray von Typ Integer in Double für die weitere Berechnung
             int zwischenint = (int) absatzarrayint.get(i);
@@ -275,7 +274,7 @@ public class Marktsim {
      */
     private void berechneMaSchnitt() {
         for (int i = 0; i < maSchnitt.size(); i++) {
-            double zwischen = (double) maSchnitt.get(i) * (rundenergebniswrapperarray[i].getRunde() -1);
+            double zwischen = (double) maSchnitt.get(i) * (rundenergebniswrapperarray[i].getRunde() - 1);
             maSchnitt.set(i, ((zwischen + marktanteil.get(i)) / (rundenergebniswrapperarray[i].getRunde())));
         }
     }
@@ -285,8 +284,8 @@ public class Marktsim {
      */
     public void berechnePreissegmente() {
 
-        lowverteilung = randInt(40, 49);                            // Verteilung low (zufällig)
-        highverteilung = randInt(30, 49);                           // Verteilung high (zufällig)
+        lowverteilung = randInt(40, 50);                            // Verteilung low (zufällig)
+        highverteilung = randInt(30, 40);                           // Verteilung high (zufällig)
         middleverteilung = 100 - lowverteilung - highverteilung;    // Verteilung middle abhängig von low und high
         lowKäufer = (((double) lowverteilung / 100) * anzKäufer);
         middleKäufer = (((double) middleverteilung / 100) * anzKäufer);
@@ -318,6 +317,9 @@ public class Marktsim {
         }
     }
 
+    /**
+     * Berechnung des neuen Kontostands für jeden Spielers
+     */
     public void berechneNeuenKontostand() {
         for (int i = 0; i < absatzarrayint.size(); i++) {
             double zwischen = (double) kontoarray.get(i);
@@ -386,4 +388,3 @@ public class Marktsim {
      * ----------------------Ende Getter und Setter----------------------
      */
 }
-

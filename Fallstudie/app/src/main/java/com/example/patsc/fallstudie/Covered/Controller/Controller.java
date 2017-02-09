@@ -819,6 +819,9 @@ public class Controller extends UserInterface{
                 aktiverSpieler.setGuthaben(spieler.getKonto());
                 aktiverSpieler.setMarktanteil(spieler.getMaSchnitt());
                 aktiverSpieler.getAuftragssammlung().aktuellerAuftrag.getPersonalwesen().setEingestellte(spieler.getPersonalAnzahl());
+                aktiverSpieler.setAktuellEingestellte(spieler.getPersonalAnzahl());
+                aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().setVeraenderung(spieler.getPersonalVeraenderung());
+                aktiverSpieler.setVeraenderungPersonal(spieler.getPersonalVeraenderung());
                 if (aktiverSpieler.getGuthaben()==0){
                     aktiverSpieler = new Spieler(name,passwort,getDaten());
                 }
@@ -912,7 +915,7 @@ public class Controller extends UserInterface{
         RundenErgebnisWrapper temp;
         for(int i=1; i<spielers.length; i++) {
             for(int j=0; j<spielers.length-i; j++) {
-                if((spielers[j].getMarktanteil()*spielers[j].getRundengewinn())>(spielers[j+1].getMarktanteil()*spielers[j].getRundengewinn())) {
+                if((spielers[j].getRundengewinn())>(spielers[j].getRundengewinn())) {
                     temp=spielers[j];
                     spielers[j]=spielers[j+1];
                     spielers[j+1]=temp;
