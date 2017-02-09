@@ -106,7 +106,9 @@ public class UserInterface extends CNetzwerk implements IUserInterface {
         t.start();
     }
 
-<<<<<<< HEAD
+
+    //TODO: Methoden fuer RundenErgebnisActivity zur Ueberpruefung ob pleite, oder knapp pleite, Berechnung dort ziehen.
+
     /**
      * Bestenliste sortiert nach Spieler
      *              Spieler 1   Spieler 2   Spieler 3   Spieler 4   Spieler 5
@@ -134,9 +136,9 @@ public class UserInterface extends CNetzwerk implements IUserInterface {
         return bestenliste;
     }
 
-=======
+
     public int getEingestellteGesamt(){
         return aktiverSpieler.getVeraenderungPersonal()+aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte();
     }
->>>>>>> 17cc5a1b2fafbe29df8706080eaa89f22fef4e3b
+
 }

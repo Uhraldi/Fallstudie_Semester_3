@@ -62,7 +62,7 @@ public class RundenergebnisActivity extends AppCompatActivity {
         if (IntroductionActivity.Controller.getGuthaben() < (5400 + (27600 * IntroductionActivity.Controller.getEingestellteGesamt())) ){
             gameover_button.setVisibility(View.VISIBLE);
             ergebnis_message.setText(R.string.gameover_message);
-            } else if (IntroductionActivity.Controller.getGuthaben() < 50000) {
+            } else if (IntroductionActivity.Controller.getGuthaben() < (10400 + (27600 * IntroductionActivity.Controller.getEingestellteGesamt()))) {
                 Toast toast = Toast.makeText(this, "Sie sind kurz vor der Insolvenz. Produzieren Sie günstig in der nächsten Runde!", Toast.LENGTH_LONG);
                 toast.show();
                 neueEingabewerte_button.setVisibility(View.VISIBLE);

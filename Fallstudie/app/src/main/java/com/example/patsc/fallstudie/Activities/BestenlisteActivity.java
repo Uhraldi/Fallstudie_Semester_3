@@ -27,11 +27,12 @@ public class BestenlisteActivity extends AppCompatActivity {
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
+
         //Platz 1
         TextView einspos = (TextView) findViewById(R.id.einspos);
         einspos.setText("");
         TextView einsname = (TextView) findViewById(R.id.einsname);
-        einsname.setText("");
+        einsname.setText(" ");
         TextView einsguthaben = (TextView) findViewById(R.id.einsguthaben);
         einsguthaben.setText("");
         TextView einsmarktanteil = (TextView) findViewById(R.id.einsmarktanteil);
