@@ -34,7 +34,7 @@ public class BerechnungActivity extends AppCompatActivity {
         TextView toolbar_runde = (TextView) toolbar.findViewById(R.id.toolbar_runde);
         toolbar_runde.setText(getString(R.string.Rundebla) + String.valueOf(IntroductionActivity.Controller.getRunde() + 1));
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
-        toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
+        toolbar_konto.setText(String.valueOf(""));
 
         /* neuer Handler, der die RundenergebnisActivity nach ein paar Sekunden anzeigt*/
         new Handler().postDelayed(new Runnable(){

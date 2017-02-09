@@ -756,6 +756,11 @@ public class Controller extends UserInterface{
         }
     }// Ende isZufall3
 
+<<<<<<< HEAD
+=======
+    //Andere Abfragen
+
+>>>>>>> 07008fb1bb0e1669cc44bb7c62395ee0768ee8b2
     public void naechster_Schritt_Auswahl(){} // Setzen des nächsten AuswahlSchritts
     public void naechster_Zustand(){} // Setzen des nächsten Zustands
     /**
