@@ -383,6 +383,7 @@ public class Controller extends UserInterface{
         int personalGesamt = spieler.getAktuellEingestellte()+spieler.getVeraenderungPersonal();
         return personalGesamt;
     }
+
     //Methoden zum abholen der Bestellpositionen, zur Anzeige der Bestellzusammenfassung
     public String getForschungAktuellerAuftrag( ){
         return getForschungAuftragI(getDaten().getRundenAnzahl(),aktiverSpieler);
@@ -619,7 +620,7 @@ public class Controller extends UserInterface{
     public double getGuthaben(){
         double guthaben = (double) aktiverSpieler.getGuthaben();
         double guthabenkurz =  Math.round(guthaben * 100.0) / 100.0;
-        
+
         return guthabenkurz;
     }
 
@@ -923,27 +924,11 @@ public class Controller extends UserInterface{
         return spielers;
     }
 
-
-
-    public boolean eineRundeAussetzen (){
-        if (getDaten().getRundenAnzahl()>=9){
-            //throw new Exception("10.Runde erreicht");
-            return false;
-        }
-
-        aktiverSpieler.getAuftragssammlung().neuerAuftrag();
-        veraenderePersonal(0,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
-        getDaten().erhoeheRundenanzahl();
-        setActivity_Berechnung();
-
-        return true;
-    }
-
     public boolean gleichenWerteNochmal (){
 
         aktiverSpieler.getAuftragssammlung().neuerAuftragGleicheWerte();
         getDaten().erhoeheRundenanzahl();
-        veraenderePersonal(aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
+        veraenderePersonal(aktiverSpieler.getVeraenderungPersonal() ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
         if (persoAenderungErlaubt(aktiverSpieler.getVeraenderungPersonal(), aktiverSpieler, getDaten().getRundenAnzahl())) {
             return true;
         }
@@ -964,6 +949,7 @@ public class Controller extends UserInterface{
         setDaten(new Daten(this)); // neue Daten, damit keine Probleme mit alten Werten auftreten können
         try {
             aktiverSpieler = new Spieler (s.getName(),s.getPasswort(),getDaten()); // Anfangswerte für den aktivenSpieler bei selben Namen und PW wie bisher
+            spielerDatenSpeichern (this); // Speichern des Spielers damit die Anwendung konsistent zu dem Server ist
             return true;
         } catch (Exception e) {
             e.printStackTrace(); // Keine weitere Fehlerbehandlung, da ein Toast an den Nutzer ausgegeben wird
