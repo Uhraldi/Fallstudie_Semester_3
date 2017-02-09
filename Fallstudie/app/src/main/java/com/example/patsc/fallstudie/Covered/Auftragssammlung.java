@@ -37,8 +37,8 @@ public class Auftragssammlung {
         aktuellerAuftrag = auftraege[aktuellerAuftragInt];
     }
     public void neuerAuftragGleicheWerte( ){
-        //
-        Auftrag neuerAuftrag = new Auftrag();
+
+        Auftrag neuerAuftrag = aktuellerAuftrag;
         aktuellerAuftrag = auftraege[aktuellerAuftragInt];
         double fixKosten = getAktuellerAuftrag().getFixKosten();
         neuerAuftrag.setFixKosten(fixKosten);
