@@ -39,10 +39,7 @@ public class UserInterface extends CNetzwerk implements IUserInterface {
 
         //aktiverSpieler.getAuftragssammlung().neuerAuftrag(); // neu
     }
-    //  public void setActivity_E6 () {
-    //      setZustand_Bestellung(true);
-    //      setSCHRITT_DICHTHEIT_boolean(true);
-    //  }
+
     public void setActivity_Zeitarbeiter () {
         setZustand_Bestellung(true);
         setSCHRITT_ZEITARBEITER_boolean(true);
@@ -61,8 +58,6 @@ public class UserInterface extends CNetzwerk implements IUserInterface {
     public void setActivity_Verkaufspreis () {
         setZustand_Bestellung(true);
         setSCHRITT_VERKAUFSPREIS_boolean(true);
-
-
     }
     public void setActivity_Bestellzusammenfassung () {
         setzeAlleZustaendeFalse();
@@ -139,4 +134,8 @@ public class UserInterface extends CNetzwerk implements IUserInterface {
         return aktiverSpieler.getVeraenderungPersonal()+aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte();
     }
 
+    public void setActivity_Berechnung (){
+        setZustand_Lieferung(true);
+        getDaten().getController().fuehreBerechnungAus();
+    }
 }
