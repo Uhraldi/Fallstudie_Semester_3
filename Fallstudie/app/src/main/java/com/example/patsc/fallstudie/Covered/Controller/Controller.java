@@ -369,16 +369,18 @@ public class Controller extends UserInterface{
         }
         else {
             spieler.getAuftragssammlung().getAktuellerAuftrag().bestellePersonalwesen(personalNeu(anzahlMitarbeiter, spieler, auftragsnummer));
+            spieler.setAktuellEingestellte(spieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte());
             spieler.setVeraenderungPersonal(anzahlMitarbeiter);
+
             return true;
         }
     }
 
     public boolean persoAenderungErlaubt(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
-        return (spieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte()+anzahlMitarbeiter)>0;
+        return (spieler.getAktuellEingestellte()+anzahlMitarbeiter)>0;
     }
     public int personalNeu(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
-        int personalGesamt = spieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal();
+        int personalGesamt = spieler.getAktuellEingestellte()+spieler.getVeraenderungPersonal();
         return personalGesamt;
     }
     //Methoden zum abholen der Bestellpositionen, zur Anzeige der Bestellzusammenfassung
@@ -755,12 +757,8 @@ public class Controller extends UserInterface{
             return false;
         }
     }// Ende isZufall3
-
-<<<<<<< HEAD
-=======
     //Andere Abfragen
 
->>>>>>> 07008fb1bb0e1669cc44bb7c62395ee0768ee8b2
     public void naechster_Schritt_Auswahl(){} // Setzen des nächsten AuswahlSchritts
     public void naechster_Zustand(){} // Setzen des nächsten Zustands
     /**
