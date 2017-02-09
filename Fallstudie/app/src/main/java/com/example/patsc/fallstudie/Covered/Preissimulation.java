@@ -135,25 +135,17 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
     public double getMarketingPWS (String Marketing){
         double ReservapMarketing = 0;
         try {
-            switch (Marketing) {
-                case "Fernseh": {
+
+            if(auftrag.getMarketing().isFernsehwerbung()==true){
                     ReservapMarketing = auftrag.getMarketing().getFernsehwerbungPWS();
-                    break;
                 }
-                case "Radio": {
+                if (auftrag.getMarketing().isRadiowerbung()) {
                     ReservapMarketing =ReservapMarketing + auftrag.getMarketing().getRadiowerbungPWS();
-                    break;
                 }
 
-                case "Print": {
+                if (auftrag.getMarketing().isPrintwerbung()) {
                     ReservapMarketing = ReservapMarketing + auftrag.getMarketing().getPrintwerbungPWS();
-                    break;
-
                 }
-                default: {
-                    System.err.println("Keine Auswahl getroffen worden.");
-                }
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -269,23 +261,18 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
     public double getBezahlartPWS (String Bezahlart) {
         double ReservapBezahlart = 0;
         try {
-            switch (Bezahlart) {
-                case "Kreditkarte": {
+            if (auftrag.getBezahlart().isKreditkarte()){
                     ReservapBezahlart = auftrag.getBezahlart().getKreditkartePWS() + auftrag.getBezahlart().getKreditkarteZufall();
-                    break;
+
                 }
-                case "Rechnung": {
+                if (auftrag.getBezahlart().isRechnung()){
                     ReservapBezahlart = ReservapBezahlart + auftrag.getBezahlart().getRechnungPWS() + auftrag.getBezahlart().getRechnungZufall();
-                    break;
+
                 }
-                case "PayPal": {
+                if (auftrag.getBezahlart().isPayPal()){
                     ReservapBezahlart = auftrag.getBezahlart().getPayPalPWS() + auftrag.getBezahlart().getPayPalZufall();
-                    break;
+
                 }
-                default: {
-                    System.err.println("Keine Auswahl getroffen worden");
-                }
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
