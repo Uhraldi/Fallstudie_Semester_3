@@ -54,7 +54,7 @@ public class CNetzwerk extends Zustaende implements INetzwerk {
                 aktiverSpieler.getPasswort(),
                 getDaten().getRundenAnzahl()+1,
                 aktiverSpieler.getGuthaben(),
-                aktiverSpieler.getMarktanteil(),
+                aktiverSpieler.getMaSchnitt(),
                 aktiverSpieler.getKontoSchnitt(),
                 aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(),
                 aktiverSpieler.getVeraenderungPersonal());

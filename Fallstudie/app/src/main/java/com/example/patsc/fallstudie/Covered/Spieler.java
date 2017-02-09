@@ -24,7 +24,7 @@ public class Spieler {
     public Auftragssammlung getAuftragssammlung(){return auftragssammlung;}
     private int veraenderungPersonal = 0;
     private double kontoSchnitt;
-    private double maSchnitt;
+    private double maSchnitt = 0.2;
     private int aktuellEingestellte = 2; // Initial auf 2
 
     public void setAktuellEingestellte(int aktuellEingestellte) {

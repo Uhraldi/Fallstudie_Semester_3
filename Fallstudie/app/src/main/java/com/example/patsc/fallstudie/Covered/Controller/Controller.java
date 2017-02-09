@@ -52,7 +52,6 @@ public class Controller extends UserInterface{
             //#Netzwerk Gegner herunterladen
             RundenErgebnisWrapper[] gegnerliste = gegnerHerunterladen(this);
             Marktsim marktsim = new Marktsim( this, gegnerliste);
-            aktiverSpieler.setMaSchnitt(marktsim.getAktiverErgebnisWrapper(aktiverSpieler.getName()).getMaSchnitt());
             getDaten().ASDserMarktSim(marktsim);
 
             //# Netzwerk Spieler Daten speichern
@@ -818,7 +817,7 @@ public class Controller extends UserInterface{
                 aktiverSpieler = new Spieler(name, passwort, getDaten());
                 getDaten().setRundenAnzahl(spieler.getRunde());
                 aktiverSpieler.setGuthaben(spieler.getKonto());
-                aktiverSpieler.setMarktanteil(spieler.getMaSchnitt());
+                aktiverSpieler.setMaSchnitt(spieler.getMaSchnitt());
                 aktiverSpieler.getAuftragssammlung().aktuellerAuftrag.getPersonalwesen().setEingestellte(spieler.getPersonalAnzahl());
                 aktiverSpieler.setAktuellEingestellte(spieler.getPersonalAnzahl());
                 aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().setVeraenderung(spieler.getPersonalVeraenderung());
@@ -916,7 +915,7 @@ public class Controller extends UserInterface{
         RundenErgebnisWrapper temp;
         for(int i=1; i<spielers.length; i++) {
             for(int j=0; j<spielers.length-i; j++) {
-                if((spielers[j].getRundengewinn())>(spielers[j].getRundengewinn())) {
+                if((spielers[j].getKonto() * spielers[j].getMaSchnitt()) < (spielers[j].getKonto() * spielers[j].getMaSchnitt())) {
                     temp=spielers[j];
                     spielers[j]=spielers[j+1];
                     spielers[j+1]=temp;

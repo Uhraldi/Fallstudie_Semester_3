@@ -257,6 +257,7 @@ public class Marktsim {
         berechneNeuenKontostand();
         setGuthabenAktiverSpieler();
         berechneMaSchnitt();
+        setMaSchnittAktiverSpieler();
 
 
         for (int i = 0; i < rundenergebniswrapperarray.length; i++) {            // (5)
@@ -274,8 +275,8 @@ public class Marktsim {
      */
     private void berechneMaSchnitt() {
         for (int i = 0; i < maSchnitt.size(); i++) {
-            double zwischen = (double) maSchnitt.get(i) * (rundenergebniswrapperarray[i].getRunde() - 1);
-            maSchnitt.set(i, ((zwischen + marktanteil.get(i)) / (rundenergebniswrapperarray[i].getRunde())));
+            double zwischen = (double) maSchnitt.get(i) * (rundenergebniswrapperarray[i].getRunde());
+            maSchnitt.set(i, ((zwischen + marktanteil.get(i)) / (rundenergebniswrapperarray[i].getRunde()+1)));
         }
     }
 
@@ -304,7 +305,7 @@ public class Marktsim {
         }
         double sum1 = sum;
         for (int i = 0; i < absatzarraydouble.size(); i++) {           // Befüllen der ArrayList "martkanteil" mit dem prozentualen Anteil jedes Spielers
-            marktanteil.add((double) Math.round(((double) absatzarraydouble.get(i) / sum1) * 100) / 100);
+            marktanteil.add((double) (double) absatzarraydouble.get(i) / sum1);
         }
     } //Ende berechneMarktanteil
 
@@ -334,6 +335,10 @@ public class Marktsim {
         Controller.aktiverSpieler.setGuthaben(Controller.aktiverSpieler.getGuthaben() + getRundenGewinn(Controller.aktiverSpieler.getName()));
     }
 
+    public void setMaSchnittAktiverSpieler () {
+        Controller.aktiverSpieler.setMaSchnitt(getMaSchnitt(Controller.aktiverSpieler.getName()));
+    }
+
     /**
      * Gibt einen zufälligen Integerwert zurück zur Berechnung der Zufälle
      *
@@ -357,7 +362,7 @@ public class Marktsim {
 
 
         for (int i = 0; i < namenarray.size(); i++) {
-            hashmap.put((String) namenarray.get(i), (double) (Math.round(marktanteil.get(i) * 10000) / 100));
+            hashmap.put((String) namenarray.get(i), (marktanteil.get(i)));
         }
         return hashmap.get(namen);
     }
@@ -388,6 +393,14 @@ public class Marktsim {
         HashMap<String, RundenErgebnisWrapper> hashmap = new HashMap<>();
         for (int i = 0; i < namenarray.size(); i++) {
             hashmap.put((String) namenarray.get(i), rundenergebniswrapperarray[i]);
+        }
+        return hashmap.get(name);
+    }
+
+    public double getMaSchnitt (String name){
+        HashMap<String, Double > hashmap = new HashMap<>();
+        for (int i = 0; i < namenarray.size(); i++) {
+            hashmap.put((String) namenarray.get(i), (Double) maSchnitt.get(i));
         }
         return hashmap.get(name);
     }
