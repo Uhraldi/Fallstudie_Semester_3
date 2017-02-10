@@ -1,8 +1,10 @@
 package com.example.patsc.fallstudie.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.patsc.fallstudie.R;
@@ -83,8 +85,12 @@ public class BestenlisteActivity extends AppCompatActivity {
 
     }
 
-    public void neuesSpiel(){
+
+    public void neuesSpiel (View view){
         IntroductionActivity.Controller.neuesSpiel();
+        Intent intent = new Intent(this, PersonalwesenActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

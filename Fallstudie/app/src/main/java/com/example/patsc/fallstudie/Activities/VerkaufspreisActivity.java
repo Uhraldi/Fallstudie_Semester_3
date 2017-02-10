@@ -75,7 +75,7 @@ public class VerkaufspreisActivity extends AppCompatActivity {
                startActivity(intent);
            }
        } else {
-           Toast toast = Toast.makeText(this, "Bitte einen Verkaufspreis angeben!", Toast.LENGTH_SHORT);
+           Toast toast = Toast.makeText(this, "Bitte einen Verkaufspreis angeben", Toast.LENGTH_SHORT);
            toast.show();
        }
    }

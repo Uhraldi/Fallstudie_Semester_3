@@ -104,6 +104,8 @@ public class RundenergebnisActivity extends AppCompatActivity {
 
     public void neuesSpiel (View view){
         IntroductionActivity.Controller.neuesSpiel();
+        Intent intent = new Intent(this, PersonalwesenActivity.class);
+        startActivity(intent);
         finish();
     }
 

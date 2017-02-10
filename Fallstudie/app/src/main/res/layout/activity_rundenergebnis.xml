@@ -187,17 +187,6 @@
             android:layout_marginBottom="20dp"
             android:visibility="invisible" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ergebnis_message"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_marginBottom="11dp"
-            android:layout_above="@+id/gleichenWerte_button"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="TextVieeeeeeewww" />
-
         <Button
             android:text="     neue Eingabewerte"
             android:drawableLeft="@drawable/rightarrow"
@@ -221,6 +210,25 @@
             android:id="@+id/gameover_button"
             android:onClick="neuesSpiel"
             android:visibility="invisible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView14" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ergebnis_message"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="TextVieeeeeeewww"
+            android:layout_below="@+id/textView14"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="19dp" />
 
 
     </RelativeLayout>

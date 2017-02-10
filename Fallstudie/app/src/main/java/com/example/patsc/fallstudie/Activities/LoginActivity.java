@@ -69,9 +69,15 @@ public class LoginActivity extends AppCompatActivity {
        inputPassword = login_password_input.getText().toString();
 
         if(c.login(inputUsername, inputPassword)) {
-            Intent intent = new Intent(this, PersonalwesenActivity.class);
-            startActivity(intent);
-            finish();
+            if (IntroductionActivity.Controller.getGuthaben() > (5400 + (27600 * IntroductionActivity.Controller.getEingestellteGesamt())) ) {
+                Intent intent = new Intent(this, PersonalwesenActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Intent intent2 = new Intent (this, GameoverActivity.class);
+                startActivity(intent2);
+                finish();
+            }
         } else {
             Toast toast = Toast.makeText(this, "Falscher Nutzername und/oder Passwort", Toast.LENGTH_SHORT);
             toast.show();

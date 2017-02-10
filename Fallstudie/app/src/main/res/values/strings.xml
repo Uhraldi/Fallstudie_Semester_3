@@ -88,7 +88,6 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
     <string name="bezahlart_textview">Anbieten von folgenden Bezahlarten: </string>
 
 
-
     //Strings fuer E6_Wasserdichtheit
 
     <string name="wasserdichtheit_info_textview">Hier können Sie die Wasserdichtheit für Ihre Uhren auswählen. Die Wahl der Wasserdichtheit und somit die unterschiedliche Qualität und die Beliebtheit beeinflussen wiederum die Kunden und was Sie dementsprechend bereit wären für Ihre Uhren zu zahlen.</string>
@@ -116,7 +115,6 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
 
     <string name="marketing_info_textview">Um Ihre Uhren an die Kunden zu bringen, müssen Sie eine Werbekampagne durchführen. Hier können Sie entscheiden welche Kommunikationskanäle dafür verwendet werden sollen. Eine umfangreichere Werbekampagne spricht mehr Kunden an und ermöglicht höhere Absatzzahlen. Diese Investitionsausgaben wirken sich auf Ihre Fixkosten aus.</string>
     <string name="marketing_textview">Umfang der Werbekampagne</string>
-
 
 
     //Strings fuer Produktionsvolumen
@@ -195,6 +193,6 @@ Zu Beginn haben Sie 2 Mitarbeiter im Unternehmen, die für die Vorbereitung des 
     <string name="bestenliste_title">Bestenliste</string>
     <string name="Rundebla">"Runde: "</string>
     <string name="naechste_runde_string">Wie wollen Sie die nächste Runde spielen?</string>
-    <string name="gameover_message">Sie sind pleite. GAME OVER.</string>
+    <string name="gameover_message">GAME OVER - Sie können mit Ihrem erspielten Kontostand keinen weiteren Produktionsauftrag tätigen.</string>
 
 </resources>

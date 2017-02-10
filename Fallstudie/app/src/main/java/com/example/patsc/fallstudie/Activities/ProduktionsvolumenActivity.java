@@ -85,11 +85,16 @@ public class ProduktionsvolumenActivity extends AppCompatActivity {
                         finish();
                         startActivity(intent);
                     } else {
-                        Toast toast = Toast.makeText(this, "Ihr aktuelles Guthaben reicht fuer dieses Produktionsvolumen nicht aus", Toast.LENGTH_SHORT);
-                        toast.show();
+                        if (auswahlProduktionsvolumen == 100) {
+                            Intent intent = new Intent(this, GameoverActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast toast = Toast.makeText(this, "Ihr aktuelles Guthaben reicht für dieses Produktionsvolumen nicht aus", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
                     }
                 } else {
-                    Toast toast = Toast.makeText(this, "ungueltige Eingabe", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(this, "ungültige Eingabe", Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
