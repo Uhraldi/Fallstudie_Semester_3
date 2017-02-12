@@ -9,7 +9,7 @@ import java.util.Random;
 
 
 /**
- * Created by dominik on 30.12.2016. Not testable.
+ * Created by dominik on 30.12.2016. testable.
  */
 
 public class Marktsim {
@@ -255,8 +255,8 @@ public class Marktsim {
         berechneRundengewinn();                              // (4)
         berechneMarktanteil();
         berechneNeuenKontostand();
-        setGuthabenAktiverSpieler();
         berechneMaSchnitt();
+        setGuthabenAktiverSpieler();
         setMaSchnittAktiverSpieler();
 
 
@@ -276,7 +276,7 @@ public class Marktsim {
     private void berechneMaSchnitt() {
         for (int i = 0; i < maSchnitt.size(); i++) {
             double zwischen = (double) maSchnitt.get(i) * (rundenergebniswrapperarray[i].getRunde());
-            maSchnitt.set(i, ((zwischen + marktanteil.get(i)) / (rundenergebniswrapperarray[i].getRunde()+1)));
+            maSchnitt.set(i, ((zwischen + marktanteil.get(i)) / (rundenergebniswrapperarray[i].getRunde() + 1)));
         }
     }
 
@@ -335,7 +335,10 @@ public class Marktsim {
         Controller.aktiverSpieler.setGuthaben(Controller.aktiverSpieler.getGuthaben() + getRundenGewinn(Controller.aktiverSpieler.getName()));
     }
 
-    public void setMaSchnittAktiverSpieler () {
+    /**
+     * Setzt beim aktuellen Spieler den durschnittlichen Marktanteil über alle Runden
+     */
+    public void setMaSchnittAktiverSpieler() {
         Controller.aktiverSpieler.setMaSchnitt(getMaSchnitt(Controller.aktiverSpieler.getName()));
     }
 
@@ -385,11 +388,7 @@ public class Marktsim {
         return hashmap.get(name);
     }
 
-    public RundenErgebnisWrapper[] getRundenErgebnisWrapper() {
-        return rundenergebniswrapperarray;
-    }
-
-    public RundenErgebnisWrapper getAktiverErgebnisWrapper (String name){
+    public RundenErgebnisWrapper getAktiverErgebnisWrapper(String name) {
         HashMap<String, RundenErgebnisWrapper> hashmap = new HashMap<>();
         for (int i = 0; i < namenarray.size(); i++) {
             hashmap.put((String) namenarray.get(i), rundenergebniswrapperarray[i]);
@@ -397,13 +396,18 @@ public class Marktsim {
         return hashmap.get(name);
     }
 
-    public double getMaSchnitt (String name){
-        HashMap<String, Double > hashmap = new HashMap<>();
+    public double getMaSchnitt(String name) {
+        HashMap<String, Double> hashmap = new HashMap<>();
         for (int i = 0; i < namenarray.size(); i++) {
             hashmap.put((String) namenarray.get(i), (Double) maSchnitt.get(i));
         }
         return hashmap.get(name);
     }
+
+    public RundenErgebnisWrapper[] getRundenErgebnisWrapper() {
+        return rundenergebniswrapperarray;
+    }
+
 
     /**
      * ----------------------Ende Getter und Setter----------------------
