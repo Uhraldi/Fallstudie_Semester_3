@@ -45,12 +45,17 @@ public class LoginActivity extends AppCompatActivity {
         inputUsername = login_username_input.getText().toString();
         inputPassword = login_password_input.getText().toString();
 
-        if (c.registrierung(inputUsername, inputPassword)) {
-            Intent intent = new Intent(this, PersonalwesenActivity.class);
-            startActivity(intent);
-            finish();
+        if (inputUsername.length() <= 13) {
+            if (c.registrierung(inputUsername, inputPassword)) {
+                Intent intent = new Intent(this, PersonalwesenActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Toast toast = Toast.makeText(this, "Nutzername bereits vergeben", Toast.LENGTH_SHORT);
+                toast.show();
+            }
         } else {
-            Toast toast = Toast.makeText(this, "Nutzername bereits vergeben", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Nutzername zu lang. Bitte max. 13 Zeichen wählen.", Toast.LENGTH_SHORT);
             toast.show();
         }
     }
@@ -70,9 +75,15 @@ public class LoginActivity extends AppCompatActivity {
 
         if(c.login(inputUsername, inputPassword)) {
             if (IntroductionActivity.Controller.getGuthaben() > (5400 + (27600 * IntroductionActivity.Controller.getEingestellteGesamt())) ) {
-                Intent intent = new Intent(this, PersonalwesenActivity.class);
-                startActivity(intent);
-                finish();
+                if (IntroductionActivity.Controller.getRunde() < 10) {
+                    Intent intent = new Intent(this, PersonalwesenActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast toast = Toast.makeText(this, "Spiel bereits durchgespielt. Bitte neuen Account erstellen.", Toast.LENGTH_LONG);
+                    toast.show();
+                }
+
             } else {
                 Intent intent2 = new Intent (this, GameoverActivity.class);
                 startActivity(intent2);

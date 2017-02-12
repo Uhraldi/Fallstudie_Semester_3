@@ -122,9 +122,10 @@ public class UserInterface extends CNetzwerk implements IUserInterface {
             int konto = (int) ergebnisWrappers[i].getKonto()*100;
             double dkonto = konto/100; // abschneiden des Guthabens auf zwei Nachkommastellen
             bestenliste[i][2] = Double.toString(dkonto);
-            int marktanteil  = (int) ergebnisWrappers[i].getMaSchnitt()*100;
-            double dmarktanteil = marktanteil/100; // abschneiden des Marktanteils auf zwei Nachkommastellen
-            bestenliste[i][3] = Double.toString(dmarktanteil);
+            double marktanteil  = ergebnisWrappers[i].getMaSchnitt();
+            marktanteil = marktanteil*100; // in Prozent umwandeln
+            marktanteil = Math.round(marktanteil); // abschneiden des Marktanteils auf zwei Nachkommastellen
+            bestenliste[i][3] = Double.toString(marktanteil);
         }
         return bestenliste;
     }
