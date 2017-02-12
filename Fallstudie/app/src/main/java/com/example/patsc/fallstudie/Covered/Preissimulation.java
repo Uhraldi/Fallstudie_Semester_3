@@ -37,12 +37,11 @@ public class Preissimulation {
         auftrag = c.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag();
         berechneReservationspreis(c.getZeitarbeiterAktuellerAuftrag(), c.getForschungAktuellerAuftrag(), c.getMarketingAktuellerAuftrag(), c.getArmbandAktuellerAuftrag(),
                  c.getUhrwerkAktuellerAuftrag(), c.getGehaeuseAktuellerAuftrag(), c.getBezahlartAktuellerAuftrag());
-    }
+    } // Ende Konstruktor
 
     /*
     Getter-Methoden
      */
-
     public double getReservationspreis() {
         return Reservationspreis;
     }
@@ -129,8 +128,8 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
 
     /*
     PWS des Marketings bestimmen
-    Mithilfe einer switch-case Anweisung wird aus dem Auftrag
-    die Auswahl geholt, um den individuellen PWS zu bestimmen
+    Aufgrund einer Mehrfachauswahl im Spiel wird hier mit einer if-Anweisung
+    geprüft, welche Auswahl im Auftrag getroffen wurde.
      */
     public double getMarketingPWS (String Marketing){
         double ReservapMarketing = 0;
@@ -152,9 +151,9 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
     return ReservapMarketing;
     }
     /*
-    PWS des Armbands bestimmen
+    Zufall und PWS des Armbands bestimmen
     Mithilfe einer switch-case Anweisung wird aus dem Auftrag
-    die Auswahl geholt, um den individuellen PWS zu bestimmen
+    die Auswahl geholt, um den individuellen PWS und Zufall zu bestimmen
      */
     public double getArmbandPWS (String Armband){
         double ReservapArmband = 0;
@@ -220,9 +219,9 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         return ReservapUhrwerk;
     }
     /*
-    PWS des Gehäuses bestimmen
+    Zufall und PWS des Gehäuses bestimmen
     Mithilfe einer switch-case Anweisung wird aus dem Auftrag
-    die Auswahl geholt, um den individuellen PWS zu bestimmen
+    die Auswahl geholt, um den individuellen Zufall und PWS zu bestimmen
      */
     public double getGehaeusePWS(String Gehaeuse){
         double ReservapGehäuse = 0;
@@ -254,9 +253,9 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         return ReservapGehäuse;
     }
     /*
-    PWS der Bezahlart bestimmen
-    Mithilfe einer switch-case Anweisung wird aus dem Auftrag
-    die Auswahl geholt, um den individuellen PWS zu bestimmen
+    Zufall und PWS der Bezahlart bestimmen
+    Aufgrund einer Mehrfachauswahl im Spiel wird hier mit einer if-Anweisung
+    geprüft, welche Auswahl im Auftrag getroffen wurde.
     */
     public double getBezahlartPWS (String Bezahlart) {
         double ReservapBezahlart = 0;
@@ -327,5 +326,5 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         }
 
         return zwischenspeicher;
-    }
-} // Ende Klasse getBonus
+    } // Ende getBonus
+} // Ende Klasse
