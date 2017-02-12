@@ -9,7 +9,7 @@ import com.example.patsc.fallstudie.Covered.Controller.Controller;
 
 public class Preissimulation {
 
-    /*
+    /**
     Wichtige Attribute
      */
     private Auftragssammlung auftragssammlung;
@@ -25,7 +25,7 @@ public class Preissimulation {
     //  return persoString;
     // }
 
-    /*
+    /**
     Konstruktor für die Preissimulation
      */
     public Preissimulation(Controller controller) {
@@ -37,7 +37,7 @@ public class Preissimulation {
                  c.getUhrwerkAktuellerAuftrag(), c.getGehaeuseAktuellerAuftrag(), c.getBezahlartAktuellerAuftrag()); // Berechnung Reservationspreis bestehend aus den Auswahlen des aktuellen Auftrages
     } // Ende Konstruktor
 
-    /*
+    /**
     Getter-Methoden
      */
     public double getReservationspreis() {
@@ -62,7 +62,7 @@ public class Preissimulation {
         return PWS; // Rückgabe des PWS
     }
 
-    /*
+    /**
     PWS der Zeitarbeiter bestimmen
     Mithilfe einer switch-case Anweisung wird aus dem Auftrag
     die Auswahl geholt, um den individuellen PWS zu bestimmen.
@@ -96,7 +96,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
     }
     return ReservapZeitarbeiter; // Rückgabe des Reservationspreis des Zeitarbeiters
 }
-    /*
+    /**
     PWS der Forschung bestimmen
     Mithilfe einer switch-case Anweisung wird aus dem Auftrag
     die Auswahl geholt, um den individuellen PWS zu bestimmen.
@@ -127,7 +127,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         return ReservapForschung; // Rückgabe des Reservationspreis der Forschung
     }
 
-    /*
+    /**
     PWS des Marketings bestimmen
     Aufgrund einer Mehrfachauswahl im Spiel wird hier mit einer if-Anweisung
     geprüft, welche Auswahl im Auftrag getroffen wurde. Falls mehrere Auswahlen vorhanden sein sollten,
@@ -153,7 +153,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
     return ReservapMarketing; // Rückgabe des Reservationspreis des Marketings
     }
 
-    /*
+    /**
     Zufall und PWS des Armbands bestimmen
     Mithilfe einer switch-case Anweisung wird aus dem Auftrag
     die Auswahl geholt, um den individuellen PWS und Zufall zu bestimmen. Diese beiden Werte werden addiert.
@@ -191,7 +191,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         }
     return ReservapArmband; // Rückgabe des Reservationspreis des Armbands
     }
-    /*
+    /**
     PWS des Uhrwerks bestimmen
     Mithilfe einer switch-case Anweisung wird aus dem Auftrag
     die Auswahl geholt, um den individuellen PWS zu bestimmen
@@ -221,7 +221,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         }
         return ReservapUhrwerk; // Rückgabe des Reservationspreis des Uhrwerks
     }
-    /*
+    /**
     Zufall und PWS des Gehäuses bestimmen
     Mithilfe einer switch-case Anweisung wird aus dem Auftrag
     die Auswahl geholt, um den individuellen Zufall und PWS zu bestimmen. Diese beiden Werte werden addiert.
@@ -255,7 +255,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         }
         return ReservapGehäuse; // Rückgabe des Reservationspreises des Gehäuses
     }
-    /*
+    /**
     Zufall und PWS der Bezahlart bestimmen
     Aufgrund einer Mehrfachauswahl im Spiel wird hier mit einer if-Anweisung
     geprüft, welche Auswahl im Auftrag getroffen wurde. Falls mehrere Auswahlen vorhanden sein sollten,
@@ -282,7 +282,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
     return ReservapBezahlart; // Rückgabe des Reservationspreises der Bezahlart
     }
 
-    /*
+    /**
     Berechne den Reservationspreis
      */
     public void berechneReservationspreis(String ReservationspreisZeitarbeiter,
