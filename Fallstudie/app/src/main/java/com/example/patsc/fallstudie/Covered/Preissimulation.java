@@ -16,7 +16,7 @@ public class Preissimulation {
     private Controller c;
     private Auftrag auftrag;
     private int RundenNr;
-
+    private double Reservationspreis;
 
     // public String toString(){
     //   String persoString;
@@ -25,18 +25,16 @@ public class Preissimulation {
     //  return persoString;
     // }
 
-    private double Reservationspreis;
-
     /*
     Konstruktor für die Preissimulation
      */
     public Preissimulation(Controller controller) {
-        this.RundenNr = controller.getRunde();
-        this.auftragssammlung = controller.getAktiverSpieler().getAuftragssammlung();
+        this.RundenNr = controller.getRunde(); // aktuelle Rundennummer holen
+        this.auftragssammlung = controller.getAktiverSpieler().getAuftragssammlung(); // Auswahlen des aktiven Spielers aus der Auftragssammlung
         c = controller;
-        auftrag = c.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag();
+        auftrag = c.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag(); // aktuellen Auftrag aus dem Controller holen
         berechneReservationspreis(c.getZeitarbeiterAktuellerAuftrag(), c.getForschungAktuellerAuftrag(), c.getMarketingAktuellerAuftrag(), c.getArmbandAktuellerAuftrag(),
-                 c.getUhrwerkAktuellerAuftrag(), c.getGehaeuseAktuellerAuftrag(), c.getBezahlartAktuellerAuftrag());
+                 c.getUhrwerkAktuellerAuftrag(), c.getGehaeuseAktuellerAuftrag(), c.getBezahlartAktuellerAuftrag()); // Berechnung Reservationspreis bestehend aus den Auswahlen des aktuellen Auftrages
     } // Ende Konstruktor
 
     /*
@@ -50,7 +48,10 @@ public class Preissimulation {
                          String ReservationspreisForschung, String ReservationspreisMarketing,
                          String ReservationspreisArmband, String ReservationspreisUhrwerk,
                          String ReservationspreisGehäuse, String ReservationspreisBezahlart){
-        double PWS = 0;
+        double PWS = 0; // PWS = 0 setzen
+        /*
+        PWS der einzelnen Produktionsschritte aufaddieren
+         */
         PWS = PWS + getPWSZeitarbeiter(ReservationspreisZeitarbeiter);
         PWS = PWS + getForschungPWS(ReservationspreisForschung);
         PWS = PWS + getMarketingPWS(ReservationspreisMarketing);
@@ -58,16 +59,16 @@ public class Preissimulation {
         PWS = PWS + getUhrwerkPWS(ReservationspreisUhrwerk);
         PWS = PWS + getGehaeusePWS(ReservationspreisGehäuse);
         PWS = PWS + getBezahlartPWS(ReservationspreisBezahlart);
-        return PWS;
+        return PWS; // Rückgabe des PWS
     }
 
     /*
     PWS der Zeitarbeiter bestimmen
     Mithilfe einer switch-case Anweisung wird aus dem Auftrag
-    die Auswahl geholt, um den individuellen PWS zu bestimmen
+    die Auswahl geholt, um den individuellen PWS zu bestimmen.
      */
 public double getPWSZeitarbeiter (String Zeitarbeiter) {
-    double ReservapZeitarbeiter = 0;
+    double ReservapZeitarbeiter = 0; // Reservationspreis des Zeitarbeiter auf 0 setzen
     try {
         switch (Zeitarbeiter) {
             case "Geselle": {
@@ -93,15 +94,15 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
     } catch (Exception e) {
         e.printStackTrace();
     }
-    return ReservapZeitarbeiter;
+    return ReservapZeitarbeiter; // Rückgabe des Reservationspreis des Zeitarbeiters
 }
     /*
     PWS der Forschung bestimmen
     Mithilfe einer switch-case Anweisung wird aus dem Auftrag
-    die Auswahl geholt, um den individuellen PWS zu bestimmen
+    die Auswahl geholt, um den individuellen PWS zu bestimmen.
      */
     public double getForschungPWS (String Forschung){
-        double ReservapForschung = 0;
+        double ReservapForschung = 0; // Reservationspreis der Forschung auf 0 setzen
         try {
             switch (Forschung) {
                 case "15000€ Investition": {
@@ -123,16 +124,17 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ReservapForschung;
+        return ReservapForschung; // Rückgabe des Reservationspreis der Forschung
     }
 
     /*
     PWS des Marketings bestimmen
     Aufgrund einer Mehrfachauswahl im Spiel wird hier mit einer if-Anweisung
-    geprüft, welche Auswahl im Auftrag getroffen wurde.
+    geprüft, welche Auswahl im Auftrag getroffen wurde. Falls mehrere Auswahlen vorhanden sein sollten,
+    werden diese aufaddiert.
      */
     public double getMarketingPWS (String Marketing){
-        double ReservapMarketing = 0;
+        double ReservapMarketing = 0; // Reservationspreis des Marketings auf 0 setzen
         try {
 
             if(auftrag.getMarketing().isFernsehwerbung()==true){
@@ -148,15 +150,16 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    return ReservapMarketing;
+    return ReservapMarketing; // Rückgabe des Reservationspreis des Marketings
     }
+
     /*
     Zufall und PWS des Armbands bestimmen
     Mithilfe einer switch-case Anweisung wird aus dem Auftrag
-    die Auswahl geholt, um den individuellen PWS und Zufall zu bestimmen
+    die Auswahl geholt, um den individuellen PWS und Zufall zu bestimmen. Diese beiden Werte werden addiert.
      */
     public double getArmbandPWS (String Armband){
-        double ReservapArmband = 0;
+        double ReservapArmband = 0; // Reservationspreis des Armbands auf 0 setzen
         try {
             switch (Armband) {
                 case "Leder": {
@@ -186,7 +189,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    return ReservapArmband;
+    return ReservapArmband; // Rückgabe des Reservationspreis des Armbands
     }
     /*
     PWS des Uhrwerks bestimmen
@@ -194,7 +197,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
     die Auswahl geholt, um den individuellen PWS zu bestimmen
      */
     public double getUhrwerkPWS (String Uhrwerk){
-       double ReservapUhrwerk = 0;
+       double ReservapUhrwerk = 0; // Reservationspreis des Uhrwerks auf 0 setzen
         try {
             switch (Uhrwerk) {
                 case "Mechanisch": {
@@ -216,15 +219,15 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ReservapUhrwerk;
+        return ReservapUhrwerk; // Rückgabe des Reservationspreis des Uhrwerks
     }
     /*
     Zufall und PWS des Gehäuses bestimmen
     Mithilfe einer switch-case Anweisung wird aus dem Auftrag
-    die Auswahl geholt, um den individuellen Zufall und PWS zu bestimmen
+    die Auswahl geholt, um den individuellen Zufall und PWS zu bestimmen. Diese beiden Werte werden addiert.
      */
     public double getGehaeusePWS(String Gehaeuse){
-        double ReservapGehäuse = 0;
+        double ReservapGehäuse = 0; // Reservationspreis des Gehäuses auf 0 setzen
         try {
             switch (Gehaeuse) {
                 case "Glas": {
@@ -250,15 +253,16 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ReservapGehäuse;
+        return ReservapGehäuse; // Rückgabe des Reservationspreises des Gehäuses
     }
     /*
     Zufall und PWS der Bezahlart bestimmen
     Aufgrund einer Mehrfachauswahl im Spiel wird hier mit einer if-Anweisung
-    geprüft, welche Auswahl im Auftrag getroffen wurde.
+    geprüft, welche Auswahl im Auftrag getroffen wurde. Falls mehrere Auswahlen vorhanden sein sollten,
+    werden diese aufaddiert.
     */
     public double getBezahlartPWS (String Bezahlart) {
-        double ReservapBezahlart = 0;
+        double ReservapBezahlart = 0; // Reservationspreis der Bezahlart auf 0 setzen
         try {
             if (auftrag.getBezahlart().isKreditkarte()){
                     ReservapBezahlart = auftrag.getBezahlart().getKreditkartePWS() + auftrag.getBezahlart().getKreditkarteZufall();
@@ -275,7 +279,7 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    return ReservapBezahlart;
+    return ReservapBezahlart; // Rückgabe des Reservationspreises der Bezahlart
     }
 
     /*
@@ -285,11 +289,15 @@ public double getPWSZeitarbeiter (String Zeitarbeiter) {
                                           String ReservationspreisForschung, String ReservationspreisMarketing,
                                           String ReservationspreisArmband, String ReservationspreisUhrwerk,
                                           String ReservationspreisGehäuse, String ReservationspreisBezahlart) {
-
+        // PWS insgesamt bestimmen
         double PWS = getPWS(ReservationspreisZeitarbeiter, ReservationspreisForschung, ReservationspreisMarketing,
                 ReservationspreisArmband, ReservationspreisUhrwerk, ReservationspreisGehäuse, ReservationspreisBezahlart);
+        /*
+        Stückkosten bestimmen durch die Addition von Variablen Kosten und Fixen Kosten,
+        dividiert durch die Menge des Auftrags
+        */
         double stueckKosten = auftrag.getVarKosten()+auftrag.getFixKosten()/auftrag.getMenge();
-
+        // Reservationspreis bestimmen durch eine Multiplikation der Stückkosten mit den PWS+1
         double reservationspreis = stueckKosten * (1+PWS);
         this.Reservationspreis = reservationspreis;
 
