@@ -11,6 +11,10 @@ import com.example.patsc.fallstudie.R;
 
 public class GameoverActivity extends AppCompatActivity {
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +33,10 @@ public class GameoverActivity extends AppCompatActivity {
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
     }
 
+    /**
+     * Button um neues Spiel zu starten und Weiterleitung zum Start d. Spiels
+     * @param view
+     */
     public void neuesSpiel (View view){
         IntroductionActivity.Controller.neuesSpiel();
         Intent intent = new Intent(this, PersonalwesenActivity.class);

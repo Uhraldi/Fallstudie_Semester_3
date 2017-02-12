@@ -11,6 +11,10 @@ import com.example.patsc.fallstudie.R;
 
 public class BestenlisteActivity extends AppCompatActivity {
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +33,8 @@ public class BestenlisteActivity extends AppCompatActivity {
         TextView toolbar_konto = (TextView) toolbar.findViewById(R.id.toolbar_konto);
         toolbar_konto.setText(String.valueOf((IntroductionActivity.Controller.getGuthaben())));
 
+
+        //Ziehen der Bestenliste und Ausgabe auf dem Screen
         String [][] bestenListe = IntroductionActivity.Controller.getBestenliste();
 
         //Platz 1
@@ -85,7 +91,10 @@ public class BestenlisteActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Button um ein neues Spiel zu starten
+     * @param view
+     */
     public void neuesSpiel (View view){
         IntroductionActivity.Controller.neuesSpiel();
         Intent intent = new Intent(this, PersonalwesenActivity.class);

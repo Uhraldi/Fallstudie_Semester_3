@@ -70,12 +70,21 @@ public class ArmbandActivity extends AppCompatActivity {
     }
 
 
-    //Methode um dem Spinner einen Listener hinzuzufuegen
+    /**
+     * Methode um dem Spinner einen Listener hinzuzufuegen
+     */
     public void addListenertoArmbandSpinner(){
 
         ArmbandSpinner = (Spinner) findViewById(R.id.armband_spinner);
 
         ArmbandSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            /**
+             *
+             * @param parent
+             * @param view
+             * @param pos
+             * @param l
+             */
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
                 String ItemSelectedInArmbandSpinner = parent.getItemAtPosition(pos).toString();
@@ -83,6 +92,10 @@ public class ArmbandActivity extends AppCompatActivity {
                 auswahlArmband = separated[0].trim();
             }
 
+            /**
+             *
+             * @param adapterView
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 

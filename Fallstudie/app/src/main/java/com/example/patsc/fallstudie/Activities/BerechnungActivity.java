@@ -38,6 +38,9 @@ public class BerechnungActivity extends AppCompatActivity {
 
         /* neuer Handler, der die RundenergebnisActivity nach ein paar Sekunden anzeigt*/
         new Handler().postDelayed(new Runnable(){
+            /**
+             * Weiterleitung zum Rundenergebnis bzw. Bestenliste nach Runde 10
+             */
             @Override
             public void run() {
                 if (IntroductionActivity.Controller.getRunde() < 9) {

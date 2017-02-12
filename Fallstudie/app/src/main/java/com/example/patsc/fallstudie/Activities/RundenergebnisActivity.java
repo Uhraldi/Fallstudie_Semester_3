@@ -13,6 +13,10 @@ import com.example.patsc.fallstudie.R;
 
 public class RundenergebnisActivity extends AppCompatActivity {
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,11 +62,13 @@ public class RundenergebnisActivity extends AppCompatActivity {
         TextView position_output = (TextView) findViewById(R.id.position_output);
         position_output.setText(String.valueOf(IntroductionActivity.Controller.getPosition()));
 
+        //Verknuepfen der Buttons
         Button gameover_button = (Button) findViewById(R.id.gameover_button);
         Button neueEingabewerte_button = (Button) findViewById(R.id.neueEingabewerte_button);
         Button gleichenWerte_button = (Button) findViewById(R.id.gleichenWerte_button);
         TextView ergebnis_message = (TextView) findViewById(R.id.ergebnis_message);
 
+        //Anzeige der richtigen Strings und Buttons je nachdem ob man pleite ist oder nicht
         if (IntroductionActivity.Controller.getGuthaben() < (5400 + (27600 * IntroductionActivity.Controller.getEingestellteGesamt())) ){
             gameover_button.setVisibility(View.VISIBLE);
             ergebnis_message.setText(R.string.gameover_message);
@@ -80,6 +86,10 @@ public class RundenergebnisActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Button um die naechste Runde mit den gleichen Auswahlen zu spielen
+     * @param view
+     */
     public void gleichenWerteNochmal (View view){
         if (IntroductionActivity.Controller.gleichenWerteNochmal()) {
             Intent intent = new Intent(this, BestellzusammenfassungActivity.class);
@@ -91,6 +101,10 @@ public class RundenergebnisActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Button um die naechste Runde normal zu starten
+     * @param view
+     */
     public void starteNaechsteRunde (View view){
         if (IntroductionActivity.Controller.starteNaechsteRunde()) {
             Intent intent = new Intent(this, PersonalwesenActivity.class);
@@ -102,6 +116,10 @@ public class RundenergebnisActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Button um ein neues Spiel zu starten (bei Gameover)
+     * @param view
+     */
     public void neuesSpiel (View view){
         IntroductionActivity.Controller.neuesSpiel();
         Intent intent = new Intent(this, PersonalwesenActivity.class);

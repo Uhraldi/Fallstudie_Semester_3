@@ -80,7 +80,9 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
     }
 
 
-    //Methode um Spinner die Werte aus dem String-Array hinzuzufuegen
+    /**
+     * Methode um Spinner die Werte aus dem String-Array hinzuzufuegen
+     */
     public void addItemsToGehaeuseSpinner() {
 
         GehaeuseSpinner = (Spinner) findViewById(R.id.gehaeuse_spinner);
@@ -89,18 +91,25 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
                 R.array.gehaeuse_spinner_array,
                 android.R.layout.simple_spinner_item);
 
-        //gehaeuseSpinner.setDropDownViewResource(android.R.layout.simple_spinner);
-
         GehaeuseSpinner.setAdapter(gehaeuse_spinner_adapter);
     }
 
 
-    //Methode um dem Spinner einen Listener hinzuzufuegen
+    /**
+     * Methode um dem Spinner einen Listener hinzuzufuegen
+     */
     public void addListenertoGehaeuseSpinner() {
 
         GehaeuseSpinner = (Spinner) findViewById(R.id.gehaeuse_spinner);
 
         GehaeuseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            /**
+             *
+             * @param parent
+             * @param view
+             * @param pos
+             * @param l
+             */
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
                 String ItemSelectedInGehaeuseSpinner = parent.getItemAtPosition(pos).toString();
@@ -108,6 +117,10 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
                 auswahlGehaeuse = separated[0].trim();
             }
 
+            /**
+             *
+             * @param adapterView
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -123,7 +136,7 @@ public class Z2_GehaeuseActivity extends AppCompatActivity {
      */
     public void goToNextActivity(View view) throws Exception {
 
-        //Methodenaufruf von Controller um Spinner Auswahl zu setzen
+        //Methodenaufruf von Controller um Spinner Auswahl zu setzen und Ueberpruefung ob anderer Wert als vorher gewaehlt wurde
         if(IntroductionActivity.Controller.getGehaeuseAktuellerAuftrag().equals(auswahlGehaeuse)) {
             Toast toast = Toast.makeText(this, "Diese Option ist leider nicht mehr verfügbar", Toast.LENGTH_SHORT);
             toast.show();

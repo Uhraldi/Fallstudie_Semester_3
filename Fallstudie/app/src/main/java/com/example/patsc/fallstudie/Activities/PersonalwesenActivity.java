@@ -59,12 +59,18 @@ public class PersonalwesenActivity extends AppCompatActivity {
     }
 
 
-
-    //onClick Methoden fuer die RadioButtions
+    /**
+     * onClick Methoden fuer die RadioButtions
+     * @param view
+     */
     public void onClickRadioGroup(View view){
 
     }
 
+    /**
+     *
+     * @param view
+     */
     public void onClickRadioButton(View view){
         if (einstellen_radiobutton.isChecked()){
             einstellen = true;
@@ -103,6 +109,7 @@ public class PersonalwesenActivity extends AppCompatActivity {
                 }
             }
 
+            //Weitergabe der Eingabewerte bei entsprechender CheckBox Auswahl
             if (kuendigen_radiobutton.isChecked()) {
                 if (kuendigen != null && !TextUtils.isEmpty(kuendigen.getText())){
                     kuendigenString = kuendigen.getText().toString().trim();
@@ -120,12 +127,14 @@ public class PersonalwesenActivity extends AppCompatActivity {
                 }
             }
 
+            //bei keiner Auswahl Weiterleitung
             if (nichts_radiobutton.isChecked()){
                 IntroductionActivity.Controller.keineVeraenderung();
                 startActivity(intent);
                 finish();
             }
 
+            //Ueberpruefung ob mind. eine Option gewaehlt wurde und entsprechender Toast
             if (!einstellen_radiobutton.isChecked() && !kuendigen_radiobutton.isChecked() && !nichts_radiobutton.isChecked()){
                 Toast toast3 = Toast.makeText(this, "Bitte mindestens eine Option wählen", Toast.LENGTH_SHORT);
                 toast3.show();

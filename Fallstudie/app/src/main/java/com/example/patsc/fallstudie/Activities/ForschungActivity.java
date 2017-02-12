@@ -56,7 +56,11 @@ public class ForschungActivity extends AppCompatActivity {
         }
 
 
-    //Methode um Spinner die Werte aus dem String-Array hinzuzufuegen
+
+
+    /**
+     * Methode um Spinner die Werte aus dem String-Array hinzuzufuegen
+     */
     public void addItemsToForschungSpinner(){
 
         ForschungSpinner = (Spinner) findViewById(R.id.forschung_spinner);
@@ -69,12 +73,21 @@ public class ForschungActivity extends AppCompatActivity {
     }
 
 
-    //Methode um dem Spinner einen Listener hinzuzufuegen
+    /**
+     * Methode um dem Spinner einen Listener hinzuzufuegen
+     */
     public void addListenertoForschungSpinner(){
 
         ForschungSpinner = (Spinner) findViewById(R.id.forschung_spinner);
 
         ForschungSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            /**
+             *
+             * @param parent
+             * @param view
+             * @param pos
+             * @param l
+             */
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
                 String ItemSelectedInForschungSpinner = parent.getItemAtPosition(pos).toString();
@@ -82,6 +95,10 @@ public class ForschungActivity extends AppCompatActivity {
                 auswahlForschung = separated[0].trim();
             }
 
+            /**
+             *
+             * @param adapterView
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 

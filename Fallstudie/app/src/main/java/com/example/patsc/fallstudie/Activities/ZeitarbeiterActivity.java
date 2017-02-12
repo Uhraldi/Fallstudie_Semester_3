@@ -54,7 +54,9 @@ public class ZeitarbeiterActivity extends AppCompatActivity {
     }
 
 
-    //Methode um Spinner die Werte aus dem String-Array hinzuzufuegen
+    /**
+     * Methode um Spinner die Werte aus dem String-Array hinzuzufuegen
+     */
     public void addItemsToZeitarbeiterSpinner(){
 
         ZeitarbeiterSpinner = (Spinner) findViewById(R.id.zeitarbeiter_spinner);
@@ -67,12 +69,21 @@ public class ZeitarbeiterActivity extends AppCompatActivity {
     }
 
 
-    //Methode um dem Spinner einen Listener hinzuzufuegen
+    /**
+     * Methode um dem Spinner einen Listener hinzuzufuegen
+     */
     public void addListenertoZeitarbeiterSpinner(){
 
         ZeitarbeiterSpinner = (Spinner) findViewById(R.id.zeitarbeiter_spinner);
 
         ZeitarbeiterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            /**
+             *
+             * @param parent
+             * @param view
+             * @param pos
+             * @param l
+             */
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
                 String ItemSelectedInZeitarbeiterSpinner = parent.getItemAtPosition(pos).toString();
@@ -80,6 +91,10 @@ public class ZeitarbeiterActivity extends AppCompatActivity {
                 auswahlZeitarbeiter = separated[0].trim();
             }
 
+            /**
+             * 
+             * @param adapterView
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 

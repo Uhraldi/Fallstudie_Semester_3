@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         inputUsername = login_username_input.getText().toString();
         inputPassword = login_password_input.getText().toString();
 
+        //diverse Ueberpruefungen und Einschraenkungen z.B. Laenge d. Namens und Ausgabe von Fehlertoasts
         if (inputUsername.length() <= 13) {
             if (c.registrierung(inputUsername, inputPassword)) {
                 Intent intent = new Intent(this, PersonalwesenActivity.class);
@@ -73,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
        inputUsername = login_username_input.getText().toString();
        inputPassword = login_password_input.getText().toString();
 
+       //divsere Ueberpruefungen (ob schon pleite, ob schon durchgespielt mit entsprechenden Toasts und Weiterleitungen
         if(c.login(inputUsername, inputPassword)) {
             if (IntroductionActivity.Controller.getGuthaben() > (5400 + (27600 * IntroductionActivity.Controller.getEingestellteGesamt())) ) {
                 if (IntroductionActivity.Controller.getRunde() < 10) {
