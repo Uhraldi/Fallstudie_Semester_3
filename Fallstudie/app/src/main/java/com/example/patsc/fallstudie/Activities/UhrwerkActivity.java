@@ -55,7 +55,9 @@ public class UhrwerkActivity extends AppCompatActivity {
     }
 
 
-    //Methode um Spinner die Werte aus dem String-Array hinzuzufuegen
+    /**
+     * Methode um Spinner die Werte aus dem String-Array hinzuzufuegen
+     */
     public void addItemsToUhrwerkSpinner(){
 
         UhrwerkSpinner = (Spinner) findViewById(R.id.uhrwerk_spinner);
@@ -68,12 +70,21 @@ public class UhrwerkActivity extends AppCompatActivity {
     }
 
 
-    //Methode um dem Spinner einen Listener hinzuzufuegen
+    /**
+     * Methode um dem Spinner einen Listener hinzuzufuegen
+     */
     public void addListenertoUhrwerkSpinner(){
 
         UhrwerkSpinner = (Spinner) findViewById(R.id.uhrwerk_spinner);
 
         UhrwerkSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            /**
+             *
+             * @param parent
+             * @param view
+             * @param pos
+             * @param l
+             */
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
                 String ItemSelectedInUhrwerkSpinner = parent.getItemAtPosition(pos).toString();
@@ -81,6 +92,10 @@ public class UhrwerkActivity extends AppCompatActivity {
                 auswahlUhrwerk = separated[0].trim();
             }
 
+            /**
+             *
+             * @param adapterView
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 

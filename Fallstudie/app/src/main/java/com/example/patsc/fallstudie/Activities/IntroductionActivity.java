@@ -32,7 +32,7 @@ public class IntroductionActivity extends AppCompatActivity {
     public void goToNextActivity (View view) {
 
         Intent intent = new Intent(this, LoginActivity.class);
-        //finish();                      <-- diese Activity "leben" lassen wegen des Controller Controller Objects
+        //diese Activity "leben" lassen wegen des Controller Controller Objects
         startActivity(intent);
     }
 }

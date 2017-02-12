@@ -58,7 +58,10 @@ public class MarketingActivity extends AppCompatActivity {
     }
 
 
-   //onClick Methoden fuer die drei CheckBoxes, mit Moeglichkeit zum Deaktivieren
+    /**
+     * onClick Methoden fuer die drei CheckBoxes, mit Moeglichkeit zum Deaktivieren
+     * @param view
+     */
    public void onCheckboxClickedRadiowerbung (View view){
        if (radiowerbung == true){
            radiowerbung = false;
@@ -68,6 +71,10 @@ public class MarketingActivity extends AppCompatActivity {
        }
    } // Ende onCheckboxClickedRadiowerbung
 
+    /**
+     *
+     * @param view
+     */
     public void onCheckboxClickedFersnsehwerbung(View view){
         if (fernsehwerbung == true){
             fernsehwerbung = false;
@@ -77,6 +84,10 @@ public class MarketingActivity extends AppCompatActivity {
         }
     }// Ende onCheckboxClickedFersnsehwerbung
 
+    /**
+     *
+     * @param view
+     */
     public void onCheckboxClickedPrintwerbung(View view){
         if (printwerbung== true){
             printwerbung = false;

@@ -86,7 +86,9 @@ public class Z1_ArmbandActivity extends AppCompatActivity {
     }
 
 
-    //Methode um Spinner die Werte aus dem String-Array hinzuzufuegen
+    /**
+     * Methode um Spinner die Werte aus dem String-Array hinzuzufuegen
+     */
     public void addItemsToArmbandSpinner(){
 
         ArmbandSpinner = (Spinner) findViewById(R.id.armband_spinner);
@@ -95,18 +97,25 @@ public class Z1_ArmbandActivity extends AppCompatActivity {
                 R.array.armband_spinner_array,
                 android.R.layout.simple_spinner_item);
 
-        //armbandSpinner.setDropDownViewResource(android.R.layout.simple_spinner);
-
         ArmbandSpinner.setAdapter(armband_spinner_adapter);
     }
 
 
-    //Methode um dem Spinner einen Listener hinzuzufuegen
+    /**
+     * Methode um dem Spinner einen Listener hinzuzufuegen
+     */
     public void addListenertoArmbandSpinner(){
 
         ArmbandSpinner = (Spinner) findViewById(R.id.armband_spinner);
 
         ArmbandSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            /**
+             *
+             * @param parent
+             * @param view
+             * @param pos
+             * @param l
+             */
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
                 String ItemSelectedInArmbandSpinner = parent.getItemAtPosition(pos).toString();
@@ -114,6 +123,10 @@ public class Z1_ArmbandActivity extends AppCompatActivity {
                 auswahlArmband = separated[0].trim();
             }
 
+            /**
+             *
+             * @param adapterView
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 

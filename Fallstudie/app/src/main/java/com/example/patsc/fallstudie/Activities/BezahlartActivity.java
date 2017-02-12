@@ -17,9 +17,10 @@ public class BezahlartActivity extends AppCompatActivity {
     CheckBox rechnung_checkbox;
     CheckBox paypal_checkbox;
 
-    boolean kreditkarte = false; //#patsch
-    boolean rechnung = false;//#patsch
-    boolean paypal = false; //#patsch
+    boolean kreditkarte = false;
+    boolean rechnung = false;
+    boolean paypal = false;
+
     /**
      *
      * @param savedInstanceState
@@ -59,7 +60,6 @@ public class BezahlartActivity extends AppCompatActivity {
 
     /**
      * Methode fuer den weiter_button um zur nächsten Activity/Screen zu navigieren
-
      * @param view
      * @throws Exception
      */
@@ -88,7 +88,11 @@ public class BezahlartActivity extends AppCompatActivity {
 
     }
 
-    //onClick Methoden fuer die drei Checkboxes, mit Moeglichkeit zum Deaktivieren
+
+    /**
+     * onClick Methoden fuer die drei Checkboxes, mit Moeglichkeit zum Deaktivieren
+     * @param view
+     */
     public void onClickKreditkarte (View view){
         if (kreditkarte == true){
             kreditkarte = false;
@@ -98,6 +102,10 @@ public class BezahlartActivity extends AppCompatActivity {
         }
     } // Ende onClickKreditkarte
 
+    /**
+     *
+     * @param view
+     */
     public void onClickPayPal(View view){
         if(paypal==true){
             paypal = false;
@@ -107,6 +115,10 @@ public class BezahlartActivity extends AppCompatActivity {
         }
     }// Ende onClickPayPal
 
+    /**
+     *
+     * @param view
+     */
     public void onClickRechnung (View view){
         if (rechnung == true){
             rechnung = false;
