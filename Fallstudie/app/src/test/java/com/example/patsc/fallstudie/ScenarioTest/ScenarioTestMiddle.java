@@ -12,6 +12,10 @@ import org.junit.Test;
 
 public class ScenarioTestMiddle {
 
+    /**
+     * Hier werden die Variablen initialisiert
+     */
+
     public int WaitingTime = 500;
     private static String AUSWAHL_JONAS_ZEITARBEITER = Controller.ZEITARBEITER_WAHL_GESELLE;
     private static String AUSWAHL_JONAS_FORSCHUNG = Controller.FORSCHUNG_WAHL_MITTELMAESIG;
@@ -20,13 +24,29 @@ public class ScenarioTestMiddle {
     private static String AUSWAHL_JONAS_UHRWERK = Controller.UHRWERK_WAHL_ELEKTRONISCH;
     private static String AUSWAHL_JONAS_GEHAEUSE = Controller.GEHAEUSE_WAHL_METALL;
     private static String AUSWAHL_JONAS_BEZAHLARTEN = Controller.BEZAHLART_WAHL_PAYPAL;
-    private static float AUSWAHL_JONAS_PRODUKTIONSVOLUMEN = 6000;
-    private static float AUSWAHL_JONAS_VERKAUFSPREIS = 35;
+    private static float AUSWAHL_JONAS_PRODUKTIONSVOLUMEN = 2000;
+    private static float AUSWAHL_JONAS_VERKAUFSPREIS = 60;
+    public  int mitarbeiter;
     private double GEWINN_JONAS;
     private float ABSATZ_JONAS;
     private double MARKTANTEIL_JONAS;
     private float POSITION_JONAS;
     private double GUTHABEN_JONAS;
+
+    /**
+     * Hier wurde das bestellen in eine Methode ausgelagert um den Test übersichtlich zu halten
+     * @param Controller
+     * @param Auswahlzeitarbeiter
+     * @param Auswahlforschung
+     * @param Auswahlmarketing
+     * @param Auswahlarmband
+     * @param Auswahluhrwerk
+     * @param Auswahlgehaeuse
+     * @param Bezahlarten
+     * @param Produktionsvolumen
+     * @param Verkaufspreis
+     * @throws Exception
+     */
 
     public void bestellen(Controller Controller, String Auswahlzeitarbeiter,String Auswahlforschung, String Auswahlmarketing, String Auswahlarmband, String Auswahluhrwerk,String Auswahlgehaeuse, String Bezahlarten, Float Produktionsvolumen, Float Verkaufspreis ) throws  Exception{
         Controller.setSCHRITT_ZEITARBEITER_boolean(true);
@@ -58,8 +78,8 @@ public class ScenarioTestMiddle {
         System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Bezahlarten + " bestellt");
         Thread.sleep(WaitingTime);
         Controller.setSCHRITT_PRODUKTIONSVOLUMEN_boolean(true);
-        Controller.setProduktionsvolumenAktuell(Produktionsvolumen);
-        System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Produktionsvolumen + " Uhren bestellt");
+        Controller.setProduktionsvolumenAktuell(Produktionsvolumen*mitarbeiter);
+        System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Produktionsvolumen*mitarbeiter + " Uhren bestellt");
         Thread.sleep(WaitingTime);
         Controller.setSCHRITT_VERKAUFSPREIS_boolean(true);
         Controller.setVerkaufspreisAktuell(Verkaufspreis);
@@ -85,6 +105,7 @@ public class ScenarioTestMiddle {
     public void Rundenergebnisse(Controller Controller, Double Gewinn, float Absatz, double Marktanteil, float Position, double Guthaben){
         System.out.println("-------------------------------------------------------------");
         System.out.println("Ergebnisse für " + Controller.getAktiverSpieler().getName());
+        System.out.println("Aktuelle Mitarbeiter: " + Controller.getAktiverSpieler().getAktuellEingestellte());
         System.out.println("Runde: " + Controller.getRunde());
         System.out.println("Absatz: " + Absatz);;
         System.out.println("Marktanteil: " + Marktanteil);
@@ -110,7 +131,16 @@ public class ScenarioTestMiddle {
         System.out.println("Spieler erstellt!");
 
         for (int i = 0; i<9; i++){
+            if(GEWINN_JONAS > 55200 && mitarbeiter <= 5){
+                Controller.einstellen(1);
+                System.out.println(Controller.getAktiverSpieler().getName() +" hat einen Mitarbeiter eingestellt.");
+            }
 
+            if(GEWINN_JONAS < 27600 && i > 0 && mitarbeiter >0){
+                Controller.kuendigen(1);
+                System.out.println(Controller.getAktiverSpieler().getName() +" hat einen Mitarbeiter gefeuert.");
+            }
+            mitarbeiter = Controller.getAktiverSpieler().getAktuellEingestellte();
             //4.Spieler führen Bestellungen durch
             Controller.setZustand_Bestellung(true);
             bestellen(Controller,

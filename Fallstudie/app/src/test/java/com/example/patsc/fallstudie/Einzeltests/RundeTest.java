@@ -10,7 +10,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 /**
- * Created by julia on 09.01.2017.
+ Hier werden alle Methoden der Rundenklasse getestet.
  */
 
 public class RundeTest {

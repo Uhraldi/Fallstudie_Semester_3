@@ -11,7 +11,8 @@ import org.junit.runner.RunWith;
 import static junit.framework.Assert.fail;
 
 /**
- * Created by julia on 03.01.2017.
+ In dieser Klasse werden die Methoden der Auftrag-Klasse getestet.
+ -  Alle vorhandenen Getter
  */
 @RunWith(Theories.class)
 public class AuftragTest {

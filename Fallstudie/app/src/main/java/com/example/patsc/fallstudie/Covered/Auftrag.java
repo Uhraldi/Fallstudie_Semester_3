@@ -119,7 +119,7 @@ public class Auftrag {
 
 
 
-
+                //ToDO muss das so oder passiert hier noch was?
 
                 //forschung.setMarken(true);
                 //Aenderungen patsch 12.01 10.23
