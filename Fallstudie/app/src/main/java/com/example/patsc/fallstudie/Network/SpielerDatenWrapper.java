@@ -7,23 +7,25 @@ package com.example.patsc.fallstudie.Network;
 
 public class SpielerDatenWrapper {
 
-    String id;
-    String passwort;
-    int runde = -1;
-    double konto;
-    double kontoSchnitt;
-    double maSchnitt;
-    int personalAnzahl;
-    int personalVeraenderung;
+    private String id;
+    private String passwort;
+    private int runde = -1;
+    private double konto;
+    private double kontoSchnitt;
+    private double maSchnitt;
+    private int personalAnzahl;
+    private int personalVeraenderung;
 
     /**
-     * Äquivalent zu RundenErgebnisWrapper mit den Daten, die für den Spieler nötig sind.
+     * Äquivalent zu RundenErgebnisWrapper nur mit den Daten, die für den Spieler nötig sind.
      * @param id Name des Spielers
      * @param passwort Passwort des Spielers
      * @param runde Nummer der aktuellen Runde
      * @param konto Kontostand des Spielers
      * @param kontoSchnitt Durchschnitt der bisherigen Kontostände, um am Ende einen Schnitt ausgeben zu können.
      * @param maSchnitt Durchschnitt der bisherigen Marktanteile, um am Ende einen Schnitt ausgeben zu können.
+     * @param personalAnzahl Anzahl des eingestellten Personals
+     * @param personalVeraenderung Anzahl der Personalveränderung
      */
     public SpielerDatenWrapper(String id, String passwort, int runde, double konto, double maSchnitt, double kontoSchnitt, int personalAnzahl, int personalVeraenderung){
         this.id = id;
@@ -37,7 +39,7 @@ public class SpielerDatenWrapper {
     }
 
     /**
-     * Konstruktor, um ein Objekt zu erzeugen, das dur Identifikation dient. Zum Beispiel beim Anfragen der Spielerdaten
+     * Konstruktor, um ein Objekt zu erzeugen, das zur Identifikation dient. Zum Beispiel beim Anfragen der Spielerdaten
      * @param id Name des Spielers
      * @param passwort Passwort des Spielers
      */
@@ -46,6 +48,8 @@ public class SpielerDatenWrapper {
         this.passwort = passwort;
     }
 
+
+    /**Getter and Setter*/
     public String getId() {
         return id;
     }
@@ -74,39 +78,16 @@ public class SpielerDatenWrapper {
         return konto;
     }
 
-    public void setKonto(double konto) {
-        this.konto = konto;
-    }
-
-    public double getKontoSchnitt() {
-        return kontoSchnitt;
-    }
-
-    public void setKontoSchnitt(double kontoSchnitt) {
-        this.kontoSchnitt = kontoSchnitt;
-    }
-
     public double getMaSchnitt() {
         return maSchnitt;
-    }
-
-    public void setMaSchnitt(double maSchnitt) {
-        this.maSchnitt = maSchnitt;
     }
 
     public int getPersonalAnzahl() {
         return personalAnzahl;
     }
 
-    public void setPersonalAnzahl(int personalAnzahl) {
-        this.personalAnzahl = personalAnzahl;
-    }
-
     public int getPersonalVeraenderung() {
         return personalVeraenderung;
     }
-
-    public void setPersonalVeraenderung(int personalVeraenderung) {
-        this.personalVeraenderung = personalVeraenderung;
-    }
+    /**End of Getter and Setter*/
 }

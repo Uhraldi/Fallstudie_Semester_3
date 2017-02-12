@@ -1,12 +1,14 @@
 package com.example.patsc.fallstudie.Covered.Bestandteile;
 
 /**
+ * @author Vincent Schmalor
  * Created by vince on 30.12.2016.
  * testable
  */
 
 public class Zeitarbeiter {
 
+    /**Initialisierung zur Quasidatenhaltung*/
     //Auswahlen
     private boolean Geselle = false;
     private boolean Praktikant = false;
@@ -37,10 +39,13 @@ public class Zeitarbeiter {
     private double MeisterZufall = Math.random()*0.1;
 
 
+    /**Konstruktor*/
     public Zeitarbeiter() {
 
     }
 
+
+    /**Getter*/
     public boolean isGeselle() {
         return Geselle;
     }
@@ -104,23 +109,9 @@ public class Zeitarbeiter {
     public double getMeisterRisiko() {
         return MeisterRisiko;
     }
+    /**End of Getter*/
 
-    public double getGeselleZufall() {
-        return GeselleZufall;
-    }
-
-    public double getLehrlingZufall() {
-        return LehrlingZufall;
-    }
-
-    public double getPraktikantZufall() {
-        return PraktikantZufall;
-    }
-
-    public double getMeisterZufall() {
-        return MeisterZufall;
-    }
-
+    /**Setter*/
     public void setGeselle(boolean geselle) {
         this.Geselle = geselle;
     }
@@ -136,4 +127,5 @@ public class Zeitarbeiter {
     public void setMeister(boolean Meister) {
         this.Meister = Meister;
     }
+    /**End of Setter*/
 }

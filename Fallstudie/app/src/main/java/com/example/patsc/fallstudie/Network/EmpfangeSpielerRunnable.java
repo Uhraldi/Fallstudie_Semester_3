@@ -10,22 +10,27 @@ import com.example.patsc.fallstudie.Covered.Controller.Controller;
 
 public class EmpfangeSpielerRunnable implements Runnable {
 
-    String id;
-    String passwort;
-    SpielerDatenWrapper ergebnis;
-    Controller c;
-    Funkturm f;
+    private String id;
+    private String passwort;
+    private Controller c;
+    private Funkturm f;
 
-    public EmpfangeSpielerRunnable(String id, String passwort, Funkturm f, Controller c){
+    /**
+     * Konstruktor
+     * @param id Name des Spielers
+     * @param passwort Passwort des Spielers
+     * @param c Controller zum setzen von Daten
+     */
+    public EmpfangeSpielerRunnable(String id, String passwort, Controller c){
         this.id = id;
         this.passwort = passwort;
         this.c = c;
-        this.f = f;
+        f = c.getFunkturm();
     }
 
     @Override
     public void run() {
-        ergebnis = f.empfangeSpieler(id, passwort);
+        SpielerDatenWrapper ergebnis = f.empfangeSpieler(id, passwort);
         c.setEmpfangeSpielerSDW(ergebnis);
     }
 }

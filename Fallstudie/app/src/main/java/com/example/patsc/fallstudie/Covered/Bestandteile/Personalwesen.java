@@ -1,40 +1,32 @@
 package com.example.patsc.fallstudie.Covered.Bestandteile;
 
 /**
+ * @author Patricia Schneider
  * Created by patsc on 14.01.2017.
  */
 public class Personalwesen {
 
-
-
     //Auswahlen
-        private int eingestellte = 2; // Personal am Anfang initial auf 2 gesetzt initial wird es mit der veraenderung gesetzt
-        private int veraenderung = 0; // Veranderung für das Personal in der nächsten runde
-        private double fixkosten ; //// TODO: 24.01.2017 #Vincent werte anpassen
+    private int eingestellte = 2; // Personal am Anfang initial auf 2 gesetzt initial wird es mit der veraenderung gesetzt
+    private int veraenderung = 0; // Veranderung für das Personal in der nächsten runde
+    private double fixkosten ;
 
     //EKPs
-        private double personalKostenProMitarbeiter = 27600;
+    private double personalKostenProMitarbeiter = 27600;
 
-    private int anzahlDerMöglichenUhrenProMitarbeiter = 3000;
-
-    /**
-     * Constructor
-     */
+    /**Konstruktor*/
     public Personalwesen(){
 
     }
 
+
+    /**Methoden*/
+
     public String toString(){
         return eingestellte + ":" + veraenderung + ":" + fixkosten;
     }
-    public int getAnzahlDerMöglichenUhrenProMitarbeiter() {
-        return anzahlDerMöglichenUhrenProMitarbeiter;
-    }
 
-    public void setAnzahlDerMöglichenUhrenProMitarbeiter(int anzahlDerMöglichenUhrenProMitarbeiter) {
-        this.anzahlDerMöglichenUhrenProMitarbeiter = anzahlDerMöglichenUhrenProMitarbeiter;
-    }
-
+    /**Getter*/
     public int getEingestellte() {
         return eingestellte;
     }
@@ -50,20 +42,11 @@ public class Personalwesen {
     public double getPersonalKostenProMitarbeiter() {
         return personalKostenProMitarbeiter;
     }
+    /**End of Getter*/
 
-    public void setPersonalKostenProMitarbeiter(double personalKostenProMitarbeiter) {
-        this.personalKostenProMitarbeiter = personalKostenProMitarbeiter;
-    }
-
+    /**Setter*/
     public void setVeraenderung(int veraenderung) {
         this.veraenderung = veraenderung;
     }
-
-    public double getFixkosten() {
-        return fixkosten;
-    }
-
-    public void setFixkosten(double fixkosten) {
-        this.fixkosten = fixkosten;
-    }
+    /**End of Setter*/
 }

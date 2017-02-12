@@ -1,12 +1,14 @@
 
 package com.example.patsc.fallstudie.Covered.Bestandteile;
 /**
+ * @author Vincent Schmalor
  * Created by vince on 30.12.2016.
  * testable
  */
 
 public class Marketing {
 
+    /**Initialisierung zur Quasidatenhaltung*/
     //Auswahlen
     private boolean Fernsehwerbung = false;
     private boolean Radiowerbung = false;
@@ -23,16 +25,12 @@ public class Marketing {
     private double PrintwerbungPWS = 0.05;
 
 
-    /**
-     * Constructor
-     */
+    /**Konstruktor*/
     public Marketing(){
 
     }
 
-    /**
-     * Variablen-Getter
-     */
+    /**Getter*/
     public boolean isFernsehwerbung() {
         return Fernsehwerbung;
     }
@@ -68,10 +66,9 @@ public class Marketing {
     public double getPrintwerbungPWS() {
         return PrintwerbungPWS;
     }
+    /**End of Getter*/
 
-    /**
-     * Variablen-Setter
-     */
+    /**Setter*/
     public void setFernsehwerbung(boolean fernsehwerbung) {
         this.Fernsehwerbung = fernsehwerbung;
     }
@@ -83,4 +80,5 @@ public class Marketing {
     public void setPrintwerbung(boolean printwerbung) {
         this.Printwerbung = printwerbung;
     }
+    /**End of Setter*/
 }

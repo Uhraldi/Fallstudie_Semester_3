@@ -10,22 +10,27 @@ import com.example.patsc.fallstudie.Covered.Controller.Controller;
 
 public class RegisterRunnable implements Runnable {
 
-    String id;
-    String passwort;
-    boolean ergebnis = false;
-    Controller c;
-    Funkturm f;
+    private String id;
+    private String passwort;
+    private Controller c;
+    private Funkturm f;
 
-    public RegisterRunnable(String id, String passwort, Funkturm f, Controller c){
+    /**
+     * Konstruktor
+     * @param id Name des Spielers
+     * @param passwort Passwort des Spielers
+     * @param c Controller
+     */
+    public RegisterRunnable(String id, String passwort, Controller c){
         this.id = id;
         this.passwort = passwort;
         this.c = c;
-        this.f = f;
+        f = c.getFunkturm();
     }
 
     @Override
     public void run() {
-        ergebnis = f.registriereSpieler(id, passwort);
+        boolean ergebnis = f.registriereSpieler(id, passwort);
         c.setRegistrierungBool(ergebnis);
     }
 }

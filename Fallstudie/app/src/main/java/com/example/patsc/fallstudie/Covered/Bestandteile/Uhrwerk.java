@@ -1,12 +1,14 @@
 package com.example.patsc.fallstudie.Covered.Bestandteile;
 
 /**
+ * @author Vincent Schmalor
  * Created by vince on 28.12.2016.
  * testable
  */
 
 public class Uhrwerk {
 
+    /**Initialisierung zur Quasidatenhaltung*/
     //Auswahlen
     private boolean mechanisch = false;
     private boolean elektromechanisch = false;
@@ -23,13 +25,13 @@ public class Uhrwerk {
     private double eletronischPWS = 0.05;
 
 
-    /**
-     * Constructor
-     */
+    /**Konstruktor*/
     public Uhrwerk(){
 
     }
 
+
+    /**Getter*/
     public boolean isMechanisch() {
         return mechanisch;
     }
@@ -65,7 +67,9 @@ public class Uhrwerk {
     public double getEletronischPWS() {
         return eletronischPWS;
     }
+    /**End of Getter*/
 
+    /**Setter*/
     public void setMechanisch(boolean mechanisch) {
         this.mechanisch = mechanisch;
     }
@@ -77,4 +81,5 @@ public class Uhrwerk {
     public void setElektronisch(boolean elektronisch) {
         this.elektronisch = elektronisch;
     }
+    /**End of Setter*/
 }

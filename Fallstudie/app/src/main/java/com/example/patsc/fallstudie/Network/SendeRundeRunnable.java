@@ -10,20 +10,24 @@ import com.example.patsc.fallstudie.Covered.Controller.Controller;
 
 public class SendeRundeRunnable implements Runnable {
 
-    RundenErgebnisWrapper rundenErgebnisWrapper;
-    boolean ergebnis = false;
-    Controller c;
-    Funkturm f;
+    private RundenErgebnisWrapper rundenErgebnisWrapper;
+    private Controller c;
+    private Funkturm f;
 
-    public SendeRundeRunnable(RundenErgebnisWrapper rundenErgebnisWrapper, Funkturm f, Controller c){
+    /**
+     * Konstruktor
+     * @param rundenErgebnisWrapper An das Netzwerk zu senden der Wrapper
+     * @param c Controller zum festlegen von Daten
+     */
+    public SendeRundeRunnable(RundenErgebnisWrapper rundenErgebnisWrapper, Controller c){
         this.rundenErgebnisWrapper = rundenErgebnisWrapper;
         this.c = c;
-        this.f = f;
+        f=c.getFunkturm();
     }
 
     @Override
     public void run() {
-        ergebnis = f.sendeRunde(rundenErgebnisWrapper);
+        boolean ergebnis = f.sendeRunde(rundenErgebnisWrapper);
         c.setSendeRundeBool(ergebnis);
     }
 }

@@ -30,7 +30,7 @@ public class CNetzwerk extends Zustaende implements INetzwerk {
     public void rundeHochladen(Controller c){
         // aktiverSpieler.getVeraenderung für die nächste Runde soltle auch gespeichert werden
         RundenErgebnisWrapper rundenErgebnisWrapper = new RundenErgebnisWrapper(aktiverSpieler.getName(), getDaten().getRundenAnzahl(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getReservationspreis(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp(), c.getGesamtkosten(), aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getBonus(), aktiverSpieler.getGuthaben(),aktiverSpieler.getMaSchnitt());
-        Runnable r1 = new SendeRundeRunnable(rundenErgebnisWrapper,funkturm, c);
+        Runnable r1 = new SendeRundeRunnable(rundenErgebnisWrapper, c);
         Thread t1 = new Thread(r1);
         t1.start();
         while (t1.isAlive()) {
@@ -38,7 +38,7 @@ public class CNetzwerk extends Zustaende implements INetzwerk {
     }
 
     public RundenErgebnisWrapper[] gegnerHerunterladen (Controller c){
-        Runnable r2 = new EmpfangeRundeRunnable(getDaten().getRundenAnzahl(), funkturm,c);
+        Runnable r2 = new EmpfangeRundeRunnable(getDaten().getRundenAnzahl(), c);
         Thread t2 = new Thread(r2);
         t2.start();
         while (t2.isAlive()) {
@@ -58,7 +58,7 @@ public class CNetzwerk extends Zustaende implements INetzwerk {
                 aktiverSpieler.getKontoSchnitt(),
                 aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getPersonalwesen().getEingestellte(),
                 aktiverSpieler.getVeraenderungPersonal());
-        Runnable r3 = new UpdateRunnable(spieler, funkturm, c);
+        Runnable r3 = new UpdateRunnable(spieler, c);
         Thread t3 = new Thread(r3);
         t3.start();
         while (t3.isAlive()) {

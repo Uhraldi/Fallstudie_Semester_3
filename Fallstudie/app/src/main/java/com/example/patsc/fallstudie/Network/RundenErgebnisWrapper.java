@@ -28,7 +28,6 @@ public class RundenErgebnisWrapper {
 
     /**
      * Konstruktor zum Erstellen eines Wrappers, der versendet werden soll
-     *
      * @param id           Name des Spielers
      * @param runde        aktuelle Rundennummer
      * @param menge        Menge der in dieser Runde hergestellten Uhren
@@ -37,8 +36,8 @@ public class RundenErgebnisWrapper {
      * @param bonus        Bonus durch z.B. Kreditkarten in Summe über alle Koeffizienten
      * @param gesamtKosten Summe der Fixkosten und variablen Kosten*Menge
      * @param konto        Kontostand des Spielers
-     *                     //* @param marktanteil marktanteil wird von der Marktsim hinzugefügt, um die Sortierfähigkeit zu gewährleisten
-     *                     //* @param rundengewinn Gewinn des Spielers in dieser Runde
+     * //@param marktanteil marktanteil wird von der Marktsim hinzugefügt, um die Sortierfähigkeit zu gewährleisten
+     * //@param rundengewinn Gewinn des Spielers in dieser Runde
      */
     public RundenErgebnisWrapper(String id, int runde, int menge, int personalanzahl, double respr, double vkp, double gesamtKosten, double bonus, double konto, double maSchnitt) {
         this.id = id;
@@ -51,11 +50,6 @@ public class RundenErgebnisWrapper {
         this.konto = konto;
         this.maSchnitt = maSchnitt;
         this.personalanzahl = personalanzahl;
-        /**
-         * Übergabe nicht im Konstruktor? - Nein, weil sie erst von der Marktsim gesetzt werden. Dieses Objekt muss aber sortiert werden und dafür diese beiden Variablen besitzen
-         * this.marktanteil = marktanteil;
-         * this.rundengewinn = rundengewinn;
-         */
     }
 
     /**
@@ -66,9 +60,7 @@ public class RundenErgebnisWrapper {
         runde = -1;
     }
 
-    /**
-     * ----------------------Getter und Setter----------------------
-     */
+    /**Getter and Setter*/
     public String getId() {
         return id;
     }
@@ -89,40 +81,20 @@ public class RundenErgebnisWrapper {
         return menge;
     }
 
-    public void setMenge(int menge) {
-        this.menge = menge;
-    }
-
     public int getPersonalanzahl() {
         return personalanzahl;
-    }
-
-    public void setPersonalanzahl(int personalanzahl) {
-        this.personalanzahl = personalanzahl;
     }
 
     public double getRespr() {
         return respr;
     }
 
-    public void setRespr(double respr) {
-        this.respr = respr;
-    }
-
     public double getVkp() {
         return vkp;
     }
 
-    public void setVkp(double vkp) {
-        this.vkp = vkp;
-    }
-
     public double getBonus() {
         return bonus;
-    }
-
-    public void setBonus(double bonus) {
-        this.bonus = bonus;
     }
 
     public double getKonto() {
@@ -137,16 +109,8 @@ public class RundenErgebnisWrapper {
         return gesamtKosten;
     }
 
-    public void setGesamtKosten(double gesamtKosten) {
-        this.gesamtKosten = gesamtKosten;
-    }
-
     public double getMarktanteil() {
         return marktanteil;
-    }
-
-    public double getRundengewinn() {
-        return rundengewinn;
     }
 
     public void setRundengewinn(double rundengewinn) {
@@ -164,8 +128,5 @@ public class RundenErgebnisWrapper {
     public void setMaSchnitt(double maSchnitt) {
         this.maSchnitt = maSchnitt;
     }
-
-    /**
-     * ----------------------Ende Getter und Setter----------------------
-     */
+    /**End of Getter and Setter*/
 }

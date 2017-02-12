@@ -10,20 +10,25 @@ import com.example.patsc.fallstudie.Covered.Controller.Controller;
 
 public class EmpfangeRundeRunnable implements Runnable {
 
-    int runde;
-    RundenErgebnisWrapper[] ergebnis;
-    Controller c;
-    Funkturm f;
+    private int runde;
+    private Controller c;
+    private Funkturm f;
 
-    public EmpfangeRundeRunnable(int runde, Funkturm f, Controller c){
+    /**
+     * Konstruktor
+     * @param runde Altuelle Rundenzahl
+     * @param f Funkturm des Controllers
+     * @param c Controller
+     */
+    public EmpfangeRundeRunnable(int runde, Controller c){
         this.runde = runde;
         this.c = c;
-        this.f = f;
+        f = c.getFunkturm();
     }
 
     @Override
     public void run() {
-        ergebnis = f.empfangeRunde(runde);
+        RundenErgebnisWrapper[] ergebnis = f.empfangeRunde(runde);
         c.setRundenErgebnisREW(ergebnis);
     }
 }

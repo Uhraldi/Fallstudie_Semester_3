@@ -1,11 +1,13 @@
 package com.example.patsc.fallstudie.Covered.Bestandteile;
 /**
+ * @author Vincent Schmalor
  * Created by vince on 30.12.2016.
  * testable
  */
 
 public class Gehaeuse {
 
+    /**Initialisierung zur Quasidatenhaltung*/
     //Auswahlen
     private boolean glas = false;
     private boolean holz = false;
@@ -36,28 +38,14 @@ public class Gehaeuse {
     private double kunststoffZufall = Math.random()*0.1;
     private double metallZufall = Math.random()*0.1;
 
-    /**
-     * Constructor
-     */
+
+    /**Konstruktor*/
     public Gehaeuse(){
 
     }
 
-    public void setHolzZufall(double holzZufall) {
-        this.holzZufall = holzZufall;
-    }
 
-    public void setGlasZufall(double glasZufall) {
-        this.glasZufall = glasZufall;
-    }
-
-    public void setKunststoffZufall(double kunststoffZufall) {
-        this.kunststoffZufall = kunststoffZufall;
-    }
-
-    public void setMetallZufall(double metallZufall) {
-        this.metallZufall = metallZufall;
-    }
+    /**Methoden*/
 
     public String toString(){
         String gehauseString;
@@ -65,9 +53,7 @@ public class Gehaeuse {
         return gehauseString;
     }
 
-    /**
-     * Variablen-Getter
-     */
+    /**Getter*/
     public boolean isGlas() {
         return glas;
     }
@@ -148,9 +134,7 @@ public class Gehaeuse {
         return metallZufall;
     }
 
-    /**
-     * Variablen.Setter
-     */
+    /**Setter*/
     public void setGlas(boolean glas) {
         this.glas = glas;
     }
@@ -166,4 +150,5 @@ public class Gehaeuse {
     public void setMetall(boolean metall) {
         this.metall = metall;
     }
+    /**End of Setter*/
 }

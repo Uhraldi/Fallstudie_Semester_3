@@ -1,12 +1,14 @@
 package com.example.patsc.fallstudie.Covered.Bestandteile;
 
 /**
+ * @author Vincent Schmalor
  * Created by vince on 30.12.2016.
  * testable
  */
 
 public class Armband {
 
+    /**Initialisierung zur Quasidatenhaltung*/
     //Auswahlen
     private boolean leder = false;
     private boolean kunstleder = false;
@@ -35,44 +37,19 @@ public class Armband {
     private double textilRisiko = 0.08;
     private double metallRisiko = 0.08;
 
-    //Zufall (z.B. Beliebtheit)
-    //ToDo
-    /*
-    Zufall:
-     */
+    //Zufall
     private double lederZufall = Math.random()*0.1;
     private double kunstlederZufall = Math.random()*0.1;
     private double holzZufall = Math.random()*0.1;
     private double textilZufall = Math.random()*0.1;
     private double metallZufall = Math.random()*0.1;
 
-    /**
-     * Constructor
-     */
+    /**Konstruktor*/
     public Armband(){
 
     }
 
-    public void setLederZufall(double i){
-        lederZufall = i;
-    }
-
-    public void setHolzZufall(double holzZufall) {
-        this.holzZufall = holzZufall;
-    }
-
-    public void setKunstlederZufall(double kunstlederZufall) {
-        this.kunstlederZufall = kunstlederZufall;
-    }
-
-    public void setTextilZufall(double textilZufall) {
-        this.textilZufall = textilZufall;
-    }
-
-    public void setMetallZufall(double metallZufall) {
-        this.metallZufall = metallZufall;
-    }
-
+    /**Methoden*/
     //Material nicht da Methode im Controller mit String
     public String toString(){
 
@@ -81,9 +58,7 @@ public class Armband {
         return stringArmband;
     }
 
-    /**
-     * Variablen-Getter
-     */
+    /**Getter*/
     public boolean isLeder() {
         return leder;
     }
@@ -183,10 +158,9 @@ public class Armband {
     public double getMetallZufall() {
         return metallZufall;
     }
+    /**End of Getter*/
 
-    /**
-     * Variablen-Setter
-     */
+    /**Setter*/
     public void setLeder(boolean leder) {
         this.leder = leder;
     }
@@ -206,4 +180,5 @@ public class Armband {
     public void setMetall(boolean metall) {
         this.metall = metall;
     }
+    /**End of Setter*/
 }

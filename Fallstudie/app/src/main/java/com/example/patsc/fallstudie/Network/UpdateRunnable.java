@@ -10,20 +10,24 @@ import com.example.patsc.fallstudie.Covered.Controller.Controller;
 
 public class UpdateRunnable implements Runnable {
 
-    SpielerDatenWrapper s;
-    boolean ergebnis = false;
-    Controller c;
-    Funkturm f;
+    private SpielerDatenWrapper s;
+    private Controller c;
+    private Funkturm f;
 
-    public UpdateRunnable(SpielerDatenWrapper s, Funkturm f, Controller c){
+    /**
+     * Konstruktor
+     * @param s Datenwrapper des Spielers
+     * @param c Controller zum festlegen eines Wertes
+     */
+    public UpdateRunnable(SpielerDatenWrapper s, Controller c){
         this.s = s;
         this.c = c;
-        this.f = f;
+        f=c.getFunkturm();
     }
 
     @Override
     public void run() {
-        ergebnis = f.updateSpieler(s);
+        boolean ergebnis = f.updateSpieler(s);
         c.setUpdateBool(ergebnis);
     }
 }

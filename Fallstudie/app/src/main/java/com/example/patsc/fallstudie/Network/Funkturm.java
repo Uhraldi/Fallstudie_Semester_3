@@ -18,14 +18,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class Funkturm {
 
-    private Gson gson = new Gson();
-
-
-    //----------------------Constructor----------------------
-    public Funkturm() {
-
-    }
-
+    /**Pfaddeklaration*/
     private final String domain = "https://manufaktuhr.herokuapp.com/";
     private final String spielerPost = "spielerDaten/postNew";
     private final String spielerUpdate = "spielerDaten/updateExisting";
@@ -33,8 +26,10 @@ public class Funkturm {
     private final String rundePost = "rundenDaten/post";
     private final String rundeGet = "rundenDaten/get/";
 
+    private Gson gson = new Gson();
 
-    //-------------------Rundenmethoden-------------------
+
+    /**Rundenmethoden*/
 
     /**
      * Rufe diese Methode auf, um die Rundenergebnisse zu pushen
@@ -82,12 +77,8 @@ public class Funkturm {
 
     }
 
-
-
-
     /**
      * [beachte return doc] Rufe diese Methode auf, um die Daten der aktuellen Runde zu erhalten
-     *
      * @param runde aktuelle Rundenzahl
      * @return Alle gespeicherten Spielstände der Runde
      * ACHTUNG! Bei fehlerhafter Verarbeitung wird ein RundenErgebnisWrapper an der Stelle [0] mit der ID "failed" erstellt
@@ -124,7 +115,8 @@ public class Funkturm {
         }
     }
 
-    //-------------------Spielermethoden-------------------
+
+    /**Spielermethoden*/
 
     /**
      * Methode zum registrieren eines spielers
@@ -223,10 +215,8 @@ public class Funkturm {
         }
     }
 
-
     /**
      * [beachte return doc] Methode zum Laden einer Spielerdatei
-     *
      * @param id Name des gewünschten Spielers
      * @param passwort Passwort des gewünschten Spielers
      * @return Spielerdaten

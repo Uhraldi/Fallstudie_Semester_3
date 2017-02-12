@@ -1,11 +1,13 @@
 package com.example.patsc.fallstudie.Covered.Bestandteile;
 /**
+ * @author Vincent Schmalor
  * Created by vince on 30.12.2016.
  * testable
  */
 
 public class Wasserdichtheit {
 
+    /**Initialisierung zur Quasidatenhaltung*/
     //Auswahlen
     private boolean nichtWassergeschützt = false;
     private boolean spritzwassergeschützt = false;
@@ -22,16 +24,13 @@ public class Wasserdichtheit {
     private double wasserdichtPWS = 0.15;
 
 
-    /**
-     * Constructor
-     */
+    /**Konstruktor*/
     public Wasserdichtheit(){
 
     }
 
-    /**
-     * Variablen-Getter
-     */
+
+    /**Getter*/
     public boolean isNichtWassergeschützt() {
         return nichtWassergeschützt;
     }
@@ -67,10 +66,9 @@ public class Wasserdichtheit {
     public double getWasserdichtPWS() {
         return wasserdichtPWS;
     }
+    /**End of Getter*/
 
-    /**
-     * Variablen-Setter
-     */
+    /**Setter*/
     public void setNichtWassergeschützt(boolean nichtWassergeschützt) {
         this.nichtWassergeschützt = nichtWassergeschützt;
     }
@@ -82,4 +80,5 @@ public class Wasserdichtheit {
     public void setWasserdicht(boolean wasserdicht) {
         this.wasserdicht = wasserdicht;
     }
+    /**End of Setter*/
 }

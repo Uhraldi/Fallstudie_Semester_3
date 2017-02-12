@@ -1,11 +1,14 @@
 package com.example.patsc.fallstudie.Covered.Bestandteile;
+
 /**
+ * @author Vincent Schmalor
  * Created by vince on 30.12.2016.
  * testable
  */
 
 public class Bezahlart {
 
+    /**Initialisierung zur Quasidatenhaltung*/
     //Auswahlen
     private boolean Kreditkarte = false;
     private boolean Rechnung = false;
@@ -27,16 +30,12 @@ public class Bezahlart {
     private double PayPalZufall = 0.1;
 
 
-    /**
-     * Constructor
-     */
+    /**Konstruktor*/
     public Bezahlart(){
 
     }
 
-    /**
-     * Variablen-Getter
-     */
+    /**Getter*/
     public boolean isKreditkarte() {
         return Kreditkarte;
     }
@@ -84,10 +83,9 @@ public class Bezahlart {
     public double getPayPalZufall() {
         return PayPalZufall;
     }
+    /**End of Getter*/
 
-    /**
-     * Variablen-Setter
-     */
+    /**Setter*/
     public void setKreditkarte(boolean Kreditkarte) {
         this.Kreditkarte = Kreditkarte;
     }
@@ -99,4 +97,5 @@ public class Bezahlart {
     public void setPayPal(boolean PayPal) {
         this.PayPal = PayPal;
     }
+    /**End of Setter*/
 }

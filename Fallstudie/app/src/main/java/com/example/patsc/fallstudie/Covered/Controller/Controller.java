@@ -770,7 +770,7 @@ public class Controller extends UserInterface{
      */ public boolean registrierung(String name,String passwort){
         try {
             //#Netzwerk
-            Runnable r = new RegisterRunnable(name, passwort, funkturm, this);
+            Runnable r = new RegisterRunnable(name, passwort, this);
             Thread t = new Thread(r);
             t.start();
             while(t.isAlive()){
@@ -802,7 +802,7 @@ public class Controller extends UserInterface{
         //#Netzwerk
         final SpielerDatenWrapper ergebnis;
         Funkturm f = new Funkturm();
-        Runnable r = new EmpfangeSpielerRunnable(name, passwort, funkturm, this);
+        Runnable r = new EmpfangeSpielerRunnable(name, passwort, this);
         Thread t = new Thread(r);
         t.start();
         while(t.isAlive()){
@@ -982,6 +982,10 @@ public class Controller extends UserInterface{
 
     public void setRundenErgebnisREW(RundenErgebnisWrapper[] rundenErgebnisREW) {
         this.rundenErgebnisREW = rundenErgebnisREW;
+    }
+
+    public Funkturm getFunkturm(){
+        return funkturm;
     }
 
 

@@ -1,14 +1,15 @@
 package com.example.patsc.fallstudie.Covered.Bestandteile;
 
 /**
+ * @author Vincent Schmalor
  * Created by vince on 30.12.2016.
  * testable
  */
 
 
-public class Forschung { //ToDo Forschungswerte anpassen
+public class Forschung {
 
-
+    /**Initialisierung zur Quasidatenhaltung*/
     //Auswahlen
     private boolean Investition15000 = false;
     private boolean Investition8000 = false;
@@ -24,22 +25,21 @@ public class Forschung { //ToDo Forschungswerte anpassen
     private double Investition8000PWS = 0.2;
     private double Investition2500PWS = 0.05;
 
-    /**
-     * Constructor
-     */
+    /**Konstruktor*/
     public Forschung() {
 
     }
 
+    /**Methoden*/
+
     public String toString(){
         return"";
     }
-    /**
-     * Variablen-Getter
-     */
+
+    /**Getter*/
     public boolean isInvestition15000() {
         return Investition15000;
-    } //// TODO: 25.01.2017 #Patschi wird nicht überprüft. Soll das so? MfG Vincent
+    }
 
     public boolean isInvestition8000() {
         return Investition8000;
@@ -72,11 +72,9 @@ public class Forschung { //ToDo Forschungswerte anpassen
     public double getInvestition2500PWS() {
         return Investition2500PWS;
     }
+    /**End of Getter*/
 
-    /**
-     * Variablen-Setter
-     */
-
+    /**Setter*/
     //Forschung 2500€ Investition
     public void setInvestition15000(boolean investition15000) {
         this.Investition15000 = investition15000;
@@ -91,4 +89,5 @@ public class Forschung { //ToDo Forschungswerte anpassen
     public void setInvestition2500(boolean investition2500) {
         this.Investition2500 = investition2500;
     }
+    /**End of Setter*/
 }
