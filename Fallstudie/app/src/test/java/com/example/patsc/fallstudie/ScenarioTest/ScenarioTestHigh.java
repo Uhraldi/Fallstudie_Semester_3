@@ -152,7 +152,7 @@ public class ScenarioTestHigh {
         Controller.setAktiverSpieler(Sebastian);
         System.out.println("Spieler erstellt!");
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<9; i++){
 
             if(GEWINN_SEBASTIAN > 55200 && mitarbeiter <= 5){
                 Controller.einstellen(1);

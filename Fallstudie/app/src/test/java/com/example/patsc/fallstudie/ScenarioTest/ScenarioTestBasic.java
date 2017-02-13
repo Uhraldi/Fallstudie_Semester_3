@@ -179,6 +179,10 @@ public class ScenarioTestBasic {
             Rundenergebnisse(Controller, GEWINN_JONAS, ABSATZ_JONAS, MARKTANTEIL_JONAS, POSITION_JONAS, GUTHABEN_JONAS);
             Controller.starteNaechsteRunde();
         }
+
+        System.out.println("Bestenliste:");
+        Controller.getBestenliste();
+
     }
 
 }

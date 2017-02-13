@@ -50,20 +50,7 @@ public class ScenarioTestLow {
      * @throws Exception
      */
 
-    /**
-     * Diese Methode dient dazu die wichtigsten Daten als Rundenergebnisse auszugeben.
-     * @param Controller
-     * @param Auswahlzeitarbeiter
-     * @param Auswahlforschung
-     * @param Auswahlmarketing
-     * @param Auswahlarmband
-     * @param Auswahluhrwerk
-     * @param Auswahlgehaeuse
-     * @param Bezahlarten
-     * @param Produktionsvolumen
-     * @param Verkaufspreis
-     * @throws Exception
-     */
+
 
     public void bestellen(Controller Controller, String Auswahlzeitarbeiter,String Auswahlforschung, String Auswahlmarketing, String Auswahlarmband, String Auswahluhrwerk,String Auswahlgehaeuse, String Bezahlarten, Float Produktionsvolumen, Float Verkaufspreis ) throws Exception {
         Controller.setSCHRITT_ZEITARBEITER_boolean(true);

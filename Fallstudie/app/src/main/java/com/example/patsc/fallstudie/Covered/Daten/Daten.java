@@ -61,9 +61,7 @@ public class Daten extends SpielerAbfragen{
     public void ladeDaten(){
         //ToDO gewollt leer?
     }
-    public void speichereDaten(){
-        //ToDO
-    }
+
     public void addSpielerListe(Spieler spieler){
         try{
             erhöheSpielerAnzahl();
