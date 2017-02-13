@@ -13,58 +13,71 @@ import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
 import com.example.patsc.fallstudie.Network.SpielerDatenWrapper;
 
 /**
- * Created by patsc on 13.12.2016.
+ * Created by Patricia Schneider on 13.12.2016.
+ * Steuert das Zusammenspiel von Netzwerk UI und Logik.
 */
 
-public class Controller extends UserInterface{
-    /*
-    Deklaration der einzelnen Namen der Schritte.
-    Final damit sich der Name nicht verändert.
-     */
-    // Zugriff auf wichtige Elemente
-
-
-
-
+public class Controller implements IController extends UserInterface{
     /**
      * Konstruktor, wird in der on Create Methode aufgerufen
      */
     public Controller(){
         setDaten(new Daten(this)); // erzeugung der Klasse Daten
-
-    }
-    public String toString(){
-        String controllerString;
-        controllerString = "";
-        return controllerString;
     }
 
-
+    /**
+     * Methode wird bei dem LadeScreen augerufen. Führt alle Berechnungen aus, damit eine Produktionsreihe bewertet und verkauft werden kann.
+     * Hierfür finden mehrere Netzwerkaufrufre statt, die Preissimulation und Marktsimulation.
+     * Der errechnete Spielstand wird anschließend auf den Server geladen.
+     */
     protected void fuehreBerechnungAus(){
         try {
             Preissimulation preissim = new Preissimulation(this); //ToDo
-            getDaten().ASDsetPreisSim(preissim);
-
-            //#Netzwerk Runde hochladen
-            rundeHochladen(this);
-
-
-            //#Netzwerk Gegner herunterladen
-            RundenErgebnisWrapper[] gegnerliste = gegnerHerunterladen(this);
+            getDaten().ASDsetPreisSim(preissim); // Zuordnen der Preissim zu einem Spieler
+            rundeHochladen(this); //Netzwerk Runde hochladen
+            RundenErgebnisWrapper[] gegnerliste = gegnerHerunterladen(this); //Netzwerk Gegner herunterladen
             Marktsim marktsim = new Marktsim( this, gegnerliste);
             getDaten().ASDserMarktSim(marktsim);
-
-            //# Netzwerk Spieler Daten speichern
-            spielerDatenSpeichern(this);
+            spielerDatenSpeichern(this); //Netzwerk Spieler Daten speichern
         }catch (Exception e){
-            e.printStackTrace();
+            e.printStackTrace(); // Abfangen des Fehlers nur für Spiel an Konsole; wenn kein Stand zurück gegeben wird, wird für den Spieler ein Toast erzeugt.
         }
-    }
+    }// Ende fuehre BerechnungAus
 
 
     // Methoden zum weitergeben der UI-Inputs
+
+    /**
+     * Aufruf durch Activity / UI
+     * Setzen der Auswahl des Armbands im aktuellen Auftrag
+     * @param armbandAuswahl String welche Auswahl getroffen wurde
+     */
+    public void setArmbandAktuell(String armbandAuswahl) {
+        try {
+            //Prüfung ob der richtige Schritt genutzt wird
+            if (isSCHRITT_ARMBAND_boolean()) {
+                //Prüfung ob ein valider String verwendet wird
+                if (armbandAuswahl.equals(ARMBAND_WAHL_HOLZ) || armbandAuswahl.equals(ARMBAND_WAHL_KUNSTLEDER) || armbandAuswahl.equals(ARMBAND_WAHL_LEDER) || armbandAuswahl.equals(ARMBAND_WAHL_METALL) || armbandAuswahl.equals(ARMBAND_WAHL_TEXTIL)) {
+                    getDaten().ASDgetAktuellerAuftrag().bestelleArmband(armbandAuswahl);
+                    setzeAlleSchritteFalse();
+                } else {
+                    throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
+                }
+            } else {
+                throw new Exception("Falscher Bestellschritt");
+            }
+        }
+        //Wahl wird standardmässig auf Leder gesetzt
+        catch (Exception e){
+            getDaten().ASDgetAktuellerAuftrag().getArmband().setLeder(true); // Setzen eines Standardwertes, falls ein Fehler aufgetreten ist
+            setzeAlleSchritteFalse();
+            e.printStackTrace();
+        }
+    }// Ende SetArmband
+
     /**
      * Aufruf in Activity
+     * Setzen der aktuellen Forschungsauswahl
      * @param designerAuswahl
      */
     public void setForschungAktuell(String designerAuswahl){
@@ -83,37 +96,19 @@ public class Controller extends UserInterface{
         }
         //Wahl wird standardmässig auf Mittelmaessig gesetzt
         catch (Exception e){
-            getDaten().ASDgetAktuellerAuftrag().getForschung().setInvestition8000(true);
+            getDaten().ASDgetAktuellerAuftrag().getForschung().setInvestition8000(true);  // Falls ein Fehler auftritt wird ein Standardwert gesetzt
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
     } // Ende SetForschung
-    public void setArmbandAktuell(String armbandAuswahl) {
-        try {
-            if (isSCHRITT_ARMBAND_boolean()) {
-                if (armbandAuswahl.equals(ARMBAND_WAHL_HOLZ) || armbandAuswahl.equals(ARMBAND_WAHL_KUNSTLEDER) || armbandAuswahl.equals(ARMBAND_WAHL_LEDER) || armbandAuswahl.equals(ARMBAND_WAHL_METALL) || armbandAuswahl.equals(ARMBAND_WAHL_TEXTIL)) {
-                    getDaten().ASDgetAktuellerAuftrag().bestelleArmband(armbandAuswahl);
-                    setzeAlleSchritteFalse();
-                } else {
-                    throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
-                }
-            } else {
-                throw new Exception("Falscher Bestellschritt");
-            }
-        }
-        //Wahl wird standardmässig auf Leder gesetzt
-        catch (Exception e){
-            getDaten().ASDgetAktuellerAuftrag().getArmband().setLeder(true);
-            setzeAlleSchritteFalse();
-            e.printStackTrace();
-        }
 
-
-    }// Ende SetArmband
-
+    /**
+     * Wenn der dritte Zufall eintritt, muss eine neue Wahl für das Armband getroffen werden.
+     * @param armbandAuswahl
+     */
     public void setArmbandNeu (String armbandAuswahl){              //nach Zufall Z3
         try {
-            if (isAENDERE_ARMBAND_boolean()) {
+            if (isAENDERE_ARMBAND_boolean()) { // Prüfung ob das Armband geändert werden soll
                 if (armbandAuswahl.equals(ARMBAND_WAHL_HOLZ) || armbandAuswahl.equals(ARMBAND_WAHL_KUNSTLEDER) || armbandAuswahl.equals(ARMBAND_WAHL_LEDER) || armbandAuswahl.equals(ARMBAND_WAHL_METALL) || armbandAuswahl.equals(ARMBAND_WAHL_TEXTIL))
                 // Prüfung ob das Material schon einmal gewaehlt wurde in Activity
                 {
@@ -139,11 +134,18 @@ public class Controller extends UserInterface{
         }
 
     }// Ende setArmbandNeu
+
+    /**
+     * Wenn der Zufall eintritt, dass das geählte Uhrwerk nicht geliefert / produziert werden kann.
+     * Muss eine neue AUswahl getroffen werden. Dieses wird über diese Methode realisiert.
+     * @param uhrwerkAuswahl String welches Uhrwerk die neue Auwahl ist
+     */
     public void setUhrwerkAktuell(String uhrwerkAuswahl){
         try {
-            if (isSCHRITT_UHRWERK_boolean()) {
+            if (isSCHRITT_UHRWERK_boolean()) { // Prüfung ob an dieser Stelle ein neues Uhrwerk geählt werden darf
+                // Prüfun ob ein valider String übergeben wurde
                 if (uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTROMECHANISCH) || uhrwerkAuswahl.equals(UHRWERK_WAHL_ELEKTRONISCH) || uhrwerkAuswahl.equals(UHRWERK_WAHL_MECHANISCH)) {
-                    getDaten().ASDgetAktuellerAuftrag().bestelleUhrwerk(uhrwerkAuswahl);
+                    getDaten().ASDgetAktuellerAuftrag().bestelleUhrwerk(uhrwerkAuswahl); // Setzen des neuen Uhrwerks
                     setzeAlleSchritteFalse();
                 } else {
                     throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
@@ -154,16 +156,21 @@ public class Controller extends UserInterface{
         }
         //Wahl wird standardmäßig auf Elektronisch gesetzt
         catch (Exception e) {
-            getDaten().ASDgetAktuellerAuftrag().getUhrwerk().setElektronisch(true);
+            getDaten().ASDgetAktuellerAuftrag().getUhrwerk().setElektronisch(true); // Wenn ein Fehler aufgetreten ist, wird der Standard Wert gesetzt
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
+    }//Ende setUhrwek
 
-    }//Ende setUhrwek //
-
+    /**
+     * Aufruf durch UI
+     * Setzen der Auswahl für das Gehäuse
+     * @param gehaeuseAuswahl ausgewählte Gehäuse
+     */
     public void setGehaeuseAktuell(String gehaeuseAuswahl){
         try {
-            if (isSCHRITT_GEHAUESE_boolean()) {
+            if (isSCHRITT_GEHAUESE_boolean()) { // Prüfung ob das sezten des Gehäuses an dieser Stelle legal ist
+                // Prüfung ob ein gültiger String übergeben wurde
                 if (gehaeuseAuswahl.equals(GEHAEUSE_WAHL_GLAS) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_HOLZ) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_KUNSTSTOFF) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_METALL)) {
                     getDaten().ASDgetAktuellerAuftrag().bestelleGehaeuse(gehaeuseAuswahl);
                     setzeAlleSchritteFalse();
@@ -174,15 +181,18 @@ public class Controller extends UserInterface{
                 throw new Exception("Falscher Bestellschritt");
             }
         }
-        //Wahl wird standardmäßig auf Metall gesetzt
         catch (Exception e) {
-            getDaten().ASDgetAktuellerAuftrag().getGehaeuse().setMetall(true);
+            getDaten().ASDgetAktuellerAuftrag().getGehaeuse().setMetall(true); //Wahl wird standardmäßig auf Metall gesetzt, wenn ein Fehler aufgetreten ist
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
     }// Ende setGehaeuseAktuell
 
-    public void setGehaeuseNeu (String gehaeuseAuswahl){                //nach Zufall Z
+    /**
+     * Aufruf wenn das Ereignis Gehäuse eingetreten ist.
+     * @param gehaeuseAuswahl  neue Auswahl des Gehäuses
+     */
+    public void setGehaeuseNeu (String gehaeuseAuswahl){
         try {
             if (isAENDERE_GEHAEUSE_boolean()) {
                 if (gehaeuseAuswahl.equals(GEHAEUSE_WAHL_GLAS) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_HOLZ) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_KUNSTSTOFF) || gehaeuseAuswahl.equals(GEHAEUSE_WAHL_METALL)) {
@@ -207,21 +217,22 @@ public class Controller extends UserInterface{
             e.printStackTrace();
         }
     } // Ende setGehaeuseNeu
+
+    /**
+     * Setzt die von Spieler gesetzte Auswahl für die Bezahlarten
+     * Es ist möglich mehrere Bezahlarten auszwählen
+     * Aufruf durch UI/Activity
+     * @param bezahlartAuswahl
+     */
     public void setBezahlartAktuell(String bezahlartAuswahl){
         try {
-            // if (SCHRITT_BEZAHLART_boolean) {
+
             if (bezahlartAuswahl.equals(BEZAHLART_WAHL_KREDITKARTE) || bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL) || bezahlartAuswahl.equals(BEZAHLART_WAHL_RECHNUNG)) {
                 getDaten().ASDgetAktuellerAuftrag().bestelleBezahlart(bezahlartAuswahl);
             }
-            //letzte Auswahl die gesetzt werden kan
-            else if (bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL)) {
-                //  setzeAlleSchritteFalse();
             } else {
                 throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
             }
-            // } else {
-            //   throw new Exception("Falscher Bestellschritt");
-            //}
         }
         //Wahl wird standardmäßig auf NUR Rechnung gesetzt
         catch (Exception e) {
@@ -229,9 +240,13 @@ public class Controller extends UserInterface{
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
-    } //Ende set Bezahlart //
+    } //Ende set Bezahlart
 
-
+    /**
+     * Aufruf durch UI /Activty
+     * setzen des von Spieler gewählten Wertes für den Zeitarbeiter
+     * @param zeitarbeiterAuswahl Wahl des Spielers
+     */
     public void setZeitarbeiterAktuell(String zeitarbeiterAuswahl){
         try{
             if (isSCHRITT_ZEITARBEITER_boolean()){
@@ -252,8 +267,12 @@ public class Controller extends UserInterface{
             setzeAlleSchritteFalse();
             e.printStackTrace();
         }
-    } // Ende setZusammebau
+    } // Ende
 
+    /**
+     * Wenn das dritte Ereignis eintritt, muss ein neuer Zeitarbeiter gewählt werden.
+     * @param zeitarbeiterAuswahl neue Auswahl des Zeitarbeiters
+     */
     public void setZeitarbeiterNeu(String zeitarbeiterAuswahl){              //nach Zufall Z3
         try{
             if (isAENDERE_ZEITARBEITER_boolean()){
@@ -283,7 +302,11 @@ public class Controller extends UserInterface{
     }// Ende setZeitarbeiterNeu
 
 
-
+    /**
+     * Aufruf durch UI / Activty
+     * Setzen des Wertes für das MArketing
+     * @param marketingAuswahl
+     */
     public void setMarketingAktuell(String marketingAuswahl){
         try{
             if (isSCHRITT_MARKETING_boolean()){
@@ -310,6 +333,12 @@ public class Controller extends UserInterface{
         }
     }//Ende set Marketing
 
+    /**
+     * Setzen des Wertes für das Produktionsvolumen
+     * Wert wird bereits im UI geprüft
+     *
+     * @param produktionsvolumenAuswahl Anzahl der zu prodzuierenden Uhren
+     */
     public void setProduktionsvolumenAktuell(float produktionsvolumenAuswahl){
         try{
             if (isSCHRITT_PRODUKTIONSVOLUMEN_boolean()){
@@ -330,6 +359,12 @@ public class Controller extends UserInterface{
         }
     }//Ende setProduktionsvolumenAktuell
 
+    /**
+     * Setzen des vom Spieler geplanten Verkaufspreises
+     * Auswahl wird bereits im UI geprüft
+     * @param verkaufspreisAuswahl Preis für den der Spieler die Uhr (pro Stück) verkaufen möchte
+     *                             Übergabe durch Eingabefeld
+     */
     public void setVerkaufspreisAktuell (float verkaufspreisAuswahl){
         try{
             if (isSCHRITT_VERKAUFSPREIS_boolean()){
@@ -350,17 +385,15 @@ public class Controller extends UserInterface{
         }
     }// Ende Verkaufspreis //
 
-    public boolean einstellen (int neueMitarbeiter) {
-        return veraenderePersonal(neueMitarbeiter,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
-    }
 
-    public  boolean kuendigen (int neueMitarbeiter){
-        return veraenderePersonal(neueMitarbeiter*(-1),aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
-    }
-    public void keineVeraenderung(){
-        kuendigen(0);
-    }
-
+    /**
+     * Passt das aktuell beschäftigte Personal für die nächste Runde an
+     * @param anzahlMitarbeiter Veränderung des Personals
+     * @param spieler Spieler bei dem das Personal geändert werden soll
+     * @param auftragsnummer Auftrag, bei dem die Auswahl getroffen wurde ( Achtung gültig erst für nächsten Auftrag)
+     * @return true wenn die Personaländerung möglich ist (Spielerzahl nach Veränderung >1
+     *          false wenn die Personalveränderung nicht erlaubt ist
+     */
     public boolean veraenderePersonal (int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
         //spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().setEingestellte(spieler.getAuftragssammlung().getAuftrag(auftragsnummer).getPersonalwesen().getEingestellte()+spieler.getVeraenderungPersonal());
         if (persoAenderungErlaubt(anzahlMitarbeiter,spieler,auftragsnummer)==false) {
@@ -375,21 +408,44 @@ public class Controller extends UserInterface{
         }
     }
 
+    /**
+     * Prüfun ob die Personalveränderung erlaubt ist
+     * @param anzahlMitarbeiter Veränderung des Personals
+     * @param spieler Spieler bei dem das Personal geändert werden soll
+     * @param auftragsnummer Auftrag, bei dem die Auswahl getroffen wurde ( Achtung gültig erst für nächsten Auftrag)
+     * @return true wenn die Personalveränderung zulässig ist
+     *          false wenn die Personalveränderung nicht zulässig ist
+     */
     public boolean persoAenderungErlaubt(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
         return ((spieler.getAktuellEingestellte() + spieler.getVeraenderungPersonal()) + anzahlMitarbeiter) > 0;
     }
+
+    /**
+     * Berechnung der Anzahl der neuen Mitarbeiter
+     * @param anzahlMitarbeiter Veränderung der Mitarbeiter, bereits in Vorrunde gesetzt
+     * @param spieler Spieler bei dem die Veränderung durchgeführt werden soll
+     * @param auftragsnummer Auftrag in dem die Veränderung statt finden soll
+     * @return
+     */
     public int personalNeu(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer){
         int personalGesamt = spieler.getAktuellEingestellte()+spieler.getVeraenderungPersonal();
         return personalGesamt;
     }
 
-    //Methoden zum abholen der Bestellpositionen, zur Anzeige der Bestellzusammenfassung
+    /**
+     * Gibt die getroffene Auswahl im Bereich Forschung für den aktuellen Spieler und die aktuelle RUnde zurück
+      * @return String aktuelle Forschung
+     */
     public String getForschungAktuellerAuftrag( ){
         return getForschungAuftragI(getDaten().getRundenAnzahl(),aktiverSpieler);
     }// Ende getForschungAktuellerAuftrag
 
-
-    //Methoden zum abholen der Bestellpositionen, zur Anzeige der Bestellzusammenfassung
+    /**
+     * Gibt die getroffene AUswahl im Bereich FOrschung für einen beliebigen Spieler und Auftrag zurück.
+     * @param i Auftragsnummer für die die Abfrage läuft
+     * @param spieler Spieler für den die Abfrage läuft
+     * @return
+     */
     public String getForschungAuftragI(int i, Spieler spieler ){
         String forschung = "";
         try {
@@ -411,11 +467,20 @@ public class Controller extends UserInterface{
         return forschung;
     }// Ende getForschungAuftragI(int i
 
-
+    /**
+     * Gibt die Auswahl für das Material des Armbands des aktuellen SPielers und Auftrag zurück
+     * @return String aktuelle Auswahl
+     */
     public String getArmbandAktuellerAuftrag( ){
         return getArmbandAuftragI(getDaten().getRundenAnzahl(),aktiverSpieler);
     }// Ende get Armband
 
+    /**
+     * Gibt die Auswahl des Armbandmaterials für einen belibigen Spieler und Auftrag zurück
+     * @param i Auftragsnummer
+     * @param spieler spieler
+     * @return String getroffene Auswahl
+     */
     public String getArmbandAuftragI(int i ,Spieler spieler){
         String armband ="";
         try {
@@ -439,10 +504,20 @@ public class Controller extends UserInterface{
         return armband;
     }// Ende get Armband Auftrag i
 
+    /**
+     * Gibt die Auswahl des Uhrwerks von dem aktuellen Spieler und AUftrag zurück
+     * @return String getroffene Auswahl
+     */
     public String getUhrwerkAktuellerAuftrag( ) {
         return getUhrwerkAuftragI(getDaten().getRundenAnzahl(), aktiverSpieler);
     }// Ende getUhrwerkAktuellerAuftrag
 
+    /**
+     * Gibt das von einem belibigen SPieler in einer belibigen Runde verwendete Uhrwerk zurück
+     * @param i Auftragsnummer
+     * @param spieler spieler
+     * @return String aktuelles Uhrwerk
+     */
     public String getUhrwerkAuftragI(int i, Spieler spieler){
         String uhrwerk = "";
         try {
@@ -462,12 +537,20 @@ public class Controller extends UserInterface{
         return uhrwerk;
     }
 
-
+    /**
+     * Gibt den vom aktuellen Spieler gewählten Zeitarbeiter zurück
+     * @return String aktuelle AUswahl Zeitarbeiter
+     */
     public String getZeitarbeiterAktuellerAuftrag(){
         return getZeitarbeiterAuftragI(getDaten().getRundenAnzahl(), aktiverSpieler);
     } // Ende getZeitarbeiterAktuellerAuftrag
 
-
+    /**
+     * Gibt die von einem Spieler in RUnde i gewählten Zeitarbeiter zurück
+     * @param i RUndennummer für die abgefragt wird
+     * @param spieler SPieler
+     * @return String mit der Auswahl
+     */
     public String getZeitarbeiterAuftragI(int i, Spieler spieler){
         String zeitarbeiter = "";
         try{
@@ -494,11 +577,20 @@ public class Controller extends UserInterface{
         return zeitarbeiter;
     }
 
+    /**
+     * GIbt das aktuell gewählte Gehäuse zurück
+     * @return String Gehäuse wahl aktiver Spieler aktuelle Runde
+     */
     public String getGehaeuseAktuellerAuftrag( ){
         return getGehaeuseAuftragI(getDaten().getRundenAnzahl(),aktiverSpieler);
     } // Ende getGehaeuseAktuellerAuftrag
 
-
+    /**
+     * Gibt die Wahl des Gehäuses für einen SPieler in RUnde i zurück
+     * @param i Rundenummer
+     * @param spieler Spieler der gewählt hat
+     * @return String mit der AUswahl
+     */
     public String getGehaeuseAuftragI ( int i, Spieler spieler){
         String gehaeuse ="";
         try{
@@ -524,11 +616,21 @@ public class Controller extends UserInterface{
         return gehaeuse;
     }
 
+    /**
+     * Gibt die vom aktivenSpieler in der aktuellen RUdne gewählte Auswahl für die Bezahlart zurück
+     * @return String getroffene AUswahl Bezahlart
+     */
     public String getBezahlartAktuellerAuftrag( ){
         return        getBezahlartAuftragI(getDaten().getRundenAnzahl(),aktiverSpieler);
     }//Ende getBezahlartAktuellerAuftrag
 
-
+    /**
+     * Gibt einen String der alle gewählten Bezahlarten enthält zurück.
+     * Die verschiedenen Parameter sind hierbei mit "," getrennt
+     * @param i Auftragsnummer von dem der String erzeugt wird
+     * @param spieler Spieler der die AUswahl getroffen hat
+     * @return String mit allen Bezahlarten
+     */
     public String getBezahlartAuftragI (int i, Spieler spieler){
         String bezahlart ="";
         try{
@@ -558,11 +660,21 @@ public class Controller extends UserInterface{
         return bezahlart;
     }
 
-    //ToDo mehrfachauswahl
+    /**
+     * Gibt das gewählte Marketing für den aktivenSpieler im aktuellen Auftrag zurück
+     * @return String gewählte Marketing
+     */
     public String getMarketingAktuellerAuftrag( ){
         return getMarketingAuftragI(getDaten().getRundenAnzahl(), aktiverSpieler);
     } // Ende get Marketing
 
+    /**
+     * Gibt das vom Spieler "spieler" gewählte Marketing in Runde i zurück
+     * Wenn mehrere Auswahlen getroffen sind, werden diese mit Hilfe von "," getrennt
+     * @param i Rundennummer
+     * @param spieler Spieler
+     * @return String mit allen getroffenen AUswahlen der RUnde i des SPielers spieler
+     */
     public String getMarketingAuftragI (int i, Spieler spieler){
         String marketing ="";
         try {
@@ -589,25 +701,42 @@ public class Controller extends UserInterface{
         }
         return marketing;
     }
+
+    /**
+     * Gibt das gewählte Produktionsvolumen des aktiven Spielers im aktuellenAuftrag zurück
+     * @return float Produktionsvolumen  (float da vom UI so benötigt)
+     */
     public float getProduktionsvolumen( ){ //#Nils Refactored von getKaufvolumen zu getProduktionsvolumen
         float kv = (float)aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
         return kv;
     } // Ende getProduktionsvolumen
+
+    /**
+     * Gibt dem von aktivenSPieler im aktuellenAuftrag gewählten VKP zurück
+     * @return vkp (float da vom UI benötigt)
+     */
     public float getVerkaufspreis ( ){
         float vkp = (float)aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getVkp();
         return vkp;
     }// Ende getVerkaugspreis
 
     // Methoden zum Aufrufen der Bonären Werte
+
+    /**
+     * Gibt die Fixkosten für den aktuellenAuftrag des aktivenSPielers zurück
+     * @return FixKosten der aktuellen RUnde
+     */
     public float getFixKosten() {
         Spieler s = aktiverSpieler;
         Auftragssammlung as = s.getAuftragssammlung();
         Auftrag a = as.getAktuellerAuftrag();
         double fixKosten = a.getFixKosten();
-        //float fixKosten =aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getFixKosten();
-
-        return (float) fixKosten;
+            return (float) fixKosten;
     }
+    /**
+     * Gibt die Varkosten für den aktuellenAuftrag des aktivenSPielers zurück
+     * @return VarKosten der aktuellen RUnde
+     */
     public float getVarKosten(){
         Spieler s = aktiverSpieler;
         Auftragssammlung as = s.getAuftragssammlung();
@@ -616,16 +745,21 @@ public class Controller extends UserInterface{
         //ToDo(float) aktiverSpieler.getAuftragssammlung().getAuftrag(0).getVarKosten();
         return (float) varKosten;
     }
+    /**
+     * Gibt das Guthaben des aktivenSPielers zurück
+     * @return Guthaben des aktivenSpielers
+     */
     public double getGuthaben(){
         double guthaben = (double) aktiverSpieler.getGuthaben();
         double guthabenkurz =  Math.round(guthaben * 100.0) / 100.0;
 
         return guthabenkurz;
     }
-
-
-
-    //TODO: getGesamtkosten und getStueckkosten fuer Anzeige bei VerkaufspreisActivity
+    /**
+     * Gibt die Gesamtkosten für den aktuellenAuftrag des aktivenSPielers zurück
+     * Gesamtkosten = fixkosten + varKosten*MEnge;
+     * @return Gesamtkosten der aktuellen RUnde
+     */
     public double getGesamtkosten () {
         Spieler s = aktiverSpieler;
         Auftragssammlung as = s.getAuftragssammlung();
@@ -637,7 +771,11 @@ public class Controller extends UserInterface{
 
         return gesamt;
     }
-
+    /**
+     * Gibt die Stückkosten für den aktuellenAuftrag des aktivenSPielers zurück
+     * Stückkosten = Gesamtkosten / Menge;
+     * @return Stückkosten der aktuellen RUnde des aktivenSPielers
+     */
     public double getStueckkosten () {
         double stueckkosten = getGesamtkosten()/aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMenge();
         double stueckkostenkurz = Math.round(stueckkosten * 100.0) / 100.0;
@@ -649,7 +787,12 @@ public class Controller extends UserInterface{
 
 
     // Methoden für die Ereignisse
-    //Methoden zum Überprüfen ob ein Zufall eingetreten ist, entsprechende Weiterleitung der Activities
+
+    /**
+     * Methoden zum Überprüfen ob ein Zufall eingetreten ist, entsprechende Weiterleitung der Activities
+     * @return true wenn der Zufall 1 eingetreten ist
+     *          false wenn der Zufall 1 nicht eingetreten ist
+     */
     public boolean isZufall1 (){ // Zufall 1 = Armband Ändern
         double zufallszahl = Math.random();
         setzeZustaendeAendere(false);
@@ -685,6 +828,11 @@ public class Controller extends UserInterface{
         }
     }// Ende isZufall1
 
+    /**
+     * Methoden zum Überprüfen ob ein Zufall eingetreten ist, entsprechende Weiterleitung der Activities
+     * @return true wenn der Zufall 2 eingetreten ist
+     *          false wenn der Zufall 2 nicht eingetreten ist
+     */
     public boolean isZufall2 (){ // Zufall 2 = Gehäuse Ändern
         double zufallszahl = Math.random();
         setzeZustaendeAendere(false);
@@ -720,7 +868,11 @@ public class Controller extends UserInterface{
             return false;
         }
     }// Ende isZufall2
-
+    /**
+     * Methoden zum Überprüfen ob ein Zufall eingetreten ist, entsprechende Weiterleitung der Activities
+     * @return true wenn der Zufall 3 eingetreten ist
+     *          false wenn der Zufall 3 nicht eingetreten ist
+     */
     public boolean isZufall3 (){ // Zufall 3 = Zeitarbeiter Ändern
         double zufallszahl = Math.random();
         setzeZustaendeAendere(false);
@@ -759,8 +911,6 @@ public class Controller extends UserInterface{
     }// Ende isZufall3
     //Andere Abfragen
 
-    public void naechster_Schritt_Auswahl(){} // Setzen des nächsten AuswahlSchritts
-    public void naechster_Zustand(){} // Setzen des nächsten Zustands
     /**
      * Aufruf wenn Nutzerdaten bestätigt werden (Button in UI)
      * UI Registierung
@@ -833,6 +983,12 @@ public class Controller extends UserInterface{
 
     }
 
+    /**
+     * Gibt die POsition auf der sich der Spieler im Vergleich zu den neun Konkurenten befindet zurück
+     * 1 -> beste Platz
+     * 10 -> schlechteste Platz
+     * @return Position des aktiven Spielers in der Rangliste
+     */
     public int getPosition(){
         int pos=9898;
         RundenErgebnisWrapper[] spielerArray = sortSpieler(aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenErgebnisWrapper());
@@ -843,74 +999,30 @@ public class Controller extends UserInterface{
         }// Ende for
         return pos;
     }
+
+    /**
+     * Gibt den Marktanteil für den SPieler zurück
+     * @return Marktanteil des aktivenSPielers
+     */
     public float getMarktanteil(){
         float marktAnteil = (float) aktiverSpieler.getMarktanteil();
         return marktAnteil;
     }// Ende getMarktanteil
 
-    //ToDo Spielfortsetzen
-
-
-    public String[] getNamen(){
-        return new String[3];
-    } // ToDo Liste der geordneten Spielernamen
-
-    //  Mehrfach genutzte Datenabfrage.
+    /**
+     * GIbt die aktuelle Rundennummer zurück
+     * @return Rundennummer
+     */
     public int getRunde(){
         return getDaten().getRundenAnzahl();
     }//Ende getRunde
-    // Hilfsmethoden
-
-
 
     /**
-     * Methode für die Marktsiumulation
-     * @return gibt eine Liste der einzelnen Bestellpositionen fuer jeden Speieler zurueck
+     * Sortiert die Liste der 10 Spieler nach ihrer Position in der Rangliste
+     * die Position ist dabei von gewinn und Marktanteil abhängig
+     * @param spielers alle 10 Spieler
+     * @return sortierte Liste mit allen 10 Spielern;  an Pos [0] steht hierbei der beste Spieler an Position [9] derschlechteste
      */
-    public Auftrag[] getAuftrage()throws Exception{
-        Auftrag[] auftraege = new Auftrag[getDaten().getSpielerAnzahl()];
-        try {
-            if (getDaten().getSpielerListe() == null) {
-                throw new Exception("Spieler Liste leer");
-            }
-
-            for (int i = 0; i < getDaten().getSpielerAnzahl(); i++) {
-                if (getDaten().getSpielerListe().get(i).getAuftragssammlung().getAktuellerAuftrag() != null)
-                    auftraege[i] = getDaten().getSpielerListe().get(i).getAuftragssammlung().getAktuellerAuftrag();
-                else {
-                    throw new Exception("Kein Objekt gefunden");
-                }
-            }// Ende for
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return auftraege;
-    }  // Ende getAuftrage
-
-    public double[] getPreissimulationenPreis () {
-        double[] Preise = new double[getDaten().getSpielerAnzahl()];
-        try {
-            if (getDaten().getSpielerListe() == null) {
-                throw new Exception("Spieler Liste leer");
-            }
-            for (int i = 0; i < getDaten().getSpielerAnzahl(); i++) {
-                if (getDaten().getSpielerListe().get(i).getAuftragssammlung().getAktuellerAuftrag() != null){
-
-
-                    //   Preise[i] = daten.getSpielerListe().get(i).getAuftragssammlung().getAktuellerAuftrag().getPreissimulation().getVerkaufspreis();
-                }
-                else {
-                    throw new Exception("Kein Objekt gefunden");
-                }
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return Preise;
-    } // Ende Preissimulation
-
     public RundenErgebnisWrapper[] sortSpieler(RundenErgebnisWrapper[] spielers){
         RundenErgebnisWrapper temp;
         for(int i=1; i<spielers.length; i++) {
@@ -926,10 +1038,17 @@ public class Controller extends UserInterface{
         return spielers;
     }
 
+   /**
+     * Spielt das Spiel mit den gleichen Werten nocheinmal
+     * Wenn die Personalveränderung nicht nocheinmal so durchgeführt werden kann (zB beim kündigen Eingestellte <0),
+     * wird diese einfach auf 0 gesetzt.
+     * @return Ob das ausführen der Methode erflogreich war
+     */
     public boolean gleichenWerteNochmal (){
         aktiverSpieler.getAuftragssammlung().neuerAuftragGleicheWerte();
         getDaten().erhoeheRundenanzahl();
         veraenderePersonal(aktiverSpieler.getVeraenderungPersonal() ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
+        super.setGesamtkosten(getGesamtkosten());
         if (persoAenderungErlaubt(aktiverSpieler.getVeraenderungPersonal(), aktiverSpieler, getDaten().getRundenAnzahl())) {
             return true;
         }
@@ -958,35 +1077,14 @@ public class Controller extends UserInterface{
         }
     }
 
+    /**
+     * Der Spieler gelangt in die nächste Runde -> neuer Auftrag
+     * Prüfung ob nicht bereits RUnde 11 bereits vorher geschehen
+     * @return boolean ob alles geklappt hat
+     */
     public boolean starteNaechsteRunde (){
         aktiverSpieler.getAuftragssammlung().neuerAuftrag();
         getDaten().erhoeheRundenanzahl();
         return true;
     }
-
-    public void setRegistrierungBool(boolean registrierungBool){
-        this.registrierungBool = registrierungBool;
-    }
-
-    public void setUpdateBool(boolean updateBool) {
-        this.updateBool = updateBool;
-    }
-
-    public void setEmpfangeSpielerSDW(SpielerDatenWrapper empfangeSpielerSDW) {
-        this.empfangeSpielerSDW = empfangeSpielerSDW;
-    }
-
-    public void setSendeRundeBool(boolean SendeRundeBool) {
-        this.sendeRundeBool = sendeRundeBool;
-    }
-
-    public void setRundenErgebnisREW(RundenErgebnisWrapper[] rundenErgebnisREW) {
-        this.rundenErgebnisREW = rundenErgebnisREW;
-    }
-
-    public Funkturm getFunkturm(){
-        return funkturm;
-    }
-
-
 } // ENDE KLASSE

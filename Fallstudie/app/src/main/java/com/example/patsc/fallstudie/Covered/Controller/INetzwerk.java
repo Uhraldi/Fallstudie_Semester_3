@@ -5,4 +5,16 @@ package com.example.patsc.fallstudie.Covered.Controller;
  */
 
 public interface INetzwerk {
+    public void rundeHochladen(Controller c);
+    public RundenErgebnisWrapper[] gegnerHerunterladen (Controller c);
+    public void spielerDatenSpeichern (Controller c);
+
+    // Aufnahme der setter damit die Erstellung der Variablen sichergestellt ist
+    public void setUpdateBool(boolean updateBool);
+    public void setRegistrierungBool(boolean registrierungBool);
+    public void setSendeRundeBool(boolean SendeRundeBool);
+
+    public void setEmpfangeSpielerSDW(SpielerDatenWrapper empfangeSpielerSDW);
+    public void setRundenErgebnisREW(RundenErgebnisWrapper[] rundenErgebnisREW);
+
 }

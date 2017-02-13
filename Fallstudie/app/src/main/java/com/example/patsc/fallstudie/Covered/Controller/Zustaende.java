@@ -47,7 +47,10 @@ public class Zustaende extends SuperController implements IZustaende {
     private boolean AENDERE_GEHAEUSE_boolean =false;
     private boolean AENDERE_ZEITARBEITER_boolean = false;
 
-
+    /**
+     * Setter Methoden
+     *
+     */
     public void setAENDERE_ARMBAND_boolean(boolean AENDERE_ARMBAND_boolean) {
         this.AENDERE_ARMBAND_boolean = AENDERE_ARMBAND_boolean;
     }
@@ -90,9 +93,12 @@ public class Zustaende extends SuperController implements IZustaende {
     }
     public void setZustand_Ereignis(boolean Zustand){
         setzeAlleZustaendeFalse();
-        //Berechnung der Risiken Extra Klasse??? ToDo
         Zustand_Ereignis = true;
     }
+
+    /**
+     * Getter Methoden
+     */
     public boolean isAENDERE_ARMBAND_boolean() {
         return AENDERE_ARMBAND_boolean;
     }
@@ -108,9 +114,6 @@ public class Zustaende extends SuperController implements IZustaende {
     public boolean isSCHRITT_FORSCHUNG_boolean() {
         return SCHRITT_FORSCHUNG_boolean;
     }
-    //  public boolean isSCHRITT_DICHTHEIT_boolean() {
-    //   return SCHRITT_DICHTHEIT_boolean;
-    //}
     public boolean isSCHRITT_GEHAUESE_boolean() {
         return SCHRITT_GEHAUESE_boolean;
     }
@@ -185,10 +188,8 @@ public class Zustaende extends SuperController implements IZustaende {
 
         return SCHRITT_FORSCHUNG;
     }
+
     public boolean isSCHRITT_PERSONALWESEN_boolean(){return SCHRITT_PERSONALWESEN_boolean;}
-    // public String getSCHRITT_DICHTHEIT() {
-    //   return SCHRITT_DICHTHEIT;
-    //}
     public String getSCHRITT_GEHAUESE() {
         return SCHRITT_GEHAUESE;
     }
@@ -222,15 +223,7 @@ public class Zustaende extends SuperController implements IZustaende {
     public String getBEZAHLART_WAHL_Rechnung() {
         return BEZAHLART_WAHL_RECHNUNG;
     }
-    // public String getWASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT() {
-    // return WASSERDICHTHEIT_WAHL_NICHTWASSERGESCHUETZT;
-    ///}
-    //public String getWASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT() {
-    //    return WASSERDICHTHEIT_WAHL_SPRITZWASSERGESCHUETZT;
-    // }
-    // public String getWASSERDICHTHEIT_WAHL_WASSERDICHT() {
-    //    return WASSERDICHTHEIT_WAHL_WASSERDICHT;
-    // }
+
     public String getMARKETING_WAHL_PRINTWERBUNG() {
         return MARKETING_WAHL_PRINTWERBUNG;
     }
@@ -273,7 +266,6 @@ public class Zustaende extends SuperController implements IZustaende {
      * Alle IZustaende werden auf false gesetzt
      */
     protected void setzeAlleZustaendeFalse(){
-
         Zustand_Bestellung = false;
         Zustand_Ende = false;
         Zustand_Ereignis = false;
@@ -281,6 +273,10 @@ public class Zustaende extends SuperController implements IZustaende {
         Zustand_Spielbeginn = false;
 
     }
+
+    /**
+     * Alle Schritte werden auf false gesetzt
+     */
     protected void setzeAlleSchritteFalse(){
         SCHRITT_FORSCHUNG_boolean = false;// erster Schritt Wahl des Designers
         SCHRITT_ARMBAND_boolean  = false;// zweite Schritt Wahl des Armbands
@@ -295,7 +291,9 @@ public class Zustaende extends SuperController implements IZustaende {
         SCHRITT_PERSONALWESEN_boolean = false;
     }
 
-
+/*
+Setter MEthoden
+ */
     public void setZustand_Lieferung (boolean Zustand){
         setzeAlleZustaendeFalse();
         Zustand_Lieferung = true;
@@ -308,6 +306,5 @@ public class Zustaende extends SuperController implements IZustaende {
     public void setZustand_Bestellung(boolean Zustand){
         setzeAlleZustaendeFalse();
         Zustand_Bestellung = true;
-        //ToDo auftragsammlund entfernt evtl Problem aktueller Auftrag
     }
 }
