@@ -34,11 +34,6 @@ public class Daten extends SpielerAbfragen{
         SpielerListe = new ArrayList<Spieler>();
     } // Ende Konstruktor
 
-    public String toString(){
-        String dataString;
-        dataString = RundenAnzahl+":";
-        return dataString;
-    }
     public void erhoeheRundenanzahl(){
         RundenAnzahl++;
     }
@@ -48,9 +43,7 @@ public class Daten extends SpielerAbfragen{
     public int getSpielerAnzahl() {
         return SpielerAnzahl;
     }
-    /*
-    ToDo
-     */
+
     public void setSpielerAnzahl(int spielerAnzahl) {
         SpielerAnzahl = spielerAnzahl;
     }
@@ -58,12 +51,11 @@ public class Daten extends SpielerAbfragen{
     public void erhöheSpielerAnzahl(){
         SpielerAnzahl++;
     }
-    public void ladeDaten(){
-        //ToDO gewollt leer?
-    }
-    public void speichereDaten(){
-        //ToDO
-    }
+
+    /**
+     * Ergänzt einen weiteren SPieler in der Liste alle SPieler
+     * @param spieler
+     */
     public void addSpielerListe(Spieler spieler){
         try{
             erhöheSpielerAnzahl();
