@@ -61,7 +61,7 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
 
     //Strings fuer Uhrwerk
 
-    <string name="uhrwerk_info_textview">Hier können Sie das Material für das Uhrgehäuse auswählen. Bedingt durch Trendentwicklungen kann es sein, dass manche Materialien in einer Periode beliebter sind als in einer anderen. Entsprechend sind die Kunden bereit mehr Geld für eine solche Uhr zu zahlen. Beachten Sie, dass es durch unvorhersehbare Ereignisse dazu kommen kann, dass manche Materialien nicht geliefert werden können und Sie eventuell eine Neuauswahl treffen müssen.</string>
+    <string name="uhrwerk_info_textview">    Hier können Sie die Uhrwerkart auswählen. Bedingt durch Trendentwicklungen kann es sein, dass manche Uhrwerke in einer Periode beliebter sind als in einer anderen. Entsprechend sind die Kunden bereit mehr Geld für eine solche Uhr zu zahlen. Beachten Sie, dass es durch unvorhersehbare Ereignisse dazu kommen kann, dass manche Materialien nicht geliefert werden können und Sie eventuell eine Neuauswahl treffen müssen.</string>
     <string name="uhrwerk_textview">Materialeinkauf: Uhrwerk</string>
     <string-array name="uhrwerk_spinner_array">
         <item>Mechanisch (4€)</item>
@@ -72,7 +72,7 @@ Falls Sie das erste Mal diese App benutzen, wählen Sie zu Beginn einen beliebig
 
     //Strings fuer Gehaeuse
 
-    <string name="gehaeuse_info_textview">Hier können Sie die Uhrwerkart auswählen. Bedingt durch Trendentwicklungen kann es sein, dass manche Uhrwerke in einer Periode beliebter sind als in einer anderen. Entsprechend sind die Kunden bereit mehr Geld für eine solche Uhr zu zahlen. Beachten Sie, dass es durch unvorhersehbare Ereignisse dazu kommen kann, dass manche Materialien nicht geliefert werden können und Sie eventuell eine Neuauswahl treffen müssen.</string>
+    <string name="gehaeuse_info_textview">Hier können Sie das Material für das Uhrgehäuse auswählen. Bedingt durch Trendentwicklungen kann es sein, dass manche Materialien in einer Periode beliebter sind als in einer anderen. Entsprechend sind die Kunden bereit mehr Geld für eine solche Uhr zu zahlen. Beachten Sie, dass es durch unvorhersehbare Ereignisse dazu kommen kann, dass manche Materialien nicht geliefert werden können und Sie eventuell eine Neuauswahl treffen müssen.</string>
     <string name="gehaeuse_textview">Materialeinkauf: Uhrgehäuse</string>
     <string-array name="gehaeuse_spinner_array">
         <item>Glas (2€)</item>
@@ -159,7 +159,7 @@ Aufgrund eines Brandes konnte leider kein Armband aus Textil geliefert werden. D
 Aufgrund mehrerer umgestürzter Regale im Lager konnte leider kein Gehäuse aus Glas geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
 
     <string name="z2glas_info_textview">"Upps!
-Aufgrund eines Waldbrandes in Russland konnte leider kein Gehäuse aus Holz geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
+Aufgrund mehrerer umgestürzter Regale im Lager konnte leider kein Gehäuse aus Glas geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
     <string name="z2holz_info_textview">"Upps!
 Aufgrund eines Waldbrandes in Russland konnte leider kein Gehäuse aus Holz geliefert werden. Die geleistete Anzahlung in Höhe von 10% erhalten Sie leider nicht zurück. Bitte entscheiden Sie sich für ein anderes Gehäuse." </string>
     <string name="z2kunststoff_info_textview">"Upps!
@@ -192,7 +192,7 @@ Zu Beginn haben Sie 2 Mitarbeiter im Unternehmen, die für die Vorbereitung des 
     <string name="rundenergebnis_title">Rundenergebnis</string>
     <string name="bestenliste_title">Bestenliste</string>
     <string name="Rundebla">"Runde: "</string>
-    <string name="naechste_runde_string">Wie wollen Sie die nächste Runde spielen?</string>
+    <string name="naechste_runde_string">Wie möchten Sie die nächste Runde spielen?</string>
     <string name="gameover_message">GAME OVER - Sie können mit Ihrem erspielten Kontostand keinen weiteren Produktionsauftrag tätigen.</string>
 
 </resources>
