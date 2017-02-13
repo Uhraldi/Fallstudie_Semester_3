@@ -1,11 +1,13 @@
 package com.example.patsc.fallstudie.Covered.Controller;
 
+import com.example.patsc.fallstudie.Covered.Spieler;
+
 /**
  * Created by Patricia Schneider on 06.02.2017.
  */
 
 public interface IController {
-    protected void fuehereBechnungAus();
+    public void fuehreBerechnungAus();
     public boolean veraenderePersonal (int anzahlMitarbeiter, Spieler spieler, int auftragsnummer);
     public boolean persoAenderungErlaubt(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer);
     public int personalNeu(int anzahlMitarbeiter, Spieler spieler, int auftragsnummer);

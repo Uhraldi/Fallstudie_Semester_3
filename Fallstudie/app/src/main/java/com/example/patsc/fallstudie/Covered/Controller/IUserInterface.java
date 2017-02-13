@@ -13,7 +13,6 @@ public interface IUserInterface {
     public void setGehaeuseAktuell(String gehaeuseAuswahl);
     public void setGehaeuseNeu (String gehaeuseAuswahl);
     public void setBezahlartAktuell(String bezahlartAuswahl);
-    public void setBezahlartAktuell(String bezahlartAuswahl);
     public void setZeitarbeiterAktuell(String zeitarbeiterAuswahl);
     public void setZeitarbeiterNeu(String zeitarbeiterAuswahl);
     public void setMarketingAktuell(String marketingAuswahl);

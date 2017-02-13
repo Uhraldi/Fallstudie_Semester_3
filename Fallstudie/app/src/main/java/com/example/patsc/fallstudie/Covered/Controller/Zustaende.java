@@ -12,7 +12,7 @@ import com.example.patsc.fallstudie.Covered.Spieler;
  * und es nicht zu Null-Pointer Fehlern kommen kann.
  */
 
-public class Zustaende extends SuperController implements IZustaende {
+public abstract class Zustaende extends SuperController implements IZustaende {
 
     /**
      * Mögliche Zustaende in den sich das Spiel befinden kann.

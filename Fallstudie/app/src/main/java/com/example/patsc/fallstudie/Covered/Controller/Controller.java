@@ -12,12 +12,21 @@ import com.example.patsc.fallstudie.Network.RegisterRunnable;
 import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
 import com.example.patsc.fallstudie.Network.SpielerDatenWrapper;
 
+import static com.example.patsc.fallstudie.Covered.Controller.IZustaende.ARMBAND_WAHL_HOLZ;
+import static com.example.patsc.fallstudie.Covered.Controller.IZustaende.FORSCHUNG_WAHL_HOCH;
+import static com.example.patsc.fallstudie.Covered.Controller.IZustaende.FORSCHUNG_WAHL_LOWBUDGET;
+import static com.example.patsc.fallstudie.Covered.Controller.IZustaende.MARKETING_WAHL_FERNSEHWERBUNG;
+import static com.example.patsc.fallstudie.Covered.Controller.IZustaende.MARKETING_WAHL_RADIOWERBUNG;
+import com.example.patsc.fallstudie.Covered.Controller.SuperController;
+import com.example.patsc.fallstudie.Covered.*;
+import com.example.patsc.fallstudie.Covered.Controller.IZustaende;
+
 /**
  * Created by Patricia Schneider on 13.12.2016.
  * Steuert das Zusammenspiel von Netzwerk UI und Logik.
 */
 
-public class Controller implements IController extends UserInterface{
+public class Controller extends UserInterface implements IController {
     /**
      * Konstruktor, wird in der on Create Methode aufgerufen
      */
@@ -30,7 +39,7 @@ public class Controller implements IController extends UserInterface{
      * Hierfür finden mehrere Netzwerkaufrufre statt, die Preissimulation und Marktsimulation.
      * Der errechnete Spielstand wird anschließend auf den Server geladen.
      */
-    protected void fuehreBerechnungAus(){
+    public void fuehreBerechnungAus(){
         try {
             Preissimulation preissim = new Preissimulation(this); //ToDo
             getDaten().ASDsetPreisSim(preissim); // Zuordnen der Preissim zu einem Spieler
@@ -83,7 +92,7 @@ public class Controller implements IController extends UserInterface{
     public void setForschungAktuell(String designerAuswahl){
         //Prüfung ob die Wahl des Designers erlaubt ist
         try {
-            if (isSCHRITT_FORSCHUNG_boolean()) {
+            if (super.isSCHRITT_FORSCHUNG_boolean()) {
                 if (designerAuswahl.equals(FORSCHUNG_WAHL_LOWBUDGET) || designerAuswahl.equals(FORSCHUNG_WAHL_HOCH) || designerAuswahl.equals(FORSCHUNG_WAHL_MITTELMAESIG)) {
                     getDaten().ASDgetAktuellerAuftrag().bestelleForschung(designerAuswahl); //ToDo Nullpointer Exception
                     setzeAlleSchritteFalse();
@@ -230,7 +239,7 @@ public class Controller implements IController extends UserInterface{
             if (bezahlartAuswahl.equals(BEZAHLART_WAHL_KREDITKARTE) || bezahlartAuswahl.equals(BEZAHLART_WAHL_PAYPAL) || bezahlartAuswahl.equals(BEZAHLART_WAHL_RECHNUNG)) {
                 getDaten().ASDgetAktuellerAuftrag().bestelleBezahlart(bezahlartAuswahl);
             }
-            } else {
+             else {
                 throw new Exception("Syntax Fehler; Falsches Wort uebergeben");
             }
         }

@@ -1,5 +1,8 @@
 package com.example.patsc.fallstudie.Covered.Controller;
 
+import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
+import com.example.patsc.fallstudie.Network.SpielerDatenWrapper;
+
 /**
  * Created by patsc on 06.02.2017.
  */
