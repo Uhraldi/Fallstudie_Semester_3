@@ -37,4 +37,9 @@ public class RundeTest {
         TestRunde.erhöheRundenNr();
     }
 
+    @Test
+    public void getSpielerTest(){
+        TestRunde.getSpieler();
+    }
+
 }

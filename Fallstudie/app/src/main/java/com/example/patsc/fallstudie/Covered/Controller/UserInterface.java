@@ -1,5 +1,6 @@
 package com.example.patsc.fallstudie.Covered.Controller;
 
+import com.example.patsc.fallstudie.Network.Funkturm;
 import com.example.patsc.fallstudie.Network.RundenErgebnisWrapper;
 
 /**
@@ -23,6 +24,15 @@ public abstract class UserInterface extends CNetzwerk implements IUserInterface 
      * Sicherstellund das der richtige Zustand verwendet wird
      */
     public void setActivity_Forschung () {
+        setZustand_Bestellung(true);
+        setSCHRITT_FORSCHUNG_boolean(true);
+    }
+    /**
+     * Setzen der Activity
+     * Aufruf in der OnCreate Methode der Activity
+     * Sicherstellund das der richtige Zustand verwendet wird
+     */
+    public void setActivity_Personalwesen () {
         setZustand_Bestellung(true);
         setSCHRITT_FORSCHUNG_boolean(true);
     }
@@ -147,6 +157,7 @@ public abstract class UserInterface extends CNetzwerk implements IUserInterface 
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
+                Funkturm funkturm = new Funkturm();
                 funkturm.registriereSpieler("", "");
                 //  funkturm.unidleServer();
             }});
@@ -197,26 +208,7 @@ public abstract class UserInterface extends CNetzwerk implements IUserInterface 
         getDaten().getController().fuehreBerechnungAus();
     }
 
-    /**
-     * Aufruf durch UI
-     * Stellt neue Mitarbeiter für die nächste Runde ein
-     * @param neueMitarbeiter Anzahl der einzustellenden Mitarbeiter
-     * @return ob das einstellen der Mitarbeiter erfolgreich war
-     */
-    public boolean einstellen (int neueMitarbeiter) {
-        return veraenderePersonal(neueMitarbeiter,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
-    }
 
-    /**
-     * Aufruf durch UI
-     * Kündigt Mitarbeiter für die nächste Runde
-     * @param neueMitarbeiter Anzahl der zu kündigenden Mitarbeiter
-     * @return true wenn die Mitarbeiter in der nächsten Runde gekündigt werden
-     *          false wenn die Mitarbeiter in der nächsten Runde nicht gekündigt werden z.B. wenn die Zahl der Mitarbeiter uunter 1 sinken würde
-     */
-    public  boolean kuendigen (int neueMitarbeiter){
-        return veraenderePersonal(neueMitarbeiter*(-1),aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
-    }
 
     /**
      * Aufruf durch UI

@@ -16,7 +16,7 @@ public class ScenarioTestMiddle {
      * Hier werden die Variablen initialisiert
      */
 
-    public int WaitingTime = 500;
+    public int WaitingTime = 100;
     private static String AUSWAHL_JONAS_ZEITARBEITER = Controller.ZEITARBEITER_WAHL_GESELLE;
     private static String AUSWAHL_JONAS_FORSCHUNG = Controller.FORSCHUNG_WAHL_MITTELMAESIG;
     private static String AUSWAHL_JONAS_MARKETING = Controller.MARKETING_WAHL_RADIOWERBUNG;

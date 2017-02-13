@@ -32,6 +32,7 @@ public class Controller extends UserInterface implements IController {
      */
     public Controller(){
         setDaten(new Daten(this)); // erzeugung der Klasse Daten
+        setFunkturm (new Funkturm());
     }
 
     /**
@@ -415,6 +416,27 @@ public class Controller extends UserInterface implements IController {
 
             return true;
         }
+    }
+
+    /**
+     * Aufruf durch UI
+     * Stellt neue Mitarbeiter für die nächste Runde ein
+     * @param neueMitarbeiter Anzahl der einzustellenden Mitarbeiter
+     * @return ob das einstellen der Mitarbeiter erfolgreich war
+     */
+    public boolean einstellen (int neueMitarbeiter) {
+        return veraenderePersonal(neueMitarbeiter,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
+    }
+
+    /**
+     * Aufruf durch UI
+     * Kündigt Mitarbeiter für die nächste Runde
+     * @param neueMitarbeiter Anzahl der zu kündigenden Mitarbeiter
+     * @return true wenn die Mitarbeiter in der nächsten Runde gekündigt werden
+     *          false wenn die Mitarbeiter in der nächsten Runde nicht gekündigt werden z.B. wenn die Zahl der Mitarbeiter uunter 1 sinken würde
+     */
+    public  boolean kuendigen (int neueMitarbeiter){
+        return veraenderePersonal(neueMitarbeiter*(-1),aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
     }
 
     /**
@@ -1057,7 +1079,6 @@ public class Controller extends UserInterface implements IController {
         aktiverSpieler.getAuftragssammlung().neuerAuftragGleicheWerte();
         getDaten().erhoeheRundenanzahl();
         veraenderePersonal(aktiverSpieler.getVeraenderungPersonal() ,aktiverSpieler,aktiverSpieler.getAuftragssammlung().aktuellerAuftragInt);
-        super.setGesamtkosten(getGesamtkosten());
         if (persoAenderungErlaubt(aktiverSpieler.getVeraenderungPersonal(), aktiverSpieler, getDaten().getRundenAnzahl())) {
             return true;
         }

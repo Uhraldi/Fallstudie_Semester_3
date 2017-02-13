@@ -84,21 +84,12 @@ public class Spieler {
     } // Ende setMarktanteil
 
     public void setName(String name) {
-        if (prüfeNameDoppelt(name)) {
-            // ToDo Aufforderung neue Namenseingabe GUI
-        }
         Name = name;
     } // Ende setName()
 
 
 
-    /**
-     * Setter für den Kontoschnitt
-     * @param kontoSchnitt
-     */
-    public void setKontoSchnitt(double kontoSchnitt) {
-        this.kontoSchnitt = kontoSchnitt;
-    }
+
 
     /**
      * Setzt das Passwort
@@ -125,26 +116,8 @@ public class Spieler {
 
     }// Ende setPunkte
 
-    public void beendeRunde() {
-        //ToDo
-    }// Ende beendeRUnde()
 
 
-    /**
-     * Prüft ob der Name bereits von einem anderen Spieler verwendet wird
-     *
-     * @param name der dem Spieler gegeben werden soll.
-     * @return boolean ob der Name bereits vegreben ist; true = Name wird bereits verwendet; false = Name wird noch nicht verwendet
-     */
-    public boolean prüfeNameDoppelt(String name) {
-
-      // Spieler spieler = new Spieler(getName(), getPasswort(), getDaten());
-      //  ArrayList spl =  new ArrayList();
-
-      // if (spl.contains(spieler))
-        // System.out.println ("Dieser Name wird bereits verwendet. Wählen Sie bitte einen anderen Namen!");
-        return false;
-    } // Ende prüfeNameDoppelt
 
 // Getter und Setter
 
@@ -180,14 +153,6 @@ public class Spieler {
 
     public String getName() {
         return Name;
-    }
-
-    public int getAnfangsguthaben() {
-        return Anfangsguthaben;
-    }
-
-    public int getAnfangsMarktanteil() {
-        return AnfangsMarktanteil;
     }
 
     public String getPasswort() {

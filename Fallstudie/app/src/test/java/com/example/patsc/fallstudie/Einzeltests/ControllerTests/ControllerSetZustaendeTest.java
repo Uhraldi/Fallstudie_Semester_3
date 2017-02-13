@@ -76,6 +76,17 @@ public class ControllerSetZustaendeTest {
     }
 
     @Test
+    public void EingestellteTest(){
+        TestController.setAktiverSpieler(TestSpieler);
+        TestController.getEingestellteGesamt();
+        TestController.keineVeraenderung();
+        TestController.setActivity_Rundenergebnis();
+        TestController.setActivity_Personalwesen();
+        TestController.setActivity_Forschung();
+    }
+
+
+    @Test
     public void setActivity_ArmbandTest(){
         TestController.aktiverSpieler = TestSpieler;
         setzteAlleSchritteTrue();

@@ -22,7 +22,7 @@ public abstract class CNetzwerk extends Zustaende implements INetzwerk {
     SpielerDatenWrapper empfangeSpielerSDW;
     boolean sendeRundeBool = false;
     RundenErgebnisWrapper[] rundenErgebnisREW;
-
+Funkturm funkturm;
     /**
      * Lädt alle Daten der aktuellen Runde des aktiven SPielers auf den Server
      * @param c Controller um an die Daten des aktiven SPilers zu gelangen
@@ -112,5 +112,11 @@ public abstract class CNetzwerk extends Zustaende implements INetzwerk {
      */
     public void setRundenErgebnisREW(RundenErgebnisWrapper[] rundenErgebnisREW) {
         this.rundenErgebnisREW = rundenErgebnisREW;
+    }
+    public void setFunkturm(Funkturm funkturm){
+        this.funkturm = funkturm;
+    }
+    public Funkturm getFunkturm(){
+        return funkturm;
     }
 }

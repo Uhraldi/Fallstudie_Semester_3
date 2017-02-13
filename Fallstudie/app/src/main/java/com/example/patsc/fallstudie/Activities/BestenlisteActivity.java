@@ -19,7 +19,6 @@ public class BestenlisteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bestenliste);
-        IntroductionActivity.Controller.setActivity_Bestenliste();
 
         //Initialisieren der Toolbar mit aktuellen Werten
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

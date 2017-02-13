@@ -27,10 +27,4 @@ public class SuperController implements ISuperController {
     public Daten getDaten(){
         return daten;
     }
-    public double getGesamtkosten() {
-        return gesamtkosten;
-    }
-    public void setGesamtkosten(double gesamtkosten) {
-        this.gesamtkosten = gesamtkosten;
-    }
 }

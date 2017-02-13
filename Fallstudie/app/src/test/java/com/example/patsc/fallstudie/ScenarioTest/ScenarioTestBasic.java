@@ -180,8 +180,6 @@ public class ScenarioTestBasic {
             Controller.starteNaechsteRunde();
         }
 
-        System.out.println("Bestenliste:");
-        Controller.getBestenliste();
 
     }
 

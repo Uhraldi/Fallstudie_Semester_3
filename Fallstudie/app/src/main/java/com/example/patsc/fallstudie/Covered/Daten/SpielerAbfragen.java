@@ -22,15 +22,7 @@ public class SpielerAbfragen extends SuperDaten{
     public Auftrag ASDgetAktuellerAuftrag(){
         return ASDgetAuftragsamlung().getAktuellerAuftrag();
     }
-    public double ASDgetFixkosten(){
-        return ASDgetAktuellerAuftrag().getFixKosten();
-    }
-    public double ASDgetVarKosten(){
-        return ASDgetAktuellerAuftrag().getVarKosten();
-    }
-    public double ASDgetGesamtKosten(){
-        return ASDgetFixkosten() + ASDgetVarKosten();
-    }
+
     public void ASDsetPreisSim(Preissimulation preissim){
         ASDgetAktuellerAuftrag().setPreissim(preissim);
     }
