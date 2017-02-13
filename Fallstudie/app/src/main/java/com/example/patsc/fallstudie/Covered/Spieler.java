@@ -35,11 +35,6 @@ public class Spieler {
         return aktuellEingestellte;
     }
 
-    public String toString(){
-        String spielerString;
-        spielerString =getName() + ":" + getPasswort() + ":" + getGuthaben() + ":" + getMarktanteil() + ":" + getPunkte();
-        return spielerString;
-    }
 
     /**
      * Konstruktor für den Spieler.
@@ -58,35 +53,9 @@ public class Spieler {
         auftragssammlung = new Auftragssammlung();
         setMarktanteil(AnfangsMarktanteil);
         setPunkte(AnfagsPunkte);
-       //12.08 ToDo daten.addSpielerListe(this); // Hinzufügen des Spielers in die Liste
     } // Ende Konstruktor
 
-    public double getGuthaben() {
-        return Guthaben;
-    } // Ende getGuthaben
 
-    public double getMarktanteil() {
-        return Marktanteil;
-    } // Ende getMarktanteil
-    public int getPunkte() {
-        return Punkte;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public int getAnfangsguthaben() {
-        return Anfangsguthaben;
-    }
-
-    public int getAnfangsMarktanteil() {
-        return AnfangsMarktanteil;
-    }
-
-    public String getPasswort() {
-        return Passwort;
-    }
 
     /**
      * Das Guthaben darf nicht unter 0€ fallen. Wenn dieses geschieht, ist das Spiel verloren.
@@ -115,22 +84,15 @@ public class Spieler {
     } // Ende setMarktanteil
 
     public void setName(String name) {
-        if (prüfeNameDoppelt(name)) {
-            // ToDo Aufforderung neue Namenseingabe GUI
-        }
         Name = name;
     } // Ende setName()
 
-    public double getKontoSchnitt() {
-        return kontoSchnitt;
-    }
 
-    public void setKontoSchnitt(double kontoSchnitt) {
-        this.kontoSchnitt = kontoSchnitt;
-    }
+
+
 
     /**
-     * ToDO
+     * Setzt das Passwort
      *
      * @param passwort
      */
@@ -154,33 +116,10 @@ public class Spieler {
 
     }// Ende setPunkte
 
-    public void beendeRunde() {
-        //ToDo
-    }// Ende beendeRUnde()
 
-    /**
-     * Was passiert wenn der Spieler dasspiel beendet oder das Spiel wegen abschliessen der 10.Runde oder wegen einem zu geringen Geldwert passiert.
-     */
-    public void beendeSpiel() {
-        //ToDo
-    } //Ende beendeSpiel()
 
-    /**
-     * Prüft ob der Name bereits von einem anderen Spieler verwendet wird
-     *
-     * @param name der dem Spieler gegeben werden soll.
-     * @return boolean ob der Name bereits vegreben ist; true = Name wird bereits verwendet; false = Name wird noch nicht verwendet
-     */
-    public boolean prüfeNameDoppelt(String name) {
 
-      // Spieler spieler = new Spieler(getName(), getPasswort(), getDaten());
-      //  ArrayList spl =  new ArrayList();
-
-      // if (spl.contains(spieler))
-        // System.out.println ("Dieser Name wird bereits verwendet. Wählen Sie bitte einen anderen Namen!");
-        return false;
-    } // Ende prüfeNameDoppelt
-
+// Getter und Setter
 
     public int getVeraenderungPersonal() {
         return veraenderungPersonal;
@@ -197,4 +136,27 @@ public class Spieler {
     public void setMaSchnitt(double maSchnitt) {
         this.maSchnitt = maSchnitt;
     }
+
+    public double getKontoSchnitt() {
+        return kontoSchnitt;
+    }
+    public double getGuthaben() {
+        return Guthaben;
+    } // Ende getGuthaben
+
+    public double getMarktanteil() {
+        return Marktanteil;
+    } // Ende getMarktanteil
+    public int getPunkte() {
+        return Punkte;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getPasswort() {
+        return Passwort;
+    }
+
 }// Ende Klasse

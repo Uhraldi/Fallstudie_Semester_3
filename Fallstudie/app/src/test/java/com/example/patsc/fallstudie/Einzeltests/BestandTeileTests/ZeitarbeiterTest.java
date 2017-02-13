@@ -13,7 +13,8 @@ import org.junit.runner.RunWith;
 import static junit.framework.Assert.fail;
 
 /**
- * Created by julian on 03.01.2017.
+ Hier werden die Methoden der Zeitarbeiterklasse getestet.
+ Dazu gehört das bestellen und korrigieren sowie das Fehlschlagen.
  */
 
 @RunWith(Theories.class)

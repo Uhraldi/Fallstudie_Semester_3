@@ -8,10 +8,10 @@ import com.example.patsc.fallstudie.Covered.Spieler;
 import com.example.patsc.fallstudie.Covered.Controller.*;
 
 /**
- * Created by patsc on 06.02.2017.
+ * Created by Patricia Schneider on 06.02.2017.
  */
 
-public class SpielerAbfragen extends SuperDaten implements ISpielerAbfragen {
+public class SpielerAbfragen extends SuperDaten{
 
     public Spieler ASDgetAktiverSpieler(){
         return getController().getAktiverSpieler();
@@ -22,15 +22,7 @@ public class SpielerAbfragen extends SuperDaten implements ISpielerAbfragen {
     public Auftrag ASDgetAktuellerAuftrag(){
         return ASDgetAuftragsamlung().getAktuellerAuftrag();
     }
-    public double ASDgetFixkosten(){
-        return ASDgetAktuellerAuftrag().getFixKosten();
-    }
-    public double ASDgetVarKosten(){
-        return ASDgetAktuellerAuftrag().getVarKosten();
-    }
-    public double ASDgetGesamtKosten(){
-        return ASDgetFixkosten() + ASDgetVarKosten();
-    }
+
     public void ASDsetPreisSim(Preissimulation preissim){
         ASDgetAktuellerAuftrag().setPreissim(preissim);
     }

@@ -11,9 +11,9 @@ import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
 import static junit.framework.Assert.fail;
-
 /**
- * Created by julia on 03.01.2017.
+ Hier werden die Methoden der Marketingklasse getestet.
+ Dazu gehört das bestellen sowie das Fehlschlagen.
  */
 @RunWith(Theories.class)
 public class MarketingTest {

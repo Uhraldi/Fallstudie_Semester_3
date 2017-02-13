@@ -7,7 +7,12 @@ import com.example.patsc.fallstudie.Covered.Controller.Controller;
 import org.junit.Test;
 
 /**
- * Created by julia on 07.01.2017.
+ In dieser Klasse werden alle Methoden der Auftragsammlung durch Ausführung getestet.
+ -  Erstellen eines neuen Auftrages
+ -  Eine bestimmte Bestellung abfragen
+ -  Die aktuelle Bestellung abfragen
+ -  Einen neuen Auftrag mit dem gleichen Werten erstellen
+ -  Die überladene toString-Methode
  */
 
 public class AuftragssammlungTest {

@@ -10,35 +10,25 @@ import java.util.ArrayList;
  * so dass aus Ihr der neue Spielstand geladen werden kann.
  */
 public class Daten extends SpielerAbfragen{
-    public ArrayList<Spieler> getSpielerListe() {
-        return SpielerListe;
-    }
 
     private ArrayList<Spieler> SpielerListe; // Liste aller Spieler; die auf dem Device gespeichert sind
     private int SpielerAnzahl = 10;
-    private ArrayList<Runde> RundenListe; //Liste der bisherigen Runden //ToDo MEthoden
+    private ArrayList<Runde> RundenListe; //Liste der bisherigen Runden
     private int RundenAnzahl; //ToDo Methoden
     public void setRundenAnzahl(int i){
         RundenAnzahl = i;
     }
-    private Spieler dieserSpieler; // Der Spieler dieses Geräts ToDo
-    public Spieler getDieserSpieler(){return dieserSpieler;} //ToDO
+    private Spieler dieserSpieler; // Der Spieler dieses Geräts T
     public int getRundenAnzahl(){
         return RundenAnzahl;
     }
 
 
     public Daten(Controller c){
-        ladeDaten();
         setController(c);
         SpielerListe = new ArrayList<Spieler>();
     } // Ende Konstruktor
 
-    public String toString(){
-        String dataString;
-        dataString = RundenAnzahl+":";
-        return dataString;
-    }
     public void erhoeheRundenanzahl(){
         RundenAnzahl++;
     }
@@ -48,9 +38,7 @@ public class Daten extends SpielerAbfragen{
     public int getSpielerAnzahl() {
         return SpielerAnzahl;
     }
-    /*
-    ToDo
-     */
+
     public void setSpielerAnzahl(int spielerAnzahl) {
         SpielerAnzahl = spielerAnzahl;
     }
@@ -58,12 +46,11 @@ public class Daten extends SpielerAbfragen{
     public void erhöheSpielerAnzahl(){
         SpielerAnzahl++;
     }
-    public void ladeDaten(){
-        //ToDO gewollt leer?
-    }
-    public void speichereDaten(){
-        //ToDO
-    }
+
+    /**
+     * Ergänzt einen weiteren SPieler in der Liste alle SPieler
+     * @param spieler
+     */
     public void addSpielerListe(Spieler spieler){
         try{
             erhöheSpielerAnzahl();

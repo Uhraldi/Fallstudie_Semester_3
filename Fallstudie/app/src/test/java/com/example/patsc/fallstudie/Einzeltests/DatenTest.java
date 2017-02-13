@@ -15,7 +15,11 @@ import static org.junit.Assert.fail;
 
 
 /**
- * Created by julia on 03.01.2017.
+ In dieser Klasse werden die Methoden der Daten-Klasse getestet.
+ -  Konstruktor
+ -  Das setzten und erhöhen der Spieleranzahl
+ -  Das hinzufügen eines Spieler in die Spielerliste mit Fehlschlag
+ -  Das Ausgeben der Rundenanzahl
  */
 
 public class DatenTest {

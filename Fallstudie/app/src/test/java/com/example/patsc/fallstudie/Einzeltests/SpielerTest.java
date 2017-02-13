@@ -12,7 +12,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by julia on 31.12.2016.
+ Hier werden alle Methoden der Spielerklasse getestet
+ -  diverse Getter und Setter-Methoden
  */
 
 public class SpielerTest {

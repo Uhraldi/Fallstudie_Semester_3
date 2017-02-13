@@ -1,49 +1,42 @@
 package com.example.patsc.fallstudie.ScenarioTest;
 
-import android.database.ContentObservable;
-import android.provider.CalendarContract;
-
-import com.example.patsc.fallstudie.Covered.Controller.Controller;
 import com.example.patsc.fallstudie.Covered.Daten.Daten;
+import com.example.patsc.fallstudie.Covered.Controller.Controller;
 import com.example.patsc.fallstudie.Covered.Spieler;
 
 import org.junit.Test;
 
 /**
- * Hier im Scenario-Test wird ein kompletter Durchlauf der App simuliert.
+ * Created by julian on 11.01.2017.
  */
 
+public class ScenarioTestLow {
 
-//ToDO Mitarbeiter anpassen, Produktionsvolumen anpassen
-
-public class ScenarioTestHigh {
 
     /**
-     * Initialisieren der Variablen
+     * Hier werden die Variablen initialisiert
      */
 
-
-    public int WaitingTime = 50;
-    private static String AUSWAHL_SEBASTIAN_ZEITARBEITER = Controller.ZEITARBEITER_WAHL_MEISTER;
-    private static String AUSWAHL_SEBASTIAN_FORSCHUNG = Controller.FORSCHUNG_WAHL_HOCH;
-    private static String AUSWAHL_SEBASTIAN_MARKETING = Controller.MARKETING_WAHL_FERNSEHWERBUNG;
-    private static String AUSWAHL_SEBASTIAN_ARMBAND = Controller.ARMBAND_WAHL_HOLZ;
-    private static String AUSWAHL_SEBASTIAN_UHRWERK = Controller.UHRWERK_WAHL_MECHANISCH;
-    private static String AUSWAHL_SEBASTIAN_GEHAEUSE = Controller.GEHAEUSE_WAHL_GLAS;
-    private static String AUSWAHL_SEBASTIAN_BEZAHLARTEN = Controller.BEZAHLART_WAHL_KREDITKARTE;
-    private static float AUSWAHL_SEBASTIAN_PRODUKTIONSVOLUMEN = 1000;
-    private static float AUSWAHL_SEBASTIAN_VERKAUFSPREIS = 150;
+    public int WaitingTime = 100;
+    private static String AUSWAHL_JULIAN_ZEITARBEITER = Controller.ZEITARBEITER_WAHL_PRAKTIKANT;
+    private static String AUSWAHL_JULIAN_FORSCHUNG = Controller.FORSCHUNG_WAHL_LOWBUDGET;
+    private static String AUSWAHL_JULIAN_MARKETING = Controller.MARKETING_WAHL_PRINTWERBUNG;
+    private static String AUSWAHL_JULIAN_ARMBAND = Controller.ARMBAND_WAHL_TEXTIL;
+    private static String AUSWAHL_JULIAN_UHRWERK = Controller.UHRWERK_WAHL_ELEKTROMECHANISCH;
+    private static String AUSWAHL_JULIAN_GEHAEUSE = Controller.GEHAEUSE_WAHL_KUNSTSTOFF;
+    private static String AUSWAHL_JULIAN_BEZAHLARTEN = Controller.BEZAHLART_WAHL_RECHNUNG;
+    private static float AUSWAHL_JULIAN_PRODUKTIONSVOLUMEN = 2000; // Pro Mitarbeiter
+    private static float AUSWAHL_JULIAN_VERKAUFSPREIS = 35;
     private int mitarbeiter;
-    private double GEWINN_SEBASTIAN;
-    private float ABSATZ_SEBASTIAN;
-    private double MARKTANTEIL_SEBASTIAN;
-    private float POSITION_SEBASTIAN;
-    private double GUTHABEN_SEBASTIAN;
+    private double GEWINN_JULIAN = 0;
+    private float ABSATZ_JULIAN;
+    private double MARKTANTEIL_JULIAN;
+    private float POSITION_JULIAN;
+    private double GUTHABEN_JULIAN;
+
 
     /**
-     *
-     *  Hier wurde das bestellen in eine Methode ausgelagert um den Test übersichtlich zu halten
-     *
+     *   Hier wurde das bestellen in eine Methode ausgelagert um den Test übersichtlich zu halten
      * @param Controller
      * @param Auswahlzeitarbeiter
      * @param Auswahlforschung
@@ -58,7 +51,8 @@ public class ScenarioTestHigh {
      */
 
 
-    public void bestellen(Controller Controller, String Auswahlzeitarbeiter,String Auswahlforschung, String Auswahlmarketing, String Auswahlarmband, String Auswahluhrwerk,String Auswahlgehaeuse, String Bezahlarten, Float Produktionsvolumen, Float Verkaufspreis ) throws  Exception{
+
+    public void bestellen(Controller Controller, String Auswahlzeitarbeiter,String Auswahlforschung, String Auswahlmarketing, String Auswahlarmband, String Auswahluhrwerk,String Auswahlgehaeuse, String Bezahlarten, Float Produktionsvolumen, Float Verkaufspreis ) throws Exception {
         Controller.setSCHRITT_ZEITARBEITER_boolean(true);
         Controller.setZeitarbeiterAktuell(Auswahlzeitarbeiter);
         System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Auswahlzeitarbeiter + " bestellt");
@@ -96,22 +90,22 @@ public class ScenarioTestHigh {
         System.out.println(Controller.getAktiverSpieler().getName() + " hat " + Verkaufspreis + " als VKP festgelegt");
         Thread.sleep(WaitingTime);
 
-        if(Controller.isZufall1()){
+        if (Controller.isZufall1()) {
             Controller.aktiverSpieler.getAuftragssammlung().getAktuellerAuftrag().korrigiereArmband(Controller.getARMBAND_WAHL_LEDER());
             System.out.println(Controller.getAktiverSpieler().getName() + " hat Armband auf " + Controller.getARMBAND_WAHL_LEDER() + " korrigiert.");
         }
         Thread.sleep(WaitingTime);
-        if(Controller.isZufall2()){
+        if (Controller.isZufall2()) {
             Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().korrigiereGehaeuse(Controller.getGEHAEUSE_WAHL_METALL());
             System.out.println(Controller.getAktiverSpieler().getName() + " hat Gehäuse auf " + Controller.getGEHAEUSE_WAHL_METALL() + " korrigiert.");
-        }Thread.sleep(WaitingTime);
+        }
+        Thread.sleep(WaitingTime);
 
-        if(Controller.isZufall3()){
+        if (Controller.isZufall3()) {
             Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().korriegiereZeitarbeiter(Controller.getZEITARBEITER_WAHL_Lehrling());
             System.out.println(Controller.getAktiverSpieler().getName() + " hat Zeitarbeiter auf " + Controller.getZEITARBEITER_WAHL_Lehrling() + " korrigiert.");
         }
     }
-
 
     /**
      * Diese Methode dient dazu die wichtigsten Daten als Rundenergebnisse auszugeben.
@@ -138,59 +132,56 @@ public class ScenarioTestHigh {
     }
 
 
-
     @Test
     public void TestScenario() throws Exception {
         //1.Controller erzeugen
         Controller Controller = new Controller();
-
         //2.Daten erstellen
         Daten Daten = Controller.getDaten();
-
         //3.Spieler erstellen
-        Spieler Sebastian = new Spieler("Sebastian", "passwort", Daten);
-        Controller.setAktiverSpieler(Sebastian);
+        Spieler Julian = new Spieler("Julian", "passwort", Daten);
+        Controller.aktiverSpieler = Julian;
         System.out.println("Spieler erstellt!");
+        //4.Spieler führen Bestellungen durch
+        //Julian ist dran
 
-        for (int i = 0; i<9; i++){
 
-            if(GEWINN_SEBASTIAN > 55200 && mitarbeiter <= 5){
+        for (int i = 0; i<9; i++) {
+            if(GEWINN_JULIAN > 55200 && mitarbeiter <= 5){
                 Controller.einstellen(1);
                 System.out.println(Controller.getAktiverSpieler().getName() +" hat einen Mitarbeiter eingestellt.");
             }
 
-            if(GEWINN_SEBASTIAN < 27600 && i > 0 && mitarbeiter >0){
+            if(GEWINN_JULIAN < 27600 && i > 0 && mitarbeiter >0){
                 Controller.kuendigen(1);
                 System.out.println(Controller.getAktiverSpieler().getName() +" hat einen Mitarbeiter gefeuert.");
             }
             mitarbeiter = Controller.getAktiverSpieler().getAktuellEingestellte();
-
             //4.Spieler führen Bestellungen durch
             Controller.setZustand_Bestellung(true);
             bestellen(Controller,
-                    AUSWAHL_SEBASTIAN_ZEITARBEITER,
-                    AUSWAHL_SEBASTIAN_FORSCHUNG,
-                    AUSWAHL_SEBASTIAN_MARKETING,
-                    AUSWAHL_SEBASTIAN_ARMBAND,
-                    AUSWAHL_SEBASTIAN_UHRWERK,
-                    AUSWAHL_SEBASTIAN_GEHAEUSE,
-                    AUSWAHL_SEBASTIAN_BEZAHLARTEN,
-                    AUSWAHL_SEBASTIAN_PRODUKTIONSVOLUMEN,
-                    AUSWAHL_SEBASTIAN_VERKAUFSPREIS);
+                    AUSWAHL_JULIAN_ZEITARBEITER,
+                    AUSWAHL_JULIAN_FORSCHUNG,
+                    AUSWAHL_JULIAN_MARKETING,
+                    AUSWAHL_JULIAN_ARMBAND,
+                    AUSWAHL_JULIAN_UHRWERK,
+                    AUSWAHL_JULIAN_GEHAEUSE,
+                    AUSWAHL_JULIAN_BEZAHLARTEN,
+                    AUSWAHL_JULIAN_PRODUKTIONSVOLUMEN,
+                    AUSWAHL_JULIAN_VERKAUFSPREIS);
             Thread.sleep(WaitingTime);
             Controller.setActivity_Berechnung();
             System.out.println("Alle bestellt ");
             Thread.sleep(WaitingTime);
 
-
-            //5. Rundenergebnisse anzeigen
-            ABSATZ_SEBASTIAN=Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz(Controller.getAktiverSpieler().getName());
-            MARKTANTEIL_SEBASTIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(Controller.getAktiverSpieler().getName());
-            GEWINN_SEBASTIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenGewinn(Controller.getAktiverSpieler().getName());
-            GUTHABEN_SEBASTIAN = Controller.getGuthaben();
-            POSITION_SEBASTIAN = Controller.getPosition();
-            Rundenergebnisse(Controller,GEWINN_SEBASTIAN, ABSATZ_SEBASTIAN, MARKTANTEIL_SEBASTIAN, POSITION_SEBASTIAN, GUTHABEN_SEBASTIAN);
+            ABSATZ_JULIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getAbsatz(Controller.getAktiverSpieler().getName());
+            MARKTANTEIL_JULIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getMarktanteil(Controller.getAktiverSpieler().getName());
+            GEWINN_JULIAN = Controller.getAktiverSpieler().getAuftragssammlung().getAktuellerAuftrag().getMarktsim().getRundenGewinn(Controller.getAktiverSpieler().getName());
+            GUTHABEN_JULIAN = Controller.getGuthaben();
+            POSITION_JULIAN = Controller.getPosition();
+            Rundenergebnisse(Controller, GEWINN_JULIAN, ABSATZ_JULIAN, MARKTANTEIL_JULIAN, POSITION_JULIAN, GUTHABEN_JULIAN);
             Controller.starteNaechsteRunde();
         }
+
     }
 }

@@ -40,7 +40,6 @@ public class Auftrag {
     public Zeitarbeiter zeitarbeiter = new Zeitarbeiter();
     private Uhrwerk uhrwerk = new Uhrwerk();
     private Bezahlart bezahlart = new Bezahlart();
-    private Wasserdichtheit wasserdichtheit = new Wasserdichtheit();
     private Marketing marketing = new Marketing();
     private Marktsim marktsim = null;
     private Preissimulation preissim = null;
@@ -119,7 +118,7 @@ public class Auftrag {
 
 
 
-
+                //ToDO muss das so oder passiert hier noch was?
 
                 //forschung.setMarken(true);
                 //Aenderungen patsch 12.01 10.23
@@ -301,36 +300,6 @@ public class Auftrag {
         }
     }
 
-    /**
-     * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
-     * @param eingabe = Eingabe aus dem Spinner, der angibt, welche Eingabe getätigt wurde
-     * @throws Exception
-     */
-    public void bestelleWasserdichtheit(String eingabe) throws Exception {
-        switch (eingabe) {
-            case "Nicht Wassergeschützt": {
-                wasserdichtheit.setNichtWassergeschützt(true);
-                varKosten += wasserdichtheit.getNichtWassergeschütztEKP();
-                resPr += wasserdichtheit.getNichtWassergeschütztPWS();
-                break;
-            }
-            case "Spritzwassergeschützt": {
-                wasserdichtheit.setSpritzwassergeschützt(true);
-                varKosten += wasserdichtheit.getSpritzwassergeschütztEKP();
-                resPr += wasserdichtheit.getSpritzwassergeschütztPWS();
-                break;
-            }
-            case "Wasserdicht": {
-                wasserdichtheit.setWasserdicht(true);
-                varKosten += wasserdichtheit.getWasserdichtEKP();
-                resPr += wasserdichtheit.getWasserdichtPWS();
-                break;
-            }
-            default: {
-                throw new Exception("Die Eingabe String zur Festlegung der Auswahl stimmt mit keiner Auswahlmöglichkeit überein");
-            }
-        }
-    }
 
     /**
      * Methode, die ausgelöst wird, sobald der Screen zum Bestellen dieses Bestandteils ausgefüllt wurde und auf "weiter" gedrückt wurde
@@ -575,10 +544,6 @@ public class Auftrag {
         return bezahlart;
     }
 
-    public Wasserdichtheit getWasserdichtheit() {
-       return wasserdichtheit;
-    }
-
     public Marketing getMarketing() {
         return marketing;
     }
@@ -609,58 +574,14 @@ public class Auftrag {
      * Variablen Setter
      */
 
-    /**
-     * ToDO Prüfung erlaubter Wert
-     * ToDo alter + neuer Wert
-     */
     public void setVarKosten(double varKosten1){
 
         varKosten = varKosten1;
 
     }
 
-    public void setStrafe(double strafe) {
-        this.strafe = strafe;
-    }
-
-    public void setArmband(Armband armband) {
-        this.armband = armband;
-    }
-
-    public void setForschung(Forschung forschung) {
-        this.forschung = forschung;
-    }
-
-    public void setGehaeuse(Gehaeuse gehaeuse) {
-        this.gehaeuse = gehaeuse;
-    }
-
     public void setZeitarbeiter(Zeitarbeiter zeitarbeiter) {
         this.zeitarbeiter = zeitarbeiter;
-    }
-
-    public void setUhrwerk(Uhrwerk uhrwerk) {
-        this.uhrwerk = uhrwerk;
-    }
-
-    public void setBezahlart(Bezahlart bezahlart) {
-        this.bezahlart = bezahlart;
-    }
-
-    public void setWasserdichtheit(Wasserdichtheit wasserdichtheit) {
-        this.wasserdichtheit = wasserdichtheit;
-    }
-
-    public void setMarketing(Marketing marketing) {
-        this.marketing = marketing;
-    }
-
-    public Preissimulation getPreissim() {
-        return preissim;
-    }
-
-    public void setPersonalwesen(Personalwesen personalwesen) {
-        this.personalwesen = personalwesen;
     }
 
     public void setFixKosten(double i){
@@ -679,19 +600,4 @@ public class Auftrag {
         this.vkp = vkp;
     }
 
-    public void setRisikoArmband(double risikoArmband) {
-        this.risikoArmband = risikoArmband;
-    }
-
-    public void setRisikoGehaeuse(double risikoGehaeuse) {
-        this.risikoGehaeuse = risikoGehaeuse;
-    }
-
-    public void setRisikoZusammenbau(double risikoZusammenbau) {
-        this.risikoZusammenbau = risikoZusammenbau;
-    }
-
-    public void setZufall(double zufall) {
-        this.zufall = zufall;
-    }
 }

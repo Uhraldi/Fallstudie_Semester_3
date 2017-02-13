@@ -1,7 +1,7 @@
 package com.example.patsc.fallstudie.Covered.Controller;
 
 /**
- * Created by patsc on 06.02.2017.
+ * Created by Patricia Schneider on 06.02.2017.
  */
 
 public interface IZustaende {
@@ -64,7 +64,6 @@ public interface IZustaende {
     public static final String SCHRITT_BEZAHLART = "SCHRITT_BEZAHLART";
     public static final String SCHRITT_VERKAUFSPREIS = "SCHRITT_VERKAUFSPREIS";
     public static final String SCHRITT_PERSONALWESEN = "SCHRITT_PERSONALWESEN";
-
 
 
 
